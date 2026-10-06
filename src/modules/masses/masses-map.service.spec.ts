@@ -13,6 +13,12 @@ import {
   clusterCellDeg,
   parseZoom,
   wantsClusters,
+  timeZoneForState,
+  nowFloatingIn,
+  earliestBrazilToday,
+  parseMassFocus,
+  nextSundayYmd,
+  pickMasses,
 } from './map-search.utils';
 
 describe('MassesService — mapa (contrato, approx, área)', () => {
@@ -49,7 +55,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       ],
     }).compile();
     service = module.get(MassesService);
-    jest.spyOn(service as any, 'nowBrazilFloating').mockReturnValue('2026-07-22T12:00:00');
+    jest.spyOn(service as any, 'now').mockReturnValue(new Date('2026-07-22T15:00:00.000Z')); // 12:00 em Brasília
   });
 
   describe('findNearby — contrato e filtro de precisão', () => {
@@ -362,8 +368,150 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       );
       const map = await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 5);
       const list = map.get('c1')!;
-      expect(list).toHaveLength(5);
-      expect([...list].map((m) => m.start)).toEqual([...list.map((m) => m.start)].sort());
+      // as 5 primeiras + as do domingo 26/07 (o próximo), sem repetir
+      const starts = list.map((m) => m.start);
+      expect(starts).toEqual([...starts].sort());
+      expect(starts.slice(0, 5)).toEqual([
+        '2026-07-23T06:00:00',
+        '2026-07-23T11:00:00',
+        '2026-07-23T16:00:00',
+        '2026-07-23T21:00:00',
+        '2026-07-24T07:00:00',
+      ]);
+      expect(starts.filter((x) => x.startsWith('2026-07-26'))).toHaveLength(4);
+      expect(list).toHaveLength(9);
+    });
+
+    const occ = (id: string, start: string, community = 'c1') => ({
+      id,
+      title: 'Missa',
+      type: MassScheduleType.MASS,
+      start,
+      end: null,
+      community: { id: community, name: community },
+    });
+
+    it('M47: igreja grande com 9 missas no domingo e o teto de 15 — o domingo inteiro vem', async () => {
+      // Segunda 05/10/2026 20:39 em Brasília
+      (service as any).now.mockReturnValue(new Date('2026-10-05T23:39:00.000Z'));
+      const semana: any[] = [];
+      for (const dia of ['05', '06', '07', '08', '09', '10']) {
+        for (const h of ['07:00', '12:00', '15:00', '19:30', '21:15']) semana.push(occ(`d${dia}-${h}`, `2026-10-${dia}T${h}:00`));
+      }
+      const domingo = ['06:00', '07:30', '09:00', '10:30', '12:00', '16:00', '18:00', '19:30', '21:00'];
+      for (const h of domingo) semana.push(occ(`dom-${h}`, `2026-10-11T${h}:00`));
+      massSchedules.expandOccurrences.mockResolvedValue(semana);
+
+      const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'SP']]) })).get('c1')!;
+      expect(list.filter((m) => m.start.startsWith('2026-10-11'))).toHaveLength(9);
+      // as que já passaram hoje (antes de 20:09) ficaram de fora; a das 21:15 entrou
+      expect(list[0].start).toBe('2026-10-05T21:15:00');
+      expect(list.length).toBeLessThanOrEqual(30);
+    });
+
+    it('M47: com o filtro do app (domingo, 06:00–08:00) prioriza o que ele vai mostrar', async () => {
+      (service as any).now.mockReturnValue(new Date('2026-10-05T23:39:00.000Z'));
+      const semana: any[] = [];
+      for (let i = 0; i < 20; i += 1) semana.push(occ(`x${i}`, `2026-10-0${6 + (i % 4)}T${String(6 + (i % 12)).padStart(2, '0')}:00:00`));
+      semana.push(occ('dom-0630', '2026-10-11T06:30:00'), occ('dom-1000', '2026-10-11T10:00:00'));
+      massSchedules.expandOccurrences.mockResolvedValue(semana);
+      const list = (
+        await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 3, {
+          states: new Map([['c1', 'SP']]),
+          focus: { day: 'sunday', fromMin: 6 * 60, toMin: 8 * 60 },
+        })
+      ).get('c1')!;
+      expect(list.map((m) => m.id)).toContain('dom-0630');
+      expect(list.map((m) => m.id)).not.toContain('dom-1000');
+      expect(list).toHaveLength(4);
+    });
+
+    it('M1: "agora" no fuso da UF — Rio Branco (AC, -5) e Cuiabá (MT, -4) não perdem a missa de hoje', async () => {
+      // Segunda 05/10/2026 20:38 em Brasília = 18:38 no Acre = 19:38 em Mato Grosso
+      (service as any).now.mockReturnValue(new Date('2026-10-05T23:38:00.000Z'));
+      massSchedules.expandOccurrences.mockResolvedValue([
+        occ('ac-19', '2026-10-05T19:00:00', 'acre'),
+        occ('mt-19', '2026-10-05T19:00:00', 'mt'),
+        occ('mt-1930', '2026-10-05T19:30:00', 'mt'),
+        occ('sp-19', '2026-10-05T19:00:00', 'sp'),
+        occ('sp-2030', '2026-10-05T20:30:00', 'sp'),
+      ]);
+      const map = await service.nextMassesByCommunity(['acre', 'mt', 'sp'], 7, [MassScheduleType.MASS], 15, {
+        states: new Map([
+          ['acre', 'AC'],
+          ['mt', 'MT'],
+          ['sp', 'SP'],
+        ]),
+      });
+      expect(map.get('acre')!.map((m) => m.id)).toEqual(['ac-19']);
+      // 19:00 em MT começou há 38 min (fora da tolerância); 19:30 há 8 min (dentro)
+      expect(map.get('mt')!.map((m) => m.id)).toEqual(['mt-1930']);
+      expect(map.get('sp')!.map((m) => m.id)).toEqual(['sp-2030']);
+      // a janela começa no "agora" do Acre menos a tolerância
+      expect(massSchedules.expandOccurrences.mock.calls[0][0]).toBe('2026-10-05T18:08:00.000Z');
+    });
+
+    it('B58: celebração que começou há até 30 min continua (a de 40 min atrás sai)', async () => {
+      // 19:05 em Brasília
+      (service as any).now.mockReturnValue(new Date('2026-07-22T22:05:00.000Z'));
+      massSchedules.expandOccurrences.mockResolvedValue([occ('m1825', '2026-07-22T18:25:00'), occ('m19', '2026-07-22T19:00:00')]);
+      prisma.event.findMany.mockResolvedValue([
+        { id: 'e1840', title: 'Missa', startDate: new Date('2026-07-22T21:40:00.000Z'), endDate: null, communityId: 'c1' },
+      ]);
+      const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+      expect(list.map((m) => m.id)).toEqual(['e1840', 'm19']);
+    });
+
+    it('M15: só eventos de Missa públicos (isPublic) vão para o mapa', async () => {
+      await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS]);
+      expect(prisma.event.findMany.mock.calls[0][0].where).toMatchObject({ isPublic: true, status: 'PUBLISHED', deletedAt: null });
+    });
+
+    it('B22: Event.startDate é instante — 22:00Z vira 19:00 em SP e 18:00 em MT', async () => {
+      // 22/07 12:00 em Brasília
+      const ev = (communityId: string) => ({
+        id: `e-${communityId}`,
+        title: 'Missa Solene',
+        startDate: new Date('2026-07-22T22:00:00.000Z'),
+        endDate: new Date('2026-07-22T23:30:00.000Z'),
+        communityId,
+      });
+      prisma.event.findMany.mockResolvedValue([ev('sp'), ev('mt')]);
+      const map = await service.nextMassesByCommunity(['sp', 'mt'], 7, [MassScheduleType.MASS], 15, {
+        states: new Map([
+          ['sp', 'SP'],
+          ['mt', 'MT'],
+        ]),
+      });
+      expect(map.get('sp')![0]).toMatchObject({ start: '2026-07-22T19:00:00', end: '2026-07-22T20:30:00', source: 'event' });
+      expect(map.get('mt')![0]).toMatchObject({ start: '2026-07-22T18:00:00', end: '2026-07-22T19:30:00' });
+      // a janela dos eventos é em instantes reais: agora (15:00Z) − 30 min
+      expect(prisma.event.findMany.mock.calls[0][0].where.startDate.gte).toEqual(new Date('2026-07-22T14:30:00.000Z'));
+    });
+
+    it('B22: evento de dia inteiro (03:00Z = 00:00 em Brasília, sem hora) não vira "missa às 03:00"', async () => {
+      prisma.event.findMany.mockResolvedValue([
+        { id: 'dia-inteiro', title: 'Missa de Envio - MIRIM', startDate: new Date('2026-07-24T03:00:00.000Z'), endDate: null, communityId: 'c1' },
+        {
+          id: 'dias',
+          title: 'Missão',
+          startDate: new Date('2026-07-25T03:00:00.000Z'),
+          endDate: new Date('2026-07-27T03:00:00.000Z'),
+          communityId: 'c1',
+        },
+        { id: 'com-hora', title: 'Missa', startDate: new Date('2026-07-24T22:30:00.000Z'), endDate: null, communityId: 'c1' },
+      ]);
+      const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+      expect(list.map((m) => [m.id, m.start])).toEqual([['com-hora', '2026-07-24T19:30:00']]);
+    });
+
+    it('sem a UF em mãos, busca no banco (uma consulta, só os que faltam)', async () => {
+      prisma.community.findMany.mockResolvedValue([{ id: 'acre', state: 'AC' }]);
+      (service as any).now.mockReturnValue(new Date('2026-10-05T23:38:00.000Z'));
+      massSchedules.expandOccurrences.mockResolvedValue([occ('ac-19', '2026-10-05T19:00:00', 'acre')]);
+      const map = await service.nextMassesByCommunity(['acre'], 7, [MassScheduleType.MASS]);
+      expect(prisma.community.findMany).toHaveBeenCalledWith({ where: { id: { in: ['acre'] } }, select: { id: true, state: true } });
+      expect(map.get('acre')!.map((m) => m.id)).toEqual(['ac-19']);
     });
 
     it('lista vazia não consulta nada', async () => {
@@ -375,6 +523,33 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
 });
 
 describe('map-search.utils', () => {
+  it('timeZoneForState: AC -5, AM/RO/RR/MT/MS -4, o resto Brasília', () => {
+    expect(timeZoneForState('AC')).toBe('America/Rio_Branco');
+    for (const uf of ['AM', 'RO', 'RR', 'MT', 'MS']) {
+      expect(nowFloatingIn(timeZoneForState(uf), new Date('2026-10-05T23:38:00.000Z'))).toBe('2026-10-05T19:38:00');
+    }
+    expect(nowFloatingIn(timeZoneForState('ac'), new Date('2026-10-05T23:38:00.000Z'))).toBe('2026-10-05T18:38:00');
+    for (const uf of ['SP', 'PR', 'PA', 'TO', 'BA', '', null, undefined, 'XX']) expect(timeZoneForState(uf as any)).toBe('America/Sao_Paulo');
+  });
+  it('earliestBrazilToday: o "hoje" do Acre', () => {
+    expect(earliestBrazilToday(new Date('2026-09-26T03:30:00.000Z'))).toBe('2026-09-25');
+  });
+  it('parseMassFocus: day/from/to; vazio → undefined; lixo → 400', () => {
+    expect(parseMassFocus()).toBeUndefined();
+    expect(parseMassFocus('all', '', '')).toBeUndefined();
+    expect(parseMassFocus('sunday', '06:00', '08:30')).toEqual({ day: 'sunday', fromMin: 360, toMin: 510 });
+    expect(parseMassFocus('TODAY')).toEqual({ day: 'today' });
+    for (const [d, f, t] of [['domingo'], [undefined, '25:00'], [undefined, '6h'], [undefined, '10:00', '09:00']] as any[]) {
+      expect(() => parseMassFocus(d, f, t)).toThrow(BadRequestException);
+    }
+  });
+  it('nextSundayYmd e pickMasses', () => {
+    expect(nextSundayYmd('2026-10-05')).toBe('2026-10-11');
+    expect(nextSundayYmd('2026-10-11')).toBe('2026-10-11');
+    const l = ['a1', 'a2', 'a3', 'b1', 'b2'].map((start) => ({ start }));
+    expect(pickMasses(l, 2, (m) => m.start.startsWith('b')).map((m) => m.start)).toEqual(['a1', 'a2', 'b1', 'b2']);
+    expect(pickMasses(l, 10).length).toBe(5);
+  });
   it('parseBbox aceita a ordem minLng,minLat,maxLng,maxLat', () => {
     expect(parseBbox('-49.5, -25.6 ,-49.1,-25.3')).toEqual([-49.5, -25.6, -49.1, -25.3]);
   });

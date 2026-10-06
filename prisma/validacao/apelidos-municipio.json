@@ -1,0 +1,822 @@
+{
+ "_leia": "Cidade gravada nas comunidades que não é nome de município do IBGE (grafia diferente ou distrito) → município IBGE que a contém. Gerado em 06/10/2026 pela maioria dos pinos de cada cidade (pinosNoMunicipio) — um pino fora da maioria é justamente o que a varredura fora-do-municipio.ts precisa pegar. Chave: nome sem acento, minúsculo, só letras/números|UF. Revise antes de usar para outra coisa além da validação geográfica.",
+ "amarantina|MG": {
+  "nome": "Amarantina",
+  "uf": "MG",
+  "ibge": "3146107",
+  "municipio": "Ouro Preto/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "angustura|MG": {
+  "nome": "Angustura",
+  "uf": "MG",
+  "ibge": "3101508",
+  "municipio": "Além Paraíba/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "aparecida de minas|MG": {
+  "nome": "Aparecida de Minas",
+  "uf": "MG",
+  "ibge": "3127107",
+  "municipio": "Frutal/MG",
+  "tipo": "distrito",
+  "comunidades": 6,
+  "pinosNoMunicipio": "5/6"
+ },
+ "aparecida de monte alto|SP": {
+  "nome": "Aparecida de Monte Alto",
+  "uf": "SP",
+  "ibge": "3531308",
+  "municipio": "Monte Alto/SP",
+  "tipo": "distrito",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "arez|RN": {
+  "nome": "Arez",
+  "uf": "RN",
+  "ibge": "2401206",
+  "municipio": "Arês/RN",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "assu|RN": {
+  "nome": "Assú",
+  "uf": "RN",
+  "ibge": "2400208",
+  "municipio": "Açu/RN",
+  "tipo": "grafia",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "barreiro|MG": {
+  "nome": "Barreiro",
+  "uf": "MG",
+  "ibge": "3167202",
+  "municipio": "Sete Lagoas/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "belisario|MG": {
+  "nome": "Belisário",
+  "uf": "MG",
+  "ibge": "3143906",
+  "municipio": "Muriaé/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "boa familia|MG": {
+  "nome": "Boa Família",
+  "uf": "MG",
+  "ibge": "3143906",
+  "municipio": "Muriaé/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "boca do monte|RS": {
+  "nome": "Boca do Monte",
+  "uf": "RS",
+  "ibge": "4316907",
+  "municipio": "Santa Maria/RS",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "botafogo|SP": {
+  "nome": "Botafogo",
+  "uf": "SP",
+  "ibge": "3506102",
+  "municipio": "Bebedouro/SP",
+  "tipo": "distrito",
+  "comunidades": 4,
+  "pinosNoMunicipio": "4/4"
+ },
+ "cachoeira do brumado|MG": {
+  "nome": "Cachoeira do Brumado",
+  "uf": "MG",
+  "ibge": "3140001",
+  "municipio": "Mariana/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "cachoeira do campo|MG": {
+  "nome": "Cachoeira do Campo",
+  "uf": "MG",
+  "ibge": "3146107",
+  "municipio": "Ouro Preto/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "cachoeira do prata|MG": {
+  "nome": "Cachoeira do Prata",
+  "uf": "MG",
+  "ibge": "3118403",
+  "municipio": "Conselheiro Pena/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "campo grande|RN": {
+  "nome": "Campo Grande",
+  "uf": "RN",
+  "ibge": "2401305",
+  "municipio": "Augusto Severo (Campo Grande)/RN",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "carlos alves|MG": {
+  "nome": "Carlos Alves",
+  "uf": "MG",
+  "ibge": "3162906",
+  "municipio": "São João Nepomuceno/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "claudio manoel|MG": {
+  "nome": "Cláudio Manoel",
+  "uf": "MG",
+  "ibge": "3169406",
+  "municipio": "Três Pontas/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "conceicao da boa vista|MG": {
+  "nome": "Conceição da Boa Vista",
+  "uf": "MG",
+  "ibge": "3154101",
+  "municipio": "Recreio/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "conceicao de ibitipoca|MG": {
+  "nome": "Conceição de Ibitipoca",
+  "uf": "MG",
+  "ibge": "3138609",
+  "municipio": "Lima Duarte/MG",
+  "tipo": "distrito",
+  "comunidades": 13,
+  "pinosNoMunicipio": "13/13"
+ },
+ "conceicao do formoso|MG": {
+  "nome": "Conceição do Formoso",
+  "uf": "MG",
+  "ibge": "3160702",
+  "municipio": "Santos Dumont/MG",
+  "tipo": "distrito",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "corrego do ouro|MG": {
+  "nome": "Córrego do Ouro",
+  "uf": "MG",
+  "ibge": "3111606",
+  "municipio": "Campos Gerais/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "correia de almeida|MG": {
+  "nome": "Correia de Almeida",
+  "uf": "MG",
+  "ibge": "3105608",
+  "municipio": "Barbacena/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "domiciano ribeiro|GO": {
+  "nome": "Domiciano Ribeiro",
+  "uf": "GO",
+  "ibge": "5210109",
+  "municipio": "Ipameri/GO",
+  "tipo": "distrito",
+  "comunidades": 8,
+  "pinosNoMunicipio": "8/8"
+ },
+ "dona euzebia|MG": {
+  "nome": "Dona Euzébia",
+  "uf": "MG",
+  "ibge": "3122900",
+  "municipio": "Dona Eusébia/MG",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "dores do paraibuna|MG": {
+  "nome": "Dores do Paraibuna",
+  "uf": "MG",
+  "ibge": "3160702",
+  "municipio": "Santos Dumont/MG",
+  "tipo": "distrito",
+  "comunidades": 11,
+  "pinosNoMunicipio": "11/11"
+ },
+ "eldorado dos carajas|PA": {
+  "nome": "Eldorado dos Carajás",
+  "uf": "PA",
+  "ibge": "1502954",
+  "municipio": "Eldorado do Carajás/PA",
+  "tipo": "grafia",
+  "comunidades": 32,
+  "pinosNoMunicipio": "32/32"
+ },
+ "florinea|SP": {
+  "nome": "Florínea",
+  "uf": "SP",
+  "ibge": "3516101",
+  "municipio": "Florínia/SP",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "furquim|MG": {
+  "nome": "Furquim",
+  "uf": "MG",
+  "ibge": "3140001",
+  "municipio": "Mariana/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "graccho cardoso|SE": {
+  "nome": "Graccho Cardoso",
+  "uf": "SE",
+  "ibge": "2802601",
+  "municipio": "Gracho Cardoso/SE",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "granada|MG": {
+  "nome": "Granada",
+  "uf": "MG",
+  "ibge": "3100302",
+  "municipio": "Abre Campo/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "grangeiro|CE": {
+  "nome": "Grangeiro",
+  "uf": "CE",
+  "ibge": "2307304",
+  "municipio": "Juazeiro do Norte/CE",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "grota|MG": {
+  "nome": "Grota",
+  "uf": "MG",
+  "ibge": "3135506",
+  "municipio": "Jequeri/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "guarda dos ferreiros|MG": {
+  "nome": "Guarda dos Ferreiros",
+  "uf": "MG",
+  "ibge": "3162104",
+  "municipio": "São Gotardo/MG",
+  "tipo": "distrito",
+  "comunidades": 7,
+  "pinosNoMunicipio": "7/7"
+ },
+ "guariroba|SP": {
+  "nome": "Guariroba",
+  "uf": "SP",
+  "ibge": "3553708",
+  "municipio": "Taquaritinga/SP",
+  "tipo": "distrito",
+  "comunidades": 3,
+  "pinosNoMunicipio": "3/3"
+ },
+ "ibitiuva|SP": {
+  "nome": "Ibitiuva",
+  "uf": "SP",
+  "ibge": "3539509",
+  "municipio": "Pitangueiras/SP",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "iguatemi|PR": {
+  "nome": "Iguatemi",
+  "uf": "PR",
+  "ibge": "4115200",
+  "municipio": "Maringá/PR",
+  "tipo": "distrito",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "ipoema|MG": {
+  "nome": "Ipoema",
+  "uf": "MG",
+  "ibge": "3131703",
+  "municipio": "Itabira/MG",
+  "tipo": "distrito",
+  "comunidades": 8,
+  "pinosNoMunicipio": "8/8"
+ },
+ "itaguacu|GO": {
+  "nome": "Itaguaçu",
+  "uf": "GO",
+  "ibge": "5220405",
+  "municipio": "São Simão/GO",
+  "tipo": "distrito",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "itamuri|MG": {
+  "nome": "Itamuri",
+  "uf": "MG",
+  "ibge": "3143906",
+  "municipio": "Muriaé/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "itapirucu|MG": {
+  "nome": "Itapiruçu",
+  "uf": "MG",
+  "ibge": "3146701",
+  "municipio": "Palma/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "joselandia|MG": {
+  "nome": "Joselândia",
+  "uf": "MG",
+  "ibge": "3159100",
+  "municipio": "Santana dos Montes/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "jureia|MG": {
+  "nome": "Juréia",
+  "uf": "MG",
+  "ibge": "3143005",
+  "municipio": "Monte Belo/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "jurumirim|MG": {
+  "nome": "Jurumirim",
+  "uf": "MG",
+  "ibge": "3154903",
+  "municipio": "Rio Casca/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "luiz antonio|SP": {
+  "nome": "Luiz Antônio",
+  "uf": "SP",
+  "ibge": "3527603",
+  "municipio": "Luís Antônio/SP",
+  "tipo": "grafia",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "major porto|MG": {
+  "nome": "Major Porto",
+  "uf": "MG",
+  "ibge": "3148004",
+  "municipio": "Patos de Minas/MG",
+  "tipo": "distrito",
+  "comunidades": 12,
+  "pinosNoMunicipio": "12/12"
+ },
+ "miguel burnier|MG": {
+  "nome": "Miguel Burnier",
+  "uf": "MG",
+  "ibge": "3146107",
+  "municipio": "Ouro Preto/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "monsenhor horta|MG": {
+  "nome": "Monsenhor Horta",
+  "uf": "MG",
+  "ibge": "3140001",
+  "municipio": "Mariana/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "monsenhor isidro|MG": {
+  "nome": "Monsenhor Isidro",
+  "uf": "MG",
+  "ibge": "3133907",
+  "municipio": "Itaverava/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "munhoz de mello|PR": {
+  "nome": "Munhoz de Mello",
+  "uf": "PR",
+  "ibge": "4116307",
+  "municipio": "Munhoz de Melo/PR",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "muquem do sao francisco|BA": {
+  "nome": "Muquém do São Francisco",
+  "uf": "BA",
+  "ibge": "2922250",
+  "municipio": "Muquém de São Francisco/BA",
+  "tipo": "grafia",
+  "comunidades": 43,
+  "pinosNoMunicipio": "43/43"
+ },
+ "muriae|RJ": {
+  "nome": "Muriaé",
+  "uf": "RJ",
+  "ibge": "3304557",
+  "municipio": "Rio de Janeiro/RJ",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "nova casa verde|MS": {
+  "nome": "Nova Casa Verde",
+  "uf": "MS",
+  "ibge": "5006200",
+  "municipio": "Nova Andradina/MS",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "nova esperanca|MG": {
+  "nome": "Nova Esperança",
+  "uf": "MG",
+  "ibge": "3143302",
+  "municipio": "Montes Claros/MG",
+  "tipo": "distrito",
+  "comunidades": 12,
+  "pinosNoMunicipio": "12/12"
+ },
+ "nova trieste|SP": {
+  "nome": "Nova Trieste",
+  "uf": "SP",
+  "ibge": "3525201",
+  "municipio": "Jarinu/SP",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "onca do pitangui|MG": {
+  "nome": "Onça do Pitangui",
+  "uf": "MG",
+  "ibge": "3145802",
+  "municipio": "Onça de Pitangui/MG",
+  "tipo": "grafia",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "palestina|CE": {
+  "nome": "Palestina",
+  "uf": "CE",
+  "ibge": "2309409",
+  "municipio": "Novo Oriente/CE",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "palmeiral|MG": {
+  "nome": "Palmeiral",
+  "uf": "MG",
+  "ibge": "3108404",
+  "municipio": "Botelhos/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "passagem de mariana|MG": {
+  "nome": "Passagem de Mariana",
+  "uf": "MG",
+  "ibge": "3140001",
+  "municipio": "Mariana/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "piacatuba|MG": {
+  "nome": "Piacatuba",
+  "uf": "MG",
+  "ibge": "3138401",
+  "municipio": "Leopoldina/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "planaltina de goias|GO": {
+  "nome": "Planaltina de Goiás",
+  "uf": "GO",
+  "ibge": "5217609",
+  "municipio": "Planaltina/GO",
+  "tipo": "grafia",
+  "comunidades": 37,
+  "pinosNoMunicipio": "37/37"
+ },
+ "ponte alta|MG": {
+  "nome": "Ponte Alta",
+  "uf": "MG",
+  "ibge": "3170107",
+  "municipio": "Uberaba/MG",
+  "tipo": "distrito",
+  "comunidades": 3,
+  "pinosNoMunicipio": "3/3"
+ },
+ "princesa|PB": {
+  "nome": "Princesa",
+  "uf": "PB",
+  "ibge": "2512309",
+  "municipio": "Princesa Isabel/PB",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "providencia|MG": {
+  "nome": "Providência",
+  "uf": "MG",
+  "ibge": "3138401",
+  "municipio": "Leopoldina/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "rancho alegre do oeste|PR": {
+  "nome": "Rancho Alegre do Oeste",
+  "uf": "PR",
+  "ibge": "4121356",
+  "municipio": "Rancho Alegre D'Oeste/PR",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "ribeirao de sao domingos|MG": {
+  "nome": "Ribeirão de São Domingos",
+  "uf": "MG",
+  "ibge": "3157906",
+  "municipio": "Santa Margarida/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "santa rita de ouro preto|MG": {
+  "nome": "Santa Rita de Ouro Preto",
+  "uf": "MG",
+  "ibge": "3146107",
+  "municipio": "Ouro Preto/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "santa rita durao|MG": {
+  "nome": "Santa Rita Durão",
+  "uf": "MG",
+  "ibge": "3140001",
+  "municipio": "Mariana/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "santa terezinha|BA": {
+  "nome": "Santa Terezinha",
+  "uf": "BA",
+  "ibge": "2928505",
+  "municipio": "Santa Teresinha/BA",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "santana do capivari|MG": {
+  "nome": "Santana do Capivari",
+  "uf": "MG",
+  "ibge": "3152600",
+  "municipio": "Pouso Alto/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "santana do livramento|RS": {
+  "nome": "Santana do Livramento",
+  "uf": "RS",
+  "ibge": "4317103",
+  "municipio": "Sant'Ana do Livramento/RS",
+  "tipo": "grafia",
+  "comunidades": 3,
+  "pinosNoMunicipio": "2/3"
+ },
+ "santo amaro|MA": {
+  "nome": "Santo Amaro",
+  "uf": "MA",
+  "ibge": "2110278",
+  "municipio": "Santo Amaro do Maranhão/MA",
+  "tipo": "grafia",
+  "comunidades": 29,
+  "pinosNoMunicipio": "29/29"
+ },
+ "santo antonio de leverger|MT": {
+  "nome": "Santo Antônio de Leverger",
+  "uf": "MT",
+  "ibge": "5107800",
+  "municipio": "Santo Antônio do Leverger/MT",
+  "tipo": "grafia",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "sao francisco do itabapoana|RJ": {
+  "nome": "São Francisco do Itabapoana",
+  "uf": "RJ",
+  "ibge": "3304755",
+  "municipio": "São Francisco de Itabapoana/RJ",
+  "tipo": "grafia",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "sao goncalo do bacao|MG": {
+  "nome": "São Gonçalo do Bação",
+  "uf": "MG",
+  "ibge": "3131901",
+  "municipio": "Itabirito/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao joao da serra|MG": {
+  "nome": "São João da Serra",
+  "uf": "MG",
+  "ibge": "3160702",
+  "municipio": "Santos Dumont/MG",
+  "tipo": "distrito",
+  "comunidades": 6,
+  "pinosNoMunicipio": "6/6"
+ },
+ "sao joao do paraiso|BA": {
+  "nome": "São João do Paraíso",
+  "uf": "BA",
+  "ibge": "2920908",
+  "municipio": "Mascote/BA",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao jose das laranjeiras|SP": {
+  "nome": "São José das Laranjeiras",
+  "uf": "SP",
+  "ibge": "3528809",
+  "municipio": "Maracaí/SP",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao jose das tres ilhas|MG": {
+  "nome": "São José das Três Ilhas",
+  "uf": "MG",
+  "ibge": "3106101",
+  "municipio": "Belmiro Braga/MG",
+  "tipo": "distrito",
+  "comunidades": 2,
+  "pinosNoMunicipio": "2/2"
+ },
+ "sao jose de almeida|MG": {
+  "nome": "São José de Almeida",
+  "uf": "MG",
+  "ibge": "3134608",
+  "municipio": "Jaboticatubas/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao jose de campestre|RN": {
+  "nome": "São José de Campestre",
+  "uf": "RN",
+  "ibge": "2412302",
+  "municipio": "São José do Campestre/RN",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao sebastiao do barreado|MG": {
+  "nome": "São Sebastião do Barreado",
+  "uf": "MG",
+  "ibge": "3157278",
+  "municipio": "Santa Bárbara do Monte Verde/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "sao vicente|MG": {
+  "nome": "São Vicente",
+  "uf": "MG",
+  "ibge": "3105004",
+  "municipio": "Baldim/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "senador mourao|MG": {
+  "nome": "Senador Mourão",
+  "uf": "MG",
+  "ibge": "3121605",
+  "municipio": "Diamantina/MG",
+  "tipo": "distrito",
+  "comunidades": 14,
+  "pinosNoMunicipio": "14/14"
+ },
+ "taruacu|MG": {
+  "nome": "Taruaçu",
+  "uf": "MG",
+  "ibge": "3162906",
+  "municipio": "São João Nepomuceno/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "tebas|MG": {
+  "nome": "Tebas",
+  "uf": "MG",
+  "ibge": "3138401",
+  "municipio": "Leopoldina/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "terra branca|MG": {
+  "nome": "Terra Branca",
+  "uf": "MG",
+  "ibge": "3107307",
+  "municipio": "Bocaiúva/MG",
+  "tipo": "distrito",
+  "comunidades": 7,
+  "pinosNoMunicipio": "6/7"
+ },
+ "tocos do mogi|MG": {
+  "nome": "Tocos do Mogi",
+  "uf": "MG",
+  "ibge": "3169059",
+  "municipio": "Tocos do Moji/MG",
+  "tipo": "grafia",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "tres barras|MG": {
+  "nome": "Três Barras",
+  "uf": "MG",
+  "ibge": "3118601",
+  "municipio": "Contagem/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "tuiutinga|MG": {
+  "nome": "Tuiutinga",
+  "uf": "MG",
+  "ibge": "3129004",
+  "municipio": "Guiricema/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ },
+ "vermelho velho|MG": {
+  "nome": "Vermelho Velho",
+  "uf": "MG",
+  "ibge": "3154002",
+  "municipio": "Raul Soares/MG",
+  "tipo": "distrito",
+  "comunidades": 12,
+  "pinosNoMunicipio": "12/12"
+ },
+ "vista alegre|MG": {
+  "nome": "Vista Alegre",
+  "uf": "MG",
+  "ibge": "3116506",
+  "municipio": "Claro dos Poções/MG",
+  "tipo": "distrito",
+  "comunidades": 1,
+  "pinosNoMunicipio": "1/1"
+ }
+}

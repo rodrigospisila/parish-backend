@@ -202,4 +202,84 @@ describe('PlatformPlansService.update — grava plano + evento', () => {
     expect(prisma.communityPlanEvent.create).not.toHaveBeenCalled();
     expect(access.invalidate).not.toHaveBeenCalled();
   });
+
+  it('MARK_PAST_DUE: ACTIVE → PAST_DUE (só de ACTIVE)', () => {
+    const r = planTransition(plan({ status: 'ACTIVE', currentPeriodEnd: at(-2) }), { action: 'MARK_PAST_DUE' }, null, now);
+    expect(r.toStatus).toBe('PAST_DUE');
+    expect(r.data.currentPeriodEnd).toBeUndefined(); // mantém o período vencido
+    const semData = planTransition(plan({ status: 'ACTIVE' }), { action: 'MARK_PAST_DUE' }, null, now);
+    expect(semData.data.currentPeriodEnd).toEqual(now); // carência conta de agora
+    expect(() => planTransition(plan({ status: 'TRIAL' }), { action: 'MARK_PAST_DUE' }, null, now)).toThrow(BadRequestException);
+  });
+});
+
+describe('PlatformPlansService — vencimento e MRR (M38)', () => {
+  let prisma: any;
+  let access: { invalidate: jest.Mock };
+  let service: PlatformPlansService;
+  const realNow = new Date();
+  const day = (n: number) => new Date(realNow.getTime() + n * DAY);
+
+  beforeEach(() => {
+    prisma = {
+      communityPlan: {
+        findMany: jest.fn(),
+        updateMany: jest.fn().mockResolvedValue({ count: 1 }),
+        groupBy: jest.fn().mockResolvedValue([{ status: 'ACTIVE', _count: { _all: 3 } }]),
+        count: jest.fn().mockResolvedValue(0),
+      },
+      community: { count: jest.fn().mockResolvedValue(0) },
+      communityPlanEvent: { create: jest.fn().mockResolvedValue({ id: 'ev' }) },
+    };
+    prisma.$transaction = jest.fn((fn: any) => fn(prisma));
+    access = { invalidate: jest.fn() };
+    service = new PlatformPlansService(prisma, access as unknown as PlanAccessService);
+  });
+
+  it('markOverduePlans: ACTIVE vencido → PAST_DUE com evento AUTO_PAST_DUE; idempotente (CAS no status)', async () => {
+    prisma.communityPlan.findMany.mockResolvedValue([
+      { communityId: 'c1', currentPeriodEnd: day(-3), graceDays: 15 },
+      { communityId: 'c2', currentPeriodEnd: day(-1), graceDays: 15 },
+    ]);
+    // c2 mudou no meio do caminho (painel/outra réplica)
+    prisma.communityPlan.updateMany.mockResolvedValueOnce({ count: 1 }).mockResolvedValueOnce({ count: 0 });
+
+    const result = await service.markOverduePlans({ now: realNow, byUserId: null });
+
+    expect(prisma.communityPlan.findMany.mock.calls[0][0].where).toEqual({ status: 'ACTIVE', currentPeriodEnd: { lte: realNow } });
+    expect(prisma.communityPlan.updateMany).toHaveBeenCalledWith({
+      where: { communityId: 'c1', status: 'ACTIVE' },
+      data: { status: 'PAST_DUE' },
+    });
+    expect(prisma.communityPlanEvent.create).toHaveBeenCalledTimes(1);
+    expect(prisma.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({
+      communityId: 'c1',
+      action: 'AUTO_PAST_DUE',
+      fromStatus: 'ACTIVE',
+      toStatus: 'PAST_DUE',
+    });
+    expect(result).toEqual({ dryRun: false, count: 1, communityIds: ['c1'] });
+    expect(access.invalidate).toHaveBeenCalledWith('c1');
+    expect(access.invalidate).not.toHaveBeenCalledWith('c2');
+  });
+
+  it('markOverduePlans dryRun: só lista, não grava', async () => {
+    prisma.communityPlan.findMany.mockResolvedValue([{ communityId: 'c1', currentPeriodEnd: day(-3), graceDays: 15 }]);
+    await expect(service.markOverduePlans({ dryRun: true })).resolves.toEqual({ dryRun: true, count: 1, communityIds: ['c1'] });
+    expect(prisma.communityPlan.updateMany).not.toHaveBeenCalled();
+    expect(prisma.communityPlanEvent.create).not.toHaveBeenCalled();
+  });
+
+  it('summary: MRR só com período em dia; vencido na carência vai para overdueMrrCents; além da carência sai', async () => {
+    prisma.communityPlan.findMany.mockResolvedValue([
+      { status: 'ACTIVE', priceCents: 9900, billingCycle: 'MONTHLY', currentPeriodEnd: day(10), graceDays: 15, tier: null },
+      { status: 'ACTIVE', priceCents: 4900, billingCycle: 'MONTHLY', currentPeriodEnd: day(-5), graceDays: 15, tier: null },
+      { status: 'PAST_DUE', priceCents: 16900, billingCycle: 'MONTHLY', currentPeriodEnd: day(-40), graceDays: 15, tier: null },
+      { status: 'ACTIVE', priceCents: 120000, billingCycle: 'YEARLY', currentPeriodEnd: null, graceDays: 15, tier: null },
+    ]);
+    const summary = await service.summary();
+    expect(summary.mrrCents).toBe(9900 + 10000);
+    expect(summary.overdueMrrCents).toBe(4900);
+    expect(summary.periodOverdue).toBe(2);
+  });
 });

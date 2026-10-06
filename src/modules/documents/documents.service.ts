@@ -1,9 +1,11 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, Optional } from '@nestjs/common';
 import { UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { memberOfParishWhere, resolveCoordinatedPastoralIds } from '../pastorals/coordination-scope';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planMark } from '../../common/plan-list';
 
 /**
  * Documentos e memória pastoral (roadmap 3.3).
@@ -19,6 +21,8 @@ export class DocumentsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Plano por comunidade nas listas (M35). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private auditActor(user: CurrentUser) {
@@ -27,6 +31,23 @@ export class DocumentsService {
 
   private canManage(role: UserRole) {
     return role !== UserRole.VOLUNTEER && role !== UserRole.FAITHFUL;
+  }
+
+  /**
+   * Link do arquivo: só https (sem javascript:, data:, http em claro) e de
+   * tamanho razoável — o painel abre o link direto ao clicar no documento.
+   */
+  private cleanFileUrl(raw: unknown): string | null {
+    if (raw === undefined || raw === null || raw === '') return null;
+    if (typeof raw !== 'string' || raw.length > 2000) throw new BadRequestException('Link do arquivo inválido');
+    let url: URL;
+    try {
+      url = new URL(raw.trim());
+    } catch {
+      throw new BadRequestException('Link do arquivo inválido — use um endereço https://');
+    }
+    if (url.protocol !== 'https:') throw new BadRequestException('Link do arquivo inválido — use um endereço https://');
+    return url.toString();
   }
 
   /**
@@ -94,6 +115,13 @@ export class DocumentsService {
     if (!this.canManage(user.role)) {
       throw new ForbiddenException('Você não tem permissão para cadastrar documentos');
     }
+    if (typeof dto.title !== 'string' || !dto.title.trim()) throw new BadRequestException('Informe o título');
+    if (typeof dto.category !== 'string' || !dto.category.trim()) throw new BadRequestException('Informe a categoria');
+    const fileUrl = this.cleanFileUrl(dto.fileUrl);
+    const validUntil = dto.validUntil ? new Date(dto.validUntil) : null;
+    if (validUntil && Number.isNaN(validUntil.getTime())) {
+      throw new BadRequestException('Validade inválida — use AAAA-MM-DD');
+    }
     if (!user.parishId && user.role !== UserRole.SYSTEM_ADMIN) {
       throw new BadRequestException('Usuário sem paróquia vinculada');
     }
@@ -130,13 +158,13 @@ export class DocumentsService {
         communityPastoralId: dto.communityPastoralId ?? null,
         responsibleMemberId: dto.responsibleMemberId ?? null,
         storageKey: dto.storageKey ?? null,
-        fileUrl: dto.fileUrl ?? null,
-        validUntil: dto.validUntil ? new Date(dto.validUntil) : null,
+        fileUrl,
+        validUntil,
         versions: {
           create: {
             version: 1,
             storageKey: dto.storageKey ?? null,
-            fileUrl: dto.fileUrl ?? null,
+            fileUrl,
             createdByUserId: user.id,
           },
         },
@@ -200,11 +228,13 @@ export class DocumentsService {
     }
     if (Object.keys(scope).length) where.AND = [scope];
 
-    return this.prisma.pastoralDocument.findMany({
+    const docs = await this.prisma.pastoralDocument.findMany({
       where,
       include: { _count: { select: { versions: true } } },
       orderBy: { updatedAt: 'desc' },
     });
+    // Documento de comunidade sem o plano vem com o cadeado (M35)
+    return planMark(this.planAccess, user, docs, (doc) => doc.communityId);
   }
 
   /** Documento dentro do escopo de GESTÃO do usuário (mesma regra da listagem). */
@@ -238,6 +268,7 @@ export class DocumentsService {
     if (!this.canManage(user.role)) {
       throw new ForbiddenException('Sem permissão para versionar documentos');
     }
+    const fileUrl = this.cleanFileUrl(dto.fileUrl);
     const nextVersion = doc.currentVersion + 1;
 
     const [updated] = await this.prisma.$transaction([
@@ -246,7 +277,7 @@ export class DocumentsService {
         data: {
           currentVersion: nextVersion,
           storageKey: dto.storageKey ?? doc.storageKey,
-          fileUrl: dto.fileUrl ?? doc.fileUrl,
+          fileUrl: fileUrl ?? doc.fileUrl,
         },
       }),
       this.prisma.documentVersion.create({
@@ -254,7 +285,7 @@ export class DocumentsService {
           documentId: id,
           version: nextVersion,
           storageKey: dto.storageKey ?? null,
-          fileUrl: dto.fileUrl ?? null,
+          fileUrl,
           notes: dto.notes ?? null,
           createdByUserId: user.id,
         },

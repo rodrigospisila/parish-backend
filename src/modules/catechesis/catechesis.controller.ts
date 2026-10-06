@@ -80,6 +80,18 @@ export class CatechesisController {
     return this.service.apply(dto, req.user);
   }
 
+  // Termo LGPD / uso de imagem de uma matrícula: o responsável aceita pelo
+  // app; a coordenação da catequese lança o termo em papel (service valida)
+  @Patch('enrollments/:id/consent')
+  @PlanResource('catechesisEnrollment')
+  recordConsent(
+    @Param('id') id: string,
+    @Body() dto: { consentGiven?: boolean; imageConsent?: boolean; paperSignedAt?: string },
+    @Request() req: any,
+  ) {
+    return this.service.recordEnrollmentConsent(id, dto ?? {}, req.user);
+  }
+
   // Aprovação da inscrição (catequista da turma ou coordenação — service valida)
   @Patch('enrollments/:id/approve')
   @PlanResource('catechesisEnrollment')
@@ -574,7 +586,21 @@ export class CatechesisController {
   @PlanResource('catechesisClass:body.classId')
   @Roles(UserRole.PASTORAL_COORDINATOR)
   enroll(
-    @Body() dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
+    @Body()
+    dto: {
+      classId: string;
+      memberId: string;
+      pendingDocuments?: string;
+      requireBaptism?: boolean;
+      overrideCapacity?: boolean;
+      unbaptized?: boolean;
+      /** Nascimento sem ano e sem responsável: a equipe confirma a maioridade */
+      confirmAdult?: boolean;
+      /** Termo LGPD assinado em papel (AAAA-MM-DD) */
+      paperConsentSignedAt?: string;
+      /** Uso de imagem respondido no termo em papel */
+      imageConsent?: boolean;
+    },
     @Request() req: any,
   ) {
     return this.service.enroll(dto, req.user);

@@ -1,5 +1,10 @@
 import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, IsBoolean, IsIn } from 'class-validator';
+import { Transform } from 'class-transformer';
 import { GeoPrecision, EntityStatus } from '@prisma/client';
+
+/** '' ou só espaços → null (o painel manda o campo vazio ao apagar o contato). */
+const emptyToNull = ({ value }: { value: unknown }) =>
+  typeof value === 'string' ? (value.trim() === '' ? null : value.trim()) : value;
 
 export class CreateCommunityDto {
   @IsString()
@@ -22,13 +27,15 @@ export class CreateCommunityDto {
   @IsNotEmpty()
   zipCode: string;
 
+  @Transform(emptyToNull)
   @IsString()
   @IsOptional()
-  phone?: string;
+  phone?: string | null;
 
+  @Transform(emptyToNull)
   @IsString()
   @IsOptional()
-  email?: string;
+  email?: string | null;
 
   @IsString()
   @IsOptional()

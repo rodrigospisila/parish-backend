@@ -44,6 +44,9 @@ const prisma = new PrismaClient();
 const arg = (n: string) => process.argv.includes(n);
 const val = (n: string) => process.argv.find((a) => a.startsWith(`${n}=`))?.split('=').slice(1).join('=');
 const DRY = arg('--dry-run');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../lib/prod-guard.cjs');
+assertNotProduction('aplicar-evidencias', { writes: !DRY });
 const PILOTO = val('--piloto');
 if (!PILOTO) { console.log('uso: --piloto=<dir> [--dry-run]'); process.exit(1); }
 const GEO = join(__dirname, '..', 'data', 'geo');

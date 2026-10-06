@@ -105,7 +105,7 @@ src/
 - Node.js (v20.x ou 22.x)
 - Docker e Docker Compose (para PostgreSQL, Redis e MailHog)
 - Git
-- pnpm (gerenciador de pacotes)
+- npm (gerenciador de pacotes do projeto — o `package-lock.json` é o único lockfile; não use pnpm/yarn)
 
 ### Instalação
 
@@ -117,7 +117,7 @@ src/
 
 2. **Instale as dependências:**
    ```bash
-   pnpm install
+   npm ci
    ```
 
 3. **Configure as variáveis de ambiente:**
@@ -146,7 +146,7 @@ src/
 
 7. **Inicie a aplicação em modo de desenvolvimento:**
    ```bash
-   pnpm run start:dev
+   npm run start:dev
    ```
 
 A API estará disponível em `http://localhost:3000`.
@@ -240,9 +240,9 @@ http://localhost:3000/api
 
 ## 🧪 Testes
 
-- **Testes Unitários**: `pnpm run test`
-- **Testes de Integração**: `pnpm run test:e2e`
-- **Cobertura de Testes**: `pnpm run test:cov`
+- **Testes Unitários**: `npm run test`
+- **Testes de Integração**: `npm run test:e2e`
+- **Cobertura de Testes**: `npm run test:cov`
 
 ## 🗄️ Prisma Studio
 
@@ -282,8 +282,8 @@ npx prisma db seed
 ## 📦 Build para Produção
 
 ```bash
-pnpm run build
-pnpm run start:prod
+npm run build
+npm run start:prod
 ```
 
 ## 🐳 Docker

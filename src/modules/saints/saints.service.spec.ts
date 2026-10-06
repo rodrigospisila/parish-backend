@@ -97,13 +97,32 @@ describe('SaintsService (catálogo global + padroeiros)', () => {
     );
   });
 
-  it('santo do dia filtra por feastMonth/feastDay de hoje', async () => {
-    const now = new Date();
+  it('santo do dia filtra por feastMonth/feastDay de hoje (calendário de Brasília)', async () => {
+    const [, month, day] = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' })
+      .format(new Date())
+      .split('-')
+      .map(Number);
     await service.ofTheDay();
     expect(prisma.saint.findMany).toHaveBeenCalledWith(
       expect.objectContaining({
-        where: expect.objectContaining({ feastMonth: now.getMonth() + 1, feastDay: now.getDate() }),
+        where: expect.objectContaining({ feastMonth: month, feastDay: day }),
       }),
     );
+  });
+
+  it('B54: ?date=AAAA-MM-DD é o dia civil pedido, não o anterior', async () => {
+    await service.ofTheDay('2026-10-04');
+    expect(prisma.saint.findMany).toHaveBeenLastCalledWith(
+      expect.objectContaining({ where: expect.objectContaining({ feastMonth: 10, feastDay: 4 }) }),
+    );
+    await service.ofTheDay('2026-01-01');
+    expect(prisma.saint.findMany).toHaveBeenLastCalledWith(
+      expect.objectContaining({ where: expect.objectContaining({ feastMonth: 1, feastDay: 1 }) }),
+    );
+  });
+
+  it('B54: data malformada ou inexistente é 400', async () => {
+    await expect(service.ofTheDay('04/10/2026')).rejects.toBeInstanceOf(BadRequestException);
+    await expect(service.ofTheDay('2026-02-30')).rejects.toBeInstanceOf(BadRequestException);
   });
 });

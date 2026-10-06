@@ -49,3 +49,8 @@ docker-compose.override.yml
 
 # saída dos scripts de dados da plataforma (ids gravados em produção)
 prisma/platform/saida/
+# prévias e backups dos scripts de correção da auditoria (ids e dados de membros)
+prisma/data/onda2-4/saida/
+# o backend usa só npm (package-lock.json); lockfile de outro gerenciador não entra (achado B37)
+pnpm-lock.yaml
+yarn.lock

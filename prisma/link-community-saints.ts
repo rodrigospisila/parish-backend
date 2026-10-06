@@ -19,6 +19,9 @@ import { PrismaClient } from '@prisma/client';
  */
 const prisma = new PrismaClient();
 const DRY = process.argv.includes('--dry-run');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('link-community-saints', { writes: !DRY });
 const VERBOSE = process.argv.includes('--verbose');
 
 // ============================================================

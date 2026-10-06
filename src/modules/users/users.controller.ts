@@ -11,6 +11,8 @@ import {
   Res,
   UseInterceptors,
   UploadedFile,
+  Query,
+  NotFoundException,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
@@ -19,6 +21,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { UpdateMyCommunityDto } from './dto/update-my-community.dto';
+import { AcceptTermsDto } from './dto/accept-terms.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -94,6 +97,16 @@ export class UsersController {
     return this.usersService.deleteOwnAccount(req.user.id);
   }
 
+  /**
+   * Aceite dos termos de uso / política de privacidade vigentes (M3/M4). Sem
+   * @Roles: toda conta aceita por si. O GET /users/me diz quando é preciso
+   * (`termsAcceptanceRequired`). IMPORTANTE: antes de :id.
+   */
+  @Post('me/accept-terms')
+  acceptTerms(@Body() body: AcceptTermsDto, @Request() req) {
+    return this.usersService.acceptTerms(req.user.id, body?.version);
+  }
+
   /** Foto de perfil do próprio usuário. IMPORTANTE: antes de :id. */
   @Post('me/avatar')
   @UseInterceptors(FileInterceptor('file', { limits: { fileSize: 3 * 1024 * 1024 } }))
@@ -108,8 +121,18 @@ export class UsersController {
 
   /** Foto de perfil de um usuário (qualquer autenticado — exibida em avatares). */
   @Get(':id/avatar')
-  async avatar(@Param('id') id: string, @Res() res: Response) {
-    const file = await this.usersService.getAvatarFile(id);
+  async avatar(@Param('id') id: string, @Query('optional') optional: string | undefined, @Res() res: Response) {
+    // ?optional=1 (painel): sem foto responde 204 em vez de 404 — a ausência de
+    // foto é o caso comum e o 404 sujava o console a cada avatar (achado B50).
+    // Sem o parâmetro, segue 404 (contrato do app, que cai nas iniciais no onError).
+    const file = await this.usersService.getAvatarFile(id).catch((err: unknown) => {
+      if (optional === '1' && err instanceof NotFoundException) return null;
+      throw err;
+    });
+    if (!file) {
+      res.set({ 'Cache-Control': 'private, max-age=300' }).status(204).end();
+      return;
+    }
     res.set({
       'Content-Type': file.mimeType,
       'Content-Length': String(file.buffer.length),
@@ -131,6 +154,10 @@ export class UsersController {
     return this.usersService.update(id, updateUserDto, req.user);
   }
 
+  /**
+   * Remoção pela gestão: desativa e anonimiza (não apaga o registro), só sobre
+   * papel estritamente inferior no escopo — nunca a própria conta nem um par (M34).
+   */
   @Delete(':id')
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR)
   remove(@Param('id') id: string, @Request() req) {

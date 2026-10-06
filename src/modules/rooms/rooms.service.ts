@@ -1,9 +1,16 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException, Optional } from '@nestjs/common';
 import { ReservationStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { communityScopeWhere, resolveCoordinatedPastoralIds } from '../pastorals/coordination-scope';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { civilDayOrNull, todayCivil } from '../catechesis/civil-date';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planMark } from '../../common/plan-list';
+
+/** Status que contam como "sala ocupada" no horário. */
+const ACTIVE_RESERVATION: ReservationStatus[] = [ReservationStatus.PENDING, ReservationStatus.APPROVED];
 
 /**
  * Reserva de espaços (roadmap 4.2). Salas por comunidade e reservas com
@@ -15,6 +22,8 @@ export class RoomsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Plano por comunidade nas listas (M35). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private canManage(role: UserRole) {
@@ -26,15 +35,28 @@ export class RoomsService {
     user: CurrentUser,
   ) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
+    // Campos validados aqui (antes: nome ausente ou capacidade "abc" → 500)
+    const name = typeof dto.name === 'string' ? dto.name.trim().slice(0, 120) : '';
+    if (!name) throw new BadRequestException('Informe o nome do espaço');
+    if (!dto.communityId || typeof dto.communityId !== 'string') {
+      throw new BadRequestException('Informe a comunidade');
+    }
+    const capacity = dto.capacity === undefined || dto.capacity === null ? null : Number(dto.capacity);
+    if (capacity !== null && (!Number.isInteger(capacity) || capacity < 1 || capacity > 100000)) {
+      throw new BadRequestException('Capacidade inválida — informe um número inteiro');
+    }
+    if (dto.resources !== undefined && dto.resources !== null && typeof dto.resources !== 'string') {
+      throw new BadRequestException('Recursos inválidos — informe um texto');
+    }
     const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
     if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
 
     return this.prisma.room.create({
       data: {
         communityId: dto.communityId,
-        name: dto.name,
-        capacity: dto.capacity ?? null,
-        resources: dto.resources ?? null,
+        name,
+        capacity,
+        resources: dto.resources?.trim().slice(0, 500) || null,
       },
     });
   }
@@ -53,7 +75,9 @@ export class RoomsService {
       if (!scope) return [];
       if (Object.keys(scope).length) where.community = scope;
     }
-    return this.prisma.room.findMany({ where, orderBy: { name: 'asc' } });
+    const rooms = await this.prisma.room.findMany({ where, orderBy: { name: 'asc' } });
+    // Sala de comunidade sem o plano vem com o cadeado (M35)
+    return planMark(this.planAccess, user, rooms, (room) => room.communityId);
   }
 
   /**
@@ -102,12 +126,31 @@ export class RoomsService {
     }
   }
 
+  /**
+   * Quem aprova direto: coordenação de COMUNIDADE para cima. O coordenador de
+   * pastoral (piso da rota de reserva) pede, e a reserva nasce PENDING até a
+   * coordenação da comunidade aprovar — antes ele passava pelo canManage e
+   * toda reserva já nascia aprovada.
+   */
+  private canApprove(role: UserRole) {
+    return isRoleAtLeast(role, UserRole.COMMUNITY_COORDINATOR);
+  }
+
+  /**
+   * Serializa as reservas de UMA sala: duas reservas simultâneas no mesmo
+   * horário passavam juntas pelo hasConflict (checado fora de transação).
+   * Advisory lock da transação (::text — o Prisma não desserializa void).
+   */
+  private async lockRoom(tx: any, roomId: string) {
+    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:room:' + roomId}))::text`;
+  }
+
   /** Detecta sobreposição de horário com reservas ativas do mesmo espaço. */
-  async hasConflict(roomId: string, startTime: Date, endTime: Date, excludeId?: string) {
-    const overlap = await this.prisma.roomReservation.findFirst({
+  async hasConflict(roomId: string, startTime: Date, endTime: Date, excludeId?: string, client: any = this.prisma) {
+    const overlap = await client.roomReservation.findFirst({
       where: {
         roomId,
-        status: { in: [ReservationStatus.PENDING, ReservationStatus.APPROVED] },
+        status: { in: ACTIVE_RESERVATION },
         ...(excludeId ? { id: { not: excludeId } } : {}),
         // (startA < endB) && (startB < endA)
         startTime: { lt: endTime },
@@ -127,29 +170,43 @@ export class RoomsService {
     if (!inScope) throw new ForbiddenException('Sala fora do seu escopo');
     await this.assertReservationLinks(room, dto, user);
 
+    const title = typeof dto.title === 'string' ? dto.title.trim().slice(0, 160) : '';
+    if (!title) throw new BadRequestException('Informe o título da reserva');
     const start = new Date(dto.startTime);
     const end = new Date(dto.endTime);
-    if (Number.isNaN(start.getTime()) || Number.isNaN(end.getTime()) || end <= start) {
+    if (
+      typeof dto.startTime !== 'string' ||
+      typeof dto.endTime !== 'string' ||
+      Number.isNaN(start.getTime()) ||
+      Number.isNaN(end.getTime()) ||
+      end <= start
+    ) {
       throw new BadRequestException('Período inválido');
     }
-
-    const conflict = await this.hasConflict(dto.roomId, start, end);
-    if (conflict) {
-      throw new BadRequestException('Já existe uma reserva para esta sala neste horário');
+    if (end.getTime() - start.getTime() > 7 * 24 * 60 * 60 * 1000) {
+      throw new BadRequestException('Reserva longa demais (máximo de 7 dias)');
     }
 
-    const reservation = await this.prisma.roomReservation.create({
-      data: {
-        roomId: dto.roomId,
-        title: dto.title,
-        startTime: start,
-        endTime: end,
-        requesterUserId: user.id,
-        communityPastoralId: dto.communityPastoralId ?? null,
-        eventId: dto.eventId ?? null,
-        // Coordenação de comunidade+ aprova direto; demais entram como PENDING
-        status: this.canManage(user.role) ? ReservationStatus.APPROVED : ReservationStatus.PENDING,
-      },
+    // Checagem e gravação na MESMA transação, com a sala travada
+    const reservation = await this.prisma.$transaction(async (tx) => {
+      await this.lockRoom(tx, dto.roomId);
+      const conflict = await this.hasConflict(dto.roomId, start, end, undefined, tx);
+      if (conflict) {
+        throw new ConflictException('Já existe uma reserva para esta sala neste horário');
+      }
+      return tx.roomReservation.create({
+        data: {
+          roomId: dto.roomId,
+          title,
+          startTime: start,
+          endTime: end,
+          requesterUserId: user.id,
+          communityPastoralId: dto.communityPastoralId ?? null,
+          eventId: dto.eventId ?? null,
+          // Coordenação de comunidade+ aprova direto; demais entram como PENDING
+          status: this.canApprove(user.role) ? ReservationStatus.APPROVED : ReservationStatus.PENDING,
+        },
+      });
     });
     await this.auditService.log({
       actor: { id: user.id, email: user.email, role: user.role },
@@ -161,7 +218,10 @@ export class RoomsService {
   }
 
   async setReservationStatus(id: string, status: ReservationStatus, user: CurrentUser) {
-    if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
+    if (!this.canApprove(user.role)) throw new ForbiddenException('Sem permissão');
+    if (!Object.values(ReservationStatus).includes(status)) {
+      throw new BadRequestException('Status inválido');
+    }
     const reservation = await this.prisma.roomReservation.findUnique({
       where: { id },
       include: { room: true },
@@ -170,10 +230,20 @@ export class RoomsService {
     const inScope = await this.hierarchyService.isCommunityInScope(user, reservation.room.communityId);
     if (!inScope) throw new ForbiddenException('Fora do seu escopo');
 
-    // Ao aprovar, revalida conflito
-    if (status === ReservationStatus.APPROVED) {
-      const conflict = await this.hasConflict(reservation.roomId, reservation.startTime, reservation.endTime, id);
-      if (conflict) throw new BadRequestException('Conflito de horário ao aprovar');
+    // Voltar a ocupar a sala (aprovar, ou reabrir como PENDING uma recusada/
+    // cancelada) revalida o conflito com a sala travada — reabrir sem checar
+    // deixava duas reservas ativas no mesmo horário
+    if (ACTIVE_RESERVATION.includes(status)) {
+      return this.prisma.$transaction(async (tx) => {
+        await this.lockRoom(tx, reservation.roomId);
+        const conflict = await this.hasConflict(reservation.roomId, reservation.startTime, reservation.endTime, id, tx);
+        if (conflict) {
+          throw new ConflictException(
+            status === ReservationStatus.APPROVED ? 'Conflito de horário ao aprovar' : 'Conflito de horário ao reabrir a reserva',
+          );
+        }
+        return tx.roomReservation.update({ where: { id }, data: { status } });
+      });
     }
     return this.prisma.roomReservation.update({ where: { id }, data: { status } });
   }
@@ -184,14 +254,26 @@ export class RoomsService {
     const inScope = await this.hierarchyService.isCommunityInScope(user, room.communityId);
     if (!inScope) throw new ForbiddenException('Fora do seu escopo');
 
-    const start = new Date(from);
-    const end = new Date(start);
-    end.setDate(end.getDate() + 7);
+    // Semana a partir de ?from: instante ISO (o painel manda a meia-noite
+    // local) ou AAAA-MM-DD no fuso do público; sem ?from, hoje. Antes,
+    // new Date(undefined) virava Invalid Date → 500
+    let start: Date;
+    if (from === undefined || from === null || from === '') {
+      start = new Date(`${todayCivil()}T00:00:00-03:00`);
+    } else if (/^\d{4}-\d{2}-\d{2}$/.test(String(from))) {
+      const day = civilDayOrNull(from);
+      if (!day) throw new BadRequestException('Data inicial inválida — use AAAA-MM-DD');
+      start = new Date(`${day}T00:00:00-03:00`);
+    } else {
+      start = new Date(String(from));
+      if (Number.isNaN(start.getTime())) throw new BadRequestException('Data inicial inválida — use AAAA-MM-DD');
+    }
+    const end = new Date(start.getTime() + 7 * 24 * 60 * 60 * 1000);
 
     return this.prisma.roomReservation.findMany({
       where: {
         roomId,
-        status: { in: [ReservationStatus.PENDING, ReservationStatus.APPROVED] },
+        status: { in: ACTIVE_RESERVATION },
         startTime: { gte: start, lt: end },
       },
       orderBy: { startTime: 'asc' },

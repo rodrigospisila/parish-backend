@@ -8,8 +8,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends openssl python3
     && rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY package*.json ./
-# npm ci quando o lockfile estiver em sincronia; cai para install se divergir
-RUN npm ci || npm install
+# Só npm ci: instala exatamente o package-lock.json e FALHA se ele divergir do
+# package.json (antes caía em "npm install" e cada build resolvia versões novas).
+# O npm é o único gerenciador do backend — não há pnpm-lock.yaml.
+RUN npm ci
 COPY . .
 RUN npx prisma generate
 RUN npm run build

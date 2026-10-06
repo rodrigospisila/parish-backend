@@ -10,7 +10,8 @@ import { PdfService } from '../pdf/pdf.service';
 import { PaymentsService } from '../payments/payments.service';
 import { PAID_STATUSES, PaymentMethod, ProviderCharge } from '../payments/payment-provider.interface';
 import { buildPixBrCode, normalizeAscii } from './pix-brcode';
-import { TitheService, appMethodLabel, safeName } from './tithe.service';
+import { TitheService, appMethodLabel, refundProgress, safeName } from './tithe.service';
+import { PROVIDER_FEE_CATEGORY, PROVIDER_FEE_COST_CENTER, round2 } from '../finance/money';
 
 const MAX_AMOUNT = 50000;
 const MAX_OPEN_PER_EMAIL_DAY = 5;
@@ -189,7 +190,10 @@ export class TitheGuestService {
     if (gatewayOk) {
       try {
         const provider = this.paymentsService.forParish(parish);
-        const customer = await provider.ensureCustomer({ cpfCnpj: cpfDigits || null, name, email, externalRef: `guest-${gift.id}` });
+        // M11: cliente PRÓPRIO desta oferta — o CPF foi digitado por um anônimo;
+        // reaproveitar o cliente do CPF poria o nome do titular real (talvez um
+        // dizimista da paróquia) na página de pagamento e no boleto devolvidos aqui
+        const customer = await provider.ensureCustomer({ cpfCnpj: cpfDigits || null, name, email, externalRef: `guest-${gift.id}`, reuseExisting: false });
         const dueDays = paymentMethod === 'BOLETO' ? 5 : 3;
         const charge = await provider.createCharge({
           providerCustomerId: customer.providerCustomerId,
@@ -308,13 +312,25 @@ export class TitheGuestService {
   }
 
   /** Liquidação (tesouraria ou provedor): lançamento + recibo por e-mail. */
-  private async settle(giftId: string, opts: { paidAmount: number; paidAt: Date; byUserId: string | null; source: 'treasury' | 'provider' }) {
+  private async settle(
+    giftId: string,
+    opts: { paidAmount: number; paidAt: Date; byUserId: string | null; source: 'treasury' | 'provider'; /** Taxa real do provedor (valor − líquido) */ feeAmount?: number | null },
+  ) {
     const gift = await this.prisma.titheGuestGift.findUnique({ where: { id: giftId }, include: { campaign: { select: { id: true, name: true } }, parish: { select: { id: true, name: true, dioceseId: true } } } });
     if (!gift) return null;
+    // Oferta de visitante não repassa taxa: o custo inteiro é da paróquia
+    const fee = opts.source === 'provider' && opts.feeAmount ? round2(Math.max(0, opts.feeAmount)) : 0;
     const settled = await this.prisma.$transaction(async (tx) => {
       const moved = await tx.titheGuestGift.updateMany({
         where: { id: giftId, status: { in: opts.source === 'provider' ? ['CREATED', 'DECLARED', 'CANCELLED'] : ['CREATED', 'DECLARED'] } },
-        data: { status: 'CONFIRMED', confirmedAt: new Date(), confirmedByUserId: opts.byUserId, amountPaid: opts.paidAmount, note: null, ...(opts.source === 'provider' ? { providerStatus: 'paid' } : {}) },
+        data: {
+          status: 'CONFIRMED',
+          confirmedAt: new Date(),
+          confirmedByUserId: opts.byUserId,
+          amountPaid: opts.paidAmount,
+          note: null,
+          ...(opts.source === 'provider' ? { providerStatus: 'paid', ...(fee > 0 ? { feeAmount: fee } : {}) } : {}),
+        },
       });
       if (moved.count !== 1) return false;
       const financial = await tx.financialTransaction.create({
@@ -328,13 +344,31 @@ export class TitheGuestService {
           parishId: gift.parishId,
           dioceseId: gift.parish.dioceseId,
           campaignId: gift.campaignId,
+          guestGiftId: giftId,
         },
       });
+      // Taxa do provedor (M46): despesa ligada à oferta, no mesmo passo atômico, fora da campanha
+      if (fee > 0) {
+        await tx.financialTransaction.create({
+          data: {
+            type: TransactionType.EXPENSE,
+            category: PROVIDER_FEE_CATEGORY,
+            costCenter: PROVIDER_FEE_COST_CENTER,
+            amount: fee,
+            description: `Taxa do provedor — oferta de visitante ${gift.txid}`,
+            date: opts.paidAt,
+            communityId: null,
+            parishId: gift.parishId,
+            dioceseId: gift.parish.dioceseId,
+            guestGiftId: giftId,
+          },
+        });
+      }
       await tx.titheGuestGift.update({ where: { id: giftId }, data: { financialTransactionId: financial.id } });
       return true;
     });
     if (!settled) return gift;
-    await this.auditService.log({ actor: opts.byUserId ? { id: opts.byUserId } as any : null, action: 'UPDATE', entity: 'TitheGuestGift', entityId: giftId, before: { status: gift.status }, after: { status: 'CONFIRMED' }, metadata: { source: opts.source, paidAmount: opts.paidAmount } });
+    await this.auditService.log({ actor: opts.byUserId ? { id: opts.byUserId } as any : null, action: 'UPDATE', entity: 'TitheGuestGift', entityId: giftId, before: { status: gift.status }, after: { status: 'CONFIRMED' }, metadata: { source: opts.source, paidAmount: opts.paidAmount, feeAmount: fee } });
     await this.sendReceipt(giftId);
     return this.prisma.titheGuestGift.findUnique({ where: { id: giftId } });
   }
@@ -343,18 +377,25 @@ export class TitheGuestService {
   async applyCharge(giftId: string, charge: ProviderCharge) {
     const gift = await this.prisma.titheGuestGift.findUnique({ where: { id: giftId } });
     if (!gift) return;
-    if (PAID_STATUSES.has(charge.status) && gift.status !== 'CONFIRMED') {
+    // Estornada e encerrada: o provedor pode seguir dizendo "recebido" — nunca liquida de novo
+    const refundedAway = gift.status === 'CANCELLED' && (gift.providerStatus === 'refunded' || gift.refundedAmount > 0);
+    if (PAID_STATUSES.has(charge.status) && gift.status !== 'CONFIRMED' && !refundedAway) {
       const expected = gift.amount;
       if (typeof charge.value === 'number' && Math.abs(charge.value - expected) > 0.01) {
         await this.prisma.titheGuestGift.update({ where: { id: giftId }, data: { providerStatus: 'mismatch', note: `Provedor informa ${money(charge.value)}; esperado ${money(expected)}` } });
         return;
       }
-      await this.settle(giftId, { paidAmount: expected, paidAt: this.tithe['civilDate'](charge.paidAt), byUserId: null, source: 'provider' });
+      const feeAmount = typeof charge.value === 'number' && typeof charge.netValue === 'number' ? round2(charge.value - charge.netValue) : null;
+      await this.settle(giftId, { paidAmount: expected, paidAt: this.tithe['civilDate'](charge.paidAt), byUserId: null, source: 'provider', feeAmount });
       return;
     }
-    if (charge.status === 'refunded' && gift.status === 'CONFIRMED') {
-      await this.reverse(gift);
-      return;
+    if (gift.status === 'CONFIRMED') {
+      // Estorno total ou parcial (B20): só o que ainda não foi revertido
+      const refund = refundProgress({ chargeValue: gift.amountPaid ?? gift.amount, refundedAmount: gift.refundedAmount }, charge);
+      if (refund) {
+        await this.reverse(gift, refund);
+        return;
+      }
     }
     if (charge.status === 'disputed' && gift.status === 'CONFIRMED' && gift.providerStatus !== 'disputed') {
       // Chargeback/contestação em andamento: o dinheiro pode voltar — tesouraria precisa saber (uma vez)
@@ -369,24 +410,35 @@ export class TitheGuestService {
     }
     if (charge.status === 'cancelled' && gift.status === 'CREATED') {
       await this.prisma.titheGuestGift.updateMany({ where: { id: giftId, status: 'CREATED' }, data: { status: 'CANCELLED', note: 'Cobrança cancelada no provedor', providerStatus: charge.status } });
-    } else if (charge.status !== gift.providerStatus) {
+    } else if (charge.status !== gift.providerStatus && !(gift.refundedAmount > 0 && PAID_STATUSES.has(charge.status))) {
       await this.prisma.titheGuestGift.update({ where: { id: giftId }, data: { providerStatus: charge.status } });
     }
   }
 
   /**
-   * Estorno/chargeback confirmado pelo provedor de uma oferta já liquidada:
-   * a oferta volta a CANCELLED, o lançamento de entrada é anulado por uma
-   * saída de mesmo valor (rastro contábil) e o comprovante deixa de valer.
+   * Estorno/chargeback confirmado pelo provedor de uma oferta já liquidada.
+   * Total: a oferta volta a CANCELLED, a entrada é anulada por uma saída
+   * (rastro contábil) e o comprovante deixa de valer. Parcial (B20): sai só a
+   * diferença ainda não revertida e a oferta segue confirmada pelo líquido.
+   * refundedAmount (total já estornado) é o controle idempotente.
    */
-  private async reverse(gift: { id: string; parishId: string; campaignId: string | null; name: string; txid: string; paymentMethod: string; amount: number; amountPaid: number | null; financialTransactionId: string | null }) {
-    const amount = gift.amountPaid ?? gift.amount;
+  private async reverse(
+    gift: { id: string; parishId: string; campaignId: string | null; name: string; txid: string; paymentMethod: string; amount: number; amountPaid: number | null; refundedAmount: number; financialTransactionId: string | null },
+    refund: { total: number; full: boolean },
+  ) {
+    const paid = round2(gift.amountPaid ?? gift.amount);
+    const before = gift.refundedAmount ?? 0;
+    const full = refund.full || refund.total >= paid - 0.005;
+    const amount = round2((full ? paid : Math.min(refund.total, paid)) - Math.min(round2(before), paid));
+    if (amount <= 0) return;
     const parish = await this.prisma.parish.findUnique({ where: { id: gift.parishId }, select: { dioceseId: true } });
     const campaign = gift.campaignId ? await this.prisma.titheCampaign.findUnique({ where: { id: gift.campaignId }, select: { name: true } }) : null;
     const reversed = await this.prisma.$transaction(async (tx) => {
       const moved = await tx.titheGuestGift.updateMany({
-        where: { id: gift.id, status: 'CONFIRMED' },
-        data: { status: 'CANCELLED', note: 'Estornado pelo provedor', providerStatus: 'refunded' },
+        where: { id: gift.id, status: 'CONFIRMED', refundedAmount: before },
+        data: full
+          ? { status: 'CANCELLED', note: 'Estornado pelo provedor', providerStatus: 'refunded', refundedAmount: refund.total }
+          : { providerStatus: 'partially_refunded', refundedAmount: refund.total },
       });
       if (moved.count !== 1) return false;
       await tx.financialTransaction.create({
@@ -394,23 +446,34 @@ export class TitheGuestService {
           type: TransactionType.EXPENSE,
           category: 'Ofertas',
           amount,
-          description: `Estorno ${campaign ? `campanha ${campaign.name}` : 'oferta de visitante'} — ${safeName(gift.name)} (${appMethodLabel(gift.paymentMethod)} provedor ${gift.txid})`,
+          description: `Estorno${full ? '' : ' parcial'} ${campaign ? `campanha ${campaign.name}` : 'oferta de visitante'} — ${safeName(gift.name)} (${appMethodLabel(gift.paymentMethod)} provedor ${gift.txid})`,
           date: this.tithe['civilDate'](null),
           communityId: null,
           parishId: gift.parishId,
           dioceseId: parish?.dioceseId ?? null,
           campaignId: gift.campaignId,
           reversalOfId: gift.financialTransactionId,
+          guestGiftId: gift.id,
         },
       });
       return true;
     });
     if (!reversed) return;
-    await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'TitheGuestGift', entityId: gift.id, before: { status: 'CONFIRMED' }, after: { status: 'CANCELLED', providerStatus: 'refunded' }, metadata: { source: 'provider', reversedAmount: amount } });
+    await this.auditService.log({
+      actor: null,
+      action: 'UPDATE',
+      entity: 'TitheGuestGift',
+      entityId: gift.id,
+      before: { status: 'CONFIRMED', refundedAmount: before },
+      after: full ? { status: 'CANCELLED', providerStatus: 'refunded', refundedAmount: refund.total } : { status: 'CONFIRMED', providerStatus: 'partially_refunded', refundedAmount: refund.total },
+      metadata: { source: 'provider', reversedAmount: amount, partial: !full },
+    });
     await this.tithe.notifyTreasury(
       { communityId: null, parishId: gift.parishId },
-      'Oferta de visitante estornada',
-      `A oferta ${gift.txid} (${money(amount)}, ${safeName(gift.name)}) foi estornada no provedor: um lançamento de saída anulou a entrada e o comprovante deixou de valer.`,
+      full ? 'Oferta de visitante estornada' : 'Estorno parcial de oferta de visitante',
+      full
+        ? `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) foi estornada no provedor: um lançamento de saída anulou a entrada e o comprovante deixou de valer.`
+        : `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) teve ${money(amount)} estornados no provedor: um lançamento de saída desse valor foi criado.`,
       { kind: 'tithe-guest-refunded', giftId: gift.id },
     );
   }
@@ -471,7 +534,8 @@ export class TitheGuestService {
         {
           recipientName: safeName(gift.name),
           bodyParagraphs: [
-            `Contribuiu com ${money(gift.amountPaid ?? gift.amount)}`,
+            // Estorno parcial: o comprovante vale pelo que ficou com a paróquia
+            `Contribuiu com ${money(round2((gift.amountPaid ?? gift.amount) - (gift.refundedAmount ?? 0)))}`,
             gift.campaign ? `para a campanha “${gift.campaign.name}”,` : 'como oferta,',
             `via ${appMethodLabel(gift.paymentMethod).toLowerCase()} (id ${gift.txid}), confirmado em ${day(gift.confirmedAt)}.`,
             'Deus lhe pague pela generosidade.',
@@ -510,6 +574,8 @@ export class TitheGuestService {
       cpfMasked: g.cpf ? `***.${g.cpf.slice(3, 6)}.${g.cpf.slice(6, 9)}-**` : null,
       amount: g.amount,
       amountPaid: g.amountPaid,
+      feeAmount: g.feeAmount,
+      refundedAmount: g.refundedAmount,
       message: g.message,
       campaign: g.campaign,
       status: g.status,
@@ -564,7 +630,10 @@ export class TitheGuestService {
     if (gift.method !== 'GATEWAY' || !gift.providerRef) throw new BadRequestException('Esta oferta não é do provedor — confira no extrato');
     const parish = await this.tithe.parishFor(gift.parishId);
     if (!parish || !this.paymentsService.hasProvider(parish)) throw new BadRequestException('Provedor não configurado');
-    const charge = await this.paymentsService.forParish(parish).getCharge(gift.providerRef);
+    const provider = this.paymentsService.forParish(parish);
+    let charge = await provider.getCharge(gift.providerRef);
+    // Já confirmada: a consulta é como a tesouraria descobre estorno (total ou parcial)
+    if (gift.status === 'CONFIRMED') charge = await this.tithe.withRefundTotal(provider, charge);
     await this.applyCharge(gift.id, charge);
     const fresh = await this.prisma.titheGuestGift.findUnique({ where: { id } });
     return { id, status: fresh?.status, providerStatus: fresh?.providerStatus };

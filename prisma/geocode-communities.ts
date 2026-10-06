@@ -26,6 +26,9 @@ const arg = (name: string) => process.argv.includes(name);
 const FORCE = arg('--force');
 const FALLBACKS = arg('--fallbacks');
 const DRY_RUN = arg('--dry-run');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('geocode-communities', { writes: !DRY_RUN });
 
 const GOOGLE_KEY =
   process.env.GOOGLE_GEOCODING_API_KEY || process.env.GOOGLE_MAPS_API_KEY || '';

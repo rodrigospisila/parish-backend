@@ -14,6 +14,9 @@ const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 
 const APLICAR = process.argv.includes('--aplicar');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../lib/prod-guard.cjs');
+assertNotProduction('aplicar-alta-confianca', { writes: APLICAR });
 const pastas = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 if (!pastas.length) throw new Error('Informe as pastas');
 

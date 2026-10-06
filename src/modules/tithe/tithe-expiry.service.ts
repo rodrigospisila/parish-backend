@@ -1,6 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { Cron, CronExpression } from '@nestjs/schedule';
 import { PrismaService } from '../../database/prisma.service';
+import { runExclusiveJob } from '../../common/scheduled-job-lock';
 import { TitheService } from './tithe.service';
 
 const EXPIRE_CREATED_AFTER_DAYS = 7;
@@ -21,24 +22,33 @@ export class TitheExpiryService {
     private readonly titheService: TitheService,
   ) {}
 
-  @Cron(CronExpression.EVERY_DAY_AT_3AM)
+  // 03:00 de Brasília; uma réplica por vez (M45)
+  @Cron(CronExpression.EVERY_DAY_AT_3AM, { timeZone: 'America/Sao_Paulo' })
   async handleCron() {
-    const now = new Date();
-    const count = await this.expireStale(now);
-    if (count > 0) this.logger.log(`Pix de dízimo expirados: ${count}`);
-    try {
-      const failed = await this.titheService.failExpiredAuthorizations(now);
-      if (failed > 0) this.logger.log(`Autorizações de Pix Automático vencidas: ${failed}`);
-    } catch (error) {
-      this.logger.warn(`Autorizações vencidas: ${String(error)}`);
-    }
+    await runExclusiveJob(
+      this.prisma,
+      'tithe-expiry',
+      async () => {
+        const now = new Date();
+        const count = await this.expireStale(now);
+        if (count > 0) this.logger.log(`Pix de dízimo expirados: ${count}`);
+        try {
+          const failed = await this.titheService.failExpiredAuthorizations(now);
+          if (failed > 0) this.logger.log(`Autorizações de Pix Automático vencidas: ${failed}`);
+        } catch (error) {
+          this.logger.warn(`Autorizações vencidas: ${String(error)}`);
+        }
+      },
+      { logger: this.logger },
+    );
   }
 
-  @Cron(CronExpression.EVERY_10_MINUTES)
+  // Duas réplicas reprocessando o mesmo evento ao mesmo tempo só gastariam a cota do provedor
+  @Cron(CronExpression.EVERY_10_MINUTES, { timeZone: 'America/Sao_Paulo' })
   async retryWebhooks() {
     try {
-      const done = await this.titheService.reprocessFailedWebhooks(new Date());
-      if (done > 0) this.logger.log(`Webhooks de pagamento reprocessados: ${done}`);
+      const done = await runExclusiveJob(this.prisma, 'tithe-webhook-retry', () => this.titheService.reprocessFailedWebhooks(new Date()), { logger: this.logger });
+      if (done) this.logger.log(`Webhooks de pagamento reprocessados: ${done}`);
     } catch (error) {
       this.logger.warn(`Reprocessamento de webhooks: ${String(error)}`);
     }

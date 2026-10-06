@@ -8,6 +8,8 @@ import {
   MaxLength,
 } from 'class-validator';
 import { MemberStatus, MemberType, Gender, MaritalStatus } from '@prisma/client';
+import { Transform } from 'class-transformer';
+import { normalizeBrazilianPhone } from '../../messaging/log-mask';
 
 export class CreateMemberDto {
   @IsString()
@@ -63,6 +65,10 @@ export class CreateMemberDto {
   @IsOptional()
   photoUrl?: string;
 
+  // E.164 (+55…) sempre que der para normalizar (A23): a adoção do cadastro
+  // pelo app compara com o celular verificado por SMS, que vem em E.164.
+  // Número que não normaliza (estrangeiro, incompleto) fica como digitado.
+  @Transform(({ value }) => (typeof value === 'string' ? normalizeBrazilianPhone(value) ?? value.trim() : value))
   @IsString()
   @IsOptional()
   phone?: string;

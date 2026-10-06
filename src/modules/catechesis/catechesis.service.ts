@@ -1,11 +1,13 @@
 import {
   Injectable,
   Logger,
+  Optional,
   NotFoundException,
   ForbiddenException,
   BadRequestException,
+  ConflictException,
 } from '@nestjs/common';
-import { CatechesisRating, NotificationType, SacramentType, TransactionType, UserRole } from '@prisma/client';
+import { CatechesisRating, ConsentType, NotificationType, SacramentType, TransactionType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
@@ -13,6 +15,16 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { COORDINATOR_MEMBER_ROLES } from '../pastorals/coordination-scope';
+import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
+import { civilDayOrNull, formatCivilDate, parseCivilDate } from './civil-date';
+import {
+  BROADCAST_AUTHOR_ENTITIES,
+  BROADCAST_LIMITS,
+  assertBroadcastQuota,
+  countGroupBroadcastsToday,
+} from '../pastorals/broadcast-quota';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter, planMark } from '../../common/plan-list';
 
 /**
  * Catequese e iniciação à vida cristã (roadmap 3.1).
@@ -28,6 +40,8 @@ export class CatechesisService {
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
     private readonly pdfService: PdfService,
+    // Plano por comunidade (M35/A21). Opcional: specs montam o serviço sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   /**
@@ -962,7 +976,7 @@ export class CatechesisService {
       docsByClass.set(doc.enrollment.classId, (docsByClass.get(doc.enrollment.classId) ?? 0) + 1);
     }
 
-    return classes.map((klass) => {
+    const rows = classes.map((klass) => {
       const occupied = occupiedByClass.get(klass.id) ?? 0;
       return {
         ...klass,
@@ -974,6 +988,8 @@ export class CatechesisService {
         docsToReviewCount: docsByClass.get(klass.id) ?? 0,
       };
     });
+    // Plano por comunidade (M35): turma de capela sem plano vem com o cadeado
+    return planMark(this.planAccess, user, rows, (klass) => klass.communityId);
   }
 
   /** Turma para GESTÃO (matrícula, equipe, renovação...): exige coordenação da catequese. */
@@ -1032,7 +1048,7 @@ export class CatechesisService {
     });
     if (!member) return [];
 
-    const links = await this.prisma.catechesisCatechist.findMany({
+    const allLinks = await this.prisma.catechesisCatechist.findMany({
       where: { memberId: member.id, class: { deletedAt: null } },
       include: {
         class: {
@@ -1050,6 +1066,8 @@ export class CatechesisService {
       },
       orderBy: { class: { year: 'desc' } },
     });
+    // Rota "minhas" (A21): só as turmas de comunidades com o plano
+    const links = await planFilter(this.planAccess, user, allLinks, (link) => link.class.communityId);
 
     // Pendências POR TURMA com as mesmas regras do painel da coordenação
     // (dashboard.service): o painel soma, aqui o catequista vê onde está.
@@ -1539,10 +1557,31 @@ export class CatechesisService {
   }
 
   async enroll(
-    dto: { classId: string; memberId: string; pendingDocuments?: string; requireBaptism?: boolean; overrideCapacity?: boolean; unbaptized?: boolean },
+    dto: {
+      classId: string;
+      memberId: string;
+      pendingDocuments?: string;
+      requireBaptism?: boolean;
+      overrideCapacity?: boolean;
+      unbaptized?: boolean;
+      confirmAdult?: boolean;
+      /** Termo LGPD assinado em papel (AAAA-MM-DD) — opcional */
+      paperConsentSignedAt?: string;
+      /** Uso de imagem respondido no termo em papel — opcional */
+      imageConsent?: boolean;
+    },
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(dto.classId, user);
+    // Termo em papel / uso de imagem: validados antes de qualquer escrita
+    const paperConsentAt =
+      dto.paperConsentSignedAt === undefined || dto.paperConsentSignedAt === null || dto.paperConsentSignedAt === ''
+        ? null
+        : parseCivilDate(dto.paperConsentSignedAt, 'Data do termo');
+    if (dto.imageConsent !== undefined && dto.imageConsent !== null && typeof dto.imageConsent !== 'boolean') {
+      throw new BadRequestException('Uso de imagem: responda autorizo (true) ou não autorizo (false)');
+    }
+    const manualImageConsent = typeof dto.imageConsent === 'boolean' ? dto.imageConsent : null;
 
     const member = await this.prisma.member.findFirst({
       where: { id: dto.memberId, deletedAt: null },
@@ -1576,13 +1615,23 @@ export class CatechesisService {
     // REGRA: menor de idade só se matricula com pai/mãe (responsável) já
     // cadastrado como membro e vinculado — é por esse vínculo que a família
     // acompanha, autoriza (LGPD) e recebe os avisos no app.
+    // Nascimento só com dia/mês (ano 1900) é idade DESCONHECIDA, não "126
+    // anos": sem responsável, só entra com a maioridade confirmada pela equipe.
     if (member.birthDate && !member.responsibleId) {
-      const age =
-        (Date.now() - member.birthDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000);
-      if (age < 18) {
-        throw new BadRequestException(
-          'Catequizando menor de idade precisa de responsável vinculado — cadastre o pai/mãe como membro e vincule no campo "Responsável" do cadastro do catequizando',
-        );
+      if (member.birthDate.getUTCFullYear() <= 1900) {
+        if (dto.confirmAdult !== true) {
+          throw new BadRequestException(
+            'O nascimento do catequizando está sem o ano — informe o ano no cadastro ou vincule o responsável. Se ele for maior de idade, confirme a maioridade para matricular.',
+          );
+        }
+      } else {
+        const age =
+          (Date.now() - member.birthDate.getTime()) / (365.25 * 24 * 60 * 60 * 1000);
+        if (age < 18) {
+          throw new BadRequestException(
+            'Catequizando menor de idade precisa de responsável vinculado — cadastre o pai/mãe como membro e vincule no campo "Responsável" do cadastro do catequizando',
+          );
+        }
       }
     }
 
@@ -1602,6 +1651,22 @@ export class CatechesisService {
         );
       }
     }
+
+    // Termo em papel lançado pela equipe: quem assina é o responsável
+    // vinculado (ou o próprio adulto). Sem termo, a matrícula fica pendente
+    const consentData = {
+      ...(paperConsentAt
+        ? {
+            guardianConsentAt: paperConsentAt,
+            guardianConsentChannel: 'PAPER',
+            guardianConsentByUserId: user.id,
+            guardianConsentMemberId: member.responsibleId ?? member.id,
+          }
+        : {}),
+      ...(manualImageConsent === null
+        ? {}
+        : { imageConsent: manualImageConsent, imageConsentAt: new Date(), imageConsentByUserId: user.id }),
+    };
 
     // REGRA: respeita o limite de vagas também na matrícula manual (secretaria).
     // A coordenação pode forçar uma vaga extra conscientemente (overrideCapacity).
@@ -1653,7 +1718,7 @@ export class CatechesisService {
         // REJECTED/DROPPED_OUT/TRANSFERRED/WAITLISTED: a rematrícula reativa o registro
         created = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
-          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null, unbaptized: dto.unbaptized === true, waitlistedAt: null },
+          data: { status: 'ACTIVE', pendingDocuments: dto.pendingDocuments ?? null, rejectionReason: null, unbaptized: dto.unbaptized === true, waitlistedAt: null, ...consentData },
         });
       } else {
         created = await tx.catechesisEnrollment.create({
@@ -1662,6 +1727,7 @@ export class CatechesisService {
             memberId: dto.memberId,
             pendingDocuments: dto.pendingDocuments ?? null,
             unbaptized: dto.unbaptized === true,
+            ...consentData,
           },
         });
       }
@@ -1674,7 +1740,13 @@ export class CatechesisService {
       action: 'CREATE',
       entity: 'CatechesisEnrollment',
       entityId: enrollment.id,
-      metadata: dto.overrideCapacity && klass.capacity !== null ? { overrodeCapacity: true } : undefined,
+      metadata:
+        (dto.overrideCapacity && klass.capacity !== null) || dto.confirmAdult === true
+          ? {
+              ...(dto.overrideCapacity && klass.capacity !== null ? { overrodeCapacity: true } : {}),
+              ...(dto.confirmAdult === true ? { confirmedAdult: true } : {}),
+            }
+          : undefined,
     });
     return enrollment;
   }
@@ -1940,6 +2012,7 @@ export class CatechesisService {
     // Apps antigos não enviam o campo: a matrícula fica "não respondido" (null)
     const imageConsent = typeof dto.imageConsent === 'boolean' ? dto.imageConsent : null;
     const imageConsentAt = imageConsent === null ? null : new Date();
+    const imageConsentByUserId = imageConsent === null ? null : user.id;
 
     const myMember = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
@@ -2054,6 +2127,19 @@ export class CatechesisService {
         targetMemberId = myMember.id;
       }
 
+      // Termo LGPD (art. 14 §1º): quem consentiu, quando e em que versão da
+      // política — o "consentGiven" solto do cadastro não provava nada
+      const guardianConsent = {
+        guardianConsentAt: new Date(),
+        guardianConsentChannel: 'APP',
+        guardianConsentVersion: CURRENT_POLICY_VERSION,
+        guardianConsentByUserId: user.id,
+        guardianConsentMemberId: myMember.id,
+      };
+      if (targetMemberId !== myMember.id) {
+        await this.recordDependentConsents(tx, targetMemberId, user.id, imageConsent);
+      }
+
       // Uma matrícula efetiva por vez — vale também para a inscrição online.
       // Lock por membro: inscrições simultâneas em turmas DIFERENTES não se
       // serializavam pelo FOR UPDATE da turma
@@ -2107,7 +2193,8 @@ export class CatechesisService {
             pendingDocuments,
             rejectionReason: null,
             waitlistedAt: waitlist ? new Date() : null,
-            ...(imageConsent === null ? {} : { imageConsent, imageConsentAt }),
+            ...guardianConsent,
+            ...(imageConsent === null ? {} : { imageConsent, imageConsentAt, imageConsentByUserId }),
           },
         });
         return { enrollment, targetMemberId };
@@ -2121,6 +2208,8 @@ export class CatechesisService {
           waitlistedAt: waitlist ? new Date() : null,
           imageConsent,
           imageConsentAt,
+          imageConsentByUserId,
+          ...guardianConsent,
         },
       });
       return { enrollment, targetMemberId };
@@ -2163,6 +2252,154 @@ export class CatechesisService {
     }
 
     return enrollment;
+  }
+
+  /**
+   * Consentimentos granulares do DEPENDENTE dados pelo responsável:
+   * tratamento de dados (sempre, é a condição da inscrição) e uso de imagem
+   * (quando respondido). `grantedByUserId` = a conta do responsável.
+   */
+  private async recordDependentConsents(tx: any, memberId: string, byUserId: string, imageConsent: boolean | null) {
+    const now = new Date();
+    await tx.consent.upsert({
+      where: { memberId_type: { memberId, type: ConsentType.DATA_PROCESSING } },
+      create: {
+        memberId,
+        type: ConsentType.DATA_PROCESSING,
+        granted: true,
+        policyVersion: CURRENT_POLICY_VERSION,
+        grantedByUserId: byUserId,
+        grantedAt: now,
+      },
+      update: { granted: true, policyVersion: CURRENT_POLICY_VERSION, grantedByUserId: byUserId, grantedAt: now, revokedAt: null },
+    });
+    if (imageConsent !== null) {
+      await tx.consent.upsert({
+        where: { memberId_type: { memberId, type: ConsentType.IMAGE_USE } },
+        create: {
+          memberId,
+          type: ConsentType.IMAGE_USE,
+          granted: imageConsent,
+          policyVersion: CURRENT_POLICY_VERSION,
+          grantedByUserId: byUserId,
+          grantedAt: imageConsent ? now : null,
+          revokedAt: imageConsent ? null : now,
+        },
+        update: {
+          granted: imageConsent,
+          policyVersion: CURRENT_POLICY_VERSION,
+          grantedByUserId: byUserId,
+          ...(imageConsent ? { grantedAt: now, revokedAt: null } : { revokedAt: now }),
+        },
+      });
+    }
+  }
+
+  /**
+   * Registra o termo LGPD e/ou o uso de imagem de UMA matrícula.
+   * - Responsável (ou o próprio adulto) pelo app: aceite com a versão vigente
+   *   da política (`consentGiven: true`) e a resposta do uso de imagem.
+   * - Equipe (coordenação da catequese): lança o termo assinado em PAPEL
+   *   (`paperSignedAt`, AAAA-MM-DD) e/ou a resposta de imagem que veio nele.
+   * Nunca preenche nada sozinho: só grava o que foi informado.
+   */
+  async recordEnrollmentConsent(
+    enrollmentId: string,
+    dto: { consentGiven?: boolean; imageConsent?: boolean; paperSignedAt?: string },
+    user: CurrentUser,
+  ) {
+    const enrollment = await this.prisma.catechesisEnrollment.findUnique({
+      where: { id: enrollmentId },
+      include: {
+        member: {
+          select: { id: true, userId: true, deletedAt: true, responsibleId: true, responsible: { select: { userId: true } } },
+        },
+        class: { select: { id: true, communityId: true } },
+      },
+    });
+    if (!enrollment || enrollment.member.deletedAt) throw new NotFoundException('Matrícula não encontrada');
+    if (dto?.imageConsent !== undefined && typeof dto.imageConsent !== 'boolean') {
+      throw new BadRequestException('Uso de imagem: responda autorizo (true) ou não autorizo (false)');
+    }
+    const imageConsent = typeof dto?.imageConsent === 'boolean' ? dto.imageConsent : null;
+    const isFamily = this.guardianUserIds(enrollment.member).includes(user.id);
+    const now = new Date();
+    const data: Record<string, unknown> = {};
+
+    if (isFamily) {
+      if (dto?.paperSignedAt !== undefined) {
+        throw new BadRequestException('O termo em papel é lançado pela equipe da catequese');
+      }
+      if (dto?.consentGiven !== undefined && dto.consentGiven !== true) {
+        throw new BadRequestException('Para retirar o consentimento, use "Meus dados" ou fale com a secretaria');
+      }
+      if (dto?.consentGiven !== true && imageConsent === null) {
+        throw new BadRequestException('Informe o aceite do termo e/ou a resposta sobre o uso de imagem');
+      }
+      const consenter = await this.prisma.member.findFirst({
+        where: { userId: user.id, deletedAt: null },
+        select: { id: true },
+      });
+      if (dto?.consentGiven === true) {
+        Object.assign(data, {
+          guardianConsentAt: now,
+          guardianConsentChannel: 'APP',
+          guardianConsentVersion: CURRENT_POLICY_VERSION,
+          guardianConsentByUserId: user.id,
+          guardianConsentMemberId: consenter?.id ?? enrollment.member.id,
+        });
+      }
+      if (enrollment.member.userId !== user.id) {
+        // Dependente: o Consent granular dele fica em nome do responsável
+        await this.recordDependentConsents(this.prisma, enrollment.member.id, user.id, imageConsent);
+      }
+    } else {
+      await this.assertCatechesisCoordination(enrollment.class.communityId, user);
+      if (dto?.consentGiven !== undefined) {
+        throw new BadRequestException('A equipe registra o termo em papel (paperSignedAt) — o aceite no app é do responsável');
+      }
+      if (dto?.paperSignedAt === undefined && imageConsent === null) {
+        throw new BadRequestException('Informe a data do termo assinado e/ou a resposta sobre o uso de imagem');
+      }
+      if (dto?.paperSignedAt !== undefined) {
+        Object.assign(data, {
+          guardianConsentAt: parseCivilDate(dto.paperSignedAt, 'Data do termo'),
+          guardianConsentChannel: 'PAPER',
+          guardianConsentVersion: null,
+          guardianConsentByUserId: user.id,
+          // Quem assina o termo do menor é o responsável vinculado
+          guardianConsentMemberId: enrollment.member.responsibleId ?? enrollment.member.id,
+        });
+      }
+    }
+    if (imageConsent !== null) {
+      Object.assign(data, { imageConsent, imageConsentAt: now, imageConsentByUserId: user.id });
+    }
+
+    const updated = await this.prisma.catechesisEnrollment.update({
+      where: { id: enrollmentId },
+      data,
+      select: {
+        id: true,
+        imageConsent: true,
+        imageConsentAt: true,
+        guardianConsentAt: true,
+        guardianConsentChannel: true,
+        guardianConsentVersion: true,
+      },
+    });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CONSENT_CHANGE',
+      entity: 'CatechesisEnrollment',
+      entityId: enrollmentId,
+      metadata: {
+        channel: isFamily ? 'APP' : 'PAPER',
+        guardianConsent: data.guardianConsentAt ? true : undefined,
+        imageConsent: imageConsent ?? undefined,
+      },
+    });
+    return updated;
   }
 
   /** Aprova a inscrição (catequista da turma ou coordenação). */
@@ -2646,15 +2883,72 @@ export class CatechesisService {
     return new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
   }
 
+  /**
+   * Avisos automáticos de encontro (novo/remarcado/agenda) ainda cabem hoje na
+   * turma? Criar e apagar encontros em laço disparava push → e-mail → SMS sem
+   * teto; passado o limite, o encontro é gravado e o aviso fica de fora.
+   */
+  private async sessionNoticeAllowed(classId: string): Promise<boolean> {
+    try {
+      const sent = await countGroupBroadcastsToday(this.prisma, 'CatechesisSessionNotice', classId);
+      return sent < BROADCAST_LIMITS.sessionNoticesPerClassPerDay;
+    } catch {
+      return false;
+    }
+  }
+
+  private async recordSessionNotice(classId: string, user: CurrentUser, kind: string, notified: number) {
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'CREATE',
+      entity: 'CatechesisSessionNotice',
+      entityId: classId,
+      metadata: { kind, notified },
+    });
+  }
+
   async createSession(classId: string, dto: { date: string; topic?: string }, user: CurrentUser) {
     const klass = await this.assertClassOperationalAccess(classId, user);
-    const session = await this.prisma.catechesisSession.create({
-      data: { classId, date: new Date(dto.date), topic: dto.topic ?? null },
+    // Data AAAA-MM-DD na convenção dos encontros (meia-noite UTC = dia civil)
+    // e na mesma janela da geração em lote: 'abc' derrubava com 500
+    const day = civilDayOrNull(dto?.date);
+    if (!day || String(dto.date).length !== 10) {
+      throw new BadRequestException('Data inválida — use AAAA-MM-DD');
+    }
+    const currentYear = new Date().getFullYear();
+    const year = Number(day.slice(0, 4));
+    if (year < currentYear - 1 || year > currentYear + 2) {
+      throw new BadRequestException(`Data fora da janela permitida (${currentYear - 1} a ${currentYear + 2})`);
+    }
+    if (dto.topic !== undefined && dto.topic !== null && typeof dto.topic !== 'string') {
+      throw new BadRequestException('Tema inválido — informe um texto');
+    }
+    const date = new Date(`${day}T00:00:00Z`);
+    // Duplicata por DIA CIVIL (encontros legados podem ter hora embutida):
+    // 409 com mensagem útil em vez do P2002 → 500
+    const clash = await this.prisma.catechesisSession.findFirst({
+      where: { classId, date: { gte: date, lt: new Date(date.getTime() + 24 * 60 * 60 * 1000) } },
+      select: { id: true },
     });
+    if (clash) throw new ConflictException('Já existe um encontro nesta data');
+    const sessionCount = await this.prisma.catechesisSession.count({ where: { classId } });
+    if (sessionCount >= 500) {
+      throw new BadRequestException('Limite de encontros da turma atingido — fale com o suporte');
+    }
+    let session;
+    try {
+      session = await this.prisma.catechesisSession.create({
+        data: { classId, date, topic: dto.topic?.trim().slice(0, 120) || null },
+      });
+    } catch (error: any) {
+      if (error?.code === 'P2002') throw new ConflictException('Já existe um encontro nesta data');
+      throw error;
+    }
 
     // Aviso às famílias — só para encontros FUTUROS (registro retroativo de
-    // chamada não gera notificação). Best-effort: não bloqueia a criação.
-    if (session.date.getTime() >= this.startOfTodayUtc().getTime()) {
+    // chamada não gera notificação) e dentro do teto diário da turma.
+    // Best-effort: não bloqueia a criação.
+    if (session.date.getTime() >= this.startOfTodayUtc().getTime() && (await this.sessionNoticeAllowed(classId))) {
       try {
         const enrollments = await this.prisma.catechesisEnrollment.findMany({
           where: { classId, status: 'ACTIVE' },
@@ -2672,9 +2966,10 @@ export class CatechesisService {
             userIds,
             NotificationType.CATECHESIS,
             'Novo encontro de catequese',
-            `${klass.name}: encontro em ${this.formatDayLabel(session.date)}${klass.time ? ` às ${klass.time}` : ''}${dto.topic ? ` — ${dto.topic}` : ''}.`,
+            `${klass.name}: encontro em ${this.formatDayLabel(session.date)}${klass.time ? ` às ${klass.time}` : ''}${session.topic ? ` — ${session.topic}` : ''}.`,
             { kind: 'session', classId, sessionId: session.id },
           );
+          await this.recordSessionNotice(classId, user, 'session', userIds.length);
         }
       } catch (error) {
         // Aviso é conveniência — falha não impede o encontro
@@ -2760,7 +3055,11 @@ export class CatechesisService {
 
       // Encontro FUTURO remarcado: as famílias foram avisadas da data original
       // no createSession — avisa a mudança (best-effort)
-      if (movingDate && updated.date.getTime() >= this.startOfTodayUtc().getTime()) {
+      if (
+        movingDate &&
+        updated.date.getTime() >= this.startOfTodayUtc().getTime() &&
+        (await this.sessionNoticeAllowed(session.class.id))
+      ) {
         try {
           const enrollments = await this.prisma.catechesisEnrollment.findMany({
             where: { classId: session.class.id, status: 'ACTIVE', member: { deletedAt: null } },
@@ -2775,6 +3074,7 @@ export class CatechesisService {
               `${session.class.name}: o encontro de ${this.formatDayLabel(session.date)} mudou para ${this.formatDayLabel(updated.date)}${session.class.time ? ` às ${session.class.time}` : ''}.`,
               { kind: 'session-moved', sessionId, classId: session.classId },
             );
+            await this.recordSessionNotice(session.class.id, user, 'session-moved', userIds.length);
           }
         } catch (error) {
           // Aviso é conveniência
@@ -3062,6 +3362,13 @@ export class CatechesisService {
     if (text.length > 500) throw new BadRequestException('Mensagem muito longa (máx. 500 caracteres)');
 
     const klass = await this.assertClassOperationalAccess(classId, user);
+    // Freio de spam/custo (push → e-mail → SMS): teto por turma e por autor
+    await assertBroadcastQuota(this.prisma, {
+      entity: 'CatechesisClassMessage',
+      entityId: classId,
+      actorUserId: user.id,
+      authorEntities: BROADCAST_AUTHOR_ENTITIES,
+    });
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
       where: { classId, status: 'ACTIVE' },
       select: {
@@ -3076,6 +3383,8 @@ export class CatechesisService {
         `Catequese · ${klass.name}`,
         text,
         { kind: 'message', classId },
+        // Aviso em massa: push → e-mail, sem SMS cobrado (B8)
+        { bulk: true },
       );
     }
 
@@ -3100,7 +3409,7 @@ export class CatechesisService {
     });
     if (!member) return [];
 
-    const enrollments = await this.prisma.catechesisEnrollment.findMany({
+    const familyEnrollments = await this.prisma.catechesisEnrollment.findMany({
       where: {
         status: { in: ['ACTIVE', 'COMPLETED', 'PENDING_APPROVAL', 'WAITLISTED', 'REJECTED'] },
         class: { deletedAt: null },
@@ -3147,6 +3456,8 @@ export class CatechesisService {
       },
       orderBy: { enrolledAt: 'desc' },
     });
+    // Rota "minhas" (A21): vale a comunidade da TURMA, não a do usuário
+    const enrollments = await planFilter(this.planAccess, user, familyEnrollments, (e) => e.class.communityId);
     if (!enrollments.length) return [];
 
     // Próximo encontro por turma
@@ -3218,6 +3529,8 @@ export class CatechesisService {
         waitlistPosition: waitlistPositions.get(enrollment.id) ?? null,
         // Uso de imagem respondido na inscrição (null = não respondido)
         imageConsent: enrollment.imageConsent,
+        // Termo LGPD ainda não registrado: o app pede o aceite ao responsável
+        guardianConsentPending: !enrollment.guardianConsentAt,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
         unreadMessages: enrollment._count.messages,
@@ -3262,26 +3575,12 @@ export class CatechesisService {
   // ===== CONCLUSÃO (gera Sacrament) =====
 
   /** Data da conclusão: AAAA-MM-DD, entre 1900 e HOJE (dia civil do fuso da
-   * paróquia — comparar com meia-noite UTC aceitava "amanhã" depois das 21h). */
+   * paróquia — comparar com meia-noite UTC aceitava "amanhã" depois das 21h).
+   * Gravada ao meio-dia de Brasília: meia-noite UTC saía no certificado (e no
+   * Sacrament gerado) como o dia ANTERIOR. */
   private parseCompletionDate(raw?: string): Date {
     if (!raw) return new Date();
-    const value = String(raw).slice(0, 10);
-    const parsed = new Date(value);
-    if (
-      !/^\d{4}-\d{2}-\d{2}$/.test(value) ||
-      Number.isNaN(parsed.getTime()) ||
-      parsed.toISOString().slice(0, 10) !== value
-    ) {
-      throw new BadRequestException('Data da conclusão inválida — use AAAA-MM-DD');
-    }
-    if (value < '1900-01-01') {
-      throw new BadRequestException('Data da conclusão inválida (anterior a 1900)');
-    }
-    const todayLocal = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Sao_Paulo' }).format(new Date());
-    if (value > todayLocal) {
-      throw new BadRequestException('A data da conclusão não pode ser futura');
-    }
-    return parsed;
+    return parseCivilDate(raw, 'Data da conclusão');
   }
 
   /** Ministro do sacramento: string limpa (registro oficial + PDF) ou nada. */
@@ -3556,9 +3855,9 @@ export class CatechesisService {
     completedAt: Date | null;
     class: { name: string; year: number; stage: { name: string }; community: { name: string; parish: { name: string; logoUrl?: string | null } } };
   }): string[] {
-    const conclusion = (enrollment.completedAt ?? new Date()).toLocaleDateString('pt-BR', {
-      timeZone: 'America/Sao_Paulo',
-    });
+    // Conclusões em lote antigas ficaram em meia-noite UTC: formatCivilDate
+    // lê essas em UTC (o dia certo) e as demais no fuso do público
+    const conclusion = formatCivilDate(enrollment.completedAt ?? new Date());
     return [
       `concluiu a etapa "${enrollment.class.stage.name}" da catequese,`,
       `na ${enrollment.class.name} (${enrollment.class.year}) — ${enrollment.class.community.name}, ${enrollment.class.community.parish.name},`,
@@ -3813,7 +4112,7 @@ export class CatechesisService {
     // datas de HOJE em diante: lançamento retroativo (backfill de chamadas) não
     // deve anunciar "encontros agendados" que já passaram.
     const upcoming = toCreate.filter((date) => date.getTime() >= this.startOfTodayUtc().getTime());
-    if (upcoming.length) {
+    if (upcoming.length && (await this.sessionNoticeAllowed(classId))) {
       try {
         const enrollments = await this.prisma.catechesisEnrollment.findMany({
           where: { classId, status: 'ACTIVE' },
@@ -3832,6 +4131,7 @@ export class CatechesisService {
             `${klass.name}: ${upcoming.length} encontro(s) agendado(s) de ${first} a ${last}${klass.time ? `, às ${klass.time}` : ''}.`,
             { kind: 'agenda', classId },
           );
+          await this.recordSessionNotice(classId, user, 'agenda', userIds.length);
         }
       } catch (error) {
         // Aviso é conveniência
@@ -3866,18 +4166,63 @@ export class CatechesisService {
   ];
 
   /** Requisitos de documentos da turma (padrões quando não configurados). */
-  async getClassDocRequirements(classId: string, _user: CurrentUser) {
+  async getClassDocRequirements(classId: string, user: CurrentUser) {
     const klass = await this.prisma.catechesisClass.findFirst({
       where: { id: classId, deletedAt: null },
-      select: { id: true },
+      select: { id: true, communityId: true, enrollmentOpen: true, enrollmentOpensAt: true, enrollmentClosesAt: true },
     });
     if (!klass) throw new NotFoundException('Turma não encontrada');
+    await this.assertDocRequirementsAccess(klass, user);
     const stored = await this.prisma.catechesisClassDocRequirement.findMany({
       where: { classId },
       orderBy: { ordering: 'asc' },
     });
     if (stored.length) return stored.map((req) => ({ ...req, isDefault: false }));
     return CatechesisService.DEFAULT_DOC_REQUIREMENTS.map((req) => ({ ...req, id: null, classId, isDefault: true }));
+  }
+
+  /**
+   * Quem lê os requisitos da turma: a família com matrícula nela (própria ou
+   * de dependente), quem tem vínculo com a comunidade enquanto as inscrições
+   * estão abertas (tela de inscrição do app) e a equipe da turma. Antes,
+   * qualquer autenticado lia a configuração de turma de outra paróquia.
+   */
+  private async assertDocRequirementsAccess(
+    klass: {
+      id: string;
+      communityId: string;
+      enrollmentOpen: boolean;
+      enrollmentOpensAt: Date | null;
+      enrollmentClosesAt: Date | null;
+    },
+    user: CurrentUser,
+  ) {
+    const member = await this.prisma.member.findFirst({
+      where: { userId: user.id, deletedAt: null },
+      select: { id: true, communityId: true },
+    });
+    if (member) {
+      const familyEnrollment = await this.prisma.catechesisEnrollment.findFirst({
+        where: {
+          classId: klass.id,
+          member: { deletedAt: null, OR: [{ id: member.id }, { responsibleId: member.id }] },
+        },
+        select: { id: true },
+      });
+      if (familyEnrollment) return;
+      if (CatechesisService.enrollmentWindowOpen(klass)) {
+        const linked =
+          member.communityId === klass.communityId ||
+          user.communityId === klass.communityId ||
+          !!(await this.prisma.memberCommunity.findFirst({
+            where: { memberId: member.id, communityId: klass.communityId, isActive: true },
+            select: { id: true },
+          }));
+        if (linked) return;
+      }
+    }
+    // Equipe: catequista da turma ou coordenação da catequese (404/403 dali)
+    await this.assertClassOperationalAccess(klass.id, user);
   }
 
   /** Substitui os requisitos de documentos da turma (coordenação). */
@@ -4062,6 +4407,30 @@ export class CatechesisService {
       .replace(/[^a-z0-9\s]/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
+  }
+
+  /** Partículas que não distinguem pessoas ("de", "da", "dos"...). */
+  private static readonly NAME_PARTICLES = new Set(['de', 'da', 'do', 'das', 'dos', 'e', 'd']);
+
+  /** Nomes significativos (sem acento, caixa e partículas), na ordem. */
+  static nameTokens(value: string): string[] {
+    return CatechesisService.normalizeName(value)
+      .split(' ')
+      .filter((t) => t && !CatechesisService.NAME_PARTICLES.has(t));
+  }
+
+  /**
+   * "Nome confere" só com o NOME COMPLETO: os mesmos nomes dos dois lados
+   * (ordem e partículas à parte). Substring dava selo de conferido à certidão
+   * de qualquer "Maria" para a "Maria Eduarda S." do cadastro.
+   */
+  static sameFullName(documentName: string, memberName: string): boolean {
+    const doc = CatechesisService.nameTokens(documentName);
+    const member = CatechesisService.nameTokens(memberName);
+    if (doc.length < 2 || member.length < 2) return false;
+    const docSet = new Set(doc);
+    const memberSet = new Set(member);
+    return docSet.size === memberSet.size && [...docSet].every((t) => memberSet.has(t));
   }
 
   // Fila do auto-check: no máximo 2 em voo — cada execução segura o binário
@@ -4255,8 +4624,9 @@ export class CatechesisService {
       return { status: 'UNREADABLE', notes: 'Não foi possível interpretar o documento — confira manualmente' };
     }
 
-    if (parsed.legivel === false || !parsed.nome) {
-      return { status: 'UNREADABLE', notes: 'Documento pouco legível ou sem nome identificável — confira manualmente' };
+    // Nome vazio ou de uma palavra só não identifica ninguém: sem selo
+    if (parsed.legivel === false || !parsed.nome || CatechesisService.nameTokens(String(parsed.nome)).length < 2) {
+      return { status: 'UNREADABLE', notes: 'Documento pouco legível ou sem nome completo identificável — confira manualmente' };
     }
 
     const problems: string[] = [];
@@ -4266,14 +4636,17 @@ export class CatechesisService {
     } else {
       okays.push('tipo confere');
     }
-    const docName = CatechesisService.normalizeName(String(parsed.nome));
-    const memberName = CatechesisService.normalizeName(fullName);
-    const nameMatches = docName === memberName || docName.includes(memberName) || memberName.includes(docName);
+    const nameMatches = CatechesisService.sameFullName(String(parsed.nome), fullName);
     if (nameMatches) okays.push('nome confere');
     else problems.push(`nome no documento ("${String(parsed.nome).slice(0, 60)}") difere do cadastro ("${fullName}")`);
 
     const docBirth = typeof parsed.data_nascimento === 'string' ? parsed.data_nascimento.slice(0, 10) : null;
-    if (docBirth && birthDate) {
+    if (docBirth && birthDate && birthDate.getUTCFullYear() <= 1900) {
+      // Cadastro só com dia/mês (ano 1900): compara o que existe
+      const memberDayMonth = birthDate.toISOString().slice(5, 10);
+      if (docBirth.slice(5, 10) === memberDayMonth) okays.push(`dia/mês conferem (cadastro sem ano; documento: ${docBirth})`);
+      else problems.push(`nascimento no documento (${docBirth}) difere do dia/mês do cadastro (${memberDayMonth.split('-').reverse().join('/')})`);
+    } else if (docBirth && birthDate) {
       const memberBirth = birthDate.toISOString().slice(0, 10);
       if (docBirth === memberBirth) okays.push('nascimento confere');
       else problems.push(`nascimento no documento (${docBirth}) difere do cadastro (${memberBirth})`);
@@ -5305,7 +5678,7 @@ export class CatechesisService {
     if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
     await this.assertCatechesisCoordination(targetCommunityId, user);
 
-    const classes = await this.prisma.catechesisClass.findMany({
+    const communityClasses = await this.prisma.catechesisClass.findMany({
       where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
       include: {
         stage: { select: { name: true } },
@@ -5329,6 +5702,8 @@ export class CatechesisService {
       },
       orderBy: { name: 'asc' },
     });
+    // Visão agregada (M35): comunidade sem o plano fica de fora
+    const classes = await planFilter(this.planAccess, user, communityClasses, (klass) => klass.communityId);
 
     return classes.map((klass) => {
       const active = klass.enrollments.filter((e) => e.status === 'ACTIVE');
@@ -5368,7 +5743,7 @@ export class CatechesisService {
     if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
     await this.assertCatechesisCoordination(targetCommunityId, user);
 
-    const classes = await this.prisma.catechesisClass.findMany({
+    const communityClasses = await this.prisma.catechesisClass.findMany({
       where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
       include: {
         stage: { select: { id: true, name: true, ordering: true, color: true, sacramentType: true } },
@@ -5379,6 +5754,8 @@ export class CatechesisService {
       },
       orderBy: [{ stage: { ordering: 'asc' } }, { name: 'asc' }],
     });
+    // Visão agregada (M35): comunidade sem o plano fica de fora
+    const classes = await planFilter(this.planAccess, user, communityClasses, (klass) => klass.communityId);
 
     // Realocados = concluídos com matrícula efetiva em OUTRA turma. Uma
     // consulta para a comunidade toda — sem N+1 por turma.
@@ -5544,6 +5921,16 @@ export class CatechesisService {
         where: { enrollmentId, fromTeam: false, createdAt: { gte: since } },
       });
       if (sentToday >= 20) throw new BadRequestException('Limite de 20 mensagens por dia nesta conversa');
+    } else {
+      // Equipe também tem teto (cada mensagem vira push → e-mail → SMS para a
+      // família): por conversa e por autor em 24h
+      const since = new Date(Date.now() - 24 * 60 * 60 * 1000);
+      const [inConversation, byAuthor] = await Promise.all([
+        this.prisma.catechesisMessage.count({ where: { enrollmentId, fromTeam: true, createdAt: { gte: since } } }),
+        this.prisma.catechesisMessage.count({ where: { authorUserId: user.id, fromTeam: true, createdAt: { gte: since } } }),
+      ]);
+      if (inConversation >= 30) throw new BadRequestException('Limite de 30 mensagens da equipe por dia nesta conversa');
+      if (byAuthor >= 300) throw new BadRequestException('Limite diário de mensagens às famílias atingido — tente amanhã');
     }
     const message = await this.prisma.catechesisMessage.create({
       data: { enrollmentId, authorUserId: user.id, fromTeam: isTeam, body },
@@ -5842,6 +6229,9 @@ export class CatechesisService {
         sessions: total,
         // Uso de imagem: null = não respondido (matrícula antiga/no papel)
         imageConsent: e.imageConsent,
+        // Termo LGPD do responsável: null = pendente (APP ou PAPER quando há)
+        guardianConsentAt: e.guardianConsentAt,
+        guardianConsentChannel: e.guardianConsentChannel,
       };
     });
 

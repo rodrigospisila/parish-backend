@@ -1,4 +1,5 @@
 import {
+  Equals,
   IsBoolean,
   IsEmail,
   IsNotEmpty,
@@ -44,9 +45,10 @@ export class RegisterDto {
   @IsOptional()
   communityId?: string;
 
+  // Aceite dos termos/política obrigatório no cadastro público (M4, LGPD art. 8º §2º)
+  @Equals(true, { message: 'É preciso aceitar os termos de uso e a política de privacidade' })
   @IsBoolean({ message: 'Consentimento deve ser um booleano' })
-  @IsOptional()
-  consentGiven?: boolean;
+  consentGiven: boolean;
 
   @IsString()
   @IsOptional()

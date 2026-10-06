@@ -21,6 +21,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, MemberStatus } from '@prisma/client';
+import { EnforceMemberLimit } from '../plans/plan-gates';
 
 @Controller('members')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -28,6 +29,7 @@ export class MembersController {
   constructor(private readonly membersService: MembersService) {}
 
   @Post()
+  @EnforceMemberLimit() // limite de membros da faixa do plano (log: só avisa; on: 403)
   @Roles(
     UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,

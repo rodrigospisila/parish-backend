@@ -8,6 +8,7 @@ import { AuthService } from './auth.service';
 import { OtpService } from './otp.service';
 import { PasswordResetService } from './password-reset.service';
 import { LoginAttemptsService } from './login-attempts.service';
+import { SessionSecurityService } from './session-security.service';
 import { AuditService } from '../../common/audit.service';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { RolesGuard } from './guards/roles.guard';
@@ -99,6 +100,7 @@ describe('Limites de requisição (A12)', () => {
         { provide: AuditService, useValue: audit },
         { provide: UsersService, useValue: usersService },
         { provide: NotificationsService, useValue: {} },
+        { provide: SessionSecurityService, useValue: { assertPassword: jest.fn() } },
       ],
     })
       // Sessão simulada: o usuário vem do cabeçalho x-test-user

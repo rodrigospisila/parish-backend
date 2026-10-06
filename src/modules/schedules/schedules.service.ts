@@ -6,6 +6,7 @@
   ConflictException,
   HttpException,
   Logger,
+  Optional,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
@@ -18,7 +19,27 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { AuditService } from '../../common/audit.service';
 import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
+import {
+  ScheduleTimeInput,
+  formatYmdBR,
+  isMidnightUtc,
+  scheduleCivilDay,
+  scheduleStart,
+  scheduleWindow,
+  todayYmd,
+  utcYmd,
+  zonedDayRange,
+  zonedMinutesOfDay,
+  zonedParts,
+  zonedYmd,
+} from '../../common/schedule-time';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter, planMark } from '../../common/plan-list';
+
+/** Comunidade da escala: a própria (agenda fixa/avulsa) ou a do evento. */
+const scheduleCommunityId = (schedule: { communityId?: string | null; event?: { communityId?: string | null; community?: { id: string } | null } | null }) =>
+  schedule.communityId ?? schedule.event?.communityId ?? schedule.event?.community?.id ?? null;
 
 /**
  * Quem vê os contatos (e-mail/telefone/cônjuge/foto) dos escalados: a
@@ -61,18 +82,25 @@ export class SchedulesService {
     private readonly pdfService: PdfService,
     private readonly auditService: AuditService,
     private readonly scheduleConflicts: ScheduleConflictsService,
+    // Plano por comunidade nas listas (M35/A21). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private toDateOrThrow(value: string): Date {
     const date = new Date(value);
     if (Number.isNaN(date.getTime())) {
-      throw new BadRequestException('Data da escala informada e invalida');
+      throw new BadRequestException('Data da escala informada e inválida');
     }
     return date;
   }
 
+  /**
+   * Dia da escala em dd/mm/aaaa. Só-dia (00:00Z, agenda fixa/avulsa) é o dia
+   * UTC; instante real é o dia no fuso da paróquia — no TZ do processo, o
+   * 00:00Z virava o dia ANTERIOR (A17).
+   */
   private formatDateLabel(date: Date): string {
-    return date.toLocaleDateString('pt-BR');
+    return formatYmdBR(isMidnightUtc(date) ? utcYmd(date) : zonedYmd(date));
   }
 
   /**
@@ -159,7 +187,7 @@ export class SchedulesService {
     }
     const scoped = await this.getScopedPastoralIds(currentUser);
     if (!scoped.length) {
-      throw new ForbiddenException('Voce nao coordena nenhuma pastoral');
+      throw new ForbiddenException('Você não coordena nenhuma pastoral');
     }
     return scoped;
   }
@@ -188,7 +216,7 @@ export class SchedulesService {
       select: { id: true },
     });
     if (!member) {
-      throw new ForbiddenException('Membro nao pertence a comunidade desta escala');
+      throw new ForbiddenException('Membro não pertence a comunidade desta escala');
     }
   }
 
@@ -280,56 +308,21 @@ export class SchedulesService {
     };
   }
 
+  /** Mesmo dia civil no fuso da paróquia (instantes). */
   private isSameCalendarDay(left: Date, right: Date) {
-    return (
-      left.getFullYear() === right.getFullYear() &&
-      left.getMonth() === right.getMonth() &&
-      left.getDate() === right.getDate()
-    );
+    return zonedYmd(left) === zonedYmd(right);
   }
 
-  private applyHhMm(base: Date, hhmm?: string | null): Date | null {
-    if (!hhmm) return null;
-    const match = /^(\d{1,2}):(\d{2})$/.exec(hhmm.trim());
-    if (!match) return null;
-    const result = new Date(base);
-    result.setHours(Number(match[1]), Number(match[2]), 0, 0);
-    return result;
-  }
-
-  private getScheduleWindow(schedule: {
-    date: Date;
-    startTime?: string | null;
-    endTime?: string | null;
-    event?: {
-      startDate?: Date | null;
-      endDate?: Date | null;
-    } | null;
-  }) {
-    const start = new Date(schedule.date);
-    const fallbackEnd = new Date(start.getTime() + 2 * 60 * 60 * 1000);
-
-    // Escala sem evento (Fase 4.1): usa os horários próprios (HH:MM) sobre a data
-    if (!schedule.event) {
-      const ownStart = this.applyHhMm(start, schedule.startTime) ?? start;
-      const ownEnd = this.applyHhMm(start, schedule.endTime);
-      return {
-        start: ownStart,
-        end: ownEnd && ownEnd.getTime() > ownStart.getTime() ? ownEnd : new Date(ownStart.getTime() + 2 * 60 * 60 * 1000),
-      };
-    }
-
-    const eventStart = schedule.event?.startDate ? new Date(schedule.event.startDate) : start;
-    const eventEnd = schedule.event?.endDate ? new Date(schedule.event.endDate) : fallbackEnd;
-
-    return {
-      start: eventStart.getTime() >= start.getTime() ? eventStart : start,
-      end: eventEnd.getTime() > start.getTime() ? eventEnd : fallbackEnd,
-    };
+  /**
+   * Janela da escala pelo helper único de fuso (A17): sem evento, dia civil +
+   * startTime/endTime no fuso da paróquia; com evento, os horários do evento.
+   */
+  private getScheduleWindow(schedule: ScheduleTimeInput) {
+    return scheduleWindow(schedule);
   }
 
   private getMinutesOfDay(date: Date) {
-    return date.getHours() * 60 + date.getMinutes();
+    return zonedMinutesOfDay(date);
   }
 
   private formatMinutes(minutes: number) {
@@ -349,10 +342,10 @@ export class SchedulesService {
   }
 
   private formatDateTimeLabel(date: Date) {
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear();
-    return `${day}/${month}/${year} ${this.formatMinutes(this.getMinutesOfDay(date))}`;
+    const p = zonedParts(date);
+    const day = p.day.toString().padStart(2, '0');
+    const month = p.month.toString().padStart(2, '0');
+    return `${day}/${month}/${p.year} ${this.formatMinutes(this.getMinutesOfDay(date))}`;
   }
 
   private mergeAvailabilityRanges(
@@ -433,7 +426,7 @@ export class SchedulesService {
       };
     }
 
-    const dayOfWeek = input.scheduleWindow.start.getDay();
+    const dayOfWeek = zonedParts(input.scheduleWindow.start).weekday;
     const dayRules = activeRules.filter((rule) => rule.dayOfWeek === dayOfWeek);
 
     if (!dayRules.length) {
@@ -663,7 +656,7 @@ export class SchedulesService {
     const scopedPastoralIds = await this.requireCoordinatedPastoralIds(currentUser);
 
     if (scheduleDate.getTime() < now.getTime()) {
-      throw new BadRequestException('Nao e possivel criar escala em data e horario anteriores');
+      throw new BadRequestException('Não e possível criar escala em data e horário anteriores');
     }
 
     // Verificar se o evento existe
@@ -699,11 +692,11 @@ export class SchedulesService {
     }
 
     if (scheduleDate.getTime() < event.startDate.getTime()) {
-      throw new BadRequestException('Data da escala nao pode ser anterior ao inicio do evento');
+      throw new BadRequestException('Data da escala não pode ser anterior ao inicio do evento');
     }
 
     if (event.endDate && scheduleDate.getTime() > event.endDate.getTime()) {
-      throw new BadRequestException('Data da escala nao pode ser posterior ao fim do evento');
+      throw new BadRequestException('Data da escala não pode ser posterior ao fim do evento');
     }
 
     const duplicateSchedule = await this.prisma.schedule.findFirst({
@@ -714,7 +707,7 @@ export class SchedulesService {
     });
 
     if (duplicateSchedule) {
-      throw new BadRequestException('Ja existe uma escala para este evento nesta data e horario');
+      throw new BadRequestException('Ja existe uma escala para este evento nesta data e horário');
     }
 
     // Validar acesso ao evento para PASTORAL_COORDINATOR
@@ -732,16 +725,16 @@ export class SchedulesService {
     );
 
     if (duplicatePastoralIds.length > 0) {
-      throw new BadRequestException('Nao envie pastorais duplicadas na configuracao da escala');
+      throw new BadRequestException('Não envie pastorais duplicadas na configuracao da escala');
     }
 
     for (const pastoralSetting of pastoralSettings) {
       if (!availablePastoralIds.has(pastoralSetting.communityPastoralId)) {
-        throw new BadRequestException('Uma das pastorais informadas nao pertence ao evento selecionado');
+        throw new BadRequestException('Uma das pastorais informadas não pertence ao evento selecionado');
       }
 
       if (scopedPastoralIds.length && !scopedPastoralIds.includes(pastoralSetting.communityPastoralId)) {
-        throw new ForbiddenException('Voce nao pode alterar a quantidade de vagas de outra pastoral');
+        throw new ForbiddenException('Você não pode alterar a quantidade de vagas de outra pastoral');
       }
     }
 
@@ -822,13 +815,19 @@ export class SchedulesService {
   async createStandaloneSchedule(dto: CreateStandaloneScheduleDto, currentUser: CurrentUser) {
     const scheduleDate = this.toDateOrThrow(dto.date);
     const now = new Date();
-    if (scheduleDate.getTime() < now.getTime()) {
-      throw new BadRequestException('Nao e possivel criar escala em data e horario anteriores');
+    // Escala avulsa: date é só-dia e a hora vem em startTime (fuso da
+    // paróquia). Sem horário, vale o dia inteiro — hoje ainda pode.
+    const standaloneTime = { date: scheduleDate, startTime: dto.startTime ?? null };
+    const isPast = dto.startTime
+      ? scheduleStart(standaloneTime).getTime() < now.getTime()
+      : scheduleCivilDay(standaloneTime) < todayYmd(now);
+    if (isPast) {
+      throw new BadRequestException('Não e possível criar escala em data e horário anteriores');
     }
 
     const inScope = await this.hierarchyService.isCommunityInScope(currentUser, dto.communityId);
     if (!inScope) {
-      throw new ForbiddenException('Voce nao tem permissao para criar escalas nesta comunidade');
+      throw new ForbiddenException('Você não tem permissão para criar escalas nesta comunidade');
     }
 
     const pastoralSettings = dto.pastoralSettings ?? [];
@@ -843,10 +842,10 @@ export class SchedulesService {
       const validIds = new Set(communityPastorals.map((cp) => cp.id));
       for (const setting of pastoralSettings) {
         if (!validIds.has(setting.communityPastoralId)) {
-          throw new BadRequestException('Pastoral informada nao pertence a esta comunidade');
+          throw new BadRequestException('Pastoral informada não pertence a esta comunidade');
         }
         if (scopedPastoralIds.length && !scopedPastoralIds.includes(setting.communityPastoralId)) {
-          throw new ForbiddenException('Voce nao pode configurar vagas de outra pastoral');
+          throw new ForbiddenException('Você não pode configurar vagas de outra pastoral');
         }
       }
     }
@@ -1020,14 +1019,18 @@ export class SchedulesService {
       },
     });
 
-    return schedules.map((schedule) => this.normalizeSchedulePayload(schedule));
+    const normalized = schedules.map((schedule) => this.normalizeSchedulePayload(schedule));
+    // Escalas de UM evento (?eventId) são do calendário (grátis — plan-routes);
+    // a lista geral marca com cadeado as de comunidade sem o plano (M35)
+    if (eventId || !currentUser) return normalized;
+    return planMark(this.planAccess, currentUser, normalized, (schedule: any) => scheduleCommunityId(schedule));
   }
 
   async findOneSchedule(id: string, currentUser?: CurrentUser) {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta escala');
+        throw new ForbiddenException('Você não tem permissão para acessar esta escala');
       }
     }
 
@@ -1257,12 +1260,13 @@ export class SchedulesService {
     }
 
     if (schedule.status !== ScheduleStatus.OPEN) {
-      throw new BadRequestException('Escala nao esta aberta para atribuicao');
+      throw new BadRequestException('Escala não está aberta para atribuicao');
     }
 
-    // Impedir atribuicao em escalas passadas
-    if (schedule.date.getTime() < new Date().getTime()) {
-      throw new BadRequestException('Nao e possivel adicionar membros em escalas com data/hora passada');
+    // Impedir atribuicao em escalas passadas (inicio efetivo: a Missa fixa de
+    // hoje a noite, gravada 00:00Z, ainda aceita escalados pela manha)
+    if (scheduleStart(schedule).getTime() < new Date().getTime()) {
+      throw new BadRequestException('Não e possível adicionar membros em escalas com data/hora passada');
     }
 
     // Validar acesso Ã  escala
@@ -1307,7 +1311,7 @@ export class SchedulesService {
       }
 
       if (requestedPastoralId && !schedulePastorals.some((ep) => ep.communityPastoralId === requestedPastoralId)) {
-        throw new BadRequestException('Esta pastoral nao esta vinculada ao evento da escala');
+        throw new BadRequestException('Esta pastoral não está vinculada ao evento da escala');
       }
 
       if (
@@ -1315,12 +1319,12 @@ export class SchedulesService {
         scopedPastoralIds.length > 0 &&
         !allowedPastoralIds.includes(requestedPastoralId)
       ) {
-        throw new ForbiddenException('Voce nao tem permissao para atribuir esta pastoral nesta escala');
+        throw new ForbiddenException('Você não tem permissão para atribuir esta pastoral nesta escala');
       }
 
       if (!requestedPastoralId && allowedPastoralIds.length !== 1) {
         if (allowedPastoralIds.length === 0) {
-          throw new ForbiddenException('Voce nao pode atribuir membros para pastoral sem permissao');
+          throw new ForbiddenException('Você não pode atribuir membros para pastoral sem permissão');
         }
 
         throw new BadRequestException(
@@ -1337,7 +1341,7 @@ export class SchedulesService {
       });
 
       if (!pastoralMember) {
-        throw new BadRequestException('Membro nao pertence a esta pastoral');
+        throw new BadRequestException('Membro não pertence a esta pastoral');
       }
 
       const selectedPastoral = schedulePastorals.find(
@@ -1365,7 +1369,7 @@ export class SchedulesService {
         }
       }
     } else if (requestedPastoralId) {
-      throw new BadRequestException('Evento desta escala nao possui pastorais vinculadas');
+      throw new BadRequestException('Evento desta escala não possui pastorais vinculadas');
     }
 
     // Evitar duplicidade para o mesmo membro e mesma funcao
@@ -1391,7 +1395,7 @@ export class SchedulesService {
     });
 
     if (existingForSchedule) {
-      throw new BadRequestException('Membro ja foi adicionado nesta escala para outra funcao');
+      throw new BadRequestException('Membro já foi adicionado nesta escala para outra funcao');
     }
 
     // Conflito GLOBAL (qualquer comunidade): avisa e exige confirmação explícita
@@ -1760,7 +1764,7 @@ export class SchedulesService {
         servesInSchedule ||
         (await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId));
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta escala');
+        throw new ForbiddenException('Você não tem permissão para acessar esta escala');
       }
       return this.prisma.scheduleAssignment.findMany({
         where: { scheduleId },
@@ -1784,7 +1788,7 @@ export class SchedulesService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToAssignment(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta atribuicao');
+        throw new ForbiddenException('Você não tem permissão para acessar esta atribuicao');
       }
     }
 
@@ -1865,7 +1869,7 @@ export class SchedulesService {
     const scopedPastoralIds = await this.requireCoordinatedPastoralIds(currentUser);
 
     if (assignment.checkedIn) {
-      throw new BadRequestException('Nao e possivel substituir um membro apos o check-in');
+      throw new BadRequestException('Não e possível substituir um membro apos o check-in');
     }
 
     if (assignment.memberId === newMemberId) {
@@ -1889,17 +1893,17 @@ export class SchedulesService {
     }
 
     if (schedule.status !== ScheduleStatus.OPEN) {
-      throw new BadRequestException('Escala nao esta aberta para substituicao');
+      throw new BadRequestException('Escala não está aberta para substituicao');
     }
 
-    if (schedule.date.getTime() < new Date().getTime()) {
-      throw new BadRequestException('Nao e possivel substituir membros em escalas com data/hora passada');
+    if (scheduleStart(schedule).getTime() < new Date().getTime()) {
+      throw new BadRequestException('Não e possível substituir membros em escalas com data/hora passada');
     }
 
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, assignment.scheduleId);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para substituir membros nesta escala');
+        throw new ForbiddenException('Você não tem permissão para substituir membros nesta escala');
       }
     }
 
@@ -1935,7 +1939,7 @@ export class SchedulesService {
       }
 
       if (requestedPastoralId && !schedulePastorals.some((ep) => ep.communityPastoralId === requestedPastoralId)) {
-        throw new BadRequestException('Esta pastoral nao esta vinculada ao evento da escala');
+        throw new BadRequestException('Esta pastoral não está vinculada ao evento da escala');
       }
 
       if (
@@ -1943,12 +1947,12 @@ export class SchedulesService {
         scopedPastoralIds.length > 0 &&
         !allowedPastoralIds.includes(requestedPastoralId)
       ) {
-        throw new ForbiddenException('Voce nao tem permissao para substituir esta pastoral nesta escala');
+        throw new ForbiddenException('Você não tem permissão para substituir esta pastoral nesta escala');
       }
 
       if (!requestedPastoralId && allowedPastoralIds.length !== 1) {
         if (allowedPastoralIds.length === 0) {
-          throw new ForbiddenException('Voce nao pode atribuir membros para pastoral sem permissao');
+          throw new ForbiddenException('Você não pode atribuir membros para pastoral sem permissão');
         }
 
         throw new BadRequestException(
@@ -1965,7 +1969,7 @@ export class SchedulesService {
       });
 
       if (!pastoralMember) {
-        throw new BadRequestException('Membro nao pertence a esta pastoral');
+        throw new BadRequestException('Membro não pertence a esta pastoral');
       }
 
       const selectedPastoral = schedulePastorals.find(
@@ -1996,7 +2000,7 @@ export class SchedulesService {
         }
       }
     } else if (requestedPastoralId) {
-      throw new BadRequestException('Evento desta escala nao possui pastorais vinculadas');
+      throw new BadRequestException('Evento desta escala não possui pastorais vinculadas');
     }
 
     const existingAssignment = await this.prisma.scheduleAssignment.findFirst({
@@ -2027,7 +2031,7 @@ export class SchedulesService {
     });
 
     if (existingForSchedule) {
-      throw new BadRequestException('Membro ja foi adicionado nesta escala para outra funcao');
+      throw new BadRequestException('Membro já foi adicionado nesta escala para outra funcao');
     }
 
     // Conflito GLOBAL (qualquer comunidade) do substituto
@@ -2219,7 +2223,7 @@ export class SchedulesService {
 
     const canManage = await this.hierarchyService.canManageEvent(currentUser.id, eventId);
     if (!canManage) {
-      throw new ForbiddenException('Voce nao tem permissao para gerenciar este evento');
+      throw new ForbiddenException('Você não tem permissão para gerenciar este evento');
     }
 
     // Buscar o evento com suas pastorais vinculadas
@@ -2357,7 +2361,7 @@ export class SchedulesService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta escala');
+        throw new ForbiddenException('Você não tem permissão para acessar esta escala');
       }
     }
 
@@ -2610,10 +2614,14 @@ export class SchedulesService {
       };
     }
 
+    // startTime/endTime entram na janela: escala da agenda fixa não tem evento
     const currentWindow = this.getScheduleWindow({
       date: schedule.date,
+      startTime: schedule.startTime,
+      endTime: schedule.endTime,
       event: schedule.event,
     });
+    const currentDay = scheduleCivilDay(schedule);
     const [relatedAssignments, availabilityRules, availabilityExceptions] = await Promise.all([
       this.prisma.scheduleAssignment.findMany({
         where: {
@@ -2715,22 +2723,17 @@ export class SchedulesService {
           exceptions: availabilityExceptionsByMember.get(memberId) || [],
         });
         const currentScheduleAssigned = schedule.assignments.some((assignment) => assignment.memberId === memberId);
+        // Início efetivo (Missa fixa de hoje à noite ainda é futura às 10h)
         const futureAssignments = memberAssignments.filter(
           (assignment) =>
             assignment.scheduleId !== schedule.id &&
-            assignment.schedule.date.getTime() >= now.getTime(),
+            scheduleStart(assignment.schedule).getTime() >= now.getTime(),
         );
-        const sameDayAssignments = futureAssignments.filter((assignment) =>
-          this.isSameCalendarDay(assignment.schedule.date, schedule.date),
+        const sameDayAssignments = futureAssignments.filter(
+          (assignment) => scheduleCivilDay(assignment.schedule) === currentDay,
         );
         const overlappingAssignments = futureAssignments.filter((assignment) =>
-          this.windowsOverlap(
-            currentWindow,
-            this.getScheduleWindow({
-              date: assignment.schedule.date,
-              event: assignment.schedule.event,
-            }),
-          ),
+          this.windowsOverlap(currentWindow, this.getScheduleWindow(assignment.schedule)),
         );
         const upcoming30DaysCount = futureAssignments.filter(
           (assignment) => assignment.schedule.date.getTime() <= next30Days.getTime(),
@@ -2812,6 +2815,9 @@ export class SchedulesService {
       scheduleId: schedule.id,
       title: schedule.title,
       date: schedule.date,
+      // Escala da agenda fixa: date é só-dia e a hora vem daqui (A17)
+      startTime: schedule.startTime ?? null,
+      endTime: schedule.endTime ?? null,
       event: eventSummary,
       pastorals: pastoralSummaries,
       groups,
@@ -2845,7 +2851,7 @@ export class SchedulesService {
   ) {
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, dto.scheduleId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+      throw new ForbiddenException('Você não tem permissão para alterar esta escala');
     }
 
     const schedule = await this.prisma.schedule.findFirst({
@@ -2856,7 +2862,7 @@ export class SchedulesService {
       },
     });
     if (!schedule) {
-      throw new NotFoundException('Escala nao encontrada');
+      throw new NotFoundException('Escala não encontrada');
     }
 
     const group = await this.prisma.pastoralGroup.findFirst({
@@ -2870,26 +2876,26 @@ export class SchedulesService {
       },
     });
     if (!group) {
-      throw new NotFoundException('Grupo nao encontrado');
+      throw new NotFoundException('Grupo não encontrado');
     }
 
     const schedulePastoral = schedule.pastorals.find(
       (sp) => sp.communityPastoralId === group.communityPastoralId,
     );
     if (!schedulePastoral) {
-      throw new BadRequestException('A pastoral deste grupo nao esta vinculada a esta escala');
+      throw new BadRequestException('A pastoral deste grupo não está vinculada a esta escala');
     }
 
     // Escopo do coordenador de pastoral
     if (currentUser.role === 'PASTORAL_COORDINATOR') {
       const scoped = await this.getScopedPastoralIds(currentUser);
       if (!scoped.includes(group.communityPastoralId)) {
-        throw new ForbiddenException('Voce so pode escalar grupos das suas pastorais');
+        throw new ForbiddenException('Você só pode escalar grupos das suas pastorais');
       }
     }
 
     if (group.members.length === 0) {
-      throw new BadRequestException('Este grupo nao possui membros ativos');
+      throw new BadRequestException('Este grupo não possui membros ativos');
     }
 
     // Capacidade em grupos distintos (numa troca, o grupo substituído não conta)
@@ -2905,12 +2911,12 @@ export class SchedulesService {
         throw new BadRequestException('Selecione um grupo diferente para a troca');
       }
       if (!assignedGroupIds.has(replaceGroupId)) {
-        throw new BadRequestException('O grupo a substituir nao esta escalado nesta escala');
+        throw new BadRequestException('O grupo a substituir não está escalado nesta escala');
       }
       assignedGroupIds.delete(replaceGroupId);
     }
     if (assignedGroupIds.has(group.id)) {
-      throw new BadRequestException('Este grupo ja esta escalado nesta escala');
+      throw new BadRequestException('Este grupo já está escalado nesta escala');
     }
     if (requiredGroups > 0 && assignedGroupIds.size >= requiredGroups) {
       throw new BadRequestException('Limite de grupos atingido para esta escala');
@@ -2981,7 +2987,7 @@ export class SchedulesService {
   async removeGroupAssignment(scheduleId: string, pastoralGroupId: string, currentUser: CurrentUser) {
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+      throw new ForbiddenException('Você não tem permissão para alterar esta escala');
     }
 
     const result = await this.prisma.scheduleAssignment.deleteMany({
@@ -3002,7 +3008,7 @@ export class SchedulesService {
   ) {
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+      throw new ForbiddenException('Você não tem permissão para alterar esta escala');
     }
 
     const schedule = await this.prisma.schedule.findFirst({
@@ -3010,7 +3016,7 @@ export class SchedulesService {
       include: { pastorals: { select: { communityPastoralId: true } } },
     });
     if (!schedule) {
-      throw new NotFoundException('Escala nao encontrada');
+      throw new NotFoundException('Escala não encontrada');
     }
 
     const linked = new Set(schedule.pastorals.map((p) => p.communityPastoralId));
@@ -3019,10 +3025,10 @@ export class SchedulesService {
 
     for (const setting of dto.pastoralSettings || []) {
       if (!linked.has(setting.communityPastoralId)) {
-        throw new BadRequestException('Pastoral nao vinculada a esta escala');
+        throw new BadRequestException('Pastoral não vinculada a esta escala');
       }
       if (scopedPastoralIds && !scopedPastoralIds.includes(setting.communityPastoralId)) {
-        throw new ForbiddenException('Voce so pode ajustar vagas das suas pastorais');
+        throw new ForbiddenException('Você só pode ajustar vagas das suas pastorais');
       }
       await this.prisma.schedulePastoral.updateMany({
         where: { scheduleId, communityPastoralId: setting.communityPastoralId },
@@ -3173,20 +3179,31 @@ export class SchedulesService {
               select: {
                 pastoralGroupId: true,
                 scheduleId: true,
-                schedule: { select: { date: true } },
+                schedule: {
+                  select: {
+                    date: true,
+                    startTime: true,
+                    event: { select: { startDate: true, endDate: true } },
+                  },
+                },
               },
             })
           : [];
-        const dayKeyOf = (value: Date) =>
-          `${value.getFullYear()}-${value.getMonth()}-${value.getDate()}`;
-        const targetDayKey = dayKeyOf(new Date(candidates.date as any));
+        // Dia civil da paróquia (A17), não o fuso do processo
+        const dayKeyOf = (value: ScheduleTimeInput) => scheduleCivilDay(value);
+        // eventSummary sempre vem preenchido; escala sem evento tem id null
+        const targetDayKey = dayKeyOf({
+          date: new Date(candidates.date as any),
+          startTime: (candidates as any).startTime ?? null,
+          event: (candidates as any).event?.id ? {} : null,
+        });
         const groupLoad = new Map<string, Set<string>>();
         const groupSameDay = new Set<string>();
         for (const row of groupLoadRows) {
           if (!row.pastoralGroupId) continue;
           if (!groupLoad.has(row.pastoralGroupId)) groupLoad.set(row.pastoralGroupId, new Set());
           groupLoad.get(row.pastoralGroupId)!.add(row.scheduleId);
-          if (row.scheduleId !== scheduleId && dayKeyOf(new Date(row.schedule.date)) === targetDayKey) {
+          if (row.scheduleId !== scheduleId && dayKeyOf(row.schedule) === targetDayKey) {
             groupSameDay.add(row.pastoralGroupId);
           }
         }
@@ -3390,7 +3407,7 @@ export class SchedulesService {
    * Busca as escalas do usuÃ¡rio logado
    * Retorna apenas escalas futuras ou do dia atual
    */
-  async findMyAssignments(userId: string) {
+  async findMyAssignments(userId: string, currentUser?: Pick<CurrentUser, 'role'>) {
     // Buscar o membro vinculado ao usuÃ¡rio
     const member = await this.prisma.member.findFirst({
       where: { userId },
@@ -3404,12 +3421,12 @@ export class SchedulesService {
       };
     }
 
-    // Dia civil local em meia-noite UTC — compatível com datas date-only
-    const now = new Date();
-    const today = new Date(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+    // Dia civil da paróquia em meia-noite UTC — compatível com datas date-only
+    // (antes saía do fuso do processo)
+    const today = new Date(`${todayYmd()}T00:00:00.000Z`);
 
     // Buscar escalas futuras
-    const upcomingAssignments = await this.prisma.scheduleAssignment.findMany({
+    const allUpcoming = await this.prisma.scheduleAssignment.findMany({
       where: {
         memberId: member.id,
         schedule: {
@@ -3456,12 +3473,15 @@ export class SchedulesService {
         },
       },
     });
+    // Rota "minhas" (A21): vale a comunidade da ESCALA, não a do usuário
+    const planUser = currentUser ?? { role: UserRole.FAITHFUL };
+    const upcomingAssignments = await planFilter(this.planAccess, planUser, allUpcoming, (a) => scheduleCommunityId(a.schedule));
 
     // Buscar escalas passadas (Ãºltimos 30 dias)
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
-    const pastAssignments = await this.prisma.scheduleAssignment.findMany({
+    const allPast = await this.prisma.scheduleAssignment.findMany({
       where: {
         memberId: member.id,
         schedule: {
@@ -3481,6 +3501,7 @@ export class SchedulesService {
                 title: true,
                 type: true,
                 location: true,
+                communityId: true,
               },
             },
           },
@@ -3493,6 +3514,7 @@ export class SchedulesService {
       },
       take: 10,
     });
+    const pastAssignments = await planFilter(this.planAccess, planUser, allPast, (a) => scheduleCommunityId(a.schedule));
 
     // Grupos em que o membro é líder (para responder pela equipe)
     const groupMemberships = await this.prisma.pastoralMember.findMany({
@@ -3591,7 +3613,7 @@ export class SchedulesService {
       throw new BadRequestException('Informe a escala e o grupo');
     }
     if (dto.action !== 'confirm' && dto.action !== 'decline') {
-      throw new BadRequestException('Acao invalida (use confirm ou decline)');
+      throw new BadRequestException('Acao inválida (use confirm ou decline)');
     }
 
     // O grupo precisa pertencer a uma pastoral vinculada à escala (mesma regra
@@ -3601,14 +3623,14 @@ export class SchedulesService {
       select: { id: true, communityPastoralId: true },
     });
     if (!group) {
-      throw new NotFoundException('Grupo nao encontrado');
+      throw new NotFoundException('Grupo não encontrado');
     }
     const linkedPastoral = await this.prisma.schedulePastoral.findFirst({
       where: { scheduleId: dto.scheduleId, communityPastoralId: group.communityPastoralId },
       select: { id: true },
     });
     if (!linkedPastoral) {
-      throw new BadRequestException('A pastoral deste grupo nao esta vinculada a esta escala');
+      throw new BadRequestException('A pastoral deste grupo não está vinculada a esta escala');
     }
 
     // 1) Líder do grupo responde pela própria equipe (qualquer papel)
@@ -3641,7 +3663,7 @@ export class SchedulesService {
           currentUser.coordinatedPastoralIds ??
           (await this.hierarchyService.getUserPastoralIds(currentUser.id, true));
         if (!coordinated.includes(group.communityPastoralId)) {
-          throw new ForbiddenException('Voce so pode responder por grupos das suas pastorais');
+          throw new ForbiddenException('Você só pode responder por grupos das suas pastorais');
         }
       }
     }
@@ -3687,12 +3709,12 @@ export class SchedulesService {
 
   private async assertCanRespondForMember(currentUser: CurrentUser, scheduleId: string) {
     if (!this.assistedResponseRoles.includes(currentUser.role)) {
-      throw new ForbiddenException('Voce nao tem permissao para responder esta escala');
+      throw new ForbiddenException('Você não tem permissão para responder esta escala');
     }
 
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para responder escalas desta comunidade');
+      throw new ForbiddenException('Você não tem permissão para responder escalas desta comunidade');
     }
   }
 
@@ -3903,7 +3925,7 @@ export class SchedulesService {
       if (from) {
         const fromDate = new Date(from);
         if (Number.isNaN(fromDate.getTime())) {
-          throw new BadRequestException('Data inicial (from) invalida');
+          throw new BadRequestException('Data inicial (from) inválida');
         }
 
         dateFilter.gte = fromDate;
@@ -3912,16 +3934,17 @@ export class SchedulesService {
       if (to) {
         const toDate = new Date(to);
         if (Number.isNaN(toDate.getTime())) {
-          throw new BadRequestException('Data final (to) invalida');
+          throw new BadRequestException('Data final (to) inválida');
         }
 
-        // Considera ate o fim do dia informado
-        toDate.setHours(23, 59, 59, 999);
-        dateFilter.lte = toDate;
+        // Considera ate o fim do dia informado, no fuso da paroquia (setHours
+        // usava o fuso do processo e cortava o proprio dia final)
+        const toDay = /^\d{4}-\d{2}-\d{2}$/.test(String(to).trim()) ? String(to).trim() : zonedYmd(toDate);
+        dateFilter.lte = zonedDayRange(toDay).end;
       }
 
       if (dateFilter.gte && dateFilter.lte && dateFilter.gte.getTime() > dateFilter.lte.getTime()) {
-        throw new BadRequestException('Data inicial nao pode ser maior que data final');
+        throw new BadRequestException('Data inicial não pode ser maior que data final');
       }
 
       where.date = dateFilter;
@@ -4013,7 +4036,13 @@ export class SchedulesService {
       },
     });
 
-    return schedules.map((schedule) => {
+    // Visão consolidada e o PDF (que a reusa): sem as escalas de comunidade
+    // sem o plano (M35)
+    const paidSchedules = currentUser
+      ? await planFilter(this.planAccess, currentUser, schedules, (schedule: any) => scheduleCommunityId(schedule))
+      : schedules;
+
+    return paidSchedules.map((schedule) => {
       const total = schedule.assignments.length;
       const pending = schedule.assignments.filter((assignment) => assignment.status === 'PENDING').length;
       const confirmed = schedule.assignments.filter((assignment) => assignment.status === 'CONFIRMED').length;
@@ -4127,7 +4156,7 @@ export class SchedulesService {
       if (!isSelf) {
         const canManage = await this.hierarchyService.canManageMember(currentUser.id, memberId);
         if (!canManage) {
-          throw new ForbiddenException('Voce nao tem permissao para ver as estatisticas deste membro');
+          throw new ForbiddenException('Você não tem permissão para ver as estatisticas deste membro');
         }
       }
     }
@@ -4185,7 +4214,7 @@ export class SchedulesService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para alterar esta escala');
+        throw new ForbiddenException('Você não tem permissão para alterar esta escala');
       }
     }
 
@@ -4245,7 +4274,7 @@ export class SchedulesService {
 
     const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para avisar a equipe desta escala');
+      throw new ForbiddenException('Você não tem permissão para avisar a equipe desta escala');
     }
 
     const userIds = await this.getAssignedUserIds(scheduleId);

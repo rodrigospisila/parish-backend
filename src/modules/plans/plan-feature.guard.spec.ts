@@ -29,6 +29,22 @@ class FreeDummy {
   open() {}
 }
 
+// Mesmos nomes dos controllers reais: as regras de plan-routes.ts são por Classe.método
+@RequiresFeature('catechesis')
+class CatechesisController {
+  myFamily() {}
+  myClasses() {}
+}
+
+@RequiresFeature('schedules')
+class SchedulesController {
+  @PlanResource('event:query.eventId')
+  findAllSchedules() {}
+  findMyAssignments() {}
+  @PlanResource('schedule:body.scheduleIds')
+  generateRotation() {}
+}
+
 describe('PlanFeatureGuard', () => {
   let mode: string | undefined;
   let plans: Record<string, any>;
@@ -36,6 +52,10 @@ describe('PlanFeatureGuard', () => {
   let access: PlanAccessService;
   let guard: PlanFeatureGuard;
   let warn: jest.SpyInstance;
+  let memberOf: Record<string, string>;
+  let memberLinks: Record<string, string[]>;
+  let resources: Record<string, Record<string, string[]>>;
+  let communities: Record<string, any>;
 
   const ctx = (cls: any, handler: string, req: any): ExecutionContext =>
     ({
@@ -48,6 +68,14 @@ describe('PlanFeatureGuard', () => {
 
   beforeEach(() => {
     mode = 'on';
+    memberOf = {};
+    memberLinks = {};
+    resources = {};
+    communities = {
+      'paid-com': { id: 'paid-com', parishId: 'P-PAID', parish: { dioceseId: 'D-PAID' } },
+      'free-com': { id: 'free-com', parishId: 'P-FREE', parish: { dioceseId: 'D-FREE' } },
+      'trial-com': { id: 'trial-com', parishId: 'P-PAID', parish: { dioceseId: 'D-PAID' } },
+    };
     plans = {
       'paid-com': { status: 'ACTIVE', trialEndsAt: null, currentPeriodEnd: null, graceDays: 15, tier: { key: 'capela' } },
       'trial-com': { status: 'TRIAL', trialEndsAt: future(), currentPeriodEnd: null, graceDays: 15, tier: null },
@@ -69,6 +97,29 @@ describe('PlanFeatureGuard', () => {
           where.id === 'class-paid' ? { communityId: 'paid-com' } : where.id === 'class-free' ? { communityId: 'free-com' } : null,
         ),
       },
+      schedule: {
+        findUnique: jest.fn(async ({ where }) =>
+          where.id === 's-paid' ? { communityId: 'paid-com', event: null } : where.id === 's-free' ? { communityId: 'free-com', event: null } : null,
+        ),
+      },
+      event: { findUnique: jest.fn(async ({ where }) => (where.id === 'ev-free' ? { communityId: 'free-com' } : null)) },
+      member: { findFirst: jest.fn(async ({ where }) => (memberOf[where.userId] ? { id: memberOf[where.userId] } : null)) },
+      // Vínculos do CADASTRO de membro (MemberCommunity)
+      memberCommunity: {
+        findMany: jest.fn(async ({ where }) => (memberLinks[where.memberId] ?? []).map((communityId) => ({ communityId }))),
+      },
+      // Comunidades dos recursos do membro (turmas, escalas, pastorais)
+      community: {
+        findMany: jest.fn(async ({ where }) => {
+          const json = JSON.stringify(where.OR ?? []);
+          const memberId = Object.keys(resources).find((id) => json.includes(`"${id}"`));
+          const kind = json.includes('catechesisClasses') ? 'catechesis' : json.includes('schedules') ? 'schedules' : 'other';
+          return (memberId ? (resources[memberId][kind] ?? []) : []).map((id: string) => ({ id }));
+        }),
+        // HierarchyService.isCommunityInScope (admins)
+        findUnique: jest.fn(async ({ where }) => communities[where.id] ?? null),
+      },
+      parish: { findUnique: jest.fn(async ({ where }) => (where.id === 'P-PAID' ? { dioceseId: 'D-PAID' } : { dioceseId: 'D-OUTRA' })) },
     };
     const config = { get: jest.fn(() => mode) } as any;
     access = new PlanAccessService(prisma, config);
@@ -171,15 +222,17 @@ describe('PlanFeatureGuard', () => {
       await expect(guard.canActivate(ctx(CatechesisDummy, 'byClass', req))).resolves.toBe(true);
     });
 
-    it('communityId explícito: params > query > body', async () => {
+    it('communityId explícito (no escopo): params > query > body', async () => {
+      const linked = (communityId: string) =>
+        faithful({ communities: ['paid-com', 'trial-com', 'expired-com'].map((id) => ({ communityId: id, isActive: true })), communityId });
       await expect(
-        guard.canActivate(ctx(CatechesisDummy, 'plain', { params: { communityId: 'paid-com' }, query: { communityId: 'free-com' }, user: faithful() })),
+        guard.canActivate(ctx(CatechesisDummy, 'plain', { params: { communityId: 'paid-com' }, query: { communityId: 'free-com' }, user: linked('free-com') })),
       ).resolves.toBe(true);
       await expect(
-        guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { communityId: 'trial-com' }, body: { communityId: 'free-com' }, user: faithful() })),
+        guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { communityId: 'trial-com' }, body: { communityId: 'free-com' }, user: linked('free-com') })),
       ).resolves.toBe(true);
       await expect(
-        guard.canActivate(ctx(CatechesisDummy, 'plain', { body: { communityId: 'expired-com' }, user: faithful({ communityId: 'paid-com' }) })),
+        guard.canActivate(ctx(CatechesisDummy, 'plain', { body: { communityId: 'expired-com' }, user: linked('paid-com') })),
       ).rejects.toBeInstanceOf(ForbiddenException);
     });
 
@@ -241,6 +294,159 @@ describe('PlanFeatureGuard', () => {
       access.invalidate('paid-com');
       await guard.canActivate(ctx(CatechesisDummy, 'plain', req));
       expect(prisma.communityPlan.findUnique).toHaveBeenCalledTimes(2);
+    });
+  });
+
+  describe('M43 — id explícito precisa estar no escopo', () => {
+    const scopeError = async (promise: Promise<unknown>) => {
+      try {
+        await promise;
+      } catch (error: any) {
+        return error.getResponse();
+      }
+      throw new Error('esperava 403');
+    };
+
+    it('fiel de comunidade sem plano com ?communityId= de comunidade paga de fora: 403 PLAN_SCOPE', async () => {
+      const req = { query: { communityId: 'paid-com' }, user: faithful() };
+      expect(await scopeError(guard.canActivate(ctx(CatechesisDummy, 'plain', req)))).toEqual({
+        code: 'PLAN_SCOPE',
+        feature: 'catechesis',
+        message: 'Comunidade fora do seu escopo',
+      });
+      // nem chegou a consultar o plano da comunidade paga
+      expect(prisma.communityPlan.findUnique).not.toHaveBeenCalled();
+    });
+
+    it('modo log: libera, mas registra "fora do escopo"', async () => {
+      mode = 'log';
+      const req = { method: 'GET', route: { path: '/schedules/coordinator-overview' }, query: { communityId: 'paid-com' }, user: faithful() };
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', req))).resolves.toBe(true);
+      expect(warn.mock.calls[0][0]).toContain('fora do escopo');
+    });
+
+    it('fiel com vínculo de MEMBRO na Matriz paga (turmas abertas): passa', async () => {
+      memberOf = { u1: 'm1' };
+      memberLinks = { m1: ['paid-com'] };
+      const req = { query: { communityId: 'paid-com' }, user: faithful() };
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', req))).resolves.toBe(true);
+    });
+
+    it('PARISH_ADMIN: ?communityId= de outra paróquia → 403; da própria → avalia o plano dela', async () => {
+      const admin = { id: 'p', role: 'PARISH_ADMIN', parishId: 'P-FREE' };
+      await expect(
+        scopeError(guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { communityId: 'paid-com' }, user: admin }))),
+      ).resolves.toMatchObject({ code: 'PLAN_SCOPE' });
+      await expect(
+        guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { communityId: 'paid-com' }, user: { ...admin, parishId: 'P-PAID' } })),
+      ).resolves.toBe(true);
+    });
+
+    it('?parishId= de outra paróquia → 403 PLAN_SCOPE (diocese: só as paróquias dela)', async () => {
+      const coord = faithful({ role: 'COMMUNITY_COORDINATOR', parishId: 'P-FREE' });
+      await expect(
+        scopeError(guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { parishId: 'P-PAID' }, user: coord }))),
+      ).resolves.toMatchObject({ code: 'PLAN_SCOPE' });
+      const dioc = { id: 'd', role: 'DIOCESAN_ADMIN', dioceseId: 'D-PAID' };
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { parishId: 'P-PAID' }, user: dioc }))).resolves.toBe(true);
+      await expect(
+        scopeError(guard.canActivate(ctx(CatechesisDummy, 'plain', { query: { parishId: 'P-OUTRA' }, user: dioc }))),
+      ).resolves.toMatchObject({ code: 'PLAN_SCOPE' });
+    });
+
+    it('lista de ids (scheduleIds): TODOS precisam de acesso, não só o 1º', async () => {
+      const user = faithful({ role: 'COMMUNITY_COORDINATOR', communityId: 'paid-com' });
+      await expect(
+        guard.canActivate(ctx(SchedulesController, 'generateRotation', { body: { scheduleIds: ['s-paid', 's-free'] }, user })),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+      await expect(
+        guard.canActivate(ctx(SchedulesController, 'generateRotation', { body: { scheduleIds: ['s-paid', 's-paid'] }, user })),
+      ).resolves.toBe(true);
+    });
+  });
+
+  describe('A21 — rotas "minhas" decidem pela comunidade do recurso', () => {
+    it('família da capela (sem plano) com o filho em turma da Matriz paga: my-family passa', async () => {
+      memberOf = { u1: 'm-pai' };
+      resources = { 'm-pai': { catechesis: ['paid-com'] } };
+      await expect(guard.canActivate(ctx(CatechesisController, 'myFamily', { user: faithful() }))).resolves.toBe(true);
+    });
+
+    it('catequista de capela com turma na Matriz paga: my-classes passa', async () => {
+      memberOf = { u1: 'm-cat' };
+      resources = { 'm-cat': { catechesis: ['paid-com'] } };
+      const user = faithful({ role: 'VOLUNTEER' });
+      await expect(guard.canActivate(ctx(CatechesisController, 'myClasses', { user }))).resolves.toBe(true);
+    });
+
+    it('escalado da capela em escala da Matriz paga: my-assignments passa', async () => {
+      memberOf = { u1: 'm-esc' };
+      resources = { 'm-esc': { schedules: ['paid-com'] } };
+      await expect(guard.canActivate(ctx(SchedulesController, 'findMyAssignments', { user: faithful() }))).resolves.toBe(true);
+    });
+
+    it('inverso: comunidade principal paga, mas recursos só em comunidade sem plano → 403', async () => {
+      memberOf = { u1: 'm-x' };
+      resources = { 'm-x': { catechesis: ['free-com'] } };
+      await expect(
+        guard.canActivate(ctx(CatechesisController, 'myFamily', { user: faithful({ communityId: 'paid-com' }) })),
+      ).rejects.toBeInstanceOf(ForbiddenException);
+    });
+
+    it('sem recurso nenhum: cai na regra do usuário', async () => {
+      memberOf = { u1: 'm-vazio' };
+      await expect(
+        guard.canActivate(ctx(CatechesisController, 'myFamily', { user: faithful({ communityId: 'paid-com' }) })),
+      ).resolves.toBe(true);
+      await expect(guard.canActivate(ctx(CatechesisController, 'myFamily', { user: faithful() }))).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+    });
+  });
+
+  describe('B12 — leitura grátis do calendário', () => {
+    it('GET /schedules?eventId= de evento de comunidade sem plano: liberado', async () => {
+      const req = { query: { eventId: 'ev-free' }, user: faithful() };
+      await expect(guard.canActivate(ctx(SchedulesController, 'findAllSchedules', req))).resolves.toBe(true);
+      expect(prisma.event.findUnique).not.toHaveBeenCalled();
+    });
+
+    it('sem eventId (lista de escalas) continua pago', async () => {
+      await expect(guard.canActivate(ctx(SchedulesController, 'findAllSchedules', { query: {}, user: faithful() }))).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+    });
+  });
+
+  describe('M35 — filtrar/marcar itens de lista por comunidade', () => {
+    const items = [
+      { id: 'a', communityId: 'paid-com' },
+      { id: 'b', communityId: 'free-com' },
+      { id: 'c', communityId: null },
+    ];
+    const admin = { role: 'PARISH_ADMIN' as const };
+
+    it('on: tira (ou marca) os itens das comunidades sem acesso', async () => {
+      const kept = await access.filterByPlan(admin, items, (i) => i.communityId);
+      expect(kept.map((i) => i.id)).toEqual(['a', 'c']);
+      const marked = await access.markByPlan(admin, items, (i) => i.communityId);
+      expect(marked.map((i) => i.planLocked)).toEqual([false, true, false]);
+    });
+
+    it('log/off ou SYSTEM_ADMIN: não mexe na lista', async () => {
+      mode = 'log';
+      expect(await access.filterByPlan(admin, items, (i) => i.communityId)).toHaveLength(3);
+      expect((await access.markByPlan(admin, items, (i) => i.communityId)).every((i) => !i.planLocked)).toBe(true);
+      mode = 'on';
+      expect(await access.filterByPlan({ role: 'SYSTEM_ADMIN' }, items, (i) => i.communityId)).toHaveLength(3);
+    });
+
+    it('paidCommunityIdsInScope: comunidades pagas da paróquia do PARISH_ADMIN', async () => {
+      prisma.communityPlan.findMany.mockResolvedValueOnce([
+        { communityId: 'paid-com', status: 'ACTIVE', trialEndsAt: null, currentPeriodEnd: null, graceDays: 15 },
+        { communityId: 'expired-com', status: 'TRIAL', trialEndsAt: past(), currentPeriodEnd: null, graceDays: 15 },
+      ]);
+      await expect(access.paidCommunityIdsInScope({ id: 'p', role: 'PARISH_ADMIN', parishId: 'P-PAID' })).resolves.toEqual(['paid-com']);
     });
   });
 });

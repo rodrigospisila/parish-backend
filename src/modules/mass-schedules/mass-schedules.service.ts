@@ -43,7 +43,7 @@ export const MAX_BROAD_OCCURRENCE_WINDOW_DAYS = 62;
 export const MAX_OCCURRENCE_WINDOW_DAYS = 460;
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
-import { nowBrazilFloating } from '../masses/map-search.utils';
+import { earliestBrazilToday, nowBrazilFloating, nowFloatingIn, timeZoneForState } from '../masses/map-search.utils';
 
 /** Include padrão das pastorais vinculadas (com o nome global para o painel). */
 const PASTORAL_INCLUDE = {
@@ -110,6 +110,8 @@ export const UPCOMING_CANCELLATIONS_DAYS = 60;
 const MAX_CANCELLATION_AHEAD_DAYS = 366;
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/** Hora de 00:00 a 23:59 na expansão (aceita "7:30" de carga antiga; o DTO exige HH:MM). */
+const VALID_TIME_RE = /^([01]?\d|2[0-3]):[0-5]\d$/;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Dia de calendário (YYYY-MM-DD) de uma data gravada à meia-noite UTC (@db.Date). */
@@ -132,6 +134,18 @@ function isRealDate(ymdStr: string): boolean {
   if (!DATE_RE.test(ymdStr)) return false;
   const d = dayUtc(ymdStr);
   return !Number.isNaN(d.getTime()) && ymd(d) === ymdStr;
+}
+
+/**
+ * As listagens públicas da agenda fixa (sem login) são sempre de UMA comunidade:
+ * sem o parâmetro, 400 em vez de varrer o país inteiro.
+ */
+function requireCommunityId(communityId?: string): string {
+  const id = typeof communityId === 'string' ? communityId.trim() : '';
+  if (!id) {
+    throw new BadRequestException('Informe a comunidade (communityId)');
+  }
+  return id;
 }
 
 /** 25/09/2026 */
@@ -171,6 +185,16 @@ export class MassSchedulesService {
   /** Hoje no relógio de São Paulo, YYYY-MM-DD (método para os testes congelarem). */
   protected todaySaoPaulo(): string {
     return nowBrazilFloating().slice(0, 10);
+  }
+
+  /** Hoje no fuso da UF (AC -5; AM/RO/RR/MT/MS -4; o resto, Brasília). */
+  protected todayIn(state?: string | null): string {
+    return nowFloatingIn(timeZoneForState(state)).slice(0, 10);
+  }
+
+  /** O "hoje" mais atrasado do país (Acre): início das consultas de datas suspensas. */
+  protected earliestToday(): string {
+    return earliestBrazilToday();
   }
 
   private async assertCommunityInScope(communityId: string, currentUser?: CurrentUser) {
@@ -236,7 +260,7 @@ export class MassSchedulesService {
       currentUser.communityId &&
       schedule.communityId !== currentUser.communityId
     ) {
-      throw new ForbiddenException('Voce nao tem permissao para favoritar este horario');
+      throw new ForbiddenException('Você não tem permissão para favoritar este horário');
     }
   }
 
@@ -302,7 +326,10 @@ export class MassSchedulesService {
     dayOfWeek?: number | null;
     weeksOfMonth?: number[];
     dayOfMonth?: number | null;
-  }>(dados: T, atual?: { recurrence: MassRecurrence; dayOfWeek: number | null; dayOfMonth: number | null }): T {
+  }>(
+    dados: T,
+    atual?: { recurrence: MassRecurrence; dayOfWeek: number | null; dayOfMonth: number | null; weeksOfMonth?: number[] | null },
+  ): T {
     const recorrencia = dados.recurrence ?? atual?.recurrence ?? MassRecurrence.WEEKLY;
     const diaDaSemana = dados.dayOfWeek !== undefined ? dados.dayOfWeek : atual?.dayOfWeek ?? null;
     const diaDoMes = dados.dayOfMonth !== undefined ? dados.dayOfMonth : atual?.dayOfMonth ?? null;
@@ -319,7 +346,10 @@ export class MassSchedulesService {
     }
 
     if (recorrencia === MassRecurrence.MONTHLY_NTH) {
-      const semanas = [...new Set(dados.weeksOfMonth ?? [])].filter((n) => n === -1 || (n >= 1 && n <= 5));
+      // Edição que só troca o dia da semana mantém as semanas já gravadas
+      const semanas = [...new Set(dados.weeksOfMonth ?? atual?.weeksOfMonth ?? [])].filter(
+        (n) => n === -1 || (n >= 1 && n <= 5),
+      );
       if (semanas.length === 0) {
         throw new BadRequestException(
           'Escolha quais ocorrências do mês (1ª a 5ª, ou a última) para um horário mensal.',
@@ -329,6 +359,70 @@ export class MassSchedulesService {
     }
 
     return { ...dados, recurrence: MassRecurrence.WEEKLY, dayOfWeek: diaDaSemana, dayOfMonth: null, weeksOfMonth: [] };
+  }
+
+  /**
+   * Horário idêntico na mesma comunidade (mesmo tipo, hora, recorrência,
+   * dia da semana/do mês, semanas do mês e data especial) → 409. Evita a
+   * Missa repetida no mapa e no app (cargas e cliques duplos). Compara a hora
+   * sem o zero à esquerda (carga antiga "7:30") e as semanas como conjunto.
+   */
+  private async assertNotDuplicate(
+    alvo: {
+      communityId: string;
+      type?: MassScheduleType;
+      time?: string;
+      recurrence?: MassRecurrence;
+      dayOfWeek?: number | null;
+      dayOfMonth?: number | null;
+      weeksOfMonth?: number[] | null;
+      isSpecial?: boolean | null;
+      specialDate?: string | Date | null;
+    },
+    excludeId?: string,
+  ) {
+    if (!alvo.type || !alvo.time) return;
+    const [h, m] = alvo.time.split(':');
+    const hora = `${String(parseInt(h, 10)).padStart(2, '0')}:${m}`;
+    const horas = [...new Set([hora, hora.replace(/^0(\d)/, '$1')])];
+    const candidatos = await this.prisma.massSchedule.findMany({
+      where: {
+        communityId: alvo.communityId,
+        type: alvo.type,
+        time: { in: horas },
+        ...(excludeId ? { id: { not: excludeId } } : {}),
+      },
+      select: {
+        id: true,
+        recurrence: true,
+        dayOfWeek: true,
+        dayOfMonth: true,
+        weeksOfMonth: true,
+        isSpecial: true,
+        specialDate: true,
+      },
+    });
+    const dia = (d?: string | Date | null) => {
+      if (!d) return null;
+      const data = new Date(d);
+      return Number.isNaN(data.getTime()) ? String(d) : ymd(data);
+    };
+    const semanas = (w?: number[] | null) => [...new Set(w ?? [])].sort((a, b) => a - b).join(',');
+    const especial = !!alvo.isSpecial;
+    const repetido = candidatos.find(
+      (c) =>
+        (c.recurrence ?? MassRecurrence.WEEKLY) === (alvo.recurrence ?? MassRecurrence.WEEKLY) &&
+        (c.dayOfWeek ?? null) === (alvo.dayOfWeek ?? null) &&
+        (c.dayOfMonth ?? null) === (alvo.dayOfMonth ?? null) &&
+        semanas(c.weeksOfMonth) === semanas(alvo.weeksOfMonth) &&
+        !!c.isSpecial === especial &&
+        dia(c.specialDate) === dia(alvo.specialDate),
+    );
+    if (repetido) {
+      throw new ConflictException(
+        'Já existe um horário igual nesta comunidade (mesmo tipo, dia e hora). Edite o horário existente em vez de criar outro.',
+      );
+    }
   }
 
   async create(createMassScheduleDto: CreateMassScheduleDto, currentUser?: CurrentUser) {
@@ -345,6 +439,7 @@ export class MassSchedulesService {
     }
 
     await this.assertCommunityInScope(communityId, currentUser);
+    await this.assertNotDuplicate({ ...rest, communityId });
 
     const pastoralsCreate = await this.buildPastoralCreate(communityId, pastoralSettings);
 
@@ -361,12 +456,13 @@ export class MassSchedulesService {
     });
   }
 
+  /**
+   * Agenda fixa pública de UMA comunidade (GET /mass-schedules?communityId, sem
+   * login). Sem communityId: 400 — antes devolvia os ~60 mil horários do país
+   * numa consulta só (e caía em 500).
+   */
   async findAll(communityId?: string, type?: MassScheduleType) {
-    const where: any = {};
-
-    if (communityId) {
-      where.communityId = communityId;
-    }
+    const where: any = { communityId: requireCommunityId(communityId) };
 
     if (type) {
       where.type = type;
@@ -379,10 +475,12 @@ export class MassSchedulesService {
           select: {
             id: true,
             name: true,
+            state: true,
           },
         },
-        // Datas suspensas de hoje até +60 dias (o app mostra "não haverá")
-        cancellations: upcomingCancellationsSelect(this.todaySaoPaulo()),
+        // Datas suspensas de hoje até +60 dias (o app mostra "não haverá"). Parte
+        // do "hoje" do Acre e corta abaixo no "hoje" do fuso da comunidade.
+        cancellations: upcomingCancellationsSelect(this.earliestToday()),
       },
       orderBy: [
         { dayOfWeek: 'asc' },
@@ -390,10 +488,14 @@ export class MassSchedulesService {
       ],
     });
 
-    return schedules.map(({ cancellations, ...schedule }) => ({
-      ...schedule,
-      upcomingCancellations: toUpcomingCancellations(cancellations),
-    }));
+    return schedules.map(({ cancellations, community, ...schedule }) => {
+      const today = this.todayIn(community?.state);
+      return {
+        ...schedule,
+        community: community ? { id: community.id, name: community.name } : community,
+        upcomingCancellations: toUpcomingCancellations(cancellations).filter((c) => c.date >= today),
+      };
+    });
   }
 
   /** Listagem escopada para o painel (Agenda Fixa). */
@@ -477,7 +579,10 @@ export class MassSchedulesService {
 
     const occurrences: FixedOccurrence[] = [];
     for (const schedule of schedules) {
-      const [hh, mm] = (schedule.time || '00:00').split(':').map((n) => parseInt(n, 10) || 0);
+      // Hora fora de 00:00–23:59 (carga antiga): "25:70" cairia no dia seguinte, longe
+      // da data da suspensão — fica fora da agenda até ser corrigida
+      if (!VALID_TIME_RE.test(schedule.time || '')) continue;
+      const [hh, mm] = schedule.time.split(':').map((n) => parseInt(n, 10) || 0);
       for (const day of this.occurrenceDays(schedule, startDay, endDay)) {
         occurrences.push(this.toOccurrence(schedule, day, hh, mm));
       }
@@ -668,7 +773,11 @@ export class MassSchedulesService {
     dto: { from: string; to: string; communityId?: string; pastoralIds?: string[] },
     currentUser: CurrentUser,
   ) {
-    let pending = await this.pendingOccurrences(dto.from, dto.to, currentUser, dto.communityId);
+    // O que já passou não vira escala (generateSchedule recusaria e contaria como falha)
+    const earliest = this.earliestToday();
+    let pending = (await this.pendingOccurrences(dto.from, dto.to, currentUser, dto.communityId)).filter(
+      (occurrence) => occurrence.date >= earliest,
+    );
     if (dto.pastoralIds?.length) {
       const wanted = new Set(dto.pastoralIds);
       pending = pending.filter((occurrence) =>
@@ -732,11 +841,11 @@ export class MassSchedulesService {
   }
 
   async findByDayOfWeek(dayOfWeek: number, communityId?: string) {
-    const where: any = { dayOfWeek };
-
-    if (communityId) {
-      where.communityId = communityId;
+    if (!Number.isInteger(dayOfWeek) || dayOfWeek < 0 || dayOfWeek > 6) {
+      throw new BadRequestException('Dia da semana inválido (0 a 6)');
     }
+    // Rota pública: sempre de uma comunidade (ver requireCommunityId)
+    const where: any = { dayOfWeek, communityId: requireCommunityId(communityId) };
 
     return this.prisma.massSchedule.findMany({
       where,
@@ -885,11 +994,39 @@ export class MassSchedulesService {
           recurrence: schedule.recurrence,
           dayOfWeek: schedule.dayOfWeek,
           dayOfMonth: schedule.dayOfMonth,
+          // Só herda as semanas se continuar mensal (trocar para MONTHLY_NTH exige escolhê-las)
+          weeksOfMonth: schedule.recurrence === MassRecurrence.MONTHLY_NTH ? schedule.weeksOfMonth : [],
         })
       : bruto;
     const targetCommunityId = communityId ?? schedule.communityId;
     if (communityId && communityId !== schedule.communityId) {
       await this.assertCommunityInScope(communityId, currentUser);
+    }
+
+    // Só confere duplicidade se a edição mexe no que identifica o horário
+    // (editar a observação de um par antigo duplicado continua possível)
+    const mexeNaIdentidade =
+      mudouRecorrencia ||
+      (communityId !== undefined && communityId !== schedule.communityId) ||
+      (rest.type !== undefined && rest.type !== schedule.type) ||
+      (rest.time !== undefined && rest.time !== schedule.time) ||
+      rest.specialDate !== undefined ||
+      rest.isSpecial !== undefined;
+    if (mexeNaIdentidade) {
+      await this.assertNotDuplicate(
+        {
+          communityId: targetCommunityId,
+          type: rest.type ?? schedule.type,
+          time: rest.time ?? schedule.time,
+          recurrence: rest.recurrence ?? schedule.recurrence,
+          dayOfWeek: rest.dayOfWeek !== undefined ? rest.dayOfWeek : schedule.dayOfWeek,
+          dayOfMonth: rest.dayOfMonth !== undefined ? rest.dayOfMonth : schedule.dayOfMonth,
+          weeksOfMonth: rest.weeksOfMonth ?? schedule.weeksOfMonth,
+          isSpecial: rest.isSpecial ?? schedule.isSpecial,
+          specialDate: rest.specialDate !== undefined ? rest.specialDate : schedule.specialDate,
+        },
+        id,
+      );
     }
 
     const data: any = { ...rest };
@@ -922,7 +1059,7 @@ export class MassSchedulesService {
     const mass = await this.prisma.massSchedule.findUnique({
       where: { id },
       include: {
-        community: { select: { id: true, name: true } },
+        community: { select: { id: true, name: true, state: true } },
         pastorals: true,
       },
     });
@@ -942,6 +1079,14 @@ export class MassSchedulesService {
       throw new BadRequestException('Data inválida');
     }
 
+    // Só numa data em que o horário acontece (uma terça não serve para a Missa de domingo)
+    const dia = dayUtc(ymd(date));
+    if (this.occurrenceDays(mass, dia, dia).length === 0) {
+      throw new BadRequestException(
+        `Este horário não acontece em ${brDate(ymd(date))}. Escolha uma data da agenda dele.`,
+      );
+    }
+
     // Data suspensa ("não haverá"): não gera escala para o que não vai acontecer
     const suspensa = await this.prisma.massScheduleCancellation.findUnique({
       where: { massScheduleId_date: { massScheduleId: id, date: dayUtc(ymd(date)) } },
@@ -951,6 +1096,11 @@ export class MassSchedulesService {
       throw new BadRequestException(
         `Este horário está suspenso em ${brDate(ymd(date))}. Reative a data antes de gerar a escala.`,
       );
+    }
+
+    // Nem no passado (no relógio da comunidade)
+    if (ymd(date) < this.todayIn(mass.community?.state)) {
+      throw new BadRequestException(`${brDate(ymd(date))} já passou. Escolha uma data de hoje em diante.`);
     }
 
     // Deduplicação: no máximo uma escala por (horário fixo, dia)
@@ -1273,11 +1423,8 @@ export class MassSchedulesService {
 
   // Obter horários especiais (festas, solenidades)
   async findSpecialSchedules(communityId?: string) {
-    const where: any = { isSpecial: true };
-
-    if (communityId) {
-      where.communityId = communityId;
-    }
+    // Rota pública: sempre de uma comunidade (ver requireCommunityId)
+    const where: any = { isSpecial: true, communityId: requireCommunityId(communityId) };
 
     return this.prisma.massSchedule.findMany({
       where,
@@ -1324,8 +1471,12 @@ export class MassSchedulesService {
               select: {
                 id: true,
                 name: true,
+                state: true,
               },
             },
+            // Datas suspensas futuras (mesmo critério do findAll): o app não
+            // agenda lembrete local de favorito numa data "não haverá"
+            cancellations: upcomingCancellationsSelect(this.earliestToday()),
           },
         },
       },
@@ -1335,7 +1486,14 @@ export class MassSchedulesService {
       ],
     });
 
-    return favorites.map((favorite) => favorite.massSchedule);
+    return favorites.map(({ massSchedule: { cancellations, community, ...schedule } }) => {
+      const today = this.todayIn(community?.state);
+      return {
+        ...schedule,
+        community: community ? { id: community.id, name: community.name } : community,
+        upcomingCancellations: toUpcomingCancellations(cancellations).filter((c) => c.date >= today),
+      };
+    });
   }
 
   async addFavorite(scheduleId: string, currentUser: CurrentUser) {

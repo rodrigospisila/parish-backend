@@ -1,10 +1,11 @@
 import {
   Injectable,
+  Logger,
   UnauthorizedException,
   ConflictException,
   ForbiddenException,
 } from '@nestjs/common';
-import { randomUUID } from 'crypto';
+import { createHash, randomUUID } from 'crypto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as bcrypt from 'bcrypt';
@@ -21,6 +22,7 @@ import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
 import { MessagingService } from '../messaging/messaging.service';
 import { emailInsensitive, normalizeEmail, pickEmailMatch } from './email-lookup';
 import { pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
+import { isTermsAcceptanceRequired, TERMS_VERSION } from '../users/terms.constants';
 
 /** Resposta única para conta inexistente, celular inválido e senha errada (não revela qual foi). */
 export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos';
@@ -37,8 +39,31 @@ const LOGIN_OMIT = { password: false } as const;
 let timingHash: Promise<string> | null = null;
 const dummyHash = () => (timingHash ??= bcrypt.hash('parish-login-sem-conta', 10));
 
+/**
+ * O banco guarda só o SHA-256 do refresh token: um dump/backup não vira
+ * sessão. Linhas antigas (JWT em claro) seguem aceitas até expirarem.
+ */
+export const hashRefreshToken = (token: string) => createHash('sha256').update(token).digest('hex');
+
+/**
+ * Janela em que reapresentar um refresh token recém-trocado é tratado como
+ * concorrência legítima (duas abas do painel, nova tentativa de rede) e não
+ * como roubo: responde 401 sem derrubar a sessão.
+ */
+export const REFRESH_REUSE_GRACE_MS = 60_000;
+
+/** Opções de sessão na emissão de tokens. */
+interface SessionOptions {
+  /** Família de rotação (um aparelho). Ausente = sessão nova. */
+  sessionId?: string;
+  /** Instante (s) do último login com senha; null = desconhecido (token antigo). Ausente = agora. */
+  authTime?: number | null;
+}
+
 @Injectable()
 export class AuthService {
+  private readonly logger = new Logger(AuthService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly jwtService: JwtService,
@@ -73,6 +98,9 @@ export class AuthService {
       role: user.role,
       isActive: user.isActive,
       forcePasswordChange: user.forcePasswordChange,
+      // Aviso de aceite dos termos vigentes (app e painel abrem o aviso por isto)
+      termsAcceptanceRequired: isTermsAcceptanceRequired(user),
+      termsVersion: TERMS_VERSION,
       twoFactorEnabled: !!user.twoFactorEnabled,
       dioceseId: user.dioceseId,
       parishId: user.parishId,
@@ -125,11 +153,11 @@ export class AuthService {
       );
     }
 
-    // If a verifiedPhoneToken was provided, extract the phone from it (mobile registration path).
-    // Otherwise fall back to the raw phone field (admin/internal path).
-    const phone = verifiedPhoneToken
-      ? this.otpService.decodeVerifiedPhoneToken(verifiedPhoneToken)
-      : registerDto.phone;
+    // Celular só VERIFICADO (token do OTP, já em E.164). O campo `phone` cru
+    // é ignorado: gravá-lo ocuparia o número de outra pessoa sem SMS e
+    // bloquearia o cadastro e o login dela (M7). Telefone sem verificação só
+    // pela gestão, em POST /users.
+    const phone = verifiedPhoneToken ? this.otpService.decodeVerifiedPhoneToken(verifiedPhoneToken) : null;
 
     // Verificar se o usuário já existe — sem diferença de caixa: "Maria@x.com"
     // antigo impede criar "maria@x.com" (seriam duas contas no mesmo login)
@@ -221,11 +249,13 @@ export class AuthService {
               where: { phone, userId: null, deletedAt: null },
               orderBy: { createdAt: 'asc' },
               select: { id: true },
-            }));
+            })) ??
+            (await this.findOrphanByPhoneDigits(tx, phone, communityId));
           if (orphan) {
             await tx.member.update({
               where: { id: orphan.id },
-              data: { userId: user.id, fullName: name, email },
+              // O telefone verificado (E.164) substitui o digitado no painel
+              data: { userId: user.id, fullName: name, email, phone },
             });
             adoptedMemberId = orphan.id;
           }
@@ -278,6 +308,24 @@ export class AuthService {
       user: await this.mapUserResponse(result),
       ...tokens,
     };
+  }
+
+  /**
+   * Reforço da adoção (A23): membro cadastrado no painel com o telefone
+   * formatado ("(42) 99999-8888") não casa por igualdade com o E.164 do
+   * token. Compara só os dígitos, com e sem o 55.
+   */
+  private async findOrphanByPhoneDigits(tx: any, phone: string, communityId: string): Promise<{ id: string } | null> {
+    const digits = phone.replace(/\D/g, '');
+    const local = digits.startsWith('55') ? digits.slice(2) : digits;
+    if (local.length < 10) return null;
+    const rows: Array<{ id: string }> = await tx.$queryRaw`
+      SELECT id FROM "members"
+      WHERE "userId" IS NULL AND "deletedAt" IS NULL AND phone IS NOT NULL
+        AND regexp_replace(phone, '\\D', '', 'g') IN (${digits}, ${local})
+      ORDER BY ("communityId" = ${communityId}) DESC, "createdAt" ASC
+      LIMIT 1`;
+    return rows?.[0] ?? null;
   }
 
   async login(loginDto: LoginDto, meta: LoginMeta = {}) {
@@ -374,13 +422,13 @@ export class AuthService {
    * demais (ativar 2FA, esquecer outro aparelho): as sessões antigas caem e
    * o cliente que pediu a ação troca para os tokens novos.
    */
-  async reissueSession(userId: string) {
+  async reissueSession(userId: string, authTime?: number | null) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
       select: { id: true, email: true, role: true, isActive: true, dioceseId: true, parishId: true, communityId: true },
     });
     if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
-    return this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined, user.parishId ?? undefined, user.communityId ?? undefined);
+    return this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined, user.parishId ?? undefined, user.communityId ?? undefined, { authTime });
   }
 
   private sessionInclude = {
@@ -437,74 +485,169 @@ export class AuthService {
     return { user: await this.mapUserResponse(user), ...tokens, newDevice: device.isNew };
   }
 
-  async refreshToken(refreshToken: string) {
-    try {
-      // Verificar se o refresh token é válido
-      const payload = this.jwtService.verify(refreshToken, {
-        secret: this.configService.get('JWT_REFRESH_SECRET'),
-      });
-
-      // Buscar refresh token no banco
-      const storedToken = await this.prisma.refreshToken.findUnique({
-        where: { token: refreshToken },
-      });
-
-      if (!storedToken) {
-        throw new UnauthorizedException('Refresh token inválido');
-      }
-
-      // Verificar se o token expirou
-      if (storedToken.expiresAt < new Date()) {
-        await this.prisma.refreshToken.delete({
-          where: { id: storedToken.id },
-        });
-        throw new UnauthorizedException('Refresh token expirado');
-      }
-
-      // Buscar usuário
-      const user = await this.prisma.user.findUnique({
-        where: { id: payload.sub },
-      });
-
-      if (!user || !user.isActive) {
-        throw new UnauthorizedException('Usuário não encontrado ou inativo');
-      }
-
-      // Gerar novos tokens
-      const tokens = await this.generateTokens(
-        user.id, 
-        user.email, 
-        user.role,
-        user.dioceseId ?? undefined,
-        user.parishId ?? undefined,
-        user.communityId ?? undefined
-      );
-
-      // Deletar o refresh token antigo
-      await this.prisma.refreshToken.delete({
-        where: { id: storedToken.id },
-      });
-
-      return tokens;
-    } catch (error) {
-      throw new UnauthorizedException('Refresh token inválido');
-    }
+  /** Linha do refresh token: pelo hash (atual) ou pelo valor em claro (linhas antigas). */
+  private findStoredRefreshToken(refreshToken: string) {
+    return this.prisma.refreshToken.findFirst({
+      where: { token: { in: [hashRefreshToken(refreshToken), refreshToken] } },
+    });
   }
 
-  async logout(userId: string) {
-    // Deletar todos os refresh tokens do usuário
-    await this.prisma.refreshToken.deleteMany({
-      where: { userId },
+  /**
+   * Rotação do refresh token. O token apresentado é CONSUMIDO de forma
+   * atômica antes de emitir o par novo (B38: duas abas com o mesmo token não
+   * geram duas sessões). O consumido fica marcado (rotatedAt) até expirar:
+   * reapresentá-lo depois da janela de graça é sinal de roubo e derruba a
+   * sessão (família) inteira (B46).
+   */
+  async refreshToken(refreshToken: string) {
+    let payload: any;
+    try {
+      payload = this.jwtService.verify(String(refreshToken ?? ''), {
+        secret: this.configService.get('JWT_REFRESH_SECRET'),
+      });
+    } catch {
+      throw new UnauthorizedException('Refresh token inválido');
+    }
+
+    const stored = await this.findStoredRefreshToken(refreshToken);
+    if (!stored || stored.userId !== payload?.sub) {
+      throw new UnauthorizedException('Refresh token inválido');
+    }
+
+    const now = new Date();
+    if (stored.expiresAt < now) {
+      await this.prisma.refreshToken.deleteMany({ where: { id: stored.id } });
+      throw new UnauthorizedException('Refresh token expirado');
+    }
+
+    if (stored.rotatedAt) {
+      await this.handleRotatedTokenReuse(stored);
+      throw new UnauthorizedException('Refresh token inválido');
+    }
+
+    // Linha antiga (sem sessão): ganha uma agora e passa a ser rastreada
+    const sessionId: string = stored.sessionId ?? (typeof payload.sid === 'string' ? payload.sid : randomUUID());
+    const consumed = await this.prisma.refreshToken.updateMany({
+      where: { id: stored.id, rotatedAt: null },
+      data: { rotatedAt: now, sessionId },
     });
+    if (consumed.count === 0) {
+      // Outra requisição trocou este mesmo token agora há pouco
+      throw new UnauthorizedException('Refresh token inválido');
+    }
+
+    const user = await this.prisma.user.findUnique({ where: { id: payload.sub } });
+    if (!user || !user.isActive) {
+      throw new UnauthorizedException('Usuário não encontrado ou inativo');
+    }
+
+    return this.generateTokens(
+      user.id,
+      user.email,
+      user.role,
+      user.dioceseId ?? undefined,
+      user.parishId ?? undefined,
+      user.communityId ?? undefined,
+      // Mesma sessão; o horário do login com senha atravessa as renovações
+      { sessionId, authTime: typeof payload.at === 'number' ? payload.at : null },
+    );
+  }
+
+  /** Refresh token já trocado reapresentado: concorrência (graça) ou reuso (revoga a família). */
+  private async handleRotatedTokenReuse(stored: { id: string; userId: string; sessionId: string | null; rotatedAt: Date | null }) {
+    const age = Date.now() - (stored.rotatedAt?.getTime() ?? 0);
+    if (age <= REFRESH_REUSE_GRACE_MS) return;
+    await this.prisma.refreshToken.deleteMany({
+      where: stored.sessionId ? { userId: stored.userId, sessionId: stored.sessionId } : { id: stored.id },
+    });
+    this.logger.warn(`Reuso de refresh token já trocado (usuário ${stored.userId}): sessão encerrada`);
+    void this.auditService
+      .log({ actor: { id: stored.userId }, action: 'UPDATE', entity: 'User', entityId: stored.userId, metadata: { refreshTokenReuse: true, sessionRevoked: true } })
+      .catch(() => undefined);
+  }
+
+  /**
+   * Sair DESTE aparelho (M29/B3): apaga só a sessão do access token (`sid`)
+   * e/ou a do refresh token enviado — o access token dela cai na hora (a
+   * JwtStrategy confere se a sessão existe). Sem nenhum dos dois (token de
+   * antes desta versão), mantém o comportamento antigo: todas as sessões.
+   * `pushToken`: o aparelho deixa de receber os avisos desta conta (M42).
+   */
+  async logout(
+    user: { id: string; sessionId?: string | null },
+    options: { refreshToken?: string | null; pushToken?: string | null } = {},
+  ) {
+    const sessionIds = new Set<string>();
+    const rowIds: string[] = [];
+    if (user.sessionId) sessionIds.add(user.sessionId);
+    if (options.refreshToken) {
+      const stored = await this.findStoredRefreshToken(options.refreshToken);
+      if (stored && stored.userId === user.id) {
+        if (stored.sessionId) sessionIds.add(stored.sessionId);
+        else rowIds.push(stored.id);
+      }
+    }
+
+    if (sessionIds.size || rowIds.length) {
+      await this.prisma.refreshToken.deleteMany({
+        where: {
+          userId: user.id,
+          OR: [
+            ...(sessionIds.size ? [{ sessionId: { in: [...sessionIds] } }] : []),
+            ...(rowIds.length ? [{ id: { in: rowIds } }] : []),
+          ],
+        },
+      });
+    } else {
+      await this.prisma.refreshToken.deleteMany({ where: { userId: user.id } });
+    }
+
+    if (options.pushToken) {
+      await this.prisma.user.updateMany({
+        where: { id: user.id, pushToken: options.pushToken },
+        data: { pushToken: null, pushTokenUpdatedAt: new Date() },
+      });
+    }
 
     return { message: 'Logout realizado com sucesso' };
   }
 
-  private async generateTokens(userId: string, email: string, role: UserRole, dioceseId?: string, parishId?: string, communityId?: string) {
+  /** "Sair de todos os aparelhos": refresh tokens somem, access tokens anteriores caem e o push é desligado. */
+  async logoutAll(userId: string) {
+    await this.security.revokeSessions(userId);
+    await this.prisma.user.update({ where: { id: userId }, data: { pushToken: null, pushTokenUpdatedAt: new Date() } });
+    void this.auditService
+      .log({ actor: { id: userId }, action: 'UPDATE', entity: 'User', entityId: userId, metadata: { logoutAllDevices: true, sessionsRevoked: true } })
+      .catch(() => undefined);
+    return { message: 'Todas as sessões foram encerradas' };
+  }
+
+  private async generateTokens(
+    userId: string,
+    email: string,
+    role: UserRole,
+    dioceseId?: string,
+    parishId?: string,
+    communityId?: string,
+    session: SessionOptions = {},
+  ) {
     // `jti`: nonce único por emissão. Sem ele, dois logins do mesmo usuário no
     // mesmo segundo produziriam JWTs idênticos (payload + iat em segundos) e
     // colidiriam na constraint única de refreshToken.token.
-    const basePayload = { sub: userId, email, role, dioceseId, parishId, communityId };
+    // `sid`: sessão do aparelho (o logout encerra só ela). `at`: hora do último
+    // login com senha — ação sensível (ativar 2FA) aceita login recente.
+    const sessionId = session.sessionId ?? randomUUID();
+    const authTime = session.authTime === undefined ? Math.floor(Date.now() / 1000) : session.authTime;
+    const basePayload = {
+      sub: userId,
+      email,
+      role,
+      dioceseId,
+      parishId,
+      communityId,
+      sid: sessionId,
+      ...(authTime ? { at: authTime } : {}),
+    };
 
     // Gerar access token
     const accessToken = this.jwtService.sign(
@@ -525,16 +668,22 @@ export class AuthService {
       },
     );
 
-    // Calcular data de expiração do refresh token
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 7); // 7 dias
+    // Expiração da linha = a do próprio JWT (JWT_REFRESH_EXPIRES_IN), não 7 dias fixos
+    let expiresAt = new Date(Date.now() + 7 * 24 * 3600 * 1000);
+    try {
+      const decoded: any = this.jwtService.decode(refreshToken);
+      if (typeof decoded?.exp === 'number') expiresAt = new Date(decoded.exp * 1000);
+    } catch {
+      // mantém os 7 dias
+    }
 
-    // Salvar refresh token no banco
+    // Só o hash vai para o banco
     await this.prisma.refreshToken.create({
       data: {
-        token: refreshToken,
+        token: hashRefreshToken(refreshToken),
         userId,
         expiresAt,
+        sessionId,
       },
     });
 
@@ -544,8 +693,42 @@ export class AuthService {
     };
   }
 
-  async validateUser(userId: string) {
-    const user = await this.prisma.user.findUnique({
+  /**
+   * Usuário da sessão (JwtStrategy, a cada requisição). Com `sessionId`,
+   * confere também se a sessão do aparelho ainda existe (`sessionAlive`):
+   * logout e reuso de refresh apagam a sessão e o access token cai junto.
+   */
+  async validateUser(userId: string, sessionId?: string) {
+    const [user, liveSession] = await Promise.all([
+      this.findSessionUser(userId),
+      sessionId
+        ? this.prisma.refreshToken.findFirst({ where: { userId, sessionId }, select: { id: true } })
+        : Promise.resolve(null),
+    ]);
+
+    if (!user || !user.isActive) {
+      throw new UnauthorizedException('Usuário não encontrado ou inativo');
+    }
+
+    const memberships = user.member?.pastoralMemberships ?? [];
+    return {
+      ...user,
+      sessionAlive: sessionId ? !!liveSession : true,
+      // PARTICIPAÇÃO (todos os vínculos ativos): agenda, escalas, avisos
+      pastoralIds: memberships
+        .map((membership) => membership.communityPastoralId)
+        .filter((id): id is string => !!id),
+      // COORDENAÇÃO (papel COORDINATOR ativo ou coordenação vigente): só estes
+      // ids dão acesso de gestão à pastoral — ser membro não basta
+      coordinatedPastoralIds: pickCoordinatedPastoralIds(
+        memberships,
+        user.member?.pastoralCoordinations ?? [],
+      ),
+    };
+  }
+
+  private findSessionUser(userId: string) {
+    return this.prisma.user.findUnique({
       where: { id: userId },
       select: {
         id: true,
@@ -559,6 +742,8 @@ export class AuthService {
         communityId: true,
         primaryCommunityId: true,
         sessionsRevokedAt: true,
+        // Troca de senha obrigatória (conta criada/redefinida pela gestão) — JwtStrategy
+        forcePasswordChange: true,
         member: {
           select: {
             id: true,
@@ -593,24 +778,5 @@ export class AuthService {
         },
       },
     });
-
-    if (!user || !user.isActive) {
-      throw new UnauthorizedException('Usuário não encontrado ou inativo');
-    }
-
-    const memberships = user.member?.pastoralMemberships ?? [];
-    return {
-      ...user,
-      // PARTICIPAÇÃO (todos os vínculos ativos): agenda, escalas, avisos
-      pastoralIds: memberships
-        .map((membership) => membership.communityPastoralId)
-        .filter((id): id is string => !!id),
-      // COORDENAÇÃO (papel COORDINATOR ativo ou coordenação vigente): só estes
-      // ids dão acesso de gestão à pastoral — ser membro não basta
-      coordinatedPastoralIds: pickCoordinatedPastoralIds(
-        memberships,
-        user.member?.pastoralCoordinations ?? [],
-      ),
-    };
   }
 }

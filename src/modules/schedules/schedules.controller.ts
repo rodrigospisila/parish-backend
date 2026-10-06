@@ -43,7 +43,7 @@ export class SchedulesController {
    */
   @Get('my-assignments')
   async findMyAssignments(@Request() req: any) {
-    return this.schedulesService.findMyAssignments(req.user.id);
+    return this.schedulesService.findMyAssignments(req.user.id, req.user);
   }
 
   /**

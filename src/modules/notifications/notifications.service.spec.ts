@@ -10,10 +10,10 @@ import { ConsentsService } from '../consents/consents.service';
 describe('NotificationsService', () => {
   let service: NotificationsService;
   let prisma: {
-    user: { findUnique: jest.Mock; update: jest.Mock };
+    user: { findUnique: jest.Mock; update: jest.Mock; updateMany: jest.Mock };
     notification: { create: jest.Mock; update: jest.Mock };
   };
-  let pushDispatcher: { send: jest.Mock };
+  let pushDispatcher: { sendWithResult: jest.Mock };
   let messagingService: {
     smsConfigured: boolean;
     normalizePhone: jest.Mock;
@@ -23,10 +23,10 @@ describe('NotificationsService', () => {
 
   beforeEach(async () => {
     prisma = {
-      user: { findUnique: jest.fn(), update: jest.fn() },
+      user: { findUnique: jest.fn(), update: jest.fn(), updateMany: jest.fn().mockResolvedValue({ count: 0 }) },
       notification: { create: jest.fn(), update: jest.fn() },
     };
-    pushDispatcher = { send: jest.fn() };
+    pushDispatcher = { sendWithResult: jest.fn() };
     messagingService = {
       smsConfigured: false,
       normalizePhone: jest.fn((raw: string) => (raw ? `+55${raw.replace(/\D/g, '')}` : null)),
@@ -103,18 +103,18 @@ describe('NotificationsService', () => {
       expect(prisma.notification.create).toHaveBeenCalledWith({
         data: { userId: 'user-1', type: 'ASSIGNMENT_CREATED', title: 'Titulo', body: 'Corpo', data: undefined },
       });
-      expect(pushDispatcher.send).not.toHaveBeenCalled();
+      expect(pushDispatcher.sendWithResult).not.toHaveBeenCalled();
       expect(result).toEqual({ id: 'notif-1' });
     });
 
     it('envia o push e marca isSent/sentAt quando o usuario tem pushToken e o envio funciona', async () => {
       prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc' });
       prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.send.mockResolvedValue(true);
+      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
 
       await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo', { scheduleId: 's-1' });
 
-      expect(pushDispatcher.send).toHaveBeenCalledWith({
+      expect(pushDispatcher.sendWithResult).toHaveBeenCalledWith({
         to: 'expo-token-abc',
         title: 'Titulo',
         body: 'Corpo',
@@ -129,7 +129,7 @@ describe('NotificationsService', () => {
     it('nao marca isSent quando o dispatcher falha, mas tambem nao lanca erro', async () => {
       prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc' });
       prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.send.mockResolvedValue(false);
+      pushDispatcher.sendWithResult.mockResolvedValue({ sent: false, invalidToken: false });
 
       await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo');
 
@@ -206,12 +206,80 @@ describe('NotificationsService', () => {
     it('prefere o push quando o usuario tem pushToken (sem SMS)', async () => {
       messagingService.smsConfigured = true;
       prisma.user.findUnique.mockResolvedValue({ ...userWithSmsCommunity, pushToken: 'expo-token' });
-      pushDispatcher.send.mockResolvedValue(true);
+      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
 
       await service.notifyUser('user-1', 'SCHEDULE_REMINDER', 'Lembrete', 'Corpo');
 
-      expect(pushDispatcher.send).toHaveBeenCalled();
+      expect(pushDispatcher.sendWithResult).toHaveBeenCalled();
       expect(messagingService.trySendSms).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('push token de um aparelho = uma conta (M42) e token morto (B44)', () => {
+    it('ao registrar, tira o mesmo token de qualquer outra conta antes de gravar', async () => {
+      await service.registerPushToken('user-b', 'ExponentPushToken[abc]');
+
+      expect(prisma.user.updateMany).toHaveBeenCalledWith({
+        where: { pushToken: 'ExponentPushToken[abc]', id: { not: 'user-b' } },
+        data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
+      });
+      expect(prisma.user.update).toHaveBeenCalledWith({
+        where: { id: 'user-b' },
+        data: { pushToken: 'ExponentPushToken[abc]', pushTokenUpdatedAt: expect.any(Date) },
+      });
+    });
+
+    it('limpar (null) não mexe nas outras contas', async () => {
+      await service.registerPushToken('user-b', null);
+
+      expect(prisma.user.updateMany).not.toHaveBeenCalled();
+      expect(prisma.user.update).toHaveBeenCalledWith({
+        where: { id: 'user-b' },
+        data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
+      });
+    });
+
+    it('DeviceNotRegistered: não conta como entregue, zera o token e segue a cadeia', async () => {
+      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-morto', email: 'x@x.com', member: null });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+      pushDispatcher.sendWithResult.mockResolvedValue({ sent: false, invalidToken: true });
+
+      await service.notifyUser('user-1', 'ASSIGNMENT_CREATED', 'Titulo', 'Corpo');
+
+      expect(prisma.user.updateMany).toHaveBeenCalledWith({
+        where: { id: 'user-1', pushToken: 'expo-morto' },
+        data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
+      });
+      expect(prisma.notification.update).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('aviso em massa sem SMS cobrado (B8)', () => {
+    it('bulk: sem push e sem e-mail, NÃO cai para SMS (mesmo com a comunidade habilitada)', async () => {
+      messagingService.smsConfigured = true;
+      prisma.user.findUnique.mockResolvedValue({
+        pushToken: null,
+        phone: '41988887777',
+        email: null,
+        member: { phone: null, community: { smsEnabled: true } },
+      });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+
+      await service.notifyUser('user-1', 'CATECHESIS' as any, 'Catequese', 'Corpo', undefined, { bulk: true });
+
+      expect(messagingService.trySendSms).not.toHaveBeenCalled();
+      expect(prisma.notification.update).not.toHaveBeenCalled();
+    });
+
+    it('bulk ainda usa o push', async () => {
+      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token', member: null });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
+
+      await service.notifyUser('user-1', 'TEAM_BROADCAST' as any, 'Aviso', 'Corpo', undefined, { bulk: true });
+
+      expect(pushDispatcher.sendWithResult).toHaveBeenCalled();
+      expect(prisma.notification.update).toHaveBeenCalled();
     });
   });
 
@@ -222,8 +290,16 @@ describe('NotificationsService', () => {
       await service.notifyUsers(['user-1', 'user-2', 'user-1'], 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo');
 
       expect(spy).toHaveBeenCalledTimes(2);
-      expect(spy).toHaveBeenCalledWith('user-1', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined);
-      expect(spy).toHaveBeenCalledWith('user-2', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined);
+      expect(spy).toHaveBeenCalledWith('user-1', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined, {});
+      expect(spy).toHaveBeenCalledWith('user-2', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined, {});
+    });
+
+    it('repassa a opção bulk a cada destinatário', async () => {
+      const spy = jest.spyOn(service, 'notifyUser').mockResolvedValue(null);
+
+      await service.notifyUsers(['user-1'], 'TEAM_BROADCAST', 'Aviso', 'Corpo', { x: 1 }, { bulk: true });
+
+      expect(spy).toHaveBeenCalledWith('user-1', 'TEAM_BROADCAST', 'Aviso', 'Corpo', { x: 1 }, { bulk: true });
     });
   });
 });

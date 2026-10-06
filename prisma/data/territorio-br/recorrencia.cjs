@@ -27,15 +27,6 @@ const DIAS = [
   [/\bsabados?\b/, 6],
 ];
 
-const ORDINAIS = [
-  [/\b(1|1o|1a|primeiro|primeira)\b/, 1],
-  [/\b(2|2o|2a|segundo|segunda)\b/, 2],
-  [/\b(3|3o|3a|terceiro|terceira)\b/, 3],
-  [/\b(4|4o|4a|quarto|quarta)\b/, 4],
-  [/\b(5|5o|5a|quinto|quinta)\b/, 5],
-  [/\b(ultimo|ultima)\b/, -1],
-];
-
 /**
  * "de segunda a sexta", "segunda a sábado": intervalo de dias da semana, não
  * ordinal de mês. Sem esta guarda, "segunda" e "quarta" seriam lidos como
@@ -54,16 +45,40 @@ const ehIntervaloDeDias = (txt) =>
  * foi o erro que a leitura ingênua cometeu em 310 horários já em produção.
  */
 const ehExcecaoOuAdicional = (txt) =>
-  /\b(exceto|excepto|salvo|menos n[oa]|fora n[oa]|nao h[a] |sem missa)\b/.test(txt) ||
+  /\b(exceto|excepto|salvo|menos n[oa]|fora n[oa]|nao h[a] |nao tem missa|sem missa)\b/.test(txt) ||
+  // mudança pontual de local/hora numa regra semanal: "no 3º domingo a missa SERÁ NA gruta"
+  /\b(sera|serao)\s+(na|no|nas|nos|em)\b/.test(txt) ||
   /\b(bencao|bencaos|apos a missa|apos as missas|antes da missa|alem d[ao]|tambem h[a]|havera tambem)\b/.test(txt);
 
 const temContextoDeMes = (txt) => /\b(do|de|no|na|por|cada|ao)\s*(cada\s*)?mes\b|\bmensal|\bmensalmente\b/.test(txt);
 
+/** "4º domingo de maio", "1º domingo do Advento": data do ano litúrgico/civil, não regra mensal. */
+const ehDataAnual = (txt) =>
+  /\bde (janeiro|fevereiro|marco|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro)\b/.test(txt) ||
+  /\b(advento|quaresma|pascoa|natal|semana santa|corpus christi|pentecostes)\b/.test(txt);
+
+// Uma regra mensal escrita na frase: [prefixo] ordinal(is) + dia da semana.
+//   "1º e 3º sábado", "somente na 1ª sexta-feira", "toda última quinta", "no 3° sábado",
+//   "Primeira Sexta", "todos os segundos sábados", "nas primeiras sextas-feiras".
+// Os ordinais por extenso "segunda/quarta/quinta" também são dias: "Segunda, Quarta
+// Quinta e sexta" casaria "quarta quinta" — quem barra é a regra de "outro dia na frase".
+const ORD = String.raw`(?:[1-5][oa]?|primeir[oa]s?|segund[oa]s?|terceir[oa]s?|quart[oa]s?|quint[oa]s?|ultim[oa]s?)`;
+const DIA = String.raw`(domingo|segunda|terca|quarta|quinta|sexta|sabado)s?(?:[-\s]?feiras?)?`;
+const PREFIXO = String.raw`(?:(?:somente|so|apenas|todos os|todas as|todo o|toda a|todo|toda|nas|nos|no|na|em|a|o)\s+)*`;
+const RE_REGRA = new RegExp(String.raw`(\(\s*)?(?<![a-z0-9])(${PREFIXO})(${ORD}(?:\s*(?:,|e)\s*${ORD})*)\s+${DIA}\b`, 'g');
+const NOME_DIA = ['domingo', 'segunda', 'terca', 'quarta', 'quinta', 'sexta', 'sabado'];
+const ordinalDe = (o) => {
+  if (/^\d/.test(o)) return Number(o[0]);
+  const base = o.replace(/s$/, '').replace(/a$/, 'o');
+  return { primeiro: 1, segundo: 2, terceiro: 3, quarto: 4, quinto: 5, ultimo: -1 }[base] ?? null;
+};
+const horasDistintas = (txt) => new Set([...txt.matchAll(/\b(\d{1,2})\s*(?:h|:)\s*(\d{2})?/g)].map((m) => `${Number(m[1])}:${m[2] || '00'}`)).size;
+
 function lerRecorrencia(notes) {
-  const txt = semAcento(notes).replace(/\s+/g, ' ').trim();
+  const txt = semAcento(notes).replace(/[º°]/g, 'o').replace(/ª/g, 'a').replace(/\s+/g, ' ').trim();
   if (!txt) return null;
 
-  if (ehExcecaoOuAdicional(txt)) return null;
+  if (ehExcecaoOuAdicional(txt) || ehDataAnual(txt)) return null;
 
   // Nota que descreve MAIS DE UMA regra ao mesmo tempo — "quinta-feira, 1ª
   // sexta-feira do mês, dia 22 de cada mês" — não diz qual delas é ESTE
@@ -71,7 +86,6 @@ function lerRecorrencia(notes) {
   const temDiaFixo = /\b(?:todo\s+)?dia\s+\d{1,2}\b[^.]{0,20}?\b(?:de\s+)?(?:cada\s+)?mes\b/.test(txt);
   const diasNaFrase = new Set(DIAS.filter(([re]) => re.test(txt)).map(([, n]) => n));
   if (temDiaFixo && diasNaFrase.size > 0) return null;
-  if (diasNaFrase.size > 1) return null;
 
   // Data fixa do mês: "todo dia 13", "dia 20 de cada mês"
   const diaFixo = txt.match(/\b(?:todo\s+)?dia\s+(\d{1,2})\b[^.]{0,20}?\b(?:de\s+)?(?:cada\s+)?mes\b/);
@@ -82,40 +96,47 @@ function lerRecorrencia(notes) {
     }
   }
 
-  if (ehIntervaloDeDias(txt) || ehExcecaoOuAdicional(txt)) return null;
+  if (ehIntervaloDeDias(txt)) return null;
 
-  // Qual dia da semana a frase cita — tem de haver exatamente um
-  const diasCitados = DIAS.filter(([re]) => re.test(txt)).map(([, n]) => n);
-  if (new Set(diasCitados).size !== 1) return null;
-  const dayOfWeek = diasCitados[0];
-
-  // Ordinais que aparecem ANTES do dia da semana: "1º, 3º e 5º domingo".
-  // Cortar no dia da semana evita capturar número de outra oração.
-  const nomeDoDia = DIAS.find(([, n]) => n === dayOfWeek)[0];
-  const corte = txt.search(nomeDoDia);
-  const antes = corte > 0 ? txt.slice(0, corte) : '';
-  if (!antes.trim()) return null;
-
-  const semanas = [];
-  for (const [re, n] of ORDINAIS) {
-    // "segunda"/"quarta"/"quinta" também são dias da semana: só contam como
-    // ordinal quando o dia citado na frase é outro.
-    if (n === 2 && dayOfWeek === 1 && /\bsegunda\b/.test(antes)) continue;
-    if (n === 4 && dayOfWeek === 3 && /\bquarta\b/.test(antes)) continue;
-    if (n === 5 && dayOfWeek === 4 && /\bquinta\b/.test(antes)) continue;
-    if (re.test(antes)) semanas.push(n);
+  // "Quinta e 1ª sexta-feira": "quinta" aqui é o DIA, não o 5º — numa lista de
+  // ordinais, segunda/quarta/quinta por extenso tornam a frase ambígua.
+  for (const m of txt.matchAll(RE_REGRA)) {
+    const itens = m[3].match(new RegExp(ORD, 'g')) || [];
+    if (itens.length > 1 && itens.some((o) => /^(segund|quart|quint)[oa]s?$/.test(o))) return null;
   }
-  if (semanas.length === 0) return null;
-  // Sem a palavra "mês" na frase, só aceita quando há DOIS ou mais ordinais
-  // antes do dia da semana ("no 1º, 3º e 5º domingo") — aí a leitura mensal é a
-  // única possível. Com um só, "1º domingo" poderia ser data de festa.
-  if (!temContextoDeMes(txt) && semanas.length < 2) return null;
+  const regras = [...txt.matchAll(RE_REGRA)].map((m) => {
+    const semanas = [...m[3].matchAll(new RegExp(ORD, 'g'))].map((o) => ordinalDe(o[0])).filter((n) => n != null);
+    return { trecho: m[0], inicio: m.index, parentese: Boolean(m[1]), prefixo: m[2].trim(), dayOfWeek: NOME_DIA.indexOf(m[4]), semanas };
+  }).filter((r) => r.semanas.length > 0);
+  if (regras.length === 0) return null;
+  // Só uma regra (repetida ao pé da letra, tudo bem): duas regras diferentes não dizem qual é este registro
+  const chave = (r) => `${r.dayOfWeek}|${[...new Set(r.semanas)].sort().join(',')}`;
+  if (new Set(regras.map(chave)).size !== 1) return null;
+  const regra = regras[0];
+  const dayOfWeek = regra.dayOfWeek;
+
+  // O resto da frase (sem a regra) não pode citar OUTRO dia da semana
+  // ("quarta-feira às 19h e 1ª sexta-feira": duas celebrações). Citar o MESMO dia
+  // só vale no formato "Sexta-feira, 19h30 (1ª sexta do mês)": regra entre
+  // parênteses e uma hora só — "Sexta-feira: 20h | Primeira sexta: 16h" mistura
+  // a missa semanal com a mensal.
+  let resto = txt;
+  for (const r of regras) resto = resto.replace(r.trecho, ' ');
+  const diasNoResto = new Set(DIAS.filter(([re]) => re.test(resto)).map(([, n]) => n));
+  if ([...diasNoResto].some((d) => d !== dayOfWeek)) return null;
+  if (diasNoResto.has(dayOfWeek) && !(regra.parentese && horasDistintas(txt) <= 1)) return null;
+
+  // Um ordinal só ("1º domingo") pode ser data de festa: exige um sinal de que é regra
+  // do mês — a palavra "mês", "somente/só/toda", a regra entre parênteses ou abrindo
+  // a frase ("Primeira Sexta", "3ª Quinta-feira", "1ª sexta-feira - Missa do Empreendedor").
+  const forte = temContextoDeMes(txt) || /\b(somente|so|apenas|todos?|todas?)\b/.test(regra.prefixo) || regra.parentese || regra.inicio === 0;
+  if (regra.semanas.length < 2 && !forte) return null;
 
   return {
     recurrence: 'MONTHLY_NTH',
     dayOfWeek,
     // -1 ("última") vai para o fim: "1º e último" lê melhor que "último e 1º".
-    weeksOfMonth: [...new Set(semanas)].sort((a, b) => (a === -1 ? 1 : b === -1 ? -1 : a - b)),
+    weeksOfMonth: [...new Set(regra.semanas)].sort((a, b) => (a === -1 ? 1 : b === -1 ? -1 : a - b)),
     dayOfMonth: null,
   };
 }

@@ -9,6 +9,10 @@ import { PrismaClient } from '@prisma/client';
  * sobrescreve um imageUrl definido manualmente (use --force para renovar).
  *   npx ts-node prisma/seed-santos-imagens.ts [--force]
  */
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('seed-santos-imagens');
+
 const prisma = new PrismaClient();
 const FORCE = process.argv.includes('--force');
 

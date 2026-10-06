@@ -3,6 +3,7 @@ import { UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { parseYmd, zonedParts } from '../../common/schedule-time';
 
 /**
  * Santos — catálogo global + padroeiros.
@@ -141,10 +142,12 @@ export class SaintsService {
 
   /** Santo(s) do dia — festa litúrgica de hoje (ou da data informada). */
   async ofTheDay(date?: string) {
-    const ref = date ? new Date(date) : new Date();
-    if (Number.isNaN(ref.getTime())) throw new BadRequestException('Data inválida');
+    // Dia CIVIL (B54): '2026-10-04' é 4 de outubro — new Date() disso é
+    // 00:00Z, que em Brasília ainda é dia 3. Sem data: hoje na paróquia.
+    const day = date ? parseYmd(date) : zonedParts(new Date());
+    if (!day) throw new BadRequestException('Data inválida. Use AAAA-MM-DD');
     return this.prisma.saint.findMany({
-      where: { deletedAt: null, feastMonth: ref.getMonth() + 1, feastDay: ref.getDate() },
+      where: { deletedAt: null, feastMonth: day.month, feastDay: day.day },
       orderBy: { name: 'asc' },
     });
   }

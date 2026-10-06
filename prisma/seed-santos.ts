@@ -7,6 +7,10 @@ import { PrismaClient } from '@prisma/client';
  * Idempotente: upsert por nome (único). Rode quantas vezes quiser:
  *   npx ts-node prisma/seed-santos.ts
  */
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('seed-santos');
+
 const prisma = new PrismaClient();
 
 interface SaintSeed {

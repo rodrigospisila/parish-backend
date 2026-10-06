@@ -8,6 +8,7 @@ import {
   IsDateString,
   IsArray,
   ValidateNested,
+  Matches,
   Min,
   Max,
 } from 'class-validator';
@@ -70,9 +71,11 @@ export class CreateMassScheduleDto {
   @Max(31)
   dayOfMonth?: number;
 
+  /** HH:MM de 00:00 a 23:59 — "25:70" virava 02:10 do dia seguinte, e a suspensão não casava. */
   @IsString()
   @IsNotEmpty()
-  time: string; // Formato HH:MM
+  @Matches(/^([01]\d|2[0-3]):[0-5]\d$/, { message: 'Hora inválida: use HH:MM, de 00:00 a 23:59' })
+  time: string;
 
   @IsEnum(MassScheduleType)
   type: MassScheduleType;

@@ -9,6 +9,10 @@ import { PrismaClient, PastoralKind } from '@prisma/client';
  * pelo usuário com outros nomes.
  *   npx ts-node prisma/seed-pastorais-cnbb.ts
  */
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('seed-pastorais-cnbb');
+
 const prisma = new PrismaClient();
 
 interface PastoralSeed {

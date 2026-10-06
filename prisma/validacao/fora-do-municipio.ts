@@ -11,6 +11,13 @@ import { join } from 'path';
  * Só toca em pino de máquina ou legado (nunca MANUAL, nunca conferido). O pino vai para o centro do município (CITY,
  * ibge-municipio) e a origem antiga fica registrada na fila como sugestão? Não: pino errado não é sugestão. Só o centro.
  * Grava antes uma cópia (cache/backup-fora-do-municipio-*.json) e imprime a lista para conferência.
+ *
+ * Cidade que não é nome de município do IBGE ("Muquém do São Francisco", "Planaltina de Goiás", o distrito
+ * "Aparecida de Minas") NÃO é mais pulada (auditoria M37, out/2026): passa pela tabela apelidos-municipio.json
+ * (grafia/distrito → código IBGE) e, sem apelido, pela cidade da paróquia. O que nem assim casa vai listado
+ * em cache/cidade-sem-ibge.json. Pino de CEP (geoSource cep*) usa limite menor (FORA_KM_CEP): o CEP genérico de
+ * cidade pequena cai no centro de OUTRO município a 30–47 km e passava como "perto".
+ * --apply exige CONFIRM_PROD=sim no ambiente.
  */
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -23,6 +30,14 @@ const GEO = join(__dirname, '..', 'data', 'geo');
 const CACHE = join(GEO, 'cache');
 const UFS = 'AC AL AM AP BA CE DF ES GO MA MG MS MT PA PB PE PI PR RJ RN RO RR RS SC SE SP TO'.split(' ');
 const FORA_KM = 50;
+const FORA_KM_CEP = 30;
+if (APPLY && process.env.CONFIRM_PROD !== 'sim') {
+  console.error('--apply exige CONFIRM_PROD=sim no ambiente. Nada foi feito.');
+  process.exit(1);
+}
+const nomeChave = (s: string) => C.semAcento(s).replace(/[^a-z0-9]+/g, ' ').trim();
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const APELIDOS: Record<string, { ibge?: string }> = require('./apelidos-municipio.json');
 
 type Ponto = { lat: number; lng: number };
 const km = (a: Ponto, b: Ponto) => Math.hypot((a.lat - b.lat) * 111.2, (a.lng - b.lng) * 111.2 * Math.cos((((a.lat + b.lat) / 2) * Math.PI) / 180));
@@ -37,23 +52,33 @@ const km = (a: Ponto, b: Ponto) => Math.hypot((a.lat - b.lat) * 111.2, (a.lng - 
 
   const todas = await prisma.community.findMany({
     where: { deletedAt: null, latitude: { not: null }, geoVerifiedAt: null, OR: [{ geoPrecision: null }, { geoPrecision: 'STREET' }] },
-    select: { id: true, name: true, city: true, state: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, _count: { select: { massSchedules: true } } },
+    select: { id: true, name: true, city: true, state: true, latitude: true, longitude: true, geoPrecision: true, geoSource: true, parish: { select: { city: true, state: true } }, _count: { select: { massSchedules: true } } },
   });
   const fora: Array<{ id: string; nome: string; cidade: string; origem: string; km: number; centro: Ponto; missa: boolean }> = [];
   let semMunicipio = 0;
+  let porApelido = 0;
+  let pelaParoquia = 0;
+  const semIbge = new Map<string, number>();
   for (const c of todas) {
     if (['manual', 'gps'].includes(c.geoSource ?? '')) continue;
-    const mun = porNome.get(`${C.semAcento(c.city).replace(/[^a-z0-9]+/g, ' ').trim()}|${String(c.state).toUpperCase()}`);
-    if (!mun || !centros.has(mun)) { semMunicipio += 1; continue; }
+    const chave = `${nomeChave(c.city)}|${String(c.state).toUpperCase()}`;
+    let mun = porNome.get(chave);
+    if (!mun && APELIDOS[chave]?.ibge) { mun = APELIDOS[chave].ibge; porApelido += 1; }
+    if (!mun && c.parish?.city) {
+      mun = porNome.get(`${nomeChave(c.parish.city)}|${String(c.parish.state || c.state).toUpperCase()}`);
+      if (mun) pelaParoquia += 1;
+    }
+    if (!mun || !centros.has(mun)) { semMunicipio += 1; semIbge.set(`${c.city}/${c.state}`, (semIbge.get(`${c.city}/${c.state}`) ?? 0) + 1); continue; }
     const pino = { lat: c.latitude as number, lng: c.longitude as number };
     if (municipioDe(pino.lat, pino.lng) === mun) continue;
     const d = km(pino, centros.get(mun)!);
-    if (d > FORA_KM) fora.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, origem: c.geoSource ?? 'legado', km: Math.round(d), centro: centros.get(mun)!, missa: c._count.massSchedules > 0 });
+    if (d > (String(c.geoSource ?? '').startsWith('cep') ? FORA_KM_CEP : FORA_KM)) fora.push({ id: c.id, nome: c.name, cidade: `${c.city}/${c.state}`, origem: c.geoSource ?? 'legado', km: Math.round(d), centro: centros.get(mun)!, missa: c._count.massSchedules > 0 });
   }
   fora.sort((a, b) => b.km - a.km);
   const porOrigem = fora.reduce((m: Record<string, number>, x) => { m[x.origem] = (m[x.origem] ?? 0) + 1; return m; }, {});
-  console.log(`${APPLY ? '' : 'DRY RUN — '}pinos de máquina/legado avaliados: ${todas.length} · cidade não reconhecida (pulados): ${semMunicipio}`);
-  console.log(`fora do município e a > ${FORA_KM} km do centro: ${fora.length} (com missa ${fora.filter((x) => x.missa).length}) · por origem: ${Object.entries(porOrigem).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
+  console.log(`${APPLY ? '' : 'DRY RUN — '}pinos de máquina/legado avaliados: ${todas.length} · cidade pelo apelido: ${porApelido} · pela cidade da paróquia: ${pelaParoquia} · sem código IBGE (pulados): ${semMunicipio}`);
+  writeFileSync(join(CACHE, 'cidade-sem-ibge.json'), JSON.stringify(Object.fromEntries(semIbge), null, 1));
+  console.log(`fora do município e a > ${FORA_KM} km do centro (pino de CEP: > ${FORA_KM_CEP} km): ${fora.length} (com missa ${fora.filter((x) => x.missa).length}) · por origem: ${Object.entries(porOrigem).map(([k, v]) => `${k} ${v}`).join(' · ')}`);
   for (const x of fora.slice(0, 40)) console.log(`  ${String(x.km).padStart(5)} km | ${x.origem.padEnd(14)} | ${x.nome.slice(0, 40).padEnd(40)} | ${x.cidade}${x.missa ? ' [missa]' : ''}`);
   if (fora.length > 40) console.log(`  ... e mais ${fora.length - 40}`);
   writeFileSync(join(CACHE, 'fora-do-municipio.json'), JSON.stringify(fora, null, 1));

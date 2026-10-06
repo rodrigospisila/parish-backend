@@ -1,6 +1,10 @@
 import { PrismaClient, UserRole } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../prisma/lib/prod-guard.cjs');
+assertNotProduction('create-system-admin');
+
 const prisma = new PrismaClient();
 
 async function createSystemAdmin() {

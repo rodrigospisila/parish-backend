@@ -35,6 +35,8 @@ const CHALLENGE_TTL = '5m';
 const SETUP_TTL_MS = 15 * 60_000;
 const MAX_CODE_FAILURES = 5;
 const CODE_LOCK_MS = 15 * 60_000;
+/** Login com senha "recente" para ativar o 2FA sem redigitar a senha (app antigo). */
+const RECENT_AUTH_MS = 5 * 60_000;
 
 const normalizeCode = (code: string) => String(code ?? '').replace(/[\s-]/g, '').toUpperCase();
 /** Códigos de recuperação: HMAC sob a chave do servidor — um dump do banco não permite força bruta dos 40 bits. */
@@ -203,6 +205,31 @@ export class SessionSecurityService {
     }
     this.noteCodeFailure(userId);
     return false;
+  }
+
+  // ===== reautenticação =====
+
+  /** Confere a senha da própria conta (400 "Senha atual incorreta" se não bater). */
+  async assertPassword(userId: string, password: string) {
+    const user = await this.prisma.user.findUnique({ where: { id: userId }, select: { password: true } });
+    if (!user) throw new NotFoundException('Usuário não encontrado');
+    const ok = await bcrypt.compare(String(password ?? ''), user.password);
+    if (!ok) throw new BadRequestException('Senha atual incorreta');
+  }
+
+  /**
+   * Ação sensível com um access token na mão (M5): exige a senha atual. Sem
+   * a senha, só aceita se o login COM SENHA desta sessão foi há menos de 5
+   * minutos (`authTime`, claim `at` — atravessa as renovações, então um token
+   * roubado de uma sessão antiga não serve). Cobre o app 1.1.0, que não manda a senha.
+   */
+  async assertRecentAuth(user: { id: string; authTime?: number | null }, password?: string | null) {
+    if (password) return this.assertPassword(user.id, password);
+    const authTime = typeof user.authTime === 'number' ? user.authTime * 1000 : 0;
+    if (authTime && Date.now() - authTime <= RECENT_AUTH_MS) return;
+    throw new BadRequestException(
+      'Por segurança, confirme a sua senha atual para ativar. No app, atualize-o ou saia e entre de novo e ative em seguida.',
+    );
   }
 
   // ===== configuração do 2FA pelo próprio usuário =====

@@ -77,7 +77,9 @@ function toTime(value: Date | string | null | undefined): number | null {
  * A comunidade tem acesso aos recursos pagos?
  * - sem plano (null) / FREE / SUSPENDED / CANCELED → não
  * - TRIAL → só enquanto trialEndsAt > agora
- * - ACTIVE → sim
+ * - ACTIVE → até currentPeriodEnd + graceDays; sem currentPeriodEnd (contrato
+ *   sem data de renovação) → sim. Período vencido vale como PAST_DUE mesmo
+ *   antes de a rotina `markOverduePlans` gravar o status
  * - PAST_DUE → até currentPeriodEnd + graceDays (sem currentPeriodEnd → não)
  */
 export function hasPaidAccess(plan: PlanAccessFields | null | undefined, now: Date = new Date()): boolean {
@@ -85,8 +87,10 @@ export function hasPaidAccess(plan: PlanAccessFields | null | undefined, now: Da
   const nowMs = now.getTime();
 
   switch (plan.status) {
-    case 'ACTIVE':
-      return true;
+    case 'ACTIVE': {
+      const end = toTime(plan.currentPeriodEnd);
+      return end === null || withinGrace(end, plan.graceDays, nowMs);
+    }
     case 'TRIAL': {
       const ends = toTime(plan.trialEndsAt);
       return ends !== null && ends > nowMs;
@@ -94,12 +98,30 @@ export function hasPaidAccess(plan: PlanAccessFields | null | undefined, now: Da
     case 'PAST_DUE': {
       const end = toTime(plan.currentPeriodEnd);
       if (end === null) return false;
-      const grace = plan.graceDays ?? DEFAULT_GRACE_DAYS;
-      return end + Math.max(0, grace) * DAY_MS > nowMs;
+      return withinGrace(end, plan.graceDays, nowMs);
     }
     default:
       return false;
   }
+}
+
+function withinGrace(endMs: number, graceDays: number | null | undefined, nowMs: number): boolean {
+  const grace = graceDays ?? DEFAULT_GRACE_DAYS;
+  return endMs + Math.max(0, grace) * DAY_MS > nowMs;
+}
+
+/** Plano pago (ACTIVE/PAST_DUE) com o período já vencido (currentPeriodEnd <= agora). */
+export function isPeriodOverdue(plan: PlanAccessFields | null | undefined, now: Date = new Date()): boolean {
+  if (!plan || (plan.status !== 'ACTIVE' && plan.status !== 'PAST_DUE')) return false;
+  const end = toTime(plan.currentPeriodEnd);
+  return end !== null && end <= now.getTime();
+}
+
+/** Fim da carência (currentPeriodEnd + graceDays) de um plano pago; null sem período. */
+export function graceEndsAt(plan: Pick<PlanAccessFields, 'currentPeriodEnd' | 'graceDays'> | null | undefined): Date | null {
+  const end = toTime(plan?.currentPeriodEnd);
+  if (end === null) return null;
+  return new Date(end + Math.max(0, plan?.graceDays ?? DEFAULT_GRACE_DAYS) * DAY_MS);
 }
 
 /** Soma um ciclo de cobrança (mês/ano do calendário, em UTC). */

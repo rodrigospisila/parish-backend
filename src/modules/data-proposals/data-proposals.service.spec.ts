@@ -23,6 +23,10 @@ function fakeDb() {
     schedules: [] as any[],
     communities: [] as any[],
     parishes: [] as any[],
+    // Tabelas só contadas na trava do COMMUNITY_PARISH (linhas { communityId })
+    financialTransactions: [] as any[],
+    titheIntents: [] as any[],
+    communityPlans: [] as any[],
   };
   let seq = 0;
   const pick = (row: any) => (row ? { ...row } : null);
@@ -71,6 +75,9 @@ function fakeDb() {
     massSchedule: table(() => state.schedules, 'ms'),
     community: table(() => state.communities, 'c'),
     parish: table(() => state.parishes, 'p'),
+    financialTransaction: { count: async ({ where }: any) => state.financialTransactions.filter((r) => matches(r, where)).length },
+    titheIntent: { count: async ({ where }: any) => state.titheIntents.filter((r) => matches(r, where)).length },
+    communityPlan: { count: async ({ where }: any) => state.communityPlans.filter((r) => matches(r, where)).length },
     $transaction: async (fn: any) => {
       const snap = structuredClone({ ...state });
       try {
@@ -315,6 +322,24 @@ describe('DataProposalsService — aprovação e rejeição', () => {
     db.state.proposals.push(proposal({ kind: 'COMMUNITY_PARISH', payload: { parishId: 'p-2' }, current: { parishId: 'p-1' } }));
     db.state.proposals.push(proposal({ id: 'dp-2', kind: 'COMMUNITY_PARISH', payload: { parishId: 'p-x' } }));
     await expect(service.approve('dp-2', {}, admin)).rejects.toThrow(/Paróquia de destino/);
+    await service.approve('dp-1', {}, admin);
+    expect(db.state.communities[0].parishId).toBe('p-2');
+  });
+
+  it('B6: COMMUNITY_PARISH de comunidade em uso (membros, usuários, finanças) → 409 e nada muda', async () => {
+    db.state.communities[0]._count = { members: 3, users: 1 };
+    db.state.proposals.push(proposal({ kind: 'COMMUNITY_PARISH', payload: { parishId: 'p-2' }, current: { parishId: 'p-1' } }));
+    await expect(service.approve('dp-1', {}, admin)).rejects.toThrow(/já está em uso — usuários \(1\), membros \(3\)/);
+    expect(db.state.communities[0].parishId).toBe('p-1');
+    expect(db.state.proposals[0].status).toBe('PENDING');
+
+    // só lançamento financeiro já basta
+    db.state.communities[0]._count = {};
+    db.state.financialTransactions.push({ communityId: 'c-1' });
+    await expect(service.approve('dp-1', {}, admin)).rejects.toThrow(/lançamentos financeiros \(1\)/);
+
+    // sem vínculo nenhum, move
+    db.state.financialTransactions = [];
     await service.approve('dp-1', {}, admin);
     expect(db.state.communities[0].parishId).toBe('p-2');
   });

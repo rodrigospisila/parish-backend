@@ -48,12 +48,18 @@ export class SecurityController {
     return this.security.setup(req.user.id);
   }
 
-  /** Ativa o 2FA; as outras sessões caem e o chamador recebe tokens novos. */
+  /**
+   * Ativa o 2FA; as outras sessões caem e o chamador recebe tokens novos.
+   * Exige a senha atual (`password`) ou um login com senha de até 5 min (M5):
+   * só o access token não basta para trancar o titular fora da conta.
+   */
   @Post('2fa/enable')
   @UseGuards(JwtAuthGuard, ThrottlerGuard)
   @Throttle({ default: { limit: 10, ttl: 60_000 } })
-  async enable(@Body() body: { code: string }, @Request() req: any) {
+  async enable(@Body() body: { code: string; password?: string }, @Request() req: any) {
+    await this.security.assertRecentAuth(req.user, body?.password ? String(body.password) : null);
     const result = await this.security.enable(req.user.id, String(body?.code ?? ''));
+    // Acabou de provar a senha e o autenticador: a sessão nova conta como login recente
     const tokens = await this.authService.reissueSession(req.user.id);
     return { ...result, ...tokens };
   }
@@ -85,7 +91,7 @@ export class SecurityController {
   async forget(@Param('id') id: string, @Request() req: any, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
     const result = await this.security.forgetDevice(req.user.id, id, metaFrom(headers, ip));
     if (result.current) return result;
-    const tokens = await this.authService.reissueSession(req.user.id);
+    const tokens = await this.authService.reissueSession(req.user.id, req.user.authTime ?? null);
     return { ...result, ...tokens };
   }
 

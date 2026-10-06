@@ -1,10 +1,12 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException, Optional } from '@nestjs/common';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PastoralsService } from './pastorals.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * "Quero participar" (Onda 4): o fiel pede para entrar numa pastoral da
@@ -18,6 +20,8 @@ export class JoinRequestsService {
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
     private readonly pastoralsService: PastoralsService,
+    // Plano por comunidade na rota "minhas" (A21). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private auditActor(user: CurrentUser) {
@@ -238,7 +242,7 @@ export class JoinRequestsService {
       select: { id: true },
     });
     if (!member) return { requests: [], memberOfPastoralIds: [] };
-    const [requests, memberships] = await Promise.all([
+    const [allRequests, memberships] = await Promise.all([
       this.prisma.pastoralJoinRequest.findMany({
         where: { memberId: member.id },
         include: { communityPastoral: { include: { globalPastoral: { select: { name: true } } } } },
@@ -249,6 +253,8 @@ export class JoinRequestsService {
         select: { communityPastoralId: true },
       }),
     ]);
+    // Rota "minhas" (A21): vale a comunidade da pastoral pedida
+    const requests = await planFilter(this.planAccess, user, allRequests, (r) => r.communityPastoral.communityId);
     return {
       requests: requests.map((r) => ({
         id: r.id,

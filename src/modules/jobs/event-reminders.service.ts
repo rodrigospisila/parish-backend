@@ -1,16 +1,28 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { Cron, CronExpression } from '@nestjs/schedule';
+import { Cron } from '@nestjs/schedule';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { runExclusiveJob } from '../../common/scheduled-job-lock';
+import {
+  DEFAULT_PARISH_TIME_ZONE,
+  addDaysYmd,
+  todayYmd,
+  zonedDayRange,
+  zonedParts,
+} from '../../common/schedule-time';
+
+const pad = (value: number) => String(value).padStart(2, '0');
 
 /**
  * Lembrete de eventos D-1 (roadmap 2.2).
  * `NotificationType.EVENT_REMINDER` existe no schema mas nada o disparava.
  *
- * Roda uma vez ao dia e lembra os participantes de eventos que ocorrem no dia
- * seguinte. Como a janela é o "dia de amanhã" e o cron é diário, cada evento é
- * lembrado exatamente uma vez (sem necessidade de coluna de deduplicação).
+ * Roda uma vez ao dia, às 8h de Brasília (fuso explícito no @Cron — não
+ * depende do TZ do container), e lembra os participantes dos eventos de
+ * AMANHÃ no calendário da paróquia. Trava distribuída por job + claim atômico
+ * em Event.reminderSentForStart (M45): duas réplicas ou a sobreposição de
+ * containers num deploy não mandam o push em dobro.
  */
 @Injectable()
 export class EventRemindersService {
@@ -21,18 +33,16 @@ export class EventRemindersService {
     private readonly notificationsService: NotificationsService,
   ) {}
 
-  @Cron(CronExpression.EVERY_DAY_AT_8AM)
+  @Cron('0 8 * * *', { name: 'event-reminders', timeZone: DEFAULT_PARISH_TIME_ZONE })
   async handleCron() {
-    await this.remindTomorrowEvents(new Date());
+    await runExclusiveJob(this.prisma, 'event-reminders', () => this.remindTomorrowEvents(new Date()), {
+      logger: this.logger,
+    });
   }
 
   async remindTomorrowEvents(now: Date): Promise<number> {
-    // Janela: amanhã 00:00 → amanhã 23:59:59
-    const start = new Date(now);
-    start.setDate(start.getDate() + 1);
-    start.setHours(0, 0, 0, 0);
-    const end = new Date(start);
-    end.setHours(23, 59, 59, 999);
+    // Janela: amanhã 00:00 → 23:59:59.999 no fuso da paróquia
+    const { start, end } = zonedDayRange(addDaysYmd(todayYmd(now), 1));
 
     const events = await this.prisma.event.findMany({
       where: {
@@ -45,6 +55,7 @@ export class EventRemindersService {
         title: true,
         startDate: true,
         location: true,
+        reminderSentForStart: true,
         participants: {
           where: { member: { deletedAt: null } },
           select: { member: { select: { userId: true } } },
@@ -54,6 +65,11 @@ export class EventRemindersService {
 
     let sent = 0;
     for (const event of events) {
+      // Já lembrado para ESTE início (outra réplica/execução)
+      if (event.reminderSentForStart && event.reminderSentForStart.getTime() === event.startDate.getTime()) {
+        continue;
+      }
+
       const userIds = event.participants
         .map((participant) => participant.member?.userId)
         .filter((id): id is string => !!id);
@@ -62,12 +78,18 @@ export class EventRemindersService {
         continue;
       }
 
-      const dateLabel = event.startDate.toLocaleString('pt-BR', {
-        day: '2-digit',
-        month: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit',
+      // Claim atômico: quem perder a corrida (count 0) não envia
+      const claimed = await this.prisma.event.updateMany({
+        where: {
+          id: event.id,
+          OR: [{ reminderSentForStart: null }, { reminderSentForStart: { not: event.startDate } }],
+        },
+        data: { reminderSentForStart: event.startDate },
       });
+      if (claimed.count === 0) continue;
+
+      const p = zonedParts(event.startDate);
+      const dateLabel = `${pad(p.day)}/${pad(p.month)}, ${pad(p.hour)}:${pad(p.minute)}`;
 
       await this.notificationsService.notifyUsers(
         userIds,

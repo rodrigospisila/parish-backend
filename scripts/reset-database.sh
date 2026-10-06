@@ -35,43 +35,46 @@ if [[ ! $REPLY =~ ^[Ss]$ ]]; then
   exit 0
 fi
 
+# Trava de produção (achado B55): nunca reseta o banco do Railway
+node -e "require('./prisma/lib/prod-guard.cjs').assertNotProduction('reset-database.sh', { never: true })" || exit 1
+
 echo ""
 echo "🗑️  Passo 1/4: Resetando banco de dados..."
-pnpm prisma migrate reset --force --skip-seed || {
+npx prisma migrate reset --force --skip-seed || {
   echo "❌ Erro ao resetar banco de dados"
   echo ""
   echo "Tente executar manualmente:"
-  echo "  pnpm prisma migrate reset --force --skip-seed"
+  echo "  npx prisma migrate reset --force --skip-seed"
   exit 1
 }
 
 echo ""
 echo "🔧 Passo 2/4: Gerando Prisma Client atualizado..."
-pnpm prisma generate || {
+npx prisma generate || {
   echo "❌ Erro ao gerar Prisma Client"
   echo ""
   echo "Tente executar manualmente:"
-  echo "  pnpm prisma generate"
+  echo "  npx prisma generate"
   exit 1
 }
 
 echo ""
 echo "📦 Passo 3/4: Aplicando todas as migrations..."
-pnpm prisma migrate deploy || {
+npx prisma migrate deploy || {
   echo "❌ Erro ao aplicar migrations"
   echo ""
   echo "Tente executar manualmente:"
-  echo "  pnpm prisma migrate deploy"
+  echo "  npx prisma migrate deploy"
   exit 1
 }
 
 echo ""
 echo "👤 Passo 4/4: Criando usuário SYSTEM_ADMIN..."
-pnpm prisma db seed || {
+npx prisma db seed || {
   echo "❌ Erro ao executar seed"
   echo ""
   echo "Tente executar manualmente:"
-  echo "  pnpm prisma db seed"
+  echo "  npx prisma db seed"
   exit 1
 }
 

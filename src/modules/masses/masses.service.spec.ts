@@ -4,6 +4,9 @@ import { MassScheduleType } from '@prisma/client';
 import { MassesService } from './masses.service';
 import { PrismaService } from '../../database/prisma.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
+import { MassesController } from './masses.controller';
+import { UserThrottlerGuard } from '../auth/guards/app-throttler.guard';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
 describe('MassesService — missas por perto', () => {
   let service: MassesService;
@@ -95,7 +98,7 @@ describe('MassesService — missas por perto', () => {
   describe('findNearby — próximas missas', () => {
     beforeEach(() => {
       // Congela o "agora" (relógio de parede) para tornar o filtro determinístico
-      jest.spyOn(service as any, 'nowBrazilFloating').mockReturnValue('2026-07-22T12:00:00');
+      jest.spyOn(service as any, 'now').mockReturnValue(new Date('2026-07-22T15:00:00.000Z')); // 12:00 em Brasília
       prisma.community.findMany.mockResolvedValue([
         { id: 'c1', name: 'Matriz', city: 'SP', state: 'SP', latitude: ORIGIN.lat, longitude: ORIGIN.lng, parish: { id: 'p1', name: 'P1' } },
       ]);
@@ -107,7 +110,7 @@ describe('MassesService — missas por perto', () => {
         { id: 'mass-s1-2026-07-22b', massScheduleId: 's1', title: 'Missa', type: MassScheduleType.MASS, notes: null, start: '2026-07-22T19:00:00', end: '2026-07-22T20:00:00', community: { id: 'c1', name: 'Matriz' }, isFixed: true }, // futura
       ]);
       prisma.event.findMany.mockResolvedValue([
-        { id: 'e1', title: 'Missa Solene', startDate: new Date('2026-07-22T15:00:00.000Z'), endDate: new Date('2026-07-22T16:30:00.000Z'), communityId: 'c1' }, // futura
+        { id: 'e1', title: 'Missa Solene', startDate: new Date('2026-07-22T18:00:00.000Z'), endDate: new Date('2026-07-22T19:30:00.000Z'), communityId: 'c1' }, // futura
       ]);
 
       const res = await service.findNearby({ lat: ORIGIN.lat, lng: ORIGIN.lng, radiusKm: 10 });
@@ -124,7 +127,7 @@ describe('MassesService — missas por perto', () => {
         { id: 'mass-s1-2026-07-22', massScheduleId: 's1', title: 'Missa', type: MassScheduleType.MASS, notes: null, start: '2026-07-22T19:00:00', end: '2026-07-22T20:00:00', community: { id: 'c1', name: 'Matriz' }, isFixed: true, cancelled: true, cancelReason: 'Agenda dos padres' },
       ]);
       prisma.event.findMany.mockResolvedValue([
-        { id: 'e1', title: 'Missa Solene', startDate: new Date('2026-07-22T15:00:00.000Z'), endDate: null, communityId: 'c1' },
+        { id: 'e1', title: 'Missa Solene', startDate: new Date('2026-07-22T18:00:00.000Z'), endDate: null, communityId: 'c1' },
       ]);
 
       const res = await service.findNearby({ lat: ORIGIN.lat, lng: ORIGIN.lng, radiusKm: 10 });
@@ -169,5 +172,40 @@ describe('MassesService — missas por perto', () => {
         types: [MassScheduleType.MASS],
       });
     });
+  });
+});
+
+describe('MassesController — /masses/nearby (M2)', () => {
+  it('limite por usuário (30/min) e teto de igrejas como o mapa público', async () => {
+    expect(Reflect.getMetadata('__guards__', MassesController)).toEqual([JwtAuthGuard, UserThrottlerGuard]);
+    expect(Reflect.getMetadata('THROTTLER:LIMITdefault', MassesController)).toBe(30);
+
+    const svc = { findNearby: jest.fn().mockResolvedValue({}) };
+    const ctrl = new MassesController(svc as any);
+    await ctrl.nearby(-23.5, -46.6, 100, 30, 'MASS,CONFESSION', undefined, 'sunday', '06:00', '08:00');
+    expect(svc.findNearby).toHaveBeenCalledWith({
+      lat: -23.5,
+      lng: -46.6,
+      radiusKm: 100,
+      days: 30,
+      types: ['MASS', 'CONFESSION'],
+      limit: undefined,
+      focus: { day: 'sunday', fromMin: 360, toMin: 480 },
+    });
+  });
+
+  it('findNearby sem limit corta em 300 igrejas (truncated)', async () => {
+    const prisma: any = {
+      community: {
+        findMany: jest.fn().mockResolvedValue(
+          Array.from({ length: 320 }, (_, i) => ({ id: `c${i}`, name: 'X', city: 'SP', state: 'SP', latitude: -23.55, longitude: -46.63, parish: null })),
+        ),
+      },
+      event: { findMany: jest.fn().mockResolvedValue([]) },
+    };
+    const service = new MassesService(prisma, { expandOccurrences: jest.fn().mockResolvedValue([]) } as any);
+    const res = await service.findNearby({ lat: -23.55, lng: -46.63, radiusKm: 10 });
+    expect(res.count).toBe(300);
+    expect(res.truncated).toBe(true);
   });
 });

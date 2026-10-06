@@ -1,5 +1,9 @@
 import { PrismaClient, UserRole } from '@prisma/client';
 
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../prisma/lib/prod-guard.cjs');
+assertNotProduction('update-admin-role');
+
 const prisma = new PrismaClient();
 
 async function main() {

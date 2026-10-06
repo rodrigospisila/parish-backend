@@ -280,6 +280,10 @@ model User {
   acceptedTermsAt      DateTime?
   acceptedTermsVersion String?
 
+  // Conta removida pela gestão (LGPD): desativada e com os dados pessoais
+  // substituídos — some das listas, o histórico (escalas, auditoria) fica
+  anonymizedAt DateTime?
+
   // Refresh tokens
   refreshTokens RefreshToken[]
 
@@ -374,14 +378,22 @@ model UserDevice {
 
 model RefreshToken {
   id        String   @id @default(cuid())
+  /// SHA-256 (hex) do refresh token. Linhas de antes de 10/2026 guardam o JWT
+  /// em claro — aceitas até expirarem (no máximo 7 dias)
   token     String   @unique
   userId    String
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
   createdAt DateTime @default(now())
+  /// Sessão (família de rotação) do aparelho; o access token carrega o mesmo id (`sid`)
+  sessionId String?
+  /// Quando foi trocado por um novo no /auth/refresh — reapresentar depois disso é reuso
+  rotatedAt DateTime?
 
   @@index([userId])
   @@index([token])
+  @@index([sessionId])
+  @@index([expiresAt])
   @@map("refresh_tokens")
 }
 
@@ -1127,6 +1139,8 @@ model Member {
   // Opt-in para receber o Pix do mês pelo WhatsApp (D4.5)
   whatsappOptIn          Boolean                  @default(false)
   whatsappOptInAt        DateTime?
+  // Último Pix enviado pelo WhatsApp (freio do comando PIX: mensagens do Twilio são pagas)
+  whatsappPixSentAt      DateTime?
   providerCustomers      MemberProviderCustomer[]
   titheSchedules         TitheSchedule[]
   titheCampaignPledges   TitheCampaignPledge[]
@@ -1216,6 +1230,10 @@ model Event {
   maxParticipants Int?
   isPublic        Boolean     @default(true)
   status          EventStatus @default(DRAFT)
+
+  /// Início (startDate) para o qual o lembrete D-1 já saiu — dedup do cron
+  /// entre réplicas/deploys (M45). Evento remarcado volta a ser lembrado.
+  reminderSentForStart DateTime?
 
   // Relations
   communityId    String
@@ -1727,6 +1745,8 @@ model FinancialTransaction {
   // Origem: Pix/cobrança do app que gerou o lançamento (null = manual); estorno aponta o lançamento estornado
   titheIntentId String?
   reversalOfId  String?
+  // Oferta de visitante que gerou o lançamento (receita, taxa do provedor ou estorno)
+  guestGiftId   String?
 
   // Audit
   createdAt DateTime @default(now())
@@ -1737,6 +1757,7 @@ model FinancialTransaction {
   @@index([communityId])
   @@index([campaignId])
   @@index([titheIntentId])
+  @@index([guestGiftId])
   @@index([parishId, date])
   @@map("financial_transactions")
 }
@@ -1810,6 +1831,7 @@ model Notification {
 model PhoneOtp {
   id        String   @id @default(cuid())
   phone     String
+  /// HMAC-SHA256 do código (desde 10/2026); a linha é apagada ao verificar e ao vencer
   code      String
   expiresAt DateTime
   attempts  Int      @default(0)
@@ -1817,6 +1839,7 @@ model PhoneOtp {
   createdAt DateTime @default(now())
 
   @@index([phone])
+  @@index([expiresAt])
   @@map("phone_otps")
 }
 
@@ -2045,6 +2068,15 @@ model CatechesisEnrollment {
   // false = negado, null = não respondido (matrícula antiga ou feita no papel)
   imageConsent     Boolean?
   imageConsentAt   DateTime?
+  imageConsentByUserId String? // quem registrou a resposta (responsável no app ou equipe, termo em papel)
+  // Termo LGPD do responsável para o tratamento dos dados do catequizando
+  // (art. 14 §1º): null = sem termo registrado. Canal APP (aceite do
+  // responsável no app) ou PAPER (termo assinado, lançado pela equipe)
+  guardianConsentAt       DateTime?
+  guardianConsentChannel  String?
+  guardianConsentVersion  String? // versão da política vigente no aceite (APP)
+  guardianConsentByUserId String? // quem registrou (responsável ou membro da equipe)
+  guardianConsentMemberId String? // membro que consentiu (responsável ou o próprio adulto)
   enrolledAt       DateTime                   @default(now())
   completedAt      DateTime?
 
@@ -2656,6 +2688,8 @@ model TitheIntent {
   note           String?
   // Valor que de fato caiu no extrato (pode diferir do gerado)
   amountPaid     Float?
+  // Total já estornado no provedor (valor da cobrança) — controle idempotente do estorno parcial
+  refundedAmount Float             @default(0)
   // Oferta anônima: nome não aparece à tesouraria nem no lançamento
   anonymous      Boolean           @default(false)
   // Contestação do fiel após "não localizado"
@@ -3037,6 +3071,10 @@ model TitheSchedule {
   nextDueDate              DateTime?
   lastError                String?
   cancelledAt              DateTime?
+  // Cancelamento no provedor ainda por fazer (anonimização LGPD): marcado na
+  // transação, disparado só após o commit; o job diário tenta de novo
+  providerCancelPendingAt  DateTime?
+  providerCancelAttempts   Int                 @default(0)
   intents                  TitheIntent[]
   createdAt                DateTime            @default(now())
   updatedAt                DateTime            @updatedAt
@@ -3172,6 +3210,9 @@ model TitheGuestGift {
   providerStatus         String?
   qrExpiresAt            DateTime?
   amountPaid             Float?
+  // Taxa real do provedor (valor − líquido) e total já estornado no provedor
+  feeAmount              Float                @default(0)
+  refundedAmount         Float                @default(0)
   // Token público para acompanhar/receber o comprovante sem login
   receiptToken           String               @unique
   receiptSentAt          DateTime?

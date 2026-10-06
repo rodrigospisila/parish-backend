@@ -5,6 +5,7 @@ import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PdfService } from '../pdf/pdf.service';
 import { memberOfParishWhere } from '../pastorals/coordination-scope';
+import { formatCivilDate, parseCivilDate } from '../catechesis/civil-date';
 
 /**
  * Formação de agentes (roadmap 3.4).
@@ -65,10 +66,12 @@ export class FormationService {
 
   async createTrack(dto: { name: string; description?: string }, user: CurrentUser) {
     if (!this.isParishManager(user.role)) throw new ForbiddenException('Sem permissão');
+    const name = typeof dto?.name === 'string' ? dto.name.trim().slice(0, 120) : '';
+    if (!name) throw new BadRequestException('Informe o nome da trilha');
     const parishId = this.requireParish(user);
     if (!parishId) throw new BadRequestException('parishId é obrigatório');
     return this.prisma.formationTrack.create({
-      data: { name: dto.name, description: dto.description ?? null, parishId },
+      data: { name, description: typeof dto.description === 'string' ? dto.description : null, parishId },
     });
   }
 
@@ -90,6 +93,17 @@ export class FormationService {
     if (!this.isParishManager(user.role) && user.role !== UserRole.COMMUNITY_COORDINATOR) {
       throw new ForbiddenException('Sem permissão');
     }
+    // Campos validados (nome ausente ou validade "abc" → 500 no Prisma)
+    const name = typeof dto?.name === 'string' ? dto.name.trim().slice(0, 160) : '';
+    if (!name) throw new BadRequestException('Informe o nome do curso');
+    const validityMonths =
+      dto.validityMonths === undefined || dto.validityMonths === null ? null : Number(dto.validityMonths);
+    if (validityMonths !== null && (!Number.isInteger(validityMonths) || validityMonths < 1 || validityMonths > 240)) {
+      throw new BadRequestException('Validade inválida — informe os meses (1 a 240)');
+    }
+    if (dto.requiredForRole !== undefined && dto.requiredForRole !== null && typeof dto.requiredForRole !== 'string') {
+      throw new BadRequestException('Função exigida inválida — informe um texto');
+    }
     const parishId = this.requireParish(user);
     if (!parishId) throw new BadRequestException('parishId é obrigatório');
     // Trilha do body: só da MESMA paróquia (o curso apareceria na trilha alheia)
@@ -103,11 +117,11 @@ export class FormationService {
 
     const course = await this.prisma.formationCourse.create({
       data: {
-        name: dto.name,
-        description: dto.description ?? null,
+        name,
+        description: typeof dto.description === 'string' ? dto.description : null,
         parishId,
         trackId: dto.trackId ?? null,
-        validityMonths: dto.validityMonths ?? null,
+        validityMonths,
         requiredForRole: dto.requiredForRole?.trim() || null,
       },
     });
@@ -177,7 +191,9 @@ export class FormationService {
       throw new ForbiddenException('Fora do seu escopo');
     }
 
-    const completedAt = dto.date ? new Date(dto.date) : new Date();
+    // Data civil validada (400, não 500) e ancorada ao meio-dia de Brasília:
+    // meia-noite UTC saía no certificado como o dia anterior
+    const completedAt = dto.date ? parseCivilDate(dto.date, 'Data da conclusão') : new Date();
     let expiresAt: Date | null = null;
     if (enrollment.course.validityMonths) {
       expiresAt = new Date(completedAt);
@@ -304,15 +320,12 @@ export class FormationService {
           rows: [
             ['Participante', enrollment.member.fullName],
             ['Curso', enrollment.course.name],
-            ['Conclusão', enrollment.completedAt.toLocaleDateString('pt-BR')],
-            [
-              'Validade',
-              enrollment.expiresAt ? enrollment.expiresAt.toLocaleDateString('pt-BR') : 'Sem expiração',
-            ],
+            ['Conclusão', formatCivilDate(enrollment.completedAt)],
+            ['Validade', enrollment.expiresAt ? formatCivilDate(enrollment.expiresAt) : 'Sem expiração'],
           ],
         },
       ],
-      footer: `Emitido em ${new Date().toLocaleString('pt-BR')}`,
+      footer: `Emitido em ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
     });
   }
 }

@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, Optional } from '@nestjs/common';
 import { VisitReason, VisitRequestStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
@@ -9,6 +9,8 @@ import {
   memberOfParishWhere,
   resolveCoordinatedPastoralIds,
 } from '../pastorals/coordination-scope';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planMark } from '../../common/plan-list';
 
 /**
  * Pastoral da Visitação / Enfermos (roadmap 4.5).
@@ -24,6 +26,8 @@ export class VisitationService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Plano por comunidade nas listas (M35). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private auditActor(user: CurrentUser) {
@@ -147,7 +151,7 @@ export class VisitationService {
       if (!scope) return [];
       if (Object.keys(scope).length) where.community = scope;
     }
-    return this.prisma.visitRequest.findMany({
+    const requests = await this.prisma.visitRequest.findMany({
       where,
       select: {
         id: true,
@@ -155,11 +159,14 @@ export class VisitationService {
         memberId: true,
         reason: true,
         status: true,
+        communityId: true,
         communityPastoralId: true,
         createdAt: true,
       },
       orderBy: { createdAt: 'desc' },
     });
+    // Pedido de comunidade sem o plano vem com o cadeado (M35)
+    return planMark(this.planAccess, user, requests, (request) => request.communityId);
   }
 
   private async loadRequest(id: string, user: CurrentUser) {

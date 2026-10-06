@@ -4,15 +4,18 @@ import {
   ConflictException,
   BadRequestException,
   ForbiddenException,
+  Optional,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
+import { TitheScheduleCancellationService } from '../tithe/tithe-schedule-cancellation.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
 import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dto';
-import { MemberStatus, Prisma, UserRole } from '@prisma/client';
+import { AssignmentStatus, MemberStatus, Prisma, UserRole } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast, ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
+import { normalizeBrazilianPhone } from '../messaging/log-mask';
 
 /**
  * Roles que representam "pessoas da congregação" e por isso ganham um Member
@@ -43,6 +46,8 @@ export class MembersService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Opcional: specs antigos montam o serviço sem ele
+    @Optional() private readonly titheSchedules?: TitheScheduleCancellationService,
   ) {}
 
   /**
@@ -140,7 +145,7 @@ export class MembersService {
       }
 
       if (target.includes('email')) {
-        throw new ConflictException('Email ja cadastrado');
+        throw new ConflictException('Email já cadastrado');
       }
 
       throw new ConflictException('Ja existe um membro com um dos dados unicos informados');
@@ -165,13 +170,13 @@ export class MembersService {
 
     for (const rule of rules) {
       if (rule.endMinutes <= rule.startMinutes) {
-        throw new BadRequestException('A disponibilidade semanal precisa ter horario final maior que o inicial');
+        throw new BadRequestException('A disponibilidade semanal precisa ter horário final maior que o inicial');
       }
     }
 
     for (const item of exceptions) {
       if (Number.isNaN(item.startDate.getTime()) || Number.isNaN(item.endDate.getTime())) {
-        throw new BadRequestException('Periodo de indisponibilidade invalido');
+        throw new BadRequestException('Periodo de indisponibilidade inválido');
       }
 
       if (item.endDate.getTime() <= item.startDate.getTime()) {
@@ -926,8 +931,10 @@ export class MembersService {
   async findOne(id: string, currentUser?: CurrentUser) {
     const member = await this.prisma.member.findFirst({
       where: { id, deletedAt: null },
+      // Relações com select enxuto (B52): a ficha não carrega a comunidade
+      // inteira (smsEnabled, geoVerifiedBy...) nem o evento completo
       include: {
-        community: true,
+        community: { select: { id: true, name: true, parishId: true } },
         user: {
           select: {
             id: true,
@@ -945,12 +952,14 @@ export class MembersService {
         pastoralMemberships: {
           include: {
             communityPastoral: {
-              include: {
-                globalPastoral: true,
-                community: true,
+              select: {
+                id: true,
+                communityId: true,
+                globalPastoral: { select: { id: true, name: true } },
+                community: { select: { id: true, name: true } },
               },
             },
-            pastoralGroup: true,
+            pastoralGroup: { select: { id: true, name: true } },
           },
         },
         sacraments: {
@@ -965,7 +974,7 @@ export class MembersService {
           include: {
             schedule: {
               include: {
-                event: true,
+                event: { select: { id: true, title: true, startDate: true, endDate: true, location: true } },
               },
             },
           },
@@ -1092,7 +1101,7 @@ export class MembersService {
           email: normalizedEmail,
         },
         include: {
-          community: true,
+          community: { select: { id: true, name: true, parishId: true } },
           responsible: { select: { id: true, fullName: true } },
           user: {
             select: {
@@ -1179,6 +1188,29 @@ export class MembersService {
         })
       : undefined;
 
+    // Consentimentos e vínculos de comunidade: titular e gestão
+    const [consents, communityLinks] = await Promise.all([
+      this.prisma.consent.findMany({
+        where: { memberId: id },
+        select: { type: true, granted: true, policyVersion: true, grantedAt: true, revokedAt: true },
+        orderBy: { type: 'asc' },
+      }),
+      this.prisma.memberCommunity.findMany({
+        where: { memberId: id },
+        select: {
+          isPrimary: true,
+          isActive: true,
+          consentGiven: true,
+          joinedAt: true,
+          leftAt: true,
+          community: { select: { id: true, name: true } },
+        },
+      }),
+    ]);
+
+    // Só para o titular (B62): catequese, dízimo e notificações recebidas
+    const ownExtras = isSelf ? await this.loadOwnExportExtras(id, member.userId ?? null) : {};
+
     await this.auditService.log({
       actor: this.auditActor(currentUser),
       action: 'EXPORT',
@@ -1188,8 +1220,67 @@ export class MembersService {
 
     return {
       exportedAt: new Date().toISOString(),
-      member: prayerRequests ? { ...memberData, prayerRequests } : memberData,
+      member: {
+        ...memberData,
+        ...(prayerRequests ? { prayerRequests } : {}),
+        consents,
+        communityLinks,
+        ...ownExtras,
+      },
     };
+  }
+
+  /**
+   * Portabilidade do PRÓPRIO titular (B62): matrículas da catequese (sem os
+   * binários dos documentos), dízimo (contribuições e Pix programado, sem os
+   * dados de autorização do provedor) e as notificações recebidas.
+   */
+  private async loadOwnExportExtras(memberId: string, userId: string | null) {
+    const [catechesisEnrollments, tither, titheSchedules, notifications] = await Promise.all([
+      this.prisma.catechesisEnrollment.findMany({
+        where: { memberId },
+        select: {
+          status: true,
+          enrolledAt: true,
+          completedAt: true,
+          unbaptized: true,
+          imageConsent: true,
+          imageConsentAt: true,
+          class: { select: { name: true, year: true } },
+          documents: {
+            select: { kind: true, fileName: true, status: true, createdAt: true, reviewedAt: true },
+          },
+        },
+        orderBy: { enrolledAt: 'desc' },
+      }),
+      this.prisma.tither.findUnique({
+        where: { memberId },
+        select: {
+          registrationNumber: true,
+          joinedAt: true,
+          status: true,
+          contributions: {
+            select: { amount: true, date: true, referenceMonth: true, method: true, receiptNumber: true },
+            orderBy: { date: 'desc' },
+          },
+        },
+      }),
+      this.prisma.titheSchedule.findMany({
+        where: { memberId },
+        select: { amount: true, dayOfMonth: true, mode: true, status: true, nextDueDate: true, cancelledAt: true, createdAt: true },
+        orderBy: { createdAt: 'desc' },
+      }),
+      userId
+        ? this.prisma.notification.findMany({
+            where: { userId },
+            select: { title: true, body: true, type: true, createdAt: true },
+            orderBy: { createdAt: 'desc' },
+            take: 500,
+          })
+        : Promise.resolve([]),
+    ]);
+
+    return { catechesisEnrollments, tither, titheSchedules, notifications };
   }
 
   // LGPD: Direito ao esquecimento (anonimizar dados)
@@ -1212,53 +1303,12 @@ export class MembersService {
       throw new BadRequestException('Membro já foi anonimizado');
     }
 
-    const fieldsCleared = [
-      'fullName',
-      'cpf',
-      'rg',
-      'email',
-      'phone',
-      'zipCode',
-      'street',
-      'number',
-      'complement',
-      'neighborhood',
-      'city',
-      'state',
-      'photoUrl',
-      'fatherName',
-      'motherName',
-      'occupation',
-      'birthDate',
-      'notes',
-    ];
-
-    const anonymized = await this.prisma.member.update({
-      where: { id },
-      data: {
-        fullName: 'Usuário Anônimo',
-        cpf: null,
-        rg: null,
-        email: null,
-        phone: null,
-        zipCode: null,
-        street: null,
-        number: null,
-        complement: null,
-        neighborhood: null,
-        city: null,
-        state: null,
-        photoUrl: null,
-        fatherName: null,
-        motherName: null,
-        occupation: null,
-        birthDate: null,
-        notes: null,
-        status: MemberStatus.ANONYMIZED,
-        consentGiven: false,
-        consentDate: null,
-      },
-    });
+    const anonymized = await this.prisma.$transaction((tx) =>
+      this.anonymizePersonalData(tx, id, { label: 'Usuário Anônimo' }),
+    );
+    // Só agora, com a transação confirmada, o provedor é chamado
+    void this.cancelTitheAtProviderAfterCommit(id);
+    const fieldsCleared = MembersService.ANONYMIZED_FIELDS;
 
     // Auditoria SEM dados pessoais em claro (registrar o "antes" com PII
     // derrotaria o propósito da anonimização).
@@ -1269,8 +1319,164 @@ export class MembersService {
       entityId: id,
       metadata: { fieldsCleared },
     });
+    // Registros anteriores sobre este membro perdem os dados pessoais (M49)
+    await this.auditService.pseudonymizeSubject({ memberId: id });
 
     return anonymized;
+  }
+
+  /** Campos pessoais apagados na anonimização — lista única dos dois caminhos (M16). */
+  static readonly ANONYMIZED_FIELDS = [
+    'fullName',
+    'birthDate',
+    'cpf',
+    'rg',
+    'gender',
+    'maritalStatus',
+    'occupation',
+    'photoUrl',
+    'email',
+    'phone',
+    'zipCode',
+    'street',
+    'number',
+    'complement',
+    'neighborhood',
+    'city',
+    'state',
+    'notes',
+    'emergencyContactName',
+    'emergencyContactPhone',
+    'emergencyContactRelation',
+    'fatherName',
+    'motherName',
+    'spouseId',
+    'consentGiven',
+    'consentDate',
+    'whatsappOptIn',
+    'whatsappOptInAt',
+    'titheReminderDay',
+  ];
+
+  /**
+   * Anonimização ÚNICA do cadastro (M16), usada pela gestão (POST
+   * /members/:id/anonymize) e pela exclusão da própria conta (DELETE
+   * /users/me), dentro da transação de quem chama:
+   * - limpa todos os campos pessoais (ANONYMIZED_FIELDS) e marca ANONYMIZED;
+   * - encerra os vínculos: pastorais, coordenações, comunidades e pedidos de
+   *   entrada em pastoral; as escalas FUTURAS viram recusa (a coordenação vê
+   *   a vaga) — o histórico passado fica, sem identificar a pessoa;
+   * - apaga disponibilidade, consentimentos, clientes no provedor de
+   *   pagamento e os binários/dados extraídos dos documentos da catequese.
+   * A pseudonimização da auditoria fica com quem chama (fora da transação).
+   */
+  async anonymizePersonalData(
+    db: Prisma.TransactionClient,
+    memberId: string,
+    opts: { label?: string } = {},
+  ) {
+    const now = new Date();
+
+    // Cônjuge: desfaz o vínculo dos dois lados (spouseId é @unique)
+    await db.member.updateMany({ where: { spouseId: memberId }, data: { spouseId: null } });
+
+    const anonymized = await db.member.update({
+      where: { id: memberId },
+      data: {
+        fullName: opts.label ?? 'Usuário Anônimo',
+        birthDate: null,
+        cpf: null,
+        rg: null,
+        gender: null,
+        maritalStatus: null,
+        occupation: null,
+        photoUrl: null,
+        email: null,
+        phone: null,
+        zipCode: null,
+        street: null,
+        number: null,
+        complement: null,
+        neighborhood: null,
+        city: null,
+        state: null,
+        notes: null,
+        emergencyContactName: null,
+        emergencyContactPhone: null,
+        emergencyContactRelation: null,
+        fatherName: null,
+        motherName: null,
+        spouseId: null,
+        status: MemberStatus.ANONYMIZED,
+        consentGiven: false,
+        consentDate: null,
+        whatsappOptIn: false,
+        whatsappOptInAt: null,
+        titheReminderDay: null,
+      },
+    });
+
+    // Vínculos ativos encerrados: o "Usuário Anônimo" deixa de aparecer nas
+    // listas de pastoral, coordenação e comunidade
+    await db.pastoralMember.updateMany({
+      where: { memberId, isActive: true },
+      data: { isActive: false, leftAt: now },
+    });
+    await db.pastoralCoordinator.updateMany({
+      where: { memberId, isCurrent: true },
+      data: { isCurrent: false, endDate: now },
+    });
+    await db.memberCommunity.updateMany({
+      where: { memberId, isActive: true },
+      data: { isActive: false, leftAt: now, consentGiven: false, consentDate: null },
+    });
+    await db.pastoralJoinRequest.deleteMany({ where: { memberId, status: 'PENDING' } });
+    await db.pastoralJoinRequest.updateMany({ where: { memberId }, data: { message: null } });
+
+    // Escalas futuras ainda abertas: recusa registrada pelo sistema
+    await db.scheduleAssignment.updateMany({
+      where: {
+        memberId,
+        status: { in: [AssignmentStatus.PENDING, AssignmentStatus.CONFIRMED] },
+        schedule: { date: { gte: now } },
+      },
+      data: {
+        status: AssignmentStatus.DECLINED,
+        declineReason: 'Cadastro removido (LGPD)',
+        respondedAt: now,
+      },
+    });
+
+    await db.memberAvailabilityRule.deleteMany({ where: { memberId } });
+    await db.memberAvailabilityException.deleteMany({ where: { memberId } });
+    await db.consent.deleteMany({ where: { memberId } });
+    // Dízimo automático vivo no provedor: aqui só a marcação local (CANCELLED +
+    // cancelamento pendente no provedor), antes de soltar o vínculo do cliente —
+    // o cliente no provedor fica (histórico fiscal). A chamada ao provedor é de
+    // quem chama, DEPOIS do commit: cancelTitheAtProviderAfterCommit()
+    await this.titheSchedules?.cancelSchedulesForMember(memberId, db);
+    await db.memberProviderCustomer.deleteMany({ where: { memberId } });
+
+    // Catequese: certidões e o que a leitura automática extraiu delas
+    await db.catechesisDocument.updateMany({
+      where: { enrollment: { memberId } },
+      data: { data: null, extractedName: null, extractedBirthDate: null },
+    });
+
+    return anonymized;
+  }
+
+  /**
+   * Pós-commit da anonimização: cancela no provedor o dízimo automático que a
+   * transação marcou como pendente. Nunca lança (roda sem prender a resposta);
+   * o que falhar fica marcado e o job diário tenta de novo.
+   */
+  async cancelTitheAtProviderAfterCommit(memberId: string): Promise<void> {
+    try {
+      await this.titheSchedules?.cancelPendingAtProvider({ memberId });
+    } catch {
+      // registrado no próprio dízimo automático (ou o job pega amanhã)
+    }
   }
 
   // LGPD: Atualizar consentimento
@@ -1333,7 +1539,7 @@ export class MembersService {
     if (currentUser) {
       const canManage = await this.hierarchyService.canManageMember(currentUser.id, id);
       if (!canManage) {
-        throw new ForbiddenException('Voce nao tem permissao para consultar a disponibilidade deste membro');
+        throw new ForbiddenException('Você não tem permissão para consultar a disponibilidade deste membro');
       }
     }
 
@@ -1362,7 +1568,7 @@ export class MembersService {
     if (currentUser) {
       const canManage = await this.hierarchyService.canManageMember(currentUser.id, id);
       if (!canManage) {
-        throw new ForbiddenException('Voce nao tem permissao para editar a disponibilidade deste membro');
+        throw new ForbiddenException('Você não tem permissão para editar a disponibilidade deste membro');
       }
     }
 
@@ -1418,7 +1624,7 @@ export class MembersService {
     const member = await this.resolveMemberFromUser(userId);
 
     if (!member) {
-      throw new NotFoundException('Usuario nao possui cadastro de membro');
+      throw new NotFoundException('Usuário não possui cadastro de membro');
     }
 
     return this.updateAvailability(member.id, payload);
@@ -1559,7 +1765,8 @@ export class MembersService {
             fullName,
             cpf,
             email,
-            phone: this.normalizeOptionalString(row.phone),
+            // E.164 quando der (A23) — a adoção pelo app compara com o celular verificado
+            phone: normalizeBrazilianPhone(row.phone) ?? this.normalizeOptionalString(row.phone),
             communityId,
             communityLinks: { create: { communityId, isPrimary: true } },
             status: 'ACTIVE',
@@ -1617,15 +1824,15 @@ export class MembersService {
       });
     }
 
+    // Busca da coordenação: identifica a pessoa (nome, foto, contato) sem o
+    // cadastro completo — CPF, RG, endereço e notas ficam na ficha (B52)
     return this.prisma.member.findMany({
       where,
-      include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
+      select: {
+        ...this.basicMemberSelect,
+        photoUrl: true,
+        phone: true,
+        email: true,
       },
       take: 20,
       orderBy: {

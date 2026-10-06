@@ -5,6 +5,24 @@ import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PdfService } from '../pdf/pdf.service';
 import { communityScopeWhere } from '../pastorals/coordination-scope';
+import { formatCivilDate, parseCivilDate } from '../catechesis/civil-date';
+
+/** Status que o PATCH :id/status aceita — CELEBRATED só pela celebração. */
+const MANUAL_STATUSES: SacramentProcessStatus[] = [
+  SacramentProcessStatus.REQUESTED,
+  SacramentProcessStatus.DOCUMENTS,
+  SacramentProcessStatus.COURSE,
+  SacramentProcessStatus.SCHEDULED,
+  SacramentProcessStatus.CANCELLED,
+];
+
+/** Texto livre curto (celebrante, local, livro/folha/termo): string ou nada. */
+function optionalText(raw: unknown, label: string, max = 120): string | null {
+  if (raw === undefined || raw === null || raw === '') return null;
+  if (typeof raw !== 'string') throw new BadRequestException(`${label} inválido — informe um texto`);
+  const clean = raw.replace(/[\p{Cc}\p{Cf}]/gu, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+  return clean || null;
+}
 
 /**
  * Preparação de sacramentos (roadmap 4.4). Processo com etapas, checklist de
@@ -44,6 +62,18 @@ export class SacramentProcessesService {
     user: CurrentUser,
   ) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
+    // Enum e data validados aqui: antes viravam 500 (Prisma/Invalid Date)
+    if (!dto.type || !Object.values(SacramentType).includes(dto.type)) {
+      throw new BadRequestException('Tipo de sacramento inválido');
+    }
+    if (!dto.communityId || typeof dto.communityId !== 'string') {
+      throw new BadRequestException('Informe a comunidade');
+    }
+    const scheduledDate =
+      dto.scheduledDate === undefined || dto.scheduledDate === null || dto.scheduledDate === ''
+        ? null
+        : parseCivilDate(dto.scheduledDate, 'Data agendada', { allowFuture: true });
+    const celebrant = optionalText(dto.celebrant, 'Celebrante');
     const inScope = await this.hierarchyService.isCommunityInScope(user, dto.communityId);
     if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
     // O membro precisa ser da comunidade do processo (ou gerenciável pelo
@@ -57,8 +87,8 @@ export class SacramentProcessesService {
         communityId: dto.communityId,
         involved: (dto.involved as Prisma.InputJsonValue) ?? undefined,
         documentsChecklist: (dto.documentsChecklist as Prisma.InputJsonValue) ?? undefined,
-        scheduledDate: dto.scheduledDate ? new Date(dto.scheduledDate) : null,
-        celebrant: dto.celebrant ?? null,
+        scheduledDate,
+        celebrant,
       },
     });
     await this.auditService.log({ actor: this.auditActor(user), action: 'CREATE', entity: 'SacramentProcess', entityId: process.id });
@@ -115,10 +145,31 @@ export class SacramentProcessesService {
     throw new ForbiddenException('Membro fora da comunidade do processo');
   }
 
+  /**
+   * Troca de etapa. CELEBRATED só pela celebração (que grava o Sacrament e o
+   * livro/folha/termo) e um processo celebrado não volta a outra etapa — antes
+   * dava para marcar "celebrado" sem sacramento (certidão emitível) ou reabrir
+   * e celebrar de novo (Sacrament duplicado).
+   */
   async updateStatus(id: string, status: SacramentProcessStatus, user: CurrentUser) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
-    await this.loadInScope(id, user);
-    return this.prisma.sacramentProcess.update({ where: { id }, data: { status } });
+    if (status === SacramentProcessStatus.CELEBRATED) {
+      throw new BadRequestException('Use a celebração para concluir o processo');
+    }
+    if (!MANUAL_STATUSES.includes(status)) throw new BadRequestException('Status inválido');
+    const process = await this.loadInScope(id, user);
+    if (process.status === SacramentProcessStatus.CELEBRATED) {
+      throw new BadRequestException('Processo já celebrado — o status não pode mais mudar');
+    }
+    // Compare-and-set: uma celebração simultânea não é desfeita por este PATCH
+    const changed = await this.prisma.sacramentProcess.updateMany({
+      where: { id, deletedAt: null, status: { not: SacramentProcessStatus.CELEBRATED } },
+      data: { status },
+    });
+    if (changed.count === 0) {
+      throw new BadRequestException('Processo já celebrado — o status não pode mais mudar');
+    }
+    return this.prisma.sacramentProcess.findFirst({ where: { id } });
   }
 
   async updateChecklist(id: string, documentsChecklist: unknown, user: CurrentUser) {
@@ -141,17 +192,30 @@ export class SacramentProcessesService {
     if (process.status === SacramentProcessStatus.CELEBRATED) {
       throw new BadRequestException('Processo já celebrado');
     }
+    if (process.status === SacramentProcessStatus.CANCELLED) {
+      throw new BadRequestException('Processo cancelado — reabra antes de celebrar');
+    }
     // Processos antigos podem ter memberId de fora (antes da validação no
     // create): revalida antes de gravar o Sacrament definitivo
     await this.assertMemberForCommunity(process.memberId, process.communityId, user);
 
-    const date = dto.date ? new Date(dto.date) : new Date();
+    // Data civil validada (400, não 500), sem futuro, ao meio-dia de Brasília
+    const date = dto.date ? parseCivilDate(dto.date, 'Data da celebração') : new Date();
+    const minister = optionalText(dto.minister, 'Celebrante') ?? process.celebrant ?? null;
+    const place = optionalText(dto.place, 'Local', 200);
+    const book = optionalText(dto.book, 'Livro', 40);
+    const page = optionalText(dto.page, 'Folha', 40);
+    const term = optionalText(dto.term, 'Termo', 40);
     const result = await this.prisma.$transaction(async (prisma) => {
       // Lock por membro (mesma chave da catequese) + compare-and-set do
       // status: duplo clique/celebrações simultâneas não geram dois Sacrament
       await prisma.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:member:' + process.memberId}))::text`;
       const claimed = await prisma.sacramentProcess.updateMany({
-        where: { id, deletedAt: null, status: { not: SacramentProcessStatus.CELEBRATED } },
+        where: {
+          id,
+          deletedAt: null,
+          status: { notIn: [SacramentProcessStatus.CELEBRATED, SacramentProcessStatus.CANCELLED] },
+        },
         data: { status: SacramentProcessStatus.CELEBRATED },
       });
       if (claimed.count === 0) {
@@ -162,11 +226,11 @@ export class SacramentProcessesService {
           memberId: process.memberId,
           type: process.type,
           date,
-          place: dto.place ?? null,
-          minister: dto.minister ?? process.celebrant ?? null,
-          book: dto.book ?? null,
-          page: dto.page ?? null,
-          term: dto.term ?? null,
+          place,
+          minister,
+          book,
+          page,
+          term,
         },
       });
       const updated = await prisma.sacramentProcess.update({
@@ -174,9 +238,9 @@ export class SacramentProcessesService {
         data: {
           status: SacramentProcessStatus.CELEBRATED,
           sacramentId: sacrament.id,
-          book: dto.book ?? null,
-          page: dto.page ?? null,
-          term: dto.term ?? null,
+          book,
+          page,
+          term,
         },
       });
       return { sacrament, updated };
@@ -201,6 +265,18 @@ export class SacramentProcessesService {
     if (process.status !== SacramentProcessStatus.CELEBRATED) {
       throw new BadRequestException('Certidão disponível apenas após a celebração');
     }
+    // Data, celebrante e local vêm do Sacrament gravado NA CELEBRAÇÃO — o
+    // agendamento (scheduledDate/celebrant) pode ter mudado ou nem existir.
+    // Celebrado sem Sacrament (status trocado à mão, antes da trava) não emite.
+    const sacrament = process.sacramentId
+      ? await this.prisma.sacrament.findUnique({
+          where: { id: process.sacramentId },
+          select: { date: true, minister: true, place: true, book: true, page: true, term: true },
+        })
+      : null;
+    if (!sacrament) {
+      throw new BadRequestException('Processo sem registro da celebração — celebre pelo processo para emitir a certidão');
+    }
 
     const typeLabels: Record<string, string> = {
       BAPTISM: 'Batismo',
@@ -222,15 +298,16 @@ export class SacramentProcessesService {
           widths: [1, 2],
           rows: [
             ['Nome', process.member.fullName],
-            ['Livro', process.book || '-'],
-            ['Folha', process.page || '-'],
-            ['Termo', process.term || '-'],
-            ['Data', process.scheduledDate ? process.scheduledDate.toLocaleDateString('pt-BR') : '-'],
-            ['Celebrante', process.celebrant || '-'],
+            ['Livro', process.book || sacrament.book || '-'],
+            ['Folha', process.page || sacrament.page || '-'],
+            ['Termo', process.term || sacrament.term || '-'],
+            ['Data', formatCivilDate(sacrament.date)],
+            ['Celebrante', sacrament.minister || '-'],
+            ['Local', sacrament.place || '-'],
           ],
         },
       ],
-      footer: `Emitido em ${new Date().toLocaleString('pt-BR')}`,
+      footer: `Emitido em ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
     });
   }
 }

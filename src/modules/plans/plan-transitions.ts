@@ -189,6 +189,18 @@ export function planTransition(
       throw new BadRequestException(`EXTEND não se aplica a um plano ${from} (aceito: TRIAL, ACTIVE, PAST_DUE)`);
     }
 
+    case 'MARK_PAST_DUE': {
+      // Pagamento não renovado: entra na carência (acesso até
+      // currentPeriodEnd + graceDays — hasPaidAccess). Sem período gravado, a
+      // carência conta de agora.
+      requireFrom('MARK_PAST_DUE', from, [S.ACTIVE]);
+      return {
+        fromStatus: from,
+        toStatus: S.PAST_DUE,
+        data: { status: S.PAST_DUE, ...(current?.currentPeriodEnd ? {} : { currentPeriodEnd: now }) },
+      };
+    }
+
     default:
       throw new BadRequestException(`Ação desconhecida: ${String((input as any).action)}`);
   }

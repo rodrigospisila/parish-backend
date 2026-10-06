@@ -18,7 +18,8 @@ export const DAYS_MIN = 1;
 export const DAYS_MAX = 30;
 export const DAYS_DEFAULT = 7;
 // Janela de 7 dias pode render várias missas; teto generoso para os filtros de
-// dia (hoje/domingo) aplicados no app ainda terem material suficiente.
+// dia (hoje/domingo) aplicados no app ainda terem material suficiente. Além dele,
+// entram as que casam com o recorte pedido (ou o próximo domingo) — ver pickMasses.
 export const MAX_MASSES_PER_COMMUNITY = 15;
 /** Quantas comunidades o mapa público devolve por consulta (padrão e teto). */
 export const MAP_LIMIT_DEFAULT = 300;
@@ -53,16 +54,40 @@ export function haversineKm(lat1: number, lng1: number, lat2: number, lng2: numb
   return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 }
 
+/** Fuso de Brasília: o padrão das UFs que não estão em UF_TIME_ZONES. */
+export const DEFAULT_TIME_ZONE = 'America/Sao_Paulo';
+
 /**
- * "Agora" no fuso do Brasil (America/Sao_Paulo) como relógio de parede
- * (YYYY-MM-DDTHH:MM:SS), independente do fuso do servidor. Todo o sistema
- * trata horários como "wall clock" (a agenda fixa emite horário flutuante e
- * os eventos são gravados com o horário digitado), então ancoramos a compara-
- * ção de "próximas" no horário de parede — não no instante UTC do servidor.
+ * UFs fora do horário de Brasília (o país não tem horário de verão desde 2019;
+ * se voltar, o Intl cuida). Simplificação consciente: o oeste do AM (Eirunepé,
+ * -5) fica com Manaus (-4), e Fernando de Noronha (-2) com o resto de PE.
  */
-export function nowBrazilFloating(): string {
+const UF_TIME_ZONES: Record<string, string> = {
+  AC: 'America/Rio_Branco', // -5
+  AM: 'America/Manaus', // -4
+  RO: 'America/Porto_Velho', // -4
+  RR: 'America/Boa_Vista', // -4
+  MT: 'America/Cuiaba', // -4
+  MS: 'America/Campo_Grande', // -4
+};
+
+/** Fuso mais a oeste do país (o "hoje" que começa por último). */
+export const WESTMOST_TIME_ZONE = 'America/Rio_Branco';
+
+/** Fuso (IANA) da comunidade pela UF; UF ausente ou desconhecida → Brasília. */
+export function timeZoneForState(state?: string | null): string {
+  return UF_TIME_ZONES[String(state ?? '').trim().toUpperCase()] ?? DEFAULT_TIME_ZONE;
+}
+
+/**
+ * "Agora" num fuso como relógio de parede (YYYY-MM-DDTHH:MM:SS), independente do
+ * fuso do servidor. Todo o sistema trata horários como "wall clock" (a agenda
+ * fixa emite horário flutuante e os eventos são gravados com o horário digitado),
+ * então a comparação de "próximas" é feita no relógio de parede da comunidade.
+ */
+export function nowFloatingIn(timeZone: string, at: Date = new Date()): string {
   const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'America/Sao_Paulo',
+    timeZone,
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
@@ -70,9 +95,121 @@ export function nowBrazilFloating(): string {
     minute: '2-digit',
     second: '2-digit',
     hourCycle: 'h23',
-  }).formatToParts(new Date());
+  }).formatToParts(at);
   const v = (t: string) => parts.find((p) => p.type === t)?.value ?? '00';
   return `${v('year')}-${v('month')}-${v('day')}T${v('hour')}:${v('minute')}:${v('second')}`;
+}
+
+/** "Agora" no relógio de parede de Brasília (America/Sao_Paulo). */
+export function nowBrazilFloating(at: Date = new Date()): string {
+  return nowFloatingIn(DEFAULT_TIME_ZONE, at);
+}
+
+/**
+ * O "hoje" mais antigo do país (o do Acre, 2 h atrás de Brasília). Consultas de
+ * datas suspensas partem dele e cada comunidade corta no próprio "hoje" — senão,
+ * entre 22h e meia-noite no Acre, a suspensão de hoje sumia.
+ */
+export function earliestBrazilToday(at: Date = new Date()): string {
+  return nowFloatingIn(WESTMOST_TIME_ZONE, at).slice(0, 10);
+}
+
+/** Soma minutos a um horário flutuante (YYYY-MM-DDTHH:MM:SS), sem fuso. */
+export function shiftFloating(floating: string, minutes: number): string {
+  const d = new Date(`${floating}.000Z`);
+  return new Date(d.getTime() + minutes * 60_000).toISOString().slice(0, 19);
+}
+
+/**
+ * Celebração que começou há até 30 min ainda conta como "próxima" (quem chega
+ * atrasado vê a missa em andamento) — a mesma tolerância do app (STARTED_TOLERANCE_MS).
+ */
+export const STARTED_TOLERANCE_MIN = 30;
+
+/** Dia da semana (0 = domingo) de um 'YYYY-MM-DD'. */
+export function weekdayOfYmd(ymd: string): number {
+  return new Date(`${ymd.slice(0, 10)}T00:00:00.000Z`).getUTCDay();
+}
+
+/**
+ * Recorte que o cliente vai mostrar (filtros de dia e de horário do app). Serve
+ * para PRIORIZAR as ocorrências que casam antes do teto por igreja — não filtra:
+ * a resposta continua com as próximas em ordem.
+ */
+export interface MassFocus {
+  day?: 'today' | 'sunday';
+  /** Minutos do dia, inclusive nas duas pontas. */
+  fromMin?: number;
+  toMin?: number;
+}
+
+const HHMM_RE = /^([01]\d|2[0-3]):([0-5]\d)$/;
+
+const parseHhmm = (value: string | undefined, name: string): number | undefined => {
+  if (value == null || value.trim() === '') return undefined;
+  const m = HHMM_RE.exec(value.trim());
+  if (!m) throw new BadRequestException(`Parâmetro ${name} inválido: use HH:MM`);
+  return Number(m[1]) * 60 + Number(m[2]);
+};
+
+/** Query string → recorte (`day=today|sunday|all`, `from`/`to` em HH:MM); nada pedido → undefined. */
+export function parseMassFocus(day?: string, from?: string, to?: string): MassFocus | undefined {
+  const d = String(day ?? '').trim().toLowerCase();
+  if (d !== '' && d !== 'all' && d !== 'today' && d !== 'sunday') {
+    throw new BadRequestException('Parâmetro day inválido: use today, sunday ou all');
+  }
+  const fromMin = parseHhmm(from, 'from');
+  const toMin = parseHhmm(to, 'to');
+  if (fromMin != null && toMin != null && fromMin > toMin) {
+    throw new BadRequestException('Parâmetros from/to inválidos: o início deve vir antes do fim');
+  }
+  const focus: MassFocus = {};
+  if (d === 'today' || d === 'sunday') focus.day = d;
+  if (fromMin != null) focus.fromMin = fromMin;
+  if (toMin != null) focus.toMin = toMin;
+  return Object.keys(focus).length ? focus : undefined;
+}
+
+/** A ocorrência casa com o recorte? `today` = o "hoje" da comunidade (YYYY-MM-DD). */
+export function matchesFocus(start: string, focus: MassFocus, today: string): boolean {
+  if (focus.day === 'today' && start.slice(0, 10) !== today) return false;
+  if (focus.day === 'sunday' && weekdayOfYmd(start) !== 0) return false;
+  const min = Number(start.slice(11, 13)) * 60 + Number(start.slice(14, 16));
+  if (focus.fromMin != null && min < focus.fromMin) return false;
+  if (focus.toMin != null && min > focus.toMin) return false;
+  return true;
+}
+
+/** Primeiro domingo a partir de `today` (inclusive), em YYYY-MM-DD. */
+export function nextSundayYmd(today: string): string {
+  const d = new Date(`${today}T00:00:00.000Z`);
+  d.setUTCDate(d.getUTCDate() + ((7 - d.getUTCDay()) % 7));
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * Teto por igreja sem esconder o que a pessoa procura: as `perCommunity` primeiras
+ * em ordem MAIS as `perCommunity` primeiras que casam com `priority` (sem repetir),
+ * de volta em ordem de horário. No máximo 2 × perCommunity — só nas igrejas grandes.
+ * `sorted` precisa vir em ordem de horário.
+ */
+export function pickMasses<T extends { start: string }>(
+  sorted: T[],
+  perCommunity: number,
+  priority?: (m: T) => boolean,
+): T[] {
+  if (sorted.length <= perCommunity) return sorted;
+  const chosen = new Set<T>(sorted.slice(0, perCommunity));
+  if (priority) {
+    let extra = 0;
+    for (const m of sorted) {
+      if (extra >= perCommunity) break;
+      if (!priority(m)) continue;
+      chosen.add(m);
+      extra += 1;
+    }
+  }
+  return sorted.filter((m) => chosen.has(m));
 }
 
 export function clampRadiusKm(radiusKm?: number): number {

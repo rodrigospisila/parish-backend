@@ -25,6 +25,8 @@ describe('PublicMapService — mapa público', () => {
       ],
     }).compile();
     service = module.get(PublicMapService);
+    // 25/09/2026 12:00 em Brasília
+    jest.spyOn(service as any, 'now').mockReturnValue(new Date('2026-09-25T15:00:00.000Z'));
   });
 
   describe('mapConfig', () => {
@@ -151,7 +153,9 @@ describe('PublicMapService — mapa público', () => {
 
       const r = await service.communityDetail('c1');
 
-      expect(masses.nextMassesByCommunity).toHaveBeenCalledWith(['c1'], 7, Object.values(MassScheduleType), 50);
+      expect(masses.nextMassesByCommunity).toHaveBeenCalledWith(['c1'], 7, Object.values(MassScheduleType), 50, {
+        states: new Map([['c1', 'PR']]),
+      });
       expect(r).toMatchObject({
         id: 'c1',
         zipCode: '84000-000',
@@ -196,6 +200,35 @@ describe('PublicMapService — mapa público', () => {
       ]);
       expect((conf as any).cancellations).toBeUndefined();
       expect(r.schedules.find((s) => s.id === 's2')!.upcomingCancellations).toEqual([]);
+    });
+
+    it('suspensões cortam no "hoje" da comunidade: à 00:30 de Brasília, no Acre ainda é o dia anterior', async () => {
+      // 26/09 00:30 em Brasília = 25/09 22:30 em Rio Branco
+      (service as any).now.mockReturnValue(new Date('2026-09-26T03:30:00.000Z'));
+      const comCancel = (state: string) => ({
+        ...linha,
+        state,
+        massSchedules: [
+          {
+            ...linha.massSchedules[2],
+            cancellations: [
+              { date: new Date('2026-09-25T00:00:00.000Z'), reason: 'Retiro' },
+              { date: new Date('2026-09-27T00:00:00.000Z'), reason: null },
+            ],
+          },
+        ],
+      });
+
+      prisma.community.findFirst.mockResolvedValue(comCancel('AC'));
+      const acre = await service.communityDetail('c1');
+      // a consulta parte do "hoje" do Acre (25/09), não do de Brasília (26/09)
+      const sel = prisma.community.findFirst.mock.calls[0][0].select.massSchedules.select.cancellations;
+      expect(sel.where.date.gte).toEqual(new Date('2026-09-25T00:00:00.000Z'));
+      expect(acre.schedules[0].upcomingCancellations.map((c) => c.date)).toEqual(['2026-09-25', '2026-09-27']);
+
+      prisma.community.findFirst.mockResolvedValue(comCancel('PR'));
+      const parana = await service.communityDetail('c1');
+      expect(parana.schedules[0].upcomingCancellations.map((c) => c.date)).toEqual(['2026-09-27']);
     });
 
     it('pino MANUAL é verificado', async () => {

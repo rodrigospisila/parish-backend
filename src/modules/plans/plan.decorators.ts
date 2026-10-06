@@ -49,7 +49,9 @@ export type PlanResourceKind =
   | 'room'
   | 'roomReservation'
   | 'visitRequest'
-  | 'pastoralDocument';
+  | 'pastoralDocument'
+  /** Escala legada por evento (EventPastoralAssignment) */
+  | 'eventAssignment';
 
 export interface PlanResourceSpec {
   kind: PlanResourceKind;
@@ -62,7 +64,9 @@ export interface PlanResourceSpec {
  * comunidade dele. Formato: `'tipo'` (= `params.id`) ou `'tipo:origem.chave'`,
  * ex.: `'catechesisClass'`, `'schedule:body.scheduleId'`,
  * `'communityPastoral:query.communityPastoralId'`. Vale o primeiro que vier
- * preenchido na requisição.
+ * preenchido na requisição; numa lista de ids (ex.: `scheduleIds`) TODOS
+ * precisam ter acesso. `'community:...'` é id cru do cliente: precisa estar
+ * no escopo do usuário.
  */
 export const PlanResource = (...specs: string[]) =>
   SetMetadata(PLAN_RESOURCE_KEY, specs.map(parsePlanResourceSpec));

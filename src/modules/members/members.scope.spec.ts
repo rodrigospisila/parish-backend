@@ -134,7 +134,10 @@ describe('MembersService — escopo de leitura do cadastro (C6)', () => {
       await service.searchByName('Maria', undefined, pc);
 
       expect(lastQuery().where.OR[0]).toEqual({ communityId: 'c1' });
-      expect(lastQuery().include).toBeDefined();
+      // Select enxuto (B52): identifica a pessoa, sem CPF/RG/endereço/notas
+      expect(lastQuery().select).toEqual(expect.objectContaining({ fullName: true, phone: true }));
+      expect(lastQuery().select).not.toHaveProperty('cpf');
+      expect(lastQuery().select).not.toHaveProperty('street');
     });
   });
 

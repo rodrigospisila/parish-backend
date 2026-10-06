@@ -5,6 +5,8 @@ import { EventStatus, EventType, GeoPrecision, MassScheduleType, Prisma } from '
 import {
   Bbox,
   MAX_MASSES_PER_COMMUNITY,
+  MassFocus,
+  STARTED_TOLERANCE_MIN,
   bboxAround,
   clampDays,
   clampMapLimit,
@@ -14,16 +16,27 @@ import {
   haversineKm,
   isApproximatePin,
   isVerifiedPin,
+  matchesFocus,
+  nextSundayYmd,
   normalizeTypes,
+  nowFloatingIn,
   offeringSql,
   offeringWhere,
   onlyOffering,
-  nowBrazilFloating,
   parseBbox,
+  pickMasses,
   precisionSql,
   precisionWhere,
+  shiftFloating,
+  timeZoneForState,
+  WESTMOST_TIME_ZONE,
   wantsClusters,
 } from './map-search.utils';
+import { ZonedParts, zonedDateTimeToInstant, zonedParts } from '../../common/schedule-time';
+
+const pad2 = (n: number) => String(n).padStart(2, '0');
+/** Partes do relógio de parede → 'YYYY-MM-DDTHH:MM:00' (formato flutuante do contrato). */
+const floatingOf = (p: ZonedParts) => `${p.year}-${pad2(p.month)}-${pad2(p.day)}T${pad2(p.hour)}:${pad2(p.minute)}:00`;
 
 export interface NearbyMass {
   id: string;
@@ -144,9 +157,9 @@ export class MassesService {
     return haversineKm(lat1, lng1, lat2, lng2);
   }
 
-  /** "Agora" no relógio de parede de São Paulo (método para os testes congelarem). */
-  private nowBrazilFloating(): string {
-    return nowBrazilFloating();
+  /** Instante atual (método para os testes congelarem o relógio). */
+  protected now(): Date {
+    return new Date();
   }
 
   /**
@@ -194,24 +207,57 @@ export class MassesService {
   }
 
   /**
-   * Próximas celebrações (agenda fixa expandida + eventos de Missa publicados) por
-   * comunidade, na janela [agora, agora + days], em ordem de horário. O que já
-   * passou hoje (relógio de São Paulo) fica de fora.
+   * Próximas celebrações (agenda fixa expandida + eventos de Missa publicados e
+   * PÚBLICOS) por comunidade, em ordem de horário. O "agora" é o relógio de parede
+   * do fuso da comunidade (pela UF: no Acre, 2 h antes de Brasília), e o que
+   * começou há até 30 min ainda entra (quem chega atrasado vê a missa em andamento).
+   *
+   * Teto por igreja: as `perCommunity` primeiras + as que casam com `focus` (filtro
+   * de dia/horário do app) ou, sem ele, as do próximo domingo — ver pickMasses.
+   * `states` (id → UF) evita uma consulta; quem faltar é buscado no banco.
    */
   async nextMassesByCommunity(
     communityIds: string[],
     days: number,
     types: MassScheduleType[],
     perCommunity: number = MAX_MASSES_PER_COMMUNITY,
+    opts: { states?: Map<string, string | null | undefined>; focus?: MassFocus } = {},
   ): Promise<Map<string, NearbyMass[]>> {
     const massesByCommunity = new Map<string, NearbyMass[]>();
     if (communityIds.length === 0) return massesByCommunity;
 
-    const nowFloat = this.nowBrazilFloating();
-    // Trata o relógio de parede como UTC para consultar os eventos (mesma
-    // convenção com que eles foram gravados — ver EventsService.formatToISO)
-    const startInstant = new Date(`${nowFloat}.000Z`);
-    const endInstant = new Date(startInstant.getTime() + days * 24 * 60 * 60 * 1000);
+    // Fuso de cada comunidade (pela UF)
+    const states = new Map(opts.states ?? []);
+    const missing = communityIds.filter((id) => !states.has(id));
+    if (missing.length) {
+      const rows = await this.prisma.community.findMany({
+        where: { id: { in: missing } },
+        select: { id: true, state: true },
+      });
+      for (const r of rows ?? []) states.set(r.id, r.state);
+    }
+    const at = this.now();
+    const nowByZone = new Map<string, string>();
+    const nowFor = (communityId: string): string => {
+      const zone = timeZoneForState(states.get(communityId));
+      let now = nowByZone.get(zone);
+      if (!now) {
+        now = nowFloatingIn(zone, at);
+        nowByZone.set(zone, now);
+      }
+      return now;
+    };
+    const localNows = communityIds.map(nowFor).sort();
+
+    // Agenda fixa (relógio de parede, emitido como "UTC flutuante"): janela que cobre
+    // todos os fusos — do "agora" mais a oeste (menos a tolerância) ao mais a leste + days
+    const startInstant = new Date(`${shiftFloating(localNows[0], -STARTED_TOLERANCE_MIN)}.000Z`);
+    const endInstant = new Date(new Date(`${localNows[localNows.length - 1]}.000Z`).getTime() + days * 24 * 60 * 60 * 1000);
+    // Eventos: startDate é INSTANTE real (UTC verdadeiro). Janela em instantes: de
+    // agora − tolerância até o fim do último dia civil (23:59 no fuso mais a oeste),
+    // o mesmo alcance da agenda fixa
+    const eventsFrom = new Date(at.getTime() - STARTED_TOLERANCE_MIN * 60_000);
+    const eventsTo = zonedDateTimeToInstant(endInstant.toISOString().slice(0, 10), 23, 59, WESTMOST_TIME_ZONE, 59);
 
     // 1) Agenda fixa (dos tipos escolhidos) expandida na janela, sem escopo hierárquico
     const fixed = await this.massSchedulesService.expandOccurrences(
@@ -223,7 +269,8 @@ export class MassesService {
     );
 
     // 2) Eventos do tipo Missa já publicados na janela (só há equivalente em Event
-    //    para Missa; Confissão/Adoração/Terço existem apenas na agenda fixa)
+    //    para Missa; Confissão/Adoração/Terço existem apenas na agenda fixa). Evento
+    //    privado ("Evento público" desmarcado) nunca vai para o mapa nem para a página pública.
     const includeEvents = types.includes(MassScheduleType.MASS);
     const events = includeEvents
       ? await this.prisma.event.findMany({
@@ -231,8 +278,9 @@ export class MassesService {
             communityId: { in: communityIds },
             type: EventType.MASS,
             status: EventStatus.PUBLISHED,
+            isPublic: true,
             deletedAt: null,
-            startDate: { gte: startInstant, lte: endInstant },
+            startDate: { gte: eventsFrom, lte: eventsTo },
           },
           select: { id: true, title: true, startDate: true, endDate: true, communityId: true },
         })
@@ -243,9 +291,12 @@ export class MassesService {
       list.push(mass);
       massesByCommunity.set(communityId, list);
     };
+    /** Já passou (começou há mais de 30 min no relógio da comunidade)? */
+    const isPast = (communityId: string, start: string) =>
+      start < shiftFloating(nowFor(communityId), -STARTED_TOLERANCE_MIN);
 
     for (const occ of fixed) {
-      if (!occ.community || occ.start < nowFloat) continue;
+      if (!occ.community || isPast(occ.community.id, occ.start)) continue;
       push(occ.community.id, {
         id: occ.id,
         title: occ.title,
@@ -262,14 +313,22 @@ export class MassesService {
 
     for (const ev of events) {
       if (!ev.communityId) continue;
-      const start = ev.startDate.toISOString().slice(0, 19); // parede (grava-se como UTC)
-      if (start < nowFloat) continue;
+      // Instante → relógio de parede no fuso da comunidade (o contrato do mapa é flutuante)
+      const zone = timeZoneForState(states.get(ev.communityId));
+      const startParts = zonedParts(ev.startDate, zone);
+      const endParts = ev.endDate ? zonedParts(ev.endDate, zone) : null;
+      // Dia inteiro (00:00 local e sem fim, ou fim também 00:00 — o critério do
+      // calendário do app): não tem hora, então não é "missa às 00:00" no mapa
+      const midnight = (p: ZonedParts) => p.hour === 0 && p.minute === 0;
+      if (midnight(startParts) && (!endParts || midnight(endParts))) continue;
+      const start = floatingOf(startParts);
+      if (isPast(ev.communityId, start)) continue;
       push(ev.communityId, {
         id: ev.id,
         title: ev.title,
         type: EventType.MASS,
         start,
-        end: ev.endDate ? ev.endDate.toISOString().slice(0, 19) : null,
+        end: endParts ? floatingOf(endParts) : null,
         source: 'event',
         cancelled: false,
         cancelReason: null,
@@ -277,7 +336,13 @@ export class MassesService {
     }
 
     for (const [id, list] of massesByCommunity) {
-      massesByCommunity.set(id, list.sort((a, b) => a.start.localeCompare(b.start)).slice(0, perCommunity));
+      const today = nowFor(id).slice(0, 10);
+      const focus = opts.focus;
+      const sunday = nextSundayYmd(today);
+      const priority = focus
+        ? (m: NearbyMass) => matchesFocus(m.start, focus, today)
+        : (m: NearbyMass) => m.start.slice(0, 10) === sunday;
+      massesByCommunity.set(id, pickMasses(list.sort((a, b) => a.start.localeCompare(b.start)), perCommunity, priority));
     }
     return massesByCommunity;
   }
@@ -288,11 +353,14 @@ export class MassesService {
     days: number,
     types: MassScheduleType[],
     withDistance: boolean,
+    focus?: MassFocus,
   ): Promise<MapCommunity[]> {
     const masses = await this.nextMassesByCommunity(
       rows.map((c) => c.id),
       days,
       types,
+      MAX_MASSES_PER_COMMUNITY,
+      { states: new Map(rows.map((c) => [c.id, c.state])), focus },
     );
     // Com Missa na seleção, uma comunidade sem horário no período ainda aparece
     // (nextMasses vazio): o mapa mostra as igrejas, não só as missas. Só com
@@ -316,8 +384,8 @@ export class MassesService {
 
   /**
    * Igrejas e próximas celebrações num raio em torno de uma coordenada, da mais
-   * perto à mais longe. `limit` corta as mais distantes (sem limite quando omitido —
-   * comportamento histórico da rota logada).
+   * perto à mais longe. `limit` corta as mais distantes (padrão 300, máx. 500 —
+   * clampMapLimit; vale também para a rota logada antiga /masses/nearby).
    */
   async findNearby(input: {
     lat: number;
@@ -327,6 +395,7 @@ export class MassesService {
     types?: MassScheduleType[];
     approx?: boolean;
     limit?: number;
+    focus?: MassFocus;
   }): Promise<MapSearchResult> {
     const { lat, lng } = input;
     if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
@@ -339,14 +408,14 @@ export class MassesService {
     const radiusKm = clampRadiusKm(input.radiusKm);
     const days = clampDays(input.days);
     const types = normalizeTypes(input.types);
-    const limit = input.limit != null ? clampMapLimit(input.limit) : undefined;
+    const limit = clampMapLimit(input.limit);
 
     const rows = await this.findPins(bboxAround(lat, lng, radiusKm), input.approx === true, types);
     const near = this.byDistance(rows, lat, lng).filter((c) => c.distanceKm <= radiusKm);
-    const truncated = limit != null && near.length > limit;
+    const truncated = near.length > limit;
     const kept = truncated ? near.slice(0, limit) : near;
 
-    const communities = await this.withNextMasses(kept, days, types, true);
+    const communities = await this.withNextMasses(kept, days, types, true, input.focus);
     return { origin: { lat, lng }, bbox: null, radiusKm, days, count: communities.length, truncated, communities };
   }
 
@@ -366,6 +435,7 @@ export class MassesService {
     types?: MassScheduleType[];
     approx?: boolean;
     limit?: number;
+    focus?: MassFocus;
   }): Promise<MapAreaResult> {
     const requested = parseBbox(input.bbox);
     const days = clampDays(input.days);
@@ -398,7 +468,7 @@ export class MassesService {
     const truncated = sorted.length > limit;
     const kept = truncated ? sorted.slice(0, limit) : sorted;
 
-    const communities = await this.withNextMasses(kept, days, types, false);
+    const communities = await this.withNextMasses(kept, days, types, false, input.focus);
     return { mode: 'pins', zoom: zoom ?? null, origin: null, bbox, radiusKm: null, days, count: communities.length, truncated, communities };
   }
 

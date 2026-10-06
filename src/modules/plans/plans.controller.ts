@@ -16,7 +16,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { PlanAccessService } from './plan-access.service';
-import { FREE_FEATURES, PAID_FEATURES, hasPaidAccess } from './plan-rules';
+import { FREE_FEATURES, PAID_FEATURES, graceEndsAt, hasPaidAccess, isPeriodOverdue } from './plan-rules';
 import { PlatformPlansService } from './platform-plans.service';
 import { PlatformGrowthService } from './platform-growth.service';
 import { UpdateCommunityPlanDto } from './dto/update-community-plan.dto';
@@ -35,7 +35,10 @@ export class EntitlementsController {
    * GET /me/entitlements[?communityId=]
    * - `paidAccess`: estado REAL do plano (para avisos/banners);
    * - `features`: o que está liberado AGORA — fora do modo `on` (ou para o
-   *   SYSTEM_ADMIN) inclui todos os recursos pagos, pois nada é bloqueado.
+   *   SYSTEM_ADMIN) inclui todos os recursos pagos, pois nada é bloqueado;
+   * - `paidCommunityIds`: comunidades do escopo com acesso pago (o painel do
+   *   PARISH_ADMIN/DIOCESAN marca as capelas sem plano);
+   * - `trialsEndingSoon`: testes que acabam em até 15 dias (banner).
    */
   @Get('entitlements')
   async entitlements(@Request() req: any, @Query('communityId') communityIdParam?: string) {
@@ -54,6 +57,10 @@ export class EntitlementsController {
       : (await this.access.decideForUser({ level: 'community' }, user)).allowed;
 
     const unlocked = enforcement !== 'on' || user.role === UserRole.SYSTEM_ADMIN || paidAccess;
+    const [paidCommunityIds, trialsEndingSoon] = await Promise.all([
+      this.access.paidCommunityIdsInScope(user),
+      this.access.trialsEndingSoon(user),
+    ]);
 
     return {
       enforcement,
@@ -64,11 +71,15 @@ export class EntitlementsController {
             tierKey: plan.tierKey,
             trialEndsAt: plan.trialEndsAt,
             currentPeriodEnd: plan.currentPeriodEnd,
+            periodOverdue: isPeriodOverdue(plan),
+            graceEndsAt: graceEndsAt(plan),
           }
         : null,
       paidAccess,
       features: [...FREE_FEATURES, ...(unlocked ? PAID_FEATURES : [])],
       paidFeatures: [...PAID_FEATURES],
+      paidCommunityIds,
+      trialsEndingSoon,
     };
   }
 }

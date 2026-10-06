@@ -1,10 +1,12 @@
 import {
+  BadRequestException,
   Injectable,
-  InternalServerErrorException,
   Logger,
+  ServiceUnavailableException,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import axios from 'axios';
+import { parseYmd, todayYmd } from '../../common/schedule-time';
 
 export interface LiturgyReading {
   title: string;
@@ -22,6 +24,16 @@ export interface LiturgyData {
   gospel?: LiturgyReading;
 }
 
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
+const REQUEST_TIMEOUT_MS = 10_000;
+
+/**
+ * Liturgia diária (API pública liturgia.up.railway.app).
+ * A API NÃO tem a rota /AAAA-MM-DD (404): a data vai em ?dia=&mes=&ano= (B34).
+ * Sem resposta válida para a data pedida, devolve 503 — nunca inventa
+ * "Tempo Comum / Verde" como se fosse dado real, e nunca guarda a liturgia
+ * de um dia sob a chave de outro.
+ */
 @Injectable()
 export class LiturgyService {
   private readonly logger = new Logger(LiturgyService.name);
@@ -29,78 +41,60 @@ export class LiturgyService {
   private readonly cache = new Map<string, { data: LiturgyData; expiresAt: number }>();
 
   constructor(private readonly configService: ConfigService) {
-    this.apiUrl =
-      this.configService.get('CNBB_LITURGY_API_URL') ||
-      'https://liturgia.up.railway.app';
+    this.apiUrl = (
+      this.configService.get('CNBB_LITURGY_API_URL') || 'https://liturgia.up.railway.app'
+    ).replace(/\/+$/, '');
   }
+
+  /** 'AAAA-MM-DD' válido (rejeita 2026-02-30) ou 400. */
+  static assertValidDate(date: string): string {
+    const value = String(date ?? '').trim();
+    if (!parseYmd(value)) {
+      throw new BadRequestException('Formato de data inválido. Use AAAA-MM-DD');
+    }
+    return value;
+  }
+
   async getLiturgyByDate(date: string): Promise<LiturgyData> {
-    // Verificar se esta em cache
-    const cached = this.cache.get(date);
+    const day = LiturgyService.assertValidDate(date);
+
+    const cached = this.cache.get(day);
     if (cached && cached.expiresAt > Date.now()) {
-      this.logger.log(`Liturgia do dia ${date} retornada do cache`);
+      this.logger.log(`Liturgia do dia ${day} retornada do cache`);
       return cached.data;
     }
 
+    const [year, month, dayOfMonth] = day.split('-');
     try {
-      // Fazer requisicao a API da CNBB
-      const response = await axios.get(`${this.apiUrl}/${date}`);
-      const liturgyData: LiturgyData = this.parseLiturgyResponse(
-        response.data,
-        date,
-      );
-
-      // Armazenar em cache por 24 horas
-      const expiresAt = Date.now() + 24 * 60 * 60 * 1000;
-      this.cache.set(date, { data: liturgyData, expiresAt });
-
-      this.logger.log(`Liturgia do dia ${date} obtida da API da CNBB`);
+      const response = await axios.get(`${this.apiUrl}/`, {
+        params: { dia: dayOfMonth, mes: month, ano: year },
+        timeout: REQUEST_TIMEOUT_MS,
+      });
+      const apiDate = this.normalizeApiDate(response.data?.data || response.data?.date);
+      // A API devolve a data que respondeu: outra data = não é a liturgia pedida
+      if (!response.data || typeof response.data !== 'object' || (apiDate && apiDate !== day)) {
+        this.logger.warn(`API de liturgia respondeu ${apiDate ?? 'sem data'} para ${day}`);
+        throw new ServiceUnavailableException('Liturgia indisponível para esta data no momento');
+      }
+      const liturgyData = this.parseLiturgyResponse(response.data, day);
+      if (!liturgyData) {
+        this.logger.warn(`API de liturgia respondeu sem tempo litúrgico/cor para ${day}`);
+        throw new ServiceUnavailableException('Liturgia indisponível para esta data no momento');
+      }
+      this.cache.set(day, { data: liturgyData, expiresAt: Date.now() + CACHE_TTL_MS });
+      this.logger.log(`Liturgia do dia ${day} obtida da API`);
       return liturgyData;
     } catch (error) {
-      if (axios.isAxiosError(error) && error.response?.status === 404) {
-        const fromBase = await this.fetchFromBase(date, true);
-        if (fromBase) {
-          this.logger.warn(
-            `Endpoint de liturgia com data indisponivel; usando base para ${date}`,
-          );
-          return fromBase;
-        }
-      }
-
-      const fallback = this.getFallbackLiturgy(date);
-      const expiresAt = Date.now() + 6 * 60 * 60 * 1000;
-      this.cache.set(date, { data: fallback, expiresAt });
-
-      if (axios.isAxiosError(error) && error.response?.status === 404) {
-        this.logger.warn(
-          `Liturgia do dia ${date} nao encontrada na API externa`,
-        );
-      } else {
-        const message = axios.isAxiosError(error)
-          ? error.message
-          : String(error);
-        this.logger.error(
-          `Erro ao buscar liturgia do dia ${date}: ${message}`,
-        );
-      }
-
-      return fallback;
+      if (error instanceof ServiceUnavailableException) throw error;
+      const message = axios.isAxiosError(error) ? `${error.response?.status ?? ''} ${error.message}`.trim() : String(error);
+      this.logger.error(`Erro ao buscar liturgia do dia ${day}: ${message}`);
+      throw new ServiceUnavailableException('Liturgia indisponível no momento. Tente novamente mais tarde.');
     }
   }
 
+  /** Liturgia de hoje no calendário da paróquia (America/Sao_Paulo), não no fuso do processo. */
   async getTodayLiturgy(): Promise<LiturgyData> {
-    const today = this.formatDate(new Date());
-    const cached = this.cache.get(today);
-    if (cached && cached.expiresAt > Date.now()) {
-      this.logger.log(`Liturgia do dia ${today} retornada do cache`);
-      return cached.data;
-    }
-
-    const fromBase = await this.fetchFromBase(today, false);
-    if (fromBase) {
-      return fromBase;
-    }
-
-    return this.getLiturgyByDate(today);
+    return this.getLiturgyByDate(todayYmd());
   }
 
   private normalizeApiDate(value?: string): string | null {
@@ -120,40 +114,17 @@ export class LiturgyService {
     return null;
   }
 
-  private async fetchFromBase(expectedDate: string, requireMatch: boolean): Promise<LiturgyData | null> {
-    try {
-      const response = await axios.get(this.apiUrl);
-      const apiDate = this.normalizeApiDate(response.data?.data || response.data?.date);
-      if (requireMatch && apiDate && apiDate !== expectedDate) {
-        return null;
-      }
-
-      const effectiveDate = apiDate || expectedDate;
-      const liturgyData: LiturgyData = this.parseLiturgyResponse(response.data, effectiveDate);
-      const expiresAt = Date.now() + 24 * 60 * 60 * 1000;
-      this.cache.set(effectiveDate, { data: liturgyData, expiresAt });
-
-      if (effectiveDate !== expectedDate) {
-        this.cache.set(expectedDate, { data: liturgyData, expiresAt });
-      }
-
-      if (!requireMatch && apiDate && apiDate !== expectedDate) {
-        this.logger.warn(
-          `API de liturgia retornou data ${apiDate} diferente de ${expectedDate}`,
-        );
-      }
-
-      return liturgyData;
-    } catch {
+  /** Converte a resposta da API; null quando faltam tempo litúrgico ou cor (não inventa). */
+  private parseLiturgyResponse(data: any, date: string): LiturgyData | null {
+    const liturgy = data.liturgia || data.liturgy;
+    const liturgicalColor = data.cor || data.color;
+    if (!liturgy || !liturgicalColor) {
       return null;
     }
-  }
-
-  private parseLiturgyResponse(data: any, date: string): LiturgyData {
     return {
       date,
-      liturgy: data.liturgia || data.liturgy || 'Tempo Comum',
-      liturgicalColor: data.cor || data.color || 'Verde',
+      liturgy,
+      liturgicalColor,
       firstReading: data.primeiraLeitura || data.firstReading
         ? {
             title: data.primeiraLeitura?.titulo || data.firstReading?.title || 'Primeira Leitura',
@@ -185,28 +156,6 @@ export class LiturgyService {
     };
   }
 
-  private getFallbackLiturgy(date: string): LiturgyData {
-    this.logger.warn(`Usando fallback para liturgia do dia ${date}`);
-    
-    return {
-      date,
-      liturgy: 'Tempo Comum',
-      liturgicalColor: 'Verde',
-      gospel: {
-        title: 'Evangelho',
-        text: 'Liturgia não disponível no momento. Por favor, tente novamente mais tarde.',
-        reference: '',
-      },
-    };
-  }
-
-  private formatDate(date: Date): string {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }
-
   // Limpar cache antigo (pode ser chamado periodicamente)
   clearExpiredCache() {
     const now = Date.now();
@@ -218,4 +167,3 @@ export class LiturgyService {
     this.logger.log('Cache de liturgias expirado foi limpo');
   }
 }
-

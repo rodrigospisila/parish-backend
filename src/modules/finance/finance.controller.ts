@@ -4,6 +4,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
+import { CreateTransactionDto } from './dto/create-transaction.dto';
 
 @Controller('finance')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -12,7 +13,7 @@ export class FinanceController {
   constructor(private readonly service: FinanceService) {}
 
   @Post('transactions')
-  createTransaction(@Body() dto: any, @Request() req: any) {
+  createTransaction(@Body() dto: CreateTransactionDto, @Request() req: any) {
     return this.service.createTransaction(dto, req.user);
   }
 

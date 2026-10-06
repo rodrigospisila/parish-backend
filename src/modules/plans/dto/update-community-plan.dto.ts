@@ -9,6 +9,8 @@ export const PLAN_ACTIONS = [
   'CANCEL',
   'SET_FREE',
   'EXTEND',
+  /** ACTIVE com o período vencido → PAST_DUE (carência de graceDays). A rotina markOverduePlans usa a mesma regra. */
+  'MARK_PAST_DUE',
 ] as const;
 
 export type PlanAction = (typeof PLAN_ACTIONS)[number];

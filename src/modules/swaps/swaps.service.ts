@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException, Optional } from '@nestjs/common';
 import { SwapStatus, NotificationType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
@@ -6,6 +6,8 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * Troca de escala entre membros / swap (roadmap 4.6).
@@ -20,6 +22,8 @@ export class SwapsService {
     private readonly notificationsService: NotificationsService,
     private readonly conflictsService: ScheduleConflictsService,
     private readonly hierarchyService: HierarchyService,
+    // Plano por comunidade na rota "minhas" (A21). Opcional: specs montam sem ele
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private async resolveMember(userId: string) {
@@ -189,12 +193,13 @@ export class SwapsService {
     const include = {
       assignment: {
         include: {
-          schedule: { select: { id: true, title: true, date: true } },
+          // communityId (da escala ou do evento): plano por comunidade (A21)
+          schedule: { select: { id: true, title: true, date: true, communityId: true, event: { select: { communityId: true } } } },
         },
       },
     };
     const linkedCommunityIds = await this.memberCommunityIds(member.id);
-    const [requested, invited] = await Promise.all([
+    const [allRequested, allInvited] = await Promise.all([
       this.prisma.assignmentSwapRequest.findMany({
         where: { requesterId: member.id },
         include,
@@ -236,6 +241,12 @@ export class SwapsService {
         orderBy: { createdAt: 'desc' },
       }),
     ]);
+
+    // Rota "minhas" (A21): só as trocas de escalas de comunidade com o plano
+    const swapCommunity = (swap: (typeof allRequested)[number]) =>
+      swap.assignment?.schedule?.communityId ?? swap.assignment?.schedule?.event?.communityId ?? null;
+    const requested = await planFilter(this.planAccess, user, allRequested, swapCommunity);
+    const invited = await planFilter(this.planAccess, user, allInvited, swapCommunity);
 
     // Resolve os nomes (requesterId/targetId não têm relação declarada no schema)
     const memberIds = new Set<string>();

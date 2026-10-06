@@ -25,6 +25,27 @@ const casos = [
   ['Missa dos dizimistas no segundo domingo de cada mês.', nth(0, [2])],
   ['1ª e 3ª Quinta-feira do Mês', nth(4, [1, 3])],
 
+  // --- Formas que a leitura antiga deixava passar (auditoria M25, out/2026) ---
+  // dia por extenso sem "do mês", a nota é só a regra
+  ['Primeira Sexta', nth(5, [1])],
+  ['Terceiro Domingo', nth(0, [3])],
+  ['Primeiro Sábado', nth(6, [1])],
+  ['Primeira Quinta-feira', nth(4, [1])],
+  ['3ª Quinta-feira', nth(4, [3])],
+  ['no 3° sábado', nth(6, [3])],
+  // "somente na Nª", "toda Nª", entre parênteses depois do dia da semana
+  ['Sexta-feira, 19h30 (somente a primeira sexta-feira do mês)', nth(5, [1])],
+  ['Sexta-feira, 19h30 (1ª sexta do mês).', nth(5, [1])],
+  ['Domingo, 10h (3º domingo).', nth(0, [3])],
+  ['Sábado, 17h30 (1º e 3º sábados do mês).', nth(6, [1, 3])],
+  ['Hora Santa (somente no terceiro domingo', nth(0, [3])],
+  ['Desagravo ao Imaculado Coração de Maria (TODO O PRIMEIRO SÁBADO - PARÓQUIA', nth(6, [1])],
+  ['Toda 1ª Sexta-feira, às 15h e 19h30, em louvor ao Sagrado Coração de Jesus', nth(5, [1])],
+  ['Nas primeiras sextas-feiras de cada mês, de 9h às 11h30min e 14h às 18h30min.', nth(5, [1])],
+  ['As mil aves marias todos os segundos sábados de mês', nth(6, [2])],
+  // a regra abre a frase: "N sexta - nome da missa"
+  ['1ª sexta-feira - Santa Missa do Empreendedor Católico', nth(5, [1])],
+
   // --- Data fixa do mês ---
   ['TODO DIA 20 DE CADA MÊS — Missa Votiva a São Sebastião.', dia(20)],
   ['TODO DIA 04 DE CADA MÊS, às 19h.', dia(4)],
@@ -43,6 +64,28 @@ const casos = [
   ['Fonte: "19:00 (Quinta-feira, 1ª sexta-feira do mês, dia 22 de cada mês)"', null],
   // Ordinal sem contexto de mês pode ser data de festa
   ['1º domingo de Advento', null],
+  ['4º Domingo de Maio | 09h | Romaria de Santa Rita', null],
+  // Semanal + mensal na mesma nota, com horas diferentes: não diz qual é este registro
+  ['Sexta-feira: 20h | Primeira sexta-feira do mês: 16h', null],
+  ['Terça-feira, 19h (Noite Mariana, toda 3ª terça do mês – 20h).', null],
+  ['Domingo, 8h, 10h e 19h (4º domingo de cada mês, à missa é votiva à Nossa Senhora Desatadora dos Nós)', null],
+  ['Quinta-feira Matriz às 19h30; toda última quinta, missa pedindo cura e libertação', null],
+  // Outro dia da semana na frase: duas celebrações (ou dia gravado errado — caso para gente)
+  ['quarta-feira às 19h e 1ª sexta-feira às 19h', null],
+  ['Domingo, 19h30 (2ª quinta).', null],
+  ['sábados das 15h às 16h45 e na 1° sexta-feira das 15h às 17h.', null],
+  ['Segunda, Quarta Quinta e sexta', null],
+  ['Fonte: "19:00 (Quinta e 1ª sexta-feira do mês)".', null],
+  ['Fonte grafa "Segunda Sexta"; interpretado como segunda a sexta (espelho de 2023 confirma)', null],
+  // Mudança pontual numa regra semanal
+  ['No 3º Domingo a missa das 16h será na gruta', null],
+  ['Texto oficial: "Quarta-Feira às 19h (Na última quarta-feira do mês a missa será nas casas)"', null],
+  ['Sexta-feira, 19h ( primeira sexta-feira do mês a Missa acontece às 07h30 em honra ao Sagrado Coração, e a noite não tem missa/celebração).', null],
+  ['Sexta-feira, às 19h30 (exceto na 1ª Sexta-feira do mês)', null],
+  // "5ª às 18h" é quinta-feira abreviada, não 5ª semana
+  ['5ª às 18h', null],
+  ['2ª, 3ª, 4ª e 6ª das 7h às 8h; as 5ª às 11h e sábado das 10h30 às 11h30', null],
+  ['1º de Maio', null],
   ['Missa de domingo', null],
   ['', null],
   [null, null],

@@ -1,4 +1,4 @@
-import { addCycle, hasPaidAccess, monthlyEquivalentCents, parseEnforcement, PAID_FEATURES } from './plan-rules';
+import { addCycle, graceEndsAt, hasPaidAccess, isPeriodOverdue, monthlyEquivalentCents, parseEnforcement, PAID_FEATURES } from './plan-rules';
 
 const DAY = 24 * 60 * 60 * 1000;
 const now = new Date('2026-09-24T12:00:00.000Z');
@@ -19,9 +19,23 @@ describe('plan-rules — hasPaidAccess', () => {
     expect(hasPaidAccess({ status: 'TRIAL', trialEndsAt: at(3).toISOString() }, now)).toBe(true); // aceita string
   });
 
-  it('ACTIVE sempre tem acesso', () => {
-    expect(hasPaidAccess({ status: 'ACTIVE' }, now)).toBe(true);
-    expect(hasPaidAccess({ status: 'ACTIVE', currentPeriodEnd: at(-100) }, now)).toBe(true);
+  it('ACTIVE: em dia, ou vencido só até o fim da carência (M38)', () => {
+    expect(hasPaidAccess({ status: 'ACTIVE' }, now)).toBe(true); // sem data de renovação
+    expect(hasPaidAccess({ status: 'ACTIVE', currentPeriodEnd: at(10) }, now)).toBe(true);
+    expect(hasPaidAccess({ status: 'ACTIVE', currentPeriodEnd: at(-10), graceDays: 15 }, now)).toBe(true); // carência
+    expect(hasPaidAccess({ status: 'ACTIVE', currentPeriodEnd: at(-15), graceDays: 15 }, now)).toBe(false);
+    expect(hasPaidAccess({ status: 'ACTIVE', currentPeriodEnd: at(-100) }, now)).toBe(false);
+  });
+
+  it('período vencido e fim da carência', () => {
+    expect(isPeriodOverdue({ status: 'ACTIVE', currentPeriodEnd: at(-1) }, now)).toBe(true);
+    expect(isPeriodOverdue({ status: 'PAST_DUE', currentPeriodEnd: at(-1) }, now)).toBe(true);
+    expect(isPeriodOverdue({ status: 'ACTIVE', currentPeriodEnd: at(1) }, now)).toBe(false);
+    expect(isPeriodOverdue({ status: 'ACTIVE', currentPeriodEnd: null }, now)).toBe(false);
+    expect(isPeriodOverdue({ status: 'TRIAL', currentPeriodEnd: at(-1) }, now)).toBe(false);
+    expect(graceEndsAt({ currentPeriodEnd: at(-1), graceDays: 15 })).toEqual(at(14));
+    expect(graceEndsAt({ currentPeriodEnd: at(0) })).toEqual(at(15));
+    expect(graceEndsAt({ currentPeriodEnd: null })).toBeNull();
   });
 
   it('PAST_DUE dentro da carência (currentPeriodEnd + graceDays)', () => {

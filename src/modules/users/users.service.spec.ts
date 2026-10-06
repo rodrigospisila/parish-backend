@@ -9,8 +9,16 @@ import { AuditService } from '../../common/audit.service';
 describe('UsersService (hierarquia de papéis - Fase 1)', () => {
   let service: UsersService;
   let prisma: any;
+  let members: { ensureProfileForUser: jest.Mock; anonymizePersonalData: jest.Mock; cancelTitheAtProviderAfterCommit: jest.Mock };
+  let audit: { log: jest.Mock; pseudonymizeSubject: jest.Mock };
 
   beforeEach(async () => {
+    members = {
+      ensureProfileForUser: jest.fn(),
+      anonymizePersonalData: jest.fn().mockResolvedValue({}),
+      cancelTitheAtProviderAfterCommit: jest.fn().mockResolvedValue(undefined),
+    };
+    audit = { log: jest.fn(), pseudonymizeSubject: jest.fn().mockResolvedValue(0) };
     prisma = {
       user: { findUnique: jest.fn().mockResolvedValue(null), findFirst: jest.fn().mockResolvedValue(null) },
     };
@@ -19,8 +27,8 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       providers: [
         UsersService,
         { provide: PrismaService, useValue: prisma },
-        { provide: MembersService, useValue: { ensureProfileForUser: jest.fn() } },
-        { provide: AuditService, useValue: { log: jest.fn() } },
+        { provide: MembersService, useValue: members },
+        { provide: AuditService, useValue: audit },
       ],
     }).compile();
 
@@ -90,10 +98,10 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
     });
   });
 
-  describe('deleteOwnAccount — exclusão da própria conta', () => {
-    it('anonimiza o membro vinculado e exclui o usuário', async () => {
+  describe('deleteOwnAccount — exclusão da própria conta (M16/B36/M49)', () => {
+    it('anonimiza o membro pela rotina única, apaga as notificações e exclui o usuário', async () => {
       const tx = {
-        member: { update: jest.fn().mockResolvedValue({}) },
+        notification: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
       };
       prisma.user.findUnique = jest
@@ -104,18 +112,23 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       const res = await service.deleteOwnAccount('u1');
 
       expect(res).toEqual({ deleted: true });
-      expect(tx.member.update).toHaveBeenCalledWith(
-        expect.objectContaining({
-          where: { id: 'm1' },
-          data: expect.objectContaining({ fullName: 'Membro removido', email: null, phone: null }),
-        }),
-      );
+      expect(members.anonymizePersonalData).toHaveBeenCalledWith(tx, 'm1', { label: 'Membro removido' });
+      expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
       expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u1' } });
+      // Dízimo automático: provedor só depois do commit (fora do callback da transação)
+      expect(members.cancelTitheAtProviderAfterCommit).toHaveBeenCalledWith('m1');
+      expect(members.cancelTitheAtProviderAfterCommit.mock.invocationCallOrder[0]).toBeGreaterThan(
+        tx.user.delete.mock.invocationCallOrder[0],
+      );
+      // Auditoria: sem e-mail no registro da exclusão; histórico pseudonimizado
+      const entry = audit.log.mock.calls[0][0];
+      expect(JSON.stringify(entry)).not.toContain('a@b.com');
+      expect(audit.pseudonymizeSubject).toHaveBeenCalledWith({ userId: 'u1', memberId: 'm1', email: 'a@b.com' });
     });
 
     it('exclui usuário sem membro vinculado (não toca em member)', async () => {
       const tx = {
-        member: { update: jest.fn() },
+        notification: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
       };
       prisma.user.findUnique = jest
@@ -125,7 +138,9 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
 
       await service.deleteOwnAccount('u2');
 
-      expect(tx.member.update).not.toHaveBeenCalled();
+      expect(members.anonymizePersonalData).not.toHaveBeenCalled();
+      expect(members.cancelTitheAtProviderAfterCommit).not.toHaveBeenCalled();
+      expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u2' } });
       expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u2' } });
     });
 

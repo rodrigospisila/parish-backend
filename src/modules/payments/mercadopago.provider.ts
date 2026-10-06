@@ -112,6 +112,8 @@ export class MercadoPagoProvider implements PaymentProvider {
       externalRef: payment.external_reference ?? null,
       value: typeof payment.transaction_amount === 'number' ? payment.transaction_amount : null,
       netValue: payment.transaction_details?.net_received_amount ?? null,
+      // Estorno parcial no MP mantém o status "approved" e acumula aqui
+      refundedAmount: typeof payment.transaction_amount_refunded === 'number' ? payment.transaction_amount_refunded : null,
       paidAt: payment.date_approved ?? null,
       raw: payment,
     };

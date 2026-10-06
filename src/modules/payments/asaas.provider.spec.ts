@@ -185,3 +185,28 @@ describe('MercadoPagoProvider', () => {
     return expect(p.createSubscription({ providerCustomerId: 'x', amount: 10, cycle: 'MONTHLY', startDate: '2026-09-01', description: 'd', externalRef: 'e', mode: 'pix_automatic' })).rejects.toThrow(/Asaas/);
   });
 });
+
+describe('Estornos no provedor (B20)', () => {
+  const creds = { apiKey: '$aact_hmlg_test', env: 'sandbox' as const };
+
+  it('Asaas: soma só os estornos concluídos; sem a lista, desconhecido (null)', async () => {
+    expect(AsaasProvider.refundedFrom(undefined)).toBeNull();
+    expect(AsaasProvider.refundedFrom([{ value: 30, status: 'DONE' }, { value: 0.1, status: 'DONE' }, { value: 0.2 }, { value: 50, status: 'PENDING' }])).toBe(30.3);
+    const { impl } = fakeFetch({
+      'GET /payments/pay_1/refunds': () => ({ body: { data: [{ value: 20, status: 'DONE' }, { value: 5, status: 'CANCELLED' }] } }),
+      'GET /payments/pay_2': () => ({ body: { id: 'pay_2', status: 'RECEIVED', value: 100, refunds: [{ value: 40, status: 'DONE' }] } }),
+    });
+    const p = new AsaasProvider(creds, impl);
+    expect(await p.getRefundedAmount('pay_1')).toBe(20);
+    expect((await p.getCharge('pay_2')).refundedAmount).toBe(40);
+  });
+
+  it('Mercado Pago: estorno parcial mantém "approved" e acumula transaction_amount_refunded', async () => {
+    const { impl } = fakeFetch({
+      'GET /v1/payments/77': () => ({ body: { id: 77, status: 'approved', transaction_amount: 100, transaction_amount_refunded: 25 } }),
+    });
+    const p = new MercadoPagoProvider({ apiKey: 'TEST-x', env: 'sandbox' }, impl);
+    const charge = await p.getCharge('77');
+    expect(charge).toMatchObject({ status: 'received', refundedAmount: 25 });
+  });
+});

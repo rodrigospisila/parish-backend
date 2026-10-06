@@ -14,6 +14,7 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
   let joinRequests: JoinRequestsService;
   let prisma: any;
   let hierarchy: { canManageCommunity: jest.Mock };
+  let notifications: { notifyUsers: jest.Mock };
 
   // Pastoral Catequética da Matriz (paróquia p1, diocese d1)
   const catequetica = {
@@ -62,8 +63,10 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
       pastoralMember: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralCoordinator: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralJoinRequest: { findMany: jest.fn().mockResolvedValue([]), findUnique: jest.fn() },
+      auditLog: { count: jest.fn().mockResolvedValue(0) },
     };
     hierarchy = { canManageCommunity: jest.fn().mockResolvedValue(false) };
+    notifications = { notifyUsers: jest.fn() };
 
     const module: TestingModule = await Test.createTestingModule({
       providers: [
@@ -72,7 +75,7 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: hierarchy },
         { provide: AuditService, useValue: { log: jest.fn() } },
-        { provide: NotificationsService, useValue: { notifyUsers: jest.fn() } },
+        { provide: NotificationsService, useValue: notifications },
       ],
     }).compile();
     service = module.get(PastoralsService);
@@ -181,6 +184,48 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
       await service.createCommunityPastoral({ communityId: 'c1', globalPastoralId: 'gp-cat' } as any, 'adm1');
       expect(hierarchy.canManageCommunity).toHaveBeenCalledWith('adm1', 'c1');
       expect(prisma.communityPastoral.create).toHaveBeenCalled();
+    });
+
+    it('M36: pastoral excluída é REATIVADA ao cadastrar de novo (o índice único inclui as excluídas)', async () => {
+      hierarchy.canManageCommunity.mockResolvedValue(true);
+      prisma.communityPastoral.findFirst.mockResolvedValue({ ...catequetica, deletedAt: new Date('2026-09-01') });
+      await service.createCommunityPastoral(
+        { communityId: 'c1', globalPastoralId: 'gp-cat', mission: 'Evangelizar' } as any,
+        'adm1',
+      );
+      expect(prisma.communityPastoral.create).not.toHaveBeenCalled();
+      const args = prisma.communityPastoral.update.mock.calls[0][0];
+      expect(args.where).toEqual({ id: 'cp-cat' });
+      expect(args.data).toMatchObject({ deletedAt: null, status: 'ACTIVE', mission: 'Evangelizar' });
+      expect(args.data).not.toHaveProperty('globalPastoralId');
+    });
+
+    it('M36: pastoral ATIVA repetida continua recusada', async () => {
+      hierarchy.canManageCommunity.mockResolvedValue(true);
+      prisma.communityPastoral.findFirst.mockResolvedValue({ ...catequetica, deletedAt: null });
+      await expect(
+        service.createCommunityPastoral({ communityId: 'c1', globalPastoralId: 'gp-cat' } as any, 'adm1'),
+      ).rejects.toBeInstanceOf(BadRequestException);
+      expect(prisma.communityPastoral.update).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('B8 — teto do aviso aos membros da pastoral', () => {
+    beforeEach(() => {
+      prisma.pastoralMember.findMany.mockResolvedValue([{ member: { userId: 'm-user' } }]);
+      prisma.communityPastoral.findUnique.mockResolvedValue({ ...catequetica, globalPastoral: { name: 'Catequese' } });
+    });
+
+    it('além de 5 avisos no dia da pastoral: 400 e nenhum envio', async () => {
+      prisma.auditLog.count.mockResolvedValueOnce(5).mockResolvedValueOnce(5);
+      await expect(service.notifyMembers('cp-cat', 'Reunião', parishAdminP1)).rejects.toThrow(/Limite/);
+      expect(notifications.notifyUsers).not.toHaveBeenCalled();
+    });
+
+    it('dentro do teto: envia e conta pela trilha PastoralBroadcast', async () => {
+      await service.notifyMembers('cp-cat', 'Reunião', parishAdminP1);
+      expect(notifications.notifyUsers).toHaveBeenCalledTimes(1);
+      expect(prisma.auditLog.count.mock.calls[0][0].where).toMatchObject({ entity: 'PastoralBroadcast', entityId: 'cp-cat' });
     });
   });
 

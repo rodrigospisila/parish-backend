@@ -39,49 +39,56 @@ if /i not "%CONFIRM%"=="S" (
 )
 
 echo.
+REM Trava de producao (achado B55): nunca reseta o banco do Railway
+node -e "require('./prisma/lib/prod-guard.cjs').assertNotProduction('reset-database.bat', { never: true })"
+if errorlevel 1 (
+  pause
+  exit /b 1
+)
+
 echo [1/4] Resetando banco de dados...
-call pnpm prisma migrate reset --force --skip-seed
+call npx prisma migrate reset --force --skip-seed
 if errorlevel 1 (
   echo [ERRO] Falha ao resetar banco de dados
   echo.
   echo Tente executar manualmente:
-  echo   pnpm prisma migrate reset --force --skip-seed
+  echo   npx prisma migrate reset --force --skip-seed
   pause
   exit /b 1
 )
 
 echo.
 echo [2/4] Gerando Prisma Client atualizado...
-call pnpm prisma generate
+call npx prisma generate
 if errorlevel 1 (
   echo [ERRO] Falha ao gerar Prisma Client
   echo.
   echo Tente executar manualmente:
-  echo   pnpm prisma generate
+  echo   npx prisma generate
   pause
   exit /b 1
 )
 
 echo.
 echo [3/4] Aplicando todas as migrations...
-call pnpm prisma migrate deploy
+call npx prisma migrate deploy
 if errorlevel 1 (
   echo [ERRO] Falha ao aplicar migrations
   echo.
   echo Tente executar manualmente:
-  echo   pnpm prisma migrate deploy
+  echo   npx prisma migrate deploy
   pause
   exit /b 1
 )
 
 echo.
 echo [4/4] Criando usuario SYSTEM_ADMIN...
-call pnpm prisma db seed
+call npx prisma db seed
 if errorlevel 1 (
   echo [ERRO] Falha ao executar seed
   echo.
   echo Tente executar manualmente:
-  echo   pnpm prisma db seed
+  echo   npx prisma db seed
   pause
   exit /b 1
 )

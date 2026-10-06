@@ -115,7 +115,31 @@ describe('MembersService', () => {
     });
   });
 
-  describe('anonymizeMember (direito ao esquecimento - Fase 0)', () => {
+  describe('anonymizeMember (direito ao esquecimento - Fase 0 / M16)', () => {
+    const makeTx = () => ({
+      member: {
+        update: jest.fn().mockResolvedValue({ id: 'member-1', status: MemberStatus.ANONYMIZED }),
+        updateMany: jest.fn().mockResolvedValue({ count: 0 }),
+      },
+      pastoralMember: { updateMany: jest.fn().mockResolvedValue({ count: 2 }) },
+      pastoralCoordinator: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      memberCommunity: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      pastoralJoinRequest: { deleteMany: jest.fn(), updateMany: jest.fn() },
+      scheduleAssignment: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      memberAvailabilityRule: { deleteMany: jest.fn() },
+      memberAvailabilityException: { deleteMany: jest.fn() },
+      consent: { deleteMany: jest.fn() },
+      memberProviderCustomer: { deleteMany: jest.fn() },
+      catechesisDocument: { updateMany: jest.fn() },
+    });
+    let tx: ReturnType<typeof makeTx>;
+
+    beforeEach(() => {
+      tx = makeTx();
+      (prisma as any).$transaction = jest.fn(async (cb: any) => cb(tx));
+      (audit as any).pseudonymizeSubject = jest.fn().mockResolvedValue(0);
+    });
+
     it('anonimiza mesmo SEM consentimento previo (logica corrigida)', async () => {
       prisma.member.findFirst.mockResolvedValue({
         id: 'member-1',
@@ -123,11 +147,10 @@ describe('MembersService', () => {
         status: MemberStatus.ACTIVE,
         consentGiven: false,
       });
-      prisma.member.update.mockResolvedValue({ id: 'member-1', status: MemberStatus.ANONYMIZED });
 
       await expect(service.anonymizeMember('member-1')).resolves.toBeDefined();
 
-      const updateCall = prisma.member.update.mock.calls[0][0];
+      const updateCall = tx.member.update.mock.calls[0][0];
       expect(updateCall.data.status).toBe(MemberStatus.ANONYMIZED);
       expect(updateCall.data.cpf).toBeNull();
       expect(updateCall.data.fullName).toBe('Usuário Anônimo');
@@ -137,6 +160,52 @@ describe('MembersService', () => {
       // A auditoria da anonimizacao nao pode conter dados pessoais em claro
       const auditEntry = audit.log.mock.calls[0][0];
       expect(auditEntry.before).toBeUndefined();
+    });
+
+    it('M16: limpa TODOS os campos pessoais (inclusive contato de emergência, gênero e estado civil)', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-1', status: MemberStatus.ACTIVE });
+      await service.anonymizeMember('member-1');
+
+      const data = tx.member.update.mock.calls[0][0].data;
+      for (const field of [
+        'rg', 'gender', 'maritalStatus', 'occupation', 'photoUrl', 'zipCode', 'street', 'number', 'complement',
+        'neighborhood', 'city', 'state', 'notes', 'emergencyContactName', 'emergencyContactPhone',
+        'emergencyContactRelation', 'fatherName', 'motherName', 'spouseId', 'birthDate', 'consentDate',
+      ]) {
+        expect(data[field]).toBeNull();
+      }
+      expect(data.whatsappOptIn).toBe(false);
+      expect(data.consentGiven).toBe(false);
+      // Cônjuge: o outro lado também perde o vínculo
+      expect(tx.member.updateMany).toHaveBeenCalledWith({ where: { spouseId: 'member-1' }, data: { spouseId: null } });
+    });
+
+    it('M16: encerra pastorais, coordenação, comunidades e escalas futuras; apaga consentimentos e certidões', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-1', status: MemberStatus.ACTIVE });
+      await service.anonymizeMember('member-1');
+
+      expect(tx.pastoralMember.updateMany).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { memberId: 'member-1', isActive: true }, data: expect.objectContaining({ isActive: false }) }),
+      );
+      expect(tx.pastoralCoordinator.updateMany).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { memberId: 'member-1', isCurrent: true }, data: expect.objectContaining({ isCurrent: false }) }),
+      );
+      expect(tx.memberCommunity.updateMany).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { memberId: 'member-1', isActive: true }, data: expect.objectContaining({ isActive: false }) }),
+      );
+      const assignments = tx.scheduleAssignment.updateMany.mock.calls[0][0];
+      expect(assignments.where).toEqual(
+        expect.objectContaining({ memberId: 'member-1', schedule: { date: { gte: expect.any(Date) } } }),
+      );
+      expect(assignments.data.status).toBe('DECLINED');
+      expect(tx.consent.deleteMany).toHaveBeenCalledWith({ where: { memberId: 'member-1' } });
+      expect(tx.memberProviderCustomer.deleteMany).toHaveBeenCalledWith({ where: { memberId: 'member-1' } });
+      expect(tx.catechesisDocument.updateMany).toHaveBeenCalledWith({
+        where: { enrollment: { memberId: 'member-1' } },
+        data: { data: null, extractedName: null, extractedBirthDate: null },
+      });
+      // Auditoria anterior sobre o membro é pseudonimizada (M49)
+      expect((audit as any).pseudonymizeSubject).toHaveBeenCalledWith({ memberId: 'member-1' });
     });
 
     it('rejeita anonimizar membro ja anonimizado', async () => {

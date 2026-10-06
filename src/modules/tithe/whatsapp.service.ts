@@ -13,6 +13,8 @@ const monthLabel = (referenceMonth: string) => {
 };
 const money = (value: number) => `R$ ${value.toFixed(2).replace('.', ',')}`;
 const firstName = (fullName: string) => safeName(fullName).split(' ')[0] || 'irmão(ã)';
+/** Comando PIX: no máximo um envio do Pix a cada 6 h por fiel (cada mensagem do Twilio é paga). */
+export const WHATSAPP_PIX_RESEND_MS = 6 * 60 * 60 * 1000;
 
 /**
  * WhatsApp como canal do dízimo (D4.5), via Twilio: no dia do lembrete o fiel
@@ -66,6 +68,7 @@ export class TitheWhatsAppService {
         phone: true,
         communityId: true,
         whatsappOptIn: true,
+        whatsappPixSentAt: true,
         titheReminderDay: true,
         community: { select: { parishId: true, parish: { select: { name: true, whatsappEnabled: true } } } },
       },
@@ -145,6 +148,8 @@ export class TitheWhatsAppService {
       'pix',
     );
     await this.auditService.log({ actor: null, action: 'UPDATE', entity: 'TitheIntent', entityId: intent.id, metadata: { whatsapp: 'monthly-pix', sent } });
+    // Relógio do freio do comando PIX: o lembrete mensal também conta como envio
+    if (sent) await this.prisma.member.update({ where: { id: member.id }, data: { whatsappPixSentAt: new Date() } });
     return sent;
   }
 
@@ -230,12 +235,25 @@ export class TitheWhatsAppService {
     }
     if (['PIX', 'DIZIMO', 'DÍZIMO', 'CONTRIBUIR'].includes(text)) {
       if (!member.whatsappOptIn) return `${name}, para receber o Pix por aqui responda QUERO primeiro (ou use o app Parish).`;
-      // Freio: um Pix novo por dia via WhatsApp (o do mês é reaproveitado enquanto estiver aberto)
-      const createdToday = await this.prisma.titheIntent.count({
-        where: { memberId: member.id, note: 'Enviado pelo WhatsApp', createdAt: { gte: new Date(Date.now() - 24 * 60 * 60 * 1000) }, status: { not: 'CREATED' } },
+      // Freio (B25): conta ENVIOS, não status — o Pix do mês aberto é
+      // reaproveitado e reenviado a cada PIX, e contar intents fora de CREATED
+      // nunca chegava ao limite. A marca é tomada atomicamente ANTES de enviar
+      // (duas mensagens simultâneas não passam juntas) e devolvida se o envio falhar
+      const now = new Date();
+      const claimed = await this.prisma.member.updateMany({
+        where: {
+          id: member.id,
+          OR: [{ whatsappPixSentAt: null }, { whatsappPixSentAt: { lt: new Date(now.getTime() - WHATSAPP_PIX_RESEND_MS) } }],
+        },
+        data: { whatsappPixSentAt: now },
       });
-      if (createdToday >= 3) return `${name}, já enviamos o Pix de hoje. Se precisar de outro valor, use o app Parish.`;
+      if (claimed.count !== 1) {
+        return `${name}, já enviamos o Pix há pouco — ele está logo acima nesta conversa. Se precisar de outro valor, use o app Parish.`;
+      }
       const sent = await this.sendMonthlyPix(member.id, this.tithe.currentMonth());
+      if (!sent) {
+        await this.prisma.member.updateMany({ where: { id: member.id, whatsappPixSentAt: now }, data: { whatsappPixSentAt: member.whatsappPixSentAt ?? null } });
+      }
       return sent ? '' : `${name}, não consegui gerar o Pix agora. Use o app Parish para contribuir.`;
     }
     return `Olá, ${name}! Comandos: PIX (Pix do mês), PAGUEI (avisar que pagou), SAIR (parar de receber), QUERO (voltar a receber).`;

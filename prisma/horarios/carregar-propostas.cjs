@@ -11,6 +11,9 @@ const path = require('path');
 const { PrismaClient } = require('@prisma/client');
 
 const APLICAR = process.argv.includes('--aplicar');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../lib/prod-guard.cjs');
+assertNotProduction('carregar-propostas', { writes: APLICAR });
 const CACHE = path.join(__dirname, '..', 'data', 'geo', 'cache', 'horarios');
 const HOJE = '2026-09-30';
 const ler = (f) => JSON.parse(fs.readFileSync(path.join(CACHE, f), 'utf8'));

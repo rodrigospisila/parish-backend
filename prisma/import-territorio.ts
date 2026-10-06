@@ -21,6 +21,9 @@ const { lerRecorrencia } = require('./data/territorio-br/recorrencia.cjs') as {
  */
 const prisma = new PrismaClient();
 const DRY = process.env.DRY_RUN === '1';
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('import-territorio', { writes: !DRY });
 const ROOT = join(__dirname, 'data', 'territorio-br');
 
 type Confidence = 'alta' | 'media' | 'baixa';
@@ -117,17 +120,49 @@ const isNonParishUnit = (name: string) =>
   /^(Capela|Igreja|Igrejinha|Capelania|Miss[ãa]o|Orat[óo]rio|Comunidade|Mosteiro|Convento|Monjas|Monges|Abadia|Carmelo|Semin[áa]rio|Setor Mission[áa]rio|Porci[úu]ncula|Centro (Diocesano|Pastoral|de)|Casa)\b/i.test(name.trim());
 
 /**
+ * Mesmo endereço para efeito de idempotência: igual; ou mesma rua e número antes do
+ * " - bairro"; ou um dos dois sem número (só bairro/localidade, ou o endereço da
+ * paróquia usado na falta do da capela). Dois endereços sem número e diferentes
+ * ("Bairro dos Paulos" × "Bairro Palmeiras") continuam distintos — capelas rurais homônimas.
+ */
+const sameAddress = (a: string, b: string) => {
+  const na = normalize(a);
+  const nb = normalize(b);
+  if (na === nb) return true;
+  const rua = (x: string) => normalize(String(x ?? '').split(/ [-–] /)[0]);
+  if (rua(a) && rua(a) === rua(b)) return true;
+  const temNumero = (x: string) => /\d/.test(x);
+  return temNumero(na) !== temNumero(nb);
+};
+
+/**
+ * Tira do nome a regra que a fonte grudou nele: "Comunidade São José (SOMENTE NA 1ª
+ * SEXTA-FEIRA DO MÊS)" é a Comunidade São José — a regra já vai para a recorrência do
+ * horário — e "Igreja São Camilo (somente essa Missa)" é a Igreja São Camilo.
+ */
+const cleanCommunityName = (name: string) =>
+  (name ?? '').replace(/\s*\((?:somente|apenas|s[óo])\b[^)]*\)?\s*$/i, '').trim();
+
+/**
  * Nome de comunidade que na verdade é lixo de raspagem: rótulo de seção
  * ("Horário das Missas:", "Missas na matriz"), linha de endereço ou nome com a
  * hora grudada ("Capela Santo Expedito- 09h30h - 19h na Igreja Matriz"). Não
  * vira comunidade, e o horário que aponta para ela vai para a matriz.
  */
 const isJunkCommunityName = (name: string) => {
-  const n = (name ?? '').trim();
+  const n = cleanCommunityName(name);
   return !n
     || /\d{1,2}\s?h(\d{2})?\b|\d{1,2}:\d{2}/.test(n)
-    || /^(missas?|celebra|hor[áa]rio|atividades)\b/i.test(n)
+    || /^(missas?|celebra|hor[áa]rios?|atividades)(?![a-zà-ú])/i.test(n)
+    // Título de seção em qualquer posição ("Comunidade HORÁRIOS DE MISSAS",
+    // "Horários de Confissão") e devoção no lugar do nome ("Adoração ao Santíssimo
+    // quinta-feira o dia todo") — auditoria M41, out/2026
+    || /hor[áa]rios?\s+d[aeo]s?\s/i.test(n)
+    || /^(adora[çc][ãa]o|confiss[õo]es|confiss[ãa]o|ter[çc]o|programa[çc][ãa]o)(?![a-zà-ú])/i.test(n)
     || /^(r|rua|av|avenida)[.:]\s/i.test(n)
+    // linha de endereço no lugar do nome ("Via Anhanguera, Km 131 - Bairro Jaguari"). Só com
+    // Via/Rodovia NO INÍCIO: "Comunidade São José (Km 34)" é nome legítimo de capela rural
+    || /^(via|rodovia)\s[^,]*,\s*km\s?\d/i.test(n)
     || /^(nossa|senhora|s[ãa]o|santa|santo|de|da|do)$/i.test(n);
 };
 
@@ -203,7 +238,9 @@ async function importDioceseFile(file: string) {
       if (!dup) { stats.parishes += 1; console.log(`  + ${p.name} — ${p.city} [${p.confidence ?? '?'}]`); }
     }
 
-    const listed = (p.communities ?? []).filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence) && !isJunkCommunityName(c.name));
+    const listed = (p.communities ?? [])
+      .map((c) => ({ ...c, name: cleanCommunityName(c.name) }))
+      .filter((c) => alive(c.status) && ok(c.confidence ?? p.confidence) && !isJunkCommunityName(c.name));
     // A igreja-matriz precisa existir: sem lista, ou com lista só de capelas
     // (nenhuma marcada como matriz), ela é criada — senão as missas da matriz
     // cairiam na primeira capela da lista
@@ -216,9 +253,11 @@ async function importDioceseFile(file: string) {
       const address = c.address || c.neighborhood || p.address || p.neighborhood || p.city;
       if (DRY || !parish) { stats.communities += 1; created.push({ id: `dry-${c.name}`, name: c.name }); continue; }
       // Idempotência por (paróquia + nome + endereço): capelas homônimas de
-      // localidades diferentes (comum na zona rural) não se fundem
+      // localidades diferentes (comum na zona rural) não se fundem. O endereço
+      // "Rua X, 10 - Bairro" e "Rua X, 10" é o mesmo (a 2ª carga de Limeira, em
+      // 10/09/2026, duplicou 264 igrejas só por causa do bairro — auditoria A16)
       let community = (await prisma.community.findMany({ where: { parishId: parish.id } })).find(
-        (x) => normalize(x.name) === normalize(c.name) && normalize(x.address) === normalize(address),
+        (x) => normalize(x.name) === normalize(c.name) && sameAddress(x.address, address),
       ) ?? null;
       if (!community) {
         community = await prisma.community.create({
@@ -245,8 +284,17 @@ async function importDioceseFile(file: string) {
       if (!ok(s.confidence ?? p.confidence) && !seguraPeloModelo) { stats.skippedLow += 1; continue; }
       if (!ok(s.confidence ?? p.confidence)) stats.recovered += 1;
       if (typeof s.dayOfWeek !== 'number' || s.dayOfWeek < 0 || s.dayOfWeek > 6 || !/^\d{2}:\d{2}$/.test(s.time)) continue;
+      // 00:00 é erro de leitura ("19:O0h" com a letra O) e "Fechado" é o dia em que a
+      // igreja não abre — nenhum dos dois é horário (auditoria M48)
+      if (s.time === '00:00' || /fechad[oa]/i.test(s.notes ?? '')) { stats.misses.push(`${p.name}: horário recusado "${s.time}" (${s.notes ?? ''})`); continue; }
+      // A nota diz "3ª quinta-feira" e o registro diz domingo: um dos dois está errado,
+      // e gravar como semanal anunciaria missa toda semana no dia errado (auditoria M25)
+      if (recorrencia?.recurrence === 'MONTHLY_NTH' && recorrencia.dayOfWeek !== s.dayOfWeek) {
+        stats.misses.push(`${p.name}: dia ${s.dayOfWeek} diverge da nota "${s.notes}"`);
+        continue;
+      }
       const type = (['MASS', 'CONFESSION', 'ADORATION', 'ROSARY'].includes((s.type ?? '').toUpperCase()) ? (s.type as string).toUpperCase() : 'MASS') as MassScheduleType;
-      const wanted = normalize(s.community ?? 'Matriz');
+      const wanted = normalize(cleanCommunityName(s.community ?? 'Matriz'));
       let target = matriz;
       if (wanted && wanted !== 'matriz' && !isJunkCommunityName(s.community ?? '')) {
         // Procurar a comunidade nomeada SEMPRE vem primeiro: há paróquia com
@@ -285,6 +333,9 @@ async function importDioceseFile(file: string) {
           recurrence: rec.recurrence as MassRecurrence,
           dayOfWeek: rec.dayOfWeek ?? null,
           dayOfMonth: rec.dayOfMonth ?? null,
+          // "1º sábado 19h" e "3º sábado 19h" são horários diferentes; sem as semanas na
+          // chave o segundo era descartado como repetido
+          weeksOfMonth: { equals: rec.weeksOfMonth ?? [] },
         },
       });
       if (exists) continue;

@@ -24,6 +24,7 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, EventType } from '@prisma/client';
 import { Throttle } from '@nestjs/throttler';
+import { PlanGated } from '../plans/plan-gates';
 
 /** Vínculos pastoral↔evento por minuto (POST /events/:id/pastorals). */
 export const EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE = 2000;
@@ -274,6 +275,7 @@ export class EventsController {
   // ============================================
 
   @Post(':id/pastorals/:pastoralId/assignments')
+  @PlanGated('schedules', 'event') // escala é recurso pago (plano da comunidade do evento)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -302,6 +304,7 @@ export class EventsController {
   }
 
   @Patch('assignments/:assignmentId/checkin')
+  @PlanGated('schedules', 'eventAssignment:params.assignmentId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -319,6 +322,7 @@ export class EventsController {
   }
 
   @Delete('assignments/:assignmentId')
+  @PlanGated('schedules', 'eventAssignment:params.assignmentId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,

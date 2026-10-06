@@ -3,6 +3,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { validateEnv } from './config/validate-env';
+import { applyHttpSecurity, isSwaggerEnabled } from './config/http-security';
 
 async function bootstrap() {
   // Falha rápido se segredos/configuração de segurança estiverem ausentes
@@ -14,6 +15,8 @@ async function bootstrap() {
   // BORDA (2 endereços para todo o Brasil — o limite por IP valia para todos
   // juntos). Com 2 saltos, req.ip é o IP real do cliente.
   app.getHttpAdapter().getInstance().set('trust proxy', Number(process.env.TRUST_PROXY_HOPS) || 2);
+  // helmet (nosniff, HSTS, CSP, frame-ancestors) e sem X-Powered-By — ver config/http-security.ts
+  applyHttpSecurity(app);
 
   // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';
@@ -43,27 +46,31 @@ async function bootstrap() {
     }),
   );
 
-  // Swagger documentation
-  const config = new DocumentBuilder()
-    .setTitle('Parish API')
-    .setDescription('API do sistema Parish - Plataforma de gestão para dioceses, paróquias e comunidades católicas')
-    .setVersion('1.0')
-    .addBearerAuth()
-    .addTag('auth', 'Autenticação e autorização')
-    .addTag('users', 'Gestão de usuários')
-    .addTag('dioceses', 'Gestão de dioceses')
-    .addTag('parishes', 'Gestão de paróquias')
-    .addTag('communities', 'Gestão de comunidades')
-    .build();
+  // Swagger documentation — desligado em produção (NODE_ENV=production) a menos
+  // que SWAGGER_ENABLED=true
+  const swaggerEnabled = isSwaggerEnabled();
+  if (swaggerEnabled) {
+    const config = new DocumentBuilder()
+      .setTitle('Parish API')
+      .setDescription('API do sistema Parish - Plataforma de gestão para dioceses, paróquias e comunidades católicas')
+      .setVersion('1.0')
+      .addBearerAuth()
+      .addTag('auth', 'Autenticação e autorização')
+      .addTag('users', 'Gestão de usuários')
+      .addTag('dioceses', 'Gestão de dioceses')
+      .addTag('parishes', 'Gestão de paróquias')
+      .addTag('communities', 'Gestão de comunidades')
+      .build();
 
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
+  }
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
 
   console.log(`🚀 Parish Backend rodando em http://localhost:${port}`);
-  console.log(`📖 Documentação da API disponível em http://localhost:${port}/api`);
+  if (swaggerEnabled) console.log(`📖 Documentação da API disponível em http://localhost:${port}/api`);
 }
 
 bootstrap();

@@ -113,6 +113,26 @@ describe('FormationService (3.4)', () => {
       expect(new Date(res.expiresAt).getFullYear()).toBe(2028);
       expect(new Date(res.expiresAt).getMonth()).toBe(new Date(res.completedAt).getMonth());
     });
+
+    it("data civil ao meio-dia de Brasília; 'abc' ou futura → 400 (antes 500/aceitava)", async () => {
+      prisma.formationEnrollment.findUnique.mockResolvedValue({ id: 'en1', course: { parishId: 'p1', validityMonths: null } });
+      prisma.formationEnrollment.update.mockImplementation(({ data }: any) => data);
+      const res: any = await service.complete('en1', { date: '2026-06-15' }, coord);
+      expect(res.completedAt.toISOString()).toBe('2026-06-15T15:00:00.000Z');
+      await expect(service.complete('en1', { date: 'abc' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+      await expect(service.complete('en1', { date: '2999-01-01' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+    });
+  });
+
+  describe('B64 — cadastro de trilha e curso', () => {
+    it('sem nome ou com validade inválida → 400, nada gravado', async () => {
+      await expect(service.createTrack({ name: '' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+      await expect(service.createCourse({ name: '' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+      await expect(service.createCourse({ name: 'Ministros', validityMonths: 'abc' as any }, coord)).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
+      expect(prisma.formationCourse.create).not.toHaveBeenCalled();
+    });
   });
 
   describe('listagens de apoio à UI', () => {

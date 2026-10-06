@@ -2,7 +2,7 @@ import { Controller, Get, Header, Param, Query, UseGuards } from '@nestjs/common
 import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import { GeocodingService } from '../geocoding/geocoding.service';
 import { MassesService } from '../masses/masses.service';
-import { clampMapLimit, parseFlag, parseOptionalNumber, parseTypesCsv, parseZoom } from '../masses/map-search.utils';
+import { clampMapLimit, parseFlag, parseMassFocus, parseOptionalNumber, parseTypesCsv, parseZoom } from '../masses/map-search.utils';
 import { PublicMapService } from './public-map.service';
 
 /**
@@ -20,8 +20,9 @@ export class PublicMapController {
   ) {}
 
   /**
-   * GET /public/map/geocode?q= — busca de cidade/bairro/endereço para o mapa sem login (o mesmo proxy com cache da rota
-   * logada /geocoding/search). Limite mais apertado: 20 por minuto por IP — o provedor por trás também tem limites.
+   * GET /public/map/geocode?q= — busca de cidade/bairro/endereço para o mapa sem login (o mesmo proxy da rota logada
+   * /geocoding/search: cache em memória, fila global de 1 req/s ao Nominatim e timeout). Limite mais apertado: 20 por
+   * minuto por IP — o provedor por trás também tem limites.
    */
   @Get('geocode')
   @Throttle({ default: { limit: 20, ttl: 60_000 } })
@@ -39,8 +40,9 @@ export class PublicMapController {
   }
 
   /**
-   * GET /public/map/nearby?lat&lng&radiusKm&days&types&approx=0|1&limit
+   * GET /public/map/nearby?lat&lng&radiusKm&days&types&approx=0|1&limit&day=today|sunday&from=HH:MM&to=HH:MM
    * Igrejas no raio, da mais perto à mais longe, com as próximas celebrações.
+   * `day`/`from`/`to` (filtros do app) só priorizam as ocorrências antes do teto por igreja — não filtram.
    */
   @Get('nearby')
   nearby(
@@ -51,6 +53,9 @@ export class PublicMapController {
     @Query('types') types?: string,
     @Query('approx') approx?: string,
     @Query('limit') limit?: string,
+    @Query('day') day?: string,
+    @Query('from') from?: string,
+    @Query('to') to?: string,
   ) {
     return this.massesService.findNearby({
       lat: parseOptionalNumber(lat, 'lat') ?? NaN,
@@ -61,15 +66,17 @@ export class PublicMapController {
       approx: parseFlag(approx),
       // No mapa público a busca por raio também tem teto (padrão 300, máx. 500)
       limit: clampMapLimit(parseOptionalNumber(limit, 'limit')),
+      focus: parseMassFocus(day, from, to),
     });
   }
 
   /**
-   * GET /public/map/area?bbox=minLng,minLat,maxLng,maxLat&zoom&days&types&approx=0|1&limit
+   * GET /public/map/area?bbox=minLng,minLat,maxLng,maxLat&zoom&days&types&approx=0|1&limit&day&from&to
    * Retângulo de qualquer tamanho, recortado ao Brasil (lat -35..7, lng -75..-28).
    * - zoom < 11 (ou mais pinos que `limit`): `{ mode:'clusters', bbox, zoom, total, clusters:[{lat,lng,count,bbox,id?,name?}] }`
    * - senão: `{ mode:'pins', zoom, origin:null, bbox, radiusKm:null, days, count, truncated, communities }`
    * - sem zoom (app antigo): sempre pinos, `truncated` se havia mais que `limit`.
+   * - `day`/`from`/`to`: como em /nearby (prioridade antes do teto por igreja).
    */
   @Get('area')
   area(
@@ -79,6 +86,9 @@ export class PublicMapController {
     @Query('types') types?: string,
     @Query('approx') approx?: string,
     @Query('limit') limit?: string,
+    @Query('day') day?: string,
+    @Query('from') from?: string,
+    @Query('to') to?: string,
   ) {
     return this.massesService.findInArea({
       bbox: bbox ?? '',
@@ -87,6 +97,7 @@ export class PublicMapController {
       types: parseTypesCsv(types),
       approx: parseFlag(approx),
       limit: parseOptionalNumber(limit, 'limit'),
+      focus: parseMassFocus(day, from, to),
     });
   }
 }

@@ -3,7 +3,7 @@ import {
   BadRequestException,
   ConflictException,
 } from '@nestjs/common';
-import { randomInt } from 'crypto';
+import { createHmac, randomInt, timingSafeEqual } from 'crypto';
 import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../../database/prisma.service';
@@ -11,6 +11,13 @@ import { MessagingService } from '../messaging/messaging.service';
 
 const OTP_TTL_MINUTES = 10;
 const OTP_MAX_ATTEMPTS = 5;
+
+/** Comparação em tempo constante de dois hex/strings (tamanhos diferentes = diferente). */
+const sameText = (a: string, b: string) => {
+  const left = Buffer.from(a);
+  const right = Buffer.from(b);
+  return left.length === right.length && timingSafeEqual(left, right);
+};
 
 @Injectable()
 export class OtpService {
@@ -20,6 +27,17 @@ export class OtpService {
     private readonly configService: ConfigService,
     private readonly messagingService: MessagingService,
   ) {}
+
+  /**
+   * O código fica guardado como HMAC (chave do servidor + telefone): um dump
+   * da tabela não entrega códigos válidos, e 6 dígitos sem chave seriam
+   * quebrados por força bruta na hora.
+   */
+  private hashCode(phone: string, code: string): string {
+    return createHmac('sha256', `${this.configService.get('JWT_SECRET')}:phone-otp`)
+      .update(`${phone}:${code}`)
+      .digest('hex');
+  }
 
   /** Normalize Brazilian phone to E.164 (+5511999999999) */
   normalizePhone(raw: string): string {
@@ -46,9 +64,15 @@ export class OtpService {
     const code = String(randomInt(100000, 1000000));
     const expiresAt = new Date(Date.now() + OTP_TTL_MINUTES * 60 * 1000);
 
-    await this.prisma.phoneOtp.create({ data: { phone, code, expiresAt } });
+    await this.prisma.phoneOtp.create({ data: { phone, code: this.hashCode(phone, code), expiresAt } });
 
-    await this.deliverOtp(phone, code);
+    try {
+      await this.deliverOtp(phone, code);
+    } catch (error) {
+      // Código que não saiu não fica guardado (nem o telefone)
+      await this.prisma.phoneOtp.deleteMany({ where: { phone } }).catch(() => undefined);
+      throw error;
+    }
 
     return { message: 'Código enviado' };
   }
@@ -64,26 +88,30 @@ export class OtpService {
     if (!record) throw new BadRequestException('Código inválido ou expirado');
 
     if (record.expiresAt < new Date()) {
-      await this.prisma.phoneOtp.delete({ where: { id: record.id } });
+      await this.prisma.phoneOtp.deleteMany({ where: { id: record.id } });
       throw new BadRequestException('Código expirado');
     }
 
-    if (record.attempts >= OTP_MAX_ATTEMPTS) {
+    // Contador ATÔMICO antes de comparar: uma rajada em paralelo não passa
+    // das 5 tentativas (cada uma precisa "ganhar" um incremento)
+    const { count } = await this.prisma.phoneOtp.updateMany({
+      where: { id: record.id, attempts: { lt: OTP_MAX_ATTEMPTS } },
+      data: { attempts: { increment: 1 } },
+    });
+    if (count === 0) {
       throw new BadRequestException('Muitas tentativas. Solicite um novo código');
     }
 
-    if (record.code !== code) {
-      await this.prisma.phoneOtp.update({
-        where: { id: record.id },
-        data: { attempts: { increment: 1 } },
-      });
+    const typed = String(code ?? '').trim();
+    // Linhas de antes do hash (código de 6 dígitos em claro) valem até vencer (10 min)
+    const matches =
+      record.code.length === 6 ? sameText(record.code, typed) : sameText(record.code, this.hashCode(phone, typed));
+    if (!matches) {
       throw new BadRequestException('Código incorreto');
     }
 
-    await this.prisma.phoneOtp.update({
-      where: { id: record.id },
-      data: { verified: true },
-    });
+    // Uso único e sem guardar o telefone além do necessário: some ao verificar
+    await this.prisma.phoneOtp.deleteMany({ where: { phone } });
 
     const verifiedPhoneToken = this.jwtService.sign(
       { phone, purpose: 'phone-verify' },

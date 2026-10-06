@@ -3,7 +3,13 @@ import { ConfigService } from '@nestjs/config';
 import { GeoPrecision, MassRecurrence, MassScheduleType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { MassesService, NearbyMass } from '../masses/masses.service';
-import { isApproximatePin, isVerifiedPin, nowBrazilFloating } from '../masses/map-search.utils';
+import {
+  earliestBrazilToday,
+  isApproximatePin,
+  isVerifiedPin,
+  nowFloatingIn,
+  timeZoneForState,
+} from '../masses/map-search.utils';
 import {
   UpcomingCancellation,
   toUpcomingCancellations,
@@ -95,6 +101,11 @@ export class PublicMapService {
     private readonly config: ConfigService,
   ) {}
 
+  /** Instante atual (método para os testes congelarem o relógio). */
+  protected now(): Date {
+    return new Date();
+  }
+
   /** Provedor de tiles do mapa do app (sem login): trocável por env sem publicar o app. */
   mapConfig(): MapConfig {
     const str = (key: string) => {
@@ -181,18 +192,22 @@ export class PublicMapService {
             weeksOfMonth: true,
             dayOfMonth: true,
             notes: true,
-            cancellations: upcomingCancellationsSelect(nowBrazilFloating().slice(0, 10)),
+            // Parte do "hoje" do Acre (o mais atrasado) e corta abaixo no "hoje" da comunidade
+            cancellations: upcomingCancellationsSelect(earliestBrazilToday(this.now())),
           },
         },
       },
     });
     if (!c) throw new NotFoundException('Comunidade não encontrada');
 
+    // Datas suspensas de hoje em diante, no relógio da comunidade (fuso pela UF)
+    const today = nowFloatingIn(timeZoneForState(c.state), this.now()).slice(0, 10);
+
     // Domingo a sábado; "todo dia 13" (sem dia da semana) vai para o fim, pelo dia do mês
     const schedules = [...c.massSchedules]
       .map(({ cancellations, ...s }) => ({
         ...s,
-        upcomingCancellations: toUpcomingCancellations(cancellations),
+        upcomingCancellations: toUpcomingCancellations(cancellations).filter((x) => x.date >= today),
       }))
       .sort(
         (a, b) =>
@@ -206,6 +221,7 @@ export class PublicMapService {
       DETAIL_DAYS,
       Object.values(MassScheduleType),
       DETAIL_MAX_MASSES,
+      { states: new Map([[c.id, c.state]]) },
     );
 
     const parish = c.parish

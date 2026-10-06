@@ -6,6 +6,7 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { isRevenueReversal } from './money';
 
 const FINANCE_ROLES: UserRole[] = [UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR];
 /** Sugestões de centro de custo (a paróquia pode digitar outros) */
@@ -182,7 +183,8 @@ export class StatementsService {
     let reversalCount = 0;
     for (const t of transactions) {
       const isIncome = t.type === TransactionType.INCOME;
-      const isReversal = !isIncome && !!(t.titheIntentId || t.reversalOfId);
+      // Taxa do provedor tem vínculo com o Pix, mas é despesa (não estorno)
+      const isReversal = isRevenueReversal(t);
       const category = (t.category || 'Outros').trim();
       const cc = (t.costCenter || 'Sem centro de custo').trim();
       if (isReversal) {
@@ -419,7 +421,7 @@ export class StatementsService {
     let saidas = 0;
     for (const t of transactions) {
       const isIncome = t.type === TransactionType.INCOME;
-      const isReversal = !isIncome && !!(t.titheIntentId || t.reversalOfId);
+      const isReversal = isRevenueReversal(t);
       if (isIncome) entradas = round2(entradas + t.amount);
       else saidas = round2(saidas + t.amount);
       lines.push(

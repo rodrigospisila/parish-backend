@@ -85,6 +85,37 @@ export const MSG_NEEDS_SCHEDULE = 'Informe o horário certo';
 export const MSG_NEEDS_RECURRENCE = 'Informe a regra de recorrência certa';
 export const MSG_BULK_NEEDS_EDIT = 'Precisa de edição — aprove esta individualmente informando o dado certo';
 
+/**
+ * Vínculos que impedem mover a comunidade de paróquia pela proposta (ver
+ * assertCommunityNotInUse). Dado do território (horários, padroeiros, pino,
+ * sugestões) vai junto com a comunidade e não conta.
+ */
+const COMMUNITY_USAGE_LABELS = {
+  users: 'usuários',
+  userCommunities: 'usuários vinculados',
+  members: 'membros',
+  memberLinks: 'vínculos de membros',
+  communityPastorals: 'pastorais',
+  events: 'eventos',
+  schedules: 'escalas',
+  massIntentions: 'intenções de missa',
+  prayerRequests: 'pedidos de oração',
+  news: 'notícias',
+  catechesisClasses: 'turmas de catequese',
+  sacramentProcesses: 'processos de sacramento',
+  rooms: 'salas',
+  visitRequests: 'pedidos de visita',
+  documents: 'documentos',
+  pastoralPlans: 'planos pastorais',
+  titheCampaigns: 'campanhas de dízimo',
+  financialStatements: 'balancetes',
+  communityPlanEvents: 'histórico de plano',
+} as const;
+const COMMUNITY_USAGE_COUNT = Object.fromEntries(Object.keys(COMMUNITY_USAGE_LABELS).map((k) => [k, true])) as Record<
+  keyof typeof COMMUNITY_USAGE_LABELS,
+  true
+>;
+
 const SCHEDULE_SELECT = {
   id: true,
   type: true,
@@ -553,6 +584,7 @@ export class DataProposalsService {
       const parishId = requiredText(obj.parishId, 'a paróquia de destino', 64, 1);
       const parish = await tx.parish.findUnique({ where: { id: parishId }, select: { id: true } });
       if (!parish) throw new BadRequestException('Paróquia de destino não encontrada');
+      if (parishId !== community.parishId) await this.assertCommunityNotInUse(tx, community.id);
       data = { parishId };
     } else {
       field = 'website';
@@ -570,6 +602,38 @@ export class DataProposalsService {
       website: data.website ? 'Site da comunidade atualizado' : 'Site da comunidade apagado',
     };
     return { applied: true, message: messages[field], before, after: { [field]: data[field] } };
+  }
+
+  /**
+   * Mover de paróquia pela proposta só vale para comunidade do território que
+   * ninguém usa ainda: só Community.parishId muda — usuários (User.parishId),
+   * membros, escalas, finanças, dízimo, catequese... ficariam presos à paróquia
+   * antiga. Com qualquer vínculo, 409 com a lista; a mudança vira atendimento.
+   */
+  private async assertCommunityNotInUse(tx: Tx, communityId: string) {
+    const row = (await tx.community.findUnique({
+      where: { id: communityId },
+      select: { _count: { select: COMMUNITY_USAGE_COUNT } },
+    })) as { _count?: Partial<Record<keyof typeof COMMUNITY_USAGE_LABELS, number>> } | null;
+    const counts = row?._count ?? {};
+    const inUse = (Object.keys(COMMUNITY_USAGE_LABELS) as (keyof typeof COMMUNITY_USAGE_LABELS)[])
+      .filter((key) => (counts[key] ?? 0) > 0)
+      .map((key) => `${COMMUNITY_USAGE_LABELS[key]} (${counts[key]})`);
+    // Sem relação declarada em Community (só a coluna communityId): contagem à parte
+    const [lancamentos, dizimos, plano] = await Promise.all([
+      tx.financialTransaction.count({ where: { communityId } }),
+      tx.titheIntent.count({ where: { communityId } }),
+      tx.communityPlan.count({ where: { communityId } }),
+    ]);
+    if (lancamentos > 0) inUse.push(`lançamentos financeiros (${lancamentos})`);
+    if (dizimos > 0) inUse.push(`dízimos (${dizimos})`);
+    if (plano > 0) inUse.push('plano da plataforma');
+    if (inUse.length) {
+      throw new ConflictException(
+        `Esta comunidade já está em uso — ${inUse.join(', ')}. Mudar de paróquia por aqui deixaria esses ` +
+          'vínculos na paróquia antiga. Rejeite a proposta e faça a mudança com o suporte, migrando os vínculos juntos.',
+      );
+    }
   }
 
   private async applyCommunityCreate(tx: Tx, p: DataProposal, payload: unknown): Promise<ApplyOutcome> {

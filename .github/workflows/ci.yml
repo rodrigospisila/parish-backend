@@ -1,0 +1,40 @@
+# CI do backend (achado B55): o push vai direto para o Railway, então este
+# workflow é o aviso de que o commit quebra o build ou os testes.
+# Não acessa banco nenhum: os specs são jest com mocks (DATABASE_URL de mentira
+# só para o prisma generate/validate). Node 20 = o mesmo do Dockerfile.
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      # npm ci falha se o package-lock.json divergir do package.json (achado B37)
+      - run: npm ci
+      - run: npx prisma validate
+      - run: npx prisma generate
+      # tsconfig.build.json = o que o nest build compila (src sem specs)
+      - run: npx tsc --noEmit -p tsconfig.build.json
+      - run: npm run build
+      - run: npx jest --ci
+      - name: Trava de produção dos scripts (prisma/lib/prod-guard)
+        run: node prisma/lib/prod-guard.test.cjs
+      - name: Dependências de produção sem vulnerabilidade crítica
+        run: npm audit --omit=dev --audit-level=critical

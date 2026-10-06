@@ -59,11 +59,18 @@ describe('DocumentsService (3.3)', () => {
   it('addVersion incrementa a versão e persiste histórico', async () => {
     prisma.pastoralDocument.findFirst.mockResolvedValue({ id: 'd1', parishId: 'p1', currentVersion: 1, storageKey: null, fileUrl: null });
 
-    await service.addVersion('d1', { notes: 'revisão', fileUrl: 'http://x/v2' }, coord);
+    await service.addVersion('d1', { notes: 'revisão', fileUrl: 'https://x.example/v2' }, coord);
 
     expect(prisma.$transaction).toHaveBeenCalled();
     const versionCreate = prisma.documentVersion.create.mock.calls[0][0];
     expect(versionCreate.data.version).toBe(2);
+  });
+
+  it('M12: link de arquivo só https (javascript:, http em claro → 400, nada gravado)', async () => {
+    prisma.pastoralDocument.findFirst.mockResolvedValue({ id: 'd1', parishId: 'p1', currentVersion: 1, storageKey: null, fileUrl: null });
+    await expect(service.addVersion('d1', { fileUrl: 'javascript:alert(1)' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+    await expect(service.addVersion('d1', { fileUrl: 'http://x.example/v2' }, coord)).rejects.toBeInstanceOf(BadRequestException);
+    expect(prisma.$transaction).not.toHaveBeenCalled();
   });
 
   it('nega acesso a documento de outra paróquia', async () => {

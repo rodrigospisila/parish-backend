@@ -17,6 +17,7 @@ import { AuditService } from '../../common/audit.service';
 import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 import { emailInsensitive, normalizeEmail } from '../auth/email-lookup';
 import { COORDINATOR_MEMBER_ROLES, pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
+import { TERMS_VERSION, isTermsAcceptanceRequired } from './terms.constants';
 
 @Injectable()
 export class UsersService {
@@ -1032,7 +1033,8 @@ export class UsersService {
     }
 
     const users = await this.prisma.user.findMany({
-      where,
+      // Contas removidas pela gestão (anonimizadas) não aparecem mais na lista
+      where: { ...where, anonymizedAt: null },
       select: this.getUserSelect(),
       orderBy: {
         createdAt: 'desc',
@@ -1098,6 +1100,9 @@ export class UsersService {
   private async presentSelf(user: any) {
     const serialized: any = this.serializeUser(user);
     serialized.scopeCommunityId = user.communityId ?? null;
+    // Aceite dos termos vigentes (M3/M4): app e painel mostram o aviso bloqueante
+    serialized.termsAcceptanceRequired = isTermsAcceptanceRequired(user);
+    serialized.termsVersion = TERMS_VERSION;
 
     if (!user.communityId && this.isManagementRole(user.role)) {
       const links: any[] = user.communities ?? [];
@@ -1135,7 +1140,8 @@ export class UsersService {
       },
     });
 
-    if (!user) {
+    // Conta removida pela gestão (anonimizada) não volta a ser editada (M34)
+    if (!user || user.anonymizedAt) {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
@@ -1430,46 +1436,108 @@ export class UsersService {
     return this.serializeUser(updated);
   }
 
+  /**
+   * DELETE /users/:id pela gestão (M34): só sobre papel ESTRITAMENTE inferior
+   * e no escopo — nunca a própria conta (essa sai por DELETE /users/me) nem um
+   * par. Não apaga o registro: a conta é DESATIVADA e ANONIMIZADA (e-mail,
+   * nome, telefone, senha, 2FA e push substituídos), as sessões caem e os
+   * vínculos de comunidade se encerram. O cadastro de membro fica com a
+   * paróquia (desligado da conta): apagá-lo ou anonimizá-lo é decisão da tela
+   * de Membros.
+   */
   async remove(id: string, currentUser: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },
+      select: { id: true, email: true, role: true, dioceseId: true, parishId: true, communityId: true, anonymizedAt: true },
     });
 
-    if (!user) {
+    if (!user || user.anonymizedAt) {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2)
+    // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2/M34)
     this.assertUserScope(currentUser, user);
 
-    await this.prisma.user.delete({
-      where: { id },
+    await this.prisma.$transaction(async (tx) => {
+      await this.anonymizeUserAccount(tx, id);
+      // Cadastro de membro fica com a paróquia, sem a conta
+      await tx.member.updateMany({ where: { userId: id }, data: { userId: null } });
     });
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
-      action: 'DELETE',
+      action: 'ANONYMIZE',
       entity: 'User',
       entityId: id,
-      before: { email: user.email, role: user.role },
+      before: { role: user.role },
+      metadata: { removedByManagement: true },
     });
+    // Registros anteriores perdem o e-mail e os dados pessoais (M49)
+    await this.auditService.pseudonymizeSubject({ userId: id, email: user.email });
 
     return { message: 'Usuario excluido com sucesso' };
   }
 
   /**
+   * Substitui os dados pessoais da conta e a desativa (sem apagar o registro:
+   * escalas respondidas, mensagens e auditoria continuam apontando para o id).
+   * Encerra sessões, vínculos de comunidade, push, notificações e favoritos.
+   */
+  private async anonymizeUserAccount(tx: Prisma.TransactionClient, userId: string) {
+    const now = new Date();
+    await tx.user.update({
+      where: { id: userId },
+      data: {
+        name: 'Usuário removido',
+        email: `removido-${userId}@usuario-removido.invalid`,
+        phone: null,
+        // Senha aleatória descartada: ninguém mais entra nesta conta
+        password: await bcrypt.hash(randomBytes(24).toString('base64url'), 10),
+        isActive: false,
+        anonymizedAt: now,
+        forcePasswordChange: false,
+        twoFactorEnabled: false,
+        twoFactorSecret: null,
+        twoFactorEnabledAt: null,
+        twoFactorLastStep: null,
+        twoFactorBackupCodes: [],
+        twoFactorSetupAt: null,
+        pushToken: null,
+        pushTokenUpdatedAt: null,
+        // Access tokens já emitidos deixam de valer (`iat` truncado ao segundo)
+        sessionsRevokedAt: new Date(Math.floor(now.getTime() / 1000) * 1000),
+      },
+    });
+    await tx.refreshToken.deleteMany({ where: { userId } });
+    await tx.passwordResetToken.deleteMany({ where: { userId } });
+    await tx.userDevice.deleteMany({ where: { userId } });
+    await tx.userAvatar.deleteMany({ where: { userId } });
+    await tx.eventFavorite.deleteMany({ where: { userId } });
+    await tx.massScheduleFavorite.deleteMany({ where: { userId } });
+    // notifications.userId não tem FK: sem isto o histórico pessoal ficava (B36)
+    await tx.notification.deleteMany({ where: { userId } });
+    await tx.userCommunity.updateMany({
+      where: { userId, isActive: true },
+      data: { isActive: false, isPrimary: false, leftAt: now },
+    });
+  }
+
+  /**
    * Exclusão da própria conta (autoatendimento) — exigida pela App Store
-   * (5.1.1(v)) e direito de eliminação da LGPD.
+   * (5.1.1(v)) e direito de eliminação da LGPD (art. 18 VI).
    *
-   * Remove definitivamente o usuário (o cascade revoga sessões, favoritos e
-   * vínculos de comunidade) e ANONIMIZA o perfil de membro vinculado, se houver
-   * — preservando o histórico paroquial (escalas/presenças) sem manter dados
-   * pessoais. A conta fica permanentemente inacessível.
+   * Remove definitivamente o usuário (o cascade revoga sessões, favoritos,
+   * aparelhos, foto e vínculos de comunidade; o push token sai com o registro),
+   * apaga as notificações (sem FK — B36) e ANONIMIZA o perfil de membro pela
+   * mesma rotina da gestão (M16): campos pessoais, vínculos de pastoral e de
+   * comunidade, escalas futuras, consentimentos e documentos da catequese. O
+   * histórico paroquial passado fica, sem identificar a pessoa. Por fim, a
+   * auditoria ligada a ela é pseudonimizada (M49).
    */
   async deleteOwnAccount(userId: string) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
-      include: { member: true },
+      select: { id: true, email: true, role: true, member: { select: { id: true } } },
     });
 
     if (!user) {
@@ -1477,35 +1545,67 @@ export class UsersService {
     }
 
     await this.prisma.$transaction(async (tx) => {
-      // Anonimiza o perfil de membro (o vínculo user↔member é SetNull no delete,
-      // então sem isto o membro ficaria órfão com os dados pessoais).
+      // O vínculo user↔member é SetNull no delete: sem isto o membro ficaria
+      // órfão com os dados pessoais
       if (user.member) {
-        await tx.member.update({
-          where: { id: user.member.id },
-          data: {
-            fullName: 'Membro removido',
-            email: null,
-            phone: null,
-            cpf: null,
-            birthDate: null,
-          },
-        });
+        await this.membersService.anonymizePersonalData(tx, user.member.id, { label: 'Membro removido' });
       }
 
-      // Exclusão definitiva do usuário (cascade cuida do restante).
+      await tx.notification.deleteMany({ where: { userId } });
+
+      // Exclusão definitiva do usuário (cascade cuida do restante)
       await tx.user.delete({ where: { id: userId } });
     });
+    // Dízimo automático: o provedor só é chamado com a transação confirmada
+    if (user.member) {
+      void this.membersService.cancelTitheAtProviderAfterCommit(user.member.id);
+    }
 
     await this.auditService.log({
-      actor: { id: user.id, email: user.email, role: user.role },
+      actor: { id: user.id, role: user.role },
       action: 'DELETE',
       entity: 'User',
       entityId: userId,
-      before: { email: user.email, role: user.role },
-      metadata: { selfService: true },
+      before: { role: user.role },
+      metadata: { selfService: true, memberAnonymized: !!user.member },
+    });
+    await this.auditService.pseudonymizeSubject({
+      userId,
+      memberId: user.member?.id ?? null,
+      email: user.email,
     });
 
     return { deleted: true };
+  }
+
+  /**
+   * POST /users/me/accept-terms — grava o aceite dos termos/política vigentes
+   * (M3/M4). `version`, quando enviada, tem de ser a vigente: cliente que
+   * mostrou um texto antigo não registra aceite da versão nova.
+   */
+  async acceptTerms(userId: string, version?: string) {
+    if (version !== undefined && version !== TERMS_VERSION) {
+      throw new BadRequestException(
+        'Os termos foram atualizados — recarregue a tela para ver a versão vigente',
+      );
+    }
+
+    const acceptedAt = new Date();
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: { acceptedTermsAt: acceptedAt, acceptedTermsVersion: TERMS_VERSION },
+      select: { id: true },
+    });
+
+    await this.auditService.log({
+      actor: { id: userId },
+      action: 'CONSENT_CHANGE',
+      entity: 'User',
+      entityId: userId,
+      metadata: { termsAccepted: true, termsVersion: TERMS_VERSION },
+    });
+
+    return { acceptedTermsAt: acceptedAt, acceptedTermsVersion: TERMS_VERSION, termsAcceptanceRequired: false };
   }
 
   async changePassword(id: string, changePasswordDto: ChangePasswordDto, currentUser: any) {
@@ -1528,6 +1628,11 @@ export class UsersService {
       throw new BadRequestException('Senha atual incorreta');
     }
 
+    // Troca obrigatória (senha definida pela gestão): repetir a mesma não resolve nada
+    if (changePasswordDto.newPassword === changePasswordDto.currentPassword) {
+      throw new BadRequestException('A nova senha precisa ser diferente da atual');
+    }
+
     const hashedPassword = await bcrypt.hash(changePasswordDto.newPassword, 10);
 
     await this.prisma.user.update({
@@ -1535,19 +1640,31 @@ export class UsersService {
       data: {
         password: hashedPassword,
         forcePasswordChange: false,
+        // Access tokens já emitidos caem na hora (B46), inclusive os de quem
+        // conhecia a senha antiga. Truncado ao segundo, como o `iat`.
+        sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
       },
     });
-    // Outras sessões deixam de se renovar (a atual segue até o access token expirar)
-    await this.prisma.refreshToken.deleteMany({ where: { userId: id } });
+    // As sessões dos OUTROS aparelhos acabam. A deste aparelho fica: o access
+    // token dele é recusado na próxima requisição e o refresh (mantido) emite
+    // um novo sem pedir login. Token sem sessão (antigo) ou troca feita pelo
+    // SYSTEM_ADMIN em outra conta: todas as sessões caem.
+    const keepSessionId: string | null = currentUser.id === id && currentUser.sessionId ? currentUser.sessionId : null;
+    await this.prisma.refreshToken.deleteMany({
+      where: keepSessionId
+        ? { userId: id, OR: [{ sessionId: null }, { sessionId: { not: keepSessionId } }] }
+        : { userId: id },
+    });
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
       action: 'PASSWORD_CHANGE',
       entity: 'User',
       entityId: id,
+      metadata: { otherSessionsRevoked: true, keptCurrentSession: !!keepSessionId },
     });
 
-    return { message: 'Senha alterada com sucesso' };
+    return { message: 'Senha alterada com sucesso', sessionsRevoked: true, keptCurrentSession: !!keepSessionId };
   }
 
   async updateMyCommunity(userId: string, communityId: string, consentGiven?: boolean) {
@@ -1758,7 +1875,7 @@ export class UsersService {
       where: { id },
     });
 
-    if (!user) {
+    if (!user || user.anonymizedAt) {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 

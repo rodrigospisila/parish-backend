@@ -19,6 +19,9 @@ import { join } from 'path';
 
 const prisma = new PrismaClient();
 const DRY = process.argv.includes('--dry-run');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('carregar-candidatos', { writes: !DRY });
 const CACHE = join(__dirname, 'data', 'geo', 'cache');
 const ARQUIVOS = [join(CACHE, 'sugestoes-fontes.json'), join(CACHE, 'sugestoes-suspeitos.json'), join(CACHE, 'enderecos', 'sugestoes-enderecos.json')];
 const FONTES_PERMITIDAS = new Set(['cnefe', 'overture', 'cnefe-endereco']);
@@ -38,11 +41,13 @@ type Sugestao = { id: string; motivo: string; detalhe: string; opcoes: Array<{ f
     }
     console.log(`${arq.split(/[\\/]/).slice(-2).join('/')}: ${sugestoes.length} comunidades · ${n} sugestões`);
   }
-  // só entra quem ainda existe e não foi conferido por gente — pino MANUAL não precisa de sugestão de máquina
+  // só entra quem ainda existe e não foi conferido — pino MANUAL ou com geoVerifiedAt (conferido por gente ou por
+  // evidência: templo, site da paróquia) não precisa de sugestão de máquina. Aceitar uma por engano trocaria um pino
+  // verificado por um palpite (auditoria B41: 36 sugestões assim estavam na fila)
   const ids = [...new Set(linhas.map((l) => l.communityId))];
   const validas = new Set<string>();
   for (let i = 0; i < ids.length; i += 5000) {
-    for (const c of await prisma.community.findMany({ where: { id: { in: ids.slice(i, i + 5000) }, deletedAt: null, NOT: { geoPrecision: 'MANUAL' } }, select: { id: true } })) validas.add(c.id);
+    for (const c of await prisma.community.findMany({ where: { id: { in: ids.slice(i, i + 5000) }, deletedAt: null, geoVerifiedAt: null, NOT: { geoPrecision: 'MANUAL' } }, select: { id: true } })) validas.add(c.id);
   }
   const paraGravar = linhas.filter((l) => validas.has(l.communityId));
   const porMotivo = paraGravar.reduce((m: Record<string, number>, l) => { m[l.reason] = (m[l.reason] ?? 0) + 1; return m; }, {});

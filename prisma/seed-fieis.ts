@@ -1,6 +1,10 @@
 import { PrismaClient, UserRole } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
 
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('seed-fieis');
+
 const prisma = new PrismaClient();
 
 const COMMUNITY_ID = 'cmrb9g83o0007cvq4k1g6ttk1';

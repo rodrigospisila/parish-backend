@@ -9,8 +9,10 @@ import {
   PlanFeatureMeta,
   PlanResourceSpec,
 } from './plan.decorators';
+import { planRouteRule } from './plan-routes';
 
 export const PLAN_REQUIRED_MESSAGE = 'Disponível no plano da comunidade';
+export const PLAN_SCOPE_MESSAGE = 'Comunidade fora do seu escopo';
 
 /** Mesmo aviso (usuário+comunidade+feature+rota) no máximo uma vez a cada 10 min. */
 const LOG_DEDUPE_MS = 10 * 60_000;
@@ -21,7 +23,12 @@ const LOG_DEDUPE_MS = 10 * 60_000;
  * `PLAN_ENFORCEMENT`:
  *  - `off` → não consulta nada;
  *  - `log` (PADRÃO) → nunca bloqueia; registra (warn) quem SERIA barrado;
- *  - `on`  → 403 `{ code:'PLAN_REQUIRED', feature, communityId, message }`.
+ *  - `on`  → 403 `{ code:'PLAN_REQUIRED', feature, communityId, message }`;
+ *    communityId/parishId explícito fora do escopo do usuário → 403
+ *    `{ code:'PLAN_SCOPE', feature, message }` (M43).
+ *
+ * Exceções por rota (rotas "minhas" e leituras de telas grátis) ficam em
+ * `plan-routes.ts`, sem mexer nos controllers dos módulos.
  *
  * Falha ao consultar o plano (banco fora, etc.) libera a requisição e registra
  * erro — cobrança nunca derruba a operação pastoral.
@@ -51,12 +58,15 @@ export class PlanFeatureGuard implements CanActivate {
     if (!user?.role) return true;
     if (user.role === UserRole.SYSTEM_ADMIN) return true;
 
+    const rule = planRouteRule(context.getClass(), context.getHandler());
+    if (rule?.kind === 'free' && rule.when(req ?? {})) return true;
+
     const resources =
       this.reflector.get<PlanResourceSpec[] | undefined>(PLAN_RESOURCE_KEY, context.getHandler()) ?? [];
 
     let decision;
     try {
-      decision = await this.access.decide(meta, user, req, resources);
+      decision = await this.access.decide(meta, user, req, resources, { personal: rule?.kind === 'personal' });
     } catch (error) {
       this.logger.error(`Falha ao verificar o plano (${meta.feature}) — liberado: ${error}`);
       return true;
@@ -68,6 +78,9 @@ export class PlanFeatureGuard implements CanActivate {
       return true;
     }
 
+    if (decision.outOfScope) {
+      throw new ForbiddenException({ code: 'PLAN_SCOPE', feature: meta.feature, message: PLAN_SCOPE_MESSAGE });
+    }
     throw new ForbiddenException({
       code: 'PLAN_REQUIRED',
       feature: meta.feature,

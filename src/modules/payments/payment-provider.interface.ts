@@ -47,6 +47,11 @@ export interface ProviderCharge {
   externalRef?: string | null;
   value?: number | null;
   netValue?: number | null;
+  /**
+   * Total já estornado ao pagador (estornos concluídos), quando o provedor
+   * informa; null = desconhecido (o domínio decide pelo status).
+   */
+  refundedAmount?: number | null;
   paidAt?: string | null;
   /** Assinatura de origem (cobrança gerada por recorrência) */
   subscriptionRef?: string | null;
@@ -118,6 +123,12 @@ export interface EnsureCustomerInput {
   email?: string | null;
   phone?: string | null;
   externalRef: string;
+  /**
+   * false = nunca reaproveita cliente já existente no provedor com o mesmo
+   * CPF (oferta de visitante: o CPF é digitado por um anônimo e o cliente
+   * existente traria o nome do titular real para a página/boleto).
+   */
+  reuseExisting?: boolean;
 }
 
 export interface CreateChargeInput {
@@ -170,6 +181,8 @@ export interface PaymentProvider {
   /** Prepara a conta do provedor para o Parish (chave Pix, webhook) — idempotente. */
   ensureSetup?(input: ProviderSetupInput): Promise<ProviderSetupResult>;
   refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }>;
+  /** Total estornado (concluído) de uma cobrança, quando a cobrança não traz o dado. */
+  getRefundedAmount?(providerRef: string): Promise<number | null>;
 }
 
 export class PaymentProviderError extends Error {

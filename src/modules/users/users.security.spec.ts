@@ -334,7 +334,8 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
     it('findAll do PARISH_ADMIN filtra pela paróquia e usa select explícito', async () => {
       await service.findAll(parishAdmin);
       const args = prisma.user.findMany.mock.calls[0][0];
-      expect(args.where).toEqual({ parishId: 'p1' });
+      // Contas anonimizadas pela gestão saem da lista (M34)
+      expect(args.where).toEqual({ parishId: 'p1', anonymizedAt: null });
       expect(args.select).not.toHaveProperty('password');
       expect(args.select).not.toHaveProperty('pushToken');
     });

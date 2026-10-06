@@ -44,6 +44,9 @@ const prisma = new PrismaClient();
 const arg = (n: string) => process.argv.includes(n);
 const val = (n: string) => process.argv.find((a) => a.startsWith(`${n}=`))?.split('=')[1];
 const DRY = arg('--dry-run');
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('geocode-territorio', { writes: process.argv.some((a) => a.startsWith('--apply')) && !DRY });
 
 const GEO_DIR = join(__dirname, 'data', 'geo');
 const CACHE_CEP = join(GEO_DIR, 'cache-cep.json');

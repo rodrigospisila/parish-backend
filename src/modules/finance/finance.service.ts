@@ -4,6 +4,19 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { MAX_TRANSACTION_AMOUNT, round2, sumMoney, toCents } from './money';
+
+/**
+ * Valor em reais validado também no serviço (o DTO cobre o HTTP; aqui cobre
+ * qualquer chamador): número finito, positivo, até 2 casas e com teto.
+ */
+export function parseMoneyAmount(value: unknown, max = MAX_TRANSACTION_AMOUNT): number {
+  const amount = typeof value === 'number' ? value : Number.NaN;
+  if (!Number.isFinite(amount) || amount <= 0) throw new BadRequestException('Valor deve ser positivo');
+  if (Math.abs(amount * 100 - toCents(amount)) > 1e-6) throw new BadRequestException('Valor com no máximo 2 casas decimais (centavos)');
+  if (amount > max) throw new BadRequestException(`Valor acima do limite de R$ ${max.toLocaleString('pt-BR')}`);
+  return round2(amount);
+}
 
 /**
  * Dia civil (Brasília) como instante estável às 12:00Z — a mesma convenção do
@@ -102,7 +115,12 @@ export class FinanceService {
       parishId = parish.id;
       dioceseId = parish.dioceseId ?? dioceseId;
     }
-    if (dto.amount <= 0) throw new BadRequestException('Valor deve ser positivo');
+    const amount = parseMoneyAmount(dto.amount);
+    if (dto.type !== TransactionType.INCOME && dto.type !== TransactionType.EXPENSE) {
+      throw new BadRequestException('Tipo inválido (use INCOME ou EXPENSE)');
+    }
+    const category = typeof dto.category === 'string' ? dto.category.replace(/[\r\n\t]+/g, ' ').trim().slice(0, 60) : '';
+    if (!category) throw new BadRequestException('Informe a categoria');
     // Coordenação lança na própria comunidade; ninguém cria lançamento "sem dono"
     let communityId = dto.communityId ?? null;
     if (!communityId && !isRoleAtLeast(user.role, UserRole.PARISH_ADMIN)) {
@@ -119,8 +137,8 @@ export class FinanceService {
     const tx = await this.prisma.financialTransaction.create({
       data: {
         type: dto.type,
-        category: dto.category,
-        amount: dto.amount,
+        category,
+        amount,
         description: dto.description ?? null,
         date: civilDate(dto.date),
         accountName: dto.accountName ?? null,
@@ -130,7 +148,7 @@ export class FinanceService {
         dioceseId,
       },
     });
-    await this.auditService.log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'CREATE', entity: 'FinancialTransaction', entityId: tx.id, metadata: { type: dto.type, category: dto.category } });
+    await this.auditService.log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'CREATE', entity: 'FinancialTransaction', entityId: tx.id, metadata: { type: dto.type, category, amount } });
     return tx;
   }
 
@@ -199,9 +217,10 @@ export class FinanceService {
   /** Prestação de contas: totais de receita/despesa/saldo no escopo. */
   async summary(user: CurrentUser, filters: { communityId?: string; from?: string; to?: string }) {
     const transactions = await this.listTransactions(user, filters);
-    const income = transactions.filter((t) => t.type === TransactionType.INCOME).reduce((s, t) => s + t.amount, 0);
-    const expense = transactions.filter((t) => t.type === TransactionType.EXPENSE).reduce((s, t) => s + t.amount, 0);
-    return { income, expense, balance: income - expense, count: transactions.length };
+    // Somas em centavos: o dinheiro ainda é Float no banco (sem resíduo binário no total)
+    const income = sumMoney(transactions.filter((t) => t.type === TransactionType.INCOME).map((t) => t.amount));
+    const expense = sumMoney(transactions.filter((t) => t.type === TransactionType.EXPENSE).map((t) => t.amount));
+    return { income, expense, balance: round2(income - expense), count: transactions.length };
   }
 
   // ===== DÍZIMO =====
@@ -253,7 +272,7 @@ export class FinanceService {
     if (!canManage && user.role !== UserRole.SYSTEM_ADMIN) {
       throw new ForbiddenException('Fora do seu escopo');
     }
-    if (dto.amount <= 0) throw new BadRequestException('Valor deve ser positivo');
+    const amount = parseMoneyAmount(dto.amount);
     const referenceMonth = parseReferenceMonth(dto.referenceMonth, false);
 
     // Cada contribuição gera uma transação financeira (categoria "Dízimo")
@@ -262,7 +281,7 @@ export class FinanceService {
         data: {
           type: TransactionType.INCOME,
           category: 'Dízimo',
-          amount: dto.amount,
+          amount,
           description: `Dízimo ${referenceMonth}`,
           date: civilDate(dto.date),
           communityId: tither.member.communityId,
@@ -274,7 +293,7 @@ export class FinanceService {
       const contribution = await prisma.titheContribution.create({
         data: {
           titherId: dto.titherId,
-          amount: dto.amount,
+          amount,
           date: civilDate(dto.date),
           referenceMonth,
           method: dto.method,

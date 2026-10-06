@@ -15,6 +15,7 @@ import {
 } from '../../common/hierarchy.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { parseClientDateTime } from '../../common/schedule-time';
 
 /**
  * Quem vê contatos (e-mail/telefone) de participantes e escalados de um
@@ -58,20 +59,18 @@ export class EventsService {
     private readonly massSchedulesService: MassSchedulesService,
   ) {}
 
+  /**
+   * Data/hora do evento vinda do cliente → instante (A19). Sem fuso
+   * ('2026-12-20T19:00', o datetime-local do painel) é relógio de parede da
+   * paróquia — antes virava 19:00Z e o evento aparecia 3h mais cedo. Com 'Z'
+   * ou offset vale como veio. Data inválida é 400, não Invalid Date no banco.
+   */
   private formatToISO(dateString: string): Date {
-    if (dateString.includes('Z') || dateString.match(/[+-]\d{2}:\d{2}$/)) {
-      return new Date(dateString);
+    const parsed = parseClientDateTime(dateString);
+    if (!parsed) {
+      throw new BadRequestException(`Data/hora inválida: ${String(dateString).slice(0, 40)}`);
     }
-
-    if (dateString.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/)) {
-      return new Date(`${dateString}:00.000Z`);
-    }
-
-    if (dateString.match(/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}$/)) {
-      return new Date(`${dateString}.000Z`);
-    }
-
-    return new Date(dateString);
+    return parsed;
   }
 
   /**
@@ -249,7 +248,7 @@ export class EventsService {
 
       if (!scopedPastoralIds.length || currentUser.communityId !== communityId) {
         throw new ForbiddenException(
-          'Voce nao tem permissao para criar eventos fora da comunidade da sua pastoral',
+          'Você não tem permissão para criar eventos fora da comunidade da sua pastoral',
         );
       }
 
@@ -258,7 +257,7 @@ export class EventsService {
 
     const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, communityId);
     if (!canManage) {
-      throw new ForbiddenException('Voce nao tem permissao para criar eventos nesta comunidade');
+      throw new ForbiddenException('Você não tem permissão para criar eventos nesta comunidade');
     }
   }
 
@@ -275,17 +274,17 @@ export class EventsService {
       const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
 
       if (!scopedPastoralIds.length) {
-        throw new ForbiddenException('Voce nao possui pastoral vinculada para gerenciar este evento');
+        throw new ForbiddenException('Você não possui pastoral vinculada para gerenciar este evento');
       }
 
       if (pastoralId && !scopedPastoralIds.includes(pastoralId)) {
-        throw new ForbiddenException('Voce nao pode operar em outra pastoral');
+        throw new ForbiddenException('Você não pode operar em outra pastoral');
       }
 
       if (!pastoralId) {
         const canManage = await this.hierarchyService.canManageEvent(currentUser.id, eventId);
         if (!canManage) {
-          throw new ForbiddenException('Voce nao tem permissao para gerenciar este evento');
+          throw new ForbiddenException('Você não tem permissão para gerenciar este evento');
         }
       }
 
@@ -294,7 +293,7 @@ export class EventsService {
 
     const canManage = await this.hierarchyService.canManageEvent(currentUser.id, eventId);
     if (!canManage) {
-      throw new ForbiddenException('Voce nao tem permissao para gerenciar este evento');
+      throw new ForbiddenException('Você não tem permissão para gerenciar este evento');
     }
 
     return [];
@@ -656,7 +655,7 @@ export class EventsService {
     const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
 
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para favoritar este evento');
+      throw new ForbiddenException('Você não tem permissão para favoritar este evento');
     }
 
     await this.prisma.eventFavorite.upsert({
@@ -688,7 +687,7 @@ export class EventsService {
     const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
 
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para desfavoritar este evento');
+      throw new ForbiddenException('Você não tem permissão para desfavoritar este evento');
     }
 
     await this.prisma.eventFavorite.deleteMany({
@@ -725,7 +724,7 @@ export class EventsService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar este evento');
+        throw new ForbiddenException('Você não tem permissão para acessar este evento');
       }
     }
 
@@ -777,7 +776,7 @@ export class EventsService {
       updateEventDto.communityId &&
       updateEventDto.communityId !== currentUser.communityId
     ) {
-      throw new ForbiddenException('Voce nao pode mover o evento para outra comunidade');
+      throw new ForbiddenException('Você não pode mover o evento para outra comunidade');
     }
 
     // Mover o evento: o destino também precisa estar sob a gestão do ator
@@ -795,7 +794,7 @@ export class EventsService {
         currentUser.role !== UserRole.PASTORAL_COORDINATOR &&
         !(await this.hierarchyService.canManageCommunity(currentUser.id, updateEventDto.communityId))
       ) {
-        throw new ForbiddenException('Voce nao pode mover o evento para uma comunidade fora do seu escopo');
+        throw new ForbiddenException('Você não pode mover o evento para uma comunidade fora do seu escopo');
       }
     }
 
@@ -839,7 +838,7 @@ export class EventsService {
 
   async findByType(type: EventType, communityId?: string, currentUser?: CurrentUser) {
     if (!Object.values(EventType).includes(type)) {
-      throw new BadRequestException('Tipo de evento invalido');
+      throw new BadRequestException('Tipo de evento inválido');
     }
     const where = await this.scopedLegacyWhere({ type }, currentUser, communityId);
 
@@ -907,7 +906,7 @@ export class EventsService {
     currentUser: CurrentUser,
   ) {
     if (!currentUser?.id) {
-      throw new ForbiddenException('Voce nao tem permissao para alterar inscricoes deste evento');
+      throw new ForbiddenException('Você não tem permissão para alterar inscrições deste evento');
     }
     if (!eventId || !memberId) {
       throw new BadRequestException('Informe o evento e o membro');
@@ -915,7 +914,7 @@ export class EventsService {
 
     const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
     if (!hasAccess) {
-      throw new ForbiddenException('Voce nao tem permissao para acessar este evento');
+      throw new ForbiddenException('Você não tem permissão para acessar este evento');
     }
 
     const event = await this.prisma.event.findFirst({
@@ -943,7 +942,7 @@ export class EventsService {
       const canManage = await this.hierarchyService.canManageEvent(currentUser.id, eventId);
       if (!canManage) {
         throw new ForbiddenException(
-          'Voce so pode inscrever ou remover a si mesmo e aos seus dependentes',
+          'Você só pode inscrever ou remover a si mesmo e aos seus dependentes',
         );
       }
     }
@@ -968,7 +967,7 @@ export class EventsService {
     });
 
     if (existing) {
-      throw new BadRequestException('Membro ja esta inscrito neste evento');
+      throw new BadRequestException('Membro já está inscrito neste evento');
     }
 
     if (event.maxParticipants) {
@@ -1008,7 +1007,7 @@ export class EventsService {
     });
 
     if (!participant) {
-      throw new NotFoundException('Inscricao nao encontrada');
+      throw new NotFoundException('Inscrição não encontrada');
     }
 
     return this.prisma.eventParticipant.delete({
@@ -1243,7 +1242,7 @@ export class EventsService {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
 
         if (!scopedPastoralIds.includes(dto.communityPastoralId) || currentUser.communityId !== event.communityId) {
-          throw new ForbiddenException('Voce so pode vincular a sua pastoral a eventos da sua comunidade');
+          throw new ForbiddenException('Você só pode vincular a sua pastoral a eventos da sua comunidade');
         }
       } else {
         await this.ensureManageEventAccess(eventId, currentUser);
@@ -1292,7 +1291,7 @@ export class EventsService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
       if (!hasAccess) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar este evento');
+        throw new ForbiddenException('Você não tem permissão para acessar este evento');
       }
     }
 
@@ -1347,7 +1346,7 @@ export class EventsService {
       if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
         if (!scopedPastoralIds.includes(pastoralId)) {
-          throw new ForbiddenException('Voce nao pode remover outra pastoral deste evento');
+          throw new ForbiddenException('Você não pode remover outra pastoral deste evento');
         }
       } else {
         await this.ensureManageEventAccess(eventId, currentUser);
@@ -1364,7 +1363,7 @@ export class EventsService {
     });
 
     if (!eventPastoral) {
-      throw new NotFoundException('Pastoral nao esta vinculada a este evento');
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
     }
 
     return this.prisma.eventPastoral.delete({
@@ -1387,7 +1386,7 @@ export class EventsService {
       if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
         if (!scopedPastoralIds.includes(pastoralId)) {
-          throw new ForbiddenException('Voce nao pode escalar membros de outra pastoral');
+          throw new ForbiddenException('Você não pode escalar membros de outra pastoral');
         }
       } else {
         await this.ensureManageEventAccess(eventId, currentUser);
@@ -1404,7 +1403,7 @@ export class EventsService {
     });
 
     if (!eventPastoral) {
-      throw new NotFoundException('Pastoral nao esta vinculada a este evento');
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
     }
 
     const pastoralMember = await this.prisma.pastoralMember.findFirst({
@@ -1416,7 +1415,7 @@ export class EventsService {
     });
 
     if (!pastoralMember) {
-      throw new BadRequestException('Membro nao pertence a esta pastoral');
+      throw new BadRequestException('Membro não pertence a esta pastoral');
     }
 
     return this.prisma.eventPastoralAssignment.create({
@@ -1444,7 +1443,7 @@ export class EventsService {
       if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
         if (!scopedPastoralIds.includes(pastoralId)) {
-          throw new ForbiddenException('Voce nao pode visualizar atribuicoes de outra pastoral');
+          throw new ForbiddenException('Você não pode visualizar atribuições de outra pastoral');
         }
       } else {
         await this.ensureManageEventAccess(eventId, currentUser);
@@ -1461,7 +1460,7 @@ export class EventsService {
     });
 
     if (!eventPastoral) {
-      throw new NotFoundException('Pastoral nao esta vinculada a este evento');
+      throw new NotFoundException('Pastoral não está vinculada a este evento');
     }
 
     return this.prisma.eventPastoralAssignment.findMany({
@@ -1500,14 +1499,14 @@ export class EventsService {
     });
 
     if (!assignment) {
-      throw new NotFoundException('Escalacao nao encontrada');
+      throw new NotFoundException('Escalação não encontrada');
     }
 
     if (currentUser) {
       if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
         if (!scopedPastoralIds.includes(assignment.eventPastoral.communityPastoralId)) {
-          throw new ForbiddenException('Voce nao pode registrar presenca em outra pastoral');
+          throw new ForbiddenException('Você não pode registrar presença em outra pastoral');
         }
       } else {
         await this.ensureManageEventAccess(assignment.eventPastoral.eventId, currentUser);
@@ -1547,14 +1546,14 @@ export class EventsService {
     });
 
     if (!assignment) {
-      throw new NotFoundException('Escalacao nao encontrada');
+      throw new NotFoundException('Escalação não encontrada');
     }
 
     if (currentUser) {
       if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
         const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
         if (!scopedPastoralIds.includes(assignment.eventPastoral.communityPastoralId)) {
-          throw new ForbiddenException('Voce nao pode remover atribuicoes de outra pastoral');
+          throw new ForbiddenException('Você não pode remover atribuições de outra pastoral');
         }
       } else {
         await this.ensureManageEventAccess(assignment.eventPastoral.eventId, currentUser);

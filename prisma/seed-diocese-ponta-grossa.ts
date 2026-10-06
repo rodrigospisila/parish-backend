@@ -11,6 +11,10 @@ import { join } from 'path';
  *
  *   npx ts-node prisma/seed-diocese-ponta-grossa.ts
  */
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('seed-diocese-ponta-grossa');
+
 const prisma = new PrismaClient();
 
 interface CommunitySeed {

@@ -11,9 +11,12 @@ import { SendOtpDto } from './dto/send-otp.dto';
 import { VerifyOtpDto } from './dto/verify-otp.dto';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
+import { LogoutDto } from './dto/logout.dto';
+import { VerifyPasswordDto } from './dto/verify-password.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { bodyTargetTracker, refreshTokenTracker } from './guards/app-throttler.guard';
+import { SessionSecurityService } from './session-security.service';
 
 const MINUTE = 60_000;
 const HOUR = 3_600_000;
@@ -36,6 +39,7 @@ export class AuthController {
     private readonly otpService: OtpService,
     private readonly passwordResetService: PasswordResetService,
     private readonly loginAttempts: LoginAttemptsService,
+    private readonly security: SessionSecurityService,
   ) {}
 
   /**
@@ -107,11 +111,39 @@ export class AuthController {
     return this.authService.refreshToken(refreshToken);
   }
 
+  /**
+   * Sai DESTE aparelho: a sessão do access token (e a do `refreshToken`
+   * enviado, se houver) acaba; os outros aparelhos seguem logados. Corpo
+   * opcional — o app 1.1.0 e o painel antigo mandam vazio.
+   */
   @Post('logout')
   @UseGuards(JwtAuthGuard)
   @HttpCode(HttpStatus.OK)
-  async logout(@CurrentUser() user: any) {
-    return this.authService.logout(user.id);
+  async logout(@CurrentUser() user: any, @Body() body: LogoutDto) {
+    return this.authService.logout(user, { refreshToken: body?.refreshToken, pushToken: body?.pushToken });
+  }
+
+  /** "Sair de todos os aparelhos" (tela de Segurança): todas as sessões caem, inclusive esta. */
+  @Post('logout-all')
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(HttpStatus.OK)
+  async logoutAll(@CurrentUser() user: any) {
+    return this.authService.logoutAll(user.id);
+  }
+
+  /**
+   * Confere a senha da própria conta SEM emitir sessão (B9: ativar a
+   * biometria no app abria uma sessão nova e gerava um LOGIN a cada vez).
+   * O limite de 5/min por IP vale pelo guard global; a falha não revela nada
+   * além do que o próprio dono já sabe.
+   */
+  @Post('password/verify')
+  @UseGuards(JwtAuthGuard)
+  @HttpCode(HttpStatus.OK)
+  @Throttle({ default: { limit: 5, ttl: MINUTE } })
+  async verifyPassword(@CurrentUser() user: any, @Body() dto: VerifyPasswordDto) {
+    await this.security.assertPassword(user.id, dto.password);
+    return { valid: true };
   }
 
   /**

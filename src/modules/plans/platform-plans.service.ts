@@ -1,8 +1,8 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { BillingCycle, CommunityPlanStatus, PlanTier, Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
-import { PlanAccessService } from './plan-access.service';
-import { addDays, hasPaidAccess, monthlyEquivalentCents } from './plan-rules';
+import { PlanAccessService, activeMembersWhere } from './plan-access.service';
+import { addDays, graceEndsAt, hasPaidAccess, isPeriodOverdue, monthlyEquivalentCents } from './plan-rules';
 import { planTransition, tierPrice } from './plan-transitions';
 import { UpdateCommunityPlanDto } from './dto/update-community-plan.dto';
 import { UpsertPlanTierDto } from './dto/upsert-plan-tier.dto';
@@ -38,7 +38,7 @@ const PLAN_SELECT = {
   suspendedAt: true,
   notes: true,
   updatedAt: true,
-  tier: { select: { key: true, name: true, monthlyPriceCents: true, yearlyPriceCents: true } },
+  tier: { select: { key: true, name: true, monthlyPriceCents: true, yearlyPriceCents: true, maxMembers: true } },
 } satisfies Prisma.CommunityPlanSelect;
 
 type PlanRow = Prisma.CommunityPlanGetPayload<{ select: typeof PLAN_SELECT }>;
@@ -59,7 +59,7 @@ export class PlatformPlansService {
     private readonly access: PlanAccessService,
   ) {}
 
-  serializePlan(plan: PlanRow | null) {
+  serializePlan(plan: PlanRow | null, now: Date = new Date()) {
     if (!plan) return null;
     const cycle = plan.billingCycle;
     return {
@@ -76,6 +76,11 @@ export class PlatformPlansService {
       suspendedAt: plan.suspendedAt,
       notes: plan.notes,
       updatedAt: plan.updatedAt,
+      /** Período pago vencido (ACTIVE/PAST_DUE com currentPeriodEnd no passado) */
+      periodOverdue: isPeriodOverdue(plan, now),
+      /** Fim da carência: depois disso o acesso pago acaba */
+      graceEndsAt: graceEndsAt(plan),
+      maxMembers: plan.tier?.maxMembers ?? null,
     };
   }
 
@@ -143,19 +148,36 @@ export class PlatformPlansService {
       }),
     ]);
 
+    // Limite da faixa (B32): conta os membros ativos só das comunidades cuja
+    // faixa tem maxMembers (poucas) — mesmo critério do MemberLimitGuard
+    const limited = rows.filter((row) => row.communityPlan?.tier?.maxMembers);
+    const activeByCommunity = new Map<string, number>(
+      await Promise.all(
+        limited.map(async (row) => [row.id, await this.prisma.member.count({ where: activeMembersWhere(row.id) })] as const),
+      ),
+    );
+
     return {
       total,
-      items: rows.map((row) => ({
-        communityId: row.id,
-        name: row.name,
-        city: row.city,
-        state: row.state,
-        parish: row.parish ? { id: row.parish.id, name: row.parish.name } : null,
-        diocese: row.parish?.diocese ? { id: row.parish.diocese.id, name: row.parish.diocese.name } : null,
-        membersWithAccount: row._count.memberLinks,
-        plan: this.serializePlan(row.communityPlan),
-        paidAccess: hasPaidAccess(row.communityPlan, now),
-      })),
+      items: rows.map((row) => {
+        const maxMembers = row.communityPlan?.tier?.maxMembers ?? null;
+        const activeMembers = activeByCommunity.get(row.id) ?? null;
+        return {
+          communityId: row.id,
+          name: row.name,
+          city: row.city,
+          state: row.state,
+          parish: row.parish ? { id: row.parish.id, name: row.parish.name } : null,
+          diocese: row.parish?.diocese ? { id: row.parish.diocese.id, name: row.parish.diocese.name } : null,
+          membersWithAccount: row._count.memberLinks,
+          /** Membros ativos (só quando a faixa tem limite) */
+          activeMembers,
+          /** Acima do limite de membros da faixa */
+          overTierLimit: maxMembers !== null && activeMembers !== null && activeMembers > maxMembers,
+          plan: this.serializePlan(row.communityPlan, now),
+          paidAccess: hasPaidAccess(row.communityPlan, now),
+        };
+      }),
     };
   }
 
@@ -178,8 +200,11 @@ export class PlatformPlansService {
       this.prisma.communityPlan.findMany({
         where: { status: { in: [CommunityPlanStatus.ACTIVE, CommunityPlanStatus.PAST_DUE] } },
         select: {
+          status: true,
           priceCents: true,
           billingCycle: true,
+          currentPeriodEnd: true,
+          graceDays: true,
           tier: { select: { monthlyPriceCents: true, yearlyPriceCents: true } },
         },
       }),
@@ -192,13 +217,24 @@ export class PlatformPlansService {
     for (const row of grouped) byStatus[row.status] = row._count._all;
     byStatus.FREE += freeWithoutPlan;
 
-    const mrrCents = paying.reduce((sum, plan) => {
+    // MRR só com o período EM DIA: vencido (na carência ou além) não é
+    // receita recorrente; o que ainda está na carência vai para overdueMrrCents
+    let mrrCents = 0;
+    let overdueMrrCents = 0;
+    let periodOverdue = 0;
+    for (const plan of paying) {
       const cycle = plan.billingCycle ?? BillingCycle.MONTHLY;
       const price = plan.priceCents ?? (plan.tier ? tierPrice(plan.tier, cycle) : 0);
-      return sum + monthlyEquivalentCents(price, cycle);
-    }, 0);
+      const monthly = monthlyEquivalentCents(price, cycle);
+      if (plan.status === CommunityPlanStatus.ACTIVE && !isPeriodOverdue(plan, now)) {
+        mrrCents += monthly;
+      } else {
+        periodOverdue += 1;
+        if (hasPaidAccess(plan, now)) overdueMrrCents += monthly;
+      }
+    }
 
-    return { byStatus, trialsEndingIn15d, pastDue: byStatus.PAST_DUE, mrrCents };
+    return { byStatus, trialsEndingIn15d, pastDue: byStatus.PAST_DUE, periodOverdue, mrrCents, overdueMrrCents };
   }
 
   // ------------------------------------------------------------------
@@ -255,7 +291,60 @@ export class PlatformPlansService {
     });
 
     this.access.invalidate(communityId);
-    return { communityId, plan: this.serializePlan(plan), paidAccess: hasPaidAccess(plan, now) };
+    return { communityId, plan: this.serializePlan(plan, now), paidAccess: hasPaidAccess(plan, now) };
+  }
+
+  /**
+   * Rotina de vencimento (M38): ACTIVE com currentPeriodEnd no passado vira
+   * PAST_DUE, com CommunityPlanEvent AUTO_PAST_DUE. O acesso segue até
+   * currentPeriodEnd + graceDays (hasPaidAccess já trata o ACTIVE vencido do
+   * mesmo jeito, então rodar atrasado não muda o acesso, só o status e o
+   * painel). Idempotente: a troca é condicional ao status ainda ser ACTIVE.
+   *
+   * Chamável por um job diário (a agenda fica com quem cuida de jobs/) ou por
+   * POST /platform/plans/mark-overdue. dryRun só lista.
+   */
+  async markOverduePlans(options: { now?: Date; dryRun?: boolean; byUserId?: string | null } = {}) {
+    const now = options.now ?? new Date();
+    const overdue = await this.prisma.communityPlan.findMany({
+      where: { status: CommunityPlanStatus.ACTIVE, currentPeriodEnd: { lte: now } },
+      select: { communityId: true, currentPeriodEnd: true, graceDays: true },
+      orderBy: { currentPeriodEnd: 'asc' },
+      take: 1000,
+    });
+    if (options.dryRun) {
+      return { dryRun: true, count: overdue.length, communityIds: overdue.map((row) => row.communityId) };
+    }
+
+    const changed: string[] = [];
+    for (const row of overdue) {
+      const done = await this.prisma.$transaction(async (tx) => {
+        const res = await tx.communityPlan.updateMany({
+          where: { communityId: row.communityId, status: CommunityPlanStatus.ACTIVE },
+          data: { status: CommunityPlanStatus.PAST_DUE },
+        });
+        if (res.count === 0) return false; // mudou no meio do caminho (painel/outra réplica)
+        await tx.communityPlanEvent.create({
+          data: {
+            communityId: row.communityId,
+            action: 'AUTO_PAST_DUE',
+            fromStatus: CommunityPlanStatus.ACTIVE,
+            toStatus: CommunityPlanStatus.PAST_DUE,
+            byUserId: options.byUserId ?? null,
+            note: 'Período vencido sem renovação: em carência',
+            data: JSON.parse(
+              JSON.stringify({ currentPeriodEnd: row.currentPeriodEnd, graceDays: row.graceDays, graceEndsAt: graceEndsAt(row) }),
+            ),
+          },
+        });
+        return true;
+      });
+      if (done) {
+        changed.push(row.communityId);
+        this.access.invalidate(row.communityId);
+      }
+    }
+    return { dryRun: false, count: changed.length, communityIds: changed };
   }
 
   async events(communityId: string) {

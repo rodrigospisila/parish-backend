@@ -1,5 +1,9 @@
 import { PrismaClient, EventStatus, EventType } from '@prisma/client';
 
+// Trava de produção (achado B55): contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../prisma/lib/prod-guard.cjs');
+assertNotProduction('import-events-jan-2026');
+
 const prisma = new PrismaClient();
 
 type SeedEvent = {

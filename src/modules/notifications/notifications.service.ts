@@ -7,6 +7,15 @@ import { EmailService } from '../messaging/email.service';
 import { ConsentsService } from '../consents/consents.service';
 import { isOptOutable } from '../consents/consent.constants';
 
+/**
+ * `bulk`: aviso em massa (catequese → famílias, pastoral → membros). A cadeia
+ * fica em push → e-mail: o SMS é cobrado por mensagem e um único envio para
+ * uma turma ou pastoral inteira viraria dezenas de SMS (B8).
+ */
+export interface NotifyOptions {
+  bulk?: boolean;
+}
+
 @Injectable()
 export class NotificationsService {
   private readonly logger = new Logger(NotificationsService.name);
@@ -19,11 +28,24 @@ export class NotificationsService {
     private readonly consentsService: ConsentsService,
   ) {}
 
+  /**
+   * Grava (ou limpa, com null) o token de push do aparelho na conta logada.
+   * Um aparelho = uma conta (M42): o mesmo token sai de qualquer outra conta
+   * — senão, em celular compartilhado, os avisos da conta anterior (catequese
+   * dos filhos, dízimo) continuariam chegando a quem entrou depois.
+   */
   async registerPushToken(userId: string, pushToken: string | null) {
+    const token = typeof pushToken === 'string' && pushToken.trim() ? pushToken.trim() : null;
+    if (token) {
+      await this.prisma.user.updateMany({
+        where: { pushToken: token, id: { not: userId } },
+        data: { pushToken: null, pushTokenUpdatedAt: new Date() },
+      });
+    }
     await this.prisma.user.update({
       where: { id: userId },
       data: {
-        pushToken,
+        pushToken: token,
         pushTokenUpdatedAt: new Date(),
       },
     });
@@ -39,6 +61,7 @@ export class NotificationsService {
     title: string,
     body: string,
     data?: Record<string, unknown>,
+    options: NotifyOptions = {},
   ) {
     try {
       // Opt-out LGPD: notificações não essenciais respeitam o consentimento
@@ -78,18 +101,26 @@ export class NotificationsService {
         },
       });
 
-      // Cadeia de entrega: push → e-mail → SMS (o primeiro que funcionar encerra)
+      // Cadeia de entrega: push → e-mail → SMS (o primeiro que funcionar encerra);
+      // aviso em massa (`bulk`) não chega ao SMS
       let sent = false;
 
       if (user?.pushToken) {
-        sent = await this.pushDispatcher.send({ to: user.pushToken, title, body, data });
+        const push = await this.pushDispatcher.sendWithResult({ to: user.pushToken, title, body, data });
+        sent = push.sent;
+        if (push.invalidToken) {
+          // Token morto (B44): sai da conta para não "entregar" de novo no vazio
+          await this.prisma.user
+            .updateMany({ where: { id: userId, pushToken: user.pushToken }, data: { pushToken: null, pushTokenUpdatedAt: new Date() } })
+            .catch(() => undefined);
+        }
       }
 
       if (!sent && user?.email && this.emailService.configured) {
         sent = await this.emailService.trySend(user.email, title, body);
       }
 
-      if (!sent && user) {
+      if (!sent && user && !options.bulk) {
         // Fallback SMS: comunidade com smsEnabled e Twilio configurado
         sent = await this.trySmsFallback(user, title, body);
       }
@@ -144,10 +175,11 @@ export class NotificationsService {
     title: string,
     body: string,
     data?: Record<string, unknown>,
+    options: NotifyOptions = {},
   ) {
     const uniqueUserIds = [...new Set(userIds)];
     await Promise.all(
-      uniqueUserIds.map((userId) => this.notifyUser(userId, type, title, body, data)),
+      uniqueUserIds.map((userId) => this.notifyUser(userId, type, title, body, data, options)),
     );
   }
 

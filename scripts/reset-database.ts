@@ -1,5 +1,9 @@
 import { PrismaClient } from '@prisma/client';
 
+// Trava de produção (achado B55): o reset recusa o banco do Railway mesmo com CONFIRM_PROD=sim
+const { assertNotProduction } = require('../prisma/lib/prod-guard.cjs');
+assertNotProduction('reset-database', { never: true }); // apaga TUDO: nunca em produção
+
 const prisma = new PrismaClient();
 
 async function resetDatabase() {

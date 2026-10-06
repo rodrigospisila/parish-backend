@@ -123,9 +123,13 @@ export class AsaasProvider implements PaymentProvider {
   async ensureCustomer(input: EnsureCustomerInput): Promise<{ providerCustomerId: string }> {
     const cpfCnpj = (input.cpfCnpj ?? '').replace(/\D/g, '');
     if (!cpfCnpj) throw new PaymentProviderError('Asaas exige CPF/CNPJ do pagador para criar a cobrança');
-    // Evita duplicar clientes (a API do Asaas permite duplicidade)
-    const found = await this.request<{ data?: Array<{ id: string }> }>('GET', `/customers?cpfCnpj=${encodeURIComponent(cpfCnpj)}&limit=1`);
-    if (found?.data?.length) return { providerCustomerId: found.data[0].id };
+    // Evita duplicar clientes (a API do Asaas permite duplicidade) — menos no
+    // visitante: o cliente achado pelo CPF é de outra pessoa e o nome dele iria
+    // para a página de pagamento e o boleto entregues a quem digitou o CPF
+    if (input.reuseExisting !== false) {
+      const found = await this.request<{ data?: Array<{ id: string }> }>('GET', `/customers?cpfCnpj=${encodeURIComponent(cpfCnpj)}&limit=1`);
+      if (found?.data?.length) return { providerCustomerId: found.data[0].id };
+    }
     const created = await this.request<{ id: string }>('POST', '/customers', {
       name: input.name.slice(0, 100),
       cpfCnpj,
@@ -151,6 +155,18 @@ export class AsaasProvider implements PaymentProvider {
     }
   }
 
+  /**
+   * Soma dos estornos concluídos (status DONE) de uma lista do Asaas; null
+   * quando a lista não veio (a cobrança nem sempre traz `refunds`).
+   */
+  static refundedFrom(refunds: unknown): number | null {
+    if (!Array.isArray(refunds)) return null;
+    const cents = refunds
+      .filter((r: any) => r && typeof r.value === 'number' && (!r.status || String(r.status).toUpperCase() === 'DONE'))
+      .reduce((sum: number, r: any) => sum + Math.round(r.value * 100), 0);
+    return cents / 100;
+  }
+
   private mapCharge(
     payment: any,
     qr?: { payload?: string; encodedImage?: string; expirationDate?: string },
@@ -169,6 +185,7 @@ export class AsaasProvider implements PaymentProvider {
       externalRef: payment.externalReference ?? null,
       value: typeof payment.value === 'number' ? payment.value : null,
       netValue: typeof payment.netValue === 'number' ? payment.netValue : null,
+      refundedAmount: AsaasProvider.refundedFrom(payment.refunds),
       paidAt: payment.clientPaymentDate ?? payment.paymentDate ?? null,
       subscriptionRef: payment.subscription ?? null,
       customerRef: payment.customer ?? null,
@@ -427,6 +444,12 @@ export class AsaasProvider implements PaymentProvider {
       notes.push(`Webhook: ${String((error as Error)?.message ?? error).slice(0, 160)}`);
     }
     return { pixKeyReady, pixKey, webhookRegistered, webhookId, notes };
+  }
+
+  /** GET /payments/{id}/refunds — estornos da cobrança (parcial ou total). */
+  async getRefundedAmount(providerRef: string): Promise<number | null> {
+    const list = await this.request<{ data?: unknown }>('GET', `/payments/${encodeURIComponent(providerRef)}/refunds`);
+    return AsaasProvider.refundedFrom(list?.data);
   }
 
   async refund(providerRef: string, amount?: number, reason?: string): Promise<{ status: string }> {

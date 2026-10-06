@@ -27,6 +27,9 @@ const { lerRecorrencia, descreverRecorrencia } = require('./data/territorio-br/r
 
 const prisma = new PrismaClient();
 const DRY = process.env.DRY_RUN === '1';
+// Trava de produção (achado B55): no modo que grava, contra o banco do Railway só com CONFIRM_PROD=sim
+const { assertNotProduction } = require('./lib/prod-guard.cjs');
+assertNotProduction('corrige-recorrencia-mensal', { writes: !DRY });
 
 async function main() {
   console.log(DRY ? '*** DRY RUN — nada será gravado ***' : '*** GRAVANDO ***');

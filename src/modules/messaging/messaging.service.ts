@@ -1,6 +1,7 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, ServiceUnavailableException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createHmac, timingSafeEqual } from 'crypto';
+import { isProductionEnv, maskPhone, normalizeBrazilianPhone } from './log-mask';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const twilio = require('twilio') as (sid: string, token: string) => {
   messages: { create(opts: { body?: string; from: string; to: string; contentSid?: string; contentVariables?: string }): Promise<unknown> };
@@ -59,7 +60,9 @@ export class MessagingService {
     const e164 = this.normalizePhone(to);
     if (!e164) return false;
     if (!this.whatsappConfigured) {
-      this.logger.log(`[WHATSAPP DEV] ${e164} -> ${body.slice(0, 120)}`);
+      // Produção: só o evento, com o telefone mascarado — nunca o conteúdo
+      if (isProductionEnv()) this.logger.warn(`WhatsApp não configurado — mensagem para ${maskPhone(e164)} descartada`);
+      else this.logger.log(`[WHATSAPP DEV] ${e164} -> ${body.slice(0, 120)}`);
       return false;
     }
     try {
@@ -72,7 +75,7 @@ export class MessagingService {
       }
       return true;
     } catch (error) {
-      this.logger.warn(`Falha ao enviar WhatsApp para ${e164}: ${error}`);
+      this.logger.warn(`Falha ao enviar WhatsApp para ${maskPhone(e164)}: ${error}`);
       return false;
     }
   }
@@ -95,18 +98,20 @@ export class MessagingService {
    * Retorna null quando o numero e invalido (nao lanca exception).
    */
   normalizePhone(raw: string): string | null {
-    const digits = raw.replace(/\D/g, '');
-    if (digits.startsWith('55') && digits.length >= 12) return `+${digits}`;
-    if (digits.length === 11 || digits.length === 10) return `+55${digits}`;
-    return null;
+    return normalizeBrazilianPhone(raw);
   }
 
   /**
    * Envia SMS e propaga erros de entrega (usado em fluxos que precisam falhar alto, ex.: OTP).
-   * Sem Twilio configurado, loga o conteudo (fallback de desenvolvimento).
+   * Sem Twilio configurado: em produção falha com 503 e loga só o evento (o
+   * corpo pode ser um código de acesso); em desenvolvimento loga o conteúdo.
    */
   async sendSms(to: string, body: string): Promise<void> {
     if (!this.smsConfigured) {
+      if (isProductionEnv()) {
+        this.logger.error(`SMS não configurado (TWILIO_*) — envio para ${maskPhone(to)} recusado`);
+        throw new ServiceUnavailableException('Envio de SMS indisponível no momento. Tente mais tarde.');
+      }
       this.logger.log(`[SMS DEV] ${to} -> ${body}`);
       return;
     }
@@ -135,7 +140,7 @@ export class MessagingService {
       });
       return true;
     } catch (error) {
-      this.logger.warn(`Falha ao enviar SMS para ${to}: ${error}`);
+      this.logger.warn(`Falha ao enviar SMS para ${maskPhone(to)}: ${error}`);
       return false;
     }
   }

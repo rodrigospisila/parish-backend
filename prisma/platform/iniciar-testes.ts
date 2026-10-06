@@ -50,6 +50,9 @@ function parseArgs(argv: string[]) {
 
 async function main() {
   const { apply, dias } = parseArgs(process.argv.slice(2));
+  // Trava de produção (achado B55): --apply contra o banco do Railway só com CONFIRM_PROD=sim
+  const { assertNotProduction } = require('../lib/prod-guard.cjs');
+  assertNotProduction('iniciar-testes', { writes: apply });
   const prisma = new PrismaClient();
   const now = new Date();
   const trialEndsAt = new Date(now.getTime() + dias * 24 * 60 * 60 * 1000);

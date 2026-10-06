@@ -5,6 +5,7 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
+import { PlanGated } from '../plans/plan-gates';
 
 @Controller('reports')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -13,12 +14,14 @@ export class ReportsController {
 
   // Coordenação de comunidade ou superior (pároco/diocese)
   @Get('pastoral-overview')
+  @PlanGated('pastorals') // relatório de pastorais/escalas: recurso pago
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   getPastoralOverview(@Request() req: any) {
     return this.reportsService.getPastoralOverview(req.user);
   }
 
   @Get('pastoral-overview.pdf')
+  @PlanGated('pastorals')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   async exportPastoralOverviewPdf(@Res() res: Response, @Request() req: any) {
     const buffer = await this.reportsService.exportPastoralOverviewPdf(req.user);

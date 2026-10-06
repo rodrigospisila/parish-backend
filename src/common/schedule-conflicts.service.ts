@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../database/prisma.service';
+import { scheduleCivilDay, scheduleWindow } from './schedule-time';
 
 /** Conflito de escala detectado em QUALQUER comunidade (visão global). */
 export interface GlobalScheduleConflict {
@@ -18,58 +19,12 @@ export interface GlobalScheduleConflict {
  * Busca as atribuições dos membros em TODAS as comunidades no mesmo dia da
  * escala alvo e classifica em sobreposição de horário ou mesmo-dia.
  * A janela usa a mesma semântica do painel de candidatos: horários do evento
- * quando existe, startTime/endTime próprios quando não, fallback de 2h.
+ * quando existe, startTime/endTime próprios quando não, fallback de 2h — tudo
+ * pelo helper único de fuso (common/schedule-time).
  */
 @Injectable()
 export class ScheduleConflictsService {
   constructor(private readonly prisma: PrismaService) {}
-
-  private applyHhMm(base: Date, hhmm?: string | null): Date | null {
-    if (!hhmm) return null;
-    const match = /^(\d{1,2}):(\d{2})$/.exec(hhmm.trim());
-    if (!match) return null;
-    const result = new Date(base);
-    result.setHours(Number(match[1]), Number(match[2]), 0, 0);
-    return result;
-  }
-
-  private getScheduleWindow(schedule: {
-    date: Date;
-    startTime?: string | null;
-    endTime?: string | null;
-    event?: { startDate?: Date | null; endDate?: Date | null } | null;
-  }) {
-    const start = new Date(schedule.date);
-    const fallbackEnd = new Date(start.getTime() + 2 * 60 * 60 * 1000);
-
-    if (!schedule.event) {
-      const ownStart = this.applyHhMm(start, schedule.startTime) ?? start;
-      const ownEnd = this.applyHhMm(start, schedule.endTime);
-      return {
-        start: ownStart,
-        end:
-          ownEnd && ownEnd.getTime() > ownStart.getTime()
-            ? ownEnd
-            : new Date(ownStart.getTime() + 2 * 60 * 60 * 1000),
-      };
-    }
-
-    const eventStart = schedule.event?.startDate ? new Date(schedule.event.startDate) : start;
-    const eventEnd = schedule.event?.endDate ? new Date(schedule.event.endDate) : fallbackEnd;
-
-    return {
-      start: eventStart.getTime() >= start.getTime() ? eventStart : start,
-      end: eventEnd.getTime() > start.getTime() ? eventEnd : fallbackEnd,
-    };
-  }
-
-  private isSameCalendarDay(left: Date, right: Date) {
-    return (
-      left.getFullYear() === right.getFullYear() &&
-      left.getMonth() === right.getMonth() &&
-      left.getDate() === right.getDate()
-    );
-  }
 
   private windowsOverlap(left: { start: Date; end: Date }, right: { start: Date; end: Date }) {
     return left.start.getTime() < right.end.getTime() && right.start.getTime() < left.end.getTime();
@@ -135,14 +90,17 @@ export class ScheduleConflictsService {
       },
     });
 
-    const targetWindow = this.getScheduleWindow(target);
+    const targetWindow = scheduleWindow(target);
+    const targetDay = scheduleCivilDay(target);
     const conflicts: GlobalScheduleConflict[] = [];
 
     for (const assignment of assignments) {
       const otherSchedule = assignment.schedule;
-      if (!this.isSameCalendarDay(otherSchedule.date, target.date)) continue;
+      // Mesmo dia CIVIL da paróquia (A17): Missa fixa (só-dia + startTime) e
+      // evento (instante real) comparados no mesmo fuso
+      if (scheduleCivilDay(otherSchedule) !== targetDay) continue;
 
-      const otherWindow = this.getScheduleWindow(otherSchedule);
+      const otherWindow = scheduleWindow(otherSchedule);
       conflicts.push({
         memberId: assignment.member.id,
         memberName: assignment.member.fullName,

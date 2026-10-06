@@ -16,6 +16,8 @@ import { UserRole, NotificationType } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { SessionUser, resolveCoordinatedPastoralIds } from './coordination-scope';
+import { AuditService } from '../../common/audit.service';
+import { BROADCAST_AUTHOR_ENTITIES, assertBroadcastQuota } from './broadcast-quota';
 
 /**
  * Dados do membro devolvidos nas listas de equipe: só o necessário para a tela.
@@ -39,6 +41,7 @@ export class PastoralsService {
     private prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly notificationsService: NotificationsService,
+    private readonly auditService: AuditService,
   ) {}
 
   /**
@@ -52,7 +55,7 @@ export class PastoralsService {
   async ensurePastoralAccess(communityPastoralId: string, currentUser?: SessionUser) {
     // Negar por padrão: sem usuário identificado não há acesso
     if (!currentUser?.id) {
-      throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
+      throw new ForbiddenException('Você não tem permissão para acessar esta pastoral');
     }
 
     if (currentUser.role === UserRole.SYSTEM_ADMIN) {
@@ -71,26 +74,26 @@ export class PastoralsService {
     });
 
     if (!pastoral || pastoral.deletedAt) {
-      throw new NotFoundException('Pastoral comunitaria nao encontrada');
+      throw new NotFoundException('Pastoral comunitária não encontrada');
     }
 
     if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
       if (pastoral.community.parish.dioceseId !== currentUser.dioceseId) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
+        throw new ForbiddenException('Você não tem permissão para acessar esta pastoral');
       }
       return;
     }
 
     if (currentUser.role === UserRole.PARISH_ADMIN) {
       if (pastoral.community.parishId !== currentUser.parishId) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
+        throw new ForbiddenException('Você não tem permissão para acessar esta pastoral');
       }
       return;
     }
 
     if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
       if (pastoral.communityId !== currentUser.communityId) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
+        throw new ForbiddenException('Você não tem permissão para acessar esta pastoral');
       }
       return;
     }
@@ -98,12 +101,12 @@ export class PastoralsService {
     if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
       const scopedPastoralIds = await this.getScopedPastoralIds(currentUser);
       if (!scopedPastoralIds.includes(communityPastoralId)) {
-        throw new ForbiddenException('Voce nao tem permissao para acessar outra pastoral');
+        throw new ForbiddenException('Você não tem permissão para acessar outra pastoral');
       }
       return;
     }
 
-    throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
+    throw new ForbiddenException('Você não tem permissão para acessar esta pastoral');
   }
 
   private async ensureGroupAccess(groupId: string, currentUser?: CurrentUser) {
@@ -115,7 +118,7 @@ export class PastoralsService {
     });
 
     if (!group) {
-      throw new NotFoundException('Grupo pastoral nao encontrado');
+      throw new NotFoundException('Grupo pastoral não encontrado');
     }
 
     await this.ensurePastoralAccess(group.communityPastoralId, currentUser);
@@ -132,7 +135,7 @@ export class PastoralsService {
     });
 
     if (!pastoralMember) {
-      throw new NotFoundException('Vinculo nao encontrado');
+      throw new NotFoundException('Vinculo não encontrado');
     }
 
     if (pastoralMember.communityPastoralId) {
@@ -146,7 +149,7 @@ export class PastoralsService {
     }
 
     // Vínculo sem pastoral nem grupo: não há escopo para validar — negar
-    throw new ForbiddenException('Voce nao tem permissao para alterar este vinculo');
+    throw new ForbiddenException('Você não tem permissão para alterar este vinculo');
   }
 
   // ============================================
@@ -298,8 +301,36 @@ export class PastoralsService {
       },
     });
 
-    if (existing) {
+    if (existing && !existing.deletedAt) {
       throw new BadRequestException('Esta pastoral jÃ¡ existe nesta comunidade');
+    }
+
+    // Excluída antes (soft delete): o índice único (globalPastoralId,
+    // communityId) inclui as excluídas, então "cadastrar de novo" REATIVA a
+    // mesma linha — membros, coordenação e histórico voltam junto
+    if (existing) {
+      const { globalPastoralId: _g, communityId: _c, ...fields } = dto;
+      const restored = await this.prisma.communityPastoral.update({
+        where: { id: existing.id },
+        data: {
+          ...fields,
+          foundedAt: dto.foundedAt ? new Date(dto.foundedAt) : undefined,
+          status: dto.status ?? 'ACTIVE',
+          deletedAt: null,
+        },
+        include: {
+          globalPastoral: true,
+          community: true,
+        },
+      });
+      await this.auditService.log({
+        actor: { id: user.id, email: user.email, role: user.role },
+        action: 'UPDATE',
+        entity: 'CommunityPastoral',
+        entityId: existing.id,
+        metadata: { restored: true },
+      });
+      return restored;
     }
 
     return this.prisma.communityPastoral.create({
@@ -564,7 +595,7 @@ export class PastoralsService {
     });
 
     if (!pastoral) {
-      throw new NotFoundException('Pastoral comunitaria nao encontrada');
+      throw new NotFoundException('Pastoral comunitária não encontrada');
     }
 
     return this.prisma.member.findMany({
@@ -738,7 +769,7 @@ export class PastoralsService {
     });
 
     if (!group) {
-      throw new NotFoundException('Grupo pastoral nao encontrado');
+      throw new NotFoundException('Grupo pastoral não encontrado');
     }
 
     return group;
@@ -891,7 +922,7 @@ export class PastoralsService {
     });
 
     if (!member) {
-      throw new NotFoundException('Membro nao encontrado');
+      throw new NotFoundException('Membro não encontrado');
     }
 
     if (member.status !== 'ACTIVE') {
@@ -907,7 +938,7 @@ export class PastoralsService {
       });
 
       if (!communityPastoral) {
-        throw new NotFoundException('Pastoral comunitaria nao encontrada');
+        throw new NotFoundException('Pastoral comunitária não encontrada');
       }
 
       if (communityPastoral.communityId !== member.communityId) {
@@ -937,7 +968,7 @@ export class PastoralsService {
     });
 
     if (existing) {
-      throw new BadRequestException('Membro ja esta vinculado a esta pastoral ou grupo');
+      throw new BadRequestException('Membro já está vinculado a esta pastoral ou grupo');
     }
 
     const normalizedRole = this.normalizeMemberRole(dto.role);
@@ -1015,7 +1046,7 @@ export class PastoralsService {
     });
 
     if (!existing) {
-      throw new NotFoundException('Vinculo de membro nao encontrado');
+      throw new NotFoundException('Vinculo de membro não encontrado');
     }
 
     const normalizedRole = dto.role !== undefined ? this.normalizeMemberRole(dto.role) : undefined;
@@ -1086,7 +1117,18 @@ export class PastoralsService {
     });
 
     if (!pastoral) {
-      throw new NotFoundException('Pastoral comunitaria nao encontrada');
+      throw new NotFoundException('Pastoral comunitária não encontrada');
+    }
+
+    // Freio de spam/custo (push → e-mail → SMS cobrado): teto por pastoral e
+    // por autor no dia — antes um laço no endpoint não tinha limite
+    if (currentUser) {
+      await assertBroadcastQuota(this.prisma, {
+        entity: 'PastoralBroadcast',
+        entityId: communityPastoralId,
+        actorUserId: currentUser.id,
+        authorEntities: BROADCAST_AUTHOR_ENTITIES,
+      });
     }
 
     const pastoralMembers = await this.prisma.pastoralMember.findMany({
@@ -1110,7 +1152,17 @@ export class PastoralsService {
       `Aviso: ${pastoral.globalPastoral.name}`,
       message,
       { communityPastoralId },
+      // Aviso em massa: push → e-mail, sem SMS cobrado (B8)
+      { bulk: true },
     );
+    // A trilha do envio é também o contador do teto diário
+    await this.auditService.log({
+      actor: currentUser ? { id: currentUser.id, email: currentUser.email, role: currentUser.role } : undefined,
+      action: 'CREATE',
+      entity: 'PastoralBroadcast',
+      entityId: communityPastoralId,
+      metadata: { notified: userIds.length, length: message.length },
+    });
 
     return { notified: userIds.length };
   }

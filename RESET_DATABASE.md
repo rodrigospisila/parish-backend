@@ -19,7 +19,7 @@ Este script irá:
 ## 📋 **Pré-requisitos**
 
 1. ✅ Node.js instalado
-2. ✅ pnpm instalado
+2. ✅ npm instalado (dependências com `npm ci`)
 3. ✅ PostgreSQL rodando
 4. ✅ Arquivo `.env` configurado com a conexão do banco
 
@@ -47,13 +47,13 @@ scripts\reset-database.bat
 cd parish-backend
 
 # Resetar banco
-pnpm prisma migrate reset --force --skip-seed
+npx prisma migrate reset --force --skip-seed
 
 # Aplicar migrations
-pnpm prisma migrate deploy
+npx prisma migrate deploy
 
 # Criar SYSTEM_ADMIN
-pnpm prisma db seed
+npx prisma db seed
 ```
 
 ---
@@ -75,7 +75,7 @@ Senha: System@Admin123
 
 ### **Passo 1: Reset do Banco**
 ```bash
-pnpm prisma migrate reset --force --skip-seed
+npx prisma migrate reset --force --skip-seed
 ```
 - Apaga todas as tabelas
 - Remove todos os dados
@@ -83,7 +83,7 @@ pnpm prisma migrate reset --force --skip-seed
 
 ### **Passo 2: Aplicar Migrations**
 ```bash
-pnpm prisma migrate deploy
+npx prisma migrate deploy
 ```
 - Aplica todas as migrations
 - Cria todas as tabelas
@@ -91,7 +91,7 @@ pnpm prisma migrate deploy
 
 ### **Passo 3: Seed do SYSTEM_ADMIN**
 ```bash
-pnpm prisma db seed
+npx prisma db seed
 ```
 - Executa o arquivo `prisma/seed.ts`
 - Cria o usuário SYSTEM_ADMIN
@@ -153,7 +153,7 @@ Após executar o script, você pode verificar se o usuário foi criado:
 
 ### **Via Prisma Studio:**
 ```bash
-pnpm prisma studio
+npx prisma studio
 ```
 
 ### **Via SQL:**
@@ -216,7 +216,7 @@ O seed detecta se já existe um SYSTEM_ADMIN e pula a criação. Para forçar:
 DELETE FROM users WHERE role = 'SYSTEM_ADMIN';
 
 # Executar seed novamente
-pnpm prisma db seed
+npx prisma db seed
 ```
 
 ---
@@ -264,27 +264,27 @@ Para produção:
 
 ### **Ver status das migrations:**
 ```bash
-pnpm prisma migrate status
+npx prisma migrate status
 ```
 
 ### **Criar nova migration:**
 ```bash
-pnpm prisma migrate dev --name nome_da_migration
+npx prisma migrate dev --name nome_da_migration
 ```
 
 ### **Abrir Prisma Studio:**
 ```bash
-pnpm prisma studio
+npx prisma studio
 ```
 
 ### **Gerar Prisma Client:**
 ```bash
-pnpm prisma generate
+npx prisma generate
 ```
 
 ### **Validar schema:**
 ```bash
-pnpm prisma validate
+npx prisma validate
 ```
 
 ---

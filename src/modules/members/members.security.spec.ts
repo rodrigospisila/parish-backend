@@ -72,6 +72,11 @@ describe('MembersService — segurança (onda 2)', () => {
         })),
       },
       prayerRequest: { findMany: jest.fn().mockResolvedValue([]) },
+      consent: { findMany: jest.fn().mockResolvedValue([]) },
+      catechesisEnrollment: { findMany: jest.fn().mockResolvedValue([]) },
+      tither: { findUnique: jest.fn().mockResolvedValue(null) },
+      titheSchedule: { findMany: jest.fn().mockResolvedValue([]) },
+      notification: { findMany: jest.fn().mockResolvedValue([]) },
       $transaction: jest.fn(async (arg: any) => (typeof arg === 'function' ? arg(tx) : Promise.all(arg))),
     };
     hierarchy = {
@@ -360,6 +365,9 @@ describe('MembersService — segurança (onda 2)', () => {
       const byManager: any = await service.exportMemberData('m1', parishAdminP1);
       expect(byManager.member).not.toHaveProperty('prayerRequests');
       expect(prisma.prayerRequest.findMany).not.toHaveBeenCalled();
+      // Catequese, dízimo e notificações: só para o próprio titular (B62)
+      expect(byManager.member).not.toHaveProperty('notifications');
+      expect(prisma.notification.findMany).not.toHaveBeenCalled();
 
       prisma.prayerRequest.findMany.mockResolvedValue([{ id: 'pr1' }]);
       const bySelf: any = await service.exportMemberData('m1', { id: 'u-fiel', role: UserRole.FAITHFUL } as any);
@@ -367,6 +375,10 @@ describe('MembersService — segurança (onda 2)', () => {
         expect.objectContaining({ where: { memberId: 'm1', isAnonymous: false } }),
       );
       expect(bySelf.member.prayerRequests).toEqual([{ id: 'pr1' }]);
+      expect(bySelf.member).toEqual(
+        expect.objectContaining({ consents: [], communityLinks: [], catechesisEnrollments: [], notifications: [] }),
+      );
+      expect(prisma.notification.findMany).toHaveBeenCalledWith(expect.objectContaining({ where: { userId: 'u-fiel' } }));
     });
   });
 

@@ -94,12 +94,12 @@ describe('Fase 4 — Operação e diferenciais (e2e)', () => {
       .send({ roomId: room.body.id, title: 'Reunião A', startTime: future(3), endTime: future(3.1) })
       .expect(201);
 
-    // sobreposição no mesmo horário → 400
+    // sobreposição no mesmo horário → 409 (conflito)
     await request(app.getHttpServer())
       .post('/rooms/reservations')
       .set(auth())
       .send({ roomId: room.body.id, title: 'Reunião B', startTime: future(3), endTime: future(3.1) })
-      .expect(400);
+      .expect(409);
   });
 
   it('4.3 — dízimo gera transação financeira e alimenta o resumo', async () => {
