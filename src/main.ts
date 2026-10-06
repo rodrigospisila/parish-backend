@@ -30,6 +30,8 @@ async function bootstrap() {
       ? corsOrigins
       : [/^http:\/\/localhost(:\d+)?$/, /^http:\/\/127\.0\.0\.1(:\d+)?$/],
     credentials: true,
+    // O painel lê o tempo de espera do 429 (sem isso o navegador esconde o cabeçalho)
+    exposedHeaders: ['Retry-After'],
   });
 
   // Global validation pipe
