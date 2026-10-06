@@ -10,6 +10,7 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
   let members: Record<string, number>;
   let prisma: any;
   let guard: MemberLimitGuard;
+  let hierarchy: { isCommunityInScope: jest.Mock };
   let warn: jest.SpyInstance;
 
   const ctx = (req: any) => ({ switchToHttp: () => ({ getRequest: () => req }) }) as unknown as ExecutionContext;
@@ -28,7 +29,9 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
       member: { count: jest.fn(async ({ where }) => members[where.OR[0].communityId] ?? 0) },
     };
     const access = new PlanAccessService(prisma, { get: jest.fn(() => mode) } as any);
-    guard = new MemberLimitGuard(access);
+    // Escopo do coordenador: as comunidades do teste (a de outra paróquia, não)
+    hierarchy = { isCommunityInScope: jest.fn(async (_user: any, id: string) => id !== 'outra-paroquia') };
+    guard = new MemberLimitGuard(access, hierarchy as any);
     warn = jest.spyOn(Logger.prototype, 'warn').mockImplementation(() => undefined);
   });
 
@@ -70,6 +73,15 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
     mode = 'on';
     await expect(guard.canActivate(ctx({ body: { communityId: 'capela' }, user: { id: 'a', role: 'SYSTEM_ADMIN' } }))).resolves.toBe(true);
     expect(prisma.communityPlan.findUnique).not.toHaveBeenCalled();
+  });
+
+  it('#33 — comunidade FORA do escopo: libera sem consultar plano nem contar membros (o serviço dá o 403 de escopo)', async () => {
+    plans['outra-paroquia'] = plans.capela;
+    members['outra-paroquia'] = 5000;
+    await expect(guard.canActivate(ctx({ body: { communityId: 'outra-paroquia' }, user: coord }))).resolves.toBe(true);
+    expect(hierarchy.isCommunityInScope).toHaveBeenCalledWith(coord, 'outra-paroquia');
+    expect(prisma.communityPlan.findUnique).not.toHaveBeenCalled();
+    expect(prisma.member.count).not.toHaveBeenCalled();
   });
 
   it('falha no banco libera', async () => {

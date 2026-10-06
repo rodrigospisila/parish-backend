@@ -3,6 +3,7 @@ import { UserRole } from '@prisma/client';
 import { TitheService } from './tithe.service';
 import { TitheGuestService } from './guest.service';
 import { TitheAgentService } from './agent.service';
+import { TitheCampaignsService } from './campaigns.service';
 import { AsaasProvider } from '../payments/asaas.provider';
 import { PROVIDER_FEE_CATEGORY, isRevenueReversal } from '../finance/money';
 
@@ -56,7 +57,7 @@ function makePrisma(seed: Partial<Record<string, Row[]>> = {}) {
   const tables: Record<string, Row[]> = {};
   let seq = 0;
   const defaults: Record<string, () => Row> = {
-    titheIntent: () => ({ status: 'CREATED', kind: 'TITHE', method: 'PIX_STATIC', paymentMethod: 'PIX', anonymous: false, feeAmount: 0, refundedAmount: 0, chargedAmount: null, amountPaid: null, note: null, providerRef: null, providerStatus: null, scheduleId: null, campaignId: null, contributionId: null, declaredAt: null, confirmedAt: null, qrExpiresAt: null, contestedAt: null }),
+    titheIntent: () => ({ status: 'CREATED', kind: 'TITHE', method: 'PIX_STATIC', paymentMethod: 'PIX', anonymous: false, feeAmount: 0, refundedAmount: 0, chargedAmount: null, amountPaid: null, note: null, providerRef: null, providerStatus: null, scheduleId: null, campaignId: null, contributionId: null, declaredAt: null, confirmedAt: null, qrExpiresAt: null, contestedAt: null, reopenedAt: null }),
     titheGuestGift: () => ({ status: 'CREATED', method: 'GATEWAY', paymentMethod: 'PIX', feeAmount: 0, refundedAmount: 0, amountPaid: null, providerStatus: null, financialTransactionId: null, campaignId: null, note: null }),
     financialTransaction: () => ({ costCenter: null, campaignId: null, titheIntentId: null, reversalOfId: null, guestGiftId: null, communityId: null }),
     paymentWebhookEvent: () => ({ processedAt: null, error: null, attempts: 0, receivedAt: new Date() }),
@@ -72,7 +73,8 @@ function makePrisma(seed: Partial<Record<string, Row[]>> = {}) {
   const withInclude = (name: string, row: Row | undefined, args: Row = {}) => {
     if (!row) return row ?? null;
     const out: Row = { ...row };
-    const inc = args.include ?? {};
+    // Relação pedida por include ou por select aninhado (os escalares vêm todos)
+    const inc = { ...(args.select ?? {}), ...(args.include ?? {}) };
     if (name === 'titheIntent' || name === 'titheGuestGift') {
       if (inc.member) out.member = tables.member?.find((m) => m.id === row.memberId) ?? null;
       if (inc.parish) out.parish = tables.parish?.find((p) => p.id === row.parishId) ?? null;
@@ -99,6 +101,17 @@ function makePrisma(seed: Partial<Record<string, Row[]>> = {}) {
       }),
       findMany: jest.fn(async (args: Row = {}) => rows().filter((r) => matches(r, args.where)).map((r) => withInclude(name, r, args))),
       count: jest.fn(async (args: Row = {}) => rows().filter((r) => matches(r, args.where)).length),
+      groupBy: jest.fn(async (args: Row) => {
+        const groups = new Map<string, Row>();
+        for (const r of rows().filter((x) => matches(x, args.where))) {
+          const key = (args.by as string[]).map((k) => String(r[k])).join('|');
+          const g = groups.get(key) ?? { ...Object.fromEntries((args.by as string[]).map((k) => [k, r[k]])), _sum: { amount: 0 }, _count: { _all: 0 } };
+          g._sum.amount += r.amount ?? 0;
+          g._count._all += 1;
+          groups.set(key, g);
+        }
+        return [...groups.values()];
+      }),
       create: jest.fn(async (args: Row) => {
         const row: Row = { ...(defaults[name]?.() ?? {}), id: `${name}-${++seq}`, createdAt: new Date(), updatedAt: new Date() };
         applyData(row, args.data);
@@ -133,7 +146,7 @@ function makePrisma(seed: Partial<Record<string, Row[]>> = {}) {
       }),
     };
   };
-  const names = ['titheIntent', 'titheGuestGift', 'financialTransaction', 'titheContribution', 'tither', 'paymentWebhookEvent', 'parish', 'member', 'titheCampaign', 'user', 'memberProviderCustomer', 'titheSchedule'];
+  const names = ['titheIntent', 'titheGuestGift', 'financialTransaction', 'titheContribution', 'tither', 'paymentWebhookEvent', 'parish', 'member', 'titheCampaign', 'user', 'memberProviderCustomer', 'titheSchedule', 'community', 'titheCampaignPledge'];
   const prisma: Row = { tables };
   for (const n of names) prisma[n] = model(n);
   prisma.$transaction = jest.fn(async (cb: (tx: unknown) => unknown) => cb(prisma));
@@ -290,6 +303,7 @@ describe('Dízimo — liquidação pelo provedor (webhook)', () => {
     await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_mm'));
     expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'DECLARED', providerStatus: 'mismatch' });
     expect(lines(ctx)).toHaveLength(0);
+    await expect(ctx.tithe.confirmIntent('i1', admin, {})).rejects.toThrow('informe o valor exato');
     await ctx.tithe.confirmIntent('i1', admin, { amountPaid: 80 });
     expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'CONFIRMED', amountPaid: 80 });
     expect(lines(ctx).filter((t) => t.type === 'INCOME')).toHaveLength(1);
@@ -390,7 +404,11 @@ describe('Dízimo — Pix do provedor reaberto (B45)', () => {
     const reopened = await ctx.tithe.reopenIntent('i1', admin);
     expect(reopened.status).toBe('DECLARED');
     expect(ctx.prisma.tables.titheIntent[0].providerStatus).toBe('cancelled');
-    const confirmed = await ctx.tithe.confirmIntent('i1', admin, { date: '2026-10-05' });
+    // A reabertura de cobrança morta é a liberação da conferência manual (R4#14)
+    expect(ctx.prisma.tables.titheIntent[0].reopenedAt).toBeInstanceOf(Date);
+    // Pix do provedor: nunca pelo valor gerado (nem em lote) — o valor é digitado
+    await expect(ctx.tithe.confirmIntent('i1', admin, { date: '2026-10-05' })).rejects.toThrow('informe o valor exato');
+    const confirmed = await ctx.tithe.confirmIntent('i1', admin, { date: '2026-10-05', amountPaid: 100 });
     expect(confirmed.status).toBe('CONFIRMED');
     expect(lines(ctx).filter((t) => t.type === 'INCOME')).toHaveLength(1);
     // Conferência manual: sem taxa do provedor
@@ -502,5 +520,225 @@ describe('Modo agente — desfazer (B33)', () => {
     expect(lines(ctx).filter((t) => t.type === 'EXPENSE').map((t) => t.amount)).toEqual([40]);
     expect(ctx.prisma.tables.titheContribution).toHaveLength(0);
     expect(ctx.prisma.tables.titheIntent[0].status).toBe('CANCELLED');
+  });
+});
+
+// ===== Revisão adversarial R4 (06/10/2026) =====
+
+describe('R4#14 — Pix do provedor morto lá: confirmação manual só liberada pela tesouraria', () => {
+  it('"já paguei" + provedor apaga a cobrança: não confirma (nem em lote) até liberar; depois exige o valor', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ status: 'CREATED' })] });
+    mockCharge(ctx, { status: 'PENDING', netValue: null });
+    await ctx.tithe.declareIntent('i1', { id: 'u-fiel', role: UserRole.FAITHFUL } as any);
+    // Provedor expira/apaga a cobrança (MP: Pix expirado = cancelled)
+    mockCharge(ctx, { status: 'PENDING', deleted: true, netValue: null });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_DELETED', 'evt_del'));
+    expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'DECLARED', providerStatus: 'cancelled', reopenedAt: null });
+
+    let [row] = await ctx.tithe.listIntents(admin, { status: 'DECLARED' });
+    expect(row).toMatchObject({ manualConfirm: false, providerNotReceived: true, canReopen: true });
+    await expect(ctx.tithe.confirmIntent('i1', admin, { amountPaid: 100 })).rejects.toThrow('não recebeu');
+    expect(lines(ctx)).toHaveLength(0);
+
+    // "Conferir à mão": consulta o provedor e registra a liberação (quem/quando na auditoria)
+    const released = await ctx.tithe.reopenIntent('i1', admin);
+    expect(released.status).toBe('DECLARED');
+    expect(ctx.prisma.tables.titheIntent[0].reopenedAt).toBeInstanceOf(Date);
+    expect(ctx.audit.log).toHaveBeenCalledWith(expect.objectContaining({ entityId: 'i1', metadata: expect.objectContaining({ manualCheckReleased: true }) }));
+    [row] = await ctx.tithe.listIntents(admin, { status: 'DECLARED' });
+    expect(row).toMatchObject({ manualConfirm: true, providerNotReceived: true, canReopen: false });
+
+    await expect(ctx.tithe.confirmIntent('i1', admin, {})).rejects.toThrow('informe o valor exato');
+    await ctx.tithe.confirmIntent('i1', admin, { amountPaid: 100, date: '2026-10-05' });
+    expect(lines(ctx).filter((t) => t.type === 'INCOME').map((t) => t.amount)).toEqual([100]);
+    // Dinheiro veio por fora do provedor: sem taxa
+    expect(lines(ctx).some((t) => t.category === PROVIDER_FEE_CATEGORY)).toBe(false);
+  });
+
+  it('contestado pelo fiel (após o "não localizado" da tesouraria): conferência manual liberada', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ status: 'DECLARED', providerStatus: 'cancelled', contestedAt: new Date(), contestNote: 'paguei dia 5 no banco X' })] });
+    mockCharge(ctx, { status: 'PENDING', deleted: true, netValue: null });
+    const [row] = await ctx.tithe.listIntents(admin, { status: 'DECLARED' });
+    expect(row.manualConfirm).toBe(true);
+    await ctx.tithe.confirmIntent('i1', admin, { amountPaid: 100 });
+    expect(ctx.prisma.tables.titheIntent[0].status).toBe('CONFIRMED');
+  });
+
+  it('liberar a conferência de cobrança que foi paga no provedor liquida por ele', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ status: 'DECLARED', providerStatus: 'cancelled' })] });
+    mockCharge(ctx, {});
+    const out = await ctx.tithe.reopenIntent('i1', admin);
+    expect(out.status).toBe('CONFIRMED');
+    expect(ctx.prisma.tables.titheIntent[0].reopenedAt).toBeNull();
+    expect(lines(ctx).filter((t) => t.type === 'INCOME')).toHaveLength(1);
+  });
+});
+
+describe('R4#19 — conciliação manual de cobrança paga no provedor lança a taxa', () => {
+  it('divergência: a taxa (valor − líquido) entra como no caminho automático', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ status: 'DECLARED' })] });
+    mockCharge(ctx, { value: 80, netValue: 78 });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_mm'));
+    const out: any = await ctx.tithe.confirmIntent('i1', admin, { amountPaid: 80 });
+    expect(out.feeWarning).toBeUndefined();
+    expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'CONFIRMED', amountPaid: 80, feeAmount: 2 });
+    const fee = lines(ctx).filter((t) => t.category === PROVIDER_FEE_CATEGORY);
+    expect(fee).toHaveLength(1);
+    expect(fee[0]).toMatchObject({ type: 'EXPENSE', amount: 2, titheIntentId: 'i1', campaignId: null });
+  });
+
+  it('sem o líquido (provedor fora do ar): confirma e avisa para lançar a taxa à mão', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ status: 'DECLARED', providerStatus: 'mismatch', note: 'Provedor informa pagamento de R$ 80,00' })] });
+    ctx.getCharge.mockRejectedValue(new Error('fora do ar'));
+    const out: any = await ctx.tithe.confirmIntent('i1', admin, { amountPaid: 80 });
+    expect(out.status).toBe('CONFIRMED');
+    expect(out.feeWarning).toMatch(/taxa do provedor à mão/);
+    expect(lines(ctx).some((t) => t.category === PROVIDER_FEE_CATEGORY)).toBe(false);
+  });
+});
+
+describe('R4#16 — estorno concorrente não se perde', () => {
+  it('tithe: leitura velha relê e lança o que faltava (30 + 70), encerrando o Pix', async () => {
+    const ctx = setup({ intents: [gatewayIntent()] });
+    mockCharge(ctx, {});
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_pago'));
+    const stale = await ctx.prisma.titheIntent.findUniqueOrThrow({ where: { id: 'i1' }, include: { member: true, parish: true, campaign: true } });
+    const stale2 = JSON.parse(JSON.stringify(stale));
+    const parish = ctx.prisma.tables.parish[0];
+    // Processo 1 (consulta da tesouraria) vê 30 e grava
+    await (ctx.tithe as any).applyProviderCharge(stale, (ctx.provider as any).mapCharge({ ...asaasPayment(), refunds: [{ value: 30, status: 'DONE' }] }), parish);
+    // Processo 2 (webhook) leu antes, vê o estorno total
+    await (ctx.tithe as any).applyProviderCharge(stale2, (ctx.provider as any).mapCharge({ ...asaasPayment(), status: 'REFUNDED', refunds: [{ value: 30, status: 'DONE' }, { value: 70, status: 'DONE' }] }), parish);
+    const intent = ctx.prisma.tables.titheIntent[0];
+    expect(intent).toMatchObject({ status: 'CANCELLED', refundedAmount: 100, providerStatus: 'refunded' });
+    expect(lines(ctx).filter((t) => t.type === 'EXPENSE' && t.category === 'Dízimo').map((t) => t.amount)).toEqual([30, 70]);
+    expect(ctx.prisma.tables.titheContribution).toHaveLength(0);
+  });
+
+  it('visitante: leitura velha relê e lança só a diferença', async () => {
+    const ctx = setup({ gifts: [{ id: 'g1', parishId: 'p1', name: 'Visitante', email: 'v@x.org', amount: 50, txid: 'VS1', providerRef: 'pay_g', receiptToken: 'tokentokentokentoken', status: 'CREATED' }] });
+    mockCharge(ctx, { id: 'pay_g', value: 50, netValue: 49.01, externalReference: 'guest-g1' });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_g1', { id: 'pay_g', externalReference: 'guest-g1' }));
+    const stale = { ...ctx.prisma.tables.titheGuestGift[0] };
+    // Outro processo grava um estorno de 10 entre a leitura e a troca
+    mockCharge(ctx, { id: 'pay_g', value: 50, refunds: [{ value: 10, status: 'DONE' }] });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_PARTIALLY_REFUNDED', 'evt_g2', { id: 'pay_g' }));
+    ctx.prisma.titheGuestGift.findUnique.mockImplementationOnce(async () => stale);
+    await ctx.guest.applyCharge('g1', (ctx.provider as any).mapCharge({ ...asaasPayment(), id: 'pay_g', value: 50, status: 'REFUNDED' }));
+    expect(lines(ctx).filter((t) => t.type === 'EXPENSE' && t.category === 'Ofertas').map((t) => t.amount)).toEqual([10, 40]);
+    expect(ctx.prisma.tables.titheGuestGift[0]).toMatchObject({ status: 'CANCELLED', refundedAmount: 50 });
+  });
+});
+
+describe('R4#18 — PASS_THROUGH: a devolução posterior da taxa repassada é lançada', () => {
+  it('estorno do dízimo encerra o dízimo; o da taxa, depois, sai como taxa e fecha a cobrança', async () => {
+    const ctx = setup({ intents: [gatewayIntent({ chargedAmount: 102 })], parish: { feePolicy: 'PASS_THROUGH' } });
+    mockCharge(ctx, { value: 102, netValue: 99.97 });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_pt'));
+    mockCharge(ctx, { value: 102, refunds: [{ value: 100, status: 'DONE' }] });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_PARTIALLY_REFUNDED', 'evt_r1'));
+    // Dízimo zerado: sai do histórico, mas a cobrança ainda não fechou
+    expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'CANCELLED', refundedAmount: 100, providerStatus: 'partially_refunded', contributionId: null });
+    expect(ctx.prisma.tables.titheContribution).toHaveLength(0);
+    mockCharge(ctx, { value: 102, status: 'REFUNDED', refunds: [{ value: 100, status: 'DONE' }, { value: 2, status: 'DONE' }] });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_REFUNDED', 'evt_r2'));
+    // E de novo (evento repetido / consulta): nada novo
+    await ctx.tithe.syncIntentForFinance('i1', admin);
+    expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'CANCELLED', refundedAmount: 102, providerStatus: 'refunded' });
+    const out = lines(ctx).filter((t) => t.type === 'EXPENSE').map((t) => [t.category, t.amount]);
+    expect(out).toEqual([[PROVIDER_FEE_CATEGORY, 0.03], ['Dízimo', 100], [PROVIDER_FEE_CATEGORY, 2]]);
+    // Caixa: 99,97 líquido − 102 devolvidos = −2,03 = entradas − saídas no Financeiro
+    const net = lines(ctx).reduce((sum, t) => sum + (t.type === 'INCOME' ? t.amount : -t.amount), 0);
+    expect(Math.round(net * 100) / 100).toBe(-2.03);
+    // Fiel não recebe segundo aviso de "contribuição estornada"
+    const titles = ctx.notifications.notifyUsers.mock.calls.filter((c: any[]) => c[0].includes('u-fiel')).map((c: any[]) => c[2]);
+    expect(titles.filter((t: string) => t.includes('estornada'))).toHaveLength(1);
+  });
+});
+
+describe('R4#15 — estorno parcial: telas mostram o líquido', () => {
+  const partiallyRefunded = async (over: Row = {}) => {
+    const ctx = setup({ intents: [gatewayIntent(over)] });
+    ctx.prisma.tables.community.push({ id: 'c1', name: 'Matriz', parishId: 'p1' });
+    mockCharge(ctx, {});
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_pago'));
+    mockCharge(ctx, { refunds: [{ value: 30, status: 'DONE' }] });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_PARTIALLY_REFUNDED', 'evt_p1'));
+    expect(ctx.prisma.tables.titheIntent[0]).toMatchObject({ status: 'CONFIRMED', amountPaid: 100, refundedAmount: 30 });
+    // Contribuição ligada ao Pix (no banco a relação `intent` existe; aqui não é "manual")
+    for (const c of ctx.prisma.tables.titheContribution) c.intent = { id: 'i1' };
+    return ctx;
+  };
+
+  it('relatório do mês e comprovante PDF', async () => {
+    const ctx = await partiallyRefunded();
+    const report = await ctx.tithe.monthlyReport(admin, { referenceMonth: '2026-10' });
+    expect(report.totals).toEqual({ count: 1, total: 70 });
+    const render = jest.fn(async (doc: any) => doc);
+    (ctx.tithe as any).pdfService = { renderCertificateDocument: render };
+    await ctx.tithe.receipt('i1', admin);
+    expect((render.mock.calls[0] as any[])[0].pages[0].bodyParagraphs[0]).toBe('Contribuiu com R$ 70,00');
+  });
+
+  it('extrato anual: oferta pelo líquido (o dízimo já guarda o líquido na contribuição)', async () => {
+    const render = jest.fn(async (doc: any) => doc);
+    const prisma: any = {
+      member: {
+        findFirst: jest.fn().mockResolvedValue({
+          fullName: 'Maria Dizimista',
+          community: { name: 'Matriz', parish: { name: 'Paróquia', logoUrl: null } },
+          tither: { registrationNumber: null, contributions: [{ referenceMonth: '2026-09', amount: 70, method: 'PIX', date: new Date('2026-09-05T12:00:00Z'), receiptNumber: 'TX1' }] },
+        }),
+      },
+      titheIntent: {
+        findMany: jest.fn().mockResolvedValue([{ referenceMonth: '2026-10', amount: 50, amountPaid: 50, refundedAmount: 20, confirmedAt: new Date('2026-10-05T12:00:00Z'), txid: 'TX2', paymentMethod: 'PIX', method: 'GATEWAY' }]),
+      },
+    };
+    const hierarchy: any = { canManageMember: jest.fn().mockResolvedValue(true) };
+    const tithe = new TitheService(prisma, hierarchy, { log: jest.fn() } as any, {} as any, { renderTableDocument: render } as any, {} as any, {} as any, {} as any);
+    await tithe.annualStatement(admin, 2026, 'm1');
+    const rows: string[][] = (render.mock.calls[0] as any[])[0].sections[0].rows;
+    expect(rows.find((r) => r[1] === 'Oferta')![2]).toBe('R$ 30,00');
+    expect(rows[rows.length - 1]).toEqual(['', 'TOTAL', 'R$ 100,00', '', '', '']);
+  });
+
+  it('campanha: pelo app, por meio, contribuições e promessa pelo líquido; oferta de visitante não é manual (R4#17)', async () => {
+    const ctx = await partiallyRefunded({ campaignId: 'camp1', kind: 'OFFERING' });
+    ctx.prisma.tables.titheCampaign.push({ id: 'camp1', parishId: 'p1', communityId: null, kind: 'CAMPAIGN', status: 'ACTIVE', code: 'ABC123', name: 'Reforma', description: null, goalAmount: 1000, startsAt: null, endsAt: null, allowAnonymous: true, suggestedAmounts: [], createdAt: new Date(), closedAt: null, community: null });
+    ctx.prisma.tables.titheCampaignPledge.push({ id: 'pl1', campaignId: 'camp1', memberId: 'm1', amount: 80, status: 'OPEN', member: { fullName: 'Maria Dizimista', communityId: 'c1' } });
+    // Oferta de visitante na campanha, paga no provedor
+    ctx.prisma.tables.titheGuestGift.push({ id: 'g1', parishId: 'p1', campaignId: 'camp1', name: 'Visitante', email: 'v@x.org', amount: 50, txid: 'VS1', providerRef: 'pay_g', receiptToken: 'tokentokentokentoken', status: 'CREATED', method: 'GATEWAY', paymentMethod: 'PIX', feeAmount: 0, refundedAmount: 0, amountPaid: null, providerStatus: null, financialTransactionId: null, note: null });
+    mockCharge(ctx, { id: 'pay_g', value: 50, netValue: 49.01, externalReference: 'guest-g1' });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_g1', { id: 'pay_g', externalReference: 'guest-g1' }));
+    const campaigns = new TitheCampaignsService(ctx.prisma, ctx.tithe, ctx.audit, ctx.notifications, {} as any);
+    const report: any = await campaigns.report(admin, 'camp1');
+    expect(report.appTotal).toBe(70);
+    expect(report.raised).toBe(120);
+    expect(report.manualTotal).toBe(0);
+    expect(report.contributions.map((c: any) => c.amount)).toEqual([70]);
+    expect(report.byMethod).toEqual(expect.arrayContaining([{ method: 'PIX', total: 70, count: 1 }, { method: 'GUEST', total: 50, count: 1 }]));
+    expect(report.byMethod.some((m: any) => m.method === 'MANUAL')).toBe(false);
+    expect(report.pledges.rows[0]).toMatchObject({ given: 70, fulfilled: false });
+    const guestEntry = report.entries.find((e: any) => e.type === 'INCOME');
+    expect(guestEntry).toMatchObject({ source: 'GUEST', amount: 50 });
+    // Estorno manual da oferta de visitante: recusado (o estorno vem do provedor)
+    await expect(campaigns.reverseEntry(admin, 'camp1', guestEntry.id)).rejects.toThrow('Lançamento manual não encontrado');
+  });
+});
+
+describe('R4#17 — oferta de visitante já estornada à mão (antes da correção): o provedor não estorna de novo', () => {
+  it('o estado acompanha o provedor sem segunda saída', async () => {
+    const ctx = setup({ gifts: [{ id: 'g1', parishId: 'p1', campaignId: 'camp1', name: 'Visitante', email: 'v@x.org', amount: 50, txid: 'VS1', providerRef: 'pay_g', receiptToken: 'tokentokentokentoken', status: 'CREATED' }] });
+    ctx.prisma.tables.titheCampaign.push({ id: 'camp1', name: 'Reforma', parishId: 'p1' });
+    mockCharge(ctx, { id: 'pay_g', value: 50, netValue: 49.01, externalReference: 'guest-g1' });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_RECEIVED', 'evt_g1', { id: 'pay_g', externalReference: 'guest-g1' }));
+    const gift = ctx.prisma.tables.titheGuestGift[0];
+    // Estorno manual antigo (reverseEntry sem o filtro de visitante)
+    ctx.prisma.tables.financialTransaction.push({ id: 'manual-rev', type: 'EXPENSE', category: 'Ofertas', amount: 50, campaignId: 'camp1', reversalOfId: gift.financialTransactionId, guestGiftId: null, titheIntentId: null });
+    mockCharge(ctx, { id: 'pay_g', value: 50, status: 'REFUNDED' });
+    await ctx.tithe.handleWebhook('ASAAS', 'p1', webhook('PAYMENT_REFUNDED', 'evt_g2', { id: 'pay_g' }));
+    expect(ctx.prisma.tables.titheGuestGift[0]).toMatchObject({ status: 'CANCELLED', refundedAmount: 50, providerStatus: 'refunded' });
+    // Só a saída manual antiga: nada de estorno em dobro
+    expect(lines(ctx).filter((t) => t.type === 'EXPENSE' && t.category === 'Ofertas').map((t) => t.id)).toEqual(['manual-rev']);
   });
 });

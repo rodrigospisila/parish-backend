@@ -4,6 +4,8 @@
 const fs = require('fs');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
+const { assertNotProduction } = require('../../lib/prod-guard.cjs');
+assertNotProduction('backfill-origem'); // sempre grava
 const p = new PrismaClient();
 const ler = (f) => (fs.existsSync(f) ? JSON.parse(fs.readFileSync(f, 'utf8')) : []);
 

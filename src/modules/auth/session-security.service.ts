@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, Logger, NotFoundException, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Injectable, Logger, NotFoundException, Optional, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { NotificationType, UserRole } from '@prisma/client';
@@ -12,6 +12,8 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { decryptSecret, encryptSecret, isPaymentsCryptoConfigured, keyedHash } from '../payments/payment-crypto';
 import { isRoleAtLeast } from './constants/role-hierarchy';
 import { newTotpSecret, otpauthUrl, verifyTotp } from './totp';
+import { LoginAttemptsService, loginAccountKey } from './login-attempts.service';
+import { lockUserRow } from './session-lock';
 
 export interface LoginMeta {
   ip?: string | null;
@@ -35,8 +37,14 @@ const CHALLENGE_TTL = '5m';
 const SETUP_TTL_MS = 15 * 60_000;
 const MAX_CODE_FAILURES = 5;
 const CODE_LOCK_MS = 15 * 60_000;
-/** Login com senha "recente" para ativar o 2FA sem redigitar a senha (app antigo). */
-const RECENT_AUTH_MS = 5 * 60_000;
+/**
+ * Login com senha "recente" para ativar o 2FA sem redigitar a senha (app
+ * 1.1.0, que não manda a senha). Igual à validade do QR (revisão #38): com
+ * 5 min, quem lia o QR com calma no app antigo nunca conseguia ativar.
+ */
+const RECENT_AUTH_MS = SETUP_TTL_MS;
+/** Exclusão da própria conta sem a senha (app 1.1.0 não a manda): só login de até 5 min. */
+export const ACCOUNT_DELETION_RECENT_AUTH_MS = 5 * 60_000;
 
 const normalizeCode = (code: string) => String(code ?? '').replace(/[\s-]/g, '').toUpperCase();
 /** Códigos de recuperação: HMAC sob a chave do servidor — um dump do banco não permite força bruta dos 40 bits. */
@@ -67,6 +75,12 @@ export class SessionSecurityService {
   private readonly consumedChallenges = new Map<string, number>();
   /** Falhas de código por usuário: 5 erros travam a conferência por 15 min (freio por conta, além do limite por IP). */
   private readonly codeFailures = new Map<string, { count: number; lockedUntil: number }>();
+  /**
+   * QR do 2FA gerado nesta sessão (usuário → sessão + instante). Sessão sem a
+   * claim `at` (token de antes do deploy) não prova login recente; vale então
+   * ter gerado o QR nesta mesma sessão há até 15 min (revisão #38/#58).
+   */
+  private readonly setupSessions = new Map<string, { sessionId: string | null; at: number }>();
 
   constructor(
     private readonly prisma: PrismaService,
@@ -75,6 +89,8 @@ export class SessionSecurityService {
     private readonly auditService: AuditService,
     private readonly emailService: EmailService,
     private readonly notificationsService: NotificationsService,
+    // Freio de senha por conta (revisão #42); opcional só para specs antigos
+    @Optional() private readonly loginAttempts?: LoginAttemptsService,
   ) {}
 
   // ===== desafio 2FA no login =====
@@ -209,27 +225,60 @@ export class SessionSecurityService {
 
   // ===== reautenticação =====
 
-  /** Confere a senha da própria conta (400 "Senha atual incorreta" se não bater). */
-  async assertPassword(userId: string, password: string) {
-    const user = await this.prisma.user.findUnique({ where: { id: userId }, select: { password: true } });
+  /**
+   * Confere a senha da própria conta (400 "Senha atual incorreta" se não
+   * bater). Revisão #42: as falhas contam no freio de senha do login
+   * (LoginAttemptsService, por conta + IP — a mesma chave do e-mail no
+   * login): com um access token roubado, esta conferência não vira um
+   * oráculo para testar senhas sem limite. 429 enquanto aquele IP estiver barrado.
+   */
+  async assertPassword(userId: string, password: string, meta: { ip?: string | null } = {}) {
+    const user = await this.prisma.user.findUnique({ where: { id: userId }, select: { password: true, email: true } });
     if (!user) throw new NotFoundException('Usuário não encontrado');
+    const account = loginAccountKey({ email: user.email });
+    const ip = meta.ip ?? undefined;
+    this.loginAttempts?.assertCanTry(account, ip);
     const ok = await bcrypt.compare(String(password ?? ''), user.password);
-    if (!ok) throw new BadRequestException('Senha atual incorreta');
+    if (!ok) {
+      this.loginAttempts?.recordFailure(account, ip);
+      throw new BadRequestException('Senha atual incorreta');
+    }
+    this.loginAttempts?.recordSuccess(account, ip);
+  }
+
+  /** Login COM SENHA desta sessão (claim `at`, atravessa as renovações) há no máximo `windowMs`. */
+  isRecentAuth(authTime: number | null | undefined, windowMs: number): boolean {
+    const at = typeof authTime === 'number' ? authTime * 1000 : 0;
+    return !!at && Date.now() - at <= windowMs;
   }
 
   /**
    * Ação sensível com um access token na mão (M5): exige a senha atual. Sem
-   * a senha, só aceita se o login COM SENHA desta sessão foi há menos de 5
-   * minutos (`authTime`, claim `at` — atravessa as renovações, então um token
-   * roubado de uma sessão antiga não serve). Cobre o app 1.1.0, que não manda a senha.
+   * a senha, só aceita se o login COM SENHA desta sessão foi há até 15 min
+   * (`authTime`, claim `at` — atravessa as renovações, então um token roubado
+   * de uma sessão antiga não serve). Sessão sem a claim (token de antes do
+   * deploy): aceita se o QR foi gerado NESTA sessão há até 15 min. Cobre o
+   * app 1.1.0, que não manda a senha.
    */
-  async assertRecentAuth(user: { id: string; authTime?: number | null }, password?: string | null) {
-    if (password) return this.assertPassword(user.id, password);
-    const authTime = typeof user.authTime === 'number' ? user.authTime * 1000 : 0;
-    if (authTime && Date.now() - authTime <= RECENT_AUTH_MS) return;
+  async assertRecentAuth(
+    user: { id: string; authTime?: number | null; sessionId?: string | null },
+    password?: string | null,
+    meta: { ip?: string | null } = {},
+  ) {
+    if (password) return this.assertPassword(user.id, password, meta);
+    if (this.isRecentAuth(user.authTime, RECENT_AUTH_MS)) return;
+    if (typeof user.authTime !== 'number' && this.setupStartedInSession(user.id, user.sessionId ?? null)) return;
     throw new BadRequestException(
-      'Por segurança, confirme a sua senha atual para ativar. No app, atualize-o ou saia e entre de novo e ative em seguida.',
+      'Por segurança, confirme a sua senha atual para ativar — sem a senha, só até 15 minutos depois de entrar com e-mail e senha. ' +
+        'No app, atualize-o ou saia, entre de novo e ative em seguida.',
     );
+  }
+
+  /** QR gerado por esta sessão (mesmo `sid`) há até 15 min. */
+  private setupStartedInSession(userId: string, sessionId: string | null): boolean {
+    const entry = this.setupSessions.get(userId);
+    if (!entry || Date.now() - entry.at > SETUP_TTL_MS) return false;
+    return entry.sessionId === sessionId;
   }
 
   // ===== configuração do 2FA pelo próprio usuário =====
@@ -247,13 +296,17 @@ export class SessionSecurityService {
   }
 
   /** Gera um segredo pendente (não ativa): o app autenticador lê o QR e o usuário confirma com um código em até 15 min. */
-  async setup(userId: string) {
+  async setup(userId: string, sessionId: string | null = null) {
     if (!isPaymentsCryptoConfigured()) throw new BadRequestException('Servidor sem PAYMENTS_ENCRYPTION_KEY — o segredo do 2FA precisa ser cifrado');
     const user = await this.prisma.user.findUnique({ where: { id: userId }, select: { email: true, twoFactorEnabled: true } });
     if (!user) throw new NotFoundException('Usuário não encontrado');
     if (user.twoFactorEnabled) throw new BadRequestException('O segundo fator já está ativo — desative antes de configurar outro');
     const secret = newTotpSecret();
     await this.prisma.user.update({ where: { id: userId }, data: { twoFactorSecret: encryptSecret(secret), twoFactorLastStep: null, twoFactorSetupAt: new Date() } });
+    if (this.setupSessions.size > 10_000) {
+      for (const [id, entry] of this.setupSessions) if (Date.now() - entry.at > SETUP_TTL_MS) this.setupSessions.delete(id);
+    }
+    this.setupSessions.set(userId, { sessionId, at: Date.now() });
     const url = otpauthUrl(ISSUER, user.email, secret);
     const qrDataUrl = await QRCode.toDataURL(url, { margin: 1, width: 240, errorCorrectionLevel: 'M' });
     void this.auditService.log({ actor: { id: userId, email: user.email } as any, action: 'TWO_FACTOR_SETUP', entity: 'User', entityId: userId }).catch(() => undefined);
@@ -282,18 +335,23 @@ export class SessionSecurityService {
     const step = verifyTotp(secret, code);
     if (step == null) throw new BadRequestException('Código inválido — confira o horário do celular e tente de novo');
     const codes = Array.from({ length: BACKUP_CODES }, () => randomBytes(5).toString('hex').toUpperCase().replace(/(.{5})(.{5})/, '$1-$2'));
-    await this.prisma.user.update({
-      where: { id: userId },
-      data: {
-        twoFactorEnabled: true,
-        twoFactorEnabledAt: new Date(),
-        twoFactorLastStep: step,
-        twoFactorBackupCodes: codes.map(hashCode),
-        twoFactorSetupAt: null,
-        sessionsRevokedAt: revocationInstant(),
-      },
+    // Revogação sob a trava da linha do usuário (#39): um refresh em andamento não sobrevive
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, userId);
+      await tx.user.update({
+        where: { id: userId },
+        data: {
+          twoFactorEnabled: true,
+          twoFactorEnabledAt: new Date(),
+          twoFactorLastStep: step,
+          twoFactorBackupCodes: codes.map(hashCode),
+          twoFactorSetupAt: null,
+          sessionsRevokedAt: revocationInstant(),
+        },
+      });
+      await tx.refreshToken.deleteMany({ where: { userId } });
     });
-    await this.prisma.refreshToken.deleteMany({ where: { userId } });
+    this.setupSessions.delete(userId);
     await this.auditService.log({ actor: { id: userId, email: user.email } as any, action: 'TWO_FACTOR_ENABLED', entity: 'User', entityId: userId, metadata: { sessionsRevoked: true } });
     this.notifyAccount(
       user,
@@ -332,11 +390,14 @@ export class SessionSecurityService {
     if (!inScope) throw new ForbiddenException('Usuário fora do seu escopo');
     const outranks = actor.role === UserRole.SYSTEM_ADMIN || !isRoleAtLeast(target.role, actor.role);
     if (!outranks) throw new ForbiddenException('Só um papel acima do usuário pode redefinir o segundo fator dele');
-    await this.prisma.user.update({
-      where: { id: targetUserId },
-      data: { twoFactorEnabled: false, twoFactorSecret: null, twoFactorEnabledAt: null, twoFactorLastStep: null, twoFactorSetupAt: null, twoFactorBackupCodes: [], sessionsRevokedAt: revocationInstant() },
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, targetUserId);
+      await tx.user.update({
+        where: { id: targetUserId },
+        data: { twoFactorEnabled: false, twoFactorSecret: null, twoFactorEnabledAt: null, twoFactorLastStep: null, twoFactorSetupAt: null, twoFactorBackupCodes: [], sessionsRevokedAt: revocationInstant() },
+      });
+      await tx.refreshToken.deleteMany({ where: { userId: targetUserId } });
     });
-    await this.prisma.refreshToken.deleteMany({ where: { userId: targetUserId } });
     this.codeFailures.delete(targetUserId);
     await this.auditService.log({ actor: actor as any, action: 'TWO_FACTOR_RESET', entity: 'User', entityId: targetUserId, metadata: { wasEnabled: target.twoFactorEnabled, sessionsRevoked: true } });
     this.notifyAccount(
@@ -424,10 +485,18 @@ export class SessionSecurityService {
     return { forgotten: true, current };
   }
 
-  /** Derruba todas as sessões da conta: refresh tokens somem e access tokens anteriores são recusados. */
+  /**
+   * Derruba todas as sessões da conta: refresh tokens somem e access tokens
+   * anteriores são recusados. Sob a trava da linha do usuário (#39): um
+   * refresh em andamento termina antes (e o token novo dele cai aqui) ou
+   * começa depois (e já não encontra o token).
+   */
   async revokeSessions(userId: string) {
-    await this.prisma.user.update({ where: { id: userId }, data: { sessionsRevokedAt: revocationInstant() } });
-    await this.prisma.refreshToken.deleteMany({ where: { userId } });
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, userId);
+      await tx.user.update({ where: { id: userId }, data: { sessionsRevokedAt: revocationInstant() } });
+      await tx.refreshToken.deleteMany({ where: { userId } });
+    });
   }
 
   /** Auditoria de segurança da própria conta (últimos eventos). */

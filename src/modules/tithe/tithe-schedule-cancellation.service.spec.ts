@@ -183,3 +183,62 @@ describe('TitheScheduleCancellationService', () => {
     });
   });
 });
+
+/**
+ * R4#20: a anonimização encerrava o dízimo automático, mas o Pix/boleto avulso
+ * ainda aberto do membro seguia pagável no provedor.
+ */
+describe('TitheScheduleCancellationService — cobranças avulsas na anonimização (R4#20)', () => {
+  const parish = { paymentProvider: 'ASAAS', providerEnv: 'sandbox', providerApiKeyEnc: 'cifrada', providerWebhookToken: 't' };
+  const intents = [
+    { id: 'i-vivo', parishId: 'p1', providerRef: 'pay_vivo' },
+    { id: 'i-pago', parishId: 'p1', providerRef: 'pay_pago' },
+    { id: 'i-falha', parishId: 'p1', providerRef: 'pay_falha' },
+  ];
+
+  function setup() {
+    const prisma: any = {
+      titheIntent: { findMany: jest.fn().mockResolvedValue(intents), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      parish: { findUnique: jest.fn().mockResolvedValue(parish) },
+    };
+    const status: Record<string, string> = { pay_vivo: 'pending', pay_pago: 'received', pay_falha: 'pending' };
+    // Provedor simulado: nenhuma chamada real
+    const provider = {
+      getCharge: jest.fn(async (ref: string) => ({ providerRef: ref, status: status[ref] })),
+      cancelCharge: jest.fn(async (ref: string) => {
+        if (ref === 'pay_falha') throw new Error('provedor recusou');
+      }),
+    };
+    const payments: any = { hasProvider: () => true, forParish: jest.fn(() => provider) };
+    return { service: new TitheScheduleCancellationService(prisma, payments), prisma, provider };
+  }
+
+  it('cancela no provedor e encerra só o que não foi pago; falha fica aberta para a expiração', async () => {
+    const ctx = setup();
+    const out = await ctx.service.cancelOpenChargesForMember('m1');
+    expect(out).toEqual({ done: 1, failed: 1 });
+    expect(ctx.prisma.titheIntent.findMany).toHaveBeenCalledWith(
+      expect.objectContaining({ where: expect.objectContaining({ memberId: 'm1', status: { in: ['CREATED', 'DECLARED'] }, method: 'GATEWAY' }) }),
+    );
+    expect(ctx.provider.cancelCharge).toHaveBeenCalledWith('pay_vivo');
+    // Já pago no provedor: o webhook liquida, nada é cancelado
+    expect(ctx.provider.cancelCharge).not.toHaveBeenCalledWith('pay_pago');
+    expect(ctx.prisma.titheIntent.updateMany).toHaveBeenCalledTimes(1);
+    expect(ctx.prisma.titheIntent.updateMany).toHaveBeenCalledWith({
+      where: { id: 'i-vivo', status: { in: ['CREATED', 'DECLARED'] } },
+      data: { status: 'CANCELLED', note: 'Cancelado na remoção do cadastro (LGPD)', providerStatus: 'cancelled' },
+    });
+  });
+
+  it('o gancho pós-commit da anonimização também encerra as cobranças avulsas', async () => {
+    const cancel = {
+      cancelSchedulesForMember: jest.fn(),
+      cancelPendingAtProvider: jest.fn().mockRejectedValue(new Error('banco fora')),
+      cancelOpenChargesForMember: jest.fn().mockResolvedValue({ done: 1, failed: 0 }),
+    };
+    const members = new MembersService({} as any, {} as any, {} as any, cancel as any);
+    await expect(members.cancelTitheAtProviderAfterCommit('m1')).resolves.toBeUndefined();
+    // Mesmo com o dízimo automático falhando, as avulsas são tratadas
+    expect(cancel.cancelOpenChargesForMember).toHaveBeenCalledWith('m1');
+  });
+});

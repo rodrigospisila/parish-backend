@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException, Optional } from '@nestjs/common';
-import { ReservationStatus, UserRole } from '@prisma/client';
+import { NotificationType, ReservationStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
@@ -8,6 +8,7 @@ import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { civilDayOrNull, todayCivil } from '../catechesis/civil-date';
 import { PlanAccessService } from '../plans/plan-access.service';
 import { planMark } from '../../common/plan-list';
+import { NotificationsService } from '../notifications/notifications.service';
 
 /** Status que contam como "sala ocupada" no horário. */
 const ACTIVE_RESERVATION: ReservationStatus[] = [ReservationStatus.PENDING, ReservationStatus.APPROVED];
@@ -24,6 +25,8 @@ export class RoomsService {
     private readonly auditService: AuditService,
     // Plano por comunidade nas listas (M35). Opcional: specs montam sem ele
     @Optional() private readonly planAccess?: PlanAccessService,
+    // Aviso de reserva pendente à coordenação (best-effort; specs montam sem ele)
+    @Optional() private readonly notificationsService?: NotificationsService,
   ) {}
 
   private canManage(role: UserRole) {
@@ -214,11 +217,101 @@ export class RoomsService {
       entity: 'RoomReservation',
       entityId: reservation.id,
     });
+    // Pedido PENDING: avisa quem aprova — antes ninguém sabia que havia pedido
+    if (reservation.status === ReservationStatus.PENDING) {
+      await this.notifyApprovers(room, reservation, user);
+    }
     return reservation;
   }
 
+  /**
+   * Quem aprova as reservas da sala: a coordenação da COMUNIDADE (contas
+   * ativas); sem ela, a administração da paróquia. Nunca o próprio autor.
+   */
+  private async approverUserIds(room: { communityId: string }, exceptUserId: string): Promise<string[]> {
+    const coordinators = await this.prisma.user.findMany({
+      where: { communityId: room.communityId, role: UserRole.COMMUNITY_COORDINATOR, isActive: true, id: { not: exceptUserId } },
+      select: { id: true },
+    });
+    if (coordinators.length) return coordinators.map((u) => u.id);
+    const community = await this.prisma.community.findUnique({
+      where: { id: room.communityId },
+      select: { parishId: true },
+    });
+    if (!community?.parishId) return [];
+    const parishAdmins = await this.prisma.user.findMany({
+      where: { parishId: community.parishId, role: UserRole.PARISH_ADMIN, isActive: true, id: { not: exceptUserId } },
+      select: { id: true },
+    });
+    return parishAdmins.map((u) => u.id);
+  }
+
+  private async notifyApprovers(
+    room: { id: string; name: string; communityId: string },
+    reservation: { id: string; title: string; startTime: Date },
+    user: CurrentUser,
+  ) {
+    if (!this.notificationsService) return;
+    try {
+      const recipients = await this.approverUserIds(room, user.id);
+      if (!recipients.length) return;
+      const when = reservation.startTime.toLocaleString('pt-BR', {
+        timeZone: 'America/Sao_Paulo',
+        day: '2-digit',
+        month: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      });
+      await this.notificationsService.notifyUsers(
+        recipients,
+        NotificationType.TEAM_BROADCAST,
+        `Reserva aguardando aprovação — ${room.name}`,
+        `"${reservation.title}" em ${when}. Aprove ou recuse em Reserva de Espaços.`,
+        { kind: 'room-reservation', roomId: room.id, reservationId: reservation.id },
+        // Aviso operacional: push → e-mail, sem SMS cobrado
+        { bulk: true },
+      );
+    } catch {
+      // sem push, o pedido continua na lista "aguardando aprovação"
+    }
+  }
+
+  /**
+   * Reservas AGUARDANDO APROVAÇÃO (ainda por acontecer). Quem aprova vê as
+   * do seu escopo; o coordenador de pastoral, os pedidos dele.
+   */
+  async listPendingReservations(user: CurrentUser, communityId?: string) {
+    const roomWhere: any = { deletedAt: null };
+    if (communityId) {
+      const inScope = await this.hierarchyService.isCommunityInScope(user, communityId);
+      if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+      roomWhere.communityId = communityId;
+    } else {
+      const scope = communityScopeWhere(user);
+      if (!scope) return [];
+      if (Object.keys(scope).length) roomWhere.community = scope;
+    }
+    const where: any = { status: ReservationStatus.PENDING, endTime: { gt: new Date() }, room: roomWhere };
+    if (!this.canApprove(user.role)) where.requesterUserId = user.id;
+    const reservations = await this.prisma.roomReservation.findMany({
+      where,
+      include: { room: { select: { id: true, name: true, communityId: true } } },
+      orderBy: { startTime: 'asc' },
+      take: 200,
+    });
+    const requesterIds = [...new Set(reservations.map((r) => r.requesterUserId).filter((id): id is string => !!id))];
+    const requesters = requesterIds.length
+      ? await this.prisma.user.findMany({ where: { id: { in: requesterIds } }, select: { id: true, name: true } })
+      : [];
+    const nameById = new Map(requesters.map((u) => [u.id, u.name]));
+    return reservations.map((r) => ({
+      ...r,
+      requesterName: r.requesterUserId ? (nameById.get(r.requesterUserId) ?? null) : null,
+      mine: r.requesterUserId === user.id,
+    }));
+  }
+
   async setReservationStatus(id: string, status: ReservationStatus, user: CurrentUser) {
-    if (!this.canApprove(user.role)) throw new ForbiddenException('Sem permissão');
     if (!Object.values(ReservationStatus).includes(status)) {
       throw new BadRequestException('Status inválido');
     }
@@ -229,6 +322,28 @@ export class RoomsService {
     if (!reservation) throw new NotFoundException('Reserva não encontrada');
     const inScope = await this.hierarchyService.isCommunityInScope(user, reservation.room.communityId);
     if (!inScope) throw new ForbiddenException('Fora do seu escopo');
+    // Aprovar/recusar/reabrir é da coordenação da comunidade; quem PEDIU só
+    // pode cancelar a própria reserva (pendente ou aprovada)
+    if (!this.canApprove(user.role)) {
+      if (status !== ReservationStatus.CANCELLED) {
+        throw new ForbiddenException('Só a coordenação da comunidade aprova ou recusa reservas');
+      }
+      if (!reservation.requesterUserId || reservation.requesterUserId !== user.id) {
+        throw new ForbiddenException('Você só pode cancelar as reservas que pediu');
+      }
+      if (!ACTIVE_RESERVATION.includes(reservation.status)) {
+        throw new BadRequestException('Esta reserva já não está ativa');
+      }
+      const cancelled = await this.prisma.roomReservation.update({ where: { id }, data: { status } });
+      await this.auditService.log({
+        actor: { id: user.id, email: user.email, role: user.role },
+        action: 'UPDATE',
+        entity: 'RoomReservation',
+        entityId: id,
+        metadata: { status, byRequester: true },
+      });
+      return cancelled;
+    }
 
     // Voltar a ocupar a sala (aprovar, ou reabrir como PENDING uma recusada/
     // cancelada) revalida o conflito com a sala travada — reabrir sem checar

@@ -22,12 +22,12 @@ import { ScheduleConflictsService } from '../../common/schedule-conflicts.servic
 import {
   ScheduleTimeInput,
   formatYmdBR,
-  isMidnightUtc,
+  normalizeStandaloneScheduleDate,
+  parseYmd,
   scheduleCivilDay,
   scheduleStart,
   scheduleWindow,
   todayYmd,
-  utcYmd,
   zonedDayRange,
   zonedMinutesOfDay,
   zonedParts,
@@ -68,7 +68,14 @@ interface CreatedAssignmentNotice {
   id: string;
   memberId: string;
   scheduleId: string;
-  schedule: { title: string; date: Date; startTime: string | null; community?: any; event?: any };
+  schedule: {
+    title: string;
+    date: Date;
+    startTime: string | null;
+    endTime?: string | null;
+    community?: any;
+    event?: any;
+  };
 }
 
 @Injectable()
@@ -95,12 +102,35 @@ export class SchedulesService {
   }
 
   /**
-   * Dia da escala em dd/mm/aaaa. Só-dia (00:00Z, agenda fixa/avulsa) é o dia
-   * UTC; instante real é o dia no fuso da paróquia — no TZ do processo, o
-   * 00:00Z virava o dia ANTERIOR (A17).
+   * Dia da escala em dd/mm/aaaa, decidido pela escala INTEIRA (com event e
+   * startTime): sem evento, date só-dia 00:00Z é o dia UTC; com evento, é o
+   * dia de Brasília do início — a Missa do Natal de 24/12 às 21:00 grava
+   * 25/12 00:00Z e olhar só a data a rotulava 25/12 (A17, R3#46).
    */
-  private formatDateLabel(date: Date): string {
-    return formatYmdBR(isMidnightUtc(date) ? utcYmd(date) : zonedYmd(date));
+  private formatDateLabel(schedule: ScheduleTimeInput): string {
+    return formatYmdBR(scheduleCivilDay(schedule));
+  }
+
+  /**
+   * Dia civil (AAAA-MM-DD) de um filtro "de/até" da query. Aceita só-dia, a
+   * convenção do painel (dia em UTC: 'AAAA-MM-DDT00:00:00.000Z' no "de" e
+   * 'AAAA-MM-DDT23:59:59.999Z' no "até") e qualquer outro instante, que vale
+   * pelo dia de Brasília.
+   */
+  private parseFilterDay(value: string, message: string): string {
+    const raw = String(value ?? '').trim();
+    const panelDay = /^(\d{4}-\d{2}-\d{2})(?:T(?:00:00:00(?:\.000)?|23:59:59(?:\.999)?)Z)?$/.exec(raw);
+    if (panelDay && parseYmd(panelDay[1])) return panelDay[1];
+    const instant = new Date(raw);
+    if (!raw || Number.isNaN(instant.getTime())) {
+      throw new BadRequestException(message);
+    }
+    return zonedYmd(instant);
+  }
+
+  /** Data de filtro vinda da query (só-dia ou instante) em dd/mm/aaaa. */
+  private formatQueryDateLabel(value: string): string {
+    return formatYmdBR(this.parseFilterDay(value, 'Data do período inválida'));
   }
 
   /**
@@ -813,12 +843,19 @@ export class SchedulesService {
    * Ancorada diretamente na comunidade + horário próprio.
    */
   async createStandaloneSchedule(dto: CreateStandaloneScheduleDto, currentUser: CurrentUser) {
-    const scheduleDate = this.toDateOrThrow(dto.date);
+    // Escala avulsa: date é só-dia (00:00Z do dia CIVIL da paróquia) e a hora
+    // vem em startTime. O painel manda o datetime-local como instante (22:00
+    // de 10/10 = 01:00Z de 11/10): o dia sai do fuso da paróquia e, sem
+    // startTime, a hora sai do próprio instante (R3#45). Só-dia sem horário
+    // vale o dia inteiro — hoje ainda pode.
+    const normalized = normalizeStandaloneScheduleDate(dto.date, dto.startTime);
+    if (!normalized) {
+      throw new BadRequestException('Data da escala informada e inválida');
+    }
+    const { date: scheduleDate, startTime } = normalized;
     const now = new Date();
-    // Escala avulsa: date é só-dia e a hora vem em startTime (fuso da
-    // paróquia). Sem horário, vale o dia inteiro — hoje ainda pode.
-    const standaloneTime = { date: scheduleDate, startTime: dto.startTime ?? null };
-    const isPast = dto.startTime
+    const standaloneTime = { date: scheduleDate, startTime };
+    const isPast = startTime
       ? scheduleStart(standaloneTime).getTime() < now.getTime()
       : scheduleCivilDay(standaloneTime) < todayYmd(now);
     if (isPast) {
@@ -856,7 +893,7 @@ export class SchedulesService {
         description: dto.description ?? null,
         date: scheduleDate,
         communityId: dto.communityId,
-        startTime: dto.startTime ?? null,
+        startTime,
         endTime: dto.endTime ?? null,
         location: dto.location ?? null,
         status: ScheduleStatus.OPEN,
@@ -1242,10 +1279,13 @@ export class SchedulesService {
     // pode virar "todas as pastorais da escala")
     const scopedPastoralIds = await this.requireCoordinatedPastoralIds(currentUser);
 
-    // Verificar se a escala existe (excluída não recebe convocação)
+    // Verificar se a escala existe (excluída não recebe convocação). O evento
+    // entra para o início efetivo: escala de evento às 21:00 grava 00:00Z e,
+    // sem ele, parecia só-dia do dia seguinte (R3#46)
     const schedule = await this.prisma.schedule.findFirst({
       where: { id: scheduleId, deletedAt: null },
       include: {
+        event: { select: { startDate: true, endDate: true } },
         pastorals: {
           select: {
             communityPastoralId: true,
@@ -1426,8 +1466,12 @@ export class SchedulesService {
             title: true,
             date: true,
             startTime: true,
+            endTime: true,
             community: { select: { id: true, name: true } },
-            event: { select: { community: { select: { id: true, name: true } } } },
+            // startDate/endDate: o rótulo do aviso decide o dia pela escala inteira
+            event: {
+              select: { startDate: true, endDate: true, community: { select: { id: true, name: true } } },
+            },
           },
         },
         member: {
@@ -1485,7 +1529,7 @@ export class SchedulesService {
       createdAssignment.memberId,
       NotificationType.ASSIGNMENT_CREATED,
       'Nova escala',
-      `Voce foi escalado(a) para "${createdAssignment.schedule.title}"${createdCommunity ? ` · ${createdCommunity.name}` : ''} em ${this.formatDateLabel(createdAssignment.schedule.date)}${createdAssignment.schedule.startTime ? ` às ${createdAssignment.schedule.startTime}` : ''}.`,
+      `Voce foi escalado(a) para "${createdAssignment.schedule.title}"${createdCommunity ? ` · ${createdCommunity.name}` : ''} em ${this.formatDateLabel(createdAssignment.schedule)}${createdAssignment.schedule.startTime ? ` às ${createdAssignment.schedule.startTime}` : ''}.`,
       {
         scheduleId: createdAssignment.scheduleId,
         assignmentId: createdAssignment.id,
@@ -1879,6 +1923,8 @@ export class SchedulesService {
     const schedule = await this.prisma.schedule.findUnique({
       where: { id: assignment.scheduleId },
       include: {
+        // Início efetivo da escala de evento (R3#46)
+        event: { select: { startDate: true, endDate: true } },
         pastorals: {
           select: {
             communityPastoralId: true,
@@ -2069,6 +2115,13 @@ export class SchedulesService {
               id: true,
               title: true,
               date: true,
+              startTime: true,
+              endTime: true,
+              // Comunidade e início do evento: rótulo e comunidade do aviso
+              community: { select: { id: true, name: true } },
+              event: {
+                select: { startDate: true, endDate: true, community: { select: { id: true, name: true } } },
+              },
             },
           },
           member: {
@@ -2120,7 +2173,7 @@ export class SchedulesService {
       newMemberId,
       NotificationType.ASSIGNMENT_REPLACED,
       'Voce foi escalado(a)',
-      `Voce foi escalado(a) para "${newAssignment.schedule.title}"${replacedCommunity ? ` · ${replacedCommunity.name}` : ''} em ${this.formatDateLabel(newAssignment.schedule.date)} (substituicao).`,
+      `Voce foi escalado(a) para "${newAssignment.schedule.title}"${replacedCommunity ? ` · ${replacedCommunity.name}` : ''} em ${this.formatDateLabel(newAssignment.schedule)} (substituicao).`,
       {
         scheduleId: assignment.scheduleId,
         assignmentId: newAssignment.id,
@@ -3808,9 +3861,11 @@ export class SchedulesService {
             id: true,
             title: true,
             date: true,
+            startTime: true,
+            endTime: true,
             communityId: true,
             event: {
-              select: { communityId: true },
+              select: { communityId: true, startDate: true, endDate: true },
             },
           },
         },
@@ -3830,7 +3885,7 @@ export class SchedulesService {
         coordinatorUserIds,
         NotificationType.ASSIGNMENT_DECLINED,
         'Recusa em escala',
-        `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule.date)}). Funcao: ${updatedAssignment.role}.`,
+        `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule)}). Funcao: ${updatedAssignment.role}.`,
         { scheduleId: updatedAssignment.scheduleId, assignmentId: updatedAssignment.id },
       );
     }
@@ -3880,7 +3935,7 @@ export class SchedulesService {
             [spouseAssignment.member.userId],
             NotificationType.ASSIGNMENT_DECLINED,
             'Escala recusada em casal',
-            `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule.date)}) por vocês dois.`,
+            `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule)}) por vocês dois.`,
             { scheduleId: updatedAssignment.scheduleId, assignmentId: spouseAssignment.id },
           );
         }
@@ -3920,34 +3975,35 @@ export class SchedulesService {
     where.AND = overviewAndConditions;
 
     if (from || to) {
-      const dateFilter: any = {};
+      // Dia civil do filtro. Schedule.date tem duas semânticas (R3#48): sem
+      // evento é só-dia (00:00Z do dia) e com evento é instante real — um
+      // único intervalo de instantes punha no "até" a escala só-dia do dia
+      // SEGUINTE (00:00Z < 23:59 de Brasília) e no "de" a Missa das 21h do
+      // dia ANTERIOR (00:00Z). Cada semântica tem o próprio corte.
+      const fromDay = from ? this.parseFilterDay(from, 'Data inicial (from) inválida') : null;
+      const toDay = to ? this.parseFilterDay(to, 'Data final (to) inválida') : null;
 
-      if (from) {
-        const fromDate = new Date(from);
-        if (Number.isNaN(fromDate.getTime())) {
-          throw new BadRequestException('Data inicial (from) inválida');
-        }
-
-        dateFilter.gte = fromDate;
-      }
-
-      if (to) {
-        const toDate = new Date(to);
-        if (Number.isNaN(toDate.getTime())) {
-          throw new BadRequestException('Data final (to) inválida');
-        }
-
-        // Considera ate o fim do dia informado, no fuso da paroquia (setHours
-        // usava o fuso do processo e cortava o proprio dia final)
-        const toDay = /^\d{4}-\d{2}-\d{2}$/.test(String(to).trim()) ? String(to).trim() : zonedYmd(toDate);
-        dateFilter.lte = zonedDayRange(toDay).end;
-      }
-
-      if (dateFilter.gte && dateFilter.lte && dateFilter.gte.getTime() > dateFilter.lte.getTime()) {
+      if (fromDay && toDay && fromDay > toDay) {
         throw new BadRequestException('Data inicial não pode ser maior que data final');
       }
 
-      where.date = dateFilter;
+      const dayOnlyFilter: any = {};
+      const instantFilter: any = {};
+      if (fromDay) {
+        dayOnlyFilter.gte = new Date(`${fromDay}T00:00:00.000Z`);
+        instantFilter.gte = zonedDayRange(fromDay).start;
+      }
+      if (toDay) {
+        // Considera ate o fim do dia informado, no fuso da paroquia
+        dayOnlyFilter.lte = new Date(`${toDay}T00:00:00.000Z`);
+        instantFilter.lte = zonedDayRange(toDay).end;
+      }
+      overviewAndConditions.push({
+        OR: [
+          { eventId: null, date: dayOnlyFilter },
+          { eventId: { not: null }, date: instantFilter },
+        ],
+      });
     }
 
     const schedules = await this.prisma.schedule.findMany({
@@ -3959,6 +4015,9 @@ export class SchedulesService {
             title: true,
             type: true,
             location: true,
+            // Início/fim: cabeçalho do PDF no horário real da escala
+            startDate: true,
+            endDate: true,
             community: {
               select: {
                 id: true,
@@ -4104,9 +4163,13 @@ export class SchedulesService {
       const community = schedule.event?.community?.name;
       const location = schedule.event?.location;
       const subheadingParts = [community, location].filter(Boolean);
+      // Início efetivo: só-dia (00:00Z) + startTime, ou o horário do evento —
+      // a data crua da escala só-dia saía como 21:00 do dia anterior
+      const realEvent: any = schedule.event?.id ? schedule.event : null;
+      const start = scheduleStart({ date: schedule.date, startTime: schedule.startTime, event: realEvent });
 
       return {
-        heading: `${this.formatDateTimeLabel(schedule.date)} — ${schedule.event?.title || schedule.title}`,
+        heading: `${this.formatDateTimeLabel(start)} — ${schedule.event?.title || schedule.title}`,
         subheading: subheadingParts.length ? subheadingParts.join(' · ') : undefined,
         columns: ['Função', 'Membro', 'Situação'],
         widths: [2, 4, 2],
@@ -4129,8 +4192,8 @@ export class SchedulesService {
     }
 
     const periodParts: string[] = [];
-    if (from) periodParts.push(`de ${this.formatDateLabel(new Date(from))}`);
-    if (to) periodParts.push(`até ${this.formatDateLabel(new Date(to))}`);
+    if (from) periodParts.push(`de ${this.formatQueryDateLabel(from)}`);
+    if (to) periodParts.push(`até ${this.formatQueryDateLabel(to)}`);
 
     return this.pdfService.renderTableDocument({
       title: 'Escala de Serviço',
@@ -4204,7 +4267,14 @@ export class SchedulesService {
   async updateScheduleStatus(scheduleId: string, status: ScheduleStatus, currentUser?: CurrentUser) {
     const schedule = await this.prisma.schedule.findUnique({
       where: { id: scheduleId },
-      select: { id: true, title: true, date: true },
+      select: {
+        id: true,
+        title: true,
+        date: true,
+        startTime: true,
+        endTime: true,
+        event: { select: { startDate: true, endDate: true } },
+      },
     });
 
     if (!schedule) {
@@ -4224,7 +4294,7 @@ export class SchedulesService {
     });
 
     if (status === ScheduleStatus.CANCELLED) {
-      await this.notifyScheduleCancelled(schedule.id, schedule.title, schedule.date);
+      await this.notifyScheduleCancelled(schedule.id, schedule.title, schedule);
     }
 
     return updatedSchedule;
@@ -4243,7 +4313,7 @@ export class SchedulesService {
     return [...new Set(userIds)];
   }
 
-  private async notifyScheduleCancelled(scheduleId: string, title: string, date: Date) {
+  private async notifyScheduleCancelled(scheduleId: string, title: string, schedule: ScheduleTimeInput) {
     const userIds = await this.getAssignedUserIds(scheduleId);
 
     if (userIds.length === 0) {
@@ -4254,7 +4324,7 @@ export class SchedulesService {
       userIds,
       NotificationType.SCHEDULE_CANCELLED,
       'Escala cancelada',
-      `A escala "${title}" em ${this.formatDateLabel(date)} foi cancelada.`,
+      `A escala "${title}" em ${this.formatDateLabel(schedule)} foi cancelada.`,
       { scheduleId },
     );
   }

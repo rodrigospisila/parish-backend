@@ -10,6 +10,7 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { CancelOccurrencesDto } from './dto/cancel-occurrences.dto';
 import { CreateMassScheduleDto } from './dto/create-mass-schedule.dto';
+import { UpdateMassScheduleDto } from './dto/update-mass-schedule.dto';
 
 describe('MassSchedulesService — agenda fixa', () => {
   let service: MassSchedulesService;
@@ -30,6 +31,8 @@ describe('MassSchedulesService — agenda fixa', () => {
         delete: jest.fn().mockResolvedValue({}),
       },
       massScheduleFavorite: { findMany: jest.fn().mockResolvedValue([]) },
+      // UF das comunidades (generate-pending corta no "hoje" de cada uma)
+      community: { findMany: jest.fn().mockResolvedValue([]) },
       schedule: {
         findMany: jest.fn().mockResolvedValue([]),
         findFirst: jest.fn().mockResolvedValue(null),
@@ -262,6 +265,8 @@ describe('MassSchedulesService — agenda fixa', () => {
 
     beforeEach(() => {
       jest.spyOn(service as any, 'todaySaoPaulo').mockReturnValue(HOJE);
+      // Suspender e avisar usam o "hoje" da UF da comunidade (R3#53)
+      jest.spyOn(service as any, 'todayIn').mockReturnValue(HOJE);
       prisma.massSchedule.findUnique.mockResolvedValue(confissao());
       prisma.massScheduleCancellation.upsert.mockImplementation(({ create }: any) =>
         Promise.resolve(linha(create.date.toISOString().slice(0, 10), create.reason)),
@@ -565,8 +570,9 @@ describe('MassSchedulesService — agenda fixa', () => {
       plainToInstance(CreateMassScheduleDto, { time, type: 'MASS', communityId: 'c1', dayOfWeek: 0 });
 
     it('time aceita só HH:MM de 00:00 a 23:59', async () => {
-      for (const ok of ['00:00', '07:30', '19:00', '23:59']) expect(await validate(dto(ok))).toHaveLength(0);
-      for (const ruim of ['25:70', '24:00', '7:30', '07:60', '19h', '']) {
+      // "7:30" (legado) é normalizado para "07:30" antes da validação (R3#49)
+      for (const ok of ['00:00', '07:30', '7:30', '19:00', '23:59']) expect(await validate(dto(ok))).toHaveLength(0);
+      for (const ruim of ['25:70', '24:00', '9:60', '07:60', '19h', '']) {
         const erros = await validate(dto(ruim));
         expect(erros.map((e) => e.property)).toContain('time');
       }
@@ -767,6 +773,153 @@ describe('MassSchedulesService — agenda fixa', () => {
       await service.update('m1', { notes: 'Com coral' } as any, parishAdmin);
       expect(prisma.massSchedule.findMany).not.toHaveBeenCalled();
       expect(prisma.massSchedule.update).toHaveBeenCalled();
+    });
+
+    // O painel manda o formulário inteiro no PATCH (FixedSchedulePage.handleSubmit)
+    const formularioDoPainel = (extra: Record<string, unknown> = {}) => ({
+      communityId: 'c1',
+      type: 'MASS',
+      recurrence: 'WEEKLY',
+      dayOfWeek: 0,
+      weeksOfMonth: [],
+      dayOfMonth: undefined,
+      time: '07:30',
+      notes: 'Com coral',
+      isSpecial: false,
+      specialDate: undefined,
+      pastoralSettings: [],
+      ...extra,
+    });
+
+    it('R3#56: formulário inteiro do painel só com observação/pastorais nova num par legado → passa', async () => {
+      prisma.massSchedule.findUnique.mockResolvedValue({
+        ...existente,
+        id: 'm1',
+        communityId: 'c1',
+        type: 'MASS',
+        time: '7:30', // carga antiga, sem o zero
+        community: { id: 'c1' },
+        pastorals: [],
+      });
+      prisma.massSchedule.findMany.mockResolvedValue([existente]);
+      prisma.communityPastoral = { findMany: jest.fn().mockResolvedValue([]) };
+      await service.update('m1', formularioDoPainel() as any, parishAdmin);
+      expect(prisma.massSchedule.findMany).not.toHaveBeenCalled();
+      expect(prisma.massSchedule.update).toHaveBeenCalled();
+    });
+
+    it('R3#56: formulário inteiro que muda o dia para o de um gêmeo → 409', async () => {
+      prisma.massSchedule.findUnique.mockResolvedValue({
+        ...existente,
+        id: 'm1',
+        communityId: 'c1',
+        type: 'MASS',
+        time: '07:30',
+        dayOfWeek: 3,
+        community: { id: 'c1' },
+        pastorals: [],
+      });
+      prisma.massSchedule.findMany.mockResolvedValue([existente]);
+      await expect(service.update('m1', formularioDoPainel() as any, parishAdmin)).rejects.toThrow('Já existe um horário igual');
+      expect(prisma.massSchedule.update).not.toHaveBeenCalled();
+    });
+
+    it('R3#56: mensal de data fixa reenviado com o mesmo dia do mês não confere duplicidade', async () => {
+      prisma.massSchedule.findUnique.mockResolvedValue({
+        ...existente,
+        id: 'm1',
+        communityId: 'c1',
+        type: 'MASS',
+        time: '19:00',
+        recurrence: 'MONTHLY_DAY',
+        dayOfWeek: null,
+        dayOfMonth: 13,
+        community: { id: 'c1' },
+        pastorals: [],
+      });
+      await service.update(
+        'm1',
+        formularioDoPainel({ recurrence: 'MONTHLY_DAY', dayOfWeek: undefined, dayOfMonth: 13, time: '19:00' }) as any,
+        parishAdmin,
+      );
+      expect(prisma.massSchedule.findMany).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('R3#49: hora legada "H:MM" no DTO', () => {
+    it('"7:30" vira "07:30" antes do @Matches (criar e editar)', async () => {
+      const dto = plainToInstance(CreateMassScheduleDto, { time: '7:30', type: 'MASS', communityId: 'c1', dayOfWeek: 0 });
+      expect(await validate(dto)).toHaveLength(0);
+      expect(dto.time).toBe('07:30');
+      const patch = plainToInstance(UpdateMassScheduleDto, { time: '7:30', notes: 'x' });
+      expect(await validate(patch)).toHaveLength(0);
+      expect(patch.time).toBe('07:30');
+      const ruim = plainToInstance(UpdateMassScheduleDto, { time: '7:3' });
+      expect((await validate(ruim)).map((e) => e.property)).toContain('time');
+    });
+  });
+
+  describe('R3#53: "hoje" no fuso da UF da comunidade', () => {
+    it('generate-pending não conta como falha o "ontem" do Acre em comunidade de SP (00–02h de Brasília)', async () => {
+      // 06/10 01:00 em Brasília = 05/10 23:00 no Acre
+      jest.spyOn(service as any, 'earliestToday').mockReturnValue('2026-10-05');
+      jest.spyOn(service as any, 'todayIn').mockImplementation((uf: any) => (uf === 'AC' ? '2026-10-05' : '2026-10-06'));
+      const occ = (communityId: string, date: string) => ({
+        id: `mass-conf-${communityId}-${date}`,
+        massScheduleId: `conf-${communityId}`,
+        title: 'Missa',
+        type: MassScheduleType.MASS,
+        notes: null,
+        start: `${date}T19:00:00`,
+        end: `${date}T20:00:00`,
+        community: { id: communityId, name: communityId },
+        isFixed: true,
+        cancelled: false,
+        cancelReason: null,
+      });
+      jest.spyOn(service, 'expandOccurrences').mockResolvedValue([occ('sp', '2026-10-05'), occ('sp', '2026-10-06'), occ('ac', '2026-10-05')] as any);
+      prisma.community = {
+        findMany: jest.fn().mockResolvedValue([
+          { id: 'sp', state: 'SP' },
+          { id: 'ac', state: 'AC' },
+        ]),
+      };
+      prisma.massSchedule.findMany.mockResolvedValue(
+        ['conf-sp', 'conf-ac'].map((id) => ({ id, pastorals: [{ communityPastoralId: 'cp1', requiredPeople: 1, communityPastoral: null }] })),
+      );
+      const gerar = jest.spyOn(service, 'generateSchedule').mockResolvedValue({ id: 'sch', title: 'x' } as any);
+      const res = await service.generatePendingSchedules({ from: '2026-10-05', to: '2026-10-06' }, parishAdmin);
+      expect(gerar.mock.calls.map((c) => [c[0], c[1]])).toEqual([
+        ['conf-sp', { date: '2026-10-06' }],
+        ['conf-ac', { date: '2026-10-05' }],
+      ]);
+      expect(res).toMatchObject({ created: 2, failed: 0 });
+    });
+
+    it('suspender hoje às 22h no Acre (já amanhã em SP) é aceito', async () => {
+      jest.spyOn(service as any, 'todaySaoPaulo').mockReturnValue('2026-10-02');
+      const hoje = jest.spyOn(service as any, 'todayIn').mockImplementation((uf: any) => (uf === 'AC' ? '2026-10-01' : '2026-10-02'));
+      prisma.massSchedule.findUnique.mockResolvedValue({
+        id: 'conf',
+        communityId: 'c1',
+        dayOfWeek: 4, // quinta 01/10
+        time: '23:00',
+        type: MassScheduleType.CONFESSION,
+        notes: null,
+        isSpecial: false,
+        specialDate: null,
+        recurrence: 'WEEKLY',
+        weeksOfMonth: [],
+        dayOfMonth: null,
+        community: { id: 'c1', name: 'Rio Branco', state: 'AC' },
+      });
+      prisma.massScheduleCancellation.upsert.mockImplementation(({ create }: any) =>
+        Promise.resolve({ id: 'cx', date: create.date, reason: null, createdAt: new Date(), createdBy: null }),
+      );
+      await expect(service.cancelOccurrences('conf', { dates: ['2026-10-01'] }, parishAdmin)).resolves.toHaveLength(1);
+      expect(hoje).toHaveBeenCalledWith('AC');
+      // a busca do horário traz a UF
+      expect(prisma.massSchedule.findUnique.mock.calls[0][0].include.community.select.state).toBe(true);
     });
   });
 });

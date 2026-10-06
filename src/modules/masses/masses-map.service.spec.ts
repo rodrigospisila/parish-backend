@@ -489,9 +489,15 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(prisma.event.findMany.mock.calls[0][0].where.startDate.gte).toEqual(new Date('2026-07-22T14:30:00.000Z'));
     });
 
-    it('B22: evento de dia inteiro (03:00Z = 00:00 em Brasília, sem hora) não vira "missa às 03:00"', async () => {
+    it('B22: evento de dia inteiro (00:00 → 00:00 de outro dia, ou ≥ 24 h) não vira "missa às 00:00"', async () => {
       prisma.event.findMany.mockResolvedValue([
-        { id: 'dia-inteiro', title: 'Missa de Envio - MIRIM', startDate: new Date('2026-07-24T03:00:00.000Z'), endDate: null, communityId: 'c1' },
+        {
+          id: 'dia-inteiro',
+          title: 'Missa de Envio - MIRIM',
+          startDate: new Date('2026-07-24T03:00:00.000Z'),
+          endDate: new Date('2026-07-25T03:00:00.000Z'),
+          communityId: 'c1',
+        },
         {
           id: 'dias',
           title: 'Missão',
@@ -503,6 +509,28 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       ]);
       const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
       expect(list.map((m) => [m.id, m.start])).toEqual([['com-hora', '2026-07-24T19:30:00']]);
+    });
+
+    it('R3#47: Missa do Galo (00:00 sem fim) aparece às 00:00 — não é dia inteiro', async () => {
+      (service as any).now.mockReturnValue(new Date('2026-12-24T15:00:00.000Z')); // 24/12 12:00 em Brasília
+      prisma.event.findMany.mockResolvedValue([
+        { id: 'galo', title: 'Missa do Galo', startDate: new Date('2026-12-25T03:00:00.000Z'), endDate: null, communityId: 'c1' },
+        {
+          id: 'galo-1h',
+          title: 'Missa do Galo (com fim)',
+          startDate: new Date('2026-12-25T03:00:00.000Z'),
+          endDate: new Date('2026-12-25T04:30:00.000Z'),
+          communityId: 'c2',
+        },
+      ]);
+      const map = await service.nextMassesByCommunity(['c1', 'c2'], 7, [MassScheduleType.MASS], 15, {
+        states: new Map([
+          ['c1', 'PR'],
+          ['c2', 'SP'],
+        ]),
+      });
+      expect(map.get('c1')!.map((m) => [m.id, m.start, m.end])).toEqual([['galo', '2026-12-25T00:00:00', null]]);
+      expect(map.get('c2')!.map((m) => [m.id, m.start])).toEqual([['galo-1h', '2026-12-25T00:00:00']]);
     });
 
     it('sem a UF em mãos, busca no banco (uma consulta, só os que faltam)', async () => {

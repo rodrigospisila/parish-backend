@@ -37,7 +37,8 @@ import { ConsentsModule } from '../consents/consents.module';
   ],
   controllers: [AuthController, SecurityController],
   providers: [AuthService, OtpService, PasswordResetService, LoginAttemptsService, JwtStrategy, SessionSecurityService, AuthCleanupService],
-  exports: [AuthService],
+  // Reautenticação (senha + freio da conta) da exclusão da própria conta — UsersModule
+  exports: [AuthService, SessionSecurityService, LoginAttemptsService],
 })
 export class AuthModule {}
 

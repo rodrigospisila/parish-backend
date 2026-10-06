@@ -16,12 +16,13 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { COORDINATOR_MEMBER_ROLES } from '../pastorals/coordination-scope';
 import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
-import { civilDayOrNull, formatCivilDate, parseCivilDate } from './civil-date';
+import { civilDayOrNull, formatCivilDate, parseCivilDate, todayCivil } from './civil-date';
 import {
   BROADCAST_AUTHOR_ENTITIES,
   BROADCAST_LIMITS,
-  assertBroadcastQuota,
   countGroupBroadcastsToday,
+  finishBroadcast,
+  reserveBroadcastQuota,
 } from '../pastorals/broadcast-quota';
 import { PlanAccessService } from '../plans/plan-access.service';
 import { planFilter, planMark } from '../../common/plan-list';
@@ -56,6 +57,57 @@ export class CatechesisService {
     if (member.userId) ids.add(member.userId);
     if (member.responsible?.userId) ids.add(member.responsible.userId);
     return [...ids];
+  }
+
+  /**
+   * O termo LGPD e o uso de imagem deste catequizando são do RESPONSÁVEL
+   * (art. 14 §1º)? Sim com responsável vinculado ou menor de idade — e idade
+   * desconhecida (sem nascimento, ou só dia/mês = ano 1900) conta como menor.
+   * Só o adulto sem responsável responde por si.
+   */
+  static needsGuardian(member: { responsibleId?: string | null; birthDate?: Date | null }): boolean {
+    if (member.responsibleId) return true;
+    const birth = member.birthDate;
+    if (!birth || Number.isNaN(birth.getTime()) || birth.getUTCFullYear() <= 1900) return true;
+    const day = birth.toISOString().slice(5, 10);
+    // 18 anos completos no dia civil de hoje (29/02 vira 01/03 em ano comum)
+    const adultFrom = `${birth.getUTCFullYear() + 18}-${day}`;
+    return todayCivil() < adultFrom;
+  }
+
+  /**
+   * Termo LGPD e resposta de imagem de uma matrícula, para levar à matrícula
+   * nova (transferência/renovação). Só o que foi respondido: um campo vazio na
+   * origem não apaga o que a matrícula de destino já tinha.
+   */
+  static consentFieldsOf(row: {
+    imageConsent?: boolean | null;
+    imageConsentAt?: Date | null;
+    imageConsentByUserId?: string | null;
+    guardianConsentAt?: Date | null;
+    guardianConsentChannel?: string | null;
+    guardianConsentVersion?: string | null;
+    guardianConsentByUserId?: string | null;
+    guardianConsentMemberId?: string | null;
+  }): Record<string, unknown> {
+    return {
+      ...(row.guardianConsentAt
+        ? {
+            guardianConsentAt: row.guardianConsentAt,
+            guardianConsentChannel: row.guardianConsentChannel ?? null,
+            guardianConsentVersion: row.guardianConsentVersion ?? null,
+            guardianConsentByUserId: row.guardianConsentByUserId ?? null,
+            guardianConsentMemberId: row.guardianConsentMemberId ?? null,
+          }
+        : {}),
+      ...(typeof row.imageConsent === 'boolean'
+        ? {
+            imageConsent: row.imageConsent,
+            imageConsentAt: row.imageConsentAt ?? null,
+            imageConsentByUserId: row.imageConsentByUserId ?? null,
+          }
+        : {}),
+    };
   }
 
   private formatDayLabel(date: Date): string {
@@ -1582,6 +1634,12 @@ export class CatechesisService {
       throw new BadRequestException('Uso de imagem: responda autorizo (true) ou não autorizo (false)');
     }
     const manualImageConsent = typeof dto.imageConsent === 'boolean' ? dto.imageConsent : null;
+    // Resposta de imagem da equipe só a do termo ASSINADO (mesma regra do PATCH consent)
+    if (manualImageConsent !== null && !paperConsentAt) {
+      throw new BadRequestException(
+        'O uso de imagem lançado pela equipe vem do termo em papel — informe também a data em que foi assinado',
+      );
+    }
 
     const member = await this.prisma.member.findFirst({
       where: { id: dto.memberId, deletedAt: null },
@@ -1828,12 +1886,15 @@ export class CatechesisService {
       if (guarded.count === 0) {
         throw new BadRequestException('Apenas matrículas ATIVAS podem ser transferidas');
       }
+      // Termo LGPD e resposta de imagem acompanham o catequizando: sem isso o
+      // termo voltava a "pendente" e o "não autorizo imagem" sumia no destino
+      const consentCopy = CatechesisService.consentFieldsOf(enrollment);
       let moved;
       if (existing) {
         moved = await tx.catechesisEnrollment.update({
           where: { id: existing.id },
           // A preparação para o Batismo acompanha o catequizando na troca de turma
-          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null, unbaptized: enrollment.unbaptized, waitlistedAt: null },
+          data: { status: 'ACTIVE', pendingDocuments: enrollment.pendingDocuments, rejectionReason: null, unbaptized: enrollment.unbaptized, waitlistedAt: null, ...consentCopy },
         });
       } else {
         moved = await tx.catechesisEnrollment.create({
@@ -1842,6 +1903,7 @@ export class CatechesisService {
             memberId: enrollment.memberId,
             pendingDocuments: enrollment.pendingDocuments,
             unbaptized: enrollment.unbaptized,
+            ...consentCopy,
           },
         });
       }
@@ -2016,7 +2078,7 @@ export class CatechesisService {
 
     const myMember = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
-      select: { id: true, communityId: true },
+      select: { id: true, communityId: true, birthDate: true, responsibleId: true },
     });
     if (!myMember) {
       throw new BadRequestException('Usuário sem cadastro de membro — procure a secretaria');
@@ -2128,16 +2190,25 @@ export class CatechesisService {
       }
 
       // Termo LGPD (art. 14 §1º): quem consentiu, quando e em que versão da
-      // política — o "consentGiven" solto do cadastro não provava nada
-      const guardianConsent = {
-        guardianConsentAt: new Date(),
-        guardianConsentChannel: 'APP',
-        guardianConsentVersion: CURRENT_POLICY_VERSION,
-        guardianConsentByUserId: user.id,
-        guardianConsentMemberId: myMember.id,
-      };
+      // política — o "consentGiven" solto do cadastro não provava nada.
+      // Menor (ou catequizando com responsável vinculado) que se inscreve pela
+      // própria conta não assina o termo nem responde a imagem: a inscrição
+      // entra com o termo PENDENTE, para o responsável (app) ou a equipe (papel)
+      const selfNeedsGuardian = targetMemberId === myMember.id && CatechesisService.needsGuardian(myMember);
+      const guardianConsent = selfNeedsGuardian
+        ? {}
+        : {
+            guardianConsentAt: new Date(),
+            guardianConsentChannel: 'APP',
+            guardianConsentVersion: CURRENT_POLICY_VERSION,
+            guardianConsentByUserId: user.id,
+            guardianConsentMemberId: myMember.id,
+          };
+      const imageAnswer = selfNeedsGuardian
+        ? { imageConsent: null, imageConsentAt: null, imageConsentByUserId: null }
+        : { imageConsent, imageConsentAt, imageConsentByUserId };
       if (targetMemberId !== myMember.id) {
-        await this.recordDependentConsents(tx, targetMemberId, user.id, imageConsent);
+        await this.recordDependentConsents(tx, targetMemberId, user.id, { dataProcessing: true, imageConsent });
       }
 
       // Uma matrícula efetiva por vez — vale também para a inscrição online.
@@ -2194,7 +2265,7 @@ export class CatechesisService {
             rejectionReason: null,
             waitlistedAt: waitlist ? new Date() : null,
             ...guardianConsent,
-            ...(imageConsent === null ? {} : { imageConsent, imageConsentAt, imageConsentByUserId }),
+            ...(imageAnswer.imageConsent === null ? {} : imageAnswer),
           },
         });
         return { enrollment, targetMemberId };
@@ -2206,9 +2277,7 @@ export class CatechesisService {
           status: nextStatus,
           pendingDocuments,
           waitlistedAt: waitlist ? new Date() : null,
-          imageConsent,
-          imageConsentAt,
-          imageConsentByUserId,
+          ...imageAnswer,
           ...guardianConsent,
         },
       });
@@ -2256,23 +2325,35 @@ export class CatechesisService {
 
   /**
    * Consentimentos granulares do DEPENDENTE dados pelo responsável:
-   * tratamento de dados (sempre, é a condição da inscrição) e uso de imagem
-   * (quando respondido). `grantedByUserId` = a conta do responsável.
+   * tratamento de dados só quando o termo foi ACEITO agora (`dataProcessing`,
+   * = consentGiven === true) e uso de imagem quando respondido.
+   * `grantedByUserId` = a conta do responsável. Responder só a imagem não
+   * regrava o DATA_PROCESSING — desfaria uma revogação feita em "Meus dados".
    */
-  private async recordDependentConsents(tx: any, memberId: string, byUserId: string, imageConsent: boolean | null) {
+  private async recordDependentConsents(
+    tx: any,
+    memberId: string,
+    byUserId: string,
+    answers: { dataProcessing: boolean; imageConsent: boolean | null },
+  ) {
     const now = new Date();
-    await tx.consent.upsert({
-      where: { memberId_type: { memberId, type: ConsentType.DATA_PROCESSING } },
-      create: {
-        memberId,
-        type: ConsentType.DATA_PROCESSING,
-        granted: true,
-        policyVersion: CURRENT_POLICY_VERSION,
-        grantedByUserId: byUserId,
-        grantedAt: now,
-      },
-      update: { granted: true, policyVersion: CURRENT_POLICY_VERSION, grantedByUserId: byUserId, grantedAt: now, revokedAt: null },
-    });
+    const imageConsent = answers.imageConsent;
+    if (answers.dataProcessing) {
+      await tx.consent.upsert({
+        where: { memberId_type: { memberId, type: ConsentType.DATA_PROCESSING } },
+        create: {
+          memberId,
+          type: ConsentType.DATA_PROCESSING,
+          granted: true,
+          policyVersion: CURRENT_POLICY_VERSION,
+          grantedByUserId: byUserId,
+          grantedAt: now,
+        },
+        update: { granted: true, policyVersion: CURRENT_POLICY_VERSION, grantedByUserId: byUserId, grantedAt: now, revokedAt: null },
+      });
+      // Espelha no flag legado do Member (mesma regra do consents.setConsent)
+      await tx.member.update({ where: { id: memberId }, data: { consentGiven: true, consentDate: now } });
+    }
     if (imageConsent !== null) {
       await tx.consent.upsert({
         where: { memberId_type: { memberId, type: ConsentType.IMAGE_USE } },
@@ -2312,7 +2393,14 @@ export class CatechesisService {
       where: { id: enrollmentId },
       include: {
         member: {
-          select: { id: true, userId: true, deletedAt: true, responsibleId: true, responsible: { select: { userId: true } } },
+          select: {
+            id: true,
+            userId: true,
+            deletedAt: true,
+            responsibleId: true,
+            birthDate: true,
+            responsible: { select: { userId: true } },
+          },
         },
         class: { select: { id: true, communityId: true } },
       },
@@ -2323,10 +2411,25 @@ export class CatechesisService {
     }
     const imageConsent = typeof dto?.imageConsent === 'boolean' ? dto.imageConsent : null;
     const isFamily = this.guardianUserIds(enrollment.member).includes(user.id);
+    const needsGuardian = CatechesisService.needsGuardian(enrollment.member);
+    // Contas cuja resposta vale como a da FAMÍLIA: o responsável (menor/
+    // dependente) ou o próprio adulto sem responsável
+    const familyUserIds = (needsGuardian ? [enrollment.member.responsible?.userId] : [enrollment.member.userId]).filter(
+      (id): id is string => !!id,
+    );
     const now = new Date();
     const data: Record<string, unknown> = {};
+    let writeImage = imageConsent !== null;
 
     if (isFamily) {
+      // Menor ou catequizando com responsável vinculado, pela própria conta:
+      // nem o termo nem o uso de imagem são dele (art. 14 §1º) — antes o
+      // termo saía "do responsável" assinado pelo próprio menor
+      if (!familyUserIds.includes(user.id)) {
+        throw new ForbiddenException(
+          'O termo LGPD e o uso de imagem de menor (ou de quem tem responsável vinculado) são respondidos pelo responsável — peça que ele responda pela conta dele no app ou entregue o termo assinado à equipe da catequese',
+        );
+      }
       if (dto?.paperSignedAt !== undefined) {
         throw new BadRequestException('O termo em papel é lançado pela equipe da catequese');
       }
@@ -2350,8 +2453,13 @@ export class CatechesisService {
         });
       }
       if (enrollment.member.userId !== user.id) {
-        // Dependente: o Consent granular dele fica em nome do responsável
-        await this.recordDependentConsents(this.prisma, enrollment.member.id, user.id, imageConsent);
+        // Dependente: o Consent granular dele fica em nome do responsável.
+        // DATA_PROCESSING só com o termo aceito AGORA — responder só a imagem
+        // não desfaz uma revogação
+        await this.recordDependentConsents(this.prisma, enrollment.member.id, user.id, {
+          dataProcessing: dto?.consentGiven === true,
+          imageConsent,
+        });
       }
     } else {
       await this.assertCatechesisCoordination(enrollment.class.communityId, user);
@@ -2360,6 +2468,48 @@ export class CatechesisService {
       }
       if (dto?.paperSignedAt === undefined && imageConsent === null) {
         throw new BadRequestException('Informe a data do termo assinado e/ou a resposta sobre o uso de imagem');
+      }
+      // A resposta de imagem da equipe é a que veio no termo ASSINADO: sem a
+      // data do papel, era um "autorizo" sem prova nenhuma
+      if (imageConsent !== null && dto?.paperSignedAt === undefined) {
+        throw new BadRequestException(
+          'O uso de imagem lançado pela equipe vem do termo em papel — informe também a data em que foi assinado',
+        );
+      }
+      if (imageConsent !== null) {
+        // Nunca sobrescreve a resposta que a FAMÍLIA deu pelo app (matrícula
+        // ou "Meus dados"): o papel pode ser mais antigo que ela
+        const appConsent =
+          needsGuardian || !enrollment.member.userId
+            ? await this.prisma.consent.findUnique({
+                where: { memberId_type: { memberId: enrollment.member.id, type: ConsentType.IMAGE_USE } },
+                select: { granted: true, grantedByUserId: true },
+              })
+            : null;
+        const familyAnswer =
+          enrollment.imageConsent !== null &&
+          enrollment.imageConsent !== undefined &&
+          !!enrollment.imageConsentByUserId &&
+          familyUserIds.includes(enrollment.imageConsentByUserId)
+            ? enrollment.imageConsent
+            : appConsent?.grantedByUserId && familyUserIds.includes(appConsent.grantedByUserId)
+              ? appConsent.granted
+              : null;
+        if (familyAnswer !== null) {
+          if (familyAnswer !== imageConsent) {
+            throw new ConflictException(
+              `O responsável já respondeu pelo app que ${familyAnswer ? 'AUTORIZA' : 'NÃO autoriza'} o uso de imagem — só ele pode mudar a resposta. Lance o termo sem a resposta de imagem.`,
+            );
+          }
+          // Mesma resposta: o registro do app (quem/quando) fica como está
+          writeImage = false;
+        } else if (needsGuardian || !enrollment.member.userId) {
+          // Dependente (ou adulto sem conta): o Consent granular acompanha o termo
+          await this.recordDependentConsents(this.prisma, enrollment.member.id, user.id, {
+            dataProcessing: false,
+            imageConsent,
+          });
+        }
       }
       if (dto?.paperSignedAt !== undefined) {
         Object.assign(data, {
@@ -2372,7 +2522,7 @@ export class CatechesisService {
         });
       }
     }
-    if (imageConsent !== null) {
+    if (writeImage) {
       Object.assign(data, { imageConsent, imageConsentAt: now, imageConsentByUserId: user.id });
     }
 
@@ -2720,7 +2870,21 @@ export class CatechesisService {
 
     const source = await this.prisma.catechesisEnrollment.findMany({
       where: { id: { in: ids }, classId, status: 'COMPLETED' },
-      select: { id: true, memberId: true, unbaptized: true, member: { select: { fullName: true } } },
+      select: {
+        id: true,
+        memberId: true,
+        unbaptized: true,
+        member: { select: { fullName: true } },
+        // Termo LGPD / imagem seguem para a etapa seguinte (consentFieldsOf)
+        imageConsent: true,
+        imageConsentAt: true,
+        imageConsentByUserId: true,
+        guardianConsentAt: true,
+        guardianConsentChannel: true,
+        guardianConsentVersion: true,
+        guardianConsentByUserId: true,
+        guardianConsentMemberId: true,
+      },
     });
     if (source.length !== ids.length) {
       throw new BadRequestException('Só é possível renovar matrículas CONCLUÍDAS desta turma');
@@ -2838,13 +3002,25 @@ export class CatechesisService {
           }
           await tx.catechesisEnrollment.update({
             where: { id: existing.id },
-            data: { status: 'ACTIVE', pendingDocuments, unbaptized: stillUnbaptized, waitlistedAt: null },
+            data: {
+              status: 'ACTIVE',
+              pendingDocuments,
+              unbaptized: stillUnbaptized,
+              waitlistedAt: null,
+              ...CatechesisService.consentFieldsOf(enrollment),
+            },
           });
           reactivated++;
           promotedMemberIds.push(enrollment.memberId);
         } else {
           await tx.catechesisEnrollment.create({
-            data: { classId: target.id, memberId: enrollment.memberId, pendingDocuments, unbaptized: stillUnbaptized },
+            data: {
+              classId: target.id,
+              memberId: enrollment.memberId,
+              pendingDocuments,
+              unbaptized: stillUnbaptized,
+              ...CatechesisService.consentFieldsOf(enrollment),
+            },
           });
           renewed++;
           promotedMemberIds.push(enrollment.memberId);
@@ -3362,11 +3538,13 @@ export class CatechesisService {
     if (text.length > 500) throw new BadRequestException('Mensagem muito longa (máx. 500 caracteres)');
 
     const klass = await this.assertClassOperationalAccess(classId, user);
-    // Freio de spam/custo (push → e-mail → SMS): teto por turma e por autor
-    await assertBroadcastQuota(this.prisma, {
+    // Freio de spam/custo (push → e-mail → SMS): teto por turma e por autor,
+    // com a trilha (que é o contador) gravada sob trava ANTES do envio —
+    // requisições simultâneas não passam mais juntas pela contagem
+    const auditId = await reserveBroadcastQuota(this.prisma, {
       entity: 'CatechesisClassMessage',
       entityId: classId,
-      actorUserId: user.id,
+      actor: { id: user.id, role: user.role },
       authorEntities: BROADCAST_AUTHOR_ENTITIES,
     });
     const enrollments = await this.prisma.catechesisEnrollment.findMany({
@@ -3388,13 +3566,7 @@ export class CatechesisService {
       );
     }
 
-    await this.auditService.log({
-      actor: this.auditActor(user),
-      action: 'CREATE',
-      entity: 'CatechesisClassMessage',
-      entityId: classId,
-      metadata: { notified: userIds.length },
-    });
+    await finishBroadcast(this.prisma, auditId, { notified: userIds.length });
     return { notified: userIds.length };
   }
 
@@ -3405,9 +3577,11 @@ export class CatechesisService {
   async getMyFamilyCatechesis(user: CurrentUser) {
     const member = await this.prisma.member.findFirst({
       where: { userId: user.id, deletedAt: null },
-      select: { id: true },
+      select: { id: true, birthDate: true, responsibleId: true },
     });
     if (!member) return [];
+    // Menor (ou quem tem responsável) não responde o próprio termo/imagem
+    const selfAnswersConsent = !CatechesisService.needsGuardian(member);
 
     const familyEnrollments = await this.prisma.catechesisEnrollment.findMany({
       where: {
@@ -3531,6 +3705,9 @@ export class CatechesisService {
         imageConsent: enrollment.imageConsent,
         // Termo LGPD ainda não registrado: o app pede o aceite ao responsável
         guardianConsentPending: !enrollment.guardianConsentAt,
+        // Esta conta pode responder o termo/imagem? (o menor vê, mas quem
+        // responde é o responsável — o PATCH consent devolve 403)
+        canAnswerConsent: enrollment.member.id === member.id ? selfAnswersConsent : true,
         documents: enrollment.documents,
         assessmentsCount: enrollment._count.assessments,
         unreadMessages: enrollment._count.messages,
@@ -4401,6 +4578,8 @@ export class CatechesisService {
 
   private static normalizeName(value: string): string {
     return value
+      // "Mª"/"M.ª" = Maria (antes de tirar a pontuação, que levaria o "ª")
+      .replace(/(^|[^\p{L}])m\s*\.?\s*ª/giu, '$1maria ')
       .normalize('NFD')
       .replace(/[̀-ͯ]/g, '')
       .toLowerCase()
@@ -4412,25 +4591,48 @@ export class CatechesisService {
   /** Partículas que não distinguem pessoas ("de", "da", "dos"...). */
   private static readonly NAME_PARTICLES = new Set(['de', 'da', 'do', 'das', 'dos', 'e', 'd']);
 
+  /** Grafias do mesmo nome ("Jr." = "Júnior"). */
+  private static readonly NAME_ALIASES: Record<string, string> = { jr: 'junior' };
+
   /** Nomes significativos (sem acento, caixa e partículas), na ordem. */
   static nameTokens(value: string): string[] {
     return CatechesisService.normalizeName(value)
       .split(' ')
-      .filter((t) => t && !CatechesisService.NAME_PARTICLES.has(t));
+      .filter((t) => t && !CatechesisService.NAME_PARTICLES.has(t))
+      .map((t) => CatechesisService.NAME_ALIASES[t] ?? t);
   }
 
   /**
-   * "Nome confere" só com o NOME COMPLETO: os mesmos nomes dos dois lados
-   * (ordem e partículas à parte). Substring dava selo de conferido à certidão
-   * de qualquer "Maria" para a "Maria Eduarda S." do cadastro.
+   * "Nome confere" com o NOME COMPLETO do cadastro: todos os nomes do
+   * cadastro estão no documento (ordem e partículas à parte), o 1º nome é o
+   * mesmo e pelo menos 2 nomes inteiros coincidem. Inicial do cadastro ("S.")
+   * casa com um nome do documento que comece por ela; "Jr."/"Júnior" e
+   * "Mª"/"Maria" são o mesmo nome. O documento pode ter MAIS sobrenomes que o
+   * cadastro (certidão completa × cadastro abreviado), nunca menos.
+   * Substring dava selo de conferido à certidão de qualquer "Maria" para a
+   * "Maria Eduarda S." do cadastro.
    */
   static sameFullName(documentName: string, memberName: string): boolean {
     const doc = CatechesisService.nameTokens(documentName);
     const member = CatechesisService.nameTokens(memberName);
     if (doc.length < 2 || member.length < 2) return false;
-    const docSet = new Set(doc);
-    const memberSet = new Set(member);
-    return docSet.size === memberSet.size && [...docSet].every((t) => memberSet.has(t));
+    if (doc.length < member.length) return false;
+    // 1º nome inteiro e igual dos dois lados
+    if (member[0].length < 2 || member[0] !== doc[0]) return false;
+    const remaining = [...doc];
+    const take = (match: (t: string) => boolean) => {
+      const at = remaining.findIndex(match);
+      if (at < 0) return false;
+      remaining.splice(at, 1);
+      return true;
+    };
+    const full = member.filter((t) => t.length > 1);
+    const initials = member.filter((t) => t.length === 1);
+    if (full.length < 2) return false;
+    // Nomes inteiros primeiro (cada nome do documento casa uma vez só); as
+    // iniciais ficam com o que sobrou
+    if (!full.every((t) => take((d) => d === t))) return false;
+    return initials.every((i) => take((d) => d.length > 1 && d.startsWith(i)));
   }
 
   // Fila do auto-check: no máximo 2 em voo — cada execução segura o binário

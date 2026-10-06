@@ -26,6 +26,11 @@ export interface LiturgyData {
 
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
 const REQUEST_TIMEOUT_MS = 10_000;
+/**
+ * Falha também fica guardada (cache negativo, por data): com a API fora,
+ * cada abertura do app esperava os 10 s do timeout de novo (R3#50).
+ */
+const FAILURE_TTL_MS = 5 * 60 * 1000;
 
 /**
  * Liturgia diária (API pública liturgia.up.railway.app).
@@ -39,6 +44,7 @@ export class LiturgyService {
   private readonly logger = new Logger(LiturgyService.name);
   private readonly apiUrl: string;
   private readonly cache = new Map<string, { data: LiturgyData; expiresAt: number }>();
+  private readonly failures = new Map<string, { message: string; expiresAt: number }>();
 
   constructor(private readonly configService: ConfigService) {
     this.apiUrl = (
@@ -64,6 +70,11 @@ export class LiturgyService {
       return cached.data;
     }
 
+    const failed = this.failures.get(day);
+    if (failed && failed.expiresAt > Date.now()) {
+      throw new ServiceUnavailableException(failed.message);
+    }
+
     const [year, month, dayOfMonth] = day.split('-');
     try {
       const response = await axios.get(`${this.apiUrl}/`, {
@@ -82,14 +93,30 @@ export class LiturgyService {
         throw new ServiceUnavailableException('Liturgia indisponível para esta data no momento');
       }
       this.cache.set(day, { data: liturgyData, expiresAt: Date.now() + CACHE_TTL_MS });
+      this.failures.delete(day);
       this.logger.log(`Liturgia do dia ${day} obtida da API`);
       return liturgyData;
     } catch (error) {
-      if (error instanceof ServiceUnavailableException) throw error;
+      if (error instanceof ServiceUnavailableException) {
+        this.rememberFailure(day, error.message);
+        throw error;
+      }
       const message = axios.isAxiosError(error) ? `${error.response?.status ?? ''} ${error.message}`.trim() : String(error);
       this.logger.error(`Erro ao buscar liturgia do dia ${day}: ${message}`);
-      throw new ServiceUnavailableException('Liturgia indisponível no momento. Tente novamente mais tarde.');
+      const publicMessage = 'Liturgia indisponível no momento. Tente novamente mais tarde.';
+      this.rememberFailure(day, publicMessage);
+      throw new ServiceUnavailableException(publicMessage);
     }
+  }
+
+  /** Guarda a falha da data por alguns minutos (limpa as vencidas antes de crescer). */
+  private rememberFailure(day: string, message: string) {
+    if (this.failures.size >= 1000) {
+      const now = Date.now();
+      for (const [key, value] of this.failures) if (value.expiresAt <= now) this.failures.delete(key);
+      if (this.failures.size >= 1000) this.failures.clear();
+    }
+    this.failures.set(day, { message, expiresAt: Date.now() + FAILURE_TTL_MS });
   }
 
   /** Liturgia de hoje no calendário da paróquia (America/Sao_Paulo), não no fuso do processo. */
@@ -162,6 +189,11 @@ export class LiturgyService {
     for (const [key, value] of this.cache.entries()) {
       if (value.expiresAt < now) {
         this.cache.delete(key);
+      }
+    }
+    for (const [key, value] of this.failures.entries()) {
+      if (value.expiresAt < now) {
+        this.failures.delete(key);
       }
     }
     this.logger.log('Cache de liturgias expirado foi limpo');

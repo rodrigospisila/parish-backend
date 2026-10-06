@@ -44,12 +44,28 @@ describe('LiturgyService (B34)', () => {
     expect(mockedAxios.get).toHaveBeenCalledTimes(1);
   });
 
-  it('API fora do ar: 503, sem fallback "Tempo Comum / Verde" e sem cache', async () => {
-    mockedAxios.get.mockRejectedValue({ isAxiosError: true, message: 'timeout', response: { status: 502 } });
+  it('API fora do ar: 503, sem fallback "Tempo Comum / Verde"; a falha fica ~5 min (R3#50)', async () => {
+    jest.useFakeTimers().setSystemTime(new Date('2026-12-01T12:00:00Z'));
+    try {
+      mockedAxios.get.mockRejectedValue({ isAxiosError: true, message: 'timeout', response: { status: 502 } });
 
-    await expect(service.getLiturgyByDate('2026-12-01')).rejects.toBeInstanceOf(ServiceUnavailableException);
-    mockedAxios.get.mockResolvedValue({ data: advento });
-    await expect(service.getLiturgyByDate('2026-12-01')).resolves.toMatchObject({ liturgicalColor: 'Roxo' });
+      await expect(service.getLiturgyByDate('2026-12-01')).rejects.toBeInstanceOf(ServiceUnavailableException);
+      // Dentro da janela: 503 na hora, sem esperar o timeout da API de novo
+      mockedAxios.get.mockResolvedValue({ data: advento });
+      jest.setSystemTime(new Date('2026-12-01T12:04:00Z'));
+      await expect(service.getLiturgyByDate('2026-12-01')).rejects.toBeInstanceOf(ServiceUnavailableException);
+      expect(mockedAxios.get).toHaveBeenCalledTimes(1);
+      // A falha é por data: outra data vai à API
+      await expect(service.getLiturgyByDate('2026-12-02')).rejects.toBeInstanceOf(ServiceUnavailableException);
+      expect(mockedAxios.get).toHaveBeenCalledTimes(2); // respondeu 01/12 para 02/12
+
+      // Passados 5 min, tenta de novo e a liturgia volta
+      jest.setSystemTime(new Date('2026-12-01T12:05:01Z'));
+      await expect(service.getLiturgyByDate('2026-12-01')).resolves.toMatchObject({ liturgicalColor: 'Roxo' });
+      expect(mockedAxios.get).toHaveBeenCalledTimes(3);
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('API responde OUTRA data (ex.: a de hoje): 503, não grava sob a data pedida', async () => {

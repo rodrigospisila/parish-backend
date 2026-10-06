@@ -131,6 +131,9 @@ describe('MembersService', () => {
       consent: { deleteMany: jest.fn() },
       memberProviderCustomer: { deleteMany: jest.fn() },
       catechesisDocument: { updateMany: jest.fn() },
+      visit: { updateMany: jest.fn() },
+      visitRequest: { updateMany: jest.fn() },
+      prayerRequest: { updateMany: jest.fn() },
     });
     let tx: ReturnType<typeof makeTx>;
 
@@ -206,6 +209,29 @@ describe('MembersService', () => {
       });
       // Auditoria anterior sobre o membro é pseudonimizada (M49)
       expect((audit as any).pseudonymizeSubject).toHaveBeenCalledWith({ memberId: 'member-1' });
+    });
+
+    it('#27: limpa as anotações de visita, o contato avulso do pedido de visita e os pedidos de oração ASSINADOS', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-1', status: MemberStatus.ACTIVE });
+      await service.anonymizeMember('member-1');
+
+      expect(tx.visit.updateMany).toHaveBeenCalledWith({ where: { visitRequest: { memberId: 'member-1' } }, data: { notes: null } });
+      expect(tx.visitRequest.updateMany).toHaveBeenCalledWith({
+        where: { memberId: 'member-1' },
+        data: { personName: null, address: null, contactPhone: null },
+      });
+      // anônimos ficam (não identificam a pessoa)
+      expect(tx.prayerRequest.updateMany).toHaveBeenCalledWith({
+        where: { memberId: 'member-1', isAnonymous: false },
+        data: { title: '[removido]', description: '[removido]' },
+      });
+    });
+
+    it('#24: a resposta da anonimização não carrega a conta ligada (userId)', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-1', status: MemberStatus.ACTIVE, userId: 'u-1' });
+      tx.member.update.mockResolvedValue({ id: 'member-1', status: MemberStatus.ANONYMIZED, userId: 'u-1' });
+      const result: any = await service.anonymizeMember('member-1');
+      expect(result.userId).toBeNull();
     });
 
     it('rejeita anonimizar membro ja anonimizado', async () => {

@@ -390,12 +390,22 @@ export class TitheGuestService {
       return;
     }
     if (gift.status === 'CONFIRMED') {
-      // Estorno total ou parcial (B20): só o que ainda não foi revertido
-      const refund = refundProgress({ chargeValue: gift.amountPaid ?? gift.amount, refundedAmount: gift.refundedAmount }, charge);
-      if (refund) {
-        await this.reverse(gift, refund);
-        return;
+      // Estorno total ou parcial (B20): só o que ainda não foi revertido.
+      // R4#16: troca condicional perdida para outro processo → relê e recalcula;
+      // persistindo, o erro devolve o evento ao reprocessamento
+      let current = gift;
+      let touched = false;
+      for (let attempt = 0; ; attempt += 1) {
+        const refund = refundProgress({ chargeValue: current.amountPaid ?? current.amount, refundedAmount: current.refundedAmount }, charge);
+        if (!refund) break;
+        touched = true;
+        if (await this.reverse(current, refund)) break;
+        if (attempt >= 2) throw new Error(`Estorno concorrente na oferta ${giftId} — reprocessar`);
+        const fresh = await this.prisma.titheGuestGift.findUnique({ where: { id: giftId } });
+        if (!fresh || fresh.status !== 'CONFIRMED') break;
+        current = fresh;
       }
+      if (touched) return;
     }
     if (charge.status === 'disputed' && gift.status === 'CONFIRMED' && gift.providerStatus !== 'disputed') {
       // Chargeback/contestação em andamento: o dinheiro pode voltar — tesouraria precisa saber (uma vez)
@@ -425,12 +435,13 @@ export class TitheGuestService {
   private async reverse(
     gift: { id: string; parishId: string; campaignId: string | null; name: string; txid: string; paymentMethod: string; amount: number; amountPaid: number | null; refundedAmount: number; financialTransactionId: string | null },
     refund: { total: number; full: boolean },
-  ) {
+  ): Promise<boolean> {
     const paid = round2(gift.amountPaid ?? gift.amount);
     const before = gift.refundedAmount ?? 0;
     const full = refund.full || refund.total >= paid - 0.005;
-    const amount = round2((full ? paid : Math.min(refund.total, paid)) - Math.min(round2(before), paid));
-    if (amount <= 0) return;
+    const target = full ? paid : Math.min(refund.total, paid);
+    let amount = round2(target - Math.min(round2(before), paid));
+    if (amount <= 0) return true;
     const parish = await this.prisma.parish.findUnique({ where: { id: gift.parishId }, select: { dioceseId: true } });
     const campaign = gift.campaignId ? await this.prisma.titheCampaign.findUnique({ where: { id: gift.campaignId }, select: { name: true } }) : null;
     const reversed = await this.prisma.$transaction(async (tx) => {
@@ -441,6 +452,18 @@ export class TitheGuestService {
           : { providerStatus: 'partially_refunded', refundedAmount: refund.total },
       });
       if (moved.count !== 1) return false;
+      // R4#17: a entrada já pode ter sido estornada à mão na campanha (antes da
+      // correção): a saída só completa o que falta até o total estornado — o
+      // estado da oferta acompanha o provedor mesmo sem lançamento novo
+      if (gift.financialTransactionId) {
+        const booked = await tx.financialTransaction.findMany({
+          where: { reversalOfId: gift.financialTransactionId, type: TransactionType.EXPENSE },
+          select: { amount: true },
+        });
+        const alreadyOut = round2(booked.reduce((sum, r) => sum + r.amount, 0));
+        amount = Math.min(amount, round2(target - alreadyOut));
+        if (amount <= 0) return true;
+      }
       await tx.financialTransaction.create({
         data: {
           type: TransactionType.EXPENSE,
@@ -458,7 +481,7 @@ export class TitheGuestService {
       });
       return true;
     });
-    if (!reversed) return;
+    if (!reversed) return false;
     await this.auditService.log({
       actor: null,
       action: 'UPDATE',
@@ -466,16 +489,19 @@ export class TitheGuestService {
       entityId: gift.id,
       before: { status: 'CONFIRMED', refundedAmount: before },
       after: full ? { status: 'CANCELLED', providerStatus: 'refunded', refundedAmount: refund.total } : { status: 'CONFIRMED', providerStatus: 'partially_refunded', refundedAmount: refund.total },
-      metadata: { source: 'provider', reversedAmount: amount, partial: !full },
+      metadata: { source: 'provider', reversedAmount: Math.max(0, amount), partial: !full },
     });
     await this.tithe.notifyTreasury(
       { communityId: null, parishId: gift.parishId },
       full ? 'Oferta de visitante estornada' : 'Estorno parcial de oferta de visitante',
-      full
-        ? `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) foi estornada no provedor: um lançamento de saída anulou a entrada e o comprovante deixou de valer.`
-        : `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) teve ${money(amount)} estornados no provedor: um lançamento de saída desse valor foi criado.`,
+      amount <= 0
+        ? `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) foi estornada no provedor; a entrada já tinha sido estornada à mão na campanha, então nenhum lançamento novo foi criado.`
+        : full
+          ? `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) foi estornada no provedor: um lançamento de saída anulou a entrada e o comprovante deixou de valer.`
+          : `A oferta ${gift.txid} (${money(paid)}, ${safeName(gift.name)}) teve ${money(amount)} estornados no provedor: um lançamento de saída desse valor foi criado.`,
       { kind: 'tithe-guest-refunded', giftId: gift.id },
     );
+    return true;
   }
 
   /** Chamado pelo webhook quando a cobrança não é de um TitheIntent: devolve true se era oferta de visitante. */

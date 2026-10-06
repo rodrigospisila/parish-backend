@@ -15,7 +15,7 @@ import { LogoutDto } from './dto/logout.dto';
 import { VerifyPasswordDto } from './dto/verify-password.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
 import { CurrentUser } from './decorators/current-user.decorator';
-import { bodyTargetTracker, refreshTokenTracker } from './guards/app-throttler.guard';
+import { bodyTargetTracker, refreshTokenTracker, UserThrottlerGuard } from './guards/app-throttler.guard';
 import { SessionSecurityService } from './session-security.service';
 
 const MINUTE = 60_000;
@@ -123,6 +123,22 @@ export class AuthController {
     return this.authService.logout(user, { refreshToken: body?.refreshToken, pushToken: body?.pushToken });
   }
 
+  /**
+   * Sai DESTE aparelho pelo refresh token (revisão #37): para quando o access
+   * token já venceu e o POST /auth/logout seria recusado antes de encerrar a
+   * sessão. Sem access token de propósito; o freio é o mesmo do refresh
+   * (por token e um teto por IP).
+   */
+  @Post('logout/refresh')
+  @HttpCode(HttpStatus.OK)
+  @Throttle({
+    default: { limit: 300, ttl: MINUTE },
+    target: { limit: 20, ttl: MINUTE, getTracker: refreshTokenTracker },
+  })
+  async logoutByRefresh(@Body('refreshToken') refreshToken: string) {
+    return this.authService.logoutByRefreshToken(refreshToken);
+  }
+
   /** "Sair de todos os aparelhos" (tela de Segurança): todas as sessões caem, inclusive esta. */
   @Post('logout-all')
   @UseGuards(JwtAuthGuard)
@@ -134,15 +150,17 @@ export class AuthController {
   /**
    * Confere a senha da própria conta SEM emitir sessão (B9: ativar a
    * biometria no app abria uma sessão nova e gerava um LOGIN a cada vez).
-   * O limite de 5/min por IP vale pelo guard global; a falha não revela nada
-   * além do que o próprio dono já sabe.
+   * Revisão #42: com um token roubado, a resposta seria um oráculo de senha —
+   * 5/min POR USUÁRIO (UserThrottlerGuard, depois do JwtAuthGuard) e as
+   * falhas contam no freio de senha da conta (LoginAttemptsService, o mesmo
+   * do login: 10 falhas do mesmo IP em 15 min → 429).
    */
   @Post('password/verify')
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, UserThrottlerGuard)
   @HttpCode(HttpStatus.OK)
   @Throttle({ default: { limit: 5, ttl: MINUTE } })
-  async verifyPassword(@CurrentUser() user: any, @Body() dto: VerifyPasswordDto) {
-    await this.security.assertPassword(user.id, dto.password);
+  async verifyPassword(@CurrentUser() user: any, @Body() dto: VerifyPasswordDto, @Ip() ip: string) {
+    await this.security.assertPassword(user.id, dto.password, { ip });
     return { valid: true };
   }
 

@@ -2,6 +2,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { PaymentsService } from '../payments/payments.service';
+import { PAID_STATUSES } from '../payments/payment-provider.interface';
 
 const OPEN_SCHEDULE_STATUSES = ['PENDING_AUTHORIZATION', 'ACTIVE', 'PAUSED'] as const;
 const LGPD_NOTE = 'Cancelado na remoção do cadastro (LGPD)';
@@ -131,6 +132,54 @@ export class TitheScheduleCancellationService {
         } catch {
           // o log acima fica; o job tenta de novo amanhã
         }
+      }
+    }
+    return { done, failed };
+  }
+
+  /**
+   * Pós-commit da anonimização (R4#20): as cobranças avulsas ainda abertas do
+   * membro (CREATED/DECLARED com referência no provedor) são canceladas lá e
+   * encerradas aqui — o QR/boleto de quem saiu do Parish deixa de aceitar
+   * pagamento. Já paga ou em análise/disputa no provedor: não mexe (o webhook
+   * liquida). Cancelamento recusado pelo provedor: o Pix fica aberto e a
+   * expiração diária (expireGatewayIntents) confere e cancela de novo.
+   * Nunca lança.
+   */
+  async cancelOpenChargesForMember(memberId: string): Promise<{ done: number; failed: number }> {
+    let done = 0;
+    let failed = 0;
+    let open: Array<{ id: string; parishId: string; providerRef: string | null }> = [];
+    try {
+      open = await this.prisma.titheIntent.findMany({
+        where: { memberId, status: { in: ['CREATED', 'DECLARED'] }, method: 'GATEWAY', providerRef: { not: null }, scheduleId: null },
+        select: { id: true, parishId: true, providerRef: true },
+        take: 50,
+      });
+    } catch (error) {
+      this.logger.warn(`Cobranças abertas do membro anonimizado não consultadas: ${String((error as Error)?.message ?? error).slice(0, 200)}`);
+      return { done, failed };
+    }
+    for (const intent of open) {
+      try {
+        const parish = await this.prisma.parish.findUnique({
+          where: { id: intent.parishId },
+          select: { paymentProvider: true, providerEnv: true, providerApiKeyEnc: true, providerWebhookToken: true },
+        });
+        if (!parish || !this.paymentsService.hasProvider(parish)) throw new Error('provedor da paróquia indisponível');
+        const provider = this.paymentsService.forParish(parish);
+        const charge = await provider.getCharge(intent.providerRef!);
+        if (PAID_STATUSES.has(charge.status) || charge.status === 'in_review' || charge.status === 'disputed' || charge.status === 'refunded') continue;
+        if (charge.status !== 'cancelled') await provider.cancelCharge(intent.providerRef!);
+        const moved = await this.prisma.titheIntent.updateMany({
+          where: { id: intent.id, status: { in: ['CREATED', 'DECLARED'] } },
+          data: { status: 'CANCELLED', note: LGPD_NOTE, providerStatus: 'cancelled' },
+        });
+        done += moved.count;
+      } catch (error) {
+        failed++;
+        // Sem dado pessoal no log: só o id do Pix
+        this.logger.warn(`Cobrança avulsa do membro anonimizado não cancelada no provedor (Pix ${intent.id}): ${String((error as Error)?.message ?? error).slice(0, 200)}`);
       }
     }
     return { done, failed };

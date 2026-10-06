@@ -32,7 +32,7 @@ import {
   WESTMOST_TIME_ZONE,
   wantsClusters,
 } from './map-search.utils';
-import { ZonedParts, zonedDateTimeToInstant, zonedParts } from '../../common/schedule-time';
+import { ZonedParts, isAllDayEvent, zonedDateTimeToInstant, zonedParts } from '../../common/schedule-time';
 
 const pad2 = (n: number) => String(n).padStart(2, '0');
 /** Partes do relógio de parede → 'YYYY-MM-DDTHH:MM:00' (formato flutuante do contrato). */
@@ -317,10 +317,10 @@ export class MassesService {
       const zone = timeZoneForState(states.get(ev.communityId));
       const startParts = zonedParts(ev.startDate, zone);
       const endParts = ev.endDate ? zonedParts(ev.endDate, zone) : null;
-      // Dia inteiro (00:00 local e sem fim, ou fim também 00:00 — o critério do
-      // calendário do app): não tem hora, então não é "missa às 00:00" no mapa
-      const midnight = (p: ZonedParts) => p.hour === 0 && p.minute === 0;
-      if (midnight(startParts) && (!endParts || midnight(endParts))) continue;
+      // Dia inteiro não tem hora, então não é "missa às 00:00" no mapa. Mas
+      // Missa às 00:00 SEM fim é a Missa do Galo (R3#47): dia inteiro só com
+      // fim às 00:00 de OUTRO dia, ou janela de 24 h ou mais
+      if (isAllDayEvent({ type: EventType.MASS, startDate: ev.startDate, endDate: ev.endDate }, zone)) continue;
       const start = floatingOf(startParts);
       if (isPast(ev.communityId, start)) continue;
       push(ev.communityId, {

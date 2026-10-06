@@ -64,3 +64,69 @@ export async function assertBroadcastQuota(
 
 /** Entidades de auditoria dos avisos livres (contam no teto por autor). */
 export const BROADCAST_AUTHOR_ENTITIES = ['CatechesisClassMessage', 'PastoralBroadcast'];
+
+type BroadcastTx = AuditCounter & {
+  $queryRaw: (...args: any[]) => Promise<unknown>;
+  auditLog: AuditCounter['auditLog'] & { create: (args: any) => Promise<{ id: string }> };
+};
+type BroadcastClient = {
+  $transaction: (fn: (tx: any) => Promise<any>) => Promise<any>;
+  auditLog: { update: (args: any) => Promise<unknown> };
+};
+
+/**
+ * Reserva a vaga do aviso livre ANTES do envio: advisory lock por grupo e por
+ * autor (sempre nesta ordem — sem deadlock), contagem do teto e gravação da
+ * trilha na mesma transação. Antes a trilha (que é o contador) só era gravada
+ * depois do envio e N requisições simultâneas passavam juntas pela contagem.
+ * Devolve o id do registro, para `finishBroadcast` anotar quantos receberam.
+ */
+export async function reserveBroadcastQuota(
+  prisma: BroadcastClient,
+  opts: {
+    entity: string;
+    entityId: string;
+    actor: { id: string; role?: string | null };
+    authorEntities: string[];
+    metadata?: Record<string, unknown>;
+  },
+): Promise<string> {
+  return prisma.$transaction(async (tx: BroadcastTx) => {
+    // ::text — o Prisma não desserializa o void do pg_advisory_xact_lock
+    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:broadcast:group:' + opts.entity + ':' + opts.entityId}))::text`;
+    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:broadcast:author:' + opts.actor.id}))::text`;
+    await assertBroadcastQuota(tx, {
+      entity: opts.entity,
+      entityId: opts.entityId,
+      actorUserId: opts.actor.id,
+      authorEntities: opts.authorEntities,
+    });
+    // Mesmo formato do AuditService.log (ator com id: e-mail sai por join)
+    const row = await tx.auditLog.create({
+      data: {
+        actorUserId: opts.actor.id,
+        actorEmail: null,
+        actorRole: opts.actor.role ?? null,
+        action: 'CREATE',
+        entity: opts.entity,
+        entityId: opts.entityId,
+        metadata: { ...(opts.metadata ?? {}), notified: 0 },
+      },
+      select: { id: true },
+    });
+    return row.id;
+  });
+}
+
+/** Anota na trilha reservada quantas contas receberam (best-effort). */
+export async function finishBroadcast(
+  prisma: BroadcastClient,
+  auditId: string,
+  metadata: Record<string, unknown>,
+): Promise<void> {
+  try {
+    await prisma.auditLog.update({ where: { id: auditId }, data: { metadata } });
+  } catch {
+    // a trilha já conta no teto; o número de destinatários é informativo
+  }
+}

@@ -63,8 +63,15 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
       pastoralMember: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralCoordinator: { findMany: jest.fn().mockResolvedValue([]) },
       pastoralJoinRequest: { findMany: jest.fn().mockResolvedValue([]), findUnique: jest.fn() },
-      auditLog: { count: jest.fn().mockResolvedValue(0) },
+      auditLog: {
+        count: jest.fn().mockResolvedValue(0),
+        create: jest.fn().mockResolvedValue({ id: 'aud1' }),
+        update: jest.fn().mockResolvedValue({}),
+      },
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
+    // Transação da cota de avisos: o próprio mock faz o papel do cliente
+    prisma.$transaction = jest.fn(async (cb: any) => cb(prisma));
     hierarchy = { canManageCommunity: jest.fn().mockResolvedValue(false) };
     notifications = { notifyUsers: jest.fn() };
 
@@ -226,6 +233,63 @@ describe('PastoralsService — escopo e coordenação (C7, C8, A13)', () => {
       await service.notifyMembers('cp-cat', 'Reunião', parishAdminP1);
       expect(notifications.notifyUsers).toHaveBeenCalledTimes(1);
       expect(prisma.auditLog.count.mock.calls[0][0].where).toMatchObject({ entity: 'PastoralBroadcast', entityId: 'cp-cat' });
+    });
+
+    it('R5#5: trava grupo e autor, conta e GRAVA a trilha antes do envio (corrida não fura o teto)', async () => {
+      const order: string[] = [];
+      prisma.$queryRaw.mockImplementation(async (sql: any, key: string) => order.push(`lock:${key}`));
+      prisma.auditLog.count.mockImplementation(async () => {
+        order.push('conta');
+        return 0;
+      });
+      prisma.auditLog.create.mockImplementation(async () => {
+        order.push('grava');
+        return { id: 'aud1' };
+      });
+      notifications.notifyUsers.mockImplementation(async () => order.push('envia'));
+      prisma.auditLog.update.mockImplementation(async () => order.push('anota'));
+      await service.notifyMembers('cp-cat', 'Reunião', parishAdminP1);
+      expect(order).toEqual([
+        'lock:parish:broadcast:group:PastoralBroadcast:cp-cat',
+        `lock:parish:broadcast:author:${parishAdminP1.id}`,
+        'conta',
+        'conta',
+        'grava',
+        'envia',
+        'anota',
+      ]);
+      expect(prisma.$queryRaw.mock.calls[0][0].join('?')).toContain('::text');
+      expect(prisma.auditLog.create.mock.calls[0][0].data).toMatchObject({
+        actorUserId: parishAdminP1.id,
+        entity: 'PastoralBroadcast',
+        entityId: 'cp-cat',
+      });
+      expect(prisma.auditLog.update).toHaveBeenCalledWith({ where: { id: 'aud1' }, data: { metadata: { notified: 1, length: 7 } } });
+    });
+
+    it('R5#5: duas requisições simultâneas com 1 vaga — só uma envia', async () => {
+      // Simula o lock serializando: a 2ª conta já vê a trilha gravada pela 1ª
+      let recorded = 4;
+      prisma.auditLog.count.mockImplementation(async ({ where }: any) => (where.entityId ? recorded : 0));
+      prisma.auditLog.create.mockImplementation(async () => {
+        recorded++;
+        return { id: `aud${recorded}` };
+      });
+      let chain = Promise.resolve();
+      prisma.$transaction = jest.fn((cb: any) => {
+        const run = chain.then(() => cb(prisma));
+        chain = run.then(
+          () => undefined,
+          () => undefined,
+        );
+        return run;
+      });
+      const results = await Promise.allSettled([
+        service.notifyMembers('cp-cat', 'Reunião', parishAdminP1),
+        service.notifyMembers('cp-cat', 'Reunião', parishAdminP1),
+      ]);
+      expect(results.map((r) => r.status).sort()).toEqual(['fulfilled', 'rejected']);
+      expect(notifications.notifyUsers).toHaveBeenCalledTimes(1);
     });
   });
 

@@ -29,6 +29,7 @@ describe('PasswordResetService (Fase 1)', () => {
       },
       refreshToken: { deleteMany: jest.fn() },
       $transaction: jest.fn().mockResolvedValue([]),
+      $queryRaw: jest.fn((strings: TemplateStringsArray, ...values: unknown[]) => ({ sql: strings.join('?'), values })),
     };
     messaging = {
       smsConfigured: false,
@@ -212,6 +213,9 @@ describe('PasswordResetService (Fase 1)', () => {
         data: { password: expect.any(String), forcePasswordChange: false, sessionsRevokedAt: expect.any(Date) },
       });
       expect(prisma.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
+      // #39: a transação em lote começa travando a linha do usuário
+      const batch = prisma.$transaction.mock.calls[0][0];
+      expect(batch[0]).toEqual({ sql: expect.stringContaining('FOR UPDATE'), values: ['u1'] });
       expect(audit.log).toHaveBeenCalledWith(
         expect.objectContaining({ action: 'PASSWORD_RESET', metadata: { stage: 'completed' } }),
       );

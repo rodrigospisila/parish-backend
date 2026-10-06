@@ -4,6 +4,7 @@
   ConflictException,
   ForbiddenException,
   BadRequestException,
+  Optional,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -18,6 +19,17 @@ import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 import { emailInsensitive, normalizeEmail } from '../auth/email-lookup';
 import { COORDINATOR_MEMBER_ROLES, pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 import { TERMS_VERSION, isTermsAcceptanceRequired } from './terms.constants';
+import { ACCOUNT_DELETION_RECENT_AUTH_MS, SessionSecurityService } from '../auth/session-security.service';
+import { lockUserRow } from '../auth/session-lock';
+
+/** Reautenticação da exclusão da própria conta (revisão #25/#43). */
+export interface AccountDeletionReauth {
+  /** Senha atual (painel e app novo) */
+  password?: string | null;
+  /** Claim `at` da sessão (s): sem a senha, só login de até 5 min (app 1.1.0) */
+  authTime?: number | null;
+  ip?: string | null;
+}
 
 @Injectable()
 export class UsersService {
@@ -25,6 +37,8 @@ export class UsersService {
     private readonly prisma: PrismaService,
     private readonly membersService: MembersService,
     private readonly auditService: AuditService,
+    // Conferência da senha com o freio da conta (#42); opcional só para specs antigos
+    @Optional() private readonly security?: SessionSecurityService,
   ) {}
 
   // Fonte única da hierarquia: src/modules/auth/constants/role-hierarchy.ts
@@ -1455,6 +1469,17 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
+    // Revisão #28: o assertUserScope libera tudo ao SYSTEM_ADMIN — mas nem
+    // ele anonimiza a si mesmo (isso é DELETE /users/me, com senha) nem um par
+    if (currentUser?.role === UserRole.SYSTEM_ADMIN) {
+      if (currentUser.id === user.id) {
+        throw new ForbiddenException('Para excluir a sua própria conta, use "Meus dados" (exige a senha)');
+      }
+      if (user.role === UserRole.SYSTEM_ADMIN) {
+        throw new ForbiddenException('Um administrador do sistema não remove outro administrador do sistema');
+      }
+    }
+
     // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2/M34)
     this.assertUserScope(currentUser, user);
 
@@ -1484,6 +1509,8 @@ export class UsersService {
    * Encerra sessões, vínculos de comunidade, push, notificações e favoritos.
    */
   private async anonymizeUserAccount(tx: Prisma.TransactionClient, userId: string) {
+    // Revogação sob a trava da linha (#39): refresh em andamento não sobrevive
+    await lockUserRow(tx, userId);
     const now = new Date();
     await tx.user.update({
       where: { id: userId },
@@ -1526,29 +1553,62 @@ export class UsersService {
    * Exclusão da própria conta (autoatendimento) — exigida pela App Store
    * (5.1.1(v)) e direito de eliminação da LGPD (art. 18 VI).
    *
-   * Remove definitivamente o usuário (o cascade revoga sessões, favoritos,
-   * aparelhos, foto e vínculos de comunidade; o push token sai com o registro),
-   * apaga as notificações (sem FK — B36) e ANONIMIZA o perfil de membro pela
-   * mesma rotina da gestão (M16): campos pessoais, vínculos de pastoral e de
-   * comunidade, escalas futuras, consentimentos e documentos da catequese. O
-   * histórico paroquial passado fica, sem identificar a pessoa. Por fim, a
-   * auditoria ligada a ela é pseudonimizada (M49).
+   * Reautenticação (revisão #25/#43): exige a senha atual — com só o access
+   * token na mão (aparelho destravado, token vazado) ninguém apaga a conta de
+   * outra pessoa. O app 1.1.0 não manda a senha: sem ela, só vale um login
+   * com senha de até 5 min nesta sessão (claim `at`). Falhas de senha contam
+   * no freio da conta (#42).
+   *
+   * Trava (409): o último SYSTEM_ADMIN ativo da plataforma e o último
+   * PARISH_ADMIN ativo da paróquia não se excluem — a paróquia ficaria sem
+   * ninguém para administrar. Checado sob advisory lock (dois "últimos"
+   * excluindo ao mesmo tempo não passam os dois).
+   *
+   * ANONIMIZA o perfil de membro pela mesma rotina da gestão (M16): campos
+   * pessoais, vínculos de pastoral e de comunidade, escalas futuras,
+   * consentimentos e documentos da catequese. O histórico paroquial passado
+   * fica, sem identificar a pessoa. Depois:
+   * - conta SEM mensagens assinadas: removida definitivamente (o cascade
+   *   revoga sessões, favoritos, aparelhos, foto e vínculos de comunidade);
+   * - conta que assinou mensagem do clero (ClergyMessage.sender) ou da
+   *   catequese (CatechesisMessage.author): ANONIMIZADA no lugar, como na
+   *   remoção pela gestão. Essas FKs são onDelete: Cascade e o delete apagaria
+   *   a mensagem do pároco à comunidade e a conversa da família com a equipe
+   *   (#25). O autor passa a aparecer como "Usuário removido".
+   * Por fim, a auditoria ligada a ela é pseudonimizada (M49/#26).
    */
-  async deleteOwnAccount(userId: string) {
+  async deleteOwnAccount(userId: string, reauth: AccountDeletionReauth = {}) {
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
-      select: { id: true, email: true, role: true, member: { select: { id: true } } },
+      select: { id: true, email: true, role: true, parishId: true, isActive: true, member: { select: { id: true } } },
     });
 
     if (!user) {
       throw new NotFoundException('Usuário não encontrado');
     }
 
+    await this.assertAccountDeletionReauth(userId, reauth);
+
+    let anonymizedInPlace = false;
     await this.prisma.$transaction(async (tx) => {
+      await this.assertNotLastAdmin(tx, user);
+
       // O vínculo user↔member é SetNull no delete: sem isto o membro ficaria
       // órfão com os dados pessoais
       if (user.member) {
         await this.membersService.anonymizePersonalData(tx, user.member.id, { label: 'Membro removido' });
+      }
+
+      const [clergyMessages, catechesisMessages] = await Promise.all([
+        tx.clergyMessage.count({ where: { senderUserId: userId } }),
+        tx.catechesisMessage.count({ where: { authorUserId: userId } }),
+      ]);
+      if (clergyMessages + catechesisMessages > 0) {
+        // Preserva as mensagens (sem cascata): conta anonimizada no lugar
+        anonymizedInPlace = true;
+        await this.anonymizeUserAccount(tx, userId);
+        await tx.member.updateMany({ where: { userId }, data: { userId: null } });
+        return;
       }
 
       await tx.notification.deleteMany({ where: { userId } });
@@ -1563,11 +1623,16 @@ export class UsersService {
 
     await this.auditService.log({
       actor: { id: user.id, role: user.role },
-      action: 'DELETE',
+      action: anonymizedInPlace ? 'ANONYMIZE' : 'DELETE',
       entity: 'User',
       entityId: userId,
       before: { role: user.role },
-      metadata: { selfService: true, memberAnonymized: !!user.member },
+      metadata: {
+        selfService: true,
+        memberAnonymized: !!user.member,
+        ...(anonymizedInPlace ? { accountAnonymizedInPlace: true, reason: 'signed-messages' } : {}),
+        reauth: reauth.password ? 'password' : 'recent-login',
+      },
     });
     await this.auditService.pseudonymizeSubject({
       userId,
@@ -1576,6 +1641,55 @@ export class UsersService {
     });
 
     return { deleted: true };
+  }
+
+  /** Senha atual, ou login com senha de até 5 min (app 1.1.0, que não manda a senha). */
+  private async assertAccountDeletionReauth(userId: string, reauth: AccountDeletionReauth) {
+    if (reauth.password) {
+      if (this.security) return this.security.assertPassword(userId, reauth.password, { ip: reauth.ip ?? null });
+      // Sem o serviço de sessão (montagem parcial em spec): confere direto, sem o freio
+      const row = await this.prisma.user.findUnique({ where: { id: userId }, select: { password: true } });
+      if (!row || !(await bcrypt.compare(String(reauth.password), row.password))) {
+        throw new BadRequestException('Senha atual incorreta');
+      }
+      return;
+    }
+    const at = typeof reauth.authTime === 'number' ? reauth.authTime * 1000 : 0;
+    if (at && Date.now() - at <= ACCOUNT_DELETION_RECENT_AUTH_MS) return;
+    throw new BadRequestException(
+      'Por segurança, confirme a sua senha atual para excluir a conta. No app, saia, entre de novo e exclua em seguida.',
+    );
+  }
+
+  /**
+   * 409 ao excluir o último SYSTEM_ADMIN ativo ou o último PARISH_ADMIN
+   * ativo da paróquia (#25). Advisory lock por escopo: duas exclusões
+   * simultâneas não contam uma à outra como "o outro administrador".
+   */
+  private async assertNotLastAdmin(
+    tx: Prisma.TransactionClient,
+    user: { id: string; role: UserRole; parishId?: string | null; isActive?: boolean },
+  ) {
+    if (user.isActive === false) return;
+    let scope: Prisma.UserWhereInput | null = null;
+    let lockKey = '';
+    let message = '';
+    if (user.role === UserRole.SYSTEM_ADMIN) {
+      scope = { role: UserRole.SYSTEM_ADMIN };
+      lockKey = 'parish:last-admin:system';
+      message = 'Você é o único administrador do sistema ativo — promova outra pessoa antes de excluir a sua conta';
+    } else if (user.role === UserRole.PARISH_ADMIN && user.parishId) {
+      scope = { role: UserRole.PARISH_ADMIN, parishId: user.parishId };
+      lockKey = `parish:last-admin:parish:${user.parishId}`;
+      message =
+        'Você é o único administrador ativo da paróquia — peça à diocese (ou cadastre) outro administrador paroquial antes de excluir a sua conta';
+    }
+    if (!scope) return;
+    await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${lockKey}))::text`;
+    const others = await tx.user.count({
+      where: { ...scope, id: { not: user.id }, isActive: true, anonymizedAt: null },
+    });
+    if (others === 0) throw new ConflictException(message);
   }
 
   /**
@@ -1635,25 +1749,30 @@ export class UsersService {
 
     const hashedPassword = await bcrypt.hash(changePasswordDto.newPassword, 10);
 
-    await this.prisma.user.update({
-      where: { id },
-      data: {
-        password: hashedPassword,
-        forcePasswordChange: false,
-        // Access tokens já emitidos caem na hora (B46), inclusive os de quem
-        // conhecia a senha antiga. Truncado ao segundo, como o `iat`.
-        sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
-      },
-    });
     // As sessões dos OUTROS aparelhos acabam. A deste aparelho fica: o access
     // token dele é recusado na próxima requisição e o refresh (mantido) emite
     // um novo sem pedir login. Token sem sessão (antigo) ou troca feita pelo
     // SYSTEM_ADMIN em outra conta: todas as sessões caem.
     const keepSessionId: string | null = currentUser.id === id && currentUser.sessionId ? currentUser.sessionId : null;
-    await this.prisma.refreshToken.deleteMany({
-      where: keepSessionId
-        ? { userId: id, OR: [{ sessionId: null }, { sessionId: { not: keepSessionId } }] }
-        : { userId: id },
+    // Sob a trava da linha do usuário (#39): um refresh de outro aparelho em
+    // andamento não grava o token novo depois da revogação
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, id);
+      await tx.user.update({
+        where: { id },
+        data: {
+          password: hashedPassword,
+          forcePasswordChange: false,
+          // Access tokens já emitidos caem na hora (B46), inclusive os de quem
+          // conhecia a senha antiga. Truncado ao segundo, como o `iat`.
+          sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
+        },
+      });
+      await tx.refreshToken.deleteMany({
+        where: keepSessionId
+          ? { userId: id, OR: [{ sessionId: null }, { sessionId: { not: keepSessionId } }] }
+          : { userId: id },
+      });
     });
 
     await this.auditService.log({
@@ -1886,17 +2005,21 @@ export class UsersService {
     const tempPassword = randomBytes(6).toString('base64url') + 'Aa1!';
     const hashedPassword = await bcrypt.hash(tempPassword, 10);
 
-    await this.prisma.user.update({
-      where: { id },
-      data: {
-        password: hashedPassword,
-        forcePasswordChange: true,
-        // Senha redefinida pela administração: toda sessão anterior cai na hora
-        // (`iat` truncado ao segundo — ver JwtStrategy)
-        sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
-      },
+    await this.prisma.$transaction(async (tx) => {
+      // Trava da linha (#39): refresh em andamento não sobrevive à redefinição
+      await lockUserRow(tx, id);
+      await tx.user.update({
+        where: { id },
+        data: {
+          password: hashedPassword,
+          forcePasswordChange: true,
+          // Senha redefinida pela administração: toda sessão anterior cai na hora
+          // (`iat` truncado ao segundo — ver JwtStrategy)
+          sessionsRevokedAt: new Date(Math.floor(Date.now() / 1000) * 1000),
+        },
+      });
+      await tx.refreshToken.deleteMany({ where: { userId: id } });
     });
-    await this.prisma.refreshToken.deleteMany({ where: { userId: id } });
 
     await this.auditService.log({
       actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },

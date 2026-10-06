@@ -7,7 +7,7 @@ import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { buildPixBrCode, normalizeAscii } from './pix-brcode';
-import { TitheService, safeName } from './tithe.service';
+import { TitheService, netPaid, safeName } from './tithe.service';
 
 const MAX_GOAL = 10_000_000;
 const MAX_PLEDGE = 100_000;
@@ -105,7 +105,7 @@ export class TitheCampaignsService {
       }),
       this.prisma.titheIntent.findMany({
         where: { campaignId: { in: ids }, status: 'CONFIRMED' },
-        select: { campaignId: true, memberId: true, amountPaid: true, amount: true },
+        select: { campaignId: true, memberId: true, amountPaid: true, amount: true, refundedAmount: true },
       }),
     ]);
     for (const id of ids) map.set(id, { raised: 0, contributors: 0, count: 0, appTotal: 0 });
@@ -118,7 +118,8 @@ export class TitheCampaignsService {
     const members = new Map<string, Set<string>>();
     for (const i of confirmed) {
       const entry = map.get(i.campaignId!)!;
-      entry.appTotal = Math.round((entry.appTotal + (i.amountPaid ?? i.amount)) * 100) / 100;
+      // Líquido (R4#15): estorno parcial no provedor já saiu da campanha
+      entry.appTotal = Math.round((entry.appTotal + netPaid(i)) * 100) / 100;
       if (!members.has(i.campaignId!)) members.set(i.campaignId!, new Set());
       members.get(i.campaignId!)!.add(i.memberId);
     }
@@ -190,12 +191,12 @@ export class TitheCampaignsService {
       this.totals(ids),
       this.prisma.titheIntent.findMany({
         where: { campaignId: { in: ids }, memberId: member.id, status: 'CONFIRMED' },
-        select: { campaignId: true, amountPaid: true, amount: true },
+        select: { campaignId: true, amountPaid: true, amount: true, refundedAmount: true },
       }),
       this.prisma.titheCampaignPledge.findMany({ where: { campaignId: { in: ids }, memberId: member.id, status: 'OPEN' } }),
     ]);
     const myTotals = new Map<string, number>();
-    for (const i of mine) myTotals.set(i.campaignId!, Math.round(((myTotals.get(i.campaignId!) ?? 0) + (i.amountPaid ?? i.amount)) * 100) / 100);
+    for (const i of mine) myTotals.set(i.campaignId!, Math.round(((myTotals.get(i.campaignId!) ?? 0) + netPaid(i)) * 100) / 100);
     const myPledges = new Map(pledges.map((p) => [p.campaignId, p]));
     return campaigns.map((c) => {
       const myTotal = myTotals.get(c.id) ?? 0;
@@ -240,9 +241,10 @@ export class TitheCampaignsService {
     });
     const given = await this.prisma.titheIntent.aggregate({
       where: { campaignId: campaign.id, memberId: member.id, status: 'CONFIRMED' },
-      _sum: { amountPaid: true },
+      _sum: { amountPaid: true, refundedAmount: true },
     });
-    const myTotal = given._sum.amountPaid ?? 0;
+    // Líquido (R4#15): o que foi estornado no provedor não cumpre a promessa
+    const myTotal = Math.max(0, Math.round(((given._sum.amountPaid ?? 0) - (given._sum.refundedAmount ?? 0)) * 100) / 100);
     return { amount: pledge.amount, note: pledge.note, fulfilled: myTotal >= pledge.amount, myTotal };
   }
 
@@ -578,8 +580,10 @@ export class TitheCampaignsService {
   /** Estorna um lançamento manual (nunca apaga): saída no mesmo valor, apontando o lançamento estornado. */
   async reverseEntry(user: CurrentUser, id: string, entryId: string) {
     const campaign = await this.loadForManage(user, id);
+    // Oferta de visitante (guestGiftId) não é lançamento manual (R4#17): o
+    // estorno dela vem do provedor — estornar aqui também tiraria duas vezes
     const entry = await this.prisma.financialTransaction.findFirst({
-      where: { id: entryId, campaignId: id, type: TransactionType.INCOME, titheIntentId: null },
+      where: { id: entryId, campaignId: id, type: TransactionType.INCOME, titheIntentId: null, guestGiftId: null },
     });
     if (!entry) throw new NotFoundException('Lançamento manual não encontrado nesta campanha');
     const scope = await this.tithe.financeScope(user);
@@ -621,7 +625,7 @@ export class TitheCampaignsService {
         where: { campaignId: id, ...(communityFilter ? { communityId: communityFilter } : {}) },
         orderBy: { date: 'desc' },
         take: 1000,
-        select: { id: true, type: true, amount: true, date: true, description: true, communityId: true, titheIntentId: true, reversalOfId: true },
+        select: { id: true, type: true, amount: true, date: true, description: true, communityId: true, titheIntentId: true, reversalOfId: true, guestGiftId: true },
       }),
       this.prisma.titheIntent.findMany({
         where: { campaignId: id, status: 'CONFIRMED', ...(communityFilter ? { communityId: communityFilter } : {}) },
@@ -631,6 +635,7 @@ export class TitheCampaignsService {
           id: true,
           amount: true,
           amountPaid: true,
+          refundedAmount: true,
           anonymous: true,
           paymentMethod: true,
           method: true,
@@ -657,17 +662,25 @@ export class TitheCampaignsService {
     for (const i of intents) {
       const key = i.paymentMethod ?? 'PIX';
       const row = byMethod.get(key) ?? { total: 0, count: 0 };
-      row.total = Math.round((row.total + (i.amountPaid ?? i.amount)) * 100) / 100;
+      row.total = Math.round((row.total + netPaid(i)) * 100) / 100;
       row.count += 1;
       byMethod.set(key, row);
     }
-    // Origem: com titheIntentId veio do app; sem ele é manual; EXPENSE é estorno (do app ou de manual)
-    const manual = transactions.filter((t) => t.type === TransactionType.INCOME && !t.titheIntentId);
+    // Origem: com titheIntentId veio do app; com guestGiftId, da página de
+    // visitante (pelo provedor — R4#17: não é manual nem estornável aqui); sem
+    // os dois é manual; EXPENSE é estorno (do app, do visitante ou de manual)
+    const manual = transactions.filter((t) => t.type === TransactionType.INCOME && !t.titheIntentId && !t.guestGiftId);
+    const guests = transactions.filter((t) => t.type === TransactionType.INCOME && !!t.guestGiftId);
     const reversals = transactions.filter((t) => t.type === TransactionType.EXPENSE);
     const reversedIds = new Set(reversals.map((r) => r.reversalOfId).filter(Boolean));
-    const manualReversed = reversals.filter((r) => r.reversalOfId).reduce((sum, r) => sum + r.amount, 0);
-    const manualTotal = Math.round((manual.reduce((sum, m) => sum + m.amount, 0) - manualReversed) * 100) / 100;
+    const manualIds = new Set(manual.map((m) => m.id));
+    const guestIds = new Set(guests.map((g) => g.id));
+    const sumOf = (rows: Array<{ amount: number }>) => rows.reduce((sum, r) => sum + r.amount, 0);
+    const manualReversed = sumOf(reversals.filter((r) => r.reversalOfId && manualIds.has(r.reversalOfId)));
+    const manualTotal = Math.round((sumOf(manual) - manualReversed) * 100) / 100;
     if (manual.length) byMethod.set('MANUAL', { total: manualTotal, count: manual.length });
+    const guestReversed = sumOf(reversals.filter((r) => (r.reversalOfId && guestIds.has(r.reversalOfId)) || (!r.reversalOfId && !!r.guestGiftId)));
+    if (guests.length) byMethod.set('GUEST', { total: Math.round((sumOf(guests) - guestReversed) * 100) / 100, count: guests.length });
     const t = totals.get(id)!;
     // Promessas: o "já deu" só conta ofertas com nome — oferta anônima não pode ser
     // desanonimizada por aqui (o fiel vê o cumprimento completo no app)
@@ -679,7 +692,7 @@ export class TitheCampaignsService {
         if (pledgeMembers.has(i.member.id)) anonymousNote = true;
         continue;
       }
-      givenByMember.set(i.member.id, Math.round(((givenByMember.get(i.member.id) ?? 0) + (i.amountPaid ?? i.amount)) * 100) / 100);
+      givenByMember.set(i.member.id, Math.round(((givenByMember.get(i.member.id) ?? 0) + netPaid(i)) * 100) / 100);
     }
     const pledgeRows = pledges.map((p) => ({
       member: safeName(p.member.fullName),
@@ -708,21 +721,22 @@ export class TitheCampaignsService {
       contributions: intents.map((i) => ({
         id: i.id,
         date: i.confirmedAt,
-        amount: i.amountPaid ?? i.amount,
+        amount: netPaid(i),
         anonymous: i.anonymous,
         member: i.anonymous ? { id: null, fullName: 'Oferta anônima' } : { id: i.member.id, fullName: safeName(i.member.fullName) },
         method: i.paymentMethod ?? 'PIX',
         community: nameOf.get(i.communityId ?? '') ?? '—',
         txid: i.txid,
       })),
-      entries: [...manual, ...reversals]
+      // GUEST: oferta de visitante (só leitura — o estorno vem do provedor)
+      entries: [...manual, ...guests, ...reversals]
         .sort((a, b) => b.date.getTime() - a.date.getTime())
         .map((e) => ({
           id: e.id,
           date: e.date,
           amount: e.type === TransactionType.INCOME ? e.amount : -e.amount,
           type: e.type,
-          source: e.type === TransactionType.INCOME ? 'MANUAL' : 'REVERSAL',
+          source: e.type === TransactionType.INCOME ? (e.guestGiftId ? 'GUEST' : 'MANUAL') : 'REVERSAL',
           description: e.description,
           community: nameOf.get(e.communityId ?? '') ?? (e.communityId ? '—' : 'Paróquia'),
           reversed: e.type === TransactionType.INCOME && reversedIds.has(e.id),
@@ -741,7 +755,7 @@ export class TitheCampaignsService {
         where: { campaignId: id, ...(communityFilter ? { communityId: communityFilter } : {}) },
         orderBy: { date: 'asc' },
         take: 5000,
-        select: { id: true, type: true, amount: true, date: true, description: true, communityId: true, titheIntentId: true, reversalOfId: true },
+        select: { id: true, type: true, amount: true, date: true, description: true, communityId: true, titheIntentId: true, reversalOfId: true, guestGiftId: true },
       }),
       this.prisma.community.findMany({ where: { parishId: campaign.parishId }, select: { id: true, name: true } }),
     ]);
@@ -760,7 +774,7 @@ export class TitheCampaignsService {
       const signed = t.type === TransactionType.INCOME ? t.amount : -t.amount;
       total = Math.round((total + signed) * 100) / 100;
       const intent = t.titheIntentId ? intentOf.get(t.titheIntentId) : undefined;
-      const origin = t.type === TransactionType.EXPENSE ? 'Estorno' : intent ? 'App' : 'Manual';
+      const origin = t.type === TransactionType.EXPENSE ? 'Estorno' : intent ? 'App' : t.guestGiftId ? 'Visitante' : 'Manual';
       const who = intent ? (intent.anonymous ? 'Oferta anônima' : safeName(intent.member.fullName)) : '';
       const method = intent ? intent.paymentMethod ?? 'PIX' : '';
       lines.push(

@@ -12,8 +12,15 @@ import {
   Min,
   Max,
 } from 'class-validator';
-import { Type } from 'class-transformer';
+import { Transform, Type } from 'class-transformer';
 import { MassRecurrence, MassScheduleType } from '@prisma/client';
+
+/** "7:30" → "07:30" (e " 19:00 " → "19:00"); o resto passa como veio para a validação. */
+export function normalizeHhMm(value: unknown): unknown {
+  if (typeof value !== 'string') return value;
+  const trimmed = value.trim();
+  return /^\d:\d{2}$/.test(trimmed) ? trimmed.padStart(5, '0') : trimmed;
+}
 
 /** Configuração de uma pastoral vinculada ao horário fixo (espelha o evento). */
 export class MassSchedulePastoralSettingDto {
@@ -71,7 +78,12 @@ export class CreateMassScheduleDto {
   @Max(31)
   dayOfMonth?: number;
 
-  /** HH:MM de 00:00 a 23:59 — "25:70" virava 02:10 do dia seguinte, e a suspensão não casava. */
+  /**
+   * HH:MM de 00:00 a 23:59 — "25:70" virava 02:10 do dia seguinte, e a
+   * suspensão não casava. "H:MM" (horário legado "7:30") vira "07:30" antes
+   * da validação: editar o horário antigo dava 400 (R3#49).
+   */
+  @Transform(({ value }) => normalizeHhMm(value))
   @IsString()
   @IsNotEmpty()
   @Matches(/^([01]\d|2[0-3]):[0-5]\d$/, { message: 'Hora inválida: use HH:MM, de 00:00 a 23:59' })

@@ -9,12 +9,16 @@ import {
   parseEnforcement,
   PASSWORD_CHANGE_REQUIRED,
 } from '../password-change-policy';
+import { isAllowedDuringTermsAcceptance, TERMS_ACCEPTANCE_REQUIRED } from '../terms-policy';
+import { isTermsAcceptanceRequired } from '../../users/terms.constants';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   private readonly logger = new Logger(JwtStrategy.name);
   /** Modo `log`: avisa uma vez por usuário (por processo), sem encher o log a cada requisição. */
   private readonly pendingChangeLogged = new Set<string>();
+  /** Idem para o aceite dos termos pendente (TERMS_ENFORCEMENT=log). */
+  private readonly pendingTermsLogged = new Set<string>();
 
   constructor(
     private readonly configService: ConfigService,
@@ -67,8 +71,15 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     }
 
     if ((user as any).forcePasswordChange) this.checkPendingPasswordChange(req, user.id);
+    if (isTermsAcceptanceRequired(user as any)) this.checkPendingTerms(req, user.id);
 
-    const { sessionsRevokedAt: _revoked, sessionAlive: _alive, ...session } = user as any;
+    const {
+      sessionsRevokedAt: _revoked,
+      sessionAlive: _alive,
+      acceptedTermsAt: _termsAt,
+      acceptedTermsVersion: _termsVersion,
+      ...session
+    } = user as any;
     return {
       ...session,
       sessionId: sessionId ?? null,
@@ -92,6 +103,24 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     if (!this.pendingChangeLogged.has(userId) && this.pendingChangeLogged.size < 10_000) {
       this.pendingChangeLogged.add(userId);
       this.logger.warn(`Troca de senha pendente ignorada (PASSWORD_CHANGE_ENFORCEMENT=log): usuário ${userId}`);
+    }
+  }
+
+  /** Revisão #29: aceite dos termos vigentes pendente (ver terms-policy). */
+  private checkPendingTerms(req: Request, userId: string) {
+    const mode = parseEnforcement(this.configService.get<string>('TERMS_ENFORCEMENT'));
+    if (mode === 'off') return;
+    if (isAllowedDuringTermsAcceptance(req?.method, req?.originalUrl ?? req?.url)) return;
+    if (mode === 'on') {
+      throw new ForbiddenException({
+        statusCode: 403,
+        code: TERMS_ACCEPTANCE_REQUIRED,
+        message: 'Aceite os termos de uso e a política de privacidade para continuar',
+      });
+    }
+    if (!this.pendingTermsLogged.has(userId) && this.pendingTermsLogged.size < 10_000) {
+      this.pendingTermsLogged.add(userId);
+      this.logger.warn(`Aceite dos termos pendente ignorado (TERMS_ENFORCEMENT=log): usuário ${userId}`);
     }
   }
 }

@@ -7,6 +7,7 @@ import { EmailService } from '../messaging/email.service';
 import { AuditService } from '../../common/audit.service';
 import { emailInsensitive, pickEmailMatch } from './email-lookup';
 import { isProductionEnv } from '../messaging/log-mask';
+import { lockUserRowQuery } from './session-lock';
 
 const RESET_TTL_MINUTES = 30;
 /** Truncado ao segundo, como o `iat` dos JWTs (mesma regra do session-security). */
@@ -131,6 +132,8 @@ export class PasswordResetService implements OnModuleInit {
     const hashedPassword = await bcrypt.hash(newPassword, 10);
 
     await this.prisma.$transaction([
+      // Trava da linha do usuário (#39): um refresh em andamento não grava o token novo depois da revogação
+      lockUserRowQuery(this.prisma, record.userId),
       this.prisma.user.update({
         where: { id: record.userId },
         // sessionsRevokedAt: access tokens já emitidos (inclusive o de um invasor) caem na hora

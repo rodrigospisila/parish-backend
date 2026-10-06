@@ -4,9 +4,11 @@ import { UsersController } from './users.controller';
 import { PrismaModule } from '../../database/prisma.module';
 import { NotificationsModule } from '../notifications/notifications.module';
 import { MembersModule } from '../members/members.module';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [PrismaModule, NotificationsModule, MembersModule],
+  // AuthModule: reautenticação na exclusão da própria conta (SessionSecurityService)
+  imports: [PrismaModule, NotificationsModule, MembersModule, AuthModule],
   providers: [UsersService],
   controllers: [UsersController],
   exports: [UsersService],

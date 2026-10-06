@@ -103,13 +103,17 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       const tx = {
         notification: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
+        // Sem mensagens assinadas: exclusão definitiva (#25)
+        clergyMessage: { count: jest.fn().mockResolvedValue(0) },
+        catechesisMessage: { count: jest.fn().mockResolvedValue(0) },
       };
       prisma.user.findUnique = jest
         .fn()
         .mockResolvedValue({ id: 'u1', email: 'a@b.com', role: UserRole.FAITHFUL, member: { id: 'm1' } });
       prisma.$transaction = jest.fn(async (cb: any) => cb(tx));
 
-      const res = await service.deleteOwnAccount('u1');
+      // Login com senha há 1 min (app 1.1.0, sem a senha no corpo — #43)
+      const res = await service.deleteOwnAccount('u1', { authTime: Math.floor(Date.now() / 1000) - 60 });
 
       expect(res).toEqual({ deleted: true });
       expect(members.anonymizePersonalData).toHaveBeenCalledWith(tx, 'm1', { label: 'Membro removido' });
@@ -130,13 +134,16 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       const tx = {
         notification: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
+        // Sem mensagens assinadas: exclusão definitiva (#25)
+        clergyMessage: { count: jest.fn().mockResolvedValue(0) },
+        catechesisMessage: { count: jest.fn().mockResolvedValue(0) },
       };
       prisma.user.findUnique = jest
         .fn()
         .mockResolvedValue({ id: 'u2', email: 'c@d.com', role: UserRole.FAITHFUL, member: null });
       prisma.$transaction = jest.fn(async (cb: any) => cb(tx));
 
-      await service.deleteOwnAccount('u2');
+      await service.deleteOwnAccount('u2', { authTime: Math.floor(Date.now() / 1000) });
 
       expect(members.anonymizePersonalData).not.toHaveBeenCalled();
       expect(members.cancelTitheAtProviderAfterCommit).not.toHaveBeenCalled();

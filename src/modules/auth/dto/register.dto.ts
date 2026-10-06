@@ -45,10 +45,14 @@ export class RegisterDto {
   @IsOptional()
   communityId?: string;
 
-  // Aceite dos termos/política obrigatório no cadastro público (M4, LGPD art. 8º §2º)
+  // Aceite dos termos/política no cadastro público (M4, LGPD art. 8º §2º).
+  // `false` explícito: 400. AUSENTE (app 1.0.0, que não mandava o campo —
+  // revisão #30/#35): a conta é criada com o aceite PENDENTE (acceptedTermsAt
+  // nulo) e o aviso de aceite cobra no primeiro acesso (termsAcceptanceRequired).
+  @IsOptional()
   @Equals(true, { message: 'É preciso aceitar os termos de uso e a política de privacidade' })
   @IsBoolean({ message: 'Consentimento deve ser um booleano' })
-  consentGiven: boolean;
+  consentGiven?: boolean;
 
   @IsString()
   @IsOptional()

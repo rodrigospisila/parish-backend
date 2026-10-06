@@ -4,8 +4,10 @@
 const fs = require('fs');
 const path = require('path');
 const { PrismaClient } = require('@prisma/client');
-const p = new PrismaClient();
+const { assertNotProduction } = require('../../lib/prod-guard.cjs');
 const DRY = process.env.DRY_RUN === '1';
+assertNotProduction('fix-matriz', { writes: !DRY });
+const p = new PrismaClient();
 const ROOT = 'c:/projetos/gitHub/parish/parish-backend/prisma/data/territorio-br/paroquias';
 const norm = (s) => (s ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
 const isMatrizName = (n) => /matriz|catedral|santu[áa]rio/i.test(n || '');

@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, OnModuleInit } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { createHmac } from 'crypto';
 import { PrismaService } from '../database/prisma.service';
@@ -133,10 +133,25 @@ export interface AuditQuery {
  *   titular (`pseudonymizeSubject`) e o expurgo pelo prazo (`purgeExpired`).
  */
 @Injectable()
-export class AuditService {
+export class AuditService implements OnModuleInit {
   private readonly logger = new Logger(AuditService.name);
 
   constructor(private readonly prisma: PrismaService) {}
+
+  /**
+   * Revisão #32: em produção a chave dos pseudônimos tem de ser própria. Sem
+   * ela vale o JWT_SECRET — trocar o segredo do JWT mudaria todos os
+   * pseudônimos e a exclusão do titular deixaria de achar os registros
+   * antigos dele. Só avisa (log de erro): o boot não cai por isso.
+   */
+  onModuleInit() {
+    if (process.env.NODE_ENV === 'production' && !process.env.AUDIT_PSEUDONYM_KEY) {
+      this.logger.error(
+        '[LGPD] AUDIT_PSEUDONYM_KEY não definida em produção — a auditoria usa o JWT_SECRET como chave dos pseudônimos. ' +
+          'Defina AUDIT_PSEUDONYM_KEY com o MESMO valor do JWT_SECRET atual (mantém os pseudônimos já gravados) antes de trocar o JWT_SECRET.',
+      );
+    }
+  }
 
   private toJson(value?: Record<string, unknown> | null): Prisma.InputJsonValue | undefined {
     if (!value) {
@@ -287,11 +302,18 @@ export class AuditService {
   }
 
   /**
-   * Exclusão/anonimização do titular (M49): os registros em que ele é o autor
-   * ou o alvo perdem o e-mail gravado e os dados pessoais de before/after/
-   * metadata (viram AUDIT_REDACTED), inclusive o pseudônimo do e-mail gravado
-   * nas tentativas sem id. O id (pseudônimo técnico) fica, para a
-   * trilha continuar íntegra. Nunca lança: devolve quantos registros mudaram.
+   * Exclusão/anonimização do titular (M49; revisão #26). Duas situações:
+   * - Registros em que o titular é o ALVO (entityId = conta/membro dele, ou
+   *   tentativas de login contra a conta dele, gravadas só com o pseudônimo):
+   *   os dados pessoais de before/after/metadata viram AUDIT_REDACTED e o
+   *   pseudônimo do e-mail gravado nas tentativas sem id sai.
+   * - Registros em que ele foi o AUTOR (actorUserId = conta dele) e não é o
+   *   alvo: ficam íntegros para investigação — actorUserId mantido e
+   *   actorEmail gravado como pseudônimo (HMAC `pseud:...`), no lugar do join
+   *   que deixa de existir com a conta. O before/after não é redigido (é o
+   *   dado das pessoas sobre quem ele agiu); só um dado pessoal ainda em claro
+   *   (registro anterior ao pseudônimo na gravação) vira pseudônimo.
+   * Nunca lança: devolve quantos registros mudaram.
    */
   async pseudonymizeSubject(subject: {
     userId?: string | null;
@@ -304,40 +326,64 @@ export class AuditService {
     if (!ids.length && !emailPseudonym) return 0;
     let changed = 0;
     try {
+      // Autoria: o e-mail do autor passa a ser o pseudônimo (antes era zerado)
+      if (subject.userId && emailPseudonym) {
+        const authored = await this.prisma.auditLog.updateMany({
+          where: { actorUserId: subject.userId, OR: [{ actorEmail: null }, { actorEmail: { not: emailPseudonym } }] },
+          data: { actorEmail: emailPseudonym },
+        });
+        changed += authored.count;
+      }
+      // Alvo sem id (tentativas de login contra a conta): o pseudônimo sai
+      if (emailPseudonym) {
+        const attempts = await this.prisma.auditLog.updateMany({
+          where: {
+            actorUserId: null,
+            OR: [
+              { actorEmail: emailPseudonym },
+              // Registro antigo, de antes do pseudônimo na gravação
+              ...(subject.email ? [{ actorEmail: { equals: String(subject.email).trim(), mode: 'insensitive' as const } }] : []),
+            ],
+          },
+          data: { actorEmail: null },
+        });
+        changed += attempts.count;
+      }
+
       const where: Prisma.AuditLogWhereInput = {
         OR: [
           ...(subject.userId ? [{ actorUserId: subject.userId }] : []),
           ...(ids.length ? [{ entityId: { in: ids } }] : []),
-          ...(emailPseudonym
-            ? [{ actorEmail: emailPseudonym }, { metadata: { path: ['account'], equals: emailPseudonym } }]
-            : []),
+          ...(emailPseudonym ? [{ metadata: { path: ['account'], equals: emailPseudonym } }] : []),
         ],
       };
-      const cleared = await this.prisma.auditLog.updateMany({
-        where: { ...where, actorEmail: { not: null } },
-        data: { actorEmail: null },
-      });
-      changed += cleared.count;
 
       // JSON não se reescreve por updateMany: lotes de registros com detalhe
       let cursor: string | undefined;
       for (;;) {
         const batch = await this.prisma.auditLog.findMany({
           where,
-          select: { id: true, before: true, after: true, metadata: true },
+          select: { id: true, entityId: true, actorUserId: true, before: true, after: true, metadata: true },
           orderBy: { id: 'asc' },
           take: 200,
           ...(cursor ? { skip: 1, cursor: { id: cursor } } : {}),
         });
         if (!batch.length) break;
         for (const row of batch) {
+          const account = (row.metadata as Record<string, unknown> | null)?.account;
+          const isTarget =
+            (!!row.entityId && ids.includes(row.entityId)) || (!!emailPseudonym && account === emailPseudonym);
+          // Alvo: dado pessoal redigido. Só autoria: dado em claro vira pseudônimo
+          const replace = isTarget
+            ? () => AUDIT_REDACTED
+            : (raw: unknown) => (typeof raw === 'string' && raw.startsWith('pseud:') ? raw : this.pseudonymize(raw));
           const data: Prisma.AuditLogUpdateInput = {};
           for (const field of ['before', 'after', 'metadata'] as const) {
             const current = row[field];
             if (current === null || typeof current !== 'object') continue;
-            const redacted = this.scrubPersonalData(current, () => AUDIT_REDACTED);
-            if (JSON.stringify(redacted) !== JSON.stringify(current)) {
-              data[field] = redacted as Prisma.InputJsonValue;
+            const rewritten = this.scrubPersonalData(current, replace);
+            if (JSON.stringify(rewritten) !== JSON.stringify(current)) {
+              data[field] = rewritten as Prisma.InputJsonValue;
             }
           }
           if (Object.keys(data).length) {

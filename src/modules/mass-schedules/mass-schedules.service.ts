@@ -119,6 +119,55 @@ export function ymd(date: Date): string {
   return date.toISOString().slice(0, 10);
 }
 
+/** Campos que identificam um horário fixo (a duplicidade compara estes). */
+interface MassScheduleIdentity {
+  communityId: string;
+  type?: MassScheduleType | null;
+  time?: string | null;
+  recurrence?: MassRecurrence | null;
+  dayOfWeek?: number | null;
+  dayOfMonth?: number | null;
+  weeksOfMonth?: number[] | null;
+  isSpecial?: boolean | null;
+  specialDate?: string | Date | null;
+}
+
+/** "7:30" e "07:30" são a mesma hora (carga antiga sem o zero à esquerda). */
+function normalizedTime(time?: string | null): string {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(String(time ?? '').trim());
+  return match ? `${match[1].padStart(2, '0')}:${match[2]}` : String(time ?? '').trim();
+}
+
+/** Data especial como 'YYYY-MM-DD' (ISO do painel ou @db.Date). */
+function identityDay(value?: string | Date | null): string | null {
+  if (!value) return null;
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? String(value) : ymd(date);
+}
+
+/**
+ * Identidade canônica do horário, valor × valor (R3#56): só os campos que a
+ * recorrência usa (semanal → dia da semana; "1º e 3º sábado" → dia + semanas;
+ * "todo dia 13" → dia do mês), hora sem zero à esquerda e data especial só
+ * quando o horário é especial. O painel manda o formulário inteiro no PATCH:
+ * "mandou o campo" não é "mudou o campo".
+ */
+function massScheduleIdentity(v: MassScheduleIdentity): string {
+  const recurrence = v.recurrence ?? MassRecurrence.WEEKLY;
+  const weeks = [...new Set(v.weeksOfMonth ?? [])].sort((a, b) => a - b).join(',');
+  return JSON.stringify([
+    v.communityId,
+    v.type ?? null,
+    normalizedTime(v.time),
+    recurrence,
+    recurrence === MassRecurrence.MONTHLY_DAY ? null : v.dayOfWeek ?? null,
+    recurrence === MassRecurrence.MONTHLY_DAY ? v.dayOfMonth ?? null : null,
+    recurrence === MassRecurrence.MONTHLY_NTH ? weeks : '',
+    !!v.isSpecial,
+    v.isSpecial ? identityDay(v.specialDate) : null,
+  ]);
+}
+
 /** 'YYYY-MM-DD' → Date à meia-noite UTC (como o Prisma grava/lê @db.Date). */
 function dayUtc(ymdStr: string): Date {
   return new Date(`${ymdStr}T00:00:00.000Z`);
@@ -368,17 +417,7 @@ export class MassSchedulesService {
    * sem o zero à esquerda (carga antiga "7:30") e as semanas como conjunto.
    */
   private async assertNotDuplicate(
-    alvo: {
-      communityId: string;
-      type?: MassScheduleType;
-      time?: string;
-      recurrence?: MassRecurrence;
-      dayOfWeek?: number | null;
-      dayOfMonth?: number | null;
-      weeksOfMonth?: number[] | null;
-      isSpecial?: boolean | null;
-      specialDate?: string | Date | null;
-    },
+    alvo: MassScheduleIdentity,
     excludeId?: string,
   ) {
     if (!alvo.type || !alvo.time) return;
@@ -773,11 +812,28 @@ export class MassSchedulesService {
     dto: { from: string; to: string; communityId?: string; pastoralIds?: string[] },
     currentUser: CurrentUser,
   ) {
-    // O que já passou não vira escala (generateSchedule recusaria e contaria como falha)
+    // O que já passou não vira escala (generateSchedule recusaria e contaria
+    // como falha). Corte grosso pelo "hoje" mais atrasado do país (Acre) e o
+    // fino pelo "hoje" da UF de cada comunidade — o mesmo do generateSchedule:
+    // entre 00:00 e 02:00 de Brasília o "ontem" do Acre passava e virava falha
+    // (R3#53)
     const earliest = this.earliestToday();
     let pending = (await this.pendingOccurrences(dto.from, dto.to, currentUser, dto.communityId)).filter(
       (occurrence) => occurrence.date >= earliest,
     );
+    const communityIds = [...new Set(pending.map((o) => o.community?.id).filter((id): id is string => !!id))];
+    if (communityIds.length) {
+      const communities = await this.prisma.community.findMany({
+        where: { id: { in: communityIds } },
+        select: { id: true, state: true },
+      });
+      const todayByCommunity = new Map(communities.map((c) => [c.id, this.todayIn(c.state)]));
+      pending = pending.filter((occurrence) => {
+        const id = occurrence.community?.id;
+        const today = (id && todayByCommunity.get(id)) || this.todayIn(null);
+        return occurrence.date >= today;
+      });
+    }
     if (dto.pastoralIds?.length) {
       const wanted = new Set(dto.pastoralIds);
       pending = pending.filter((occurrence) =>
@@ -1003,30 +1059,24 @@ export class MassSchedulesService {
       await this.assertCommunityInScope(communityId, currentUser);
     }
 
-    // Só confere duplicidade se a edição mexe no que identifica o horário
-    // (editar a observação de um par antigo duplicado continua possível)
-    const mexeNaIdentidade =
-      mudouRecorrencia ||
-      (communityId !== undefined && communityId !== schedule.communityId) ||
-      (rest.type !== undefined && rest.type !== schedule.type) ||
-      (rest.time !== undefined && rest.time !== schedule.time) ||
-      rest.specialDate !== undefined ||
-      rest.isSpecial !== undefined;
+    // Só confere duplicidade se a edição mexe no que identifica o horário,
+    // comparando valor × valor com o gravado (R3#56): o painel manda o
+    // formulário inteiro, e editar só a observação/pastorais de um par antigo
+    // duplicado dava 409 sempre
+    const alvo: MassScheduleIdentity = {
+      communityId: targetCommunityId,
+      type: rest.type ?? schedule.type,
+      time: rest.time ?? schedule.time,
+      recurrence: rest.recurrence ?? schedule.recurrence,
+      dayOfWeek: rest.dayOfWeek !== undefined ? rest.dayOfWeek : schedule.dayOfWeek,
+      dayOfMonth: rest.dayOfMonth !== undefined ? rest.dayOfMonth : schedule.dayOfMonth,
+      weeksOfMonth: rest.weeksOfMonth ?? schedule.weeksOfMonth,
+      isSpecial: rest.isSpecial ?? schedule.isSpecial,
+      specialDate: rest.specialDate !== undefined ? rest.specialDate : schedule.specialDate,
+    };
+    const mexeNaIdentidade = massScheduleIdentity(alvo) !== massScheduleIdentity({ ...schedule });
     if (mexeNaIdentidade) {
-      await this.assertNotDuplicate(
-        {
-          communityId: targetCommunityId,
-          type: rest.type ?? schedule.type,
-          time: rest.time ?? schedule.time,
-          recurrence: rest.recurrence ?? schedule.recurrence,
-          dayOfWeek: rest.dayOfWeek !== undefined ? rest.dayOfWeek : schedule.dayOfWeek,
-          dayOfMonth: rest.dayOfMonth !== undefined ? rest.dayOfMonth : schedule.dayOfMonth,
-          weeksOfMonth: rest.weeksOfMonth ?? schedule.weeksOfMonth,
-          isSpecial: rest.isSpecial ?? schedule.isSpecial,
-          specialDate: rest.specialDate !== undefined ? rest.specialDate : schedule.specialDate,
-        },
-        id,
-      );
+      await this.assertNotDuplicate(alvo, id);
     }
 
     const data: any = { ...rest };
@@ -1162,7 +1212,7 @@ export class MassSchedulesService {
   private async findScheduleForCancellation(id: string, currentUser: CurrentUser) {
     const schedule = await this.prisma.massSchedule.findUnique({
       where: { id },
-      include: { community: { select: { id: true, name: true } } },
+      include: { community: { select: { id: true, name: true, state: true } } },
     });
     if (!schedule) {
       throw new NotFoundException(`Horário fixo com ID ${id} não encontrado`);
@@ -1251,7 +1301,9 @@ export class MassSchedulesService {
     }
     const reason = reasonRaw || null;
 
-    const today = this.todaySaoPaulo();
+    // "Hoje" no fuso da UF da comunidade: às 22h no Acre já era amanhã em SP
+    // e a suspensão de hoje era recusada como "já passou" (R3#53)
+    const today = this.todayIn(schedule.community?.state);
     const past = dates.find((d) => d < today);
     if (past) {
       throw new BadRequestException(`A data ${brDate(past)} já passou`);
@@ -1362,18 +1414,18 @@ export class MassSchedulesService {
 
   /**
    * Avisa quem favoritou o horário quando a mudança é para HOJE ou AMANHÃ
-   * (relógio de SP) — mais longe que isso o fiel vê o aviso no app. Nunca
+   * (relógio da UF da comunidade) — mais longe que isso o fiel vê o aviso no app. Nunca
    * lança: falha de push não derruba a suspensão. O autor não recebe.
    */
   private async notifyFavoritesOfChange(
-    schedule: { id: string; type: MassScheduleType; time: string; communityId: string; community: { name: string } | null },
+    schedule: { id: string; type: MassScheduleType; time: string; communityId: string; community: { name: string; state?: string | null } | null },
     dates: string[],
     kind: 'cancelled' | 'restored',
     reason: string | null,
     authorId: string,
   ) {
     try {
-      const today = this.todaySaoPaulo();
+      const today = this.todayIn(schedule.community?.state);
       const tomorrow = addDaysYmd(today, 1);
       const soon = dates.filter((d) => d === today || d === tomorrow);
       if (soon.length === 0) return;

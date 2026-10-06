@@ -124,8 +124,11 @@ function offsetMs(instant: Date, timeZone: string): number {
 
 /**
  * Relógio de parede da paróquia → instante. Ex.: ('2026-09-05', 18, 0) em SP
- * = 2026-09-05T21:00:00Z. Duas passadas cobrem a troca de horário de verão
- * (datas antigas, até 2019).
+ * = 2026-09-05T21:00:00Z. Cobre a troca de horário de verão (datas antigas,
+ * até 2019) como o "compatible" do Temporal: na hora repetida (fim do verão)
+ * vale a PRIMEIRA ocorrência; na hora que não existiu (início do verão, ex.:
+ * 04/11/2018 00:00 em SP) o relógio avança com o offset novo — 01:00 do
+ * mesmo dia, nunca 23:00 do dia anterior (R3#51).
  */
 export function zonedDateTimeToInstant(
   ymd: string,
@@ -138,9 +141,16 @@ export function zonedDateTimeToInstant(
   const p = parseYmd(ymd);
   if (!p) throw new Error(`Data inválida: ${ymd}`);
   const wall = Date.UTC(p.year, p.month - 1, p.day, hour, minute, second, millisecond);
-  let guess = wall - offsetMs(new Date(wall), timeZone);
-  guess = wall - offsetMs(new Date(guess), timeZone);
-  return new Date(guess);
+  // Offsets antes e depois de uma eventual troca (não há duas trocas em 2 dias)
+  const before = offsetMs(new Date(wall - DAY_MS), timeZone);
+  const after = offsetMs(new Date(wall + DAY_MS), timeZone);
+  if (before === after) return new Date(wall - before);
+  const valid = [before, after].filter((offset) => offsetMs(new Date(wall - offset), timeZone) === offset);
+  // Hora repetida: as duas valem → o instante mais cedo (maior offset)
+  if (valid.length === 2) return new Date(wall - Math.max(before, after));
+  if (valid.length === 1) return new Date(wall - valid[0]);
+  // Buraco: lê o relógio com o offset de antes → cai depois da troca
+  return new Date(wall - before);
 }
 
 /** Início e fim (inclusivo) do dia civil no fuso da paróquia, como instantes. */
@@ -174,6 +184,54 @@ export function parseClientDateTime(value: string | null | undefined, timeZone =
   if (!HAS_OFFSET_RE.test(raw)) return null;
   const parsed = new Date(raw);
   return Number.isNaN(parsed.getTime()) ? null : parsed;
+}
+
+/**
+ * Data da escala AVULSA (sem evento) → { date só-dia 00:00Z, startTime }.
+ * O painel manda o datetime-local como instante (new Date('2026-10-10T22:00')
+ * .toISOString() = 2026-10-11T01:00Z): o dia é o civil da paróquia (10/10),
+ * não o UTC (11/10), e sem startTime a hora sai do próprio instante (22:00).
+ * Só-dia ('2026-10-10') fica como veio, sem horário (dia inteiro). R3#45.
+ */
+export function normalizeStandaloneScheduleDate(
+  value: string | null | undefined,
+  startTime?: string | null,
+  timeZone = DEFAULT_PARISH_TIME_ZONE,
+): { date: Date; startTime: string | null } | null {
+  const raw = String(value ?? '').trim();
+  const explicitStart = startTime?.trim() || null;
+  if (parseYmd(raw)) {
+    return { date: new Date(`${raw}T00:00:00.000Z`), startTime: explicitStart };
+  }
+  const instant = parseClientDateTime(raw, timeZone);
+  if (!instant) return null;
+  const p = zonedParts(instant, timeZone);
+  return {
+    date: new Date(`${zonedYmd(instant, timeZone)}T00:00:00.000Z`),
+    startTime: explicitStart ?? `${pad(p.hour)}:${pad(p.minute)}`,
+  };
+}
+
+/**
+ * Evento de "dia inteiro" (sem hora; o mapa não o lista como "às 00:00" e o
+ * app mostra "Dia todo") — R3#47. Dia inteiro é:
+ *  • fim às 00:00 de OUTRO dia civil com início às 00:00, ou janela ≥ 24 h;
+ *  • sem fim e início às 00:00, só se NÃO for Missa — Missa às 00:00 sem fim
+ *    é a Missa do Galo, com hora.
+ * Mesmo critério do app (app/(tabs)/index.tsx).
+ */
+export function isAllDayEvent(
+  event: { type?: string | null; startDate: Date; endDate?: Date | null },
+  timeZone = DEFAULT_PARISH_TIME_ZONE,
+): boolean {
+  const start = new Date(event.startDate);
+  const end = event.endDate ? new Date(event.endDate) : null;
+  if (end && end.getTime() - start.getTime() >= DAY_MS) return true;
+  const startParts = zonedParts(start, timeZone);
+  if (startParts.hour !== 0 || startParts.minute !== 0) return false;
+  if (!end) return event.type !== 'MASS';
+  const endParts = zonedParts(end, timeZone);
+  return endParts.hour === 0 && endParts.minute === 0 && zonedYmd(end, timeZone) !== zonedYmd(start, timeZone);
 }
 
 /** 'HH:MM' → { hour, minute } (null se ausente ou inválido). */

@@ -1,5 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { BadRequestException, ConflictException, ForbiddenException } from '@nestjs/common';
+import { PLAN_SKIP_KEY } from '../plans/plan.decorators';
+import { CatechesisController } from './catechesis.controller';
 import { SacramentType, UserRole } from '@prisma/client';
 import { CatechesisService } from './catechesis.service';
 import { PrismaService } from '../../database/prisma.service';
@@ -30,12 +32,17 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
   beforeEach(async () => {
     tx = {
       $queryRaw: jest.fn().mockResolvedValue([]),
-      member: { findFirst: jest.fn().mockResolvedValue(null), create: jest.fn().mockResolvedValue({ id: 'child1' }) },
+      member: {
+        findFirst: jest.fn().mockResolvedValue(null),
+        create: jest.fn().mockResolvedValue({ id: 'child1' }),
+        update: jest.fn().mockResolvedValue({}),
+      },
       consent: { upsert: jest.fn().mockResolvedValue({}) },
       sacrament: { findFirst: jest.fn().mockResolvedValue({ id: 'bap' }), create: jest.fn().mockResolvedValue({ id: 'sac1' }) },
       catechesisEnrollment: {
         findFirst: jest.fn().mockResolvedValue(null),
         findUnique: jest.fn().mockResolvedValue(null),
+        findMany: jest.fn().mockResolvedValue([]),
         count: jest.fn().mockResolvedValue(0),
         create: jest.fn(async ({ data }: any) => ({ id: 'en1', ...data })),
         update: jest.fn(async ({ data }: any) => ({ id: 'en1', ...data })),
@@ -55,7 +62,12 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
         create: jest.fn(async ({ data }: any) => ({ id: 'msg1', ...data, createdAt: new Date(), author: { name: 'Equipe' } })),
         update: jest.fn(),
       },
-      member: { findFirst: jest.fn(), findUnique: jest.fn().mockResolvedValue({ fullName: 'Fulano' }) },
+      member: {
+        findFirst: jest.fn(),
+        findUnique: jest.fn().mockResolvedValue({ fullName: 'Fulano' }),
+        update: jest.fn().mockResolvedValue({}),
+      },
+      sacrament: { findMany: jest.fn().mockResolvedValue([]) },
       memberCommunity: { findFirst: jest.fn().mockResolvedValue(null) },
       community: { findUnique: jest.fn() },
       pastoralCoordinator: { findMany: jest.fn().mockResolvedValue([]) },
@@ -68,10 +80,16 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
         updateMany: jest.fn().mockResolvedValue({ count: 0 }),
       },
       catechesisClassDocRequirement: { findMany: jest.fn().mockResolvedValue([]) },
-      consent: { upsert: jest.fn().mockResolvedValue({}) },
-      auditLog: { count: jest.fn().mockResolvedValue(0) },
+      consent: { upsert: jest.fn().mockResolvedValue({}), findUnique: jest.fn().mockResolvedValue(null) },
+      auditLog: {
+        count: jest.fn().mockResolvedValue(0),
+        create: jest.fn().mockResolvedValue({ id: 'aud1' }),
+        update: jest.fn().mockResolvedValue({}),
+      },
       $transaction: jest.fn(async (cb: any) => cb(tx)),
     };
+    // A cota de avisos conta/grava a trilha DENTRO da transação
+    tx.auditLog = prisma.auditLog;
     notifications = { notifyUser: jest.fn(), notifyUsers: jest.fn() };
     audit = { log: jest.fn() };
 
@@ -144,7 +162,33 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
     it('um nome só ou parte do nome não confere', () => {
       expect(CatechesisService.sameFullName('Maria', 'Maria Eduarda Souza')).toBe(false);
       expect(CatechesisService.sameFullName('Maria Eduarda', 'Maria Eduarda Souza')).toBe(false);
-      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Eduarda Souza')).toBe(false);
+      // Documento com MENOS nomes que o cadastro continua não conferindo
+      expect(CatechesisService.sameFullName('Maria Souza', 'Maria Eduarda Souza Lima')).toBe(false);
+    });
+
+    it('R5#6: cadastro abreviado contido na certidão completa confere (1º nome igual, ≥2 nomes inteiros)', () => {
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Eduarda Souza')).toBe(true);
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Lima')).toBe(true);
+      expect(CatechesisService.sameFullName('João Pedro de Oliveira Santos', 'João Santos')).toBe(true);
+    });
+
+    it('R5#6: iniciais, Jr./Júnior e Mª', () => {
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Eduarda S. Lima')).toBe(true);
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Eduarda S.')).toBe(true);
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza Lima', 'Maria Eduarda P.')).toBe(false);
+      expect(CatechesisService.sameFullName('Carlos Alberto Silva Júnior', 'Carlos Alberto Silva Jr.')).toBe(true);
+      expect(CatechesisService.sameFullName('Carlos Alberto Silva Jr', 'Carlos Silva Junior')).toBe(true);
+      expect(CatechesisService.sameFullName('Mª Aparecida dos Santos', 'Maria Aparecida Santos')).toBe(true);
+      expect(CatechesisService.sameFullName('Maria Aparecida dos Santos', 'M.ª Aparecida Santos')).toBe(true);
+    });
+
+    it('R5#6: 1º nome diferente, só iniciais ou 1 nome inteiro não conferem', () => {
+      expect(CatechesisService.sameFullName('Ana Maria Souza Lima', 'Maria Souza Lima')).toBe(false);
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza', 'Maria S.')).toBe(false);
+      expect(CatechesisService.sameFullName('Maria Eduarda Souza', 'M. Eduarda Souza')).toBe(false);
+      // Cada nome do documento casa uma vez só
+      expect(CatechesisService.sameFullName('Maria Souza', 'Maria Souza Souza')).toBe(false);
+      expect(CatechesisService.sameFullName('Maria Souza', 'Maria Souza S.')).toBe(false);
     });
 
     it('mesmo nome sem acento, caixa ou partículas confere', () => {
@@ -223,10 +267,15 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
         ['IMAGE_USE', false],
       ]);
       expect(tx.consent.upsert.mock.calls[0][0].create.grantedByUserId).toBe('ug');
+      // Espelho legado no Member (como o consents.setConsent)
+      expect(tx.member.update).toHaveBeenCalledWith({
+        where: { id: 'child1' },
+        data: { consentGiven: true, consentDate: expect.any(Date) },
+      });
     });
 
     it('adulto que se inscreve: termo registrado, sem mexer nos Consents dele', async () => {
-      prisma.member.findFirst.mockResolvedValue({ id: 'mg', communityId: 'c1' });
+      prisma.member.findFirst.mockResolvedValue({ id: 'mg', communityId: 'c1', birthDate: new Date('1985-04-10'), responsibleId: null });
       prisma.catechesisClass.findFirst.mockResolvedValue(openClass);
       await service.apply({ classId: 'cl1', consentGiven: true }, guardian);
       expect(tx.catechesisEnrollment.create.mock.calls[0][0].data.guardianConsentMemberId).toBe('mg');
@@ -254,6 +303,9 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
       const data = prisma.catechesisEnrollment.update.mock.calls[0][0].data;
       expect(data).toMatchObject({ guardianConsentChannel: 'PAPER', guardianConsentMemberId: 'mg', imageConsent: false });
       expect(data.guardianConsentAt.toISOString()).toBe('2026-03-02T15:00:00.000Z');
+      // Consent IMAGE_USE do dependente acompanha o papel; DATA_PROCESSING não
+      const types = prisma.consent.upsert.mock.calls.map((call: any) => [call[0].create.type, call[0].create.granted]);
+      expect(types).toEqual([['IMAGE_USE', false]]);
       await expect(service.recordEnrollmentConsent('en1', { consentGiven: true }, coord)).rejects.toBeInstanceOf(
         BadRequestException,
       );
@@ -383,6 +435,279 @@ describe('CatechesisService — ondas 2–4 (F8)', () => {
       prisma.member.findFirst.mockResolvedValue({ id: 'mg', communityId: 'c1' });
       const rows = await service.getClassDocRequirements('cl1', { id: 'ug', role: UserRole.FAITHFUL } as any);
       expect(rows.length).toBeGreaterThan(0);
+    });
+  });
+
+  describe('Revisão adversarial R5/R2 — termo e imagem (K1)', () => {
+    const guardian = { id: 'ug', role: UserRole.FAITHFUL, communityId: 'c1' } as any;
+    const kidRow = {
+      id: 'en1',
+      imageConsent: null,
+      imageConsentByUserId: null,
+      member: { id: 'kid', userId: null, deletedAt: null, responsibleId: 'mg', birthDate: new Date('2016-04-10'), responsible: { userId: 'ug' } },
+      class: { id: 'cl1', communityId: 'c1' },
+    };
+    const teenRow = {
+      ...kidRow,
+      id: 'en2',
+      member: { ...kidRow.member, id: 'teen', userId: 'uteen' },
+    };
+
+    it('R5#1/R2#21: responsável responde SÓ a imagem → DATA_PROCESSING não é regravado (revogação preservada)', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(kidRow);
+      prisma.member.findFirst.mockResolvedValue({ id: 'mg' });
+      await service.recordEnrollmentConsent('en1', { imageConsent: false }, guardian);
+      const calls = prisma.consent.upsert.mock.calls.map((c: any) => [c[0].where.memberId_type.type, c[0].update.granted]);
+      expect(calls).toEqual([['IMAGE_USE', false]]);
+      expect(prisma.member.update).not.toHaveBeenCalled();
+    });
+
+    it('R5#1: termo aceito pelo responsável grava DATA_PROCESSING e espelha Member.consentGiven', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(kidRow);
+      prisma.member.findFirst.mockResolvedValue({ id: 'mg' });
+      await service.recordEnrollmentConsent('en1', { consentGiven: true, imageConsent: true }, guardian);
+      expect(prisma.consent.upsert.mock.calls[0][0].where.memberId_type.type).toBe('DATA_PROCESSING');
+      expect(prisma.member.update).toHaveBeenCalledWith({
+        where: { id: 'kid' },
+        data: { consentGiven: true, consentDate: expect.any(Date) },
+      });
+    });
+
+    it('R5#2/R2#23: catequizando com responsável, pela própria conta: 403 no termo e na imagem, nada gravado', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(teenRow);
+      prisma.member.findFirst.mockResolvedValue({ id: 'teen' });
+      const teen = { id: 'uteen', role: UserRole.FAITHFUL } as any;
+      await expect(service.recordEnrollmentConsent('en2', { consentGiven: true }, teen)).rejects.toThrow(/respondidos pelo responsável/);
+      await expect(service.recordEnrollmentConsent('en2', { imageConsent: true }, teen)).rejects.toBeInstanceOf(ForbiddenException);
+      expect(prisma.catechesisEnrollment.update).not.toHaveBeenCalled();
+      expect(prisma.consent.upsert).not.toHaveBeenCalled();
+    });
+
+    it('R5#2: menor SEM responsável vinculado (nascimento < 18, ano 1900 ou sem data) também não responde', async () => {
+      const teen = { id: 'uteen', role: UserRole.FAITHFUL } as any;
+      const thisYear = Number(new Date().toISOString().slice(0, 4));
+      for (const birthDate of [new Date(`${thisYear - 15}-01-01`), new Date('1900-05-03'), null]) {
+        prisma.catechesisEnrollment.findUnique.mockResolvedValue({
+          ...teenRow,
+          member: { ...teenRow.member, responsibleId: null, responsible: null, birthDate },
+        });
+        await expect(service.recordEnrollmentConsent('en2', { consentGiven: true }, teen)).rejects.toBeInstanceOf(
+          ForbiddenException,
+        );
+      }
+      expect(prisma.catechesisEnrollment.update).not.toHaveBeenCalled();
+    });
+
+    it('R5#2: adulto sem responsável dá o próprio termo (e imagem), sem mexer nos Consents dele', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({
+        ...teenRow,
+        member: { ...teenRow.member, responsibleId: null, responsible: null, birthDate: new Date('1990-02-01') },
+      });
+      prisma.member.findFirst.mockResolvedValue({ id: 'teen' });
+      await service.recordEnrollmentConsent('en2', { consentGiven: true, imageConsent: false }, { id: 'uteen', role: UserRole.FAITHFUL } as any);
+      expect(prisma.catechesisEnrollment.update.mock.calls[0][0].data).toMatchObject({
+        guardianConsentChannel: 'APP',
+        guardianConsentMemberId: 'teen',
+        imageConsent: false,
+      });
+      expect(prisma.consent.upsert).not.toHaveBeenCalled();
+    });
+
+    it('R5#2: responsável do adolescente com conta própria responde por ele', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(teenRow);
+      prisma.member.findFirst.mockResolvedValue({ id: 'mg' });
+      await service.recordEnrollmentConsent('en2', { consentGiven: true }, guardian);
+      expect(prisma.catechesisEnrollment.update.mock.calls[0][0].data).toMatchObject({ guardianConsentMemberId: 'mg' });
+    });
+
+    it('R5#2: needsGuardian — 18 anos completos no dia civil', () => {
+      const today = new Date().toISOString().slice(0, 10);
+      const [y, m, d] = today.split('-').map(Number);
+      const iso = (year: number, month: number, day: number) =>
+        new Date(Date.UTC(year, month - 1, day));
+      expect(CatechesisService.needsGuardian({ responsibleId: null, birthDate: iso(y - 30, m, d) })).toBe(false);
+      expect(CatechesisService.needsGuardian({ responsibleId: null, birthDate: iso(y - 10, m, d) })).toBe(true);
+      expect(CatechesisService.needsGuardian({ responsibleId: 'mg', birthDate: iso(y - 30, m, d) })).toBe(true);
+      expect(CatechesisService.needsGuardian({ responsibleId: null, birthDate: null })).toBe(true);
+      expect(CatechesisService.needsGuardian({ responsibleId: null, birthDate: new Date('1900-01-15') })).toBe(true);
+    });
+
+    it('R5#2: menor que se inscreve pela própria conta → inscrição entra com termo e imagem PENDENTES', async () => {
+      const thisYear = Number(new Date().toISOString().slice(0, 4));
+      prisma.member.findFirst.mockResolvedValue({ id: 'teen', communityId: 'c1', birthDate: new Date(`${thisYear - 14}-03-01`), responsibleId: null });
+      prisma.catechesisClass.findFirst.mockResolvedValue({
+        id: 'cl1',
+        communityId: 'c1',
+        capacity: null,
+        status: 'ACTIVE',
+        enrollmentOpen: true,
+        enrollmentOpensAt: null,
+        enrollmentClosesAt: null,
+        fullBehavior: 'WAITLIST',
+        name: 'Turma A',
+        stage: { sacramentType: SacramentType.CONFIRMATION, name: 'Crisma' },
+      });
+      await service.apply({ classId: 'cl1', consentGiven: true, imageConsent: true }, { id: 'uteen', role: UserRole.FAITHFUL, communityId: 'c1' } as any);
+      const data = tx.catechesisEnrollment.create.mock.calls[0][0].data;
+      expect(data.guardianConsentAt).toBeUndefined();
+      expect(data.guardianConsentChannel).toBeUndefined();
+      expect(data.imageConsent).toBeNull();
+    });
+
+    it('R2#22: equipe não grava imagem sem o termo em papel (paperSignedAt)', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(kidRow);
+      await expect(service.recordEnrollmentConsent('en1', { imageConsent: true }, coord)).rejects.toThrow(/termo em papel/);
+      expect(prisma.catechesisEnrollment.update).not.toHaveBeenCalled();
+      expect(prisma.consent.upsert).not.toHaveBeenCalled();
+    });
+
+    it('R2#22: equipe não sobrescreve o "não autorizo" que o responsável deu pelo app (409)', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({ ...kidRow, imageConsent: false, imageConsentByUserId: 'ug' });
+      await expect(
+        service.recordEnrollmentConsent('en1', { paperSignedAt: '2026-03-02', imageConsent: true }, coord),
+      ).rejects.toBeInstanceOf(ConflictException);
+      expect(prisma.catechesisEnrollment.update).not.toHaveBeenCalled();
+    });
+
+    it('R2#22: "não autorizo" dado em Meus dados (Consent do responsável) também prevalece', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(kidRow);
+      prisma.consent.findUnique.mockResolvedValue({ granted: false, grantedByUserId: 'ug' });
+      await expect(
+        service.recordEnrollmentConsent('en1', { paperSignedAt: '2026-03-02', imageConsent: true }, coord),
+      ).rejects.toBeInstanceOf(ConflictException);
+    });
+
+    it('R2#22: papel com a MESMA resposta do app: grava o termo e mantém o registro do app', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({ ...kidRow, imageConsent: false, imageConsentByUserId: 'ug' });
+      await service.recordEnrollmentConsent('en1', { paperSignedAt: '2026-03-02', imageConsent: false }, coord);
+      const data = prisma.catechesisEnrollment.update.mock.calls[0][0].data;
+      expect(data.guardianConsentChannel).toBe('PAPER');
+      expect(data.imageConsent).toBeUndefined();
+      expect(data.imageConsentByUserId).toBeUndefined();
+      expect(prisma.consent.upsert).not.toHaveBeenCalled();
+    });
+
+    it('R2#22: resposta anterior lançada pela EQUIPE pode ser corrigida pelo papel; Consent IMAGE_USE sincronizado', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({ ...kidRow, imageConsent: true, imageConsentByUserId: 'u1' });
+      await service.recordEnrollmentConsent('en1', { paperSignedAt: '2026-03-02', imageConsent: false }, coord);
+      expect(prisma.catechesisEnrollment.update.mock.calls[0][0].data).toMatchObject({ imageConsent: false, imageConsentByUserId: 'u1' });
+      const upsert = prisma.consent.upsert.mock.calls[0][0];
+      expect(upsert.where.memberId_type).toEqual({ memberId: 'kid', type: 'IMAGE_USE' });
+      expect(upsert.update).toMatchObject({ granted: false, grantedByUserId: 'u1' });
+    });
+
+    it('R2#22: matrícula manual com imagem e sem termo em papel: 400', async () => {
+      prisma.catechesisClass.findFirst.mockResolvedValue({
+        id: 'cl1',
+        communityId: 'c1',
+        capacity: null,
+        stage: { sacramentType: SacramentType.BAPTISM, name: 'Batismo' },
+      });
+      await expect(service.enroll({ classId: 'cl1', memberId: 'kid', imageConsent: true }, coord)).rejects.toThrow(/termo em papel/);
+      expect(prisma.$transaction).not.toHaveBeenCalled();
+    });
+
+    it('my-family diz se a conta pode responder o termo (menor vê, mas não responde)', async () => {
+      const thisYear = Number(new Date().toISOString().slice(0, 4));
+      prisma.member.findFirst.mockResolvedValue({ id: 'teen', birthDate: new Date(`${thisYear - 13}-01-01`), responsibleId: 'mg' });
+      prisma.catechesisEnrollment.findMany.mockResolvedValue([
+        {
+          id: 'en2',
+          classId: 'cl1',
+          status: 'ACTIVE',
+          member: { id: 'teen', fullName: 'Teen' },
+          class: { id: 'cl1', communityId: 'c1', name: 'Turma', year: 2026, stage: {}, community: {} },
+          attendances: [],
+          documents: [],
+          _count: { assessments: 0, messages: 0 },
+        },
+      ]);
+      prisma.catechesisSession.findMany = jest.fn().mockResolvedValue([]);
+      prisma.catechesisFee = { findMany: jest.fn().mockResolvedValue([]) };
+      const rows: any[] = await service.getMyFamilyCatechesis({ id: 'uteen', role: UserRole.FAITHFUL } as any);
+      expect(rows[0].canAnswerConsent).toBe(false);
+    });
+
+    it('R2#34: PATCH enrollments/:id/consent fora do plano (@SkipPlanCheck)', () => {
+      const handler = CatechesisController.prototype.recordConsent;
+      expect(Reflect.getMetadata(PLAN_SKIP_KEY, handler)).toBe(true);
+    });
+  });
+
+  describe('R5#3 — transferência e renovação levam o termo e a imagem', () => {
+    const consentFields = {
+      imageConsent: false,
+      imageConsentAt: new Date('2026-02-01T12:00:00Z'),
+      imageConsentByUserId: 'ug',
+      guardianConsentAt: new Date('2026-02-01T12:00:00Z'),
+      guardianConsentChannel: 'APP',
+      guardianConsentVersion: CURRENT_POLICY_VERSION,
+      guardianConsentByUserId: 'ug',
+      guardianConsentMemberId: 'mg',
+    };
+
+    it('transferência copia guardianConsent* e imageConsent* para a matrícula nova', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({
+        id: 'en1',
+        classId: 'cl1',
+        memberId: 'kid',
+        status: 'ACTIVE',
+        pendingDocuments: null,
+        unbaptized: false,
+        class: { id: 'cl1', communityId: 'c1' },
+        ...consentFields,
+      });
+      prisma.catechesisClass.findFirst.mockResolvedValue({ id: 'cl2', communityId: 'c1', status: 'ACTIVE', stage: {} });
+      tx.$queryRaw.mockResolvedValue([{ status: 'ACTIVE', capacity: null }]);
+      tx.catechesisEnrollment.create.mockImplementation(async ({ data }: any) => ({ id: 'en9', ...data }));
+      await service.transferEnrollment('en1', 'cl2', coord);
+      expect(tx.catechesisEnrollment.create.mock.calls[0][0].data).toMatchObject({ classId: 'cl2', ...consentFields });
+    });
+
+    it('transferência para matrícula já existente no destino também copia (reativação)', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue({
+        id: 'en1',
+        classId: 'cl1',
+        memberId: 'kid',
+        status: 'ACTIVE',
+        pendingDocuments: null,
+        unbaptized: false,
+        class: { id: 'cl1', communityId: 'c1' },
+        ...consentFields,
+      });
+      prisma.catechesisClass.findFirst.mockResolvedValue({ id: 'cl2', communityId: 'c1', status: 'ACTIVE', stage: {} });
+      tx.$queryRaw.mockResolvedValue([{ status: 'ACTIVE', capacity: null }]);
+      tx.catechesisEnrollment.findUnique.mockResolvedValue({ id: 'en-old', status: 'DROPPED_OUT' });
+      await service.transferEnrollment('en1', 'cl2', coord);
+      expect(tx.catechesisEnrollment.update.mock.calls[0][0].data).toMatchObject({ status: 'ACTIVE', ...consentFields });
+    });
+
+    it('renovação copia o termo e a imagem; origem sem resposta não apaga a do destino', async () => {
+      prisma.catechesisClass.findFirst
+        .mockResolvedValueOnce({ id: 'cl1', communityId: 'c1', status: 'ACTIVE', stage: { ordering: 1, parishId: 'p1', sacramentType: null } })
+        .mockResolvedValueOnce({ id: 'cl2', communityId: 'c1', status: 'ACTIVE', capacity: null, stage: { ordering: 2, sacramentType: null } });
+      prisma.catechesisEnrollment.findMany.mockResolvedValue([
+        { id: 'en1', memberId: 'kid', unbaptized: false, member: { fullName: 'Ana' }, ...consentFields },
+        {
+          id: 'en2',
+          memberId: 'kid2',
+          unbaptized: false,
+          member: { fullName: 'Bia' },
+          imageConsent: null,
+          guardianConsentAt: null,
+        },
+      ]);
+      prisma.sacrament.findMany.mockResolvedValue([{ memberId: 'kid' }, { memberId: 'kid2' }]);
+      tx.$queryRaw.mockResolvedValue([{ status: 'ACTIVE', capacity: null }]);
+      tx.catechesisEnrollment.findMany
+        .mockResolvedValueOnce([])
+        .mockResolvedValueOnce([{ id: 'en-old', memberId: 'kid2', status: 'DROPPED_OUT' }]);
+      await service.renewClass('cl1', { targetClassId: 'cl2', enrollmentIds: ['en1', 'en2'] }, coord);
+      expect(tx.catechesisEnrollment.create.mock.calls[0][0].data).toMatchObject({ classId: 'cl2', memberId: 'kid', ...consentFields });
+      const reactivated = tx.catechesisEnrollment.update.mock.calls[0][0].data;
+      expect(reactivated.status).toBe('ACTIVE');
+      expect('imageConsent' in reactivated).toBe(false);
+      expect('guardianConsentAt' in reactivated).toBe(false);
     });
   });
 });

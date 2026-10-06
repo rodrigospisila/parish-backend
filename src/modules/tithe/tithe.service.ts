@@ -66,6 +66,7 @@ const SYSTEM_NOTE_PREFIXES = [
   'Estornado pelo provedor',
   'Lançamento presencial desfeito',
   'Dízimo pelo app desativado',
+  'Cancelado na remoção do cadastro',
 ];
 const isSystemNote = (note: string | null | undefined) =>
   !!note && (note.startsWith(KEY_CHANGED_NOTE) || SYSTEM_NOTE_PREFIXES.some((prefix) => note.startsWith(prefix)));
@@ -88,11 +89,53 @@ export const PAYMENT_METHOD_LABELS: Record<string, string> = {
 export const appMethodLabel = (method: string | null | undefined) => PAYMENT_METHOD_LABELS[method ?? ''] ?? 'Pix';
 
 /**
+ * Valor que ficou com a paróquia (R4#15): pago − já estornado no provedor.
+ * Relatórios, extrato, comprovante e campanhas mostram o líquido — o bruto de
+ * um Pix com estorno parcial não é mais contribuição.
+ */
+export const netPaid = (i: { amount: number; amountPaid?: number | null; refundedAmount?: number | null }) =>
+  Math.max(0, round2((i.amountPaid ?? i.amount) - (i.refundedAmount ?? 0)));
+
+/**
  * Cobrança do provedor que a tesouraria pode confirmar à mão: divergência de
  * valor, ou cobrança morta no provedor (expirada/apagada — o QR não aceita mais
  * pagamento, então só um pagamento por fora, visto no extrato, a liquida).
  */
 const MANUAL_PROVIDER_STATUSES = new Set(['mismatch', 'cancelled']);
+
+/**
+ * Cobrança morta no provedor só vai para a conferência manual depois que a
+ * tesouraria a liberou (reabriu / "conferir à mão") ou o fiel contestou: o
+ * fiel tocar "já paguei" e o provedor apagar a cobrança (expirou sem
+ * pagamento) não pode virar receita num clique.
+ */
+const providerManualAllowed = (i: { providerStatus?: string | null; reopenedAt?: Date | null; contestedAt?: Date | null }) => {
+  const status = String(i.providerStatus ?? '');
+  if (status === 'mismatch') return true;
+  return status === 'cancelled' && (!!i.reopenedAt || !!i.contestedAt);
+};
+
+/** Cobrança aberta do provedor, morta lá, ainda sem a liberação da tesouraria. */
+const needsManualRelease = (i: { status: string; method?: string | null; providerRef?: string | null; providerStatus?: string | null; reopenedAt?: Date | null; contestedAt?: Date | null }) =>
+  (i.status === 'CREATED' || i.status === 'DECLARED') &&
+  i.method === 'GATEWAY' &&
+  !!i.providerRef &&
+  i.providerStatus === 'cancelled' &&
+  !providerManualAllowed(i);
+
+/**
+ * PASS_THROUGH (B20/R4#18): o estorno que zerou o dízimo encerra o Pix, mas a
+ * taxa repassada ao fiel ainda pode ser devolvida depois — enquanto o total
+ * estornado não cobre a cobrança inteira, novos estornos continuam valendo.
+ */
+const awaitingFeeRefund = (i: { status: string; note?: string | null; providerStatus?: string | null; refundedAmount?: number | null; chargedAmount?: number | null; amountPaid?: number | null; amount: number }) =>
+  i.status === 'CANCELLED' &&
+  // Encerrado pelo estorno (não por fiel/tesouraria) e ainda não fechado de vez
+  // — uma disputa no meio pode trocar a marca 'partially_refunded'
+  String(i.note ?? '').startsWith('Estornado pelo provedor') &&
+  i.providerStatus !== 'refunded' &&
+  (i.refundedAmount ?? 0) > 0 &&
+  (i.refundedAmount ?? 0) < round2(i.chargedAmount ?? i.amountPaid ?? i.amount) - 0.005;
 
 /**
  * Estorno no provedor ainda não refletido no Parish (B20). `total` é o valor
@@ -1236,7 +1279,9 @@ export class TitheService {
       status: i.status,
       txid: i.txid,
       note: i.note,
-      canReopen: canReopenIntent(i),
+      // Reabrir (encerrado) ou liberar a conferência manual (aberto, cobrança morta no provedor)
+      canReopen: canReopenIntent(i) || needsManualRelease(i),
+      reopenedAt: i.reopenedAt ?? null,
       campaign: i.campaign ? { id: i.campaign.id, name: i.campaign.name } : null,
       contestNote: i.contestNote ?? null,
       contestedAt: i.contestedAt ?? null,
@@ -1251,10 +1296,13 @@ export class TitheService {
       feeAmount: i.feeAmount ?? 0,
       // Já devolvido ao pagador no provedor (estorno parcial ou total)
       refundedAmount: i.refundedAmount ?? 0,
-      // A tesouraria pode confirmar à mão (Pix estático, ou cobrança do provedor divergente/morta)
+      // A tesouraria pode confirmar à mão (Pix estático, ou cobrança do provedor
+      // divergente / morta lá e liberada pela tesouraria)
       manualConfirm:
         (i.status === 'CREATED' || i.status === 'DECLARED') &&
-        (i.method !== 'GATEWAY' || !i.providerRef || MANUAL_PROVIDER_STATUSES.has(String(i.providerStatus ?? ''))),
+        (i.method !== 'GATEWAY' || !i.providerRef || providerManualAllowed(i)),
+      // Cobrança do provedor morta lá: o provedor informa que NÃO recebeu
+      providerNotReceived: i.method === 'GATEWAY' && !!i.providerRef && i.providerStatus === 'cancelled',
       declaredAt: i.declaredAt,
       confirmedAt: i.confirmedAt,
       createdAt: i.createdAt,
@@ -1314,13 +1362,26 @@ export class TitheService {
     // Cobrança do provedor confirma pelo provedor (webhook/consulta); a mão só
     // quando o provedor reportou divergência de valor ou a cobrança morreu lá
     // (expirada/apagada — ex.: reaberta pela tesouraria depois de expirar)
-    if (intent.method === 'GATEWAY' && intent.providerRef) {
+    const viaProvider = intent.method === 'GATEWAY' && !!intent.providerRef;
+    let providerCharge: ProviderCharge | null = null;
+    if (viaProvider) {
       // Consulta antes: se o provedor já recebeu, liquida por ele (sem lançamento duplo)
-      const synced = await this.syncIntentWithProvider(intent.id);
+      const synced = await this.syncIntentWithProvider(intent.id, { onCharge: (charge) => (providerCharge = charge) });
       if (synced.status === 'CONFIRMED') return this.presentIntent(synced);
       if (synced.status !== 'CREATED' && synced.status !== 'DECLARED') throw new BadRequestException('Este Pix foi cancelado');
       if (!MANUAL_PROVIDER_STATUSES.has(String(synced.providerStatus ?? ''))) {
         throw new BadRequestException('Cobrança do provedor: use “Consultar provedor” — a confirmação é automática');
+      }
+      // R4#14: cobrança morta no provedor (o provedor informa que não recebeu)
+      // só depois de a tesouraria liberar a conferência (ou o fiel contestar)
+      if (!providerManualAllowed(synced)) {
+        throw new BadRequestException(
+          'O provedor informa que não recebeu este pagamento — use “Conferir à mão” e confirme só se o valor caiu na conta por fora do provedor',
+        );
+      }
+      // Nunca pelo valor gerado (nem em lote): a tesouraria digita o que caiu
+      if (dto.amountPaid === undefined || dto.amountPaid === null || String(dto.amountPaid).trim() === '') {
+        throw new BadRequestException('Pix do provedor: informe o valor exato que caiu no extrato (confirmação individual)');
       }
       intent = { ...intent, ...synced, member: intent.member, parish: intent.parish, campaign: intent.campaign };
     }
@@ -1355,7 +1416,24 @@ export class TitheService {
     }
     // Tesouraria pode corrigir o mês de referência ao confirmar
     const paidMonth = dto.referenceMonth ? this.validateReferenceMonth(dto.referenceMonth) : intent.referenceMonth;
-    const who = intent.anonymous ? 'Oferta anônima' : safeName(intent.member.fullName);
+    // R4#19: conciliação manual de cobrança PAGA no provedor (divergência): na
+    // conta caiu o líquido — a taxa entra como no caminho automático. Sem o
+    // líquido (provedor fora do ar ou não informou), avisa para lançar à mão.
+    // Cobrança morta no provedor: o dinheiro veio por fora, não há taxa
+    let feeAmount: number | null = null;
+    let providerFee: number | null = null;
+    let feeWarning: string | null = null;
+    const charge = providerCharge as ProviderCharge | null;
+    const paidAtProvider = viaProvider && (!charge || PAID_STATUSES.has(charge.status)) && intent.providerStatus === 'mismatch';
+    if (paidAtProvider) {
+      if (charge && typeof charge.value === 'number' && typeof charge.netValue === 'number') {
+        feeAmount = Math.max(0, round2(charge.value - charge.netValue));
+        const passedThrough = Math.max(0, round2(charge.value - paidAmount));
+        providerFee = round2(feeAmount - passedThrough);
+      } else {
+        feeWarning = 'O provedor não informou o valor líquido: lance a taxa do provedor à mão no Financeiro, se houver';
+      }
+    }
 
     const result = await this.settleIntent(intent, {
       paidAt,
@@ -1364,6 +1442,8 @@ export class TitheService {
       byUserId: user.id,
       receiptNumber: (dto.receiptNumber ?? '').trim() || undefined,
       source: 'treasury',
+      feeAmount,
+      providerFee,
     });
 
     await this.auditService.log({
@@ -1373,7 +1453,7 @@ export class TitheService {
       entityId: id,
       before: { status: intent.status },
       after: { status: 'CONFIRMED', contributionId: result.contributionId },
-      metadata: { amount: intent.amount, amountPaid: paidAmount, referenceMonth: paidMonth, category },
+      metadata: { amount: intent.amount, amountPaid: paidAmount, referenceMonth: paidMonth, category, ...(viaProvider ? { viaProvider: true, providerStatus: intent.providerStatus, providerFee, feeWarning } : {}) },
     });
     if (intent.member.userId) {
       try {
@@ -1388,7 +1468,8 @@ export class TitheService {
         // best-effort
       }
     }
-    return this.presentIntent(result);
+    const presented = await this.presentIntent(result);
+    return feeWarning ? { ...presented, feeWarning } : presented;
   }
 
   /** Tesouraria não localizou o Pix: encerra com motivo (o fiel recebe o aviso). */
@@ -1486,9 +1567,9 @@ export class TitheService {
           ...(opts.source === 'agent' ? {} : { note: null }),
           amountPaid: opts.paidAmount,
           referenceMonth: opts.paidMonth,
-          ...(opts.source === 'provider'
-            ? { providerStatus: 'paid', ...(opts.feeAmount != null ? { feeAmount: opts.feeAmount } : {}) }
-            : {}),
+          ...(opts.source === 'provider' ? { providerStatus: 'paid' } : {}),
+          // Taxa real do provedor (automático ou conciliação manual de cobrança paga lá)
+          ...(opts.feeAmount != null && opts.source !== 'agent' ? { feeAmount: opts.feeAmount } : {}),
         },
       });
       if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
@@ -1512,8 +1593,9 @@ export class TitheService {
       });
       // Taxa do provedor (M46): na conta cai o líquido — a diferença entra no
       // mesmo passo atômico da liquidação (idempotente com ela), ligada ao Pix,
-      // fora da campanha (a campanha mostra o arrecadado bruto)
-      const providerFee = opts.source === 'provider' && opts.providerFee ? round2(opts.providerFee) : 0;
+      // fora da campanha (a campanha mostra o arrecadado bruto). Também na
+      // conciliação manual de cobrança paga no provedor (R4#19)
+      const providerFee = opts.source !== 'agent' && opts.providerFee ? round2(opts.providerFee) : 0;
       if (providerFee !== 0) {
         await tx.financialTransaction.create({
           data: {
@@ -1642,7 +1724,10 @@ export class TitheService {
   } as const;
 
   /** Consulta o provedor e aplica o estado real (pago → liquida; expirado → encerra). */
-  private async syncIntentWithProvider(intentId: string, opts: { allowCancelled?: boolean; allowConfirmed?: boolean } = {}) {
+  private async syncIntentWithProvider(
+    intentId: string,
+    opts: { allowCancelled?: boolean; allowConfirmed?: boolean; /** Recebe a cobrança consultada (conciliação manual usa o líquido) */ onCharge?: (charge: ProviderCharge) => void } = {},
+  ) {
     const intent = await this.prisma.titheIntent.findUniqueOrThrow({
       where: { id: intentId },
       include: this.intentForSettlementInclude,
@@ -1661,10 +1746,11 @@ export class TitheService {
       const provider = this.paymentsService.forParish(parish);
       charge = await provider.getCharge(intent.providerRef);
       // Já liquidado: é aqui que a tesouraria descobre estorno (total ou parcial)
-      if (intent.status === 'CONFIRMED') charge = await this.withRefundTotal(provider, charge);
+      if (intent.status === 'CONFIRMED' || awaitingFeeRefund(intent)) charge = await this.withRefundTotal(provider, charge);
     } catch {
       return intent; // provedor fora do ar: mantém o estado local
     }
+    opts.onCharge?.(charge);
     return this.applyProviderCharge(intent, charge, parish);
   }
 
@@ -1768,13 +1854,24 @@ export class TitheService {
       }
       return reload();
     }
-    if (intent.status === 'CONFIRMED') {
-      // Estorno total ou parcial (B20): reverte só o que ainda não foi revertido
-      const refund = refundProgress({ chargeValue: intent.chargedAmount ?? intent.amountPaid ?? intent.amount, refundedAmount: intent.refundedAmount }, charge);
-      if (refund) {
-        await this.reverseSettlement(intent, parish, refund);
-        return reload();
+    if (intent.status === 'CONFIRMED' || awaitingFeeRefund(intent)) {
+      // Estorno total ou parcial (B20): reverte só o que ainda não foi revertido.
+      // R4#16: outro processo (webhook × consulta da tesouraria) gravou um
+      // estorno entre a leitura e a troca condicional? Relê e recalcula — o
+      // estorno maior nunca se perde em silêncio; persistindo, o erro devolve o
+      // evento ao reprocessamento
+      let current = intent;
+      let touched = false;
+      for (let attempt = 0; ; attempt += 1) {
+        const refund = refundProgress({ chargeValue: current.chargedAmount ?? current.amountPaid ?? current.amount, refundedAmount: current.refundedAmount }, charge);
+        if (!refund) break;
+        touched = true;
+        if (await this.reverseSettlement(current, parish, refund)) break;
+        if (attempt >= 2) throw new Error(`Estorno concorrente no Pix ${intent.id} — reprocessar`);
+        current = await reload();
+        if (current.status !== 'CONFIRMED' && !awaitingFeeRefund(current)) break;
       }
+      if (touched) return reload();
     }
     if (charge.status === 'disputed') {
       // Estorno pedido/chargeback em disputa: ainda pode voltar — avisa uma vez e marca
@@ -1826,7 +1923,7 @@ export class TitheService {
    * (refundedAmount) é o controle idempotente: a troca só vale se ninguém o
    * mudou desde a leitura — evento repetido ou simultâneo não lança duas vezes.
    */
-  private async reverseSettlement(intent: any, parish: { id: string; name: string }, refund: { total: number; full: boolean }) {
+  private async reverseSettlement(intent: any, parish: { id: string; name: string }, refund: { total: number; full: boolean }): Promise<boolean> {
     const paid: number = round2(intent.amountPaid ?? intent.amount);
     const before: number = intent.refundedAmount ?? 0;
     // O estorno abate primeiro o dízimo/oferta; o que passar dele é a taxa repassada ao fiel (PASS_THROUGH)
@@ -1834,21 +1931,29 @@ export class TitheService {
     const titheAfter = refund.full ? paid : Math.min(refund.total, paid);
     const titheDelta = round2(titheAfter - titheBefore);
     const extraDelta = round2(Math.max(0, refund.total - paid) - Math.max(0, round2(before) - paid));
-    // Estorno que zera o dízimo encerra o Pix mesmo sem cobrir a taxa repassada
+    // Estorno que zera o dízimo encerra o dízimo (a contribuição sai) mesmo sem
+    // cobrir a taxa repassada — mas a cobrança só fecha de vez com o estorno
+    // total (R4#18): até lá fica 'partially_refunded' e a devolução posterior
+    // da taxa ainda é lançada
     const full = refund.full || titheAfter >= paid - 0.005;
+    // Dízimo já encerrado por um estorno anterior: este só devolve a taxa repassada
+    const alreadyClosed = intent.status === 'CANCELLED';
     const remaining = round2(paid - titheAfter);
     const category = intent.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo';
     const who = intent.anonymous ? 'Oferta anônima' : safeName(intent.member.fullName);
     const communityId = intent.communityId ?? intent.member.communityId;
+    const providerStatus = refund.full ? 'refunded' : 'partially_refunded';
     const reversed = await this.prisma.$transaction(async (tx) => {
       const moved = await tx.titheIntent.updateMany({
-        where: { id: intent.id, status: 'CONFIRMED', refundedAmount: before },
-        data: full
-          ? { status: 'CANCELLED', note: 'Estornado pelo provedor', providerStatus: 'refunded', contributionId: null, refundedAmount: refund.total }
-          : { providerStatus: 'partially_refunded', refundedAmount: refund.total },
+        where: { id: intent.id, status: alreadyClosed ? 'CANCELLED' : 'CONFIRMED', refundedAmount: before },
+        data: alreadyClosed
+          ? { providerStatus, refundedAmount: refund.total }
+          : full
+            ? { status: 'CANCELLED', note: 'Estornado pelo provedor', providerStatus, contributionId: null, refundedAmount: refund.total }
+            : { providerStatus: 'partially_refunded', refundedAmount: refund.total },
       });
       if (moved.count !== 1) return false;
-      if (intent.contributionId) {
+      if (intent.contributionId && !alreadyClosed) {
         if (full) await tx.titheContribution.deleteMany({ where: { id: intent.contributionId } });
         else await tx.titheContribution.updateMany({ where: { id: intent.contributionId }, data: { amount: remaining } });
       }
@@ -1889,17 +1994,29 @@ export class TitheService {
       }
       return true;
     });
-    if (!reversed) return;
+    if (!reversed) return false;
     await this.auditService.log({
       actor: null,
       action: 'UPDATE',
       entity: 'TitheIntent',
       entityId: intent.id,
-      before: { status: 'CONFIRMED', refundedAmount: before },
-      after: full ? { status: 'CANCELLED', providerStatus: 'refunded', refundedAmount: refund.total } : { status: 'CONFIRMED', providerStatus: 'partially_refunded', refundedAmount: refund.total },
+      before: { status: intent.status, refundedAmount: before },
+      after: full ? { status: 'CANCELLED', providerStatus, refundedAmount: refund.total } : { status: 'CONFIRMED', providerStatus: 'partially_refunded', refundedAmount: refund.total },
       metadata: { source: 'provider', reversedAmount: titheDelta, feeReturned: extraDelta, partial: !full },
     });
     const brl = (value: number) => `R$ ${value.toFixed(2).replace('.', ',')}`;
+    if (alreadyClosed) {
+      // Só a taxa repassada voltou ao fiel: a contribuição já tinha saído (aviso só à tesouraria)
+      if (extraDelta > 0) {
+        await this.notifyTreasury(
+          intent,
+          'Taxa repassada estornada',
+          `O provedor devolveu ao fiel ${brl(extraDelta)} da taxa repassada no Pix ${intent.txid} (já estornado): um lançamento de saída desse valor foi criado no Financeiro.`,
+          { kind: 'tithe-refunded', intentId: intent.id },
+        );
+      }
+      return true;
+    }
     if (intent.member.userId) {
       try {
         await this.notificationsService.notifyUsers(
@@ -1923,6 +2040,7 @@ export class TitheService {
         : `O Pix ${intent.txid} (${brl(paid)}, ${intent.referenceMonth}) teve ${brl(titheDelta)} estornados no provedor: um lançamento de saída desse valor foi criado e a contribuição ficou em ${brl(remaining)}.`,
       { kind: 'tithe-refunded', intentId: intent.id },
     );
+    return true;
   }
 
   // ===== WEBHOOK DO PROVEDOR =====
@@ -2590,6 +2708,9 @@ export class TitheService {
   /** Tesouraria reabre um Pix que ela mesma encerrou (achou no extrato depois). */
   async reopenIntent(id: string, user: CurrentUser) {
     const intent = await this.loadIntentForFinance(id, user);
+    // R4#14: Pix do provedor ainda aberto cuja cobrança morreu lá — a tesouraria
+    // libera a conferência manual ("conferir à mão"), registrada em reopenedAt
+    if (needsManualRelease(intent)) return this.releaseForManualCheck(intent, user);
     // Qualquer encerramento que não seja do próprio fiel pode ser reaberto pela
     // tesouraria (não localizado, expirado, chave trocada): o código pago no
     // banco continua válido e precisa de um caminho de conciliação
@@ -2612,9 +2733,13 @@ export class TitheService {
           : 'Esta cobrança não chegou a existir no provedor — peça ao fiel para gerar outra',
       );
     }
+    // Cobrança morta no provedor: a reabertura é a liberação da conferência
+    // manual (R4#14). Viva lá, segue confirmando pelo provedor
+    const deadAtProvider = intent.method === 'GATEWAY' && !!intent.providerRef && current.providerStatus === 'cancelled';
+    const now = new Date();
     const moved = await this.prisma.titheIntent.updateMany({
       where: { id, status: 'CANCELLED' },
-      data: { status: 'DECLARED', note: null, declaredAt: intent.declaredAt ?? new Date() },
+      data: { status: 'DECLARED', note: null, declaredAt: intent.declaredAt ?? now, reopenedAt: deadAtProvider ? now : null },
     });
     if (moved.count !== 1) throw new BadRequestException('Este Pix não pode ser reaberto');
     await this.auditService.log({
@@ -2623,9 +2748,41 @@ export class TitheService {
       entity: 'TitheIntent',
       entityId: id,
       before: { status: 'CANCELLED', note: intent.note },
-      after: { status: 'DECLARED' },
+      after: { status: 'DECLARED', ...(deadAtProvider ? { reopenedAt: now } : {}) },
+      ...(deadAtProvider ? { metadata: { manualCheckReleased: true, providerStatus: 'cancelled' } } : {}),
     });
     return this.presentIntent(await this.prisma.titheIntent.findUniqueOrThrow({ where: { id } }));
+  }
+
+  /**
+   * Liberação da conferência manual de um Pix do provedor ainda aberto cuja
+   * cobrança morreu lá (o fiel tocou "já paguei", o provedor expirou/apagou).
+   * Consulta o provedor antes: pago → liquida por ele; ainda morto → registra
+   * a liberação (reopenedAt, quem e quando na auditoria) e a confirmação
+   * manual passa a valer — com o valor digitado, nunca em lote.
+   */
+  private async releaseForManualCheck(intent: any, user: CurrentUser) {
+    const synced = await this.syncIntentWithProvider(intent.id);
+    if (synced.status === 'CONFIRMED') return this.presentIntent(synced);
+    if (!needsManualRelease(synced)) {
+      throw new BadRequestException('A cobrança voltou a valer no provedor — use “Consultar provedor”');
+    }
+    const now = new Date();
+    const moved = await this.prisma.titheIntent.updateMany({
+      where: { id: intent.id, status: { in: ['CREATED', 'DECLARED'] }, providerStatus: 'cancelled', reopenedAt: null },
+      data: { reopenedAt: now },
+    });
+    if (moved.count !== 1) throw new BadRequestException('Este Pix já foi confirmado ou encerrado');
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'TitheIntent',
+      entityId: intent.id,
+      before: { status: synced.status, providerStatus: 'cancelled', reopenedAt: null },
+      after: { reopenedAt: now },
+      metadata: { manualCheckReleased: true, providerStatus: 'cancelled' },
+    });
+    return this.presentIntent(await this.prisma.titheIntent.findUniqueOrThrow({ where: { id: intent.id } }));
   }
 
   /** Fiel contesta um "não localizado": volta à fila com o recado dele. */
@@ -2853,7 +3010,7 @@ export class TitheService {
     const [intents, manual] = await Promise.all([
       this.prisma.titheIntent.findMany({
         where: { status: 'CONFIRMED', referenceMonth, communityId: { in: communityIds } },
-        select: { communityId: true, kind: true, amount: true, amountPaid: true, paymentMethod: true, method: true },
+        select: { communityId: true, kind: true, amount: true, amountPaid: true, refundedAmount: true, paymentMethod: true, method: true },
       }),
       // Contribuições lançadas à mão (envelope/dinheiro/Pix no balcão) — sem intent
       this.prisma.titheContribution.findMany({
@@ -2870,7 +3027,7 @@ export class TitheService {
       agg.set(key, row);
     };
     for (const i of intents) {
-      add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', `${appMethodLabel(i.paymentMethod)} ${i.method === 'MANUAL' ? 'presencial' : 'pelo app'}`, i.amountPaid ?? i.amount);
+      add(i.communityId ?? '', i.kind === 'OFFERING' ? 'Ofertas' : 'Dízimo', `${appMethodLabel(i.paymentMethod)} ${i.method === 'MANUAL' ? 'presencial' : 'pelo app'}`, netPaid(i));
     }
     for (const c of manual) add(c.tither.member.communityId ?? '', 'Dízimo', c.method || 'manual', c.amount);
     const rows = [...agg.values()].sort((a, b) => a.community.localeCompare(b.community) || a.kind.localeCompare(b.kind));
@@ -2920,7 +3077,7 @@ export class TitheService {
         ...(memberId ? { anonymous: false } : {}),
       },
       orderBy: { confirmedAt: 'asc' },
-      select: { referenceMonth: true, amount: true, amountPaid: true, confirmedAt: true, txid: true, paymentMethod: true, method: true },
+      select: { referenceMonth: true, amount: true, amountPaid: true, refundedAmount: true, confirmedAt: true, txid: true, paymentMethod: true, method: true },
     });
     const day = (v: Date | null | undefined) => (v ? v.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '—');
     const money = (v: number) => `R$ ${v.toFixed(2).replace('.', ',')}`;
@@ -2931,7 +3088,8 @@ export class TitheService {
       total += c.amount;
     }
     for (const o of offerings) {
-      const v = o.amountPaid ?? o.amount;
+      // Oferta não tem contribuição: o líquido vem do Pix (o dízimo já guarda o líquido na contribuição)
+      const v = netPaid(o);
       rows.push([o.referenceMonth, 'Oferta', money(v), `${appMethodLabel(o.paymentMethod)} ${o.method === 'MANUAL' ? 'presencial' : 'pelo app'}`, day(o.confirmedAt), o.txid]);
       total += v;
     }
@@ -2978,7 +3136,8 @@ export class TitheService {
       entityId: id,
       metadata: { receipt: true },
     });
-    const money = `R$ ${(intent.amountPaid ?? intent.amount).toFixed(2).replace('.', ',')}`;
+    // Estorno parcial: o comprovante vale pelo que ficou com a paróquia
+    const money = `R$ ${netPaid(intent).toFixed(2).replace('.', ',')}`;
     const day = (value: Date | null) =>
       value ? value.toLocaleDateString('pt-BR', { timeZone: 'America/Sao_Paulo' }) : '—';
     let logo: Buffer | null = null;

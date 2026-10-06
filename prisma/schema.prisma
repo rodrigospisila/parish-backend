@@ -2695,6 +2695,10 @@ model TitheIntent {
   // Contestação do fiel após "não localizado"
   contestNote    String?
   contestedAt    DateTime?
+  // Tesouraria liberou a conferência manual de cobrança morta no provedor
+  // (reabriu o Pix ou pediu "conferir à mão"): sem isso, Pix do provedor
+  // cancelado/expirado lá não é confirmado à mão
+  reopenedAt     DateTime?
 
   declaredAt        DateTime?
   confirmedAt       DateTime?

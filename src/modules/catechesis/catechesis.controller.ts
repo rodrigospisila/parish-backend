@@ -4,7 +4,7 @@ import type { Response } from 'express';
 import { CatechesisService } from './catechesis.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { PlanFeatureGuard } from '../plans/plan-feature.guard';
-import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
+import { PlanResource, RequiresFeature, SkipPlanCheck } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
@@ -81,9 +81,11 @@ export class CatechesisController {
   }
 
   // Termo LGPD / uso de imagem de uma matrícula: o responsável aceita pelo
-  // app; a coordenação da catequese lança o termo em papel (service valida)
+  // app; a coordenação da catequese lança o termo em papel (service valida).
+  // Consentimento (LGPD) nunca depende do plano da comunidade: fora do
+  // PlanFeatureGuard, com o escopo/papel conferidos no service
   @Patch('enrollments/:id/consent')
-  @PlanResource('catechesisEnrollment')
+  @SkipPlanCheck()
   recordConsent(
     @Param('id') id: string,
     @Body() dto: { consentGiven?: boolean; imageConsent?: boolean; paperSignedAt?: string },

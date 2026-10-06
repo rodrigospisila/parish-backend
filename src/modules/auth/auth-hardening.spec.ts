@@ -4,8 +4,11 @@ import * as bcrypt from 'bcrypt';
 import { UserRole } from '@prisma/client';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { isAllowedDuringPasswordChange, parseEnforcement, PASSWORD_CHANGE_REQUIRED } from './password-change-policy';
+import { isAllowedDuringTermsAcceptance, TERMS_ACCEPTANCE_REQUIRED } from './terms-policy';
+import { TERMS_VERSION } from '../users/terms.constants';
 import { OtpService } from './otp.service';
 import { SessionSecurityService } from './session-security.service';
+import { LoginAttemptsService } from './login-attempts.service';
 import { AuthCleanupService } from './auth-cleanup.service';
 import { MessagingService } from '../messaging/messaging.service';
 import { maskEmail, maskPhone } from '../messaging/log-mask';
@@ -82,6 +85,55 @@ describe('JwtStrategy — sessão do aparelho e troca de senha obrigatória', ()
     expect(parseEnforcement('off')).toBe('off');
     expect(isAllowedDuringPasswordChange('DELETE', '/api/v1/users/me')).toBe(false);
     expect(isAllowedDuringPasswordChange('GET', '/api/v1/users/me/data-export')).toBe(false);
+  });
+
+  describe('#29 — TERMS_ENFORCEMENT (aceite dos termos no servidor)', () => {
+    const pending = { ...base, acceptedTermsAt: null, acceptedTermsVersion: null };
+    const accepted = { ...base, acceptedTermsAt: new Date(), acceptedTermsVersion: TERMS_VERSION };
+
+    it('on: aceite pendente bloqueia as demais rotas com o código', async () => {
+      const { strategy } = build(pending, { TERMS_ENFORCEMENT: 'on' });
+      const error = await strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now }).catch((e) => e);
+      expect(error).toBeInstanceOf(ForbiddenException);
+      expect((error as ForbiddenException).getResponse()).toMatchObject({ code: TERMS_ACCEPTANCE_REQUIRED });
+    });
+
+    it('on: perfil, aceite, sair, push, troca de senha e excluir a conta continuam liberados', async () => {
+      const { strategy } = build(pending, { TERMS_ENFORCEMENT: 'on' });
+      for (const [method, url] of [
+        ['GET', '/api/v1/users/me'],
+        ['DELETE', '/api/v1/users/me'],
+        ['POST', '/api/v1/users/me/accept-terms'],
+        ['POST', '/api/v1/auth/logout'],
+        ['POST', '/api/v1/auth/logout-all'],
+        ['PATCH', '/api/v1/users/me/push-token'],
+        ['POST', '/api/v1/users/u1/change-password'],
+      ]) {
+        await expect(strategy.validate(req(method, url), { sub: 'u1', sid: 's1', iat: now })).resolves.toBeTruthy();
+      }
+    });
+
+    it('on: conta com o aceite da versão vigente passa; versão antiga não', async () => {
+      const ok = build(accepted, { TERMS_ENFORCEMENT: 'on' });
+      await expect(ok.strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now })).resolves.toBeTruthy();
+      const old = build({ ...accepted, acceptedTermsVersion: 'v-velha' }, { TERMS_ENFORCEMENT: 'on' });
+      await expect(old.strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now })).rejects.toBeInstanceOf(ForbiddenException);
+    });
+
+    it('padrão (log) e off: não bloqueiam; o req.user não carrega os campos do aceite', async () => {
+      const log = build(pending);
+      const session = await log.strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now });
+      expect(session).not.toHaveProperty('acceptedTermsAt');
+      expect(session).not.toHaveProperty('acceptedTermsVersion');
+      const off = build(pending, { TERMS_ENFORCEMENT: 'off' });
+      await expect(off.strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now })).resolves.toBeTruthy();
+    });
+
+    it('política: rotas liberadas', () => {
+      expect(isAllowedDuringTermsAcceptance('GET', '/api/v1/users/me?x=1')).toBe(true);
+      expect(isAllowedDuringTermsAcceptance('GET', '/api/v1/users/me/data-export')).toBe(false);
+      expect(isAllowedDuringTermsAcceptance('PATCH', '/api/v1/users/me')).toBe(false);
+    });
   });
 });
 
@@ -175,12 +227,76 @@ describe('SessionSecurityService.assertRecentAuth — ativar o 2FA (M5)', () => 
     await expect(service.assertRecentAuth({ id: 'u1', authTime: null }, 'errada')).rejects.toThrow('Senha atual incorreta');
   });
 
-  it('sem a senha: só com login de até 5 min; token de sessão antiga (roubado) não ativa', async () => {
+  it('sem a senha: só com login de até 15 min (#38, igual ao QR); token de sessão antiga (roubado) não ativa', async () => {
     const service = build(hash);
+    (service as any).setupSessions = new Map();
     const now = Math.floor(Date.now() / 1000);
     await expect(service.assertRecentAuth({ id: 'u1', authTime: now - 60 })).resolves.toBeUndefined();
+    // app 1.1.0: lendo o QR com calma, 10 min depois do login ainda ativa
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: now - 10 * 60 })).resolves.toBeUndefined();
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: now - 16 * 60 })).rejects.toBeInstanceOf(BadRequestException);
     await expect(service.assertRecentAuth({ id: 'u1', authTime: now - 3600 })).rejects.toBeInstanceOf(BadRequestException);
-    await expect(service.assertRecentAuth({ id: 'u1', authTime: null })).rejects.toBeInstanceOf(BadRequestException);
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: null })).rejects.toThrow(/15 minutos/);
+  });
+
+  it('#38/#58: sessão sem a claim `at` (token de antes do deploy) ativa se gerou o QR NESTA sessão há até 15 min', async () => {
+    const service = build(hash);
+    const setupSessions = new Map<string, { sessionId: string | null; at: number }>();
+    (service as any).setupSessions = setupSessions;
+    setupSessions.set('u1', { sessionId: 's-app', at: Date.now() - 5 * 60_000 });
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: null, sessionId: 's-app' })).resolves.toBeUndefined();
+    // outra sessão (outro aparelho) não aproveita o QR desta
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: null, sessionId: 's-outra' })).rejects.toBeInstanceOf(BadRequestException);
+    // QR velho
+    setupSessions.set('u1', { sessionId: 's-app', at: Date.now() - 16 * 60_000 });
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: null, sessionId: 's-app' })).rejects.toBeInstanceOf(BadRequestException);
+    // sessão COM `at` antigo não usa o atalho do QR: o login é sabidamente velho
+    const now = Math.floor(Date.now() / 1000);
+    setupSessions.set('u1', { sessionId: 's-app', at: Date.now() });
+    await expect(service.assertRecentAuth({ id: 'u1', authTime: now - 3600, sessionId: 's-app' })).rejects.toBeInstanceOf(BadRequestException);
+  });
+
+  it('#42: senha errada conta no freio da conta (LoginAttemptsService, chave do e-mail) e o acerto zera', async () => {
+    const service = build(hash);
+    (service as any).prisma.user.findUnique.mockResolvedValue({ password: hash, email: 'Paroco@X.org' });
+    const attempts = { assertCanTry: jest.fn(), recordFailure: jest.fn(), recordSuccess: jest.fn() };
+    (service as any).loginAttempts = attempts;
+    await expect(service.assertPassword('u1', 'errada', { ip: '1.2.3.4' })).rejects.toThrow('Senha atual incorreta');
+    expect(attempts.assertCanTry).toHaveBeenCalledWith('email:paroco@x.org', '1.2.3.4');
+    expect(attempts.recordFailure).toHaveBeenCalledWith('email:paroco@x.org', '1.2.3.4');
+    await service.assertPassword('u1', 'SenhaCerta@1', { ip: '1.2.3.4' });
+    expect(attempts.recordSuccess).toHaveBeenCalledWith('email:paroco@x.org', '1.2.3.4');
+  });
+
+  it('#39: "sair de todos" revoga sob a trava da linha do usuário (FOR UPDATE antes de apagar os tokens)', async () => {
+    const service = Object.create(SessionSecurityService.prototype) as SessionSecurityService;
+    const prisma: any = {
+      $queryRaw: jest.fn().mockResolvedValue([]),
+      user: { update: jest.fn() },
+      refreshToken: { deleteMany: jest.fn() },
+    };
+    prisma.$transaction = jest.fn(async (fn: any) => fn(prisma));
+    (service as any).prisma = prisma;
+    await service.revokeSessions('u1');
+    expect(prisma.$queryRaw.mock.calls[0][0].join('?')).toContain('FOR UPDATE');
+    expect(prisma.$queryRaw.mock.calls[0][1]).toBe('u1');
+    expect(prisma.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(prisma.refreshToken.deleteMany.mock.invocationCallOrder[0]);
+    expect(prisma.user.update).toHaveBeenCalledWith({ where: { id: 'u1' }, data: { sessionsRevokedAt: expect.any(Date) } });
+  });
+
+  it('#42: IP já barrado pelo freio → 429 sem conferir a senha', async () => {
+    const service = build(hash);
+    const attempts = new LoginAttemptsService({ log: jest.fn().mockResolvedValue(undefined) } as any);
+    (service as any).prisma.user.findUnique.mockResolvedValue({ password: hash, email: 'a@b.com' });
+    (service as any).loginAttempts = attempts;
+    for (let i = 0; i < 10; i++) {
+      await expect(service.assertPassword('u1', 'errada', { ip: '9.9.9.9' })).rejects.toThrow('Senha atual incorreta');
+    }
+    // nem a senha certa passa daquele IP enquanto durar o bloqueio
+    const error = await service.assertPassword('u1', 'SenhaCerta@1', { ip: '9.9.9.9' }).catch((e) => e);
+    expect(error.getStatus()).toBe(429);
+    // de outro IP o titular continua conferindo normalmente
+    await expect(service.assertPassword('u1', 'SenhaCerta@1', { ip: '8.8.8.8' })).resolves.toBeUndefined();
   });
 });
 
@@ -236,6 +352,8 @@ describe('UsersService.changePassword — derruba as outras sessões (B46/M18)',
     const prisma: any = {
       user: { findUnique: jest.fn().mockResolvedValue({ id: 'u1', password: hash }), update: jest.fn() },
       refreshToken: { deleteMany: jest.fn() },
+      $queryRaw: jest.fn().mockResolvedValue([]),
+      $transaction: jest.fn(async (fn: any) => fn(prisma)),
     };
     const service = Object.create(UsersService.prototype) as UsersService;
     (service as any).prisma = prisma;
@@ -254,6 +372,9 @@ describe('UsersService.changePassword — derruba as outras sessões (B46/M18)',
       where: { userId: 'u1', OR: [{ sessionId: null }, { sessionId: { not: 's-aqui' } }] },
     });
     expect(res).toMatchObject({ sessionsRevoked: true, keptCurrentSession: true });
+    // #39: troca e revogação sob a trava da linha do usuário
+    expect(prisma.$queryRaw.mock.calls[0][0].join('?')).toContain('FOR UPDATE');
+    expect(prisma.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(prisma.refreshToken.deleteMany.mock.invocationCallOrder[0]);
   });
 
   it('token antigo (sem sessão): todas as sessões caem', async () => {

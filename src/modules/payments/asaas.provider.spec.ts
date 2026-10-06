@@ -180,6 +180,13 @@ describe('MercadoPagoProvider', () => {
     expect(p.verifyWebhook({ ...req, headers: { ...req.headers, 'x-signature': `ts=${ts},v1=deadbeef` } }, creds.webhookSecret)).toBe(false);
     expect(mapMercadoPagoStatus('approved')).toBe('received');
     expect(mapMercadoPagoStatus('rejected')).toBe('cancelled');
+    // Chargeback: liquidado = estorno total; ganho pela paróquia = recebido; em andamento = disputa
+    expect(mapMercadoPagoStatus('charged_back', 'settled')).toBe('refunded');
+    expect(mapMercadoPagoStatus('charged_back', 'reimbursed')).toBe('received');
+    expect(mapMercadoPagoStatus('charged_back', 'in_process')).toBe('disputed');
+    expect(mapMercadoPagoStatus('charged_back')).toBe('disputed');
+    const settled = (p as any).mapCharge({ id: 77, status: 'charged_back', status_detail: 'settled', transaction_amount: 50, transaction_amount_refunded: 10 });
+    expect(settled).toMatchObject({ status: 'refunded', refundedAmount: 50 });
     expect(p.parseWebhook({ id: 9, type: 'payment', action: 'payment.updated', data: { id: '123' } })).toMatchObject({ kind: 'charge', providerRef: '123', eventId: '9' });
     // recorrência por Pix não existe via API no MP
     return expect(p.createSubscription({ providerCustomerId: 'x', amount: 10, cycle: 'MONTHLY', startDate: '2026-09-01', description: 'd', externalRef: 'e', mode: 'pix_automatic' })).rejects.toThrow(/Asaas/);

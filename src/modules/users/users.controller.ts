@@ -13,6 +13,7 @@ import {
   UploadedFile,
   Query,
   NotFoundException,
+  Ip,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import type { Response } from 'express';
@@ -22,6 +23,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { UpdateMyCommunityDto } from './dto/update-my-community.dto';
 import { AcceptTermsDto } from './dto/accept-terms.dto';
+import { DeleteAccountDto } from './dto/delete-account.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -90,11 +92,19 @@ export class UsersController {
   /**
    * Exclusão da própria conta (autoatendimento). Sem @Roles: qualquer usuário
    * autenticado pode excluir a si mesmo. Exigido pela App Store e pela LGPD.
+   * Corpo `{ password }` (senha atual — #25/#43); sem ela (app 1.1.0), só
+   * com login de até 5 min. Freio por usuário: a senha errada não vira oráculo.
    * IMPORTANTE: deve vir ANTES de :id.
    */
   @Delete('me')
-  deleteMe(@Request() req) {
-    return this.usersService.deleteOwnAccount(req.user.id);
+  @UseGuards(UserThrottlerGuard)
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
+  deleteMe(@Body() body: DeleteAccountDto, @Request() req, @Ip() ip: string) {
+    return this.usersService.deleteOwnAccount(req.user.id, {
+      password: body?.password ?? null,
+      authTime: req.user.authTime ?? null,
+      ip,
+    });
   }
 
   /**

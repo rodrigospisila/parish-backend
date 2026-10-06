@@ -30,6 +30,29 @@ export const MEMBER_ELIGIBLE_ROLES: UserRole[] = [
   UserRole.FAITHFUL,
 ];
 
+/** Texto que substitui o conteúdo pessoal limpo na anonimização (pedidos de oração assinados). */
+export const ANONYMIZED_TEXT = '[removido]';
+
+/**
+ * O que a anonimização do cadastro (anonymizePersonalData) NÃO apaga, por
+ * retenção legítima (LGPD art. 16 I/II — obrigação legal/regulatória e
+ * exercício regular de direitos) — revisão #27. Mudar é decisão jurídica.
+ * - FinancialTransaction.description / dízimo e ofertas: lançamento contábil
+ *   da paróquia (guarda fiscal; o membro some do cadastro, o lançamento fica).
+ * - Sacrament / livro de sacramentos (e SacramentProcess.involved): registro
+ *   canônico permanente — certidões de batismo, crisma e matrimônio são
+ *   emitidas a partir dele (cân. 535 do Código de Direito Canônico).
+ * - Pedidos de oração ANÔNIMOS: não identificam a pessoa.
+ * Ainda em aberto (decisão do Rodrigo): CatechesisAssessment.notes
+ * (avaliação pedagógica) e TitheRetentionAction.note (anotação da equipe do dízimo).
+ */
+export const ANONYMIZATION_RETAINED = [
+  'FinancialTransaction.description',
+  'Sacrament',
+  'SacramentProcess.involved',
+  'PrayerRequest (isAnonymous)',
+] as const;
+
 export interface EnsureProfileForUserParams {
   userId: string;
   role: UserRole;
@@ -864,7 +887,7 @@ export class MembersService {
       });
     }
 
-    return this.prisma.member.findMany({
+    const rows = await this.prisma.member.findMany({
       where,
       include: {
         community: {
@@ -926,9 +949,28 @@ export class MembersService {
         fullName: 'asc',
       },
     });
+    return rows.map((row) => this.hideAnonymizedAccount(row));
+  }
+
+  /**
+   * Revisão #24: cadastro ANONIMIZADO nunca devolve a conta ligada a ele
+   * (`user` com e-mail/nome, nem o `userId` — pelo GET /users/:id a gestão
+   * chegaria ao e-mail): sem isso, a anonimização feita pela gestão seguia
+   * reidentificável. O vínculo fica no banco (desligar ou anonimizar a conta
+   * junto é decisão de produto); só a resposta o esconde.
+   */
+  private hideAnonymizedAccount<T>(member: T): T {
+    const row = member as any;
+    if (!row || typeof row !== 'object' || row.status !== MemberStatus.ANONYMIZED) return member;
+    return { ...row, userId: null, ...('user' in row ? { user: null } : {}) } as T;
   }
 
   async findOne(id: string, currentUser?: CurrentUser) {
+    return this.hideAnonymizedAccount(await this.loadMember(id, currentUser));
+  }
+
+  /** Ficha completa SEM esconder a conta: só para uso interno (exportação do titular). */
+  private async loadMember(id: string, currentUser?: CurrentUser) {
     const member = await this.prisma.member.findFirst({
       where: { id, deletedAt: null },
       // Relações com select enxuto (B52): a ficha não carrega a comunidade
@@ -1121,7 +1163,7 @@ export class MembersService {
         metadata: { changedFields: Object.keys(updateMemberDto) },
       });
 
-      return updatedMember;
+      return this.hideAnonymizedAccount(updatedMember);
     } catch (error) {
       this.handleUniqueConstraint(error);
     }
@@ -1159,13 +1201,14 @@ export class MembersService {
       entityId: id,
     });
 
-    return removedMember;
+    return this.hideAnonymizedAccount(removedMember);
   }
 
   // LGPD: Exportar dados do membro (portabilidade)
   // Permitido ao próprio titular ou a gestor com escopo hierárquico.
   async exportMemberData(id: string, currentUser?: CurrentUser) {
-    const member = await this.findOne(id);
+    // Ficha sem esconder a conta: o titular é reconhecido pelo userId (escondido na saída)
+    const member = await this.loadMember(id);
 
     let isSelf = false;
     if (currentUser) {
@@ -1189,7 +1232,7 @@ export class MembersService {
       : undefined;
 
     // Consentimentos e vínculos de comunidade: titular e gestão
-    const [consents, communityLinks] = await Promise.all([
+    const [consents, allCommunityLinks] = await Promise.all([
       this.prisma.consent.findMany({
         where: { memberId: id },
         select: { type: true, granted: true, policyVersion: true, grantedAt: true, revokedAt: true },
@@ -1208,6 +1251,13 @@ export class MembersService {
       }),
     ]);
 
+    // Revisão #31: a gestão só vê os vínculos com comunidades do SEU escopo
+    // (o titular, todos) — o vínculo com outra paróquia não é dela
+    const communityLinks =
+      isSelf || !currentUser || currentUser.role === UserRole.SYSTEM_ADMIN
+        ? allCommunityLinks
+        : await this.filterLinksInScope(currentUser, allCommunityLinks);
+
     // Só para o titular (B62): catequese, dízimo e notificações recebidas
     const ownExtras = isSelf ? await this.loadOwnExportExtras(id, member.userId ?? null) : {};
 
@@ -1221,13 +1271,27 @@ export class MembersService {
     return {
       exportedAt: new Date().toISOString(),
       member: {
-        ...memberData,
+        // Anonimizado: sem a conta ligada (#24)
+        ...this.hideAnonymizedAccount(memberData),
         ...(prayerRequests ? { prayerRequests } : {}),
         consents,
         communityLinks,
         ...ownExtras,
       },
     };
+  }
+
+  /** Vínculos de comunidade dentro do escopo de leitura de quem exporta (#31). */
+  private async filterLinksInScope<T extends { community: { id: string } | null }>(
+    currentUser: CurrentUser,
+    links: T[],
+  ): Promise<T[]> {
+    const inScope = await Promise.all(
+      links.map((link) =>
+        link.community?.id ? this.hierarchyService.isCommunityInScope(currentUser, link.community.id) : false,
+      ),
+    );
+    return links.filter((_, index) => inScope[index]);
   }
 
   /**
@@ -1322,7 +1386,7 @@ export class MembersService {
     // Registros anteriores sobre este membro perdem os dados pessoais (M49)
     await this.auditService.pseudonymizeSubject({ memberId: id });
 
-    return anonymized;
+    return this.hideAnonymizedAccount(anonymized);
   }
 
   /** Campos pessoais apagados na anonimização — lista única dos dois caminhos (M16). */
@@ -1463,6 +1527,21 @@ export class MembersService {
       data: { data: null, extractedName: null, extractedBirthDate: null },
     });
 
+    // Revisão #27: visitas pastorais (anotações sensíveis — saúde, família) e
+    // os dados avulsos de contato do pedido de visita ao titular
+    await db.visit.updateMany({ where: { visitRequest: { memberId } }, data: { notes: null } });
+    await db.visitRequest.updateMany({
+      where: { memberId },
+      data: { personName: null, address: null, contactPhone: null },
+    });
+    // Pedidos de oração ASSINADOS (não anônimos): o texto identifica a pessoa
+    // no mural. Os anônimos já não a identificam e ficam como estão.
+    await db.prayerRequest.updateMany({
+      where: { memberId, isAnonymous: false },
+      data: { title: ANONYMIZED_TEXT, description: ANONYMIZED_TEXT },
+    });
+    // O que FICA por retenção legítima: ver ANONYMIZATION_RETAINED
+
     return anonymized;
   }
 
@@ -1476,6 +1555,12 @@ export class MembersService {
       await this.titheSchedules?.cancelPendingAtProvider({ memberId });
     } catch {
       // registrado no próprio dízimo automático (ou o job pega amanhã)
+    }
+    try {
+      // Cobranças avulsas abertas (Pix/boleto do provedor): cancela lá e encerra
+      await this.titheSchedules?.cancelOpenChargesForMember?.(memberId);
+    } catch {
+      // ficam abertas; a expiração diária confere e cancela no provedor
     }
   }
 

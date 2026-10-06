@@ -33,9 +33,19 @@ export class RoomsController {
     return this.service.reserve(dto, req.user);
   }
 
+  // Reservas aguardando aprovação: quem aprova vê as do escopo; o
+  // coordenador de pastoral, os próprios pedidos (service filtra)
+  @Get('reservations/pending')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
+  listPending(@Request() req: any, @Query('communityId') communityId?: string) {
+    return this.service.listPendingReservations(req.user, communityId);
+  }
+
+  // Aprovar/recusar: coordenação da comunidade+; quem pediu pode CANCELAR a
+  // própria reserva (service valida)
   @Patch('reservations/:id/status')
   @PlanResource('roomReservation')
-  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   setStatus(@Param('id') id: string, @Body() body: { status: ReservationStatus }, @Request() req: any) {
     return this.service.setReservationStatus(id, body.status, req.user);
   }

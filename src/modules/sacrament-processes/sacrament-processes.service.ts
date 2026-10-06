@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
 import { SacramentProcessStatus, SacramentType, UserRole, Prisma } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
@@ -15,6 +15,22 @@ const MANUAL_STATUSES: SacramentProcessStatus[] = [
   SacramentProcessStatus.SCHEDULED,
   SacramentProcessStatus.CANCELLED,
 ];
+
+/** Sacramentos que imprimem caráter (não se repetem): a celebração recusa duplicado. */
+const UNREPEATABLE_SACRAMENTS: SacramentType[] = [
+  SacramentType.BAPTISM,
+  SacramentType.CONFIRMATION,
+  SacramentType.HOLY_ORDERS,
+];
+
+const SACRAMENT_LABELS: Record<string, string> = {
+  BAPTISM: 'Batismo',
+  FIRST_COMMUNION: 'Primeira Eucaristia',
+  CONFIRMATION: 'Crisma',
+  MARRIAGE: 'Matrimônio',
+  HOLY_ORDERS: 'Ordem',
+  ANOINTING_OF_THE_SICK: 'Unção dos Enfermos',
+};
 
 /** Texto livre curto (celebrante, local, livro/folha/termo): string ou nada. */
 function optionalText(raw: unknown, label: string, max = 120): string | null {
@@ -221,6 +237,20 @@ export class SacramentProcessesService {
       if (claimed.count === 0) {
         throw new BadRequestException('Processo já celebrado');
       }
+      // Batismo, Crisma e Ordem imprimem caráter: não se repetem. Conferido
+      // sob o lock do membro (a catequese grava sacramento com a mesma chave);
+      // o erro desfaz o CAS acima junto com a transação
+      if (UNREPEATABLE_SACRAMENTS.includes(process.type)) {
+        const already = await prisma.sacrament.findFirst({
+          where: { memberId: process.memberId, type: process.type },
+          select: { id: true },
+        });
+        if (already) {
+          throw new ConflictException(
+            `Este membro já tem ${SACRAMENT_LABELS[process.type] ?? process.type} registrado — o sacramento não se repete. Confira o histórico sacramental ou cancele o processo.`,
+          );
+        }
+      }
       const sacrament = await prisma.sacrament.create({
         data: {
           memberId: process.memberId,
@@ -267,43 +297,47 @@ export class SacramentProcessesService {
     }
     // Data, celebrante e local vêm do Sacrament gravado NA CELEBRAÇÃO — o
     // agendamento (scheduledDate/celebrant) pode ter mudado ou nem existir.
-    // Celebrado sem Sacrament (status trocado à mão, antes da trava) não emite.
     const sacrament = process.sacramentId
       ? await this.prisma.sacrament.findUnique({
           where: { id: process.sacramentId },
           select: { date: true, minister: true, place: true, book: true, page: true, term: true },
         })
       : null;
-    if (!sacrament) {
-      throw new BadRequestException('Processo sem registro da celebração — celebre pelo processo para emitir a certidão');
-    }
-
-    const typeLabels: Record<string, string> = {
-      BAPTISM: 'Batismo',
-      FIRST_COMMUNION: 'Primeira Eucaristia',
-      CONFIRMATION: 'Crisma',
-      MARRIAGE: 'Matrimônio',
-      HOLY_ORDERS: 'Ordem',
-      ANOINTING_OF_THE_SICK: 'Unção dos Enfermos',
+    // Celebrado LEGADO sem Sacrament (status trocado à mão, antes da trava):
+    // a 2ª via sai com os dados do próprio processo e o aviso de que vêm do
+    // agendamento — antes era 400 e a família ficava sem documento
+    const legacy = !sacrament;
+    const record = sacrament ?? {
+      date: process.scheduledDate ?? null,
+      minister: process.celebrant ?? null,
+      place: null as string | null,
+      book: null as string | null,
+      page: null as string | null,
+      term: null as string | null,
     };
-
-    await this.auditService.log({ actor: this.auditActor(user), action: 'EXPORT', entity: 'SacramentProcess', entityId: id, metadata: { certificate: true } });
+    await this.auditService.log({ actor: this.auditActor(user), action: 'EXPORT', entity: 'SacramentProcess', entityId: id, metadata: { certificate: true, ...(legacy ? { fromSchedule: true } : {}) } });
 
     return this.pdfService.renderTableDocument({
-      title: `Certidão de ${typeLabels[process.type] ?? process.type}`,
+      title: `Certidão de ${SACRAMENT_LABELS[process.type] ?? process.type}`,
       subtitle: `${process.community.parish.name} — ${process.community.name}`,
       sections: [
         {
+          ...(legacy
+            ? {
+                subheading:
+                  'Aviso: processo celebrado antes do registro da celebração no sistema — data e celebrante são os dados do agendamento. Confira com o livro de registro.',
+              }
+            : {}),
           columns: ['Campo', 'Valor'],
           widths: [1, 2],
           rows: [
             ['Nome', process.member.fullName],
-            ['Livro', process.book || sacrament.book || '-'],
-            ['Folha', process.page || sacrament.page || '-'],
-            ['Termo', process.term || sacrament.term || '-'],
-            ['Data', formatCivilDate(sacrament.date)],
-            ['Celebrante', sacrament.minister || '-'],
-            ['Local', sacrament.place || '-'],
+            ['Livro', process.book || record.book || '-'],
+            ['Folha', process.page || record.page || '-'],
+            ['Termo', process.term || record.term || '-'],
+            ['Data', record.date ? formatCivilDate(record.date) : '-'],
+            ['Celebrante', record.minister || '-'],
+            ['Local', record.place || '-'],
           ],
         },
       ],

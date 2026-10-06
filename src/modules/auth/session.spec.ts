@@ -47,7 +47,10 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       },
       community: { findUnique: jest.fn().mockResolvedValue({ parishId: 'p1', parish: { dioceseId: 'd1' } }) },
       $transaction: jest.fn(),
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
+    // Transação interativa roda com o próprio mock como `tx` (trava da linha do usuário — #39)
+    prisma.$transaction.mockImplementation(async (arg: any) => (typeof arg === 'function' ? arg(prisma) : Promise.all(arg)));
     security = { revokeSessions: jest.fn() };
     audit = { log: jest.fn().mockResolvedValue(undefined) };
     otp = { decodeVerifiedPhoneToken: jest.fn() };
@@ -219,6 +222,82 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
     });
   });
 
+  describe('revisão #39 — renovação × revogação sob a trava da linha do usuário', () => {
+    it('o refresh trava a linha do usuário ANTES de ler o token e emite o par novo na mesma transação', async () => {
+      const first = await issue({ authTime: 1_700_000_000 });
+      prisma.refreshToken.create.mockClear();
+      prisma.refreshToken.findFirst.mockResolvedValue({ ...first.row, id: 'rt1', userId: 'u1', rotatedAt: null });
+
+      await service.refreshToken(first.refreshToken);
+
+      const lock = prisma.$queryRaw.mock.calls[0];
+      expect(lock[0].join('?')).toContain('FOR UPDATE');
+      expect(lock.slice(1)).toEqual(['u1']);
+      expect(prisma.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(prisma.refreshToken.findFirst.mock.invocationCallOrder[0]);
+      expect(prisma.refreshToken.create.mock.invocationCallOrder[0]).toBeGreaterThan(prisma.refreshToken.updateMany.mock.invocationCallOrder[0]);
+      expect(prisma.$transaction).toHaveBeenCalledTimes(1);
+    });
+
+    it('revogação que venceu a corrida: o refresh que esperava a trava já não acha o token → 401 sem emitir', async () => {
+      const first = await issue();
+      prisma.refreshToken.create.mockClear();
+      // a revogação apagou o token enquanto este refresh esperava a trava
+      prisma.refreshToken.findFirst.mockResolvedValue(null);
+      await expect(service.refreshToken(first.refreshToken)).rejects.toBeInstanceOf(UnauthorizedException);
+      expect(prisma.refreshToken.create).not.toHaveBeenCalled();
+    });
+
+    it('reuso fora da janela: a revogação da família é gravada (a recusa sai depois do commit)', async () => {
+      const first = await issue();
+      prisma.refreshToken.findFirst.mockResolvedValue({
+        ...first.row,
+        id: 'rt1',
+        userId: 'u1',
+        rotatedAt: new Date(Date.now() - REFRESH_REUSE_GRACE_MS - 5_000),
+      });
+      let committed = false;
+      prisma.$transaction.mockImplementation(async (fn: any) => {
+        const result = await fn(prisma);
+        committed = true;
+        return result;
+      });
+      await expect(service.refreshToken(first.refreshToken)).rejects.toBeInstanceOf(UnauthorizedException);
+      expect(committed).toBe(true);
+      expect(prisma.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1', sessionId: first.row.sessionId } });
+    });
+
+    it('logout também trava a linha antes de apagar a sessão', async () => {
+      await service.logout({ id: 'u1', sessionId: 's-celular' });
+      expect(prisma.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(prisma.refreshToken.deleteMany.mock.invocationCallOrder[0]);
+    });
+  });
+
+  describe('revisão #37 — logout pelo refresh token (access vencido)', () => {
+    it('encerra a sessão (família) do refresh token apresentado', async () => {
+      const first = await issue();
+      prisma.refreshToken.findFirst.mockResolvedValue({ ...first.row, id: 'rt1', userId: 'u1' });
+      await expect(service.logoutByRefreshToken(first.refreshToken)).resolves.toEqual({ message: 'Logout realizado com sucesso' });
+      expect(prisma.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1', sessionId: first.row.sessionId } });
+    });
+
+    it('refresh token VENCIDO ainda encerra a sessão (assinatura conferida, prazo não)', async () => {
+      const expired = jwt.sign({ sub: 'u1', sid: 's-velha', typ: 'refresh', jti: 'x' }, { secret: config.JWT_REFRESH_SECRET, expiresIn: -10 });
+      prisma.refreshToken.findFirst.mockResolvedValue({ id: 'rt2', userId: 'u1', sessionId: 's-velha' });
+      await service.logoutByRefreshToken(expired);
+      expect(prisma.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1', sessionId: 's-velha' } });
+    });
+
+    it('assinatura inválida ou access token no lugar do refresh → 401; sessão inexistente → resposta igual, nada apagado', async () => {
+      await expect(service.logoutByRefreshToken('lixo')).rejects.toBeInstanceOf(UnauthorizedException);
+      const access = jwt.sign({ sub: 'u1', sid: 's1' }, { secret: config.JWT_REFRESH_SECRET });
+      await expect(service.logoutByRefreshToken(access)).rejects.toBeInstanceOf(UnauthorizedException);
+      const first = await issue();
+      prisma.refreshToken.findFirst.mockResolvedValue(null);
+      await expect(service.logoutByRefreshToken(first.refreshToken)).resolves.toEqual({ message: 'Logout realizado com sucesso' });
+      expect(prisma.refreshToken.deleteMany).not.toHaveBeenCalled();
+    });
+  });
+
   describe('validateUser (a cada requisição)', () => {
     it('com sid: sessionAlive reflete se a sessão do aparelho ainda existe', async () => {
       prisma.user.findUnique.mockResolvedValue({ ...user, member: null, communities: [], forcePasswordChange: false });
@@ -247,6 +326,22 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
 
   describe('cadastro público e celular (M7/A23)', () => {
     const created = { id: 'u9', email: 'nova@x.com', role: UserRole.FAITHFUL, dioceseId: 'd1', parishId: 'p1', communityId: 'c1', member: null };
+
+    it('#30/#35: sem consentGiven (app 1.0.0) cria a conta com o aceite PENDENTE — sem aceite gravado nem consentimento', async () => {
+      const tx = { user: { create: jest.fn().mockResolvedValue({ ...created, acceptedTermsAt: null, acceptedTermsVersion: null }) }, member: { findFirst: jest.fn(), update: jest.fn() }, $queryRaw: jest.fn() };
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+      members.ensureProfileForUser.mockResolvedValue({ id: 'm9' });
+
+      const result: any = await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', communityId: 'c1' } as any);
+
+      const data = tx.user.create.mock.calls[0][0].data;
+      expect(data.acceptedTermsAt).toBeNull();
+      expect(data.acceptedTermsVersion).toBeNull();
+      expect(members.ensureProfileForUser.mock.calls[0][1].consentGiven).toBeUndefined();
+      // o aviso de aceite cobra no primeiro acesso
+      expect(result.user.termsAcceptanceRequired).toBe(true);
+      expect(result.accessToken).toBeTruthy();
+    });
 
     it('ignora `phone` sem verifiedPhoneToken: nada de ocupar o número de outra pessoa', async () => {
       const tx = { user: { create: jest.fn().mockResolvedValue(created) }, member: { findFirst: jest.fn(), update: jest.fn() }, $queryRaw: jest.fn() };

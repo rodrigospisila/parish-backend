@@ -53,6 +53,9 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
         create: jest.fn(),
         upsert: jest.fn(),
       },
+      refreshToken: { deleteMany: jest.fn() },
+      // Trava da linha do usuário nas revogações (#39)
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
     prisma = {
       user: {
@@ -258,8 +261,10 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
       prisma.user.findUnique.mockResolvedValue(dbUser());
       const res = await service.resetPassword('f1', parishAdmin);
       expect(res.tempPassword).toMatch(/Aa1!$/);
-      expect(prisma.user.update.mock.calls[0][0].data.forcePasswordChange).toBe(true);
-      expect(prisma.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'f1' } });
+      // Redefinição e revogação na transação, sob a trava da linha (#39)
+      expect(tx.$queryRaw).toHaveBeenCalled();
+      expect(tx.user.update.mock.calls[0][0].data.forcePasswordChange).toBe(true);
+      expect(tx.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'f1' } });
     });
 
     it('PARISH_ADMIN não exclui outro PARISH_ADMIN', async () => {

@@ -55,6 +55,8 @@ describe('UsersService — LGPD e conta (F7b)', () => {
       massScheduleFavorite: { deleteMany: jest.fn() },
       notification: { deleteMany: jest.fn() },
       userCommunity: { updateMany: jest.fn() },
+      // Trava da linha do usuário nas revogações (#39)
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
     prisma = {
       user: {
@@ -116,12 +118,14 @@ describe('UsersService — LGPD e conta (F7b)', () => {
       expect(prisma.user.update).not.toHaveBeenCalled();
     });
 
-    it('cadastro público sem consentGiven=true é recusado pela validação (antes criava a conta sem aceite)', async () => {
+    it('cadastro público: consentGiven=false é recusado; AUSENTE (app 1.0.0) passa com o aceite pendente (#30/#35)', async () => {
       const pipe = new ValidationPipe({ whitelist: true });
       const base = { email: 'novo@x.com', password: 'SenhaForte1', name: 'Novo' };
       const meta = { type: 'body' as const, metatype: RegisterDto };
-      await expect(pipe.transform({ ...base }, meta)).rejects.toBeInstanceOf(BadRequestException);
+      // Ausente: a conta nasce com acceptedTermsAt nulo (ver auth.service.spec) e o aviso cobra no 1º acesso
+      await expect(pipe.transform({ ...base }, meta)).resolves.toEqual(expect.not.objectContaining({ consentGiven: expect.anything() }));
       await expect(pipe.transform({ ...base, consentGiven: false }, meta)).rejects.toBeInstanceOf(BadRequestException);
+      await expect(pipe.transform({ ...base, consentGiven: 'sim' }, meta)).rejects.toBeInstanceOf(BadRequestException);
       await expect(pipe.transform({ ...base, consentGiven: true }, meta)).resolves.toEqual(
         expect.objectContaining({ consentGiven: true }),
       );

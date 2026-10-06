@@ -5,6 +5,7 @@ import { RoomsService } from './rooms.service';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { NotificationsService } from '../notifications/notifications.service';
 
 describe('RoomsService (4.2)', () => {
   let service: RoomsService;
@@ -203,6 +204,13 @@ describe('RoomsService (4.2)', () => {
 
     it('status fora do enum: 400; coordenador de pastoral não aprova', async () => {
       await expect(service.setReservationStatus('res1', 'X' as any, coord)).rejects.toBeInstanceOf(BadRequestException);
+      prisma.roomReservation.findUnique.mockResolvedValue({
+        id: 'res1',
+        roomId: 'r1',
+        status: 'PENDING',
+        requesterUserId: 'u5',
+        room: { communityId: 'c1' },
+      });
       await expect(
         service.setReservationStatus('res1', 'APPROVED' as any, { id: 'u5', role: UserRole.PASTORAL_COORDINATOR } as any),
       ).rejects.toBeInstanceOf(ForbiddenException);
@@ -213,6 +221,124 @@ describe('RoomsService (4.2)', () => {
       await service.setReservationStatus('res1', 'REJECTED' as any, coord);
       expect(prisma.$transaction).not.toHaveBeenCalled();
       expect(prisma.roomReservation.update).toHaveBeenCalledWith({ where: { id: 'res1' }, data: { status: 'REJECTED' } });
+    });
+  });
+
+  describe('R5#4 — reserva pendente do coordenador de pastoral', () => {
+    const base = { roomId: 'r1', title: 'Ensaio do coral', startTime: '2026-08-01T10:00:00Z', endTime: '2026-08-01T12:00:00Z' };
+    const pastoralCoord = { id: 'u5', role: UserRole.PASTORAL_COORDINATOR, communityId: 'c1' } as any;
+    let notifications: { notifyUsers: jest.Mock };
+    let withNotify: RoomsService;
+
+    beforeEach(async () => {
+      prisma.room.findFirst.mockResolvedValue({ id: 'r1', name: 'Salão', communityId: 'c1' });
+      prisma.roomReservation.findFirst.mockResolvedValue(null);
+      prisma.roomReservation.create.mockImplementation(({ data }: any) => ({ id: 'res1', ...data }));
+      prisma.user = { findMany: jest.fn().mockResolvedValue([]) };
+      notifications = { notifyUsers: jest.fn() };
+      const module: TestingModule = await Test.createTestingModule({
+        providers: [
+          RoomsService,
+          { provide: PrismaService, useValue: prisma },
+          { provide: HierarchyService, useValue: { isCommunityInScope: jest.fn().mockResolvedValue(true) } },
+          { provide: AuditService, useValue: { log: jest.fn() } },
+          { provide: NotificationsService, useValue: notifications },
+        ],
+      }).compile();
+      withNotify = module.get(RoomsService);
+    });
+
+    it('pedido PENDING avisa a coordenação da comunidade (push/e-mail, sem SMS)', async () => {
+      prisma.user.findMany.mockResolvedValueOnce([{ id: 'cc1' }, { id: 'cc2' }]);
+      const res: any = await withNotify.reserve(base, pastoralCoord);
+      expect(res.status).toBe('PENDING');
+      expect(prisma.user.findMany.mock.calls[0][0].where).toMatchObject({
+        communityId: 'c1',
+        role: UserRole.COMMUNITY_COORDINATOR,
+        isActive: true,
+        id: { not: 'u5' },
+      });
+      const [ids, , title, , data, options] = notifications.notifyUsers.mock.calls[0];
+      expect(ids).toEqual(['cc1', 'cc2']);
+      expect(title).toContain('aguardando aprovação');
+      expect(data).toMatchObject({ kind: 'room-reservation', reservationId: 'res1' });
+      expect(options).toEqual({ bulk: true });
+    });
+
+    it('sem coordenação na comunidade: avisa a administração da paróquia', async () => {
+      prisma.user.findMany.mockResolvedValueOnce([]).mockResolvedValueOnce([{ id: 'adm' }]);
+      await withNotify.reserve(base, pastoralCoord);
+      expect(prisma.user.findMany.mock.calls[1][0].where).toMatchObject({ parishId: 'p1', role: UserRole.PARISH_ADMIN });
+      expect(notifications.notifyUsers.mock.calls[0][0]).toEqual(['adm']);
+    });
+
+    it('reserva aprovada direto (coordenação) não gera aviso', async () => {
+      await withNotify.reserve(base, coord);
+      expect(notifications.notifyUsers).not.toHaveBeenCalled();
+    });
+
+    it('falha no aviso não derruba a reserva', async () => {
+      prisma.user.findMany.mockRejectedValue(new Error('db'));
+      await expect(withNotify.reserve(base, pastoralCoord)).resolves.toMatchObject({ status: 'PENDING' });
+    });
+
+    it('lista de pendências: quem aprova vê as do escopo; o coordenador de pastoral, só as dele', async () => {
+      prisma.roomReservation.findMany.mockResolvedValue([
+        { id: 'res1', requesterUserId: 'u5', room: { id: 'r1', name: 'Salão', communityId: 'c1' } },
+      ]);
+      prisma.user.findMany.mockResolvedValue([{ id: 'u5', name: 'Coord. Coral' }]);
+      const asApprover: any[] = await withNotify.listPendingReservations(coord);
+      const approverWhere = prisma.roomReservation.findMany.mock.calls[0][0].where;
+      expect(approverWhere).toMatchObject({ status: 'PENDING', room: { deletedAt: null, community: { id: 'c1' } } });
+      expect(approverWhere.requesterUserId).toBeUndefined();
+      expect(asApprover[0]).toMatchObject({ requesterName: 'Coord. Coral', mine: false });
+
+      const asRequester: any[] = await withNotify.listPendingReservations(pastoralCoord);
+      expect(prisma.roomReservation.findMany.mock.calls[1][0].where.requesterUserId).toBe('u5');
+      expect(asRequester[0].mine).toBe(true);
+    });
+
+    it('lista de pendências sem escopo resolvido: vazia, sem consulta', async () => {
+      await expect(
+        withNotify.listPendingReservations({ id: 'x', role: UserRole.PASTORAL_COORDINATOR } as any),
+      ).resolves.toEqual([]);
+      expect(prisma.roomReservation.findMany).not.toHaveBeenCalled();
+    });
+
+    it('quem pediu cancela a própria reserva; não cancela a dos outros nem aprova', async () => {
+      prisma.roomReservation.findUnique.mockResolvedValue({
+        id: 'res1',
+        roomId: 'r1',
+        status: 'PENDING',
+        requesterUserId: 'u5',
+        room: { communityId: 'c1' },
+      });
+      prisma.roomReservation.update.mockResolvedValue({ id: 'res1', status: 'CANCELLED' });
+      await withNotify.setReservationStatus('res1', 'CANCELLED' as any, pastoralCoord);
+      expect(prisma.roomReservation.update).toHaveBeenCalledWith({ where: { id: 'res1' }, data: { status: 'CANCELLED' } });
+
+      prisma.roomReservation.update.mockClear();
+      const other = { id: 'u6', role: UserRole.PASTORAL_COORDINATOR, communityId: 'c1' } as any;
+      await expect(withNotify.setReservationStatus('res1', 'CANCELLED' as any, other)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      await expect(withNotify.setReservationStatus('res1', 'REJECTED' as any, pastoralCoord)).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(prisma.roomReservation.update).not.toHaveBeenCalled();
+    });
+
+    it('cancelar reserva já recusada/cancelada: 400', async () => {
+      prisma.roomReservation.findUnique.mockResolvedValue({
+        id: 'res1',
+        roomId: 'r1',
+        status: 'REJECTED',
+        requesterUserId: 'u5',
+        room: { communityId: 'c1' },
+      });
+      await expect(withNotify.setReservationStatus('res1', 'CANCELLED' as any, pastoralCoord)).rejects.toBeInstanceOf(
+        BadRequestException,
+      );
     });
   });
 

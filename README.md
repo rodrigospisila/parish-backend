@@ -151,6 +151,18 @@ src/
 
 A API estará disponível em `http://localhost:3000`.
 
+## 🛑 Scripts contra o banco de produção
+
+Todo script de `prisma/` e `scripts/` que grava ou apaga dados passa pela trava
+`prisma/lib/prod-guard.cjs`. Quando o `DATABASE_URL` aponta para produção (host
+terminando em `rlwy.net`, `railway.app` ou `railway.internal`, ou listado em
+`PROD_DB_HOSTS`), o script recusa e sai com código 1, a menos que rode com
+`CONFIRM_PROD=sim` no ambiente. O reset (`npm run db:reset`) nunca roda em produção,
+nem com a confirmação. Modo de simulação (dry-run) não é bloqueado.
+
+Escrita em massa em produção só com ordem explícita. Migrations seguem a regra
+expandir → código → contrair (ver `docs/MIGRATIONS.md`).
+
 ## 📊 Schema do Banco de Dados
 
 O schema do Prisma inclui as seguintes entidades principais:

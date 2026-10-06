@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import { BadRequestException, ServiceUnavailableException } from '@nestjs/common';
 import { GUARDS_METADATA } from '@nestjs/common/constants';
 import { DEFAULT_GEOCODING_USER_AGENT, GeocodingService } from './geocoding.service';
-import { GeocodingController } from './geocoding.controller';
+import { GeocodingController, geocodingSearchLimit } from './geocoding.controller';
 import { UserThrottlerGuard } from '../auth/guards/app-throttler.guard';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 
@@ -104,6 +104,15 @@ describe('GeocodingController', () => {
   it('rota logada com limite por usuário (JwtAuthGuard + UserThrottlerGuard)', () => {
     const guards = Reflect.getMetadata(GUARDS_METADATA, GeocodingController);
     expect(guards).toEqual([JwtAuthGuard, UserThrottlerGuard]);
+  });
+
+  it('R3#59: limite por papel — 30/min para a gestão, 120/min para o SYSTEM_ADMIN', () => {
+    const limit = Reflect.getMetadata('THROTTLER:LIMITdefault', GeocodingController.prototype.search);
+    expect(limit).toBe(geocodingSearchLimit);
+    const ctx = (role?: string) => ({ switchToHttp: () => ({ getRequest: () => ({ user: role ? { role } : undefined }) }) }) as any;
+    expect(geocodingSearchLimit(ctx('SYSTEM_ADMIN'))).toBe(120);
+    expect(geocodingSearchLimit(ctx('PARISH_ADMIN'))).toBe(30);
+    expect(geocodingSearchLimit(ctx())).toBe(30);
   });
 
   it('street presente → estruturada; senão, busca livre', async () => {

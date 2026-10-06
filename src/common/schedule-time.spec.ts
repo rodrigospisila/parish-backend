@@ -1,6 +1,8 @@
 import {
   addDaysYmd,
   formatDateTimeBR,
+  isAllDayEvent,
+  normalizeStandaloneScheduleDate,
   parseClientDateTime,
   parseYmd,
   scheduleCivilDay,
@@ -31,6 +33,25 @@ describe('schedule-time (fuso da paróquia)', () => {
 
   it('cobre o antigo horário de verão (2018, -02:00)', () => {
     expect(zonedDateTimeToInstant('2018-12-20', 19, 0).toISOString()).toBe('2018-12-20T21:00:00.000Z');
+  });
+
+  it('R3#51: hora que não existiu (início do verão, 04/11/2018 00:00 em SP) avança, como o "compatible" do Temporal', () => {
+    // 00:00 → 01:00 com o offset novo (-02:00): mesmo dia, nunca 23:00 do dia 03
+    const gap = zonedDateTimeToInstant('2018-11-04', 0, 0);
+    expect(gap.toISOString()).toBe('2018-11-04T03:00:00.000Z');
+    expect(zonedYmd(gap)).toBe('2018-11-04');
+    expect(zonedParts(gap)).toMatchObject({ day: 4, hour: 1, minute: 0 });
+    expect(zonedDateTimeToInstant('2018-11-04', 0, 30).toISOString()).toBe('2018-11-04T03:30:00.000Z');
+    // Dia civil começa no dia certo (era 03/11 23:00)
+    expect(zonedYmd(zonedDayRange('2018-11-04').start)).toBe('2018-11-04');
+    // Logo antes e logo depois do buraco seguem exatos
+    expect(zonedDateTimeToInstant('2018-11-03', 23, 59).toISOString()).toBe('2018-11-04T02:59:00.000Z');
+    expect(zonedDateTimeToInstant('2018-11-04', 1, 0).toISOString()).toBe('2018-11-04T03:00:00.000Z');
+  });
+
+  it('R3#51: hora repetida (fim do verão, 16/02/2019 23:00 em SP) fica na primeira ocorrência (-02:00)', () => {
+    expect(zonedDateTimeToInstant('2019-02-16', 23, 0).toISOString()).toBe('2019-02-17T01:00:00.000Z');
+    expect(zonedDateTimeToInstant('2019-02-17', 0, 0).toISOString()).toBe('2019-02-17T03:00:00.000Z');
   });
 
   it('dia civil e partes no fuso de SP, não no do processo', () => {
@@ -112,6 +133,58 @@ describe('schedule-time (fuso da paróquia)', () => {
     it('avulsa antiga sem startTime e fora da meia-noite UTC: a data já é o instante', () => {
       const legacy = { date: new Date('2026-07-11T08:00:00Z') };
       expect(scheduleStart(legacy).toISOString()).toBe('2026-07-11T08:00:00.000Z');
+    });
+  });
+
+  describe('normalizeStandaloneScheduleDate (R3#45)', () => {
+    it('o que o painel manda de verdade: 22:00 de 10/10 → dia 10/10 (00:00Z) e startTime 22:00', () => {
+      // new Date('2026-10-10T22:00').toISOString() num navegador em Brasília
+      const sent = '2026-10-11T01:00:00.000Z';
+      const r = normalizeStandaloneScheduleDate(sent);
+      expect(r?.date.toISOString()).toBe('2026-10-10T00:00:00.000Z');
+      expect(r?.startTime).toBe('22:00');
+      // A janela e o dia civil da escala ficam em 10/10 22:00 de Brasília
+      expect(scheduleCivilDay({ date: r!.date, startTime: r!.startTime })).toBe('2026-10-10');
+      expect(scheduleStart({ date: r!.date, startTime: r!.startTime }).toISOString()).toBe(sent);
+    });
+
+    it('21:00 local (00:00Z exato) também fica no próprio dia', () => {
+      const r = normalizeStandaloneScheduleDate('2026-10-11T00:00:00.000Z');
+      expect(r).toEqual({ date: new Date('2026-10-10T00:00:00.000Z'), startTime: '21:00' });
+    });
+
+    it('startTime informado vale; o dia sai do instante', () => {
+      const r = normalizeStandaloneScheduleDate('2026-10-11T01:00:00.000Z', '19:30');
+      expect(r).toEqual({ date: new Date('2026-10-10T00:00:00.000Z'), startTime: '19:30' });
+    });
+
+    it('só-dia fica como veio, sem horário (dia inteiro); inválida = null', () => {
+      expect(normalizeStandaloneScheduleDate('2026-10-10')).toEqual({ date: new Date('2026-10-10T00:00:00.000Z'), startTime: null });
+      expect(normalizeStandaloneScheduleDate('2026-10-10T22:00')).toEqual({
+        date: new Date('2026-10-10T00:00:00.000Z'),
+        startTime: '22:00',
+      });
+      expect(normalizeStandaloneScheduleDate('abc')).toBeNull();
+      expect(normalizeStandaloneScheduleDate('2026-02-30')).toBeNull();
+    });
+  });
+
+  describe('isAllDayEvent (R3#47)', () => {
+    const at = (iso: string) => new Date(iso);
+    it('Missa às 00:00 sem fim é a Missa do Galo, não dia inteiro', () => {
+      expect(isAllDayEvent({ type: 'MASS', startDate: at('2026-12-25T03:00:00Z') })).toBe(false);
+      expect(isAllDayEvent({ type: 'MASS', startDate: at('2026-12-25T03:00:00Z'), endDate: at('2026-12-25T04:30:00Z') })).toBe(false);
+    });
+    it('dia inteiro: 00:00 → 00:00 de outro dia, ou janela ≥ 24 h', () => {
+      expect(isAllDayEvent({ type: 'MASS', startDate: at('2026-07-24T03:00:00Z'), endDate: at('2026-07-25T03:00:00Z') })).toBe(true);
+      expect(isAllDayEvent({ type: 'EVENT', startDate: at('2026-07-25T03:00:00Z'), endDate: at('2026-07-27T03:00:00Z') })).toBe(true);
+      expect(isAllDayEvent({ type: 'MASS', startDate: at('2026-07-24T13:00:00Z'), endDate: at('2026-07-25T13:00:00Z') })).toBe(true);
+      // fim 00:00 no MESMO instante/dia não conta
+      expect(isAllDayEvent({ type: 'MASS', startDate: at('2026-07-24T03:00:00Z'), endDate: at('2026-07-24T03:00:00Z') })).toBe(false);
+    });
+    it('evento que não é Missa, 00:00 sem fim: dia inteiro (critério antigo do calendário)', () => {
+      expect(isAllDayEvent({ type: 'EVENT', startDate: at('2026-07-24T03:00:00Z') })).toBe(true);
+      expect(isAllDayEvent({ type: 'EVENT', startDate: at('2026-07-24T22:30:00Z') })).toBe(false);
     });
   });
 });

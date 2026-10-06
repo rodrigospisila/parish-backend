@@ -17,7 +17,13 @@ import { safeEqual } from './payment-crypto';
 
 const BASE = 'https://api.mercadopago.com';
 
-export function mapMercadoPagoStatus(status: string | null | undefined): ChargeStatus {
+/**
+ * Status do pagamento no MP → status do domínio. Chargeback (`charged_back`)
+ * depende do desfecho em `status_detail`: `settled` = o dinheiro saiu (vale
+ * como estorno total); `reimbursed` = a paróquia ganhou a disputa (segue
+ * recebido); em andamento ou sem detalhe = disputa.
+ */
+export function mapMercadoPagoStatus(status: string | null | undefined, statusDetail?: string | null): ChargeStatus {
   switch ((status ?? '').toLowerCase()) {
     case 'pending':
     case 'authorized':
@@ -31,8 +37,12 @@ export function mapMercadoPagoStatus(status: string | null | undefined): ChargeS
       return 'cancelled';
     case 'refunded':
       return 'refunded';
-    case 'charged_back':
+    case 'charged_back': {
+      const detail = (statusDetail ?? '').toLowerCase();
+      if (detail === 'settled') return 'refunded';
+      if (detail === 'reimbursed') return 'received';
       return 'disputed';
+    }
     default:
       return 'unknown';
   }
@@ -102,9 +112,12 @@ export class MercadoPagoProvider implements PaymentProvider {
 
   private mapCharge(payment: any): ProviderCharge {
     const tx = payment?.point_of_interaction?.transaction_data ?? {};
+    const status = mapMercadoPagoStatus(payment.status, payment.status_detail);
+    // Chargeback liquidado: sai o valor inteiro, mesmo que transaction_amount_refunded não o reflita
+    const chargedBack = String(payment.status ?? '').toLowerCase() === 'charged_back' && status === 'refunded';
     return {
       providerRef: String(payment.id),
-      status: mapMercadoPagoStatus(payment.status),
+      status,
       method: 'PIX',
       qrPayload: tx.qr_code ?? null,
       qrImageBase64: tx.qr_code_base64 ?? null,
@@ -113,7 +126,12 @@ export class MercadoPagoProvider implements PaymentProvider {
       value: typeof payment.transaction_amount === 'number' ? payment.transaction_amount : null,
       netValue: payment.transaction_details?.net_received_amount ?? null,
       // Estorno parcial no MP mantém o status "approved" e acumula aqui
-      refundedAmount: typeof payment.transaction_amount_refunded === 'number' ? payment.transaction_amount_refunded : null,
+      refundedAmount:
+        chargedBack && typeof payment.transaction_amount === 'number'
+          ? payment.transaction_amount
+          : typeof payment.transaction_amount_refunded === 'number'
+            ? payment.transaction_amount_refunded
+            : null,
       paidAt: payment.date_approved ?? null,
       raw: payment,
     };

@@ -6,6 +6,7 @@ import { RolesGuard } from './guards/roles.guard';
 import { Roles } from './decorators/roles.decorator';
 import { AuthService } from './auth.service';
 import { SessionSecurityService } from './session-security.service';
+import { UserThrottlerGuard } from './guards/app-throttler.guard';
 
 const metaFrom = (headers: Record<string, string | undefined>, ip: string) => ({
   ip,
@@ -45,19 +46,22 @@ export class SecurityController {
   @UseGuards(JwtAuthGuard, ThrottlerGuard)
   @Throttle({ default: { limit: 5, ttl: 60_000 } })
   setup(@Request() req: any) {
-    return this.security.setup(req.user.id);
+    // A sessão que gerou o QR conta como prova de recência no enable (#38)
+    return this.security.setup(req.user.id, req.user.sessionId ?? null);
   }
 
   /**
    * Ativa o 2FA; as outras sessões caem e o chamador recebe tokens novos.
-   * Exige a senha atual (`password`) ou um login com senha de até 5 min (M5):
-   * só o access token não basta para trancar o titular fora da conta.
+   * Exige a senha atual (`password`) ou um login com senha de até 15 min
+   * (M5; #38) — ou, em sessão sem a claim `at`, o QR gerado nesta sessão há
+   * até 15 min: só o access token não basta para trancar o titular fora da
+   * conta. Freio por USUÁRIO (#42) e falhas de senha no freio da conta.
    */
   @Post('2fa/enable')
-  @UseGuards(JwtAuthGuard, ThrottlerGuard)
+  @UseGuards(JwtAuthGuard, UserThrottlerGuard)
   @Throttle({ default: { limit: 10, ttl: 60_000 } })
-  async enable(@Body() body: { code: string; password?: string }, @Request() req: any) {
-    await this.security.assertRecentAuth(req.user, body?.password ? String(body.password) : null);
+  async enable(@Body() body: { code: string; password?: string }, @Request() req: any, @Ip() ip: string) {
+    await this.security.assertRecentAuth(req.user, body?.password ? String(body.password) : null, { ip });
     const result = await this.security.enable(req.user.id, String(body?.code ?? ''));
     // Acabou de provar a senha e o autenticador: a sessão nova conta como login recente
     const tokens = await this.authService.reissueSession(req.user.id);

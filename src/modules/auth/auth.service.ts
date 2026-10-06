@@ -23,6 +23,7 @@ import { MessagingService } from '../messaging/messaging.service';
 import { emailInsensitive, normalizeEmail, pickEmailMatch } from './email-lookup';
 import { pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 import { isTermsAcceptanceRequired, TERMS_VERSION } from '../users/terms.constants';
+import { lockUserRow } from './session-lock';
 
 /** Resposta única para conta inexistente, celular inválido e senha errada (não revela qual foi). */
 export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos';
@@ -486,8 +487,8 @@ export class AuthService {
   }
 
   /** Linha do refresh token: pelo hash (atual) ou pelo valor em claro (linhas antigas). */
-  private findStoredRefreshToken(refreshToken: string) {
-    return this.prisma.refreshToken.findFirst({
+  private findStoredRefreshToken(refreshToken: string, db: Pick<PrismaService, 'refreshToken'> = this.prisma) {
+    return db.refreshToken.findFirst({
       where: { token: { in: [hashRefreshToken(refreshToken), refreshToken] } },
     });
   }
@@ -498,6 +499,11 @@ export class AuthService {
    * geram duas sessões). O consumido fica marcado (rotatedAt) até expirar:
    * reapresentá-lo depois da janela de graça é sinal de roubo e derruba a
    * sessão (família) inteira (B46).
+   *
+   * Consumo + emissão numa transação que trava a linha do usuário (revisão
+   * #39): uma revogação concorrente (troca de senha, "sair de todos",
+   * redefinição) espera o fim desta renovação e apaga também o token novo —
+   * ou, se veio antes, esta renovação já não encontra o token.
    */
   async refreshToken(refreshToken: string) {
     let payload: any;
@@ -508,56 +514,74 @@ export class AuthService {
     } catch {
       throw new UnauthorizedException('Refresh token inválido');
     }
-
-    const stored = await this.findStoredRefreshToken(refreshToken);
-    if (!stored || stored.userId !== payload?.sub) {
+    if (typeof payload?.sub !== 'string' || !payload.sub) {
       throw new UnauthorizedException('Refresh token inválido');
     }
 
-    const now = new Date();
-    if (stored.expiresAt < now) {
-      await this.prisma.refreshToken.deleteMany({ where: { id: stored.id } });
-      throw new UnauthorizedException('Refresh token expirado');
-    }
+    // As recusas saem DEPOIS do commit: a revogação da família (reuso) e a
+    // limpeza do token vencido não podem voltar com o rollback da exceção
+    const outcome = await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, payload.sub);
 
-    if (stored.rotatedAt) {
-      await this.handleRotatedTokenReuse(stored);
-      throw new UnauthorizedException('Refresh token inválido');
-    }
+      const stored = await this.findStoredRefreshToken(refreshToken, tx);
+      if (!stored || stored.userId !== payload.sub) {
+        return { error: 'Refresh token inválido' } as const;
+      }
 
-    // Linha antiga (sem sessão): ganha uma agora e passa a ser rastreada
-    const sessionId: string = stored.sessionId ?? (typeof payload.sid === 'string' ? payload.sid : randomUUID());
-    const consumed = await this.prisma.refreshToken.updateMany({
-      where: { id: stored.id, rotatedAt: null },
-      data: { rotatedAt: now, sessionId },
+      const now = new Date();
+      if (stored.expiresAt < now) {
+        await tx.refreshToken.deleteMany({ where: { id: stored.id } });
+        return { error: 'Refresh token expirado' } as const;
+      }
+
+      if (stored.rotatedAt) {
+        await this.handleRotatedTokenReuse(stored, tx);
+        return { error: 'Refresh token inválido' } as const;
+      }
+
+      // Linha antiga (sem sessão): ganha uma agora e passa a ser rastreada
+      const sessionId: string = stored.sessionId ?? (typeof payload.sid === 'string' ? payload.sid : randomUUID());
+      const consumed = await tx.refreshToken.updateMany({
+        where: { id: stored.id, rotatedAt: null },
+        data: { rotatedAt: now, sessionId },
+      });
+      if (consumed.count === 0) {
+        // Outra requisição trocou este mesmo token agora há pouco
+        return { error: 'Refresh token inválido' } as const;
+      }
+
+      const user = await tx.user.findUnique({ where: { id: payload.sub } });
+      if (!user || !user.isActive) {
+        // Nada emitido: o consumo acima volta com o rollback
+        throw new UnauthorizedException('Usuário não encontrado ou inativo');
+      }
+
+      const tokens = await this.generateTokens(
+        user.id,
+        user.email,
+        user.role,
+        user.dioceseId ?? undefined,
+        user.parishId ?? undefined,
+        user.communityId ?? undefined,
+        // Mesma sessão; o horário do login com senha atravessa as renovações
+        { sessionId, authTime: typeof payload.at === 'number' ? payload.at : null },
+        tx,
+      );
+      return { tokens } as const;
     });
-    if (consumed.count === 0) {
-      // Outra requisição trocou este mesmo token agora há pouco
-      throw new UnauthorizedException('Refresh token inválido');
-    }
 
-    const user = await this.prisma.user.findUnique({ where: { id: payload.sub } });
-    if (!user || !user.isActive) {
-      throw new UnauthorizedException('Usuário não encontrado ou inativo');
-    }
-
-    return this.generateTokens(
-      user.id,
-      user.email,
-      user.role,
-      user.dioceseId ?? undefined,
-      user.parishId ?? undefined,
-      user.communityId ?? undefined,
-      // Mesma sessão; o horário do login com senha atravessa as renovações
-      { sessionId, authTime: typeof payload.at === 'number' ? payload.at : null },
-    );
+    if ('error' in outcome) throw new UnauthorizedException(outcome.error);
+    return outcome.tokens;
   }
 
   /** Refresh token já trocado reapresentado: concorrência (graça) ou reuso (revoga a família). */
-  private async handleRotatedTokenReuse(stored: { id: string; userId: string; sessionId: string | null; rotatedAt: Date | null }) {
+  private async handleRotatedTokenReuse(
+    stored: { id: string; userId: string; sessionId: string | null; rotatedAt: Date | null },
+    db: Pick<PrismaService, 'refreshToken'> = this.prisma,
+  ) {
     const age = Date.now() - (stored.rotatedAt?.getTime() ?? 0);
     if (age <= REFRESH_REUSE_GRACE_MS) return;
-    await this.prisma.refreshToken.deleteMany({
+    await db.refreshToken.deleteMany({
       where: stored.sessionId ? { userId: stored.userId, sessionId: stored.sessionId } : { id: stored.id },
     });
     this.logger.warn(`Reuso de refresh token já trocado (usuário ${stored.userId}): sessão encerrada`);
@@ -577,30 +601,35 @@ export class AuthService {
     user: { id: string; sessionId?: string | null },
     options: { refreshToken?: string | null; pushToken?: string | null } = {},
   ) {
-    const sessionIds = new Set<string>();
-    const rowIds: string[] = [];
-    if (user.sessionId) sessionIds.add(user.sessionId);
-    if (options.refreshToken) {
-      const stored = await this.findStoredRefreshToken(options.refreshToken);
-      if (stored && stored.userId === user.id) {
-        if (stored.sessionId) sessionIds.add(stored.sessionId);
-        else rowIds.push(stored.id);
+    // Mesma trava da renovação (#39): um refresh desta sessão em andamento
+    // não grava o token novo depois do logout
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, user.id);
+      const sessionIds = new Set<string>();
+      const rowIds: string[] = [];
+      if (user.sessionId) sessionIds.add(user.sessionId);
+      if (options.refreshToken) {
+        const stored = await this.findStoredRefreshToken(options.refreshToken, tx);
+        if (stored && stored.userId === user.id) {
+          if (stored.sessionId) sessionIds.add(stored.sessionId);
+          else rowIds.push(stored.id);
+        }
       }
-    }
 
-    if (sessionIds.size || rowIds.length) {
-      await this.prisma.refreshToken.deleteMany({
-        where: {
-          userId: user.id,
-          OR: [
-            ...(sessionIds.size ? [{ sessionId: { in: [...sessionIds] } }] : []),
-            ...(rowIds.length ? [{ id: { in: rowIds } }] : []),
-          ],
-        },
-      });
-    } else {
-      await this.prisma.refreshToken.deleteMany({ where: { userId: user.id } });
-    }
+      if (sessionIds.size || rowIds.length) {
+        await tx.refreshToken.deleteMany({
+          where: {
+            userId: user.id,
+            OR: [
+              ...(sessionIds.size ? [{ sessionId: { in: [...sessionIds] } }] : []),
+              ...(rowIds.length ? [{ id: { in: rowIds } }] : []),
+            ],
+          },
+        });
+      } else {
+        await tx.refreshToken.deleteMany({ where: { userId: user.id } });
+      }
+    });
 
     if (options.pushToken) {
       await this.prisma.user.updateMany({
@@ -609,6 +638,38 @@ export class AuthService {
       });
     }
 
+    return { message: 'Logout realizado com sucesso' };
+  }
+
+  /**
+   * Logout pelo REFRESH TOKEN (revisão #37): com o access token vencido, o
+   * POST /auth/logout é recusado pelo guard antes de chegar ao serviço e a
+   * sessão do navegador seguia viva no servidor. Quem tem o refresh token
+   * encerra a sessão (família) dele — o mesmo poder que já tinha de renová-la.
+   * A assinatura é conferida; o prazo não (refresh vencido também encerra).
+   * Mesma resposta exista ou não a sessão (idempotente).
+   */
+  async logoutByRefreshToken(refreshToken: string) {
+    let payload: any;
+    try {
+      payload = this.jwtService.verify(String(refreshToken ?? ''), {
+        secret: this.configService.get('JWT_REFRESH_SECRET'),
+        ignoreExpiration: true,
+      });
+    } catch {
+      throw new UnauthorizedException('Refresh token inválido');
+    }
+    const userId = typeof payload?.sub === 'string' ? payload.sub : '';
+    if (!userId || payload.typ !== 'refresh') throw new UnauthorizedException('Refresh token inválido');
+
+    await this.prisma.$transaction(async (tx) => {
+      await lockUserRow(tx, userId);
+      const stored = await this.findStoredRefreshToken(refreshToken, tx);
+      if (!stored || stored.userId !== userId) return;
+      await tx.refreshToken.deleteMany({
+        where: stored.sessionId ? { userId, sessionId: stored.sessionId } : { id: stored.id },
+      });
+    });
     return { message: 'Logout realizado com sucesso' };
   }
 
@@ -630,6 +691,8 @@ export class AuthService {
     parishId?: string,
     communityId?: string,
     session: SessionOptions = {},
+    // Transação da renovação (#39): a linha nova nasce sob a mesma trava
+    db: Pick<PrismaService, 'refreshToken'> = this.prisma,
   ) {
     // `jti`: nonce único por emissão. Sem ele, dois logins do mesmo usuário no
     // mesmo segundo produziriam JWTs idênticos (payload + iat em segundos) e
@@ -678,7 +741,7 @@ export class AuthService {
     }
 
     // Só o hash vai para o banco
-    await this.prisma.refreshToken.create({
+    await db.refreshToken.create({
       data: {
         token: hashRefreshToken(refreshToken),
         userId,
@@ -744,6 +807,9 @@ export class AuthService {
         sessionsRevokedAt: true,
         // Troca de senha obrigatória (conta criada/redefinida pela gestão) — JwtStrategy
         forcePasswordChange: true,
+        // Aceite dos termos vigentes (TERMS_ENFORCEMENT) — JwtStrategy
+        acceptedTermsAt: true,
+        acceptedTermsVersion: true,
         member: {
           select: {
             id: true,

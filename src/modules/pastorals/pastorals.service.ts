@@ -17,7 +17,7 @@ import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { SessionUser, resolveCoordinatedPastoralIds } from './coordination-scope';
 import { AuditService } from '../../common/audit.service';
-import { BROADCAST_AUTHOR_ENTITIES, assertBroadcastQuota } from './broadcast-quota';
+import { BROADCAST_AUTHOR_ENTITIES, finishBroadcast, reserveBroadcastQuota } from './broadcast-quota';
 
 /**
  * Dados do membro devolvidos nas listas de equipe: só o necessário para a tela.
@@ -1120,17 +1120,6 @@ export class PastoralsService {
       throw new NotFoundException('Pastoral comunitária não encontrada');
     }
 
-    // Freio de spam/custo (push → e-mail → SMS cobrado): teto por pastoral e
-    // por autor no dia — antes um laço no endpoint não tinha limite
-    if (currentUser) {
-      await assertBroadcastQuota(this.prisma, {
-        entity: 'PastoralBroadcast',
-        entityId: communityPastoralId,
-        actorUserId: currentUser.id,
-        authorEntities: BROADCAST_AUTHOR_ENTITIES,
-      });
-    }
-
     const pastoralMembers = await this.prisma.pastoralMember.findMany({
       where: { communityPastoralId, isActive: true },
       select: { member: { select: { userId: true } } },
@@ -1146,6 +1135,20 @@ export class PastoralsService {
       return { notified: 0 };
     }
 
+    // Freio de spam/custo (push → e-mail → SMS cobrado): teto por pastoral e
+    // por autor no dia. A trilha do envio é também o contador: com ator, ela é
+    // gravada sob trava (grupo + autor) ANTES do envio — requisições
+    // simultâneas não furam mais o teto
+    const auditId = currentUser
+      ? await reserveBroadcastQuota(this.prisma, {
+          entity: 'PastoralBroadcast',
+          entityId: communityPastoralId,
+          actor: { id: currentUser.id, role: currentUser.role },
+          authorEntities: BROADCAST_AUTHOR_ENTITIES,
+          metadata: { length: message.length },
+        })
+      : null;
+
     await this.notificationsService.notifyUsers(
       userIds,
       NotificationType.TEAM_BROADCAST,
@@ -1155,14 +1158,16 @@ export class PastoralsService {
       // Aviso em massa: push → e-mail, sem SMS cobrado (B8)
       { bulk: true },
     );
-    // A trilha do envio é também o contador do teto diário
-    await this.auditService.log({
-      actor: currentUser ? { id: currentUser.id, email: currentUser.email, role: currentUser.role } : undefined,
-      action: 'CREATE',
-      entity: 'PastoralBroadcast',
-      entityId: communityPastoralId,
-      metadata: { notified: userIds.length, length: message.length },
-    });
+    if (auditId) {
+      await finishBroadcast(this.prisma, auditId, { notified: userIds.length, length: message.length });
+    } else {
+      await this.auditService.log({
+        action: 'CREATE',
+        entity: 'PastoralBroadcast',
+        entityId: communityPastoralId,
+        metadata: { notified: userIds.length, length: message.length },
+      });
+    }
 
     return { notified: userIds.length };
   }
