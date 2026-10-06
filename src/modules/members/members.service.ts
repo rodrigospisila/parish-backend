@@ -12,6 +12,7 @@ import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dt
 import { MemberStatus, Prisma, UserRole } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 
 /**
  * Roles que representam "pessoas da congregação" e por isso ganham um Member
@@ -43,6 +44,37 @@ export class MembersService {
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
   ) {}
+
+  /**
+   * Gestão de cadastro (coordenação de pastoral ou acima). Fiel e voluntário
+   * não listam nem buscam o cadastro da comunidade (LGPD): só o próprio e os
+   * dependentes, e sem as colunas sensíveis.
+   */
+  private isMemberManager(currentUser?: CurrentUser): boolean {
+    return !!currentUser && isRoleAtLeast(currentUser.role, UserRole.PASTORAL_COORDINATOR);
+  }
+
+  /**
+   * Garante `member.id` no usuário para o filtro do fiel/voluntário (o
+   * JwtStrategy já o carrega; aqui cobre chamadas internas sem ele).
+   */
+  private async withSelfMember(currentUser: CurrentUser): Promise<CurrentUser> {
+    if (this.isMemberManager(currentUser) || currentUser.member?.id) {
+      return currentUser;
+    }
+    const self = await this.resolveMemberFromUser(currentUser.id);
+    return { ...currentUser, member: self ? { id: self.id } : null };
+  }
+
+  /** Colunas devolvidas a quem NÃO gerencia cadastro (o próprio e dependentes). */
+  private readonly basicMemberSelect = {
+    id: true,
+    fullName: true,
+    status: true,
+    communityId: true,
+    responsibleId: true,
+    community: { select: { id: true, name: true } },
+  } as const;
 
   private auditActor(currentUser?: CurrentUser) {
     return currentUser
@@ -698,11 +730,13 @@ export class MembersService {
   }
 
   async findAll(currentUser?: CurrentUser, communityId?: string, status?: MemberStatus) {
-    // Aplicar filtros de hierarquia usando o serviço centralizado
+    // Aplicar filtros de hierarquia usando o serviço centralizado. Fiel e
+    // voluntário recebem só o próprio cadastro e os dependentes (os seletores
+    // da catequese/trocas do painel usam esta lista); escopo não resolvido = nada.
     const hierarchyFilter = currentUser
-      ? this.hierarchyService.applyMemberFilter(currentUser)
+      ? this.hierarchyService.applyMemberFilter(await this.withSelfMember(currentUser))
       : {};
-    
+
     const where: any = { ...hierarchyFilter, deletedAt: null };
 
     if (communityId) {
@@ -721,6 +755,15 @@ export class MembersService {
 
     if (status) {
       where.status = status;
+    }
+
+    // Quem não gerencia cadastro: select explícito, sem CPF/RG/contatos/endereço
+    if (currentUser && !this.isMemberManager(currentUser)) {
+      return this.prisma.member.findMany({
+        where,
+        select: this.basicMemberSelect,
+        orderBy: { fullName: 'asc' },
+      });
     }
 
     return this.prisma.member.findMany({
@@ -1276,6 +1319,11 @@ export class MembersService {
     currentUser?: CurrentUser,
     excludeId?: string,
   ) {
+    // Detecção de duplicados é ferramenta de cadastro: só para a gestão
+    if (currentUser && !this.isMemberManager(currentUser)) {
+      return [];
+    }
+
     const hierarchyFilter = currentUser
       ? this.hierarchyService.applyMemberFilter(currentUser)
       : {};
@@ -1285,8 +1333,12 @@ export class MembersService {
         ...hierarchyFilter,
         deletedAt: null,
         status: { not: MemberStatus.ANONYMIZED },
-        ...(input.communityId ? { communityId: input.communityId } : {}),
-        ...(excludeId ? { id: { not: excludeId } } : {}),
+        // Condições extras em AND: um `id` solto aqui sobrescreveria o filtro
+        // de escopo (que pode ser o impossível `{ id: '__none__' }`)
+        AND: [
+          ...(input.communityId ? [{ communityId: input.communityId }] : []),
+          ...(excludeId ? [{ id: { not: excludeId } }] : []),
+        ],
       },
       select: {
         id: true,
@@ -1409,10 +1461,11 @@ export class MembersService {
 
   // Buscar membros por nome
   // O filtro de hierarquia é SEMPRE aplicado: cada usuário só busca dentro
-  // do próprio escopo (comunidade/paróquia/diocese/pastorais).
+  // do próprio escopo (comunidade/paróquia/diocese/pastorais). Fiel/voluntário
+  // (se chegar aqui por chamada interna) só encontra o próprio e os dependentes.
   async searchByName(name: string, communityId?: string, currentUser?: CurrentUser) {
     const hierarchyFilter = currentUser
-      ? this.hierarchyService.applyMemberFilter(currentUser)
+      ? this.hierarchyService.applyMemberFilter(await this.withSelfMember(currentUser))
       : {};
 
     const where: any = {
@@ -1431,6 +1484,15 @@ export class MembersService {
         return [];
       }
       where.communityId = communityId;
+    }
+
+    if (currentUser && !this.isMemberManager(currentUser)) {
+      return this.prisma.member.findMany({
+        where,
+        select: this.basicMemberSelect,
+        take: 20,
+        orderBy: { fullName: 'asc' },
+      });
     }
 
     return this.prisma.member.findMany({

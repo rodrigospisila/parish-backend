@@ -12,6 +12,7 @@ import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
+import { COORDINATOR_MEMBER_ROLES } from '../pastorals/coordination-scope';
 
 /**
  * Catequese e iniciação à vida cristã (roadmap 3.1).
@@ -59,15 +60,84 @@ export class CatechesisService {
     );
   }
 
-  /** Papéis de coordenação/gestão (piso que o @Roles das rotas garantia). */
-  private isCoordinatorRole(role: UserRole) {
-    return (
-      role === UserRole.SYSTEM_ADMIN ||
-      role === UserRole.DIOCESAN_ADMIN ||
-      role === UserRole.PARISH_ADMIN ||
-      role === UserRole.COMMUNITY_COORDINATOR ||
-      role === UserRole.PASTORAL_COORDINATOR
-    );
+  /** Filtro da pastoral da CATEQUESE (mesma regra de elegibilidade de catequista). */
+  private static catechesisPastoralWhere(communityId?: string) {
+    return {
+      ...(communityId ? { communityId } : {}),
+      deletedAt: null,
+      globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' as const } },
+    };
+  }
+
+  /**
+   * Comunidades em que o usuário é COORDENADOR ATUAL da pastoral da
+   * Catequese (coordenação vigente ou papel COORDINATOR ativo). Coordenar
+   * outra pastoral (Música, Liturgia...) não conta.
+   */
+  private async catechesisCoordinatedCommunityIds(user: CurrentUser, communityId?: string): Promise<string[]> {
+    if (!user?.id) return [];
+    const pastoral = CatechesisService.catechesisPastoralWhere(communityId);
+    const [coordinations, memberships] = await Promise.all([
+      this.prisma.pastoralCoordinator.findMany({
+        where: { isCurrent: true, member: { userId: user.id, deletedAt: null }, communityPastoral: pastoral },
+        select: { communityPastoral: { select: { communityId: true } } },
+      }),
+      this.prisma.pastoralMember.findMany({
+        where: {
+          isActive: true,
+          leftAt: null,
+          role: { in: COORDINATOR_MEMBER_ROLES },
+          member: { userId: user.id, deletedAt: null },
+          communityPastoral: pastoral,
+        },
+        select: { communityPastoral: { select: { communityId: true } } },
+      }),
+    ]);
+    const ids = new Set<string>();
+    for (const row of [...coordinations, ...memberships]) {
+      if (row.communityPastoral?.communityId) ids.add(row.communityPastoral.communityId);
+    }
+    return [...ids];
+  }
+
+  /**
+   * Coordenação DA CATEQUESE na comunidade: SYSTEM_ADMIN; DIOCESAN/PARISH_ADMIN
+   * com a comunidade na própria diocese/paróquia; COMMUNITY_COORDINATOR da
+   * própria comunidade; ou o coordenador atual da pastoral da Catequese
+   * daquela comunidade. Papel de PASTORAL_COORDINATOR sozinho NÃO basta —
+   * documentos de menores, chat com famílias, inscrições, conclusão e
+   * financeiro ficam fora do alcance de coordenadores de outras pastorais.
+   */
+  private async isCatechesisCoordinator(user: CurrentUser, communityId: string): Promise<boolean> {
+    if (!user?.id || !communityId) return false;
+    if (user.role === UserRole.SYSTEM_ADMIN) return true;
+
+    if (user.role === UserRole.DIOCESAN_ADMIN || user.role === UserRole.PARISH_ADMIN) {
+      const community = await this.prisma.community.findUnique({
+        where: { id: communityId },
+        select: { parishId: true, parish: { select: { dioceseId: true } } },
+      });
+      if (!community) return false;
+      if (user.role === UserRole.DIOCESAN_ADMIN) {
+        return !!user.dioceseId && community.parish?.dioceseId === user.dioceseId;
+      }
+      return !!user.parishId && community.parishId === user.parishId;
+    }
+
+    if (user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId === communityId) {
+      return true;
+    }
+
+    // Abaixo da coordenação de comunidade, só quem coordena a CATEQUESE dali
+    if (!isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR)) return false;
+    const coordinated = await this.catechesisCoordinatedCommunityIds(user, communityId);
+    return coordinated.includes(communityId);
+  }
+
+  private async assertCatechesisCoordination(communityId: string, user: CurrentUser) {
+    if (!(await this.isCatechesisCoordinator(user, communityId))) {
+      throw new ForbiddenException('Apenas a coordenação da catequese desta comunidade pode fazer isso');
+    }
   }
 
   private async assertCommunityScope(communityId: string, user: CurrentUser) {
@@ -208,7 +278,7 @@ export class CatechesisService {
     dto: { name: string; year: number; stageId: string; communityId: string; weekday?: number; time?: string; room?: string; capacity?: number },
     user: CurrentUser,
   ) {
-    await this.assertCommunityScope(dto.communityId, user);
+    await this.assertCatechesisCoordination(dto.communityId, user);
 
     const stage = await this.prisma.catechesisStage.findFirst({
       where: { id: dto.stageId, deletedAt: null },
@@ -304,7 +374,7 @@ export class CatechesisService {
     user: CurrentUser,
   ) {
     const klass = await this.loadClassInScope(classId, user);
-    await this.assertCommunityScope(klass.communityId, user);
+    await this.assertCatechesisCoordination(klass.communityId, user);
 
     const data: any = {};
     // Inscrições online: chave geral, janela por data e comportamento de cheia
@@ -391,7 +461,7 @@ export class CatechesisService {
   ) {
     const communityId = dto.communityId ?? user.communityId;
     if (!communityId) throw new BadRequestException('Informe a comunidade');
-    await this.assertCommunityScope(communityId, user);
+    await this.assertCatechesisCoordination(communityId, user);
     const year = Math.floor(Number(dto.year));
     if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
 
@@ -539,7 +609,7 @@ export class CatechesisService {
   async listEnrollmentPresets(user: CurrentUser, communityId?: string) {
     const targetCommunityId = communityId ?? user.communityId;
     if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
-    await this.assertCommunityScope(targetCommunityId, user);
+    await this.assertCatechesisCoordination(targetCommunityId, user);
     return this.prisma.catechesisEnrollmentPreset.findMany({
       where: { communityId: targetCommunityId },
       include: { stage: { select: { id: true, name: true } } },
@@ -569,7 +639,7 @@ export class CatechesisService {
   ) {
     const communityId = dto.communityId ?? user.communityId;
     if (!communityId) throw new BadRequestException('Informe a comunidade');
-    await this.assertCommunityScope(communityId, user);
+    await this.assertCatechesisCoordination(communityId, user);
     const year = Math.floor(Number(dto.year));
     if (!Number.isFinite(year) || year < 2000 || year > 2100) throw new BadRequestException('Ano inválido');
     const stageId = dto.stageId ? String(dto.stageId) : null;
@@ -640,7 +710,7 @@ export class CatechesisService {
   async deleteEnrollmentPreset(id: string, user: CurrentUser) {
     const preset = await this.prisma.catechesisEnrollmentPreset.findUnique({ where: { id } });
     if (!preset) throw new NotFoundException('Padrão não encontrado');
-    await this.assertCommunityScope(preset.communityId, user);
+    await this.assertCatechesisCoordination(preset.communityId, user);
     await this.prisma.catechesisEnrollmentPreset.delete({ where: { id } });
     await this.auditService.log({
       actor: this.auditActor(user),
@@ -800,12 +870,21 @@ export class CatechesisService {
 
   async listClasses(user: CurrentUser, communityId?: string) {
     const where: any = { deletedAt: null };
+    const ownClasses = { catechists: { some: { member: { userId: user.id, deletedAt: null } } } };
     if (communityId) {
       await this.assertCommunityScope(communityId, user);
       where.communityId = communityId;
     } else if (user.role !== UserRole.SYSTEM_ADMIN) {
       if (user.communityId) where.communityId = user.communityId;
       else if (user.parishId) where.community = { parishId: user.parishId };
+      else if (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
+        where.community = { parish: { dioceseId: user.dioceseId } };
+      } else if (isRoleAtLeast(user.role, UserRole.COMMUNITY_COORDINATOR)) {
+        // Gestão sem escopo resolvido (ex.: diocesano sem diocese): nada —
+        // nunca as turmas de todo o país. Abaixo disso, valem só as turmas
+        // próprias (filtros a seguir).
+        return [];
+      }
     }
     // Fiel/voluntário CATEQUISTA: só as próprias turmas (onde estiver a turma —
     // o vínculo de equipe vale mais que a comunidade principal do usuário)
@@ -814,7 +893,20 @@ export class CatechesisService {
         delete where.communityId;
         delete where.community;
       }
-      where.catechists = { some: { member: { userId: user.id, deletedAt: null } } };
+      Object.assign(where, ownClasses);
+    } else if (
+      user.role === UserRole.PASTORAL_COORDINATOR ||
+      (user.role === UserRole.COMMUNITY_COORDINATOR && !!communityId && communityId !== user.communityId)
+    ) {
+      // Coordenador de OUTRA pastoral não enxerga a catequese da comunidade:
+      // só as turmas em que é catequista + as das comunidades onde coordena
+      // a pastoral da Catequese
+      const coordinated = await this.catechesisCoordinatedCommunityIds(user, communityId);
+      if (!communityId) {
+        delete where.communityId;
+        delete where.community;
+      }
+      where.OR = [ownClasses, ...(coordinated.length ? [{ communityId: { in: coordinated } }] : [])];
     }
     const classes = await this.prisma.catechesisClass.findMany({
       where,
@@ -884,6 +976,7 @@ export class CatechesisService {
     });
   }
 
+  /** Turma para GESTÃO (matrícula, equipe, renovação...): exige coordenação da catequese. */
   private async loadClassInScope(classId: string, user: CurrentUser) {
     const klass = await this.prisma.catechesisClass.findFirst({
       where: { id: classId, deletedAt: null },
@@ -892,7 +985,7 @@ export class CatechesisService {
     if (!klass) {
       throw new NotFoundException('Turma não encontrada');
     }
-    await this.assertCommunityScope(klass.communityId, user);
+    await this.assertCatechesisCoordination(klass.communityId, user);
     return klass;
   }
 
@@ -922,13 +1015,12 @@ export class CatechesisService {
       if (catechist) return klass;
     }
 
-    // Não é catequista da turma: só a COORDENAÇÃO/gestão da comunidade opera —
-    // isCommunityInScope sozinho liberaria qualquer fiel da comunidade (dados de
-    // menores + chamada), então exigimos também papel de coordenação.
-    if (!this.isCoordinatorRole(user.role)) {
-      throw new ForbiddenException('Apenas o catequista da turma ou a coordenação podem operar esta turma');
+    // Não é catequista da turma: só a COORDENAÇÃO DA CATEQUESE da comunidade
+    // opera — o papel PASTORAL_COORDINATOR de outra pastoral (Música,
+    // Liturgia...) não abre documentos de menores, chat nem financeiro.
+    if (!(await this.isCatechesisCoordinator(user, klass.communityId))) {
+      throw new ForbiddenException('Apenas o catequista da turma ou a coordenação da catequese podem operar esta turma');
     }
-    await this.assertCommunityScope(klass.communityId, user);
     return klass;
   }
 
@@ -1563,7 +1655,7 @@ export class CatechesisService {
       include: { class: true },
     });
     if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
-    await this.assertCommunityScope(enrollment.class.communityId, user);
+    await this.assertCatechesisCoordination(enrollment.class.communityId, user);
     const target = await this.loadClassInScope(targetClassId, user);
     // Turma encerrada não recebe transferência — a tela não oferece, mas a
     // API validava só a existência do destino
@@ -2576,7 +2668,7 @@ export class CatechesisService {
       },
     });
     if (!session) throw new NotFoundException('Encontro não encontrado');
-    await this.assertClassOperationalAccess(session.class.id, user);
+    const sessionClass = await this.assertClassOperationalAccess(session.class.id, user);
 
     const data: { date?: Date; topic?: string | null } = {};
     if (dto.date !== undefined) {
@@ -2601,7 +2693,11 @@ export class CatechesisService {
 
     // Mover encontro COM chamada mexe na frequência (o % só conta encontros
     // já ocorridos) — decisão de coordenação, não de auxiliar
-    if (movingDate && session._count.attendances > 0 && !this.isCoordinatorRole(user.role)) {
+    if (
+      movingDate &&
+      session._count.attendances > 0 &&
+      !(await this.isCatechesisCoordinator(user, sessionClass.communityId))
+    ) {
       throw new ForbiddenException(
         'Este encontro já tem chamada feita — apenas a coordenação pode mudar a data',
       );
@@ -2673,11 +2769,14 @@ export class CatechesisService {
       },
     });
     if (!session) throw new NotFoundException('Encontro não encontrado');
-    await this.assertClassOperationalAccess(session.class.id, user);
+    const sessionClass = await this.assertClassOperationalAccess(session.class.id, user);
 
     // Excluir encontro com chamada apaga presenças/faltas reais (frequência
     // alimenta conclusão/sacramento) — só a coordenação, e com snapshot no audit
-    if (session.attendances.length > 0 && !this.isCoordinatorRole(user.role)) {
+    if (
+      session.attendances.length > 0 &&
+      !(await this.isCatechesisCoordinator(user, sessionClass.communityId))
+    ) {
       throw new ForbiddenException(
         'Este encontro já tem chamada feita — apenas a coordenação pode excluí-lo',
       );
@@ -2888,7 +2987,7 @@ export class CatechesisService {
       },
     });
     if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
-    await this.assertCommunityScope(enrollment.class.communityId, user);
+    await this.assertCatechesisCoordination(enrollment.class.communityId, user);
 
     const normalized =
       typeof pendingDocuments === 'string' ? pendingDocuments.trim() || null : null;
@@ -3251,7 +3350,7 @@ export class CatechesisService {
       include: { class: { include: { stage: true, community: true } } },
     });
     if (!enrollment) throw new NotFoundException('Matrícula não encontrada');
-    await this.assertCommunityScope(enrollment.class.communityId, user);
+    await this.assertCatechesisCoordination(enrollment.class.communityId, user);
 
     if (enrollment.status === 'COMPLETED') {
       throw new BadRequestException('Matrícula já concluída');
@@ -5174,7 +5273,7 @@ export class CatechesisService {
   async getCommunityOverview(user: CurrentUser, communityId?: string) {
     const targetCommunityId = communityId ?? user.communityId;
     if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
-    await this.assertCommunityScope(targetCommunityId, user);
+    await this.assertCatechesisCoordination(targetCommunityId, user);
 
     const classes = await this.prisma.catechesisClass.findMany({
       where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },
@@ -5237,7 +5336,7 @@ export class CatechesisService {
   async getYearEndOverview(user: CurrentUser, communityId?: string) {
     const targetCommunityId = communityId ?? user.communityId;
     if (!targetCommunityId) throw new BadRequestException('Informe a comunidade');
-    await this.assertCommunityScope(targetCommunityId, user);
+    await this.assertCatechesisCoordination(targetCommunityId, user);
 
     const classes = await this.prisma.catechesisClass.findMany({
       where: { communityId: targetCommunityId, deletedAt: null, status: 'ACTIVE' },

@@ -1,14 +1,27 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateMassIntentionDto } from './dto/create-mass-intention.dto';
 import { UpdateMassIntentionDto } from './dto/update-mass-intention.dto';
-import { IntentionType } from '@prisma/client';
+import { IntentionType, UserRole } from '@prisma/client';
+import { CurrentUser } from '../../common/hierarchy.service';
+
+/**
+ * Módulo sem dono no produto: restrito ao SYSTEM_ADMIN (ver o controller). A
+ * checagem também fica aqui — negar por padrão — para que nenhum chamador novo
+ * (outra rota, job) reabra o acesso sem escopo por engano.
+ */
+function assertSystemAdmin(user: CurrentUser | undefined) {
+  if (user?.role !== UserRole.SYSTEM_ADMIN) {
+    throw new ForbiddenException('Intenções de missa ainda não estão disponíveis');
+  }
+}
 
 @Injectable()
 export class MassIntentionsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createMassIntentionDto: CreateMassIntentionDto) {
+  async create(createMassIntentionDto: CreateMassIntentionDto, user: CurrentUser) {
+    assertSystemAdmin(user);
     const { communityId, ...rest } = createMassIntentionDto;
 
     // Verificar se a comunidade existe
@@ -37,12 +50,14 @@ export class MassIntentionsService {
   }
 
   async findAll(
+    user: CurrentUser,
     communityId?: string,
     type?: IntentionType,
     isPaid?: boolean,
     startDate?: string,
     endDate?: string,
   ) {
+    assertSystemAdmin(user);
     const where: any = {};
 
     if (communityId) {
@@ -83,7 +98,8 @@ export class MassIntentionsService {
     });
   }
 
-  async findUpcoming(communityId?: string, limit: number = 10) {
+  async findUpcoming(user: CurrentUser, communityId?: string, limit: number = 10) {
+    assertSystemAdmin(user);
     const where: any = {
       requestedDate: {
         gte: new Date(),
@@ -111,7 +127,8 @@ export class MassIntentionsService {
     });
   }
 
-  async findPending(communityId?: string) {
+  async findPending(user: CurrentUser, communityId?: string) {
+    assertSystemAdmin(user);
     const where: any = {
       isPaid: false,
     };
@@ -136,7 +153,8 @@ export class MassIntentionsService {
     });
   }
 
-  async findOne(id: string) {
+  async findOne(id: string, user: CurrentUser) {
+    assertSystemAdmin(user);
     const intention = await this.prisma.massIntention.findUnique({
       where: { id },
       include: {
@@ -151,8 +169,8 @@ export class MassIntentionsService {
     return intention;
   }
 
-  async update(id: string, updateMassIntentionDto: UpdateMassIntentionDto) {
-    await this.findOne(id); // Verifica se existe
+  async update(id: string, updateMassIntentionDto: UpdateMassIntentionDto, user: CurrentUser) {
+    await this.findOne(id, user); // Verifica permissão e se existe
 
     return this.prisma.massIntention.update({
       where: { id },
@@ -168,8 +186,8 @@ export class MassIntentionsService {
     });
   }
 
-  async remove(id: string) {
-    await this.findOne(id); // Verifica se existe
+  async remove(id: string, user: CurrentUser) {
+    await this.findOne(id, user); // Verifica permissão e se existe
 
     return this.prisma.massIntention.delete({
       where: { id },
@@ -178,8 +196,8 @@ export class MassIntentionsService {
 
   // ========== PAGAMENTO ==========
 
-  async markAsPaid(id: string, paymentMethod: string) {
-    await this.findOne(id);
+  async markAsPaid(id: string, paymentMethod: string, user: CurrentUser) {
+    await this.findOne(id, user);
 
     return this.prisma.massIntention.update({
       where: { id },
@@ -191,8 +209,8 @@ export class MassIntentionsService {
     });
   }
 
-  async markAsUnpaid(id: string) {
-    await this.findOne(id);
+  async markAsUnpaid(id: string, user: CurrentUser) {
+    await this.findOne(id, user);
 
     return this.prisma.massIntention.update({
       where: { id },
@@ -206,7 +224,8 @@ export class MassIntentionsService {
 
   // ========== RELATÓRIOS ==========
 
-  async getStats(communityId?: string) {
+  async getStats(user: CurrentUser, communityId?: string) {
+    assertSystemAdmin(user);
     const where: any = {};
 
     if (communityId) {
@@ -245,7 +264,8 @@ export class MassIntentionsService {
   }
 
   // Buscar intenções por data
-  async findByDate(date: string, communityId?: string) {
+  async findByDate(user: CurrentUser, date: string, communityId?: string) {
+    assertSystemAdmin(user);
     const where: any = {
       requestedDate: new Date(date),
     };

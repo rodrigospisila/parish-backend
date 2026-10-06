@@ -25,7 +25,22 @@ import {
   MassRecurrence,
   NotificationType,
 } from '@prisma/client';
-import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
+import {
+  CurrentUser,
+  HierarchyService,
+  isNoAccessWhere,
+  noAccessWhere,
+} from '../../common/hierarchy.service';
+
+/**
+ * Janela máxima (dias) da expansão da agenda fixa quando a consulta NÃO está
+ * presa a uma comunidade (escopo de paróquia/diocese/plataforma): evita
+ * materializar milhões de ocorrências numa requisição. O calendário do painel
+ * pede no máximo ~42 dias (mês) e as pendências, 30.
+ */
+export const MAX_BROAD_OCCURRENCE_WINDOW_DAYS = 62;
+/** Janela máxima (dias) com a consulta presa a uma comunidade (~15 meses). */
+export const MAX_OCCURRENCE_WINDOW_DAYS = 460;
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { nowBrazilFloating } from '../masses/map-search.utils';
@@ -172,16 +187,40 @@ export class MassSchedulesService {
    * que não existe em MassSchedule.
    */
   private massScopeWhere(user: CurrentUser): any {
+    // Negar por padrão: escopo não resolvido (sem diocese/paróquia/comunidade)
+    // nunca vira `{}` — antes, conta sem comunidade expandia a agenda do país.
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
         return {};
       case UserRole.DIOCESAN_ADMIN:
-        return { community: { parish: { dioceseId: user.dioceseId } } };
+        return user.dioceseId
+          ? { community: { parish: { dioceseId: user.dioceseId } } }
+          : noAccessWhere();
       case UserRole.PARISH_ADMIN:
-        return { community: { parishId: user.parishId } };
+        return user.parishId ? { community: { parishId: user.parishId } } : noAccessWhere();
       default:
-        return user.communityId ? { communityId: user.communityId } : {};
+        return user.communityId ? { communityId: user.communityId } : noAccessWhere();
     }
+  }
+
+  /**
+   * Janela máxima da expansão para esta consulta: ampla (~15 meses) quando
+   * presa a uma comunidade (parâmetro, lista do mapa ou escopo do próprio
+   * usuário); curta quando abrange paróquia/diocese/plataforma.
+   */
+  maxOccurrenceWindowDays(
+    currentUser?: CurrentUser,
+    communityId?: string,
+    opts?: { communityIds?: string[] },
+  ): number {
+    if (communityId || opts?.communityIds) return MAX_OCCURRENCE_WINDOW_DAYS;
+    // Sem usuário só há chamada interna (o mapa público sempre passa communityIds)
+    if (!currentUser) return MAX_OCCURRENCE_WINDOW_DAYS;
+    const scope = this.massScopeWhere(currentUser);
+    if (isNoAccessWhere(scope) || typeof scope.communityId === 'string') {
+      return MAX_OCCURRENCE_WINDOW_DAYS;
+    }
+    return MAX_BROAD_OCCURRENCE_WINDOW_DAYS;
   }
 
   private ensureAccess(schedule: { communityId: string }, currentUser: CurrentUser) {
@@ -400,13 +439,27 @@ export class MassSchedulesService {
     if (Number.isNaN(from.getTime()) || Number.isNaN(to.getTime()) || to <= from) {
       throw new BadRequestException('Período inválido');
     }
-    // Limita a janela para evitar expansões absurdas (~15 meses)
-    if (to.getTime() - from.getTime() > 460 * 24 * 60 * 60 * 1000) {
-      throw new BadRequestException('Período muito longo');
+    // Limita a janela para evitar expansões absurdas: ~15 meses presa a uma
+    // comunidade; ~2 meses quando abrange paróquia/diocese/plataforma
+    const maxDays = this.maxOccurrenceWindowDays(currentUser, communityId, opts);
+    if (to.getTime() - from.getTime() > maxDays * 24 * 60 * 60 * 1000) {
+      throw new BadRequestException(
+        maxDays === MAX_OCCURRENCE_WINDOW_DAYS
+          ? 'Período muito longo'
+          : `Período muito longo — sem escolher uma comunidade, consulte até ${maxDays} dias`,
+      );
     }
 
-    const where: any = currentUser ? this.massScopeWhere(currentUser) : {};
-    if (communityId) where.communityId = communityId;
+    let where: any = currentUser ? this.massScopeWhere(currentUser) : {};
+    // Sem escopo resolvido (ex.: conta sem comunidade) não há agenda a expandir
+    if (isNoAccessWhere(where) && !communityId) return [];
+    // Comunidade explícita: a agenda fixa é pública por comunidade (GET
+    // /mass-schedules?communityId é aberto), então o parâmetro só ESTREITA a
+    // consulta a uma comunidade — mesmo para quem não tem escopo próprio.
+    if (communityId) {
+      if (isNoAccessWhere(where)) where = {};
+      where.communityId = communityId;
+    }
     // Busca por proximidade (sem escopo): restringe a um conjunto de comunidades e tipos
     if (opts?.communityIds) where.communityId = { in: opts.communityIds };
     if (opts?.types?.length) where.type = { in: opts.types };

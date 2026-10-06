@@ -164,7 +164,7 @@ export class PastoralsController {
     @Body() dto: UpdateCommunityPastoralDto,
     @Request() req,
   ) {
-    return this.pastoralsService.updateCommunityPastoral(id, dto, req.user.id);
+    return this.pastoralsService.updateCommunityPastoral(id, dto, req.user);
   }
 
   @Delete('community/:id')
@@ -177,7 +177,7 @@ export class PastoralsController {
     UserRole.COMMUNITY_COORDINATOR,
   )
   removeCommunityPastoral(@Param('id') id: string, @Request() req) {
-    return this.pastoralsService.removeCommunityPastoral(id, req.user.id);
+    return this.pastoralsService.removeCommunityPastoral(id, req.user);
   }
 
   // ============================================

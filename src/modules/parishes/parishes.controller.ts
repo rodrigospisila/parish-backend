@@ -24,8 +24,9 @@ export class ParishesController {
 
   @Post()
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
-  create(@Body() createParishDto: CreateParishDto) {
-    return this.parishesService.create(createParishDto);
+  create(@Body() createParishDto: CreateParishDto, @CurrentUser() user: any) {
+    // DIOCESAN_ADMIN só cria na própria diocese (conferido no service)
+    return this.parishesService.create(createParishDto, user);
   }
 
   @Get()
@@ -44,10 +45,11 @@ export class ParishesController {
     return this.parishesService.update(id, updateParishDto, user);
   }
 
+  // Exclusão física em cascata (Parish não tem deletedAt): só a plataforma
   @Delete(':id')
-  @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.parishesService.remove(id);
+  @Roles(UserRole.SYSTEM_ADMIN)
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.parishesService.remove(id, user);
   }
 }
 

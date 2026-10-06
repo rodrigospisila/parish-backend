@@ -1,5 +1,7 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
+import { CurrentUser } from '../../common/hierarchy.service';
 import { CreateDioceseDto } from './dto/create-diocese.dto';
 import { UpdateDioceseDto } from './dto/update-diocese.dto';
 
@@ -7,7 +9,15 @@ import { UpdateDioceseDto } from './dto/update-diocese.dto';
 export class DiocesesService {
   constructor(private readonly prisma: PrismaService) {}
 
-  async create(createDioceseDto: CreateDioceseDto) {
+  /** Criar e excluir diocese: só SYSTEM_ADMIN (o controller já barra; aqui é defesa em profundidade). */
+  private assertSystemAdmin(user: CurrentUser | undefined, acao: string) {
+    if (user?.role !== UserRole.SYSTEM_ADMIN) {
+      throw new ForbiddenException(`${acao} diocese é só da administração da plataforma`);
+    }
+  }
+
+  async create(createDioceseDto: CreateDioceseDto, user: CurrentUser) {
+    this.assertSystemAdmin(user, 'Criar');
     return this.prisma.diocese.create({
       data: createDioceseDto,
     });
@@ -72,16 +82,36 @@ export class DiocesesService {
     return diocese;
   }
 
-  async update(id: string, updateDioceseDto: UpdateDioceseDto) {
-    await this.findOne(id); // Verifica se existe
+  /**
+   * Editar diocese (negar por padrão): SYSTEM_ADMIN qualquer uma; DIOCESAN_ADMIN
+   * só a PRÓPRIA (e sem mudar o status — inativar a diocese é da plataforma).
+   */
+  async update(id: string, updateDioceseDto: UpdateDioceseDto, user: CurrentUser) {
+    const diocese = await this.prisma.diocese.findUnique({ where: { id }, select: { id: true, status: true } });
+    if (!diocese) {
+      throw new NotFoundException(`Diocese com ID ${id} não encontrada`);
+    }
+
+    const isSystem = user?.role === UserRole.SYSTEM_ADMIN;
+    const isOwnDiocese = user?.role === UserRole.DIOCESAN_ADMIN && !!user.dioceseId && user.dioceseId === id;
+    if (!isSystem && !isOwnDiocese) {
+      throw new ForbiddenException('Você só pode editar a sua diocese');
+    }
+
+    const data: any = { ...updateDioceseDto };
+    if (data.status !== undefined && data.status === diocese.status) delete data.status;
+    if (data.status !== undefined && !isSystem) {
+      throw new ForbiddenException('Ativar ou inativar a diocese é da administração da plataforma');
+    }
 
     return this.prisma.diocese.update({
       where: { id },
-      data: updateDioceseDto,
+      data,
     });
   }
 
-  async remove(id: string) {
+  async remove(id: string, user: CurrentUser) {
+    this.assertSystemAdmin(user, 'Excluir');
     await this.findOne(id); // Verifica se existe
 
     return this.prisma.diocese.delete({

@@ -121,6 +121,9 @@ export class MembersController {
     return this.membersService.setPrimaryCommunity(id, communityId, user);
   }
 
+  // Coordenação: membros do escopo. Fiel/voluntário: só o próprio cadastro e
+  // os dependentes, com colunas básicas (o painel usa nos seletores da
+  // catequese e das trocas) — regra no service.
   @Get()
   findAll(
     @CurrentUser() user: any,
@@ -130,7 +133,9 @@ export class MembersController {
     return this.membersService.findAll(user, communityId, status);
   }
 
+  // Busca no cadastro: ferramenta da coordenação (piso: coordenador de pastoral)
   @Get('search')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   searchByName(
     @CurrentUser() user: any,
     @Query('name') name: string,
@@ -141,6 +146,7 @@ export class MembersController {
 
   // Detecção de possíveis duplicados (nome + nascimento/telefone), respeitando escopo
   @Get('check-duplicates')
+  @Roles(UserRole.PASTORAL_COORDINATOR)
   checkDuplicates(
     @CurrentUser() user: any,
     @Query('fullName') fullName: string,

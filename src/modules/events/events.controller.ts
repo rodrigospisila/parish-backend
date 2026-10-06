@@ -181,14 +181,16 @@ export class EventsController {
     return this.eventsService.duplicate(id, duplicateEventDto, user);
   }
 
-  // Participant management
+  // Participant management — o fiel inscreve/remove a si e aos dependentes;
+  // terceiros exigem coordenação com escopo sobre o evento (regra no service)
   @Post(':id/participants')
   @UseGuards(JwtAuthGuard)
   addParticipant(
     @Param('id') eventId: string,
     @Body('memberId') memberId: string,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.addParticipant(eventId, memberId);
+    return this.eventsService.addParticipant(eventId, memberId, user);
   }
 
   @Delete(':id/participants/:memberId')
@@ -196,8 +198,9 @@ export class EventsController {
   removeParticipant(
     @Param('id') eventId: string,
     @Param('memberId') memberId: string,
+    @CurrentUser() user: any,
   ) {
-    return this.eventsService.removeParticipant(eventId, memberId);
+    return this.eventsService.removeParticipant(eventId, memberId, user);
   }
 
   @Get(':id/participants')

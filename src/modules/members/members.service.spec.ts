@@ -209,10 +209,14 @@ describe('MembersService', () => {
       hierarchy.applyMemberFilter.mockReturnValue({ communityId: 'community-a' });
       prisma.member.findMany.mockResolvedValue([]);
 
-      const faithful = { id: 'user-a', role: UserRole.FAITHFUL, communityId: 'community-a' } as any;
-      await service.searchByName('Maria', undefined, faithful);
+      const coordinator = {
+        id: 'user-a',
+        role: UserRole.COMMUNITY_COORDINATOR,
+        communityId: 'community-a',
+      } as any;
+      await service.searchByName('Maria', undefined, coordinator);
 
-      expect(hierarchy.applyMemberFilter).toHaveBeenCalledWith(faithful);
+      expect(hierarchy.applyMemberFilter).toHaveBeenCalledWith(coordinator);
       expect(prisma.member.findMany).toHaveBeenCalledWith(
         expect.objectContaining({
           where: expect.objectContaining({ communityId: 'community-a', deletedAt: null }),
@@ -223,8 +227,12 @@ describe('MembersService', () => {
     it('parametro communityId nao amplia o escopo (intersecao vazia)', async () => {
       hierarchy.applyMemberFilter.mockReturnValue({ communityId: 'community-a' });
 
-      const faithful = { id: 'user-a', role: UserRole.FAITHFUL, communityId: 'community-a' } as any;
-      const result = await service.searchByName('Maria', 'community-b', faithful);
+      const coordinator = {
+        id: 'user-a',
+        role: UserRole.COMMUNITY_COORDINATOR,
+        communityId: 'community-a',
+      } as any;
+      const result = await service.searchByName('Maria', 'community-b', coordinator);
 
       expect(result).toEqual([]);
       expect(prisma.member.findMany).not.toHaveBeenCalled();

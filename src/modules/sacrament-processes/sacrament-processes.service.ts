@@ -4,6 +4,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PdfService } from '../pdf/pdf.service';
+import { communityScopeWhere } from '../pastorals/coordination-scope';
 
 /**
  * Preparação de sacramentos (roadmap 4.4). Processo com etapas, checklist de
@@ -64,10 +65,11 @@ export class SacramentProcessesService {
   async list(user: CurrentUser, status?: SacramentProcessStatus) {
     const where: any = { deletedAt: null };
     if (status) where.status = status;
-    if (user.role !== UserRole.SYSTEM_ADMIN) {
-      if (user.communityId) where.communityId = user.communityId;
-      else if (user.parishId) where.community = { parishId: user.parishId };
-    }
+    // Escopo hierárquico (diocese/paróquia/comunidade); sem escopo resolvido
+    // — ex.: diocesano sem diocese — a lista é vazia, nunca "todo o país"
+    const scope = communityScopeWhere(user);
+    if (!scope) return [];
+    if (Object.keys(scope).length) where.community = scope;
     return this.prisma.sacramentProcess.findMany({
       where,
       include: { member: { select: { id: true, fullName: true } } },

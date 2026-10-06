@@ -18,11 +18,14 @@ import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
+import { UpdateMyCommunityDto } from './dto/update-my-community.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
 import { NotificationsService } from '../notifications/notifications.service';
+import { Throttle } from '@nestjs/throttler';
+import { UserThrottlerGuard } from '../auth/guards/app-throttler.guard';
 
 @Controller('users')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -50,16 +53,18 @@ export class UsersController {
    */
   @Get('me')
   getMe(@Request() req) {
-    return this.usersService.findOne(req.user.id, req.user);
+    return this.usersService.findMe(req.user.id);
   }
 
   /**
-   * Endpoint para usuário atualizar sua própria comunidade
-   * Qualquer usuário autenticado pode usar este endpoint para definir sua comunidade
+   * Endpoint para usuário atualizar sua própria comunidade.
+   * Fiel/voluntário: troca a comunidade (vínculo aberto — decisão de produto).
+   * Papéis de gestão: grava só o vínculo de fé; o escopo administrativo
+   * (diocese/paróquia/comunidade) nunca muda por aqui (achado C3).
    * IMPORTANTE: Esta rota deve vir ANTES de :id para não ser interpretada como parâmetro
    */
   @Patch('me/community')
-  updateMyCommunity(@Body() body: { communityId: string; consentGiven?: boolean }, @Request() req) {
+  updateMyCommunity(@Body() body: UpdateMyCommunityDto, @Request() req) {
     return this.usersService.updateMyCommunity(req.user.id, body.communityId, body.consentGiven);
   }
 
@@ -109,6 +114,7 @@ export class UsersController {
     res.end(file.buffer);
   }
 
+  /** Só o próprio usuário ou um gestor com escopo sobre ele (achado A11). */
   @Get(':id')
   findOne(@Param('id') id: string, @Request() req) {
     return this.usersService.findOne(id, req.user);
@@ -126,7 +132,10 @@ export class UsersController {
     return this.usersService.remove(id, req.user);
   }
 
+  /** Freio por usuário: com um token roubado, "Senha atual incorreta" viraria oráculo (A12). */
   @Post(':id/change-password')
+  @UseGuards(UserThrottlerGuard)
+  @Throttle({ default: { limit: 5, ttl: 60_000 } })
   changePassword(@Param('id') id: string, @Body() changePasswordDto: ChangePasswordDto, @Request() req) {
     return this.usersService.changePassword(id, changePasswordDto, req.user);
   }

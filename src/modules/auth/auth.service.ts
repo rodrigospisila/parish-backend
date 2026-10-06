@@ -20,6 +20,7 @@ import { ConsentsService } from '../consents/consents.service';
 import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
 import { MessagingService } from '../messaging/messaging.service';
 import { emailInsensitive, normalizeEmail, pickEmailMatch } from './email-lookup';
+import { pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 
 /** Resposta única para conta inexistente, celular inválido e senha errada (não revela qual foi). */
 export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos';
@@ -528,6 +529,11 @@ export class AuthService {
                 role: true,
               },
             },
+            // Coordenação vigente (histórico oficial) — base de coordinatedPastoralIds
+            pastoralCoordinations: {
+              where: { isCurrent: true, communityPastoral: { deletedAt: null } },
+              select: { communityPastoralId: true },
+            },
           },
         },
         communities: {
@@ -549,11 +555,19 @@ export class AuthService {
       throw new UnauthorizedException('Usuário não encontrado ou inativo');
     }
 
+    const memberships = user.member?.pastoralMemberships ?? [];
     return {
       ...user,
-      pastoralIds: user.member?.pastoralMemberships
+      // PARTICIPAÇÃO (todos os vínculos ativos): agenda, escalas, avisos
+      pastoralIds: memberships
         .map((membership) => membership.communityPastoralId)
         .filter((id): id is string => !!id),
+      // COORDENAÇÃO (papel COORDINATOR ativo ou coordenação vigente): só estes
+      // ids dão acesso de gestão à pastoral — ser membro não basta
+      coordinatedPastoralIds: pickCoordinatedPastoralIds(
+        memberships,
+        user.member?.pastoralCoordinations ?? [],
+      ),
     };
   }
 }

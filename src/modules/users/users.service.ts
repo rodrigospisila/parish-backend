@@ -9,8 +9,9 @@ import { PrismaService } from '../../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
-import { UserRole } from '@prisma/client';
+import { Prisma, UserRole } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
+import { randomBytes } from 'crypto';
 import { MembersService } from '../members/members.service';
 import { AuditService } from '../../common/audit.service';
 import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
@@ -27,8 +28,32 @@ export class UsersService {
   // Fonte única da hierarquia: src/modules/auth/constants/role-hierarchy.ts
   private readonly roleHierarchy = ROLE_HIERARCHY;
 
-  private getUserInclude() {
+  /**
+   * Campos devolvidos pela API de usuários — SELECT EXPLÍCITO (negar por padrão):
+   * hash da senha, segredos do 2FA, pushToken e estado de sessão nunca são
+   * lidos; do membro vinculado vêm só o id, a comunidade e as pastorais
+   * (o cadastro completo — CPF, endereço, nascimento — fica no módulo de membros).
+   */
+  private getUserSelect() {
     return {
+      id: true,
+      email: true,
+      name: true,
+      phone: true,
+      role: true,
+      isActive: true,
+      clergyTitle: true,
+      forcePasswordChange: true,
+      dioceseId: true,
+      parishId: true,
+      communityId: true,
+      primaryCommunityId: true,
+      twoFactorEnabled: true,
+      acceptedTermsAt: true,
+      acceptedTermsVersion: true,
+      createdAt: true,
+      updatedAt: true,
+      lastLogin: true,
       diocese: {
         select: {
           id: true,
@@ -59,13 +84,17 @@ export class UsersService {
         },
       },
       member: {
-        include: {
+        select: {
+          id: true,
+          communityId: true,
           pastoralMemberships: {
             where: {
               isActive: true,
               communityPastoralId: { not: null },
             },
-            include: {
+            select: {
+              communityPastoralId: true,
+              role: true,
               communityPastoral: {
                 select: {
                   id: true,
@@ -88,12 +117,12 @@ export class UsersService {
           },
         },
       },
-    };
+    } satisfies Prisma.UserSelect;
   }
 
   private serializeUser(user: any) {
-    // Nunca expor material de autenticação: hash da senha, segredo TOTP,
-    // códigos de recuperação e estado interno de sessão
+    // Nunca expor material de autenticação nem o token de push — mesmo que um
+    // chamador futuro carregue o registro inteiro em vez do select explícito
     const {
       password,
       twoFactorSecret,
@@ -101,12 +130,17 @@ export class UsersService {
       twoFactorLastStep,
       twoFactorSetupAt,
       sessionsRevokedAt,
+      pushToken,
+      pushTokenUpdatedAt,
+      member,
       ...userWithoutPassword
     } = user;
-    const pastoralMemberships = userWithoutPassword.member?.pastoralMemberships || [];
+    const pastoralMemberships = member?.pastoralMemberships || [];
 
     return {
       ...userWithoutPassword,
+      // Do membro vinculado, só o id (o cadastro completo fica no módulo de membros)
+      member: member ? { id: member.id } : null,
       pastoralIds: pastoralMemberships
         .map((membership: any) => membership.communityPastoralId)
         .filter((id: string | null | undefined): id is string => !!id),
@@ -253,35 +287,163 @@ export class UsersService {
     }
   }
 
-  private assertUserScope(currentUser: any, targetUser: any) {
+  /**
+   * Quem pode LER/GERENCIAR o usuário-alvo (negar por padrão — achados C2/A11):
+   * - SYSTEM_ADMIN: todos;
+   * - o próprio usuário: só quando `allowSelf` (leitura/edição de dados básicos);
+   * - gestor: alvo de papel ESTRITAMENTE inferior ao seu E dentro do seu escopo
+   *   (diocese/paróquia/comunidade preenchida e igual à do alvo);
+   * - qualquer outro papel: proibido.
+   */
+  private assertUserScope(currentUser: any, targetUser: any, options: { allowSelf?: boolean } = {}) {
+    if (!currentUser?.role) {
+      throw new ForbiddenException('Voce nao tem permissao para gerenciar este usuario');
+    }
+
     if (currentUser.role === UserRole.SYSTEM_ADMIN) {
       return;
     }
 
-    if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
-      if (targetUser.dioceseId !== currentUser.dioceseId) {
-        throw new ForbiddenException('Voce so pode gerenciar usuarios da sua diocese');
+    if (currentUser.id && currentUser.id === targetUser.id) {
+      if (options.allowSelf) {
+        return;
       }
-
-      if (targetUser.role === UserRole.SYSTEM_ADMIN || targetUser.role === UserRole.DIOCESAN_ADMIN) {
-        throw new ForbiddenException('Voce nao tem permissao para gerenciar este usuario');
-      }
-
-      return;
+      throw new ForbiddenException('Use as opcoes da sua conta para alterar os seus proprios dados');
     }
 
-    if (currentUser.role === UserRole.PARISH_ADMIN && targetUser.parishId !== currentUser.parishId) {
-      throw new ForbiddenException('Voce so pode gerenciar usuarios da sua paroquia');
+    const actorLevel = this.roleHierarchy[currentUser.role as UserRole];
+    const targetLevel = this.roleHierarchy[targetUser.role as UserRole];
+    if (actorLevel === undefined || targetLevel === undefined || targetLevel <= actorLevel) {
+      throw new ForbiddenException('Voce nao tem permissao para gerenciar este usuario');
     }
 
-    if (
-      currentUser.role === UserRole.COMMUNITY_COORDINATOR &&
-      targetUser.communityId !== currentUser.communityId
-    ) {
-      throw new ForbiddenException('Voce so pode gerenciar usuarios da sua comunidade');
+    switch (currentUser.role) {
+      case UserRole.DIOCESAN_ADMIN:
+        if (!currentUser.dioceseId || targetUser.dioceseId !== currentUser.dioceseId) {
+          throw new ForbiddenException('Voce so pode gerenciar usuarios da sua diocese');
+        }
+        return;
+      case UserRole.PARISH_ADMIN:
+        if (!currentUser.parishId || targetUser.parishId !== currentUser.parishId) {
+          throw new ForbiddenException('Voce so pode gerenciar usuarios da sua paroquia');
+        }
+        return;
+      case UserRole.COMMUNITY_COORDINATOR:
+        if (!currentUser.communityId || targetUser.communityId !== currentUser.communityId) {
+          throw new ForbiddenException('Voce so pode gerenciar usuarios da sua comunidade');
+        }
+        return;
+      default:
+        throw new ForbiddenException('Voce nao tem permissao para gerenciar usuarios');
     }
   }
 
+  /**
+   * Destino de diocese/paróquia/comunidade de um usuário editado por quem não é
+   * SYSTEM_ADMIN: só vale o que MUDOU, e tem de ficar dentro do escopo do ator.
+   */
+  private async assertScopeChangeWithinActor(
+    currentUser: any,
+    targetUser: { dioceseId: string | null; parishId: string | null; communityId: string | null },
+    next: { dioceseId: string | null; parishId: string | null; communityId: string | null },
+  ) {
+    if (currentUser.role === UserRole.SYSTEM_ADMIN) {
+      return;
+    }
+
+    if (next.dioceseId !== targetUser.dioceseId) {
+      const actorDioceseId = await this.resolveActorDioceseId(currentUser);
+      if (!actorDioceseId || next.dioceseId !== actorDioceseId) {
+        throw new ForbiddenException('Voce so pode vincular usuarios a sua diocese');
+      }
+    }
+
+    if (next.parishId && next.parishId !== targetUser.parishId) {
+      if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
+        const parish = await this.prisma.parish.findUnique({
+          where: { id: next.parishId },
+          select: { dioceseId: true },
+        });
+        if (!parish) {
+          throw new BadRequestException('Paroquia nao encontrada');
+        }
+        if (!currentUser.dioceseId || parish.dioceseId !== currentUser.dioceseId) {
+          throw new ForbiddenException('Voce so pode vincular usuarios a paroquias da sua diocese');
+        }
+        if (next.dioceseId && next.dioceseId !== parish.dioceseId) {
+          throw new BadRequestException('A paroquia nao pertence a diocese informada');
+        }
+      } else if (!currentUser.parishId || next.parishId !== currentUser.parishId) {
+        throw new ForbiddenException('Voce so pode vincular usuarios a sua paroquia');
+      }
+    }
+
+    if (next.communityId && next.communityId !== targetUser.communityId) {
+      const communities = await this.loadCommunitiesByIds([next.communityId]);
+      this.assertCommunityScope(currentUser, communities);
+      if (next.parishId && communities[0].parishId !== next.parishId) {
+        throw new BadRequestException('A comunidade nao pertence a paroquia informada');
+      }
+    }
+  }
+
+  /** Diocese do ator: a gravada ou, na falta (cadastros antigos), a da sua paróquia. */
+  private async resolveActorDioceseId(currentUser: any): Promise<string | null> {
+    if (currentUser.dioceseId) {
+      return currentUser.dioceseId;
+    }
+    if (currentUser.role !== UserRole.DIOCESAN_ADMIN && currentUser.parishId) {
+      const parish = await this.prisma.parish.findUnique({
+        where: { id: currentUser.parishId },
+        select: { dioceseId: true },
+      });
+      return parish?.dioceseId ?? null;
+    }
+    return null;
+  }
+
+  /**
+   * Pelo PATCH /users/:id o próprio usuário (não SYSTEM_ADMIN) só muda nome,
+   * e-mail e telefone. Papel, cargo, situação, escopo e vínculos são decididos
+   * por um superior: reenviar o mesmo valor (o formulário do painel manda tudo)
+   * é aceito; mudar é proibido.
+   */
+  private assertSelfUpdateKeepsProtectedFields(
+    dto: UpdateUserDto,
+    user: {
+      role: UserRole;
+      clergyTitle?: string | null;
+      isActive: boolean;
+      dioceseId: string | null;
+      parishId: string | null;
+      communityId: string | null;
+    },
+    activeCommunityIds: string[],
+    coordinatedPastoralIds: string[],
+  ) {
+    const changed = (next: unknown, current: unknown) =>
+      next !== undefined && (next ?? null) !== (current ?? null);
+    // Escopo: null é ignorado pelo update (mantém o atual), então não conta como troca
+    const changedScope = (next: unknown, current: unknown) =>
+      next !== undefined && next !== null && next !== current;
+    const sameSet = (next: string[], current: string[]) =>
+      new Set(next).size === new Set(current).size && next.every((id) => current.includes(id));
+
+    if (
+      changed(dto.role, user.role) ||
+      changed(dto.clergyTitle, user.clergyTitle) ||
+      changed(dto.isActive, user.isActive) ||
+      changedScope(dto.dioceseId, user.dioceseId) ||
+      changedScope(dto.parishId, user.parishId) ||
+      changedScope(dto.communityId, user.communityId) ||
+      (dto.communityIds !== undefined && !sameSet(dto.communityIds, activeCommunityIds)) ||
+      (dto.pastoralIds !== undefined && !sameSet(dto.pastoralIds, coordinatedPastoralIds))
+    ) {
+      throw new ForbiddenException(
+        'Voce nao pode alterar o proprio papel, cargo, situacao ou vinculos — solicite a um superior',
+      );
+    }
+  }
 
   private async syncUserCommunities(
     tx: any,
@@ -661,7 +823,7 @@ export class UsersService {
           communityId,
           forcePasswordChange: true,
         },
-        include: this.getUserInclude(),
+        select: this.getUserSelect(),
       });
 
       await this.syncUserCommunities(tx, newUser.id, role, communityIds, communityId);
@@ -700,7 +862,7 @@ export class UsersService {
 
       return tx.user.findUnique({
         where: { id: newUser.id },
-        include: this.getUserInclude(),
+        select: this.getUserSelect(),
       });
     });
 
@@ -716,48 +878,54 @@ export class UsersService {
   }
 
   async findAll(currentUser: any) {
-    const where: any = {};
+    // Negar por padrão: sem a âncora do escopo (diocese/paróquia/comunidade) a
+    // lista é vazia — antes um filtro `undefined` virava "todos os usuários"
+    const lowerThanCoordinator = {
+      in: [
+        UserRole.COMMUNITY_COORDINATOR,
+        UserRole.PASTORAL_COORDINATOR,
+        UserRole.VOLUNTEER,
+        UserRole.FAITHFUL,
+      ],
+    };
+    let where: any;
 
-    if (currentUser.role === UserRole.DIOCESAN_ADMIN) {
-      where.dioceseId = currentUser.dioceseId;
-    }
-
-    if (currentUser.role === UserRole.PARISH_ADMIN) {
-      where.parishId = currentUser.parishId;
-    }
-
-    if (currentUser.role === UserRole.COMMUNITY_COORDINATOR) {
-      if (currentUser.communityId) {
-        where.communities = {
-          some: {
-            communityId: currentUser.communityId,
-            isActive: true,
-          },
-        };
-        where.role = {
-          in: [
-            UserRole.COMMUNITY_COORDINATOR,
-            UserRole.PASTORAL_COORDINATOR,
-            UserRole.VOLUNTEER,
-            UserRole.FAITHFUL,
-          ],
-        };
-      } else if (currentUser.parishId) {
-        where.parishId = currentUser.parishId;
-        where.role = {
-          in: [
-            UserRole.COMMUNITY_COORDINATOR,
-            UserRole.PASTORAL_COORDINATOR,
-            UserRole.VOLUNTEER,
-            UserRole.FAITHFUL,
-          ],
-        };
-      }
+    switch (currentUser?.role) {
+      case UserRole.SYSTEM_ADMIN:
+        where = {};
+        break;
+      case UserRole.DIOCESAN_ADMIN:
+        if (!currentUser.dioceseId) return [];
+        where = { dioceseId: currentUser.dioceseId };
+        break;
+      case UserRole.PARISH_ADMIN:
+        if (!currentUser.parishId) return [];
+        where = { parishId: currentUser.parishId };
+        break;
+      case UserRole.COMMUNITY_COORDINATOR:
+        if (currentUser.communityId) {
+          where = {
+            communities: {
+              some: {
+                communityId: currentUser.communityId,
+                isActive: true,
+              },
+            },
+            role: lowerThanCoordinator,
+          };
+        } else if (currentUser.parishId) {
+          where = { parishId: currentUser.parishId, role: lowerThanCoordinator };
+        } else {
+          return [];
+        }
+        break;
+      default:
+        throw new ForbiddenException('Voce nao tem permissao para listar usuarios');
     }
 
     const users = await this.prisma.user.findMany({
       where,
-      include: this.getUserInclude(),
+      select: this.getUserSelect(),
       orderBy: {
         createdAt: 'desc',
       },
@@ -766,21 +934,79 @@ export class UsersService {
     return users.map((user) => this.serializeUser(user));
   }
 
-  async findOne(id: string, currentUser?: any) {
+  /**
+   * GET /users/:id — só o próprio usuário ou um gestor com escopo sobre ele
+   * (papel estritamente inferior). Fiel, voluntário e coordenador de pastoral
+   * não leem terceiros (achado A11).
+   */
+  async findOne(id: string, currentUser: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },
-      include: this.getUserInclude(),
+      select: this.getUserSelect(),
     });
 
     if (!user) {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    if (currentUser) {
-      this.assertUserScope(currentUser, user);
-    }
+    this.assertUserScope(currentUser, user, { allowSelf: true });
 
     return this.serializeUser(user);
+  }
+
+  /**
+   * GET /users/me — dados do próprio usuário. Para gestor sem comunidade de
+   * escopo, `communityId`/`community` trazem a comunidade de FÉ escolhida no
+   * app (ver presentSelf) — sem isso o app reabre o assistente de comunidade.
+   */
+  async findMe(userId: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: this.getUserSelect(),
+    });
+
+    if (!user) {
+      throw new NotFoundException(`Usuario com ID ${userId} nao encontrado`);
+    }
+
+    return this.presentSelf(user);
+  }
+
+  /** Papéis cujo escopo administrativo NÃO muda pelo autoatendimento (tudo acima de VOLUNTEER). */
+  private static readonly SELF_SERVICE_COMMUNITY_ROLES: UserRole[] = [UserRole.FAITHFUL, UserRole.VOLUNTEER];
+
+  private isManagementRole(role: UserRole) {
+    return !UsersService.SELF_SERVICE_COMMUNITY_ROLES.includes(role);
+  }
+
+  /**
+   * Visão do PRÓPRIO usuário. O gestor (papel acima de VOLUNTEER) sem comunidade
+   * de escopo (User.communityId nulo — ex.: PARISH_ADMIN, DIOCESAN_ADMIN) recebe
+   * em `communityId`/`community` a sua comunidade de fé (vínculo principal), só
+   * para exibição: o app usa `communityId` para sair do assistente. O escopo real
+   * (JwtStrategy/HierarchyService) continua lido do banco e não muda. O campo
+   * `scopeCommunityId` traz sempre o valor gravado.
+   */
+  private async presentSelf(user: any) {
+    const serialized: any = this.serializeUser(user);
+    serialized.scopeCommunityId = user.communityId ?? null;
+
+    if (!user.communityId && this.isManagementRole(user.role)) {
+      const links: any[] = user.communities ?? [];
+      const faithLink = links.find((link) => link.isPrimary) ?? links[0] ?? null;
+      const faithCommunityId: string | null = faithLink?.communityId ?? user.member?.communityId ?? null;
+      if (faithCommunityId) {
+        serialized.communityId = faithCommunityId;
+        serialized.community =
+          faithLink?.community ??
+          (await this.prisma.community.findUnique({
+            where: { id: faithCommunityId },
+            select: { id: true, name: true },
+          }));
+      }
+    }
+
+    return serialized;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto, currentUser: any) {
@@ -788,6 +1014,7 @@ export class UsersService {
       where: { id },
       include: {
         member: true,
+        communities: { where: { isActive: true }, select: { communityId: true } },
       },
     });
 
@@ -795,7 +1022,21 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    this.assertUserScope(currentUser, user);
+    // Alvo: o próprio usuário ou alguém de papel estritamente inferior no escopo (C2)
+    this.assertUserScope(currentUser, user, { allowSelf: true });
+
+    const isSystemAdmin = currentUser.role === UserRole.SYSTEM_ADMIN;
+    const isSelf = currentUser.id === id;
+
+    if (isSelf && !isSystemAdmin) {
+      this.assertSelfUpdateKeepsProtectedFields(
+        updateUserDto,
+        user,
+        user.communities.map((link) => link.communityId),
+        await this.getCurrentCoordinatorPastoralIds(id),
+      );
+      return this.updateOwnBasicData(id, user, updateUserDto, currentUser);
+    }
 
     const {
       password: _password,
@@ -843,6 +1084,15 @@ export class UsersService {
     let nextCommunityId = updateData.communityId ?? user.communityId;
     const nextRole = (updateData.role as UserRole | undefined) ?? user.role;
 
+    // Só atribui papel ESTRITAMENTE abaixo do próprio (o create já fazia isso; o update não)
+    if (!isSystemAdmin) {
+      const actorLevel = this.roleHierarchy[currentUser.role as UserRole];
+      const nextLevel = this.roleHierarchy[nextRole];
+      if (actorLevel === undefined || nextLevel === undefined || nextLevel <= actorLevel) {
+        throw new ForbiddenException('Voce so pode atribuir papeis abaixo do seu');
+      }
+    }
+
     if (nextRole === UserRole.COMMUNITY_COORDINATOR) {
       const targetCommunityIds = communityIds?.length
         ? communityIds
@@ -889,6 +1139,23 @@ export class UsersService {
       communityIds = [nextCommunityId];
     }
 
+    // Destino (diocese/paróquia/comunidade) dentro do escopo do ator — inclusive
+    // dioceseId/parishId enviados soltos, que antes iam direto para o banco (C2)
+    await this.assertScopeChangeWithinActor(currentUser, user, {
+      dioceseId: nextDioceseId ?? null,
+      parishId: nextParishId ?? null,
+      communityId: nextCommunityId ?? null,
+    });
+
+    if (nextRole !== user.role) {
+      if (nextRole === UserRole.DIOCESAN_ADMIN && !nextDioceseId) {
+        throw new BadRequestException('DIOCESAN_ADMIN deve ter uma diocese vinculada');
+      }
+      if (nextRole === UserRole.PARISH_ADMIN && (!nextDioceseId || !nextParishId)) {
+        throw new BadRequestException('PARISH_ADMIN deve ter uma diocese e paroquia vinculadas');
+      }
+    }
+
     const finalUser = await this.prisma.$transaction(async (tx) => {
       const updatedUser = await tx.user.update({
         where: { id },
@@ -898,7 +1165,7 @@ export class UsersService {
           parishId: nextParishId,
           communityId: nextCommunityId,
         },
-        include: this.getUserInclude(),
+        select: this.getUserSelect(),
       });
 
       await this.syncUserCommunities(
@@ -945,7 +1212,7 @@ export class UsersService {
 
       return tx.user.findUnique({
         where: { id },
-        include: this.getUserInclude(),
+        select: this.getUserSelect(),
       });
     });
 
@@ -966,7 +1233,61 @@ export class UsersService {
     return this.serializeUser(finalUser);
   }
 
-  async remove(id: string, currentUser?: any) {
+  /**
+   * Edição dos próprios dados básicos (nome, e-mail, telefone) pelo PATCH
+   * /users/:id — sem tocar em papel, escopo, vínculos ou pastorais. E-mail e
+   * telefone já foram normalizados e conferidos contra duplicidade.
+   */
+  private async updateOwnBasicData(id: string, user: any, dto: UpdateUserDto, currentUser: any) {
+    const data: { name?: string; email?: string; phone?: string | null } = {};
+    if (dto.name !== undefined) data.name = dto.name;
+
+    if (dto.email !== undefined) {
+      const nextEmail = normalizeEmail(dto.email);
+      if (nextEmail !== user.email.toLowerCase()) {
+        const existingEmail = await this.prisma.user.findFirst({
+          where: { email: emailInsensitive(nextEmail), id: { not: id } },
+          select: { id: true },
+        });
+        if (existingEmail) {
+          throw new ConflictException('Email ja esta em uso');
+        }
+        data.email = nextEmail;
+      }
+    }
+
+    const phone = this.normalizeOptionalPhone(dto.phone);
+    if (phone !== undefined) {
+      if (phone) {
+        const existingPhone = await this.prisma.user.findUnique({
+          where: { phone },
+          select: { id: true },
+        });
+        if (existingPhone && existingPhone.id !== id) {
+          throw new ConflictException('Telefone ja esta em uso por outro usuario');
+        }
+      }
+      data.phone = phone;
+    }
+
+    const updated = await this.prisma.user.update({
+      where: { id },
+      data,
+      select: this.getUserSelect(),
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'UPDATE',
+      entity: 'User',
+      entityId: id,
+      metadata: { changedFields: Object.keys(data), selfService: true },
+    });
+
+    return this.serializeUser(updated);
+  }
+
+  async remove(id: string, currentUser: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },
     });
@@ -975,18 +1296,15 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    if (currentUser) {
-      this.assertUserScope(currentUser, user);
-    }
+    // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2)
+    this.assertUserScope(currentUser, user);
 
     await this.prisma.user.delete({
       where: { id },
     });
 
     await this.auditService.log({
-      actor: currentUser
-        ? { id: currentUser.id, email: currentUser.email, role: currentUser.role }
-        : null,
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
       action: 'DELETE',
       entity: 'User',
       entityId: id,
@@ -1096,7 +1414,7 @@ export class UsersService {
       },
     });
 
-    if (!community) {
+    if (!community || community.deletedAt) {
       throw new NotFoundException(`Comunidade com ID ${communityId} nao encontrada`);
     }
 
@@ -1111,18 +1429,12 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${userId} nao encontrado`);
     }
 
-    // SEGURANÇA: papéis de gestão não trocam a PRÓPRIA comunidade por aqui —
-    // User.communityId define o escopo administrativo (membros, usuários,
-    // finanças). A troca para gestores é feita por um administrador via /users.
-    const selfServiceRoles: UserRole[] = [UserRole.FAITHFUL, UserRole.VOLUNTEER];
-    if (
-      !selfServiceRoles.includes(currentUser.role) &&
-      currentUser.communityId &&
-      currentUser.communityId !== communityId
-    ) {
-      throw new ForbiddenException(
-        'Papéis de gestão não trocam a própria comunidade manualmente — solicite a um administrador',
-      );
+    // SEGURANÇA (C3): papéis de gestão nunca mudam o PRÓPRIO escopo por aqui —
+    // User.dioceseId/parishId/communityId definem o que administram (membros,
+    // usuários, finanças). Gravam só o vínculo de fé; a troca de escopo é feita
+    // por um superior via /users.
+    if (this.isManagementRole(currentUser.role)) {
+      return this.updateManagerFaithCommunity(currentUser, community, consentGiven);
     }
 
     const updatedUser = await this.prisma.$transaction(async (tx) => {
@@ -1164,7 +1476,7 @@ export class UsersService {
 
       return tx.user.findUnique({
         where: { id: userId },
-        include: this.getUserInclude(),
+        select: this.getUserSelect(),
       });
     });
 
@@ -1181,7 +1493,112 @@ export class UsersService {
       },
     });
 
-    return this.serializeUser(updatedUser);
+    return this.presentSelf(updatedUser);
+  }
+
+
+  /**
+   * Comunidade de FÉ de um gestor (papel acima de VOLUNTEER), sem tocar em
+   * role/dioceseId/parishId/communityId do usuário (C3). O app obriga quem não
+   * tem comunidade a passar pelo assistente — por isso responde 200 em vez de
+   * erro, e a resposta (presentSelf) traz a comunidade escolhida em `communityId`.
+   * - Coordenador de comunidade/pastoral: o vínculo de fé é o perfil de membro.
+   *   UserCommunity NÃO é gravado: para eles um vínculo ativo vale como escopo de
+   *   coordenação (painel, finanças, dízimo, pedidos de oração).
+   * - SYSTEM/DIOCESAN/PARISH_ADMIN: sem perfil de membro; o vínculo de fé é o
+   *   UserCommunity principal. Só gravado com a âncora do escopo preenchida (sem
+   *   paróquia/diocese, módulos caem nos vínculos e o link viraria escopo).
+   */
+  private async updateManagerFaithCommunity(currentUser: any, community: any, consentGiven?: boolean) {
+    const userId = currentUser.id;
+    const communityId = community.id;
+
+    // Já tem comunidade de escopo e pediu outra: segue proibido (comportamento anterior)
+    if (currentUser.communityId && currentUser.communityId !== communityId) {
+      throw new ForbiddenException(
+        'Papéis de gestão não trocam a própria comunidade manualmente — solicite a um administrador',
+      );
+    }
+
+    const isCoordinator =
+      currentUser.role === UserRole.COMMUNITY_COORDINATOR ||
+      currentUser.role === UserRole.PASTORAL_COORDINATOR;
+    const hasScopeAnchor =
+      currentUser.role === UserRole.SYSTEM_ADMIN ||
+      (currentUser.role === UserRole.DIOCESAN_ADMIN && !!currentUser.dioceseId) ||
+      (currentUser.role === UserRole.PARISH_ADMIN && !!currentUser.parishId);
+
+    let persisted = false;
+    await this.prisma.$transaction(async (tx) => {
+      if (isCoordinator) {
+        // Não move o perfil de quem já tem comunidade principal noutra (as
+        // pastorais coordenadas ficam lá — mesma regra do módulo de membros)
+        const memberCommunityId = currentUser.member?.communityId ?? null;
+        if (memberCommunityId && memberCommunityId !== communityId) {
+          return;
+        }
+        await this.membersService.ensureProfileForUser(
+          tx,
+          {
+            userId,
+            role: currentUser.role,
+            name: currentUser.name,
+            email: currentUser.email,
+            phone: currentUser.phone,
+            communityId,
+            consentGiven,
+          },
+          currentUser.member?.id,
+        );
+        persisted = true;
+        return;
+      }
+
+      if (!hasScopeAnchor) {
+        return;
+      }
+
+      // Não-destrutivo: os demais vínculos continuam, só deixam de ser o principal
+      await tx.userCommunity.updateMany({
+        where: { userId, isPrimary: true, communityId: { not: communityId } },
+        data: { isPrimary: false },
+      });
+      await tx.userCommunity.upsert({
+        where: { userId_communityId: { userId, communityId } },
+        create: { userId, communityId, role: currentUser.role, isPrimary: true },
+        update: { isActive: true, isPrimary: true, leftAt: null },
+      });
+      persisted = true;
+    });
+
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'COMMUNITY_JOIN',
+      entity: 'User',
+      entityId: userId,
+      metadata: {
+        communityId,
+        faithLinkOnly: true,
+        persisted,
+        first: !currentUser.communityId,
+        previousCommunityId: currentUser.communityId ?? null,
+      },
+    });
+
+    const updatedUser = await this.prisma.user.findUnique({
+      where: { id: userId },
+      select: this.getUserSelect(),
+    });
+    const presented = await this.presentSelf(updatedUser);
+
+    // Sem gravação (conta de gestão sem escopo ou perfil preso a outra comunidade):
+    // a resposta ainda leva a escolha, para o app não prender o usuário no assistente
+    if (!presented.communityId) {
+      presented.communityId = communityId;
+      presented.community = { id: communityId, name: community.name };
+    }
+
+    return presented;
   }
 
   async resetPassword(id: string, currentUser: any) {
@@ -1193,9 +1610,11 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
+    // Só sobre papel ESTRITAMENTE inferior e no escopo: reset entre pares
+    // entregaria a senha temporária do colega (tomada de conta — C2)
     this.assertUserScope(currentUser, user);
 
-    const tempPassword = Math.random().toString(36).slice(-8) + 'Aa1!';
+    const tempPassword = randomBytes(6).toString('base64url') + 'Aa1!';
     const hashedPassword = await bcrypt.hash(tempPassword, 10);
 
     await this.prisma.user.update({

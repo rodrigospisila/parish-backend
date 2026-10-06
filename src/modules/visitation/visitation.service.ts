@@ -3,6 +3,11 @@ import { VisitReason, VisitRequestStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
+import {
+  SessionUser,
+  communityScopeWhere,
+  resolveCoordinatedPastoralIds,
+} from '../pastorals/coordination-scope';
 
 /**
  * Pastoral da Visitação / Enfermos (roadmap 4.5).
@@ -25,13 +30,14 @@ export class VisitationService {
   }
 
   /** Coordenador da pastoral (do request) ou visitador designado numa das visitas. */
-  private async canSeeNotes(user: CurrentUser, request: { communityPastoralId: string | null; id: string }) {
+  private async canSeeNotes(user: SessionUser, request: { communityPastoralId: string | null; id: string }) {
     if (user.role === UserRole.SYSTEM_ADMIN) return true;
 
-    // Coordenador atual da pastoral de visitação
+    // Coordenador ATUAL da pastoral de visitação — ser só membro dela
+    // (pastoralIds = participação) não abre as anotações de saúde/luto
     if (request.communityPastoralId) {
-      const isCoordinator = user.pastoralIds?.includes(request.communityPastoralId);
-      if (isCoordinator) return true;
+      const coordinated = await resolveCoordinatedPastoralIds(this.prisma, user);
+      if (coordinated.includes(request.communityPastoralId)) return true;
     }
 
     // Visitador designado em alguma visita deste pedido (member vinculado ao user)
@@ -87,16 +93,21 @@ export class VisitationService {
   }
 
   /** Lista pedidos SEM as anotações sensíveis (apenas dados operacionais). */
-  async listRequests(user: CurrentUser, status?: VisitRequestStatus) {
+  async listRequests(user: SessionUser, status?: VisitRequestStatus) {
     const where: any = { deletedAt: null };
     if (status) where.status = status;
-    if (user.role !== UserRole.SYSTEM_ADMIN) {
-      if (user.communityId) where.communityId = user.communityId;
-      else if (user.parishId) where.community = { parishId: user.parishId };
-    }
-    // Coordenador de pastoral vê apenas os pedidos da(s) sua(s) pastoral(is)
-    if (user.role === UserRole.PASTORAL_COORDINATOR && user.pastoralIds?.length) {
-      where.communityPastoralId = { in: user.pastoralIds };
+    if (user.role === UserRole.PASTORAL_COORDINATOR) {
+      // Coordenador de pastoral vê apenas os pedidos da(s) pastoral(is) que
+      // COORDENA; sem coordenação vigente, nada (o motivo é dado sensível)
+      const coordinated = await resolveCoordinatedPastoralIds(this.prisma, user);
+      if (!coordinated.length) return [];
+      where.communityPastoralId = { in: coordinated };
+    } else {
+      // Escopo hierárquico com ramo de diocese; sem escopo resolvido
+      // (ex.: diocesano sem diocese, coordenador sem comunidade) → vazio
+      const scope = communityScopeWhere(user);
+      if (!scope) return [];
+      if (Object.keys(scope).length) where.community = scope;
     }
     return this.prisma.visitRequest.findMany({
       where,

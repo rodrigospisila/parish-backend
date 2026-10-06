@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_PIPE } from '@nestjs/core';
+import { APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -47,6 +47,7 @@ import { TitheModule } from './modules/tithe/tithe.module';
 import { PlansModule } from './modules/plans/plans.module';
 import { DataProposalsModule } from './modules/data-proposals/data-proposals.module';
 import { CommonModule } from './common/common.module';
+import { AppThrottlerGuard, THROTTLER_OPTIONS } from './modules/auth/guards/app-throttler.guard';
 
 @Module({
   imports: [
@@ -55,8 +56,9 @@ import { CommonModule } from './common/common.module';
       envFilePath: '.env',
     }),
     ScheduleModule.forRoot(),
-    // Limite padrão (só vale onde um ThrottlerGuard é aplicado — dízimo, auth, mapa público...)
-    ThrottlerModule.forRoot([{ ttl: 60_000, limit: 60 }]),
+    // Limites de requisição: guard GLOBAL (APP_GUARD abaixo) com teto geral por IP
+    // e limites próprios nas rotas sensíveis — ver auth/guards/app-throttler.guard.ts
+    ThrottlerModule.forRoot(THROTTLER_OPTIONS),
     PrismaModule,
     CommonModule,
     AuthModule,
@@ -105,6 +107,11 @@ import { CommonModule } from './common/common.module';
     {
       provide: APP_PIPE,
       useClass: ValidationPipe,
+    },
+    // Antes era opt-in por rota: login, cadastro, SMS e recuperação de senha ficavam sem limite (A12)
+    {
+      provide: APP_GUARD,
+      useClass: AppThrottlerGuard,
     },
   ],
 })

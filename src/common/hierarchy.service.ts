@@ -13,8 +13,27 @@ export interface CurrentUser {
   parishId?: string;
   communityId?: string;
   pastoralIds?: string[];
+  /** Pastorais que o usuário COORDENA (validateUser) — subconjunto de pastoralIds */
+  coordinatedPastoralIds?: string[];
   /** Vínculos N:N ATIVOS carregados pelo JwtStrategy (validateUser) */
   communities?: Array<{ communityId: string; isActive?: boolean }>;
+  /** Cadastro de membro do usuário (carregado pelo JwtStrategy em validateUser) */
+  member?: { id: string } | null;
+}
+
+/**
+ * Cláusula `where` que não casa com nenhum registro. Usada quando o escopo do
+ * usuário não pode ser resolvido (papel restrito sem diocese/paróquia/comunidade,
+ * papel desconhecido): negar por padrão, nunca devolver `{}` (= tudo).
+ * Sempre um objeto NOVO — os chamadores acrescentam chaves ao where devolvido.
+ */
+export function noAccessWhere(): { id: string } {
+  return { id: '__none__' };
+}
+
+/** True quando o filtro devolvido é a negação total (escopo não resolvido). */
+export function isNoAccessWhere(where: any): boolean {
+  return !!where && where.id === '__none__';
 }
 
 /**
@@ -625,114 +644,120 @@ export class HierarchyService {
    * Aplica filtros de hierarquia a uma query do Prisma para paróquias
    */
   applyParishFilter(user: CurrentUser): any {
-    const where: any = {};
-
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
         // Sem filtro
-        break;
+        return {};
       case UserRole.DIOCESAN_ADMIN:
-        where.dioceseId = user.dioceseId;
-        break;
+        return user.dioceseId ? { dioceseId: user.dioceseId } : noAccessWhere();
       case UserRole.PARISH_ADMIN:
       case UserRole.COMMUNITY_COORDINATOR:
       case UserRole.PASTORAL_COORDINATOR:
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
-        where.id = user.parishId;
-        break;
+        // `{ id: undefined }` seria ignorado pelo Prisma (= todas as paróquias)
+        return user.parishId ? { id: user.parishId } : noAccessWhere();
+      default:
+        return noAccessWhere();
     }
-
-    return where;
   }
 
   /**
-   * Aplica filtros de hierarquia a uma query do Prisma para eventos
+   * Aplica filtros de hierarquia a uma query do Prisma para eventos.
+   * Negar por padrão: papel sem o escopo correspondente (ex.: fiel sem
+   * comunidade, admin diocesano sem diocese) recebe um filtro impossível —
+   * `{ communityId: undefined }` seria ignorado pelo Prisma e viraria "tudo".
    */
   applyEventFilter(user: CurrentUser): any {
-    const where: any = {};
-
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
         // Sem filtro
-        break;
+        return {};
       case UserRole.DIOCESAN_ADMIN:
-        where.community = { parish: { dioceseId: user.dioceseId } };
-        break;
+        return user.dioceseId
+          ? { community: { parish: { dioceseId: user.dioceseId } } }
+          : noAccessWhere();
       case UserRole.PARISH_ADMIN:
-        where.community = { parishId: user.parishId };
-        break;
+        return user.parishId ? { community: { parishId: user.parishId } } : noAccessWhere();
       case UserRole.COMMUNITY_COORDINATOR:
-        where.communityId = user.communityId;
-        break;
+        return user.communityId ? { communityId: user.communityId } : noAccessWhere();
       case UserRole.PASTORAL_COORDINATOR:
         // Vê os eventos da sua comunidade e também os eventos (de outras
         // comunidades) em que alguma de suas pastorais está envolvida
         if (user.pastoralIds?.length) {
-          where.OR = [
-            ...(user.communityId ? [{ communityId: user.communityId }] : []),
-            {
-              eventPastorals: {
-                some: {
-                  communityPastoralId: {
-                    in: user.pastoralIds,
+          return {
+            OR: [
+              ...(user.communityId ? [{ communityId: user.communityId }] : []),
+              {
+                eventPastorals: {
+                  some: {
+                    communityPastoralId: {
+                      in: user.pastoralIds,
+                    },
                   },
                 },
               },
-            },
-          ];
-        } else {
-          where.communityId = user.communityId;
+            ],
+          };
         }
-        break;
+        return user.communityId ? { communityId: user.communityId } : noAccessWhere();
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
-        where.communityId = user.communityId;
-        break;
+        return user.communityId ? { communityId: user.communityId } : noAccessWhere();
+      default:
+        return noAccessWhere();
     }
-
-    return where;
   }
 
   /**
-   * Aplica filtros de hierarquia a uma query do Prisma para membros
+   * Aplica filtros de hierarquia a uma query do Prisma para membros.
+   *
+   * - Gestão com escopo (admin/coordenação) enxerga os membros do seu escopo.
+   * - Fiel/voluntário NÃO lista o cadastro da comunidade (LGPD): enxerga só o
+   *   próprio cadastro e os dependentes (responsibleId) — `user.member.id`
+   *   vem do JwtStrategy.
+   * - Escopo não resolvido (sem diocese/paróquia/comunidade/membro) ou papel
+   *   desconhecido: filtro impossível, nunca `{}`.
    */
   applyMemberFilter(user: CurrentUser): any {
-    const where: any = {};
-
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
         // Sem filtro
-        break;
+        return {};
       case UserRole.DIOCESAN_ADMIN:
-        where.community = { parish: { dioceseId: user.dioceseId } };
-        break;
+        return user.dioceseId
+          ? { community: { parish: { dioceseId: user.dioceseId } } }
+          : noAccessWhere();
       case UserRole.PARISH_ADMIN:
-        where.community = { parishId: user.parishId };
-        break;
+        return user.parishId ? { community: { parishId: user.parishId } } : noAccessWhere();
       case UserRole.COMMUNITY_COORDINATOR:
       case UserRole.PASTORAL_COORDINATOR:
-      // Coordenador (de comunidade ou pastoral) enxerga TODOS os membros da
-      // comunidade — inclusive os de vínculo SECUNDÁRIO (multi-comunidade).
-      // A edição segue regida por canManageMember (comunidade principal).
-      case UserRole.VOLUNTEER:
-      case UserRole.FAITHFUL:
-        if (user.communityId) {
-          where.OR = [
+        // Coordenador (de comunidade ou pastoral) enxerga TODOS os membros da
+        // comunidade — inclusive os de vínculo SECUNDÁRIO (multi-comunidade).
+        // A edição segue regida por canManageMember (comunidade principal).
+        if (!user.communityId) return noAccessWhere();
+        return {
+          OR: [
             { communityId: user.communityId },
             { communityLinks: { some: { communityId: user.communityId, isActive: true } } },
-          ];
-        }
-        break;
+          ],
+        };
+      case UserRole.VOLUNTEER:
+      case UserRole.FAITHFUL: {
+        const selfMemberId = user.member?.id;
+        if (!selfMemberId) return noAccessWhere();
+        return { OR: [{ id: selfMemberId }, { responsibleId: selfMemberId }] };
+      }
+      default:
+        return noAccessWhere();
     }
-
-    return where;
   }
 
   /**
    * Aplica filtros de hierarquia a uma query do Prisma para escalas.
    * Cobre tanto escalas COM evento quanto escalas SEM evento (Fase 4.1),
    * que se ancoram diretamente na comunidade (schedule.communityId).
+   * Negar por padrão: papel sem o escopo correspondente recebe filtro impossível.
    */
   applyScheduleFilter(user: CurrentUser): any {
     // Cláusula equivalente aplicada ao evento OU à comunidade própria da escala
@@ -743,14 +768,17 @@ export class HierarchyService {
       case UserRole.SYSTEM_ADMIN:
         return {};
       case UserRole.DIOCESAN_ADMIN:
+        if (!user.dioceseId) return noAccessWhere();
         eventClause = { community: { parish: { dioceseId: user.dioceseId } } };
         standaloneClause = { community: { parish: { dioceseId: user.dioceseId } } };
         break;
       case UserRole.PARISH_ADMIN:
+        if (!user.parishId) return noAccessWhere();
         eventClause = { community: { parishId: user.parishId } };
         standaloneClause = { community: { parishId: user.parishId } };
         break;
       case UserRole.COMMUNITY_COORDINATOR:
+        if (!user.communityId) return noAccessWhere();
         eventClause = { communityId: user.communityId };
         standaloneClause = { communityId: user.communityId };
         break;
@@ -763,15 +791,19 @@ export class HierarchyService {
             pastorals: { some: { communityPastoralId: { in: user.pastoralIds } } },
           };
         } else {
+          if (!user.communityId) return noAccessWhere();
           eventClause = { communityId: user.communityId };
           standaloneClause = { communityId: user.communityId };
         }
         break;
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL:
+        if (!user.communityId) return noAccessWhere();
         eventClause = { communityId: user.communityId };
         standaloneClause = { communityId: user.communityId };
         break;
+      default:
+        return noAccessWhere();
     }
 
     return {

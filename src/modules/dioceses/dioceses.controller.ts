@@ -24,8 +24,8 @@ export class DiocesesController {
 
   @Post()
   @Roles(UserRole.SYSTEM_ADMIN)
-  create(@Body() createDioceseDto: CreateDioceseDto) {
-    return this.diocesesService.create(createDioceseDto);
+  create(@Body() createDioceseDto: CreateDioceseDto, @CurrentUser() user: any) {
+    return this.diocesesService.create(createDioceseDto, user);
   }
 
   @Get()
@@ -40,14 +40,15 @@ export class DiocesesController {
 
   @Patch(':id')
   @Roles(UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN)
-  update(@Param('id') id: string, @Body() updateDioceseDto: UpdateDioceseDto) {
-    return this.diocesesService.update(id, updateDioceseDto);
+  update(@Param('id') id: string, @Body() updateDioceseDto: UpdateDioceseDto, @CurrentUser() user: any) {
+    // DIOCESAN_ADMIN só a própria diocese (conferido no service)
+    return this.diocesesService.update(id, updateDioceseDto, user);
   }
 
   @Delete(':id')
   @Roles(UserRole.SYSTEM_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.diocesesService.remove(id);
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.diocesesService.remove(id, user);
   }
 }
 

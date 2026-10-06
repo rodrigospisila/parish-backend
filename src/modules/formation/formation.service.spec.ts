@@ -17,6 +17,7 @@ describe('FormationService (3.4)', () => {
       formationTrack: { findMany: jest.fn().mockResolvedValue([]) },
       formationCourse: { findFirst: jest.fn(), findMany: jest.fn() },
       formationEnrollment: { findUnique: jest.fn(), update: jest.fn(), findMany: jest.fn().mockResolvedValue([]) },
+      community: { findUnique: jest.fn().mockResolvedValue(null) },
     };
 
     const module: TestingModule = await Test.createTestingModule({
@@ -107,6 +108,57 @@ describe('FormationService (3.4)', () => {
       expect(prisma.formationEnrollment.findMany).toHaveBeenCalledWith(
         expect.objectContaining({ where: { courseId: 'cur1' } }),
       );
+    });
+  });
+
+  // A14 — usuário sem parishId (diocesano, coordenador sem paróquia) não vê o país inteiro
+  describe('escopo das listagens (A14)', () => {
+    const diocesanNoScope = { id: 'd0', role: UserRole.DIOCESAN_ADMIN } as any;
+    const diocesan = { id: 'd1u', role: UserRole.DIOCESAN_ADMIN, dioceseId: 'd1' } as any;
+
+    it('diocesano sem diocese → trilhas, cursos e pendências vazios, sem consulta', async () => {
+      await expect(service.listTracks(diocesanNoScope)).resolves.toEqual([]);
+      await expect(service.listCourses(diocesanNoScope)).resolves.toEqual([]);
+      await expect(service.getPendingOrExpired(diocesanNoScope)).resolves.toEqual([]);
+      expect(prisma.formationTrack.findMany).not.toHaveBeenCalled();
+      expect(prisma.formationCourse.findMany).not.toHaveBeenCalled();
+      expect(prisma.formationEnrollment.findMany).not.toHaveBeenCalled();
+    });
+
+    it('diocesano vê só a própria diocese', async () => {
+      prisma.formationCourse.findMany.mockResolvedValue([]);
+      await service.listTracks(diocesan);
+      await service.listCourses(diocesan);
+      await service.getPendingOrExpired(diocesan);
+      expect(prisma.formationTrack.findMany.mock.calls[0][0].where).toEqual({
+        deletedAt: null,
+        parish: { dioceseId: 'd1' },
+      });
+      expect(prisma.formationCourse.findMany.mock.calls[0][0].where).toEqual({
+        deletedAt: null,
+        parish: { dioceseId: 'd1' },
+      });
+      expect(prisma.formationEnrollment.findMany.mock.calls[0][0].where.course).toEqual({
+        parish: { dioceseId: 'd1' },
+      });
+    });
+
+    it('coordenador sem paróquia e sem comunidade → vazio', async () => {
+      const lost = { id: 'u20', role: UserRole.PASTORAL_COORDINATOR } as any;
+      await expect(service.getPendingOrExpired(lost)).resolves.toEqual([]);
+      expect(prisma.formationEnrollment.findMany).not.toHaveBeenCalled();
+    });
+
+    it('coordenador sem parishId usa a paróquia da própria comunidade', async () => {
+      prisma.community.findUnique.mockResolvedValue({ parishId: 'p9' });
+      const coordNoParish = { id: 'u21', role: UserRole.PASTORAL_COORDINATOR, communityId: 'c9' } as any;
+      await service.getPendingOrExpired(coordNoParish);
+      expect(prisma.formationEnrollment.findMany.mock.calls[0][0].where.course).toEqual({ parishId: 'p9' });
+    });
+
+    it('SYSTEM_ADMIN sem filtro de paróquia', async () => {
+      await service.listTracks({ id: 's', role: UserRole.SYSTEM_ADMIN } as any);
+      expect(prisma.formationTrack.findMany.mock.calls[0][0].where).toEqual({ deletedAt: null });
     });
   });
 });

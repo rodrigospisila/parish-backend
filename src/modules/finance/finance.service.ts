@@ -19,6 +19,30 @@ export function civilDate(value: unknown, offsetHours = 12): Date {
   return new Date(`${day}T${String(offsetHours).padStart(2, '0')}:00:00.000Z`);
 }
 
+/** Mês corrente em Brasília ('AAAA-MM'). */
+export function currentMonthBR(now = new Date()): string {
+  return new Intl.DateTimeFormat('sv-SE', { timeZone: 'America/Sao_Paulo', year: 'numeric', month: '2-digit' }).format(now).slice(0, 7);
+}
+
+/**
+ * Mês de referência 'AAAA-MM' validado. Vazio → mês corrente (o painel sempre
+ * manda, mas o campo pode ser limpo); formato errado → 400.
+ */
+export function parseReferenceMonth(value: unknown, fallbackToCurrent = true): string {
+  const raw = String(value ?? '').trim();
+  if (!raw && fallbackToCurrent) return currentMonthBR();
+  if (!/^\d{4}-(0[1-9]|1[0-2])$/.test(raw)) throw new BadRequestException('Mês de referência inválido (use AAAA-MM)');
+  return raw;
+}
+
+/**
+ * Escopo financeiro: o MESMO recorte do TitheService.financeScope (paróquias da
+ * diocese, a paróquia, ou a comunidade + vínculos ativos da coordenação), mas
+ * negando por padrão — quem não tem diocese/paróquia/comunidade no cadastro não
+ * cai em "where vazio" (= tudo), recebe 403. {} = sem recorte (só SYSTEM_ADMIN).
+ */
+export type FinanceScope = { parishIds?: string[]; communityIds?: string[] };
+
 /**
  * Recursos financeiros e dízimo (roadmap 4.3).
  *
@@ -110,16 +134,54 @@ export class FinanceService {
     return tx;
   }
 
+  /** Resolvedor único do escopo financeiro (transações, resumo, dizimistas, contribuições). */
+  async financeScope(user: CurrentUser): Promise<FinanceScope> {
+    if (!user?.id || !this.canManageFinance(user.role)) throw new ForbiddenException('Sem permissão financeira');
+    if (user.role === UserRole.SYSTEM_ADMIN) return {};
+    if (user.role === UserRole.DIOCESAN_ADMIN) {
+      if (!user.dioceseId) throw new ForbiddenException('Seu cadastro não tem diocese — sem escopo financeiro');
+      const parishes = await this.prisma.parish.findMany({ where: { dioceseId: user.dioceseId }, select: { id: true } });
+      return { parishIds: parishes.map((p) => p.id) };
+    }
+    if (user.role === UserRole.PARISH_ADMIN) {
+      if (!user.parishId) throw new ForbiddenException('Seu cadastro não tem paróquia — sem escopo financeiro');
+      return { parishIds: [user.parishId] };
+    }
+    const linked = (user.communities ?? []).filter((c) => c.isActive !== false).map((c) => c.communityId);
+    const communityIds = [...new Set([user.communityId, ...linked].filter((id): id is string => !!id))];
+    if (!communityIds.length) throw new ForbiddenException('Seu cadastro não tem comunidade — sem escopo financeiro');
+    return { communityIds };
+  }
+
+  /** Comunidade pedida no filtro precisa estar no escopo FINANCEIRO (não só no de leitura). */
+  private async assertCommunityInFinanceScope(scope: FinanceScope, communityId: string) {
+    if (scope.communityIds) {
+      if (!scope.communityIds.includes(communityId)) throw new ForbiddenException('Comunidade fora do seu escopo');
+      return;
+    }
+    if (scope.parishIds) {
+      const community = await this.prisma.community.findUnique({ where: { id: communityId }, select: { parishId: true } });
+      if (!community || !scope.parishIds.includes(community.parishId)) {
+        throw new ForbiddenException('Comunidade fora do seu escopo');
+      }
+    }
+  }
+
+  /** Recorte dos MEMBROS (dizimistas) pelo escopo financeiro. */
+  private memberScopeWhere(scope: FinanceScope): any {
+    if (scope.communityIds) return { communityId: { in: scope.communityIds } };
+    if (scope.parishIds) return { community: { parishId: { in: scope.parishIds } } };
+    return {};
+  }
+
   async listTransactions(user: CurrentUser, filters: { communityId?: string; from?: string; to?: string }) {
-    if (!this.canManageFinance(user.role)) throw new ForbiddenException('Sem permissão financeira');
+    const scope = await this.financeScope(user);
     const where: any = {};
+    if (scope.parishIds) where.parishId = { in: scope.parishIds };
+    if (scope.communityIds) where.communityId = { in: scope.communityIds };
     if (filters.communityId) {
-      const inScope = await this.hierarchyService.isCommunityInScope(user, filters.communityId);
-      if (!inScope) throw new ForbiddenException('Comunidade fora do seu escopo');
+      await this.assertCommunityInFinanceScope(scope, filters.communityId);
       where.communityId = filters.communityId;
-    } else if (user.role !== UserRole.SYSTEM_ADMIN) {
-      if (user.communityId) where.communityId = user.communityId;
-      else if (user.parishId) where.parishId = user.parishId;
     }
     if (filters.from || filters.to) {
       // 'até' é o dia inteiro: lançamentos gravados às 12:00Z do próprio dia entram
@@ -162,14 +224,11 @@ export class FinanceService {
 
   /** Dizimistas do escopo do usuário (dados restritos à coordenação — LGPD). */
   async listTithers(user: CurrentUser) {
-    if (!this.canManageFinance(user.role)) {
+    if (!user?.role || !this.canManageFinance(user.role)) {
       throw new ForbiddenException('Dados individuais de dízimo são restritos');
     }
-    const memberWhere: any = { deletedAt: null };
-    if (user.role !== UserRole.SYSTEM_ADMIN) {
-      if (user.communityId) memberWhere.communityId = user.communityId;
-      else if (user.parishId) memberWhere.community = { parishId: user.parishId };
-    }
+    const scope = await this.financeScope(user);
+    const memberWhere: any = { deletedAt: null, ...this.memberScopeWhere(scope) };
     return this.prisma.tither.findMany({
       where: { member: memberWhere },
       include: {
@@ -195,6 +254,7 @@ export class FinanceService {
       throw new ForbiddenException('Fora do seu escopo');
     }
     if (dto.amount <= 0) throw new BadRequestException('Valor deve ser positivo');
+    const referenceMonth = parseReferenceMonth(dto.referenceMonth, false);
 
     // Cada contribuição gera uma transação financeira (categoria "Dízimo")
     const result = await this.prisma.$transaction(async (prisma) => {
@@ -203,7 +263,7 @@ export class FinanceService {
           type: TransactionType.INCOME,
           category: 'Dízimo',
           amount: dto.amount,
-          description: `Dízimo ${dto.referenceMonth}`,
+          description: `Dízimo ${referenceMonth}`,
           date: civilDate(dto.date),
           communityId: tither.member.communityId,
           // Paróquia/diocese do dizimista (não do token de quem lança)
@@ -216,7 +276,7 @@ export class FinanceService {
           titherId: dto.titherId,
           amount: dto.amount,
           date: civilDate(dto.date),
-          referenceMonth: dto.referenceMonth,
+          referenceMonth,
           method: dto.method,
           receiptNumber: dto.receiptNumber ?? null,
           financialTransactionId: financial.id,
@@ -225,33 +285,36 @@ export class FinanceService {
       return contribution;
     });
 
-    await this.auditService.log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'CREATE', entity: 'TitheContribution', entityId: result.id, metadata: { titherId: dto.titherId, referenceMonth: dto.referenceMonth } });
+    await this.auditService.log({ actor: { id: user.id, email: user.email, role: user.role }, action: 'CREATE', entity: 'TitheContribution', entityId: result.id, metadata: { titherId: dto.titherId, referenceMonth } });
     return result;
   }
 
-  /** Contribuintes por mês (dado individual — acesso restrito). */
-  async contributionsByMonth(referenceMonth: string, user: CurrentUser) {
-    if (!this.canManageFinance(user.role)) {
+  /**
+   * Contribuintes por mês (dado individual — acesso restrito). O recorte é feito
+   * NO BANCO pelo escopo financeiro (dizimista → membro → comunidade/paróquia) e
+   * sempre de UM mês: sem mês vale o corrente, nunca o histórico inteiro.
+   */
+  async contributionsByMonth(referenceMonth: string | undefined, user: CurrentUser) {
+    if (!user?.role || !this.canManageFinance(user.role)) {
       throw new ForbiddenException('Dados individuais de dízimo são restritos');
     }
+    const month = parseReferenceMonth(referenceMonth);
+    const scope = await this.financeScope(user);
+    const memberWhere = this.memberScopeWhere(scope);
     const rows = await this.prisma.titheContribution.findMany({
-      where: { referenceMonth },
+      where: {
+        referenceMonth: month,
+        ...(Object.keys(memberWhere).length ? { tither: { member: memberWhere } } : {}),
+      },
       include: { tither: { include: { member: { select: { id: true, fullName: true, communityId: true } } } } },
       orderBy: { date: 'desc' },
     });
-    // Filtra ao escopo do usuário
-    return rows
-      .filter((r) =>
-        user.role === UserRole.SYSTEM_ADMIN ||
-        !user.communityId ||
-        r.tither.member.communityId === user.communityId,
-      )
-      .map((r) => ({
-        contributionId: r.id,
-        member: { id: r.tither.member.id, name: r.tither.member.fullName },
-        amount: r.amount,
-        method: r.method,
-        date: r.date,
-      }));
+    return rows.map((r) => ({
+      contributionId: r.id,
+      member: { id: r.tither.member.id, name: r.tither.member.fullName },
+      amount: r.amount,
+      method: r.method,
+      date: r.date,
+    }));
   }
 }

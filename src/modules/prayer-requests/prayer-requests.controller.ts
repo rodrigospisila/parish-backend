@@ -36,20 +36,24 @@ export class PrayerRequestsController {
     UserRole.COMMUNITY_COORDINATOR,
   )
   findAll(
+    @CurrentUser() user: any,
     @Query('communityId') communityId?: string,
     @Query('category') category?: PrayerRequestCategory,
     @Query('status') status?: PrayerRequestStatus,
   ) {
-    return this.prayerRequestsService.findAll(communityId, category, status);
+    // Só as comunidades que o usuário modera
+    return this.prayerRequestsService.findAll(user, communityId, category, status);
   }
 
   @Get('approved')
   @UseGuards(JwtAuthGuard)
   findApproved(
+    @CurrentUser() user: any,
     @Query('communityId') communityId?: string,
     @Query('category') category?: PrayerRequestCategory,
   ) {
-    return this.prayerRequestsService.findApproved(communityId, category);
+    // Mural das comunidades do usuário (principal e vínculos)
+    return this.prayerRequestsService.findApproved(user, communityId, category);
   }
 
   @Get('pending')
@@ -70,8 +74,8 @@ export class PrayerRequestsController {
     UserRole.PARISH_ADMIN,
     UserRole.COMMUNITY_COORDINATOR,
   )
-  getStats(@Query('communityId') communityId?: string) {
-    return this.prayerRequestsService.getStats(communityId);
+  getStats(@CurrentUser() user: any, @Query('communityId') communityId?: string) {
+    return this.prayerRequestsService.getStats(user, communityId);
   }
 
   @Get(':id')
@@ -90,15 +94,16 @@ export class PrayerRequestsController {
   update(
     @Param('id') id: string,
     @Body() updatePrayerRequestDto: UpdatePrayerRequestDto,
+    @CurrentUser() user: any,
   ) {
-    return this.prayerRequestsService.update(id, updatePrayerRequestDto);
+    return this.prayerRequestsService.update(id, updatePrayerRequestDto, user);
   }
 
   @Delete(':id')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
-  remove(@Param('id') id: string) {
-    return this.prayerRequestsService.remove(id);
+  remove(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.prayerRequestsService.remove(id, user);
   }
 
   // ========== MODERAÇÃO ==========
@@ -129,8 +134,8 @@ export class PrayerRequestsController {
 
   @Post(':id/pray')
   @UseGuards(JwtAuthGuard)
-  incrementPrayerCount(@Param('id') id: string) {
-    return this.prayerRequestsService.incrementPrayerCount(id);
+  incrementPrayerCount(@Param('id') id: string, @CurrentUser() user: any) {
+    return this.prayerRequestsService.incrementPrayerCount(id, user);
   }
 }
 

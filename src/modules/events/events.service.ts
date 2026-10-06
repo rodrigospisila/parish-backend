@@ -7,8 +7,21 @@ import { AddPastoralToEventDto } from './dto/add-pastoral-to-event.dto';
 import { CreateAssignmentDto } from './dto/create-assignment.dto';
 import { CheckinAssignmentDto } from './dto/checkin-assignment.dto';
 import { EventType, UserRole } from '@prisma/client';
-import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { HierarchyService, CurrentUser, isNoAccessWhere } from '../../common/hierarchy.service';
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+
+/**
+ * Quem vê contatos (e-mail/telefone) de participantes e escalados de um
+ * evento: a coordenação (o acesso ao evento já é checado pelo escopo).
+ * Fiel/voluntário veem só o nome (LGPD: necessidade).
+ */
+function canSeeEventContacts(user?: CurrentUser): boolean {
+  return !user || isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR);
+}
+
+const MEMBER_CONTACT_SELECT = { id: true, fullName: true, email: true, phone: true } as const;
+const MEMBER_NAME_SELECT = { id: true, fullName: true } as const;
 
 @Injectable()
 export class EventsService {
@@ -56,7 +69,11 @@ export class EventsService {
       : undefined;
   }
 
-  private buildEventPastoralsInclude(scopedPastoralIds: string[] = [], includeAssignments: boolean = false) {
+  private buildEventPastoralsInclude(
+    scopedPastoralIds: string[] = [],
+    includeAssignments: boolean = false,
+    withContacts: boolean = true,
+  ) {
     return {
       where: this.getEventPastoralWhere(scopedPastoralIds),
       include: {
@@ -83,12 +100,7 @@ export class EventsService {
               assignments: {
                 include: {
                   member: {
-                    select: {
-                      id: true,
-                      fullName: true,
-                      email: true,
-                      phone: true,
-                    },
+                    select: withContacts ? MEMBER_CONTACT_SELECT : MEMBER_NAME_SELECT,
                   },
                 },
                 orderBy: {
@@ -233,7 +245,17 @@ export class EventsService {
     currentUser?: CurrentUser,
     onlyMyPastorals?: boolean,
   ) {
-    const hierarchyFilter = currentUser ? this.hierarchyService.applyEventFilter(currentUser) : {};
+    let hierarchyFilter = currentUser ? this.hierarchyService.applyEventFilter(currentUser) : {};
+    // Sem escopo próprio (ex.: conta sem comunidade principal) o filtro é
+    // impossível; uma comunidade explícita só vale se for vínculo ativo dele.
+    if (
+      currentUser &&
+      communityId &&
+      isNoAccessWhere(hierarchyFilter) &&
+      (await this.hierarchyService.isCommunityInScope(currentUser, communityId))
+    ) {
+      hierarchyFilter = { communityId };
+    }
     const scopedPastoralIds =
       currentUser?.role === UserRole.PASTORAL_COORDINATOR
         ? await this.getScopedPastoralIds(currentUser)
@@ -378,9 +400,18 @@ export class EventsService {
 
     // Inclui a agenda fixa (Missa/Confissão/Adoração/Terço) como ocorrências.
     // Horário flutuante (sem Z): '2026-07-05T08:00:00' → '20260705T080000'.
+    // Escopo amplo (paróquia/diocese/plataforma) sem comunidade escolhida: a
+    // expansão é limitada (MassSchedulesService) — exporta só os próximos dias.
+    const maxFixedDays = this.massSchedulesService.maxOccurrenceWindowDays(currentUser, communityId);
+    let fixedFrom = from;
+    let fixedTo = to;
+    if (to.getTime() - from.getTime() > maxFixedDays * 24 * 60 * 60 * 1000) {
+      fixedFrom = new Date();
+      fixedTo = new Date(fixedFrom.getTime() + (maxFixedDays - 1) * 24 * 60 * 60 * 1000);
+    }
     const fixed = await this.massSchedulesService.expandOccurrences(
-      from.toISOString(),
-      to.toISOString(),
+      fixedFrom.toISOString(),
+      fixedTo.toISOString(),
       currentUser,
       communityId,
     );
@@ -574,6 +605,8 @@ export class EventsService {
       currentUser?.role === UserRole.PASTORAL_COORDINATOR
         ? await this.getScopedPastoralIds(currentUser)
         : [];
+    // Fiel/voluntário: participantes e escalados só com o nome (sem contato)
+    const withContacts = canSeeEventContacts(currentUser);
 
     const event = await this.prisma.event.findFirst({
       where: { id, deletedAt: null },
@@ -587,16 +620,11 @@ export class EventsService {
             },
           },
         },
-        eventPastorals: this.buildEventPastoralsInclude(scopedPastoralIds, true),
+        eventPastorals: this.buildEventPastoralsInclude(scopedPastoralIds, true, withContacts),
         participants: {
           include: {
             member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-              },
+              select: withContacts ? MEMBER_CONTACT_SELECT : MEMBER_NAME_SELECT,
             },
           },
           orderBy: {
@@ -721,16 +749,69 @@ export class EventsService {
     });
   }
 
-  async addParticipant(eventId: string, memberId: string) {
-    const event = await this.findOne(eventId);
+  /**
+   * Inscrição em evento (achado A10). Negar por padrão:
+   * - o usuário precisa ter acesso ao evento (hasAccessToEvent);
+   * - o fiel inscreve/remove só a si mesmo e aos próprios dependentes
+   *   (responsibleId); qualquer outro membro exige canManageEvent (coordenação
+   *   com escopo sobre o evento).
+   */
+  private async assertCanHandleParticipation(
+    eventId: string,
+    memberId: string,
+    currentUser: CurrentUser,
+  ) {
+    if (!currentUser?.id) {
+      throw new ForbiddenException('Voce nao tem permissao para alterar inscricoes deste evento');
+    }
+    if (!eventId || !memberId) {
+      throw new BadRequestException('Informe o evento e o membro');
+    }
 
-    const member = await this.prisma.member.findUnique({
-      where: { id: memberId },
+    const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
+    if (!hasAccess) {
+      throw new ForbiddenException('Voce nao tem permissao para acessar este evento');
+    }
+
+    const event = await this.prisma.event.findFirst({
+      where: { id: eventId, deletedAt: null },
+      select: { id: true, maxParticipants: true },
     });
+    if (!event) {
+      throw new NotFoundException(`Evento com ID ${eventId} nao encontrado`);
+    }
+
+    const member = await this.prisma.member.findFirst({
+      where: { id: memberId, deletedAt: null },
+      select: { id: true, userId: true, responsibleId: true },
+    });
+
+    const self = await this.prisma.member.findFirst({
+      where: { userId: currentUser.id, deletedAt: null },
+      select: { id: true },
+    });
+    const isSelfOrDependent =
+      !!member &&
+      (member.userId === currentUser.id || (!!self && member.responsibleId === self.id));
+
+    if (!isSelfOrDependent) {
+      const canManage = await this.hierarchyService.canManageEvent(currentUser.id, eventId);
+      if (!canManage) {
+        throw new ForbiddenException(
+          'Voce so pode inscrever ou remover a si mesmo e aos seus dependentes',
+        );
+      }
+    }
 
     if (!member) {
       throw new NotFoundException(`Membro com ID ${memberId} nao encontrado`);
     }
+
+    return event;
+  }
+
+  async addParticipant(eventId: string, memberId: string, currentUser: CurrentUser) {
+    const event = await this.assertCanHandleParticipation(eventId, memberId, currentUser);
 
     const existing = await this.prisma.eventParticipant.findUnique({
       where: {
@@ -755,6 +836,7 @@ export class EventsService {
       }
     }
 
+    // Resposta sem contato do membro (a inscrição não é canal de consulta)
     return this.prisma.eventParticipant.create({
       data: {
         eventId,
@@ -762,18 +844,15 @@ export class EventsService {
       },
       include: {
         member: {
-          select: {
-            id: true,
-            fullName: true,
-            email: true,
-            phone: true,
-          },
+          select: MEMBER_NAME_SELECT,
         },
       },
     });
   }
 
-  async removeParticipant(eventId: string, memberId: string) {
+  async removeParticipant(eventId: string, memberId: string, currentUser: CurrentUser) {
+    await this.assertCanHandleParticipation(eventId, memberId, currentUser);
+
     const participant = await this.prisma.eventParticipant.findUnique({
       where: {
         eventId_memberId: {
@@ -809,6 +888,9 @@ export class EventsService {
       }
     }
 
+    // Contatos só para a coordenação; fiel/voluntário veem nome e comunidade
+    const withContacts = canSeeEventContacts(currentUser);
+
     return this.prisma.eventParticipant.findMany({
       where: { eventId },
       include: {
@@ -816,8 +898,7 @@ export class EventsService {
           select: {
             id: true,
             fullName: true,
-            email: true,
-            phone: true,
+            ...(withContacts ? { email: true, phone: true } : {}),
             communityId: true,
             community: {
               select: {
@@ -1096,12 +1177,8 @@ export class EventsService {
         assignments: {
           include: {
             member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-              },
+              // Fiel/voluntário: só o nome dos escalados
+              select: canSeeEventContacts(currentUser) ? MEMBER_CONTACT_SELECT : MEMBER_NAME_SELECT,
             },
           },
           orderBy: {

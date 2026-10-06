@@ -32,6 +32,28 @@ export class FormationService {
     );
   }
 
+  /**
+   * Escopo das LISTAGENS de formação (catálogo é da paróquia): filtro para
+   * campos `parishId`/`parish`. `{}` = sem restrição (SYSTEM_ADMIN); `null` =
+   * sem escopo resolvido → lista vazia (negar por padrão). Diocesano vê só a
+   * própria diocese; sem parishId no usuário, vale a paróquia da comunidade.
+   */
+  private async parishScopeWhere(user: CurrentUser): Promise<Record<string, unknown> | null> {
+    if (user.role === UserRole.SYSTEM_ADMIN) return {};
+    if (user.role === UserRole.DIOCESAN_ADMIN) {
+      return user.dioceseId ? { parish: { dioceseId: user.dioceseId } } : null;
+    }
+    if (user.parishId) return { parishId: user.parishId };
+    if (user.role !== UserRole.PARISH_ADMIN && user.communityId) {
+      const community = await this.prisma.community.findUnique({
+        where: { id: user.communityId },
+        select: { parishId: true },
+      });
+      if (community?.parishId) return { parishId: community.parishId };
+    }
+    return null;
+  }
+
   private requireParish(user: CurrentUser) {
     if (user.role === UserRole.SYSTEM_ADMIN) return user.parishId ?? null;
     if (!user.parishId) throw new BadRequestException('Usuário sem paróquia vinculada');
@@ -50,8 +72,9 @@ export class FormationService {
   }
 
   async listTracks(user: CurrentUser) {
-    const where: any = { deletedAt: null };
-    if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) where.parishId = user.parishId;
+    const scope = await this.parishScopeWhere(user);
+    if (!scope) return [];
+    const where: any = { deletedAt: null, ...scope };
     return this.prisma.formationTrack.findMany({
       where,
       include: { _count: { select: { courses: true } } },
@@ -84,8 +107,9 @@ export class FormationService {
   }
 
   async listCourses(user: CurrentUser) {
-    const where: any = { deletedAt: null };
-    if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) where.parishId = user.parishId;
+    const scope = await this.parishScopeWhere(user);
+    if (!scope) return [];
+    const where: any = { deletedAt: null, ...scope };
     return this.prisma.formationCourse.findMany({
       where,
       include: { track: { select: { name: true } }, _count: { select: { enrollments: true } } },
@@ -155,10 +179,9 @@ export class FormationService {
 
   /** Inscrições com formação vencida ou pendente (identificação de agentes). */
   async getPendingOrExpired(user: CurrentUser) {
-    const where: any = {};
-    if (user.role !== UserRole.SYSTEM_ADMIN && user.parishId) {
-      where.course = { parishId: user.parishId };
-    }
+    const scope = await this.parishScopeWhere(user);
+    if (!scope) return [];
+    const where: any = Object.keys(scope).length ? { course: scope } : {};
     const now = new Date();
     const enrollments = await this.prisma.formationEnrollment.findMany({
       where: {

@@ -18,6 +18,16 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { AuditService } from '../../common/audit.service';
 import { ScheduleConflictsService } from '../../common/schedule-conflicts.service';
+import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+
+/**
+ * Quem vê os contatos (e-mail/telefone/cônjuge/foto) dos escalados: a
+ * coordenação (o acesso à escala em si já é checado pelo escopo). Fiel e
+ * voluntário veem só nome e função dos colegas (LGPD: necessidade).
+ */
+function canSeeScheduleContacts(user?: CurrentUser): boolean {
+  return !user || isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR);
+}
 
 /** Dados mínimos da atribuição recém-criada para avisar o membro */
 interface CreatedAssignmentNotice {
@@ -831,6 +841,8 @@ export class SchedulesService {
         ? await this.getScopedPastoralIds(currentUser)
         : [];
     const assignmentWhere = this.getScopedAssignmentWhere(scopedPastoralIds);
+    // Fiel/voluntário: só nome e função dos escalados (sem e-mail/telefone)
+    const withContacts = canSeeScheduleContacts(currentUser);
 
     // Combina o filtro de escopo (pode conter OR para escalas com/sem evento)
     // com a exclusão de eventos arquivados — sem quebrar escalas standalone.
@@ -928,13 +940,15 @@ export class SchedulesService {
               },
             },
             member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-                spouseId: true,
-              },
+              select: withContacts
+                ? {
+                    id: true,
+                    fullName: true,
+                    email: true,
+                    phone: true,
+                    spouseId: true,
+                  }
+                : { id: true, fullName: true },
             },
           },
         },
@@ -965,6 +979,9 @@ export class SchedulesService {
         ? await this.getScopedPastoralIds(currentUser)
         : [];
     const assignmentWhere = this.getScopedAssignmentWhere(scopedPastoralIds);
+    // Fiel/voluntário: só nome e função dos escalados (sem contato, foto,
+    // cônjuge nem os pedidos de troca dos colegas)
+    const withContacts = canSeeScheduleContacts(currentUser);
 
     const schedule = await this.prisma.schedule.findFirst({
       where: { id, deletedAt: null },
@@ -1042,23 +1059,26 @@ export class SchedulesService {
               },
             },
             member: {
-              select: {
-                id: true,
-                fullName: true,
-                email: true,
-                phone: true,
-                photoUrl: true,
-                spouseId: true,
-                spouse: { select: { id: true, fullName: true } },
-              },
+              select: withContacts
+                ? {
+                    id: true,
+                    fullName: true,
+                    email: true,
+                    phone: true,
+                    photoUrl: true,
+                    spouseId: true,
+                    spouse: { select: { id: true, fullName: true } },
+                  }
+                : { id: true, fullName: true },
             },
             // Grupo escalado como unidade (pastorais por grupos)
             pastoralGroup: {
               select: { id: true, name: true },
             },
             // Pedidos de troca em aberto — destacados na gestão da escala
+            // (só a coordenação; para o fiel, filtro que não casa com nada)
             swapRequests: {
-              where: { status: 'PENDING' },
+              where: withContacts ? { status: 'PENDING' } : { id: '__none__' },
               select: { id: true, message: true, createdAt: true },
               orderBy: { createdAt: 'desc' },
             },
@@ -1541,11 +1561,23 @@ export class SchedulesService {
   }
 
   async findAllAssignments(scheduleId?: string, memberId?: string, currentUser?: CurrentUser) {
+    // Negar por padrão: rota sempre autenticada; sem usuário não há escopo
+    if (!currentUser) {
+      return [];
+    }
+
+    // Fiel/voluntário: com scheduleId, a equipe da escala (se tiver acesso a
+    // ela) só com nome e função; sem scheduleId, apenas as próprias atribuições.
+    if (!canSeeScheduleContacts(currentUser)) {
+      return this.findAssignmentsForBaseRole(currentUser, scheduleId);
+    }
+
     const scopedPastoralIds =
-      currentUser?.role === 'PASTORAL_COORDINATOR'
+      currentUser.role === 'PASTORAL_COORDINATOR'
         ? await this.getScopedPastoralIds(currentUser)
         : [];
     const where: any = {};
+    const andConditions: any[] = [];
 
     if (scheduleId) {
       where.scheduleId = scheduleId;
@@ -1553,6 +1585,12 @@ export class SchedulesService {
 
     if (memberId) {
       where.memberId = memberId;
+    }
+
+    if (!scopedPastoralIds.length) {
+      // Escopo hierárquico da escala para TODA a coordenação (antes, quem não
+      // era coordenador de pastoral via as atribuições do país inteiro)
+      andConditions.push({ schedule: this.hierarchyService.applyScheduleFilter(currentUser) });
     }
 
     if (scopedPastoralIds.length) {
@@ -1586,6 +1624,10 @@ export class SchedulesService {
       ];
     }
 
+    if (andConditions.length) {
+      where.AND = andConditions;
+    }
+
     return this.prisma.scheduleAssignment.findMany({
       where,
       include: {
@@ -1612,6 +1654,55 @@ export class SchedulesService {
       orderBy: {
         createdAt: 'desc',
       },
+    });
+  }
+
+  /**
+   * GET /schedules/assignments/all para fiel/voluntário (achado C5).
+   * - com scheduleId: a equipe da escala (tela "Equipe" do app), exigindo
+   *   acesso à escala, e só com nome/função/status — sem contatos;
+   * - sem scheduleId: apenas as atribuições do próprio membro.
+   */
+  private async findAssignmentsForBaseRole(currentUser: CurrentUser, scheduleId?: string) {
+    const basicInclude = {
+      schedule: {
+        select: {
+          id: true,
+          title: true,
+          date: true,
+          startTime: true,
+          endTime: true,
+          status: true,
+          event: { select: { id: true, title: true, type: true } },
+        },
+      },
+      member: { select: { id: true, fullName: true } },
+    } as const;
+
+    if (scheduleId) {
+      const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
+      if (!hasAccess) {
+        throw new ForbiddenException('Voce nao tem permissao para acessar esta escala');
+      }
+      return this.prisma.scheduleAssignment.findMany({
+        where: { scheduleId },
+        include: basicInclude,
+        orderBy: { createdAt: 'desc' },
+      });
+    }
+
+    const member = await this.prisma.member.findFirst({
+      where: { userId: currentUser.id, deletedAt: null },
+      select: { id: true },
+    });
+    if (!member) {
+      return [];
+    }
+
+    return this.prisma.scheduleAssignment.findMany({
+      where: { memberId: member.id },
+      include: basicInclude,
+      orderBy: { createdAt: 'desc' },
     });
   }
 
@@ -3399,26 +3490,62 @@ export class SchedulesService {
     dto: { scheduleId: string; pastoralGroupId: string; action: 'confirm' | 'decline'; reason?: string },
     currentUser: CurrentUser,
   ) {
-    const isCoordinator = this.assistedResponseRoles.includes(currentUser.role);
+    if (!dto?.scheduleId || !dto?.pastoralGroupId) {
+      throw new BadRequestException('Informe a escala e o grupo');
+    }
+    if (dto.action !== 'confirm' && dto.action !== 'decline') {
+      throw new BadRequestException('Acao invalida (use confirm ou decline)');
+    }
 
-    if (!isCoordinator) {
-      const member = await this.prisma.member.findFirst({
-        where: { userId: currentUser.id },
-        select: { id: true },
-      });
-      if (!member) {
-        throw new ForbiddenException('Usuario nao possui cadastro de membro');
-      }
-      const membership = await this.prisma.pastoralMember.findFirst({
-        where: {
-          memberId: member.id,
-          pastoralGroupId: dto.pastoralGroupId,
-          isActive: true,
-        },
-        select: { role: true },
-      });
-      if (!membership || !/coorden|coordin|l[íi]der/i.test(membership.role || '')) {
+    // O grupo precisa pertencer a uma pastoral vinculada à escala (mesma regra
+    // de createGroupAssignment) — senão não há equipe desta escala a responder.
+    const group = await this.prisma.pastoralGroup.findFirst({
+      where: { id: dto.pastoralGroupId, deletedAt: null },
+      select: { id: true, communityPastoralId: true },
+    });
+    if (!group) {
+      throw new NotFoundException('Grupo nao encontrado');
+    }
+    const linkedPastoral = await this.prisma.schedulePastoral.findFirst({
+      where: { scheduleId: dto.scheduleId, communityPastoralId: group.communityPastoralId },
+      select: { id: true },
+    });
+    if (!linkedPastoral) {
+      throw new BadRequestException('A pastoral deste grupo nao esta vinculada a esta escala');
+    }
+
+    // 1) Líder do grupo responde pela própria equipe (qualquer papel)
+    const member = await this.prisma.member.findFirst({
+      where: { userId: currentUser.id },
+      select: { id: true },
+    });
+    const membership = member
+      ? await this.prisma.pastoralMember.findFirst({
+          where: {
+            memberId: member.id,
+            pastoralGroupId: dto.pastoralGroupId,
+            isActive: true,
+          },
+          select: { role: true },
+        })
+      : null;
+    const isGroupLeader = !!membership && /coorden|coordin|l[íi]der/i.test(membership.role || '');
+
+    // 2) Coordenação (resposta assistida): exige escopo sobre a escala e, para
+    //    o coordenador de pastoral, que a pastoral do grupo seja dele.
+    if (!isGroupLeader) {
+      if (!this.assistedResponseRoles.includes(currentUser.role)) {
         throw new ForbiddenException('Apenas o líder do grupo pode responder pela equipe');
+      }
+      await this.assertCanRespondForMember(currentUser, dto.scheduleId);
+      if (currentUser.role === UserRole.PASTORAL_COORDINATOR) {
+        // Coordenação de fato (não basta ser membro da pastoral)
+        const coordinated =
+          currentUser.coordinatedPastoralIds ??
+          (await this.hierarchyService.getUserPastoralIds(currentUser.id, true));
+        if (!coordinated.includes(group.communityPastoralId)) {
+          throw new ForbiddenException('Voce so pode responder por grupos das suas pastorais');
+        }
       }
     }
 

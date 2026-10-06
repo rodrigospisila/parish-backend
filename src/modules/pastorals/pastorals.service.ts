@@ -15,6 +15,20 @@ import { CreateActivityDto } from './dto/create-activity.dto';
 import { UserRole, NotificationType } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { SessionUser, resolveCoordinatedPastoralIds } from './coordination-scope';
+
+/**
+ * Dados do membro devolvidos nas listas de equipe: só o necessário para a tela.
+ * Contato (telefone/e-mail) vai apenas para quem passou por ensurePastoralAccess
+ * — coordenação daquela pastoral ou gestão da comunidade/paróquia/diocese.
+ */
+const TEAM_MEMBER_SELECT = {
+  id: true,
+  fullName: true,
+  photoUrl: true,
+  phone: true,
+  email: true,
+} as const;
 
 @Injectable()
 export class PastoralsService {
@@ -24,21 +38,18 @@ export class PastoralsService {
     private readonly notificationsService: NotificationsService,
   ) {}
 
-  private async getScopedPastoralIds(currentUser?: CurrentUser): Promise<string[]> {
-    if (!currentUser?.id) {
-      return [];
-    }
-
-    if (currentUser.pastoralIds?.length) {
-      return currentUser.pastoralIds;
-    }
-
-    return this.hierarchyService.getUserPastoralIds(currentUser.id, true);
+  /**
+   * Pastorais que o usuário COORDENA (papel COORDINATOR ativo ou coordenação
+   * vigente). Ser só membro (pastoralIds = participação) não concede gestão.
+   */
+  private async getScopedPastoralIds(currentUser?: SessionUser): Promise<string[]> {
+    return resolveCoordinatedPastoralIds(this.prisma, currentUser);
   }
 
-  async ensurePastoralAccess(communityPastoralId: string, currentUser?: CurrentUser) {
-    if (!currentUser) {
-      return;
+  async ensurePastoralAccess(communityPastoralId: string, currentUser?: SessionUser) {
+    // Negar por padrão: sem usuário identificado não há acesso
+    if (!currentUser?.id) {
+      throw new ForbiddenException('Voce nao tem permissao para acessar esta pastoral');
     }
 
     if (currentUser.role === UserRole.SYSTEM_ADMIN) {
@@ -128,7 +139,11 @@ export class PastoralsService {
 
     if (pastoralMember.pastoralGroupId) {
       await this.ensureGroupAccess(pastoralMember.pastoralGroupId, currentUser);
+      return;
     }
+
+    // Vínculo sem pastoral nem grupo: não há escopo para validar — negar
+    throw new ForbiddenException('Voce nao tem permissao para alterar este vinculo');
   }
 
   // ============================================
@@ -254,6 +269,13 @@ export class PastoralsService {
 
     if (!community) {
       throw new NotFoundException('Comunidade nÃ£o encontrada');
+    }
+
+    // Escopo: só cria pastoral em comunidade que o usuário gerencia
+    // (diocese/paróquia/comunidade própria) — o papel sozinho não basta
+    const canManage = await this.hierarchyService.canManageCommunity(userId, dto.communityId);
+    if (!canManage) {
+      throw new ForbiddenException('Você não tem permissão para criar pastorais nesta comunidade');
     }
 
     // Verificar se a pastoral global existe
@@ -510,12 +532,14 @@ export class PastoralsService {
     });
   }
 
-  async updateCommunityPastoral(id: string, dto: UpdateCommunityPastoralDto, userId: string) {
-    const pastoral = await this.findOneCommunityPastoral(id);
+  async updateCommunityPastoral(id: string, dto: UpdateCommunityPastoralDto, currentUser: SessionUser) {
+    // Escopo ANTES de qualquer gravação: a pastoral precisa estar na
+    // diocese/paróquia/comunidade do usuário
+    const pastoral = await this.findOneCommunityPastoral(id, currentUser);
 
     // Verificar permissÃµes
     const user = await this.prisma.user.findUnique({
-      where: { id: userId },
+      where: { id: currentUser.id },
     });
 
     if (!user) {
@@ -534,10 +558,21 @@ export class PastoralsService {
       throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para editar pastorais');
     }
 
+    // Comunidade e pastoral do catálogo são a identidade do registro: não
+    // mudam na edição (trocar communityId "sequestraria" a pastoral para
+    // outra paróquia). O painel reenvia os valores atuais — iguais passam.
+    const { communityId, globalPastoralId, ...editable } = dto;
+    if (communityId !== undefined && communityId !== pastoral.communityId) {
+      throw new BadRequestException('Não é possível mover a pastoral para outra comunidade');
+    }
+    if (globalPastoralId !== undefined && globalPastoralId !== pastoral.globalPastoralId) {
+      throw new BadRequestException('Não é possível trocar a pastoral do catálogo — crie outra pastoral');
+    }
+
     return this.prisma.communityPastoral.update({
       where: { id },
       data: {
-        ...dto,
+        ...editable,
         // null limpa a data; undefined mantém o valor atual
         foundedAt: dto.foundedAt ? new Date(dto.foundedAt) : dto.foundedAt === null ? null : undefined,
       },
@@ -548,11 +583,12 @@ export class PastoralsService {
     });
   }
 
-  async removeCommunityPastoral(id: string, userId: string) {
-    await this.findOneCommunityPastoral(id);
+  async removeCommunityPastoral(id: string, currentUser: SessionUser) {
+    // Escopo ANTES do soft delete: pastoral de outra paróquia → 403
+    await this.findOneCommunityPastoral(id, currentUser);
 
     const user = await this.prisma.user.findUnique({
-      where: { id: userId },
+      where: { id: currentUser.id },
     });
 
     if (!user) {
@@ -597,15 +633,18 @@ export class PastoralsService {
     });
   }
 
-  async findAllPastoralGroups(communityPastoralId?: string, currentUser?: CurrentUser) {
-    if (communityPastoralId) {
-      await this.ensurePastoralAccess(communityPastoralId, currentUser);
+  async findAllPastoralGroups(communityPastoralId?: string, currentUser?: SessionUser) {
+    // Negar por padrão: sem a pastoral, a consulta viraria "todos os grupos
+    // do país" com os membros de cada um
+    if (!communityPastoralId) {
+      throw new BadRequestException('Informe a pastoral (communityPastoralId)');
     }
+    await this.ensurePastoralAccess(communityPastoralId, currentUser);
 
     return this.prisma.pastoralGroup.findMany({
       where: {
         deletedAt: null,
-        ...(communityPastoralId ? { communityPastoralId } : {}),
+        communityPastoralId,
       },
       include: {
         communityPastoral: {
@@ -614,8 +653,9 @@ export class PastoralsService {
           },
         },
         members: {
+          where: { member: { deletedAt: null } },
           include: {
-            member: true,
+            member: { select: TEAM_MEMBER_SELECT },
           },
         },
       },
@@ -774,6 +814,11 @@ export class PastoralsService {
   async addMemberToPastoral(dto: CreatePastoralMemberDto, currentUser?: CurrentUser) {
     let targetCommunityPastoralId = dto.communityPastoralId;
 
+    // Sem pastoral nem grupo não há escopo a validar — negar por padrão
+    if (!dto.communityPastoralId && !dto.pastoralGroupId) {
+      throw new BadRequestException('Informe a pastoral (communityPastoralId) ou o grupo (pastoralGroupId)');
+    }
+
     if (dto.communityPastoralId) {
       await this.ensurePastoralAccess(dto.communityPastoralId, currentUser);
     }
@@ -869,8 +914,14 @@ export class PastoralsService {
   async findPastoralMembers(
     communityPastoralId?: string,
     pastoralGroupId?: string,
-    currentUser?: CurrentUser,
+    currentUser?: SessionUser,
   ) {
+    // Negar por padrão: sem filtro, o Prisma ignora os `undefined` e a
+    // consulta devolveria os membros de TODAS as pastorais do país
+    if (!communityPastoralId && !pastoralGroupId) {
+      throw new BadRequestException('Informe a pastoral (communityPastoralId) ou o grupo (pastoralGroupId)');
+    }
+
     if (communityPastoralId) {
       await this.ensurePastoralAccess(communityPastoralId, currentUser);
     }
@@ -881,11 +932,12 @@ export class PastoralsService {
 
     return this.prisma.pastoralMember.findMany({
       where: {
-        communityPastoralId,
-        pastoralGroupId,
+        ...(communityPastoralId ? { communityPastoralId } : {}),
+        ...(pastoralGroupId ? { pastoralGroupId } : {}),
+        member: { deletedAt: null },
       },
       include: {
-        member: true,
+        member: { select: TEAM_MEMBER_SELECT },
         communityPastoral: {
           include: {
             globalPastoral: true,
