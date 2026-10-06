@@ -9,8 +9,11 @@ async function bootstrap() {
   validateEnv();
 
   const app = await NestFactory.create(AppModule);
-  // Atrás do proxy do Railway: req.ip vem do X-Forwarded-For (throttling por IP)
-  app.getHttpAdapter().getInstance().set('trust proxy', 1);
+  // Atrás do proxy do Railway: o X-Forwarded-For chega como "<cliente>, <borda do
+  // Railway>" e a conexão vem do proxy interno. Com 1 salto, req.ip era o IP da
+  // BORDA (2 endereços para todo o Brasil — o limite por IP valia para todos
+  // juntos). Com 2 saltos, req.ip é o IP real do cliente.
+  app.getHttpAdapter().getInstance().set('trust proxy', Number(process.env.TRUST_PROXY_HOPS) || 2);
 
   // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';

@@ -37,10 +37,16 @@ export class AuthController {
     return this.authService.register(registerDto);
   }
 
-  /** Freio por IP contra teste de senhas (o `trust proxy` do main.ts garante o IP real atrás do Railway). */
+  /**
+   * Freio contra teste de senhas: por IP (o `trust proxy` do main.ts garante o IP
+   * real atrás do Railway) e por CONTA tentada — este vale mesmo com IP trocado.
+   */
   @Post('login')
   @HttpCode(HttpStatus.OK)
-  @Throttle({ default: { limit: 10, ttl: MINUTE } })
+  @Throttle({
+    default: { limit: 10, ttl: MINUTE },
+    target: { limit: 20, ttl: HOUR, getTracker: bodyTargetTracker },
+  })
   async login(@Body() loginDto: LoginDto, @Headers() headers: Record<string, string | undefined>, @Ip() ip: string) {
     return this.authService.login(loginDto, {
       ip,
