@@ -24,6 +24,7 @@ describe('Autorização e LGPD (Fase 0 - e2e)', () => {
   let memberAId: string;
   let memberBId: string;
   let tokenUserA: string;
+  let tokenCoordA: string;
   let tokenAdmin: string;
 
   const PASSWORD = 'SenhaForte@123';
@@ -121,6 +122,19 @@ describe('Autorização e LGPD (Fase 0 - e2e)', () => {
     });
     memberBId = memberB.id;
 
+    // Coordenador da comunidade A (a busca no cadastro é ferramenta da coordenação)
+    await prisma.user.create({
+      data: {
+        email: 'coord.a@test.com',
+        password: hashed,
+        name: 'Coord A',
+        role: UserRole.COMMUNITY_COORDINATOR,
+        dioceseId: diocese.id,
+        parishId: parish.id,
+        communityId: communityAId,
+      },
+    });
+
     // SYSTEM_ADMIN
     await prisma.user.create({
       data: {
@@ -140,6 +154,7 @@ describe('Autorização e LGPD (Fase 0 - e2e)', () => {
     await app.init();
 
     tokenUserA = await login('fiel.a@test.com');
+    tokenCoordA = await login('coord.a@test.com');
     tokenAdmin = await login('admin@test.com');
   }, 60000);
 
@@ -187,12 +202,38 @@ describe('Autorização e LGPD (Fase 0 - e2e)', () => {
       expect(res.body.id).toBe(memberAId);
     });
 
-    it('busca por nome não vaza membros de outra comunidade', async () => {
+    // Auditoria 05/10/2026 (onda 1, c3f5747): a busca no cadastro virou
+    // ferramenta da coordenação (piso PASTORAL_COORDINATOR) — o fiel nem chega
+    // a buscar, e a coordenação só acha quem está no próprio escopo.
+    it('busca por nome é negada ao FAITHFUL (403) — não vaza nem nomes', async () => {
       const res = await request(app.getHttpServer())
         .get('/members/search?name=Sigiloso')
         .set('Authorization', `Bearer ${tokenUserA}`)
+        .expect(403);
+      expect(JSON.stringify(res.body)).not.toContain('Sigiloso');
+      expect(JSON.stringify(res.body)).not.toContain('12345678901');
+    });
+
+    it('busca por nome da coordenação não vaza membros de outra comunidade', async () => {
+      const res = await request(app.getHttpServer())
+        .get('/members/search?name=Sigiloso')
+        .set('Authorization', `Bearer ${tokenCoordA}`)
         .expect(200);
       expect(res.body).toHaveLength(0);
+
+      // communityId de outra comunidade não amplia o escopo
+      const forced = await request(app.getHttpServer())
+        .get(`/members/search?name=Sigiloso&communityId=${communityBId}`)
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .expect(200);
+      expect(forced.body).toHaveLength(0);
+
+      // Controle: a busca funciona dentro do escopo (lista vazia não é endpoint quebrado)
+      const own = await request(app.getHttpServer())
+        .get('/members/search?name=Fiel A')
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .expect(200);
+      expect(own.body.map((m: any) => m.id)).toEqual([memberAId]);
     });
 
     it('estatísticas de escala de outro membro são negadas (403)', async () => {

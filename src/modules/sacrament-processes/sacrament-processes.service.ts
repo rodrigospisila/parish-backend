@@ -4,12 +4,18 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { communityScopeWhere } from '../pastorals/coordination-scope';
-import { parseCivilDate } from '../catechesis/civil-date';
+import { civilDateAt, parseCivilDate, todayCivil } from '../catechesis/civil-date';
 import {
   assertMayKeepSacramentRecords,
   buildPersonSnapshot,
   INFORMED_NO_CERTIFICATE_MESSAGE,
+  isCatechesisCompletionRecord,
+  isOtherDenominationRecord,
+  isUnrepeatableSacrament,
+  lockMemberSacraments,
+  OTHER_DENOMINATION_NOT_RECORD_MESSAGE,
   parseFinalidade,
+  RECTIFICATION_REASON_MIN,
   SACRAMENT_LABELS,
 } from '../sacraments/sacrament-record';
 import { CertificateResult, SacramentCertificateService } from '../sacraments/sacrament-certificate.service';
@@ -23,12 +29,44 @@ const MANUAL_STATUSES: SacramentProcessStatus[] = [
   SacramentProcessStatus.CANCELLED,
 ];
 
-/** Sacramentos que imprimem caráter (não se repetem): a celebração recusa duplicado. */
-const UNREPEATABLE_SACRAMENTS: SacramentType[] = [
-  SacramentType.BAPTISM,
-  SacramentType.CONFIRMATION,
-  SacramentType.HOLY_ORDERS,
-];
+/**
+ * Decisão explícita da celebração quando o membro já tem o sacramento
+ * irrepetível só INFORMADO (sem assento):
+ * - RECORD_INFORMED: o informado é deste sacramento, celebrado aqui e nunca
+ *   lavrado — a celebração lavra o assento sobre ele (não vale para batismo
+ *   de outra denominação);
+ * - CONDITIONAL: dúvida séria sobre a validade/existência do anterior
+ *   (cân. 845 §2 e 869) — novo assento "sob condição", o informado fica.
+ * Ambas exigem `resolutionReason` (mín. 10) e vão para a auditoria.
+ */
+export type InformedResolution = 'RECORD_INFORMED' | 'CONDITIONAL';
+const INFORMED_RESOLUTIONS: InformedResolution[] = ['RECORD_INFORMED', 'CONDITIONAL'];
+
+/** Código do 409 que pede a decisão explícita (o painel oferece as opções). */
+export const INFORMED_DECISION_REQUIRED = 'SACRAMENT_INFORMED_DECISION_REQUIRED';
+
+/** Campos do Sacrament conferidos na celebração (dedup + antes/depois). */
+const EXISTING_SACRAMENT_SELECT = {
+  id: true,
+  recordKind: true,
+  date: true,
+  place: true,
+  minister: true,
+  book: true,
+  page: true,
+  term: true,
+  notes: true,
+} as const;
+
+type ExistingSacrament = Prisma.SacramentGetPayload<{ select: typeof EXISTING_SACRAMENT_SELECT }>;
+
+/** Resultado da conferência dos registros informados na celebração. */
+interface CelebrationPlan {
+  /** INFORMED sobre o qual o assento é lavrado (null = cria assento novo) */
+  promote: ExistingSacrament | null;
+  /** Celebração sob condição (cân. 845 §2 e 869) */
+  conditional: boolean;
+}
 
 /** Texto livre curto (celebrante, local, livro/folha/termo): string ou nada. */
 function optionalText(raw: unknown, label: string, max = 120): string | null {
@@ -208,10 +246,33 @@ export class SacramentProcessesService {
     });
   }
 
-  /** Celebra: cria o Sacrament definitivo + numeração e conclui o processo. */
+  /**
+   * Celebra: grava o assento (Sacrament RECORD) + numeração e conclui o processo.
+   *
+   * Batismo, Crisma e Ordem imprimem caráter e não se repetem (cân. 845 §1).
+   * Conferido sob o lock do membro (mesma chave da catequese e do histórico):
+   * - já há ASSENTO do tipo → 409, sempre;
+   * - há só INFORMADO gerado pela conclusão da catequese → a celebração lavra
+   *   o assento nele (cat-gestao-11), com antes/depois na auditoria;
+   * - há INFORMADO de outra origem (outra denominação, outra paróquia,
+   *   histórico trazido pela família) → 409 com `code`
+   *   SACRAMENT_INFORMED_DECISION_REQUIRED até vir a decisão explícita
+   *   (`informedResolution` + `resolutionReason`). Batismo de outra
+   *   denominação NUNCA vira assento desta paróquia: o único caminho é o
+   *   batismo sob condição (novo assento; o informado fica como está).
+   */
   async celebrate(
     id: string,
-    dto: { date?: string; minister?: string; book?: string; page?: string; term?: string; place?: string },
+    dto: {
+      date?: string;
+      minister?: string;
+      book?: string;
+      page?: string;
+      term?: string;
+      place?: string;
+      informedResolution?: string;
+      resolutionReason?: string;
+    },
     user: CurrentUser,
   ) {
     if (!this.canManage(user.role)) throw new ForbiddenException('Sem permissão');
@@ -228,9 +289,12 @@ export class SacramentProcessesService {
     // Gravar o assento: coordenador leigo só com a comunidade do membro liberada
     await assertMayKeepSacramentRecords(this.prisma, user, member.communityId || process.communityId);
     const personSnapshot = buildPersonSnapshot(member);
+    const resolution = this.parseInformedResolution(dto);
 
-    // Data civil validada (400, não 500), sem futuro, ao meio-dia de Brasília
-    const date = dto.date ? parseCivilDate(dto.date, 'Data da celebração') : new Date();
+    // Data civil validada (400, não 500), sem futuro, ao meio-dia de Brasília.
+    // Sem data: o dia civil de HOJE em Brasília, também ao meio-dia — a hora
+    // real (new Date()) à noite já é o dia seguinte em UTC
+    const date = dto.date ? parseCivilDate(dto.date, 'Data da celebração') : civilDateAt(todayCivil());
     const minister = optionalText(dto.minister, 'Celebrante') ?? process.celebrant ?? null;
     const place = optionalText(dto.place, 'Local', 200);
     const book = optionalText(dto.book, 'Livro', 40);
@@ -239,7 +303,7 @@ export class SacramentProcessesService {
     const result = await this.prisma.$transaction(async (prisma) => {
       // Lock por membro (mesma chave da catequese) + compare-and-set do
       // status: duplo clique/celebrações simultâneas não geram dois Sacrament
-      await prisma.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:member:' + process.memberId}))::text`;
+      await lockMemberSacraments(prisma, process.memberId);
       const claimed = await prisma.sacramentProcess.updateMany({
         where: {
           id,
@@ -251,24 +315,24 @@ export class SacramentProcessesService {
       if (claimed.count === 0) {
         throw new BadRequestException('Processo já celebrado');
       }
-      // Batismo, Crisma e Ordem imprimem caráter: não se repetem. Conferido
-      // sob o lock do membro (a catequese grava sacramento com a mesma chave);
-      // o erro desfaz o CAS acima junto com a transação. Sacramento só
-      // INFORMADO (conclusão da catequese, outra denominação) não é assento:
-      // a celebração lavra o assento nele, em vez de barrar ou duplicar.
-      let informed: { id: string; notes: string | null } | null = null;
-      if (UNREPEATABLE_SACRAMENTS.includes(process.type)) {
-        const already = await prisma.sacrament.findFirst({
+      // Qualquer erro abaixo desfaz o CAS acima junto com a transação
+      let plan: CelebrationPlan = { promote: null, conditional: false };
+      if (isUnrepeatableSacrament(process.type)) {
+        // Todos os registros do tipo: o ASSENTO é conferido primeiro, para
+        // um INFORMED convivendo com um RECORD não ser promovido (2 assentos)
+        const existing = await prisma.sacrament.findMany({
           where: { memberId: process.memberId, type: process.type },
-          select: { id: true, recordKind: true, notes: true },
+          select: EXISTING_SACRAMENT_SELECT,
+          orderBy: { createdAt: 'asc' },
         });
-        if (already && already.recordKind !== SacramentRecordKind.INFORMED) {
+        if (existing.some((row) => row.recordKind !== SacramentRecordKind.INFORMED)) {
           throw new ConflictException(
             `Este membro já tem ${SACRAMENT_LABELS[process.type] ?? process.type} registrado — o sacramento não se repete. Confira o histórico sacramental ou cancele o processo.`,
           );
         }
-        informed = already ?? null;
+        plan = this.planOverInformed(process.type, existing, resolution);
       }
+
       const recordData = {
         date,
         place,
@@ -279,18 +343,24 @@ export class SacramentProcessesService {
         recordKind: SacramentRecordKind.RECORD,
         ...(personSnapshot ? { personSnapshot } : {}),
       };
-      const sacrament = informed
+      const reasonSuffix = resolution ? ` — ${resolution.reason}` : '';
+      const sacrament = plan.promote
         ? await prisma.sacrament.update({
-            where: { id: informed.id },
+            where: { id: plan.promote.id },
             data: {
               ...recordData,
-              notes: [informed.notes, 'Assento lavrado na celebração do processo de preparação']
+              notes: [plan.promote.notes, `Assento lavrado na celebração do processo de preparação${reasonSuffix}`]
                 .filter(Boolean)
                 .join('\n'),
             },
           })
         : await prisma.sacrament.create({
-            data: { memberId: process.memberId, type: process.type, ...recordData },
+            data: {
+              memberId: process.memberId,
+              type: process.type,
+              ...recordData,
+              ...(plan.conditional ? { notes: `Celebrado sob condição (cân. 845 §2 e 869)${reasonSuffix}` } : {}),
+            },
           });
       const updated = await prisma.sacramentProcess.update({
         where: { id },
@@ -302,11 +372,113 @@ export class SacramentProcessesService {
           term,
         },
       });
-      return { sacrament, updated };
+      return { sacrament, updated, plan };
     });
 
-    await this.auditService.log({ actor: this.auditActor(user), action: 'UPDATE', entity: 'SacramentProcess', entityId: id, metadata: { celebrated: true, sacramentId: result.sacrament.id } });
+    const { plan, sacrament } = result;
+    const applied: InformedResolution | null = plan.conditional
+      ? 'CONDITIONAL'
+      : plan.promote && resolution?.kind === 'RECORD_INFORMED'
+        ? 'RECORD_INFORMED'
+        : null;
+    const decision = applied ? { informedResolution: applied, resolutionReason: resolution?.reason } : {};
+    if (plan.promote) {
+      // Registro informado promovido a assento: antes/depois na auditoria
+      const previous = plan.promote;
+      await this.auditService.log({
+        actor: this.auditActor(user),
+        action: 'UPDATE',
+        entity: 'Sacrament',
+        entityId: previous.id,
+        before: {
+          recordKind: previous.recordKind,
+          date: previous.date ? previous.date.toISOString() : null,
+          place: previous.place,
+          minister: previous.minister,
+          book: previous.book,
+          page: previous.page,
+          term: previous.term,
+          notes: previous.notes,
+        },
+        after: {
+          recordKind: SacramentRecordKind.RECORD,
+          date: date.toISOString(),
+          place,
+          minister,
+          book,
+          page,
+          term,
+          notes: sacrament?.notes ?? null,
+        },
+        metadata: { memberId: process.memberId, recordedFromProcess: id, ...decision },
+      });
+    }
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'UPDATE',
+      entity: 'SacramentProcess',
+      entityId: id,
+      metadata: {
+        celebrated: true,
+        sacramentId: sacrament.id,
+        ...(plan.promote ? { promotedFromInformed: plan.promote.id } : {}),
+        ...decision,
+      },
+    });
     return result.updated;
+  }
+
+  /** `informedResolution` + `resolutionReason` da celebração (ambos ou nenhum). */
+  private parseInformedResolution(dto: { informedResolution?: unknown; resolutionReason?: unknown }) {
+    const raw = dto.informedResolution;
+    if (raw === undefined || raw === null || raw === '') return null;
+    if (typeof raw !== 'string' || !INFORMED_RESOLUTIONS.includes(raw as InformedResolution)) {
+      throw new BadRequestException('Decisão sobre o sacramento informado inválida');
+    }
+    const reason = optionalText(dto.resolutionReason, 'Motivo', 500);
+    if (!reason || reason.length < RECTIFICATION_REASON_MIN) {
+      throw new BadRequestException('Informe o motivo da decisão (mínimo de 10 caracteres)');
+    }
+    return { kind: raw as InformedResolution, reason };
+  }
+
+  /**
+   * O que fazer com os registros INFORMADOS do sacramento irrepetível (sem
+   * assento) na celebração — ver o comentário de `celebrate`.
+   */
+  private planOverInformed(
+    type: SacramentType,
+    informed: ExistingSacrament[],
+    resolution: { kind: InformedResolution; reason: string } | null,
+  ): CelebrationPlan {
+    if (resolution?.kind === 'CONDITIONAL') return { promote: null, conditional: true };
+    if (!informed.length) {
+      if (resolution?.kind === 'RECORD_INFORMED') {
+        throw new BadRequestException('Não há sacramento informado para lavrar o assento');
+      }
+      return { promote: null, conditional: false };
+    }
+    // Batismo de outra denominação: válido não se repete e não vira assento
+    // católico desta paróquia — nem com a decisão de lavrar sobre ele
+    if (informed.some((row) => isOtherDenominationRecord(row))) {
+      throw new ConflictException({
+        code: INFORMED_DECISION_REQUIRED,
+        options: ['CONDITIONAL'],
+        message: OTHER_DENOMINATION_NOT_RECORD_MESSAGE,
+      });
+    }
+    const fromCatechesis = informed.find((row) => isCatechesisCompletionRecord(row));
+    if (resolution?.kind === 'RECORD_INFORMED') {
+      return { promote: fromCatechesis ?? informed[0], conditional: false };
+    }
+    // Conclusão da catequese: o assento desse mesmo sacramento ainda não foi
+    // lavrado — a celebração o lavra (fluxo previsto, sem decisão extra)
+    if (fromCatechesis) return { promote: fromCatechesis, conditional: false };
+    throw new ConflictException({
+      code: INFORMED_DECISION_REQUIRED,
+      options: ['RECORD_INFORMED', 'CONDITIONAL'],
+      message: `Este membro já tem ${SACRAMENT_LABELS[type] ?? type} informado no histórico (sem assento) — o sacramento não se repete. Se foi celebrado nesta paróquia e falta lavrar o assento, confirme a lavratura sobre o registro informado; se houver dúvida séria sobre a validade, registre a celebração sob condição; senão, cancele o processo.`,
+    });
   }
 
   /**
@@ -327,12 +499,15 @@ export class SacramentProcessesService {
     }
     // Emitir certidão: coordenador leigo só com a comunidade do membro liberada
     await assertMayKeepSacramentRecords(this.prisma, user, process.member?.communityId || process.communityId);
-    // Data, celebrante e local vêm do Sacrament gravado NA CELEBRAÇÃO — o
-    // agendamento (scheduledDate/celebrant) pode ter mudado ou nem existir.
+    // O ASSENTO (Sacrament gravado na celebração e talvez retificado depois
+    // por PATCH /sacraments/:id) é a fonte única de tipo, data, celebrante,
+    // local e livro/folha/termo — a mesma certidão do histórico. O
+    // agendamento e a numeração copiada para o processo só valem no legado.
     const sacrament = process.sacramentId
       ? await this.prisma.sacrament.findUnique({
           where: { id: process.sacramentId },
           select: {
+            type: true,
             date: true,
             minister: true,
             place: true,
@@ -352,16 +527,26 @@ export class SacramentProcessesService {
     // agendamento — sempre como declaração para conferência
     const legacy = !sacrament;
     const result = await this.certificateService.render({
-      record: {
-        type: process.type,
-        date: sacrament ? sacrament.date : (process.scheduledDate ?? null),
-        minister: sacrament ? sacrament.minister : (process.celebrant ?? null),
-        place: sacrament?.place ?? null,
-        book: process.book || sacrament?.book || null,
-        page: process.page || sacrament?.page || null,
-        term: process.term || sacrament?.term || null,
-        personSnapshot: sacrament?.personSnapshot,
-      },
+      record: sacrament
+        ? {
+            type: sacrament.type ?? process.type,
+            date: sacrament.date,
+            minister: sacrament.minister,
+            place: sacrament.place ?? null,
+            book: sacrament.book ?? null,
+            page: sacrament.page ?? null,
+            term: sacrament.term ?? null,
+            personSnapshot: sacrament.personSnapshot,
+          }
+        : {
+            type: process.type,
+            date: process.scheduledDate ?? null,
+            minister: process.celebrant ?? null,
+            place: null,
+            book: process.book || null,
+            page: process.page || null,
+            term: process.term || null,
+          },
       memberId: process.memberId,
       communityId: process.communityId,
       involved: process.involved,

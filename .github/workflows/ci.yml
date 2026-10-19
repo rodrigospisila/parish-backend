@@ -99,11 +99,8 @@ jobs:
       # --forceExit: os testes terminam em ~1 min, mas o processo do jest não
       # sai sozinho (handles abertos — crons do @nestjs/schedule/conexões);
       # sem isso o job ficaria parado até o timeout.
-      # Em 19/10/2026 (commit d3e4e24), 44 de 48 passavam; os 4 que falham
-      # (authorization "busca por nome não vaza…", phase1 "forgot-password cria
-      # token…", phase3 "…Sacramento de Crisma" e "cria documento (v1) e adiciona
-      # v2") estão desatualizados pelas correções da auditoria e precisam ser
-      # atualizados em test/ — o job fica vermelho até lá, de propósito.
+      # Os e2e foram alinhados às correções da auditoria e da Onda 0 em
+      # 19/10/2026 (55/55): um vermelho aqui é regressão de verdade.
       - name: Testes e2e (autorização, LGPD, fases 1–4)
         run: npx jest --config ./test/jest-e2e.json --ci --runInBand --forceExit
 

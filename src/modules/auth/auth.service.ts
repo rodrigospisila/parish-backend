@@ -187,8 +187,11 @@ export class AuthService {
       // planilha): a conta nova ADOTA esse membro em vez de criar outro —
       // assume o nome real e herda os dependentes/matrículas vinculados.
       // Só no caminho verificado: telefone digitado à mão não adota ninguém.
-      // Vale também sem comunidade escolhida (o app escolhe depois): aí a
-      // comunidade do membro adotado vira a comunidade de fé da conta.
+      // Vale também sem comunidade escolhida (o app escolhe depois), mas só
+      // com candidato ÚNICO: aí a comunidade do membro adotado vira a
+      // comunidade de fé da conta. Dependentes e menores nunca são adotados,
+      // e o cadastro de outra pessoa não tem nome/e-mail/telefone trocados
+      // (ver phone-adoption.ts).
       const adoptable =
         verifiedPhoneToken && phone
           ? await resolveAdoption(tx, phone, { communityId, logger: this.logger, context: 'cadastro' })

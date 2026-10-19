@@ -86,7 +86,7 @@ describe('SacramentProcessesService — membro do processo (create/celebrate)', 
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
         update: jest.fn().mockResolvedValue({ id: 'sp1', status: SacramentProcessStatus.CELEBRATED }),
       },
-      sacrament: { create: jest.fn().mockResolvedValue({ id: 'sac1' }), findFirst: jest.fn().mockResolvedValue(null) },
+      sacrament: { create: jest.fn().mockResolvedValue({ id: 'sac1' }), findMany: jest.fn().mockResolvedValue([]) },
     };
     prisma = {
       sacramentProcess: {
@@ -201,6 +201,7 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
   let prisma: any;
   let tx: any;
   let pdf: { renderCertificateDocument: jest.Mock };
+  let audit: { log: jest.Mock };
   const parishAdmin = { id: 'adm', role: UserRole.PARISH_ADMIN, parishId: 'p1' } as any;
   const coordinator = { id: 'cc', role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1' } as any;
   const scheduled = {
@@ -244,8 +245,8 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
       },
       sacrament: {
         create: jest.fn().mockResolvedValue({ id: 'sac1' }),
-        update: jest.fn().mockResolvedValue({ id: 'informado' }),
-        findFirst: jest.fn().mockResolvedValue(null),
+        update: jest.fn(async ({ where, data }: any) => ({ id: where.id, ...data })),
+        findMany: jest.fn().mockResolvedValue([]),
       },
     };
     prisma = {
@@ -268,12 +269,13 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
       $transaction: jest.fn(async (cb: any) => cb(tx)),
     };
     pdf = { renderCertificateDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')) };
+    audit = { log: jest.fn() };
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         SacramentProcessesService,
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: { isCommunityInScope: jest.fn().mockResolvedValue(true) } },
-        { provide: AuditService, useValue: { log: jest.fn() } },
+        { provide: AuditService, useValue: audit },
         SacramentCertificateService,
         { provide: PdfService, useValue: pdf },
       ],
@@ -374,12 +376,13 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
       }),
     );
     prisma.sacrament.findUnique.mockResolvedValue({
+      type: 'BAPTISM',
       date: new Date('2026-11-17T15:00:00.000Z'),
       minister: 'Pe. Celebrante',
       place: 'Capela São José',
-      book: null,
-      page: null,
-      term: null,
+      book: '3',
+      page: '12',
+      term: '45',
       recordKind: 'RECORD',
       personSnapshot: null,
     });
@@ -395,6 +398,49 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
     expect(field('Filiação')).toBe('Paulo Souza e Lia Souza');
     expect(input.pages[0].closingParagraphs).toContain('Finalidade: Crisma.');
     expect(input.pages[0].signatureLines).toEqual(['Pároco', 'Secretaria Paroquial']);
+  });
+
+  it('R2: assento retificado depois da celebração — a certidão do processo usa tipo e numeração do ASSENTO', async () => {
+    // Celebração copiou 3/12/45 para o processo; a secretaria retificou o assento
+    prisma.sacramentProcess.findFirst.mockResolvedValue(
+      celebrated({ sacramentId: 'sac1', book: '3', page: '12', term: '45' }),
+    );
+    prisma.sacrament.findUnique.mockResolvedValue({
+      type: 'CONFIRMATION',
+      date: new Date('2026-11-17T15:00:00.000Z'),
+      minister: 'Dom Bispo',
+      place: 'Matriz',
+      book: '4',
+      page: '7',
+      term: '19',
+      recordKind: 'RECORD',
+      personSnapshot: null,
+    });
+    const result = await service.certificate('sp1', parishAdmin);
+    expect(result.kind).toBe('CERTIDAO');
+    expect(result.filename).toBe('certidao-crisma.pdf');
+    expect(pdf.renderCertificateDocument.mock.calls[0][0].title).toBe('Certidão de Crisma');
+    expect(field('Registro')).toBe('Livro 4, folha 7, termo 19');
+    expect(prisma.sacrament.findUnique.mock.calls[0][0].select.type).toBe(true);
+  });
+
+  it('R2: numeração apagada na retificação — sai "Declaração", não a "Certidão" com o número antigo do processo', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(
+      celebrated({ sacramentId: 'sac1', book: '3', page: '12', term: '45' }),
+    );
+    prisma.sacrament.findUnique.mockResolvedValue({
+      type: 'BAPTISM',
+      date: new Date('2026-11-17T15:00:00.000Z'),
+      minister: null,
+      place: null,
+      book: null,
+      page: null,
+      term: null,
+      recordKind: 'RECORD',
+    });
+    const result = await service.certificate('sp1', parishAdmin);
+    expect(result.kind).toBe('DECLARACAO');
+    expect(pdf.renderCertificateDocument.mock.calls[0][0].title).toBe('Declaração para conferência — Batismo');
   });
 
   it('celebrado LEGADO sem Sacrament: declaração com os dados do processo e o aviso de agendamento', async () => {
@@ -442,36 +488,174 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
       tx.sacrament.create.mockClear();
       tx.$queryRaw.mockClear();
       prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type });
-      tx.sacrament.findFirst.mockResolvedValue({ id: 'antigo', recordKind: 'RECORD', notes: null });
+      tx.sacrament.findMany.mockResolvedValue([{ id: 'antigo', recordKind: 'RECORD', notes: null }]);
       await expect(service.celebrate('sp1', {}, parishAdmin)).rejects.toBeInstanceOf(ConflictException);
       expect(tx.$queryRaw).toHaveBeenCalledTimes(1);
-      expect(tx.sacrament.findFirst).toHaveBeenLastCalledWith({
-        where: { memberId: 'm1', type },
-        select: { id: true, recordKind: true, notes: true },
-      });
+      expect(tx.sacrament.findMany).toHaveBeenLastCalledWith(
+        expect.objectContaining({ where: { memberId: 'm1', type } }),
+      );
       expect(tx.sacrament.create).not.toHaveBeenCalled();
     }
   });
 
-  it('sacramento só INFORMADO (catequese/outra denominação): a celebração lavra o assento nele', async () => {
+  it('R3: INFORMED convivendo com RECORD do mesmo tipo — o ASSENTO barra (409), o informado não é promovido', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    tx.sacrament.findMany.mockResolvedValue([
+      { id: 'informado', recordKind: 'INFORMED', notes: 'Concluído na catequese: Batismo' },
+      { id: 'assento', recordKind: 'RECORD', notes: null },
+    ]);
+    await expect(service.celebrate('sp1', {}, parishAdmin)).rejects.toBeInstanceOf(ConflictException);
+    expect(tx.sacrament.update).not.toHaveBeenCalled();
+    expect(tx.sacrament.create).not.toHaveBeenCalled();
+  });
+
+  const informedRow = (extra: Record<string, unknown> = {}) => ({
+    id: 'informado',
+    recordKind: 'INFORMED',
+    date: new Date('2026-06-01T15:00:00.000Z'),
+    place: 'Matriz',
+    minister: null,
+    book: null,
+    page: null,
+    term: null,
+    notes: null,
+    ...extra,
+  });
+
+  it('INFORMADO da conclusão da catequese: a celebração lavra o assento nele, com antes/depois na auditoria', async () => {
     prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type: 'CONFIRMATION' });
-    tx.sacrament.findFirst.mockResolvedValue({ id: 'informado', recordKind: 'INFORMED', notes: 'Concluído na catequese' });
-    await service.celebrate('sp1', { book: '5', page: '6', term: '7' }, parishAdmin);
+    tx.sacrament.findMany.mockResolvedValue([informedRow({ notes: 'Concluído na catequese: Crisma' })]);
+    await service.celebrate('sp1', { date: '2026-09-17', book: '5', page: '6', term: '7' }, parishAdmin);
     expect(tx.sacrament.create).not.toHaveBeenCalled();
     const call = tx.sacrament.update.mock.calls[0][0];
     expect(call.where).toEqual({ id: 'informado' });
     expect(call.data).toMatchObject({ recordKind: 'RECORD', book: '5', page: '6', term: '7' });
-    expect(call.data.notes).toMatch(/^Concluído na catequese\nAssento lavrado/);
+    expect(call.data.notes).toMatch(/^Concluído na catequese: Crisma\nAssento lavrado/);
     expect(tx.sacramentProcess.update.mock.calls[0][0].data.sacramentId).toBe('informado');
+    expect(audit.log).toHaveBeenCalledWith(
+      expect.objectContaining({
+        entity: 'Sacrament',
+        entityId: 'informado',
+        before: expect.objectContaining({ recordKind: 'INFORMED', place: 'Matriz', book: null }),
+        after: expect.objectContaining({ recordKind: 'RECORD', book: '5', date: '2026-09-17T15:00:00.000Z' }),
+      }),
+    );
+  });
+
+  it('R4: batismo INFORMADO de outra denominação não vira assento — 409 com code e só a opção "sob condição"', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    tx.sacrament.findMany.mockResolvedValue([
+      informedRow({
+        place: 'Outra denominação: Luterana',
+        notes: 'Batismo em outra denominação (Luterana) — aceito pela coordenação da catequese',
+      }),
+    ]);
+    const error: any = await service.celebrate('sp1', {}, parishAdmin).catch((e) => e);
+    expect(error).toBeInstanceOf(ConflictException);
+    expect(error.getResponse()).toMatchObject({
+      code: 'SACRAMENT_INFORMED_DECISION_REQUIRED',
+      options: ['CONDITIONAL'],
+      message: expect.stringMatching(/não se repete/),
+    });
+    // Nem com a decisão de lavrar sobre o informado
+    await expect(
+      service.celebrate(
+        'sp1',
+        { informedResolution: 'RECORD_INFORMED', resolutionReason: 'Família pediu o registro aqui' },
+        parishAdmin,
+      ),
+    ).rejects.toBeInstanceOf(ConflictException);
+    expect(tx.sacrament.update).not.toHaveBeenCalled();
+    expect(tx.sacrament.create).not.toHaveBeenCalled();
+  });
+
+  it('R4: decisão "sob condição" com motivo — assento NOVO anotado, o informado fica intacto', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    tx.sacrament.findMany.mockResolvedValue([informedRow({ place: 'Outra denominação: Mórmon' })]);
+    await service.celebrate(
+      'sp1',
+      { informedResolution: 'CONDITIONAL', resolutionReason: 'Fórmula não trinitária — dúvida séria (cân. 869)' },
+      parishAdmin,
+    );
+    expect(tx.sacrament.update).not.toHaveBeenCalled();
+    const data = tx.sacrament.create.mock.calls[0][0].data;
+    expect(data.recordKind).toBe('RECORD');
+    expect(data.notes).toBe('Celebrado sob condição (cân. 845 §2 e 869) — Fórmula não trinitária — dúvida séria (cân. 869)');
+    expect(audit.log).toHaveBeenCalledWith(
+      expect.objectContaining({
+        entity: 'SacramentProcess',
+        metadata: expect.objectContaining({ informedResolution: 'CONDITIONAL' }),
+      }),
+    );
+  });
+
+  it('R4: INFORMADO de outra origem (outra paróquia/histórico) exige decisão; lavrar sobre ele só com motivo', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    tx.sacrament.findMany.mockResolvedValue([informedRow({ place: 'Paróquia São José (Curitiba)' })]);
+    const error: any = await service.celebrate('sp1', {}, parishAdmin).catch((e) => e);
+    expect(error).toBeInstanceOf(ConflictException);
+    expect(error.getResponse()).toMatchObject({
+      code: 'SACRAMENT_INFORMED_DECISION_REQUIRED',
+      options: ['RECORD_INFORMED', 'CONDITIONAL'],
+    });
+    expect(tx.sacrament.update).not.toHaveBeenCalled();
+
+    await expect(
+      service.celebrate('sp1', { informedResolution: 'RECORD_INFORMED', resolutionReason: 'curto' }, parishAdmin),
+    ).rejects.toBeInstanceOf(BadRequestException);
+    await expect(
+      service.celebrate('sp1', { informedResolution: 'OUTRA', resolutionReason: 'motivo suficiente' }, parishAdmin),
+    ).rejects.toBeInstanceOf(BadRequestException);
+
+    await service.celebrate(
+      'sp1',
+      { informedResolution: 'RECORD_INFORMED', resolutionReason: 'Celebrado aqui em 2026, assento não lavrado' },
+      parishAdmin,
+    );
+    const call = tx.sacrament.update.mock.calls[0][0];
+    expect(call.where).toEqual({ id: 'informado' });
+    expect(call.data.notes).toBe(
+      'Assento lavrado na celebração do processo de preparação — Celebrado aqui em 2026, assento não lavrado',
+    );
+    expect(audit.log).toHaveBeenCalledWith(
+      expect.objectContaining({
+        entity: 'Sacrament',
+        entityId: 'informado',
+        metadata: expect.objectContaining({ informedResolution: 'RECORD_INFORMED' }),
+      }),
+    );
+  });
+
+  it('R4: "lavrar sobre o informado" sem informado algum → 400', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    await expect(
+      service.celebrate(
+        'sp1',
+        { informedResolution: 'RECORD_INFORMED', resolutionReason: 'motivo bem explicado' },
+        parishAdmin,
+      ),
+    ).rejects.toBeInstanceOf(BadRequestException);
+    expect(tx.sacrament.create).not.toHaveBeenCalled();
+  });
+
+  it('R6: celebração sem data às 22h30 de Brasília grava o dia civil de Brasília ao meio-dia', async () => {
+    jest.useFakeTimers({ now: new Date('2026-10-20T01:30:00.000Z'), doNotFake: ['nextTick', 'setImmediate', 'queueMicrotask'] });
+    try {
+      prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type: 'FIRST_COMMUNION' });
+      await service.celebrate('sp1', {}, parishAdmin);
+      expect(tx.sacrament.create.mock.calls[0][0].data.date.toISOString()).toBe('2026-10-19T15:00:00.000Z');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('Matrimônio/Eucaristia/Unção não são barrados por registro anterior do mesmo tipo', async () => {
-    tx.sacrament.findFirst.mockResolvedValue({ id: 'antigo' });
+    tx.sacrament.findMany.mockResolvedValue([{ id: 'antigo', recordKind: 'RECORD' }]);
     for (const type of ['MARRIAGE', 'FIRST_COMMUNION', 'ANOINTING_OF_THE_SICK']) {
       prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type });
       await service.celebrate('sp1', {}, parishAdmin);
     }
-    expect(tx.sacrament.findFirst).not.toHaveBeenCalled();
+    expect(tx.sacrament.findMany).not.toHaveBeenCalled();
     expect(tx.sacrament.create).toHaveBeenCalledTimes(3);
   });
 

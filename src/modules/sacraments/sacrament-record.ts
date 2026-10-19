@@ -1,5 +1,5 @@
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
-import { MemberStatus, Prisma, UserRole } from '@prisma/client';
+import { MemberStatus, Prisma, SacramentType, UserRole } from '@prisma/client';
 import { CurrentUser } from '../../common/hierarchy.service';
 
 /**
@@ -22,6 +22,87 @@ export const RECTIFICATION_REASON_MESSAGE = 'Informe o motivo da retificação';
 export const INFORMED_NO_CERTIFICATE_MESSAGE = 'Sacramento informado não gera certidão; registre o assento';
 export const RECTIFICATION_REASON_MIN = 10;
 export const FINALIDADE_MAX = 120;
+
+/** Sacramentos que imprimem caráter (cân. 845 §1): não se repetem. */
+export const UNREPEATABLE_SACRAMENTS: SacramentType[] = [
+  SacramentType.BAPTISM,
+  SacramentType.CONFIRMATION,
+  SacramentType.HOLY_ORDERS,
+];
+
+export function isUnrepeatableSacrament(type: SacramentType | string | null | undefined): boolean {
+  return !!type && UNREPEATABLE_SACRAMENTS.includes(type as SacramentType);
+}
+
+/** 409 de assento duplicado (Batismo/Crisma/Ordem já lavrados para o membro). */
+export function duplicateRecordMessage(type: SacramentType | string): string {
+  return `Este membro já tem o assento de ${SACRAMENT_LABELS[type] ?? type} — o sacramento não se repete. Confira o histórico sacramental; para corrigir o assento existente, use a retificação.`;
+}
+
+/**
+ * Advisory lock POR MEMBRO dentro da transação — a MESMA chave do
+ * `lockMembers` da catequese e da celebração do processo: serializa todo
+ * caminho que grava Sacrament do membro (dedup de sacramento irrepetível).
+ */
+export async function lockMemberSacraments(tx: { $queryRaw: (...args: any[]) => Promise<unknown> }, memberId: string) {
+  // ::text porque o Prisma não deserializa retorno `void`
+  await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${'parish:member:' + memberId}))::text`;
+}
+
+/**
+ * Registro INFORMADO de batismo em outra denominação (gravado pela catequese
+ * com place "Outra denominação: X" e notes "Batismo em outra denominação…").
+ * Batismo válido não se repete e não vira assento do livro católico.
+ */
+export function isOtherDenominationRecord(row: { place?: string | null; notes?: string | null }): boolean {
+  const place = (row.place ?? '').trim().toLowerCase();
+  const notes = (row.notes ?? '').toLowerCase();
+  return place.startsWith('outra denominação') || notes.includes('batismo em outra denominação');
+}
+
+export const OTHER_DENOMINATION_NOT_RECORD_MESSAGE =
+  'Batismo recebido em outra denominação não é assento do livro paroquial: fica como informado. Batismo válido não se repete (cân. 864 e 869); se houver dúvida séria sobre a validade, registre o batismo sob condição pelo processo de preparação.';
+
+/** Registro INFORMADO gerado pela conclusão da etapa na catequese. */
+export function isCatechesisCompletionRecord(row: { notes?: string | null }): boolean {
+  return (row.notes ?? '').trimStart().startsWith('Concluído na catequese');
+}
+
+/** Linha de anotação de retificação gravada no `notes` do assento. */
+const RECTIFICATION_LINE = /^Retificação em \d{2}\/\d{2}\/\d{4}: /;
+
+/** Observações: texto aparado; vazio (ou só espaços) é null. */
+export function normalizeNotes(value: string | null | undefined): string | null {
+  if (value === undefined || value === null) return null;
+  const clean = value.replace(/\r\n?/g, '\n').trim();
+  return clean || null;
+}
+
+/**
+ * As anotações "Retificação em dd/mm/aaaa: …" são a trilha permanente do
+ * assento (a auditoria expira): editar as observações NÃO as remove nem
+ * forja novas. Linhas de anotação que o texto novo traz e que já existiam
+ * ficam onde estão; as que faltarem voltam ao fim; uma "anotação" que não
+ * existia é descartada.
+ */
+export function preserveRectificationNotes(previous: string | null | undefined, next: string | null): string | null {
+  const kept = (normalizeNotes(previous) ?? '').split('\n').filter((line) => RECTIFICATION_LINE.test(line));
+  if (!kept.length) return next;
+  const pending = [...kept];
+  const lines: string[] = [];
+  for (const line of (next ?? '').split('\n')) {
+    if (!RECTIFICATION_LINE.test(line)) {
+      lines.push(line);
+      continue;
+    }
+    const index = pending.indexOf(line);
+    if (index >= 0) {
+      lines.push(line);
+      pending.splice(index, 1);
+    }
+  }
+  return normalizeNotes([...lines, ...pending].join('\n'));
+}
 
 /** Papéis que sempre registram (o escopo é conferido por quem chama). */
 const RECORD_KEEPER_ROLES: UserRole[] = [UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN];

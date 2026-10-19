@@ -84,13 +84,14 @@ export class PlanFeatureGuard implements CanActivate {
       kind: 'PLAN_FEATURE',
       // Fora do escopo não é falta de plano: conta à parte para não inflar a feature
       feature: decision.outOfScope ? `${meta.feature}:fora-do-escopo` : meta.feature,
-      communityId: decision.communityId,
+      // Fora do escopo o id veio do cliente: não guarda nem loga o valor cru
+      communityId: decision.outOfScope ? null : decision.communityId,
       userId: user.id,
       mode,
     });
 
     if (mode === 'log') {
-      this.logWouldBlock(req, user, meta.feature, decision.communityId, decision.target);
+      this.logWouldBlock(req, user, meta.feature, decision.outOfScope ? null : decision.communityId, decision.outOfScope ? 'fora do escopo' : decision.target);
       return true;
     }
 

@@ -49,7 +49,11 @@ describe('UsersService — Onda 0 (acesso)', () => {
         findUnique: jest.fn(async ({ where }: any) => dbUser({ id: where.id, communityId: 'c-matriz' })),
       },
       userCommunity: { findMany: jest.fn().mockResolvedValue([]), updateMany: jest.fn(), update: jest.fn(), create: jest.fn(), upsert: jest.fn() },
-      member: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      member: {
+        // cadastro atual do candidato à adoção (sem e-mail; telefone do painel)
+        findFirst: jest.fn().mockResolvedValue({ fullName: 'Responsável – Lucas', email: null, phone: '(42) 99999-8883' }),
+        updateMany: jest.fn().mockResolvedValue({ count: 1 }),
+      },
       refreshToken: { deleteMany: jest.fn() },
       // candidatos à adoção (e trava da linha do usuário no reset)
       $queryRaw: jest.fn().mockResolvedValue([]),
@@ -94,9 +98,10 @@ describe('UsersService — Onda 0 (acesso)', () => {
       expect(prisma.auditLog.findFirst).toHaveBeenCalledWith(
         expect.objectContaining({ where: { entity: 'User', entityId: 'f1', action: 'REGISTER' } }),
       );
+      // nome real no lugar do marcador; e-mail vazio preenchido; telefone já gravado fica
       expect(tx.member.updateMany).toHaveBeenCalledWith({
-        where: { id: 'm-resp', userId: null, deletedAt: null },
-        data: { userId: 'f1', fullName: 'João Pai', email: 'pai@x.com', phone: '+5542999998883' },
+        where: { id: 'm-resp', userId: null, deletedAt: null, fullName: 'Responsável – Lucas', email: null, phone: '(42) 99999-8883' },
+        data: { userId: 'f1', fullName: 'João Pai', email: 'pai@x.com' },
       });
       expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
       expect(members.ensureProfileForUser.mock.calls[0][1].communityId).toBe('c-matriz');

@@ -183,7 +183,9 @@ export class SwapsService {
             type: NotificationType.TEAM_BROADCAST,
             kind: 'swap-requested',
             swapId: swap.id,
-            scheduleId: assignment.scheduleId,
+            // SEM scheduleId de propósito: o app instalado (sem OTA) manda todo push
+            // com scheduleId para a tela de coordenação, que o voluntário não acessa.
+            // A tela de trocas do app novo só precisa do swapId.
             assignmentId: assignment.id,
           },
         );

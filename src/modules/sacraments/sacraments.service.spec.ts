@@ -55,9 +55,13 @@ describe('SacramentsService (2.1)', () => {
         findUnique: jest.fn(),
         update: jest.fn(async ({ data }: any) => ({ ...record, ...data })),
         delete: jest.fn(),
+        findFirst: jest.fn().mockResolvedValue(null),
       },
       sacramentProcess: { updateMany: jest.fn().mockResolvedValue({ count: 0 }), findFirst: jest.fn() },
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
+    // Transação interativa: o próprio mock faz papel do cliente da transação
+    prisma.$transaction = jest.fn(async (cb: any) => cb(prisma));
     hierarchy = { canManageMember: jest.fn() };
     audit = { log: jest.fn().mockResolvedValue(undefined) };
     pdf = { renderCertificateDocument: jest.fn().mockResolvedValue(Buffer.from('%PDF')) };
@@ -217,8 +221,8 @@ describe('SacramentsService (2.1)', () => {
         expect.objectContaining({
           action: 'UPDATE',
           entity: 'Sacrament',
-          before: { minister: 'Pe. João' },
-          after: { minister: 'Pe. Antônio' },
+          before: { minister: 'Pe. João', notes: null },
+          after: { minister: 'Pe. Antônio', notes: data.notes },
           metadata: expect.objectContaining({
             rectification: true,
             rectificationReason: 'Erro de transcrição do livro',
@@ -243,6 +247,156 @@ describe('SacramentsService (2.1)', () => {
       const data = prisma.sacrament.update.mock.calls[1][0].data;
       expect(data.recordKind).toBe(SacramentRecordKind.RECORD);
       expect(data.personSnapshot).toEqual(expect.objectContaining({ fullName: 'Maria da Silva' }));
+    });
+  });
+
+  describe('correções da revisão da Onda 0', () => {
+    beforeEach(() => {
+      prisma.member.findFirst.mockResolvedValue(member);
+      hierarchy.canManageMember.mockResolvedValue(true);
+      prisma.sacrament.findUnique.mockResolvedValue(record);
+      prisma.sacrament.create.mockImplementation(async ({ data }: any) => ({ id: 'novo', ...data }));
+    });
+
+    it("R1: assento legado com place/minister '' ou com espaços — reenviar vazio/aparado não é retificação", async () => {
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, place: '', minister: '  Pe.  João ', book: ' 3' });
+      await service.update(
+        's1',
+        { place: '', minister: 'Pe. João', book: '3', page: '12', term: '45', notes: 'só a observação' } as any,
+        parishAdmin,
+      );
+      const data = prisma.sacrament.update.mock.calls[0][0].data;
+      expect(data).not.toHaveProperty('place');
+      expect(data).not.toHaveProperty('minister');
+      expect(data).not.toHaveProperty('book');
+      expect(data.notes).toBe('só a observação');
+      expect(audit.log.mock.calls[0][0].metadata).not.toHaveProperty('rectification');
+    });
+
+    it('R1: null no banco e espaços no painel também não contam como mudança', async () => {
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, place: null, personSnapshot: { fullName: 'Maria da Silva' } });
+      await service.update('s1', { place: '   ' } as any, parishAdmin);
+      expect(prisma.sacrament.update).not.toHaveBeenCalled();
+    });
+
+    it('R3: POST de Batismo/Crisma/Ordem com assento já lavrado → 409, sob o lock do membro', async () => {
+      prisma.sacrament.findFirst.mockResolvedValue({ id: 'antigo' });
+      for (const type of [SacramentType.BAPTISM, SacramentType.CONFIRMATION, SacramentType.HOLY_ORDERS]) {
+        prisma.$queryRaw.mockClear();
+        await expect(
+          service.create({ memberId: 'm1', type, date: '2021-05-01' } as any, parishAdmin),
+        ).rejects.toBeInstanceOf(ConflictException);
+        expect(prisma.$queryRaw).toHaveBeenCalledTimes(1);
+        expect(prisma.$queryRaw.mock.calls[0][0].join('?')).toContain('pg_advisory_xact_lock');
+        expect(prisma.$queryRaw.mock.calls[0][0].join('?')).toContain('::text');
+        expect(prisma.$queryRaw.mock.calls[0][1]).toBe('parish:member:m1');
+        expect(prisma.sacrament.findFirst).toHaveBeenLastCalledWith({
+          where: { memberId: 'm1', type, recordKind: SacramentRecordKind.RECORD },
+          select: { id: true },
+        });
+      }
+      expect(prisma.sacrament.create).not.toHaveBeenCalled();
+    });
+
+    it('R3: POST sem assento anterior grava; Matrimônio/Eucaristia não passam pelo dedup', async () => {
+      await service.create({ memberId: 'm1', type: SacramentType.BAPTISM, date: '2021-05-01' } as any, parishAdmin);
+      expect(prisma.sacrament.create).toHaveBeenCalledTimes(1);
+
+      prisma.sacrament.findFirst.mockResolvedValue({ id: 'antigo' });
+      prisma.$queryRaw.mockClear();
+      await service.create({ memberId: 'm1', type: SacramentType.MARRIAGE, date: '2021-05-01' } as any, parishAdmin);
+      expect(prisma.$queryRaw).not.toHaveBeenCalled();
+      expect(prisma.sacrament.create).toHaveBeenCalledTimes(2);
+    });
+
+    it('R3: lavrar (INFORMED → RECORD) quando já há outro assento do tipo → 409, nada gravado', async () => {
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, recordKind: SacramentRecordKind.INFORMED });
+      prisma.sacrament.findFirst.mockResolvedValue({ id: 'outro-assento' });
+      await expect(
+        service.update('s1', { recordKind: SacramentRecordKind.RECORD } as any, parishAdmin),
+      ).rejects.toThrow('o sacramento não se repete');
+      expect(prisma.sacrament.findFirst).toHaveBeenCalledWith({
+        where: {
+          memberId: 'm1',
+          type: SacramentType.BAPTISM,
+          recordKind: SacramentRecordKind.RECORD,
+          id: { not: 's1' },
+        },
+        select: { id: true },
+      });
+      expect(prisma.$queryRaw).toHaveBeenCalledTimes(1);
+      expect(prisma.sacrament.update).not.toHaveBeenCalled();
+    });
+
+    it('R3: retificar o tipo para Crisma quando já há assento de Crisma → 409', async () => {
+      prisma.sacrament.findFirst.mockResolvedValue({ id: 'crisma' });
+      await expect(
+        service.update(
+          's1',
+          { type: SacramentType.CONFIRMATION, rectificationReason: 'Tipo lançado errado no sistema' } as any,
+          parishAdmin,
+        ),
+      ).rejects.toBeInstanceOf(ConflictException);
+      expect(prisma.sacrament.update).not.toHaveBeenCalled();
+    });
+
+    it('R3: edição que não muda tipo nem lavra não pega o lock', async () => {
+      await service.update('s1', { minister: 'Pe. Antônio', rectificationReason: 'Erro de transcrição' } as any, parishAdmin);
+      expect(prisma.$queryRaw).not.toHaveBeenCalled();
+      expect(prisma.sacrament.findFirst).not.toHaveBeenCalled();
+      expect(prisma.sacrament.update).toHaveBeenCalled();
+    });
+
+    it('R4: batismo INFORMADO de outra denominação não é lavrado como assento (409)', async () => {
+      prisma.sacrament.findUnique.mockResolvedValue({
+        ...record,
+        recordKind: SacramentRecordKind.INFORMED,
+        place: 'Outra denominação: Luterana',
+        notes: 'Batismo em outra denominação (Luterana) — aceito pela coordenação da catequese',
+        book: null,
+      });
+      await expect(
+        service.update('s1', { recordKind: SacramentRecordKind.RECORD, book: '9' } as any, parishAdmin),
+      ).rejects.toThrow('não é assento do livro paroquial');
+      expect(prisma.sacrament.update).not.toHaveBeenCalled();
+    });
+
+    it('R5: apagar as observações de um assento retificado mantém as linhas "Retificação em …" e audita antes/depois', async () => {
+      const previous = 'Padrinho faltou\nRetificação em 01/10/2026: Ministro registrado errado';
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, notes: previous });
+      await service.update('s1', { notes: '' } as any, parishAdmin);
+      const data = prisma.sacrament.update.mock.calls[0][0].data;
+      expect(data.notes).toBe('Retificação em 01/10/2026: Ministro registrado errado');
+      expect(audit.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          before: { notes: previous },
+          after: { notes: 'Retificação em 01/10/2026: Ministro registrado errado' },
+          metadata: expect.objectContaining({ changedFields: ['notes'] }),
+        }),
+      );
+      expect(audit.log.mock.calls[0][0].metadata).not.toHaveProperty('rectification');
+    });
+
+    it('R5: reenviar o texto inteiro mantém a ordem; anotação forjada é descartada; sem mudança, nada gravado', async () => {
+      const previous = 'obs\nRetificação em 01/10/2026: Ministro registrado errado';
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, notes: previous, personSnapshot: { fullName: 'Maria da Silva' } });
+      await service.update('s1', { notes: previous } as any, parishAdmin);
+      expect(prisma.sacrament.update).not.toHaveBeenCalled();
+
+      await service.update(
+        's1',
+        { notes: 'obs\nRetificação em 01/10/2026: Ministro registrado errado\nRetificação em 02/10/2026: forjada\nobs 2' } as any,
+        parishAdmin,
+      );
+      expect(prisma.sacrament.update.mock.calls[0][0].data.notes).toBe(
+        'obs\nRetificação em 01/10/2026: Ministro registrado errado\nobs 2',
+      );
+    });
+
+    it('R5: observação de INFORMED muda sem antes/depois (não é assento)', async () => {
+      prisma.sacrament.findUnique.mockResolvedValue({ ...record, recordKind: SacramentRecordKind.INFORMED, notes: 'a' });
+      await service.update('s1', { notes: 'b' } as any, coordinator);
+      expect(audit.log.mock.calls[0][0]).not.toHaveProperty('before');
     });
   });
 

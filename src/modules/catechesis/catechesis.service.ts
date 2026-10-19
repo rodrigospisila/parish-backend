@@ -24,7 +24,7 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { COORDINATOR_MEMBER_ROLES } from '../pastorals/coordination-scope';
 import { CURRENT_POLICY_VERSION } from '../consents/consent.constants';
-import { civilDayOrNull, formatCivilDate, parseCivilDate, todayCivil } from './civil-date';
+import { civilDateAt, civilDayOrNull, formatCivilDate, parseCivilDate, todayCivil } from './civil-date';
 import {
   BROADCAST_AUTHOR_ENTITIES,
   BROADCAST_LIMITS,
@@ -3768,7 +3768,7 @@ export class CatechesisService {
    * Gravada ao meio-dia de Brasília: meia-noite UTC saía no certificado (e no
    * Sacrament gerado) como o dia ANTERIOR. */
   private parseCompletionDate(raw?: string): Date {
-    if (!raw) return new Date();
+    if (!raw) return civilDateAt(todayCivil());
     return parseCivilDate(raw, 'Data da conclusão');
   }
 
@@ -5221,7 +5221,7 @@ export class CatechesisService {
               data: {
                 memberId: document.enrollment.memberId,
                 type: SacramentType.BAPTISM,
-                date: new Date(),
+                date: civilDateAt(todayCivil()),
                 place: document.denomination ? `Outra denominação: ${document.denomination}` : 'Outra denominação',
                 notes: `Batismo em outra denominação${document.denomination ? ` (${document.denomination})` : ''} — aceito pela coordenação da catequese (data do registro, não da celebração)`,
                 // Batismo não católico não é assento do livro católico: fica

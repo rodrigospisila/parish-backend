@@ -89,14 +89,29 @@ describe('Fase 1 — Recuperação de senha e Consentimentos (e2e)', () => {
     });
 
     it('forgot-password cria token para conta existente (resposta idêntica)', async () => {
-      await request(app.getHttpServer())
+      const missing = await request(app.getHttpServer())
+        .post('/auth/forgot-password')
+        .send({ email: 'outra.inexistente@test.com' })
+        .expect(200);
+
+      const existing = await request(app.getHttpServer())
         .post('/auth/forgot-password')
         .send({ email: EMAIL })
         .expect(200);
+      // Sem enumeração: mesma resposta exista ou não a conta
+      expect(existing.body).toEqual(missing.body);
 
-      const token = await prisma.passwordResetToken.findFirst({ where: { userId } });
+      // Desde a auditoria de 05/10/2026 (B1 — tempo constante), a emissão e o
+      // envio correm em segundo plano depois da resposta: espera o token aparecer
+      let token: Awaited<ReturnType<typeof prisma.passwordResetToken.findFirst>> = null;
+      for (let attempt = 0; attempt < 50 && !token; attempt++) {
+        token = await prisma.passwordResetToken.findFirst({ where: { userId } });
+        if (!token) await new Promise((resolve) => setTimeout(resolve, 100));
+      }
       expect(token).not.toBeNull();
       expect(token?.usedAt).toBeNull();
+      // Só o hash vai para o banco
+      expect(token?.tokenHash).toMatch(/^[a-f0-9]{64}$/);
     });
 
     it('fluxo completo: redefine a senha e o novo login funciona; token vira de uso único', async () => {

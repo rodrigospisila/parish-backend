@@ -102,7 +102,25 @@ describe('Fase 2 — Sacramentos, Relatórios e Cadastro (e2e)', () => {
   describe('Sacramentos (2.1)', () => {
     let sacramentId: string;
 
-    it('coordenador cria sacramento para membro do seu escopo', async () => {
+    // Onda 0 (81e3746, eng-acessos-08): coordenador leigo só lavra assento
+    // (recordKind RECORD, o padrão) se a comunidade do membro ligar
+    // `laySacramentRecords` — desligado por padrão.
+    it('com laySacramentRecords=false (padrão), coordenador NÃO registra assento (403)', async () => {
+      const community = await prisma.community.findUnique({ where: { id: communityAId } });
+      expect(community?.laySacramentRecords).toBe(false);
+
+      const res = await request(app.getHttpServer())
+        .post('/sacraments')
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .send({ memberId: memberAId, type: 'BAPTISM', date: '2010-01-01', place: 'Matriz' })
+        .expect(403);
+      expect(res.body.message).toContain('secretaria paroquial');
+      expect(await prisma.sacrament.count({ where: { memberId: memberAId } })).toBe(0);
+    });
+
+    it('com laySacramentRecords=true, coordenador cria sacramento para membro do seu escopo', async () => {
+      await prisma.community.update({ where: { id: communityAId }, data: { laySacramentRecords: true } });
+
       const res = await request(app.getHttpServer())
         .post('/sacraments')
         .set('Authorization', `Bearer ${tokenCoordA}`)
@@ -110,14 +128,25 @@ describe('Fase 2 — Sacramentos, Relatórios e Cadastro (e2e)', () => {
         .expect(201);
       sacramentId = res.body.id;
       expect(res.body.type).toBe('BAPTISM');
+      expect(res.body.recordKind).toBe('RECORD');
+      // Assento guarda a pessoa (sobrevive à anonimização LGPD do cadastro)
+      expect(res.body.personSnapshot?.fullName).toBe('Membro A');
     });
 
     it('coordenador NÃO cria sacramento para membro de outra comunidade (403)', async () => {
-      await request(app.getHttpServer())
-        .post('/sacraments')
-        .set('Authorization', `Bearer ${tokenCoordA}`)
-        .send({ memberId: memberBId, type: 'BAPTISM', date: '2010-01-01' })
-        .expect(403);
+      // Comunidade B também liberada: a negação vem só do escopo
+      await prisma.community.update({ where: { id: communityBId }, data: { laySacramentRecords: true } });
+      try {
+        const res = await request(app.getHttpServer())
+          .post('/sacraments')
+          .set('Authorization', `Bearer ${tokenCoordA}`)
+          .send({ memberId: memberBId, type: 'BAPTISM', date: '2010-01-01' })
+          .expect(403);
+        expect(res.body.message).toContain('não tem permissão');
+        expect(await prisma.sacrament.count({ where: { memberId: memberBId } })).toBe(0);
+      } finally {
+        await prisma.community.update({ where: { id: communityBId }, data: { laySacramentRecords: false } });
+      }
     });
 
     it('lista sacramentos do membro (com escopo) e a criação foi auditada', async () => {
@@ -131,6 +160,57 @@ describe('Fase 2 — Sacramentos, Relatórios e Cadastro (e2e)', () => {
         where: { entity: 'Sacrament', entityId: sacramentId, action: 'CREATE' },
       });
       expect(audit).not.toBeNull();
+    });
+
+    it('PATCH que retifica o assento exige rectificationReason (400 sem motivo)', async () => {
+      await request(app.getHttpServer())
+        .patch(`/sacraments/${sacramentId}`)
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .send({ place: 'Capela São José' })
+        .expect(400);
+
+      // Motivo curto demais (mínimo de 10 caracteres)
+      await request(app.getHttpServer())
+        .patch(`/sacraments/${sacramentId}`)
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .send({ place: 'Capela São José', rectificationReason: 'erro' })
+        .expect(400);
+
+      const unchanged = await prisma.sacrament.findUnique({ where: { id: sacramentId } });
+      expect(unchanged?.place).toBe('Matriz');
+    });
+
+    it('PATCH com motivo retifica, anota no assento e audita antes/depois', async () => {
+      const reason = 'Local digitado errado no lançamento';
+      const res = await request(app.getHttpServer())
+        .patch(`/sacraments/${sacramentId}`)
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .send({ place: 'Capela São José', rectificationReason: reason })
+        .expect(200);
+      expect(res.body.place).toBe('Capela São José');
+      expect(res.body.notes).toContain(`Retificação em`);
+      expect(res.body.notes).toContain(reason);
+
+      const audit = await prisma.auditLog.findFirst({
+        where: { entity: 'Sacrament', entityId: sacramentId, action: 'UPDATE' },
+      });
+      expect(audit).not.toBeNull();
+      expect(audit?.before).toMatchObject({ place: 'Matriz' });
+      expect(audit?.after).toMatchObject({ place: 'Capela São José' });
+      expect(audit?.metadata).toMatchObject({ rectification: true, rectificationReason: reason });
+    });
+
+    it('com laySacramentRecords desligado de novo, coordenador não retifica (403)', async () => {
+      await prisma.community.update({ where: { id: communityAId }, data: { laySacramentRecords: false } });
+      try {
+        await request(app.getHttpServer())
+          .patch(`/sacraments/${sacramentId}`)
+          .set('Authorization', `Bearer ${tokenCoordA}`)
+          .send({ place: 'Outro Lugar', rectificationReason: 'Teste de permissão negada' })
+          .expect(403);
+      } finally {
+        await prisma.community.update({ where: { id: communityAId }, data: { laySacramentRecords: true } });
+      }
     });
 
     it('FAITHFUL comum não pode criar sacramento (403 por papel)', async () => {
@@ -147,6 +227,29 @@ describe('Fase 2 — Sacramentos, Relatórios e Cadastro (e2e)', () => {
         .set('Authorization', `Bearer ${tokenFiel}`)
         .send({ memberId: memberAId, type: 'BAPTISM', date: '2010-01-01' })
         .expect(403);
+    });
+
+    // Assento não se apaga: DELETE só SYSTEM_ADMIN (cat-gestao-08)
+    it('DELETE de sacramento é negado ao coordenador, mesmo com laySacramentRecords (403)', async () => {
+      const res = await request(app.getHttpServer())
+        .delete(`/sacraments/${sacramentId}`)
+        .set('Authorization', `Bearer ${tokenCoordA}`)
+        .expect(403);
+      expect(res.body.message).toContain('não se apaga');
+      expect(await prisma.sacrament.findUnique({ where: { id: sacramentId } })).not.toBeNull();
+    });
+
+    it('SYSTEM_ADMIN apaga o sacramento e o assento inteiro fica na auditoria', async () => {
+      await request(app.getHttpServer())
+        .delete(`/sacraments/${sacramentId}`)
+        .set('Authorization', `Bearer ${tokenAdmin}`)
+        .expect(200);
+      expect(await prisma.sacrament.findUnique({ where: { id: sacramentId } })).toBeNull();
+
+      const audit = await prisma.auditLog.findFirst({
+        where: { entity: 'Sacrament', entityId: sacramentId, action: 'DELETE' },
+      });
+      expect(audit?.before).toMatchObject({ memberId: memberAId, type: 'BAPTISM', place: 'Capela São José' });
     });
   });
 

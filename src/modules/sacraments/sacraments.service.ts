@@ -5,7 +5,7 @@ import {
   BadRequestException,
   ConflictException,
 } from '@nestjs/common';
-import { Prisma, Sacrament, SacramentRecordKind, UserRole } from '@prisma/client';
+import { Prisma, Sacrament, SacramentRecordKind, SacramentType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
@@ -15,9 +15,16 @@ import { civilDateAt, civilDayOrNull, formatCivilDate } from '../catechesis/civi
 import {
   assertMayKeepSacramentRecords,
   buildPersonSnapshot,
+  duplicateRecordMessage,
   INFORMED_NO_CERTIFICATE_MESSAGE,
+  isOtherDenominationRecord,
+  isUnrepeatableSacrament,
+  lockMemberSacraments,
+  normalizeNotes,
+  OTHER_DENOMINATION_NOT_RECORD_MESSAGE,
   parseFinalidade,
   personForRecord,
+  preserveRectificationNotes,
   RECORD_DELETE_DENIED_MESSAGE,
   RECTIFICATION_REASON_MESSAGE,
   RECTIFICATION_REASON_MIN,
@@ -113,21 +120,29 @@ export class SacramentsService {
       await assertMayKeepSacramentRecords(this.prisma, currentUser, member.communityId);
     }
     const snapshot = recordKind === SacramentRecordKind.RECORD ? buildPersonSnapshot(member) : null;
+    const data: Prisma.SacramentUncheckedCreateInput = {
+      memberId: dto.memberId,
+      type: dto.type,
+      date: toSacramentDate(dto.date),
+      place: optionalText(dto.place),
+      minister: optionalText(dto.minister),
+      notes: normalizeNotes(dto.notes),
+      book: optionalText(dto.book),
+      page: optionalText(dto.page),
+      term: optionalText(dto.term),
+      recordKind,
+      ...(snapshot ? { personSnapshot: snapshot } : {}),
+    };
 
-    const sacrament = await this.prisma.sacrament.create({
-      data: {
-        memberId: dto.memberId,
-        type: dto.type,
-        date: toSacramentDate(dto.date),
-        place: optionalText(dto.place),
-        minister: optionalText(dto.minister),
-        notes: dto.notes ?? null,
-        book: optionalText(dto.book),
-        page: optionalText(dto.page),
-        term: optionalText(dto.term),
-        recordKind,
-        ...(snapshot ? { personSnapshot: snapshot } : {}),
-      },
+    // Batismo/Crisma/Ordem não se repetem: com assento já lavrado, 409 —
+    // conferido sob o lock do membro (mesma chave da catequese e da
+    // celebração), para duplo clique/lançamentos simultâneos não duplicarem
+    const sacrament = await this.prisma.$transaction(async (tx) => {
+      if (isUnrepeatableSacrament(dto.type)) {
+        await lockMemberSacraments(tx, dto.memberId);
+        await this.assertNoOtherRecord(tx, dto.memberId, dto.type);
+      }
+      return tx.sacrament.create({ data });
     });
 
     await this.auditService.log({
@@ -168,11 +183,38 @@ export class SacramentsService {
   }
 
   /**
+   * 409 quando o membro já tem ASSENTO (RECORD) do tipo irrepetível — chamar
+   * dentro da transação, depois do `lockMemberSacraments`. `exceptId`: o
+   * próprio registro sendo editado.
+   */
+  private async assertNoOtherRecord(
+    tx: Prisma.TransactionClient,
+    memberId: string,
+    type: SacramentType,
+    exceptId?: string,
+  ) {
+    const existing = await tx.sacrament.findFirst({
+      where: {
+        memberId,
+        type,
+        recordKind: SacramentRecordKind.RECORD,
+        ...(exceptId ? { id: { not: exceptId } } : {}),
+      },
+      select: { id: true },
+    });
+    if (existing) throw new ConflictException(duplicateRecordMessage(type));
+  }
+
+  /**
    * Edição. Num assento (RECORD), mudar tipo, data, ministro, local,
    * livro/folha/termo ou o próprio recordKind é RETIFICAÇÃO: exige
    * `rectificationReason` (mín. 10), anota no `notes` e audita antes/depois
-   * com o motivo. Só as mudanças EFETIVAS contam (o painel reenvia tudo).
-   * Passar um INFORMED para RECORD é lavrar o assento (sem motivo).
+   * com o motivo. Só as mudanças EFETIVAS contam (o painel reenvia tudo;
+   * '' e espaços valem o mesmo que vazio dos dois lados — assentos legados
+   * guardam ''). Passar um INFORMED para RECORD é lavrar o assento (sem
+   * motivo), exceto batismo de outra denominação, que não vira assento.
+   * Observações de um RECORD: editáveis sem motivo, mas com antes/depois na
+   * auditoria, e as anotações "Retificação em …" não saem do texto.
    */
   async update(id: string, dto: UpdateSacramentDto, currentUser: CurrentUser) {
     const sacrament = await this.loadSacramentOrThrow(id);
@@ -202,7 +244,8 @@ export class SacramentsService {
     for (const field of RECORD_TEXT_FIELDS) {
       if (dto[field] === undefined) continue;
       const next = optionalText(dto[field]);
-      if (next !== (sacrament[field] ?? null)) track(field, next);
+      // Normalizado dos dois lados: legado '' / com espaços = null
+      if (next !== optionalText(sacrament[field])) track(field, next);
     }
     if (nextKind !== sacrament.recordKind) track('recordKind', nextKind);
 
@@ -213,13 +256,42 @@ export class SacramentsService {
       throw new BadRequestException(RECTIFICATION_REASON_MESSAGE);
     }
 
-    let notes = dto.notes !== undefined ? (dto.notes ?? null) : sacrament.notes;
+    const previousNotes = normalizeNotes(sacrament.notes);
+    // Anotações de retificação anteriores não saem (nem se forjam) pelo texto livre
+    let notes = preserveRectificationNotes(
+      sacrament.notes,
+      dto.notes !== undefined ? normalizeNotes(dto.notes) : previousNotes,
+    );
     if (rectification) {
       // Anotação permanente no próprio assento (a auditoria expira em 5 anos)
       const annotation = `Retificação em ${formatCivilDate(new Date())}: ${reason}`;
       notes = notes ? `${notes}\n${annotation}` : annotation;
     }
-    if (notes !== sacrament.notes) data.notes = notes;
+    if (notes !== previousNotes) {
+      data.notes = notes;
+      // Observação do assento também tem antes/depois (sem exigir motivo)
+      if (isRecord) {
+        before.notes = sacrament.notes ?? null;
+        after.notes = notes;
+      }
+    }
+
+    // Batismo de outra denominação (informado pela catequese) não vira
+    // assento do livro católico — fica INFORMED (cân. 869)
+    const becomesRecord = !isRecord && nextKind === SacramentRecordKind.RECORD;
+    if (
+      becomesRecord &&
+      isOtherDenominationRecord({
+        place: 'place' in data ? (data.place as string | null) : sacrament.place,
+        notes,
+      })
+    ) {
+      throw new ConflictException(OTHER_DENOMINATION_NOT_RECORD_MESSAGE);
+    }
+
+    // Tipo irrepetível que muda ou ganha assento: confere duplicidade sob o lock
+    const nextType = (data.type as SacramentType | undefined) ?? sacrament.type;
+    const needsDedup = isUnrepeatableSacrament(nextType) && ('type' in data || becomesRecord);
 
     // Assento (criado, lavrado ou retificado) guarda a pessoa como está agora;
     // cadastro já anonimizado mantém o snapshot que houver
@@ -233,14 +305,20 @@ export class SacramentsService {
 
     if (!Object.keys(data).length) return sacrament;
 
-    const updated = await this.prisma.sacrament.update({ where: { id }, data });
+    const updated = await this.prisma.$transaction(async (tx) => {
+      if (needsDedup) {
+        await lockMemberSacraments(tx, sacrament.memberId);
+        await this.assertNoOtherRecord(tx, sacrament.memberId, nextType, id);
+      }
+      return tx.sacrament.update({ where: { id }, data });
+    });
 
     await this.auditService.log({
       actor: this.auditActor(currentUser),
       action: 'UPDATE',
       entity: 'Sacrament',
       entityId: id,
-      ...(rectifiedFields.length ? { before, after } : {}),
+      ...(Object.keys(after).length ? { before, after } : {}),
       metadata: {
         memberId: sacrament.memberId,
         changedFields: Object.keys(data).filter((key) => key !== 'personSnapshot'),

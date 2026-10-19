@@ -122,10 +122,19 @@ describe('Fase 3 — Módulos pastorais (e2e)', () => {
         .expect(201);
       enrollmentId = enrollment.body.id;
 
+      // Data da conclusão não pode ser futura (vale para matrícula e para o
+      // Sacrament gerado — correção da auditoria de 10/2026, civil-date.ts)
+      const future = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
       await request(app.getHttpServer())
         .patch(`/catechesis/enrollments/${enrollmentId}/complete`)
         .set(auth())
-        .send({ date: '2026-11-01' })
+        .send({ date: future })
+        .expect(400);
+
+      await request(app.getHttpServer())
+        .patch(`/catechesis/enrollments/${enrollmentId}/complete`)
+        .set(auth())
+        .send({ date: '2026-06-01' })
         .expect(200);
 
       // A conclusão deve ter gerado o Sacramento de Crisma
@@ -174,10 +183,17 @@ describe('Fase 3 — Módulos pastorais (e2e)', () => {
         .expect(201);
       expect(doc.body.currentVersion).toBe(1);
 
-      const updated = await request(app.getHttpServer())
+      // Link do arquivo só https:// (auditoria de 10/2026: http/javascript: → 400)
+      await request(app.getHttpServer())
         .post(`/documents/${doc.body.id}/versions`)
         .set(auth())
         .send({ notes: 'correção de nomes', fileUrl: 'http://x/ata-v2.pdf' })
+        .expect(400);
+
+      const updated = await request(app.getHttpServer())
+        .post(`/documents/${doc.body.id}/versions`)
+        .set(auth())
+        .send({ notes: 'correção de nomes', fileUrl: 'https://x.example/ata-v2.pdf' })
         .expect(201);
       expect(updated.body.currentVersion).toBe(2);
     });

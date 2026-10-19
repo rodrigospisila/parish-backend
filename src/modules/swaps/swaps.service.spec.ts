@@ -63,9 +63,10 @@ describe('SwapsService (4.6)', () => {
       type: 'TEAM_BROADCAST',
       kind: 'swap-requested',
       swapId: 'sw1',
-      scheduleId: 's1',
       assignmentId: 'a1',
     });
+    // R15: sem scheduleId — o app instalado levaria o voluntário à tela de coordenação
+    expect(notifications.notifyUser.mock.calls[0][4]).not.toHaveProperty('scheduleId');
   });
 
   it('só o dono da atribuição pode pedir troca', async () => {

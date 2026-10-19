@@ -328,13 +328,25 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
     const created = { id: 'u9', email: 'nova@x.com', role: UserRole.FAITHFUL, dioceseId: 'd1', parishId: 'p1', communityId: 'c1', member: null };
 
     /** Transação do cadastro: candidatos à adoção vêm do $queryRaw (comparação por dígitos). */
-    const makeTx = (candidates: Array<{ id: string; fullName: string; communityId: string }> = []) => ({
+    const makeTx = (
+      candidates: Array<{ id: string; fullName: string; communityId: string; email?: string | null; phone?: string; responsibleId?: string | null; birthDate?: Date | null }> = [],
+    ) => ({
       user: {
         create: jest.fn().mockImplementation(({ data }: any) =>
           Promise.resolve({ ...created, communityId: data.communityId ?? null, acceptedTermsAt: null, acceptedTermsVersion: null }),
         ),
       },
-      member: { findFirst: jest.fn(), update: jest.fn(), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      member: {
+        // cadastro atual do candidato (lido antes da gravação condicional)
+        findFirst: jest.fn().mockImplementation(({ where }: any) => {
+          const found = candidates.find((candidate) => candidate.id === where.id);
+          return Promise.resolve(
+            found ? { fullName: found.fullName, email: found.email ?? null, phone: found.phone ?? '(42) 99999-8883' } : null,
+          );
+        }),
+        update: jest.fn(),
+        updateMany: jest.fn().mockResolvedValue({ count: 1 }),
+      },
       community: { findUnique: jest.fn().mockResolvedValue({ parishId: 'p1', parish: { dioceseId: 'd1' } }) },
       $queryRaw: jest.fn().mockResolvedValue(candidates),
     });
@@ -379,10 +391,11 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       // dígitos com e sem o 55 entram como parâmetros da consulta
       const params = tx.$queryRaw.mock.calls[0].slice(1);
       expect(params).toEqual(['5542999998883', '42999998883']);
-      // gravação condicional: só adota se o membro continua sem conta
+      // gravação condicional: só adota se o membro continua sem conta (e como foi lido).
+      // Nome real no lugar do "Responsável –"; e-mail vazio é preenchido; o telefone já gravado fica.
       expect(tx.member.updateMany).toHaveBeenCalledWith({
-        where: { id: 'm-imbituva', userId: null, deletedAt: null },
-        data: { userId: 'u9', fullName: 'Nova', email: 'nova@x.com', phone: '+5542999998883' },
+        where: { id: 'm-imbituva', userId: null, deletedAt: null, fullName: 'Responsável – Ana', email: null, phone: '(42) 99999-8883' },
+        data: { userId: 'u9', fullName: 'Nova', email: 'nova@x.com' },
       });
       expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-imbituva');
     });
@@ -406,7 +419,7 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       expect(data).toMatchObject({ role: UserRole.FAITHFUL, communityId: 'c-matriz', parishId: 'p1', dioceseId: 'd1' });
       expect(tx.community.findUnique).toHaveBeenCalledWith(expect.objectContaining({ where: { id: 'c-matriz' } }));
       expect(tx.member.updateMany).toHaveBeenCalledWith(
-        expect.objectContaining({ where: { id: 'm-resp', userId: null, deletedAt: null } }),
+        expect.objectContaining({ where: expect.objectContaining({ id: 'm-resp', userId: null, deletedAt: null }) }),
       );
       expect(members.ensureProfileForUser.mock.calls[0][1].communityId).toBe('c-matriz');
       expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
@@ -440,7 +453,7 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       expect(warn.mock.calls[0][0]).not.toMatch(/Maria|99999/);
     });
 
-    it('ux-acesso-01: entre vários, o único "Responsável –" é adotado', async () => {
+    it('ux-acesso-01: com comunidade escolhida, entre vários o único "Responsável –" é adotado', async () => {
       otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
       const tx = makeTx([
         { id: 'm-cat', fullName: 'Joana Lima', communityId: 'c1' },
@@ -448,12 +461,55 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       ]);
       prisma.$transaction.mockImplementation((fn: any) => fn(tx));
 
-      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', verifiedPhoneToken: 'tok' } as any);
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', communityId: 'c1', verifiedPhoneToken: 'tok' } as any);
 
       expect(tx.member.updateMany).toHaveBeenCalledWith(
-        expect.objectContaining({ where: { id: 'm-resp', userId: null, deletedAt: null } }),
+        expect.objectContaining({ where: expect.objectContaining({ id: 'm-resp', userId: null, deletedAt: null }) }),
       );
       expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
+    });
+
+    it('R11: SEM comunidade (app) e vários candidatos adultos → ninguém, mesmo havendo um "Responsável –"', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([
+        { id: 'm-marido', fullName: 'Joaquim Lima', communityId: 'c1' },
+        { id: 'm-resp', fullName: 'Responsável – Lucas', communityId: 'c1' },
+      ]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+      jest.spyOn((service as any).logger, 'warn').mockImplementation(() => undefined);
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', verifiedPhoneToken: 'tok' } as any);
+
+      expect(tx.member.updateMany).not.toHaveBeenCalled();
+      expect(members.ensureProfileForUser).not.toHaveBeenCalled();
+    });
+
+    it('R11: Imbituva sem comunidade — filho (dependente) com o mesmo celular não atrapalha: adota o "Responsável –"', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([
+        { id: 'm-filho', fullName: 'Lucas Lima', communityId: 'c1', responsibleId: 'm-resp' },
+        { id: 'm-resp', fullName: 'Responsável – Lucas', communityId: 'c1' },
+      ]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Ana Lima', verifiedPhoneToken: 'tok' } as any);
+
+      expect(tx.member.updateMany).toHaveBeenCalledTimes(1);
+      expect(tx.member.updateMany.mock.calls[0][0]).toMatchObject({
+        where: { id: 'm-resp' },
+        data: { userId: 'u9', fullName: 'Ana Lima' },
+      });
+      expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
+    });
+
+    it('R11: cadastro de outra pessoa (sem o marcador) é adotado sem trocar nome, e-mail nem telefone', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([{ id: 'm-joaquim', fullName: 'Joaquim Lima', communityId: 'c1', email: 'joaquim@x.com' }]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Ana Lima', verifiedPhoneToken: 'tok' } as any);
+
+      expect(tx.member.updateMany.mock.calls[0][0].data).toEqual({ userId: 'u9' });
     });
 
     it('ux-acesso-01: outra conta adotou no meio do caminho (gravação condicional falha) → perfil novo', async () => {

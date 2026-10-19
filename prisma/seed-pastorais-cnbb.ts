@@ -21,6 +21,8 @@ interface PastoralSeed {
   description: string;
   mission?: string;
   colorHex: string;
+  /** Pastoral da catequese (GlobalPastoral.isCatechesis): o código não detecta mais pelo nome */
+  isCatechesis?: boolean;
 }
 
 const PASTORAIS: PastoralSeed[] = [
@@ -139,6 +141,7 @@ const PASTORAIS: PastoralSeed[] = [
   },
   {
     name: 'Pastoral Catequética',
+    isCatechesis: true,
     description: 'Iniciação à vida cristã: catequese de crianças, jovens e adultos.',
     mission: 'Formar discípulos missionários de Jesus Cristo.',
     colorHex: '#2471A3',
@@ -218,12 +221,15 @@ async function main() {
         description: pastoral.description,
         mission: pastoral.mission ?? null,
         colorHex: pastoral.colorHex,
+        isCatechesis: pastoral.isCatechesis ?? false,
       },
       update: {
         description: pastoral.description,
         mission: pastoral.mission ?? null,
         colorHex: pastoral.colorHex,
         status: 'ACTIVE',
+        // Só marca: nunca desmarca uma pastoral que a gestão marcou como catequese
+        ...(pastoral.isCatechesis ? { isCatechesis: true } : {}),
       },
     });
     if (existing) updated++;
