@@ -1,0 +1,30 @@
+/**
+ * Formato do campo `data` (Json) de NotificationOutbox para o canal PUSH:
+ * `{ payload, bulk }` — `payload` é o `data` que vai ao aparelho (o mesmo de
+ * antes da outbox) e `bulk` guarda a opção do aviso em massa para o fallback
+ * (B8: aviso em massa não cai para SMS). Nenhum dado pessoal além do que já
+ * ia no push.
+ */
+export interface OutboxPushData {
+  payload: Record<string, unknown>;
+  bulk: boolean;
+}
+
+export function buildOutboxData(data: Record<string, unknown> | undefined, bulk?: boolean): any {
+  // JSON puro (mesmo cuidado do Notification.data: Date/undefined viram texto/somem)
+  const payload = data ? JSON.parse(JSON.stringify(data)) : {};
+  return { payload, bulk: Boolean(bulk) };
+}
+
+export function readOutboxData(raw: unknown): OutboxPushData {
+  if (raw && typeof raw === 'object' && !Array.isArray(raw) && 'payload' in raw) {
+    const value = raw as { payload?: unknown; bulk?: unknown };
+    const payload =
+      value.payload && typeof value.payload === 'object' && !Array.isArray(value.payload)
+        ? (value.payload as Record<string, unknown>)
+        : {};
+    return { payload, bulk: value.bulk === true };
+  }
+  // Linha gravada em outro formato: o próprio objeto é o payload
+  return { payload: raw && typeof raw === 'object' && !Array.isArray(raw) ? (raw as Record<string, unknown>) : {}, bulk: false };
+}

@@ -46,6 +46,15 @@ import { DashboardModule } from './modules/dashboard/dashboard.module';
 import { TitheModule } from './modules/tithe/tithe.module';
 import { PlansModule } from './modules/plans/plans.module';
 import { DataProposalsModule } from './modules/data-proposals/data-proposals.module';
+import { OnboardingModule } from './modules/onboarding/onboarding.module';
+import { LeadsModule } from './modules/leads/leads.module';
+import { ProductEventsModule } from './modules/product-events/product-events.module';
+import { AnnouncementsModule } from './modules/announcements/announcements.module';
+import { PlatformOverviewModule } from './modules/platform-overview/platform-overview.module';
+import { PublicSiteModule } from './modules/public-site/public-site.module';
+import { BillingModule } from './modules/billing/billing.module';
+import { InvitesModule } from './modules/invites/invites.module';
+import { ClaimsModule } from './modules/claims/claims.module';
 import { CommonModule } from './common/common.module';
 import { AppThrottlerGuard, THROTTLER_OPTIONS } from './modules/auth/guards/app-throttler.guard';
 import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
@@ -101,6 +110,19 @@ import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
     SettingsModule,
     PlansModule,
     DataProposalsModule,
+    // Onda 1 / C5 (BE-C): checklist "Primeiros passos"
+    OnboardingModule,
+    // Onda 1 / C4 (BE-D): comercial e plataforma
+    LeadsModule,
+    ProductEventsModule,
+    AnnouncementsModule,
+    PlatformOverviewModule,
+    PublicSiteModule,
+    // Onda 1 / C3 (BE-B): faturamento da plataforma
+    BillingModule,
+    // Onda 1 / C1 e C2 (BE-A): reivindicação de paróquia e convites de equipe
+    InvitesModule,
+    ClaimsModule,
   ],
   controllers: [AppController],
   providers: [

@@ -36,6 +36,7 @@ import {
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { PlanAccessService } from '../plans/plan-access.service';
 import { planFilter, planMark } from '../../common/plan-list';
+import { DateWindow, PageRequest, dateWindowFilter, pageArgs } from '../events/list-window';
 
 /** Comunidade da escala: a própria (agenda fixa/avulsa) ou a do evento. */
 const scheduleCommunityId = (schedule: { communityId?: string | null; event?: { communityId?: string | null; community?: { id: string } | null } | null }) =>
@@ -928,7 +929,21 @@ export class SchedulesService {
     return created;
   }
 
-  async findAllSchedules(eventId?: string, currentUser?: CurrentUser) {
+  async findAllSchedules(eventId?: string, currentUser?: CurrentUser, window?: DateWindow) {
+    const { items } = await this.listSchedules(eventId, currentUser, window);
+    return items;
+  }
+
+  /**
+   * GET /schedules com `page` (eng-qualidade-05, contrato C6): mesmo escopo e
+   * filtros do findAllSchedules, com total — `{ items, total, page, pageSize }`.
+   */
+  async findSchedulesPage(eventId: string | undefined, currentUser: CurrentUser | undefined, window: DateWindow | undefined, page: PageRequest) {
+    const { items, total } = await this.listSchedules(eventId, currentUser, window, page);
+    return { items, total: total ?? items.length, page: page.page, pageSize: page.pageSize };
+  }
+
+  private async listSchedules(eventId?: string, currentUser?: CurrentUser, window?: DateWindow, page?: PageRequest) {
     const hierarchyFilter = currentUser ? this.hierarchyService.applyScheduleFilter(currentUser) : noAccessWhere();
     const scopedPastoralIds =
       currentUser?.role === 'PASTORAL_COORDINATOR'
@@ -953,9 +968,16 @@ export class SchedulesService {
     if (eventId) {
       where.eventId = eventId;
     }
+    // Janela from/to (C6): no banco, pela data da escala (índice em schedules.date)
+    const dateFilter = dateWindowFilter(window);
+    if (dateFilter) {
+      andConditions.push({ date: dateFilter });
+    }
     where.AND = andConditions;
 
+    const total = page ? await this.prisma.schedule.count({ where }) : null;
     const schedules = await this.prisma.schedule.findMany({
+      ...(page ? pageArgs(page) : {}),
       where,
       include: {
         event: {
@@ -1052,16 +1074,16 @@ export class SchedulesService {
           },
         },
       },
-      orderBy: {
-        date: 'asc',
-      },
+      // Com página, o id desempata escalas do mesmo dia (página estável)
+      orderBy: page ? [{ date: 'asc' }, { id: 'asc' }] : { date: 'asc' },
     });
 
     const normalized = schedules.map((schedule) => this.normalizeSchedulePayload(schedule));
     // Escalas de UM evento (?eventId) são do calendário (grátis — plan-routes);
     // a lista geral marca com cadeado as de comunidade sem o plano (M35)
-    if (eventId || !currentUser) return normalized;
-    return planMark(this.planAccess, currentUser, normalized, (schedule: any) => scheduleCommunityId(schedule));
+    if (eventId || !currentUser) return { items: normalized, total };
+    const items = await planMark(this.planAccess, currentUser, normalized, (schedule: any) => scheduleCommunityId(schedule));
+    return { items, total };
   }
 
   async findOneSchedule(id: string, currentUser?: CurrentUser) {

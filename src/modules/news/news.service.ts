@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, Logger } from '@nestjs/common';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateNewsDto } from './dto/create-news.dto';
@@ -8,6 +8,8 @@ import { NotificationsService } from '../notifications/notifications.service';
 
 @Injectable()
 export class NewsService {
+  private readonly logger = new Logger(NewsService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
@@ -50,8 +52,12 @@ export class NewsService {
     });
 
     // Comunicado segmentado por comunidade: dispara notificação aos usuários
-    // da comunidade (respeitando opt-out no NotificationsService).
-    await this.broadcastToCommunity(news);
+    // da comunidade (respeitando opt-out no NotificationsService). Fora do
+    // caminho da requisição (eng-qualidade-02): quem publica não espera o
+    // aviso chegar a milhares de fiéis; o push sai pela outbox.
+    this.broadcastToCommunity(news).catch((error) =>
+      this.logger.warn(`Falha ao avisar a comunidade do comunicado ${news.id}: ${error}`),
+    );
 
     return news;
   }

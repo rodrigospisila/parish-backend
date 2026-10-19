@@ -22,11 +22,16 @@ import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, MemberStatus } from '@prisma/client';
 import { EnforceMemberLimit } from '../plans/plan-gates';
+import { parsePaging } from '../communities/list-paging';
+import { MemberImportService } from './member-import.service';
 
 @Controller('members')
 @UseGuards(JwtAuthGuard, RolesGuard)
 export class MembersController {
-  constructor(private readonly membersService: MembersService) {}
+  constructor(
+    private readonly membersService: MembersService,
+    private readonly memberImport: MemberImportService,
+  ) {}
 
   @Post()
   @EnforceMemberLimit() // limite de membros da faixa do plano (log: só avisa; on: 403)
@@ -126,12 +131,26 @@ export class MembersController {
   // Coordenação: membros do escopo. Fiel/voluntário: só o próprio cadastro e
   // os dependentes, com colunas básicas (o painel usa nos seletores da
   // catequese e das trocas) — regra no service.
+  //
+  // `?page=&pageSize=&search=` (C5 / ux-web-04): lista paginada
+  // `{ items, total, page, pageSize }` com busca sem acento (nome, telefone por
+  // dígitos, CPF) e `access` de cada item. Sem `page`: a resposta de sempre.
   @Get()
   findAll(
     @CurrentUser() user: any,
     @Query('communityId') communityId?: string,
     @Query('status') status?: MemberStatus,
+    @Query('page') page?: string,
+    @Query('pageSize') pageSize?: string,
+    @Query('search') search?: string,
   ) {
+    const paging = parsePaging(page, pageSize, search);
+    if (paging) {
+      return this.membersService.findPage(user, paging, {
+        communityId: communityId || undefined,
+        status: status || undefined,
+      });
+    }
     return this.membersService.findAll(user, communityId, status);
   }
 
@@ -156,16 +175,21 @@ export class MembersController {
     @Query('phone') phone?: string,
     @Query('communityId') communityId?: string,
     @Query('excludeId') excludeId?: string,
+    @Query('cpf') cpf?: string,
   ) {
     return this.membersService.findPotentialDuplicates(
-      { fullName, birthDate, phone, communityId },
+      { fullName, birthDate, phone, communityId, cpf },
       user,
       excludeId,
     );
   }
 
-  // Importação em massa (o cliente envia as linhas já parseadas do CSV)
+  // Importação de planilhas (C5): o navegador lê o CSV/XLSX e envia as linhas;
+  // `dryRun` devolve a prévia por linha; `kind: 'TITHERS'` = membro + dizimista.
+  // Limite de membros da faixa: mesmo guard do POST /members (log: só avisa)
+  // e, com PLAN_ENFORCEMENT=on, o service recusa o lote que passaria da faixa.
   @Post('import')
+  @EnforceMemberLimit()
   @Roles(
     UserRole.SYSTEM_ADMIN,
     UserRole.DIOCESAN_ADMIN,
@@ -173,7 +197,7 @@ export class MembersController {
     UserRole.COMMUNITY_COORDINATOR,
   )
   importMembers(@Body() body: ImportMembersDto, @CurrentUser() user: any) {
-    return this.membersService.importMembers(body.rows, body.communityId, user);
+    return this.memberImport.run(body, user);
   }
 
   @Get(':id')

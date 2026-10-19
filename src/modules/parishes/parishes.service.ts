@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
@@ -6,6 +6,7 @@ import { CurrentUser } from '../../common/hierarchy.service';
 import { CreateParishDto } from './dto/create-parish.dto';
 import { UpdateParishDto } from './dto/update-parish.dto';
 import { ListPage, ListPaging, foldedColumn, inIdOrder, likePattern } from '../communities/list-paging';
+import { isValidCnpj, onlyDigits } from '../members/br-documents';
 
 /** Segredos do provedor de pagamento nunca saem pela API de paróquias (só o módulo do dízimo os usa). */
 const PARISH_SECRETS = { providerApiKeyEnc: true, providerWebhookToken: true } as const;
@@ -13,7 +14,7 @@ const PARISH_SECRETS = { providerApiKeyEnc: true, providerWebhookToken: true } a
 /** Campos editáveis pelo cadastro de paróquia — o resto nunca chega ao Prisma. */
 const EDITABLE_FIELDS = [
   'name', 'address', 'city', 'state', 'zipCode', 'phone', 'email', 'website', 'logoUrl', 'priestName',
-  'latitude', 'longitude', 'dioceseId', 'status',
+  'latitude', 'longitude', 'dioceseId', 'status', 'cnpj',
 ] as const;
 
 function pickEditable(dto: Record<string, unknown>) {
@@ -21,7 +22,18 @@ function pickEditable(dto: Record<string, unknown>) {
   for (const key of EDITABLE_FIELDS) {
     if (dto[key] !== undefined) data[key] = dto[key];
   }
+  if (data.cnpj !== undefined) data.cnpj = normalizeCnpj(data.cnpj);
   return data;
+}
+
+/**
+ * CNPJ da paróquia (cat-gestao-31): grava só os 14 dígitos; vazio/null limpa;
+ * dígito verificador errado → 400.
+ */
+export function normalizeCnpj(value: unknown): string | null {
+  if (value === null || value === undefined || String(value).trim() === '') return null;
+  if (!isValidCnpj(value)) throw new BadRequestException('CNPJ inválido — confira os 14 dígitos');
+  return onlyDigits(value);
 }
 
 @Injectable()
@@ -195,7 +207,7 @@ export class ParishesService {
       select: {
         id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true,
         website: true, logoUrl: true, priestName: true, latitude: true, longitude: true, foundedAt: true, status: true,
-        dioceseId: true, titheEnabled: true, createdAt: true, updatedAt: true,
+        dioceseId: true, titheEnabled: true, cnpj: true, createdAt: true, updatedAt: true,
         diocese: { select: { id: true, name: true, city: true, state: true, website: true, logoUrl: true, bishopName: true } },
         communities: {
           where: { deletedAt: null },
@@ -230,7 +242,10 @@ export class ParishesService {
   async update(id: string, updateParishDto: UpdateParishDto, user: CurrentUser) {
     if (!user?.id) throw new ForbiddenException('Você não tem permissão para editar esta paróquia');
 
-    const parish = await this.prisma.parish.findUnique({ where: { id }, select: { id: true, dioceseId: true, status: true } });
+    const parish = await this.prisma.parish.findUnique({
+      where: { id },
+      select: { id: true, dioceseId: true, status: true, cnpj: true },
+    });
     if (!parish) {
       throw new NotFoundException(`Paróquia com ID ${id} não encontrada`);
     }
@@ -276,14 +291,15 @@ export class ParishesService {
       },
     });
 
-    if (data.dioceseId !== undefined || data.status !== undefined) {
+    const cnpjChanged = data.cnpj !== undefined && data.cnpj !== parish.cnpj;
+    if (data.dioceseId !== undefined || data.status !== undefined || cnpjChanged) {
       await this.auditService.log({
         actor: this.actor(user),
         action: 'UPDATE',
         entity: 'Parish',
         entityId: id,
-        before: { dioceseId: parish.dioceseId, status: parish.status },
-        after: { dioceseId: updated.dioceseId, status: updated.status },
+        before: { dioceseId: parish.dioceseId, status: parish.status, ...(cnpjChanged ? { cnpj: parish.cnpj } : {}) },
+        after: { dioceseId: updated.dioceseId, status: updated.status, ...(cnpjChanged ? { cnpj: updated.cnpj } : {}) },
       });
     }
 

@@ -2,7 +2,6 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { NotificationType } from '@prisma/client';
 import { NotificationsService } from './notifications.service';
 import { PrismaService } from '../../database/prisma.service';
-import { PushDispatcherService } from './push-dispatcher.service';
 import { MessagingService } from '../messaging/messaging.service';
 import { EmailService } from '../messaging/email.service';
 import { ConsentsService } from '../consents/consents.service';
@@ -11,9 +10,10 @@ describe('NotificationsService', () => {
   let service: NotificationsService;
   let prisma: {
     user: { findUnique: jest.Mock; update: jest.Mock; updateMany: jest.Mock };
-    notification: { create: jest.Mock; update: jest.Mock };
+    notification: { create: jest.Mock; update: jest.Mock; updateMany: jest.Mock };
+    notificationOutbox: { create: jest.Mock };
   };
-  let pushDispatcher: { sendWithResult: jest.Mock };
+  let emailService: { configured: boolean; trySend: jest.Mock };
   let messagingService: {
     smsConfigured: boolean;
     normalizePhone: jest.Mock;
@@ -24,9 +24,10 @@ describe('NotificationsService', () => {
   beforeEach(async () => {
     prisma = {
       user: { findUnique: jest.fn(), update: jest.fn(), updateMany: jest.fn().mockResolvedValue({ count: 0 }) },
-      notification: { create: jest.fn(), update: jest.fn() },
+      notification: { create: jest.fn(), update: jest.fn(), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      notificationOutbox: { create: jest.fn().mockResolvedValue({ id: 'out-1' }) },
     };
-    pushDispatcher = { sendWithResult: jest.fn() };
+    emailService = { configured: false, trySend: jest.fn().mockResolvedValue(true) };
     messagingService = {
       smsConfigured: false,
       normalizePhone: jest.fn((raw: string) => (raw ? `+55${raw.replace(/\D/g, '')}` : null)),
@@ -38,9 +39,8 @@ describe('NotificationsService', () => {
       providers: [
         NotificationsService,
         { provide: PrismaService, useValue: prisma },
-        { provide: PushDispatcherService, useValue: pushDispatcher },
         { provide: MessagingService, useValue: messagingService },
-        { provide: EmailService, useValue: { configured: false, trySend: jest.fn() } },
+        { provide: EmailService, useValue: emailService },
         { provide: ConsentsService, useValue: consentsService },
       ],
     }).compile();
@@ -94,7 +94,7 @@ describe('NotificationsService', () => {
   });
 
   describe('notifyUser', () => {
-    it('cria o registro de notificacao e nao envia push quando o usuario nao tem pushToken', async () => {
+    it('cria o registro de notificacao e nao enfileira push quando o usuario nao tem pushToken', async () => {
       prisma.user.findUnique.mockResolvedValue({ pushToken: null });
       prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
 
@@ -103,37 +103,47 @@ describe('NotificationsService', () => {
       expect(prisma.notification.create).toHaveBeenCalledWith({
         data: { userId: 'user-1', type: 'ASSIGNMENT_CREATED', title: 'Titulo', body: 'Corpo', data: undefined },
       });
-      expect(pushDispatcher.sendWithResult).not.toHaveBeenCalled();
+      expect(prisma.notificationOutbox.create).not.toHaveBeenCalled();
       expect(result).toEqual({ id: 'notif-1' });
     });
 
-    it('envia o push e marca isSent/sentAt quando o usuario tem pushToken e o envio funciona', async () => {
-      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc' });
+    it('com pushToken: enfileira o push na outbox (o worker envia e marca isSent depois)', async () => {
+      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc', email: 'x@x.com' });
       prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
+      emailService.configured = true;
 
-      await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo', { scheduleId: 's-1' });
+      const result = await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo', { scheduleId: 's-1' });
 
-      expect(pushDispatcher.sendWithResult).toHaveBeenCalledWith({
-        to: 'expo-token-abc',
-        title: 'Titulo',
-        body: 'Corpo',
-        data: { scheduleId: 's-1' },
+      expect(prisma.notificationOutbox.create).toHaveBeenCalledWith({
+        data: {
+          userId: 'user-1',
+          notificationId: 'notif-1',
+          title: 'Titulo',
+          body: 'Corpo',
+          data: { payload: { scheduleId: 's-1' }, bulk: false },
+          channel: 'PUSH',
+        },
+        select: { id: true },
       });
+      // Nada sai na hora: nem e-mail (a cadeia segue no worker se o push falhar)
+      expect(emailService.trySend).not.toHaveBeenCalled();
+      expect(prisma.notification.update).not.toHaveBeenCalled();
+      expect(result).toEqual({ id: 'notif-1' });
+    });
+
+    it('falha ao enfileirar: não perde o aviso — segue a cadeia e-mail na hora', async () => {
+      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc', email: 'x@x.com', member: null });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+      prisma.notificationOutbox.create.mockRejectedValue(new Error('db'));
+      emailService.configured = true;
+
+      await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo');
+
+      expect(emailService.trySend).toHaveBeenCalledWith('x@x.com', 'Titulo', 'Corpo');
       expect(prisma.notification.update).toHaveBeenCalledWith({
         where: { id: 'notif-1' },
         data: { isSent: true, sentAt: expect.any(Date) },
       });
-    });
-
-    it('nao marca isSent quando o dispatcher falha, mas tambem nao lanca erro', async () => {
-      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token-abc' });
-      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.sendWithResult.mockResolvedValue({ sent: false, invalidToken: false });
-
-      await service.notifyUser('user-1', 'ASSIGNMENT_DECLINED', 'Titulo', 'Corpo');
-
-      expect(prisma.notification.update).not.toHaveBeenCalled();
     });
 
     it('nunca lanca exception, mesmo se a query do prisma falhar', async () => {
@@ -206,11 +216,10 @@ describe('NotificationsService', () => {
     it('prefere o push quando o usuario tem pushToken (sem SMS)', async () => {
       messagingService.smsConfigured = true;
       prisma.user.findUnique.mockResolvedValue({ ...userWithSmsCommunity, pushToken: 'expo-token' });
-      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
 
       await service.notifyUser('user-1', 'SCHEDULE_REMINDER', 'Lembrete', 'Corpo');
 
-      expect(pushDispatcher.sendWithResult).toHaveBeenCalled();
+      expect(prisma.notificationOutbox.create).toHaveBeenCalled();
       expect(messagingService.trySendSms).not.toHaveBeenCalled();
     });
   });
@@ -239,19 +248,7 @@ describe('NotificationsService', () => {
       });
     });
 
-    it('DeviceNotRegistered: não conta como entregue, zera o token e segue a cadeia', async () => {
-      prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-morto', email: 'x@x.com', member: null });
-      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.sendWithResult.mockResolvedValue({ sent: false, invalidToken: true });
-
-      await service.notifyUser('user-1', 'ASSIGNMENT_CREATED', 'Titulo', 'Corpo');
-
-      expect(prisma.user.updateMany).toHaveBeenCalledWith({
-        where: { id: 'user-1', pushToken: 'expo-morto' },
-        data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
-      });
-      expect(prisma.notification.update).not.toHaveBeenCalled();
-    });
+    // DeviceNotRegistered agora é tratado no worker da outbox (push-outbox.service.spec.ts)
   });
 
   describe('aviso em massa sem SMS cobrado (B8)', () => {
@@ -271,15 +268,52 @@ describe('NotificationsService', () => {
       expect(prisma.notification.update).not.toHaveBeenCalled();
     });
 
-    it('bulk ainda usa o push', async () => {
+    it('bulk ainda usa o push (a outbox guarda o bulk para o fallback sem SMS)', async () => {
       prisma.user.findUnique.mockResolvedValue({ pushToken: 'expo-token', member: null });
       prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
-      pushDispatcher.sendWithResult.mockResolvedValue({ sent: true, invalidToken: false });
 
       await service.notifyUser('user-1', 'TEAM_BROADCAST' as any, 'Aviso', 'Corpo', undefined, { bulk: true });
 
-      expect(pushDispatcher.sendWithResult).toHaveBeenCalled();
-      expect(prisma.notification.update).toHaveBeenCalled();
+      expect(prisma.notificationOutbox.create).toHaveBeenCalledWith(
+        expect.objectContaining({ data: expect.objectContaining({ data: { payload: {}, bulk: true } }) }),
+      );
+    });
+  });
+
+  describe('deliverFallback (push falhou de vez no worker)', () => {
+    it('segue e-mail → SMS e marca a notificação como entregue', async () => {
+      messagingService.smsConfigured = true;
+      prisma.user.findUnique.mockResolvedValue({
+        email: null,
+        phone: '41999998888',
+        member: { phone: null, community: { smsEnabled: true } },
+      });
+
+      await expect(service.deliverFallback('user-1', 'notif-1', 'T', 'B')).resolves.toBe(true);
+
+      expect(messagingService.trySendSms).toHaveBeenCalledWith('+5541999998888', 'T: B');
+      expect(prisma.notification.updateMany).toHaveBeenCalledWith({
+        where: { id: 'notif-1' },
+        data: { isSent: true, sentAt: expect.any(Date) },
+      });
+    });
+
+    it('aviso em massa: sem SMS cobrado (B8)', async () => {
+      messagingService.smsConfigured = true;
+      prisma.user.findUnique.mockResolvedValue({
+        email: null,
+        phone: '41999998888',
+        member: { phone: null, community: { smsEnabled: true } },
+      });
+
+      await expect(service.deliverFallback('user-1', 'notif-1', 'T', 'B', { bulk: true })).resolves.toBe(false);
+      expect(messagingService.trySendSms).not.toHaveBeenCalled();
+      expect(prisma.notification.updateMany).not.toHaveBeenCalled();
+    });
+
+    it('nunca lança', async () => {
+      prisma.user.findUnique.mockRejectedValue(new Error('db down'));
+      await expect(service.deliverFallback('user-1', null, 'T', 'B')).resolves.toBe(false);
     });
   });
 
@@ -292,6 +326,24 @@ describe('NotificationsService', () => {
       expect(spy).toHaveBeenCalledTimes(2);
       expect(spy).toHaveBeenCalledWith('user-1', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined, {});
       expect(spy).toHaveBeenCalledWith('user-2', 'SCHEDULE_CANCELLED', 'Titulo', 'Corpo', undefined, {});
+    });
+
+    it('concorrência limitada: no máximo 10 destinatários ao mesmo tempo (eng-qualidade-02)', async () => {
+      let inFlight = 0;
+      let peak = 0;
+      jest.spyOn(service, 'notifyUser').mockImplementation(async () => {
+        inFlight++;
+        peak = Math.max(peak, inFlight);
+        await new Promise((resolve) => setImmediate(resolve));
+        inFlight--;
+        return null;
+      });
+      const ids = Array.from({ length: 35 }, (_, i) => `user-${i}`);
+
+      await service.notifyUsers(ids, 'NEWS', 'T', 'B');
+
+      expect(service.notifyUser).toHaveBeenCalledTimes(35);
+      expect(peak).toBeLessThanOrEqual(10);
     });
 
     it('repassa a opção bulk a cada destinatário', async () => {

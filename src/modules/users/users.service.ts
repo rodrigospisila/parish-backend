@@ -41,6 +41,49 @@ export const generateTempPassword = (): string => {
   }
 };
 
+/**
+ * Papel e escopo concedidos por um convite (C2) ou por uma reivindicação
+ * aprovada (C1). Já validados na criação do convite (resolveCreationScope).
+ */
+export interface InviteGrant {
+  role: UserRole;
+  dioceseId: string | null;
+  parishId: string | null;
+  communityId: string | null;
+  memberId?: string | null;
+  /** Titular da paróquia (só com PARISH_ADMIN) */
+  holder?: boolean;
+}
+
+/**
+ * Colunas de escopo gravadas no usuário para o papel do convite: a
+ * administração diocesana não tem paróquia/comunidade; o PARISH_ADMIN só tem
+ * comunidade quando o convite a indicou; os papéis de comunidade têm a cadeia
+ * inteira. Titular só em PARISH_ADMIN com paróquia.
+ */
+export const inviteScopeFields = (grant: InviteGrant) => {
+  switch (grant.role) {
+    case UserRole.DIOCESAN_ADMIN:
+      return { dioceseId: grant.dioceseId, parishId: null, communityId: null, parishHolder: false };
+    case UserRole.PARISH_ADMIN:
+      // Comunidade só quando o convite a trouxe (validada na paróquia) — o mesmo
+      // que o POST /users grava hoje; nenhuma comunidade é escolhida por conta própria
+      return {
+        dioceseId: grant.dioceseId,
+        parishId: grant.parishId,
+        communityId: grant.parishId ? grant.communityId : null,
+        parishHolder: grant.holder === true && !!grant.parishId,
+      };
+    default:
+      return {
+        dioceseId: grant.dioceseId,
+        parishId: grant.parishId,
+        communityId: grant.communityId,
+        parishHolder: false,
+      };
+  }
+};
+
 /** Reautenticação da exclusão da própria conta (revisão #25/#43). */
 export interface AccountDeletionReauth {
   /** Senha atual (painel e app novo) */
@@ -80,6 +123,8 @@ export class UsersService {
       role: true,
       isActive: true,
       clergyTitle: true,
+      // Titular da paróquia: o painel mostra o selo e libera a gestão dos outros PARISH_ADMIN
+      parishHolder: true,
       forcePasswordChange: true,
       dioceseId: true,
       parishId: true,
@@ -346,7 +391,11 @@ export class UsersService {
    *   (diocese/paróquia/comunidade preenchida e igual à do alvo);
    * - qualquer outro papel: proibido.
    */
-  private assertUserScope(currentUser: any, targetUser: any, options: { allowSelf?: boolean } = {}) {
+  private assertUserScope(
+    currentUser: any,
+    targetUser: any,
+    options: { allowSelf?: boolean; holderPeer?: boolean } = {},
+  ) {
     if (!currentUser?.role) {
       throw new ForbiddenException('Voce nao tem permissao para gerenciar este usuario');
     }
@@ -360,6 +409,12 @@ export class UsersService {
         return;
       }
       throw new ForbiddenException('Use as opcoes da sua conta para alterar os seus proprios dados');
+    }
+
+    // Titular da paróquia → outro PARISH_ADMIN NÃO titular da mesma paróquia
+    // (eng-acessos-03). Já conferido no banco por canHolderManage.
+    if (options.holderPeer) {
+      return;
     }
 
     const actorLevel = this.roleHierarchy[currentUser.role as UserRole];
@@ -387,6 +442,48 @@ export class UsersService {
       default:
         throw new ForbiddenException('Voce nao tem permissao para gerenciar usuarios');
     }
+  }
+
+  /**
+   * O ator é TITULAR da paróquia (eng-acessos-03)? Lido do banco a cada vez —
+   * a sessão (JwtStrategy) não carrega o campo, e o SYSTEM_ADMIN pode ter
+   * desmarcado agora há pouco. Só PARISH_ADMIN ativo, com a mesma paróquia
+   * gravada na sessão.
+   */
+  async isParishHolder(currentUser: any): Promise<boolean> {
+    if (currentUser?.role !== UserRole.PARISH_ADMIN || !currentUser.parishId || !currentUser.id) {
+      return false;
+    }
+    const row = await this.prisma.user.findUnique({
+      where: { id: currentUser.id },
+      select: { parishHolder: true, role: true, parishId: true, isActive: true },
+    });
+    return (
+      !!row &&
+      row.parishHolder === true &&
+      row.isActive !== false &&
+      row.role === UserRole.PARISH_ADMIN &&
+      row.parishId === currentUser.parishId
+    );
+  }
+
+  /**
+   * Titular gerindo um PAR: alvo PARISH_ADMIN da MESMA paróquia, NÃO titular
+   * e que não é o próprio ator. Nunca remove/edita outro titular (isso fica
+   * com o SYSTEM_ADMIN). A consulta ao banco só acontece nesse caso.
+   */
+  private async canHolderManage(currentUser: any, targetUser: any): Promise<boolean> {
+    if (
+      currentUser?.role !== UserRole.PARISH_ADMIN ||
+      targetUser?.role !== UserRole.PARISH_ADMIN ||
+      !currentUser.parishId ||
+      targetUser.parishId !== currentUser.parishId ||
+      targetUser.id === currentUser.id ||
+      targetUser.parishHolder === true
+    ) {
+      return false;
+    }
+    return this.isParishHolder(currentUser);
   }
 
   /**
@@ -531,6 +628,7 @@ export class UsersService {
     user: {
       role: UserRole;
       clergyTitle?: string | null;
+      parishHolder?: boolean;
       isActive: boolean;
       dioceseId: string | null;
       parishId: string | null;
@@ -551,6 +649,7 @@ export class UsersService {
       changed(dto.role, user.role) ||
       changed(dto.clergyTitle, user.clergyTitle) ||
       changed(dto.isActive, user.isActive) ||
+      (dto.parishHolder !== undefined && dto.parishHolder !== !!user.parishHolder) ||
       changedScope(dto.dioceseId, user.dioceseId) ||
       changedScope(dto.parishId, user.parishId) ||
       changedScope(dto.communityId, user.communityId) ||
@@ -839,43 +938,44 @@ export class UsersService {
     return ids.some((id) => id !== userId);
   }
 
-  async create(createUserDto: CreateUserDto, currentUser: any) {
-    let {
-      email,
-      password,
-      role,
-      dioceseId,
-      parishId,
-      communityId,
-      communityIds,
-      pastoralIds,
-      consentGiven,
-      ...rest
-    } = createUserDto;
-
-    rest.phone = this.normalizeOptionalPhone(rest.phone);
-    // Gravado em minúsculas daqui para frente (o login ignora a caixa)
-    email = normalizeEmail(email);
-
-    // Duplicidade sem diferença de caixa: "Maria@x.com" antigo bloqueia "maria@x.com"
-    const existingUser = await this.prisma.user.findFirst({
-      where: { email: emailInsensitive(email) },
-      select: { id: true },
-    });
-
-    if (existingUser) {
-      throw new ConflictException('Email ja esta em uso');
-    }
-
-    if (rest.phone && (await this.isPhoneTakenByOther(rest.phone))) {
-      throw new ConflictException('Telefone ja esta em uso por outro usuario');
-    }
+  /**
+   * Papel + escopo de um usuário NOVO criado por `currentUser` — a régua do
+   * POST /users, reaproveitada pelo convite (POST /invites): papel
+   * ESTRITAMENTE abaixo do ator (exceção: o TITULAR da paróquia cria outro
+   * PARISH_ADMIN da mesma paróquia — eng-acessos-03), escopo forçado pelo papel
+   * do ator e cadeia diocese → paróquia → comunidade conferida. Lança 400/403/404.
+   */
+  async resolveCreationScope(
+    currentUser: any,
+    input: {
+      role: UserRole;
+      dioceseId?: string | null;
+      parishId?: string | null;
+      communityId?: string | null;
+      communityIds?: string[];
+      pastoralIds?: string[];
+    },
+  ): Promise<{ dioceseId?: string; parishId?: string; communityId?: string; communityIds?: string[] }> {
+    const { role, pastoralIds } = input;
+    let dioceseId = input.dioceseId ?? undefined;
+    let parishId = input.parishId ?? undefined;
+    let communityId = input.communityId ?? undefined;
+    let communityIds = input.communityIds;
 
     const currentUserLevel = this.roleHierarchy[currentUser?.role as UserRole];
     const newUserLevel = this.roleHierarchy[role];
 
-    // Negar por padrão: papel desconhecido (de quem cria ou do novo) não passa
-    if (currentUserLevel === undefined || newUserLevel === undefined || newUserLevel <= currentUserLevel) {
+    // Negar por padrão: papel desconhecido (de quem cria ou do novo) não passa.
+    // Titular cria PARISH_ADMIN (não titular) só na própria paróquia (forçada abaixo).
+    const holderCreatingPeer =
+      currentUser?.role === UserRole.PARISH_ADMIN &&
+      role === UserRole.PARISH_ADMIN &&
+      (await this.isParishHolder(currentUser));
+    if (
+      currentUserLevel === undefined ||
+      newUserLevel === undefined ||
+      (newUserLevel <= currentUserLevel && !holderCreatingPeer)
+    ) {
       throw new ForbiddenException('Voce nao pode criar usuarios de nivel superior ou igual ao seu');
     }
 
@@ -965,6 +1065,51 @@ export class UsersService {
       { dioceseId: null, parishId: null, communityId: null },
       { dioceseId: dioceseId ?? null, parishId: parishId ?? null, communityId: communityId ?? null },
     );
+
+    return { dioceseId, parishId, communityId, communityIds };
+  }
+
+  async create(createUserDto: CreateUserDto, currentUser: any) {
+    let {
+      email,
+      password,
+      role,
+      dioceseId,
+      parishId,
+      communityId,
+      communityIds,
+      pastoralIds,
+      consentGiven,
+      ...rest
+    } = createUserDto;
+
+    rest.phone = this.normalizeOptionalPhone(rest.phone);
+    // Gravado em minúsculas daqui para frente (o login ignora a caixa)
+    email = normalizeEmail(email);
+
+    // Duplicidade sem diferença de caixa: "Maria@x.com" antigo bloqueia "maria@x.com"
+    const existingUser = await this.prisma.user.findFirst({
+      where: { email: emailInsensitive(email) },
+      select: { id: true },
+    });
+
+    if (existingUser) {
+      throw new ConflictException('Email ja esta em uso');
+    }
+
+    if (rest.phone && (await this.isPhoneTakenByOther(rest.phone))) {
+      throw new ConflictException('Telefone ja esta em uso por outro usuario');
+    }
+
+    // Papel e escopo (mesma régua do convite — POST /invites)
+    ({ dioceseId, parishId, communityId, communityIds } = await this.resolveCreationScope(currentUser, {
+      role,
+      dioceseId,
+      parishId,
+      communityId,
+      communityIds,
+      pastoralIds,
+    }));
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -1110,7 +1255,10 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    this.assertUserScope(currentUser, user, { allowSelf: true });
+    this.assertUserScope(currentUser, user, {
+      allowSelf: true,
+      holderPeer: await this.canHolderManage(currentUser, user),
+    });
 
     return this.serializeUser(user);
   }
@@ -1196,8 +1344,10 @@ export class UsersService {
       throw new NotFoundException(`Usuario com ID ${id} nao encontrado`);
     }
 
-    // Alvo: o próprio usuário ou alguém de papel estritamente inferior no escopo (C2)
-    this.assertUserScope(currentUser, user, { allowSelf: true });
+    // Alvo: o próprio usuário ou alguém de papel estritamente inferior no escopo (C2);
+    // o titular também edita os outros PARISH_ADMIN não titulares da paróquia
+    const holderPeer = await this.canHolderManage(currentUser, user);
+    this.assertUserScope(currentUser, user, { allowSelf: true, holderPeer });
 
     const isSystemAdmin = currentUser.role === UserRole.SYSTEM_ADMIN;
     const isSelf = currentUser.id === id;
@@ -1217,9 +1367,15 @@ export class UsersService {
       communityIds: rawCommunityIds,
       pastoralIds,
       consentGiven,
+      parishHolder: requestedHolder,
       ...updateData
     } = updateUserDto;
     let communityIds = rawCommunityIds;
+
+    // Titular (eng-acessos-03): só o SYSTEM_ADMIN marca ou desmarca
+    if (requestedHolder !== undefined && requestedHolder !== !!user.parishHolder && !isSystemAdmin) {
+      throw new ForbiddenException("Só a administração do sistema define o titular da paróquia");
+    }
 
     // Troca de e-mail: grava em minúsculas e confere duplicidade sem diferença de caixa
     if (updateData.email !== undefined) {
@@ -1252,11 +1408,13 @@ export class UsersService {
     let nextCommunityId = updateData.communityId ?? user.communityId;
     const nextRole = (updateData.role as UserRole | undefined) ?? user.role;
 
-    // Só atribui papel ESTRITAMENTE abaixo do próprio (o create já fazia isso; o update não)
+    // Só atribui papel ESTRITAMENTE abaixo do próprio (o create já fazia isso; o update não).
+    // Exceção: o titular mantém/atribui PARISH_ADMIN a um par não titular da paróquia.
     if (!isSystemAdmin) {
       const actorLevel = this.roleHierarchy[currentUser.role as UserRole];
       const nextLevel = this.roleHierarchy[nextRole];
-      if (actorLevel === undefined || nextLevel === undefined || nextLevel <= actorLevel) {
+      const holderKeepsPeer = holderPeer && nextRole === UserRole.PARISH_ADMIN;
+      if (actorLevel === undefined || nextLevel === undefined || (nextLevel <= actorLevel && !holderKeepsPeer)) {
         throw new ForbiddenException('Voce so pode atribuir papeis abaixo do seu');
       }
     }
@@ -1344,6 +1502,18 @@ export class UsersService {
       if (nextRole === UserRole.PARISH_ADMIN && (!nextDioceseId || !nextParishId)) {
         throw new BadRequestException('PARISH_ADMIN deve ter uma diocese e paroquia vinculadas');
       }
+    }
+
+    // Titular só existe em PARISH_ADMIN com paróquia; trocar de papel ou de
+    // paróquia sem remarcar desfaz o titular (não carrega o poder para outro lugar)
+    let nextHolder: boolean = requestedHolder ?? !!user.parishHolder;
+    if (requestedHolder === true && (nextRole !== UserRole.PARISH_ADMIN || !nextParishId)) {
+      throw new BadRequestException('Titular da paróquia precisa ser administrador paroquial (PARISH_ADMIN) com paróquia');
+    }
+    if (nextRole !== UserRole.PARISH_ADMIN || !nextParishId) nextHolder = false;
+    if (requestedHolder === undefined && nextParishId !== user.parishId) nextHolder = false;
+    if (nextHolder !== !!user.parishHolder) {
+      (updateData as Record<string, unknown>).parishHolder = nextHolder;
     }
 
     const finalUser = await this.prisma.$transaction(async (tx) => {
@@ -1487,7 +1657,16 @@ export class UsersService {
   async remove(id: string, currentUser: any) {
     const user = await this.prisma.user.findUnique({
       where: { id },
-      select: { id: true, email: true, role: true, dioceseId: true, parishId: true, communityId: true, anonymizedAt: true },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        dioceseId: true,
+        parishId: true,
+        communityId: true,
+        anonymizedAt: true,
+        parishHolder: true,
+      },
     });
 
     if (!user || user.anonymizedAt) {
@@ -1505,8 +1684,10 @@ export class UsersService {
       }
     }
 
-    // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2/M34)
-    this.assertUserScope(currentUser, user);
+    // Próprio usuário: DELETE /users/me. Par ou superior: nunca (C2/M34) —
+    // exceto o titular removendo outro PARISH_ADMIN NÃO titular da paróquia
+    // (eng-acessos-03). Titular nunca é removido por um par.
+    this.assertUserScope(currentUser, user, { holderPeer: await this.canHolderManage(currentUser, user) });
 
     await this.prisma.$transaction(async (tx) => {
       await this.anonymizeUserAccount(tx, id);
@@ -2071,8 +2252,9 @@ export class UsersService {
     }
 
     // Só sobre papel ESTRITAMENTE inferior e no escopo: reset entre pares
-    // entregaria a senha temporária do colega (tomada de conta — C2)
-    this.assertUserScope(currentUser, user);
+    // entregaria a senha temporária do colega (tomada de conta — C2). O
+    // titular, que já pode remover o par não titular, também redefine a senha dele.
+    this.assertUserScope(currentUser, user, { holderPeer: await this.canHolderManage(currentUser, user) });
 
     // Legível para a secretaria passar à pessoa (ditada ou por WhatsApp); vale
     // só até o próximo acesso, quando a troca é obrigatória (forcePasswordChange)
@@ -2111,6 +2293,148 @@ export class UsersService {
       sessionsRevoked: true,
       user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
     };
+  }
+
+  // ===== CONVITE (POST /public/invites/:token/accept) E REIVINDICAÇÃO =====
+
+  /**
+   * Conta NOVA nascida de um convite (C2). Roda na transação do aceite, depois
+   * da gravação condicional que consome o convite. A pessoa definiu a própria
+   * senha e aceitou os termos: sem troca obrigatória (ux-acesso-29).
+   * Devolve o id da conta e o do cadastro de membro (quando o papel tem um).
+   */
+  async createAccountFromInvite(
+    tx: Prisma.TransactionClient,
+    params: {
+      grant: InviteGrant;
+      name: string;
+      email: string;
+      phone: string | null;
+      passwordHash: string;
+      acceptedAt: Date;
+    },
+  ): Promise<{ userId: string; memberId: string | null }> {
+    const { grant } = params;
+    const scope = inviteScopeFields(grant);
+    const user = await tx.user.create({
+      data: {
+        email: params.email,
+        password: params.passwordHash,
+        name: params.name,
+        phone: params.phone,
+        role: grant.role,
+        ...scope,
+        forcePasswordChange: false,
+        acceptedTermsAt: params.acceptedAt,
+        acceptedTermsVersion: TERMS_VERSION,
+      },
+      select: { id: true },
+    });
+    const memberId = await this.linkInvitedAccount(tx, user.id, grant, {
+      name: params.name,
+      email: params.email,
+      phone: params.phone,
+      currentMemberId: null,
+    });
+    return { userId: user.id, memberId };
+  }
+
+  /**
+   * Aplica o papel/escopo de um convite (ou de uma reivindicação aprovada) a
+   * uma conta EXISTENTE. Quem chama confere antes que a conta pode receber
+   * (fiel/voluntário com o mesmo e-mail/celular do convite; ou a conta de quem
+   * reivindicou). Vínculos de fé noutras comunidades ficam (não-destrutivo).
+   */
+  async applyGrantToExistingAccount(
+    tx: Prisma.TransactionClient,
+    userId: string,
+    grant: InviteGrant,
+    extra: { acceptedAt?: Date } = {},
+  ): Promise<{ memberId: string | null }> {
+    const current = await tx.user.findUnique({
+      where: { id: userId },
+      select: { id: true, name: true, email: true, phone: true, member: { select: { id: true } } },
+    });
+    if (!current) {
+      throw new NotFoundException('Conta não encontrada');
+    }
+    await tx.user.update({
+      where: { id: userId },
+      data: {
+        role: grant.role,
+        ...inviteScopeFields(grant),
+        ...(extra.acceptedAt ? { acceptedTermsAt: extra.acceptedAt, acceptedTermsVersion: TERMS_VERSION } : {}),
+      },
+      select: { id: true },
+    });
+    const memberId = await this.linkInvitedAccount(tx, userId, grant, {
+      name: current.name,
+      email: current.email,
+      phone: current.phone,
+      currentMemberId: current.member?.id ?? null,
+    });
+    return { memberId };
+  }
+
+  /**
+   * Vínculos de uma conta que entrou por convite: comunidade de escopo
+   * (UserCommunity principal com o papel — como o POST /users) e o cadastro de
+   * membro. O membro indicado no convite (pré-cadastro sem conta) é ASSUMIDO
+   * pela conta com gravação condicional (adoptMember); sem ele, cria-se um.
+   * Administração (diocese/paróquia) não ganha cadastro de membro.
+   */
+  private async linkInvitedAccount(
+    tx: Prisma.TransactionClient,
+    userId: string,
+    grant: InviteGrant,
+    person: { name: string; email: string; phone: string | null; currentMemberId: string | null },
+  ): Promise<string | null> {
+    const communityId = inviteScopeFields(grant).communityId;
+    if (!communityId) {
+      return person.currentMemberId;
+    }
+
+    // Principal = a comunidade do convite; os demais vínculos seguem, sem ser o principal
+    await tx.userCommunity.updateMany({
+      where: { userId, isPrimary: true, communityId: { not: communityId } },
+      data: { isPrimary: false },
+    });
+    await tx.userCommunity.upsert({
+      where: { userId_communityId: { userId, communityId } },
+      create: { userId, communityId, role: grant.role, isPrimary: true },
+      update: { role: grant.role, isActive: true, isPrimary: true, leftAt: null },
+    });
+
+    let existingMemberId: string | undefined = person.currentMemberId ?? undefined;
+    if (!existingMemberId && grant.memberId) {
+      const adopted = await adoptMember(tx, grant.memberId, {
+        userId,
+        fullName: person.name,
+        email: person.email,
+        phone: person.phone ?? '',
+      });
+      if (adopted) {
+        existingMemberId = grant.memberId;
+      } else {
+        // Outra conta assumiu o cadastro no meio do caminho: cria um perfil novo
+        this.logger.warn(`Convite: cadastro de membro ${grant.memberId} já tinha conta — perfil novo criado`);
+      }
+    }
+
+    const member = await this.membersService.ensureProfileForUser(
+      tx,
+      {
+        userId,
+        role: grant.role,
+        name: person.name,
+        email: person.email,
+        phone: person.phone,
+        communityId,
+        consentGiven: true,
+      },
+      existingMemberId,
+    );
+    return member?.id ?? existingMemberId ?? null;
   }
 
   // ===== FOTO DE PERFIL =====

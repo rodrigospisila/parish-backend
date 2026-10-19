@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
-import { PushDispatcherService } from './push-dispatcher.service';
+import { buildOutboxData } from './push-outbox.data';
 import { MessagingService } from '../messaging/messaging.service';
 import { EmailService } from '../messaging/email.service';
 import { ConsentsService } from '../consents/consents.service';
@@ -16,13 +16,15 @@ export interface NotifyOptions {
   bulk?: boolean;
 }
 
+/** Destinatários processados ao mesmo tempo em notifyUsers. */
+export const NOTIFY_USERS_CONCURRENCY = 10;
+
 @Injectable()
 export class NotificationsService {
   private readonly logger = new Logger(NotificationsService.name);
 
   constructor(
     private readonly prisma: PrismaService,
-    private readonly pushDispatcher: PushDispatcherService,
     private readonly messagingService: MessagingService,
     private readonly emailService: EmailService,
     private readonly consentsService: ConsentsService,
@@ -52,7 +54,8 @@ export class NotificationsService {
   }
 
   /**
-   * Cria o registro de notificacao e dispara o push (best-effort) para um usuario.
+   * Cria o registro de notificacao e enfileira o push (outbox) para um usuario;
+   * sem token de push, tenta e-mail → SMS na hora, como sempre.
    * Nunca lanca exceptions: notificacao nao deve quebrar o fluxo que a originou.
    */
   async notifyUser(
@@ -102,29 +105,32 @@ export class NotificationsService {
       });
 
       // Cadeia de entrega: push → e-mail → SMS (o primeiro que funcionar encerra);
-      // aviso em massa (`bulk`) não chega ao SMS
-      let sent = false;
-
+      // aviso em massa (`bulk`) não chega ao SMS.
+      // O push NÃO sai daqui (eng-qualidade-02): vai para a outbox e o worker
+      // (PushOutboxService) envia em lote, marca isSent e, se o push falhar de
+      // vez, segue a cadeia (e-mail → SMS) pelo deliverFallback.
       if (user?.pushToken) {
-        const push = await this.pushDispatcher.sendWithResult({ to: user.pushToken, title, body, data });
-        sent = push.sent;
-        if (push.invalidToken) {
-          // Token morto (B44): sai da conta para não "entregar" de novo no vazio
-          await this.prisma.user
-            .updateMany({ where: { id: userId, pushToken: user.pushToken }, data: { pushToken: null, pushTokenUpdatedAt: new Date() } })
-            .catch(() => undefined);
-        }
+        const queued = await this.prisma.notificationOutbox
+          .create({
+            data: {
+              userId,
+              notificationId: notification.id,
+              title,
+              body,
+              data: buildOutboxData(data, options.bulk),
+              channel: 'PUSH',
+            },
+            select: { id: true },
+          })
+          .then(() => true)
+          .catch((error) => {
+            this.logger.warn(`Falha ao enfileirar push do usuario ${userId}: ${error}`);
+            return false;
+          });
+        if (queued) return notification;
       }
 
-      if (!sent && user?.email && this.emailService.configured) {
-        sent = await this.emailService.trySend(user.email, title, body);
-      }
-
-      if (!sent && user && !options.bulk) {
-        // Fallback SMS: comunidade com smsEnabled e Twilio configurado
-        sent = await this.trySmsFallback(user, title, body);
-      }
-
+      const sent = user ? await this.fallbackChain(user, title, body, options) : false;
       if (sent) {
         await this.prisma.notification.update({
           where: { id: notification.id },
@@ -136,6 +142,68 @@ export class NotificationsService {
     } catch (error) {
       this.logger.warn(`Falha ao notificar usuario ${userId}: ${error}`);
       return null;
+    }
+  }
+
+  /**
+   * Cadeia depois do push: e-mail → SMS (SMS fora em aviso em massa, B8).
+   * Devolve se algum canal entregou.
+   */
+  private async fallbackChain(
+    user: {
+      email?: string | null;
+      phone?: string | null;
+      member?: { phone: string | null; community: { smsEnabled: boolean } } | null;
+    },
+    title: string,
+    body: string,
+    options: NotifyOptions,
+  ): Promise<boolean> {
+    let sent = false;
+    if (user.email && this.emailService.configured) {
+      sent = await this.emailService.trySend(user.email, title, body);
+    }
+    if (!sent && !options.bulk) {
+      // Fallback SMS: comunidade com smsEnabled e Twilio configurado
+      sent = await this.trySmsFallback({ phone: user.phone ?? null, member: user.member ?? null }, title, body);
+    }
+    return sent;
+  }
+
+  /**
+   * Usado pelo worker da outbox quando o push falhou de vez (token morto,
+   * tentativas esgotadas, conta sem token na hora do envio): segue a cadeia
+   * como o envio direto fazia e marca a notificação como entregue se algum
+   * canal funcionou. Nunca lança.
+   */
+  async deliverFallback(
+    userId: string,
+    notificationId: string | null,
+    title: string,
+    body: string,
+    options: NotifyOptions = {},
+  ): Promise<boolean> {
+    try {
+      const user = await this.prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+          phone: true,
+          email: true,
+          member: { select: { phone: true, community: { select: { smsEnabled: true } } } },
+        },
+      });
+      if (!user) return false;
+      const sent = await this.fallbackChain(user, title, body, options);
+      if (sent && notificationId) {
+        await this.prisma.notification.updateMany({
+          where: { id: notificationId },
+          data: { isSent: true, sentAt: new Date() },
+        });
+      }
+      return sent;
+    } catch (error) {
+      this.logger.warn(`Falha no fallback de notificacao do usuario ${userId}: ${error}`);
+      return false;
     }
   }
 
@@ -177,10 +245,14 @@ export class NotificationsService {
     data?: Record<string, unknown>,
     options: NotifyOptions = {},
   ) {
+    // Concorrência limitada (eng-qualidade-02): um aviso para milhares de
+    // fiéis não abre milhares de consultas ao mesmo tempo (pool do Prisma).
+    // Cada notifyUser só grava (o push vai para a outbox), então o lote anda rápido.
     const uniqueUserIds = [...new Set(userIds)];
-    await Promise.all(
-      uniqueUserIds.map((userId) => this.notifyUser(userId, type, title, body, data, options)),
-    );
+    for (let index = 0; index < uniqueUserIds.length; index += NOTIFY_USERS_CONCURRENCY) {
+      const chunk = uniqueUserIds.slice(index, index + NOTIFY_USERS_CONCURRENCY);
+      await Promise.all(chunk.map((userId) => this.notifyUser(userId, type, title, body, data, options)));
+    }
   }
 
   /**

@@ -1,20 +1,29 @@
 // Primeiro de tudo: o Sentry (só com SENTRY_DSN) precisa subir antes do resto
+import type { NestExpressApplication } from '@nestjs/platform-express';
 import { initSentry } from './common/filters/sentry';
 initSentry();
 
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { validateEnv } from './config/validate-env';
 import { applyHttpSecurity, isSwaggerEnabled } from './config/http-security';
 import { REQUEST_ID_HEADER, requestIdMiddleware } from './common/request-id';
+import { isJsonLogFormat, JsonLogger } from './common/logging/json-logger';
+import { createRequestLoggingMiddleware } from './common/logging/request-logging.middleware';
 
 async function bootstrap() {
   // Falha rápido se segredos/configuração de segurança estiverem ausentes
   validateEnv();
 
-  const app = await NestFactory.create(AppModule);
+  // LOG_FORMAT=json: logs em JSON (nível, contexto, mensagem, requestId) e uma
+  // linha por requisição (eng-qualidade-15). Sem a env, o formato não muda.
+  const jsonLogs = isJsonLogFormat();
+  const jsonLogger = jsonLogs ? new JsonLogger() : null;
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, jsonLogger ? { logger: jsonLogger } : {});
+  // Importação de planilha (até 2.000 linhas por chamada) passa do padrão de 100 KB
+  app.useBodyParser('json', { limit: '2mb' });
   // Atrás do proxy do Railway: o X-Forwarded-For chega como "<cliente>, <borda do
   // Railway>" e a conexão vem do proxy interno. Com 1 salto, req.ip era o IP da
   // BORDA (2 endereços para todo o Brasil — o limite por IP valia para todos
@@ -25,6 +34,7 @@ async function bootstrap() {
   // Código de rastreio (X-Request-Id) em toda resposta; o filtro global de
   // erros (AllExceptionsFilter, no AppModule) o repete no corpo do erro
   app.use(requestIdMiddleware);
+  if (jsonLogger) app.use(createRequestLoggingMiddleware(jsonLogger));
 
   // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';
@@ -78,8 +88,14 @@ async function bootstrap() {
   const port = process.env.PORT || 3000;
   await app.listen(port);
 
-  console.log(`🚀 Parish Backend rodando em http://localhost:${port}`);
-  if (swaggerEnabled) console.log(`📖 Documentação da API disponível em http://localhost:${port}/api`);
+  if (jsonLogs) {
+    const bootLogger = new Logger('Bootstrap');
+    bootLogger.log(`Parish Backend rodando na porta ${port}`);
+    if (swaggerEnabled) bootLogger.log('Documentação da API disponível em /api');
+  } else {
+    console.log(`🚀 Parish Backend rodando em http://localhost:${port}`);
+    if (swaggerEnabled) console.log(`📖 Documentação da API disponível em http://localhost:${port}/api`);
+  }
 }
 
 bootstrap();

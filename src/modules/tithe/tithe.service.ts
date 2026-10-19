@@ -633,7 +633,7 @@ export class TitheService {
       result = await provider.ensureSetup({
         webhookUrl,
         webhookToken: parish.providerWebhookToken,
-        contactEmail: user.email ?? 'contato@parish.app',
+        contactEmail: user.email || process.env.SUPPORT_EMAIL || '',
       });
     } catch (error) {
       result = { pixKeyReady: false, webhookRegistered: false, notes: [String((error as Error)?.message ?? error).slice(0, 160)] };

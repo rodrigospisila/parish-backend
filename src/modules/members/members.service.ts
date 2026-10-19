@@ -12,7 +12,8 @@ import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
 import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dto';
 import { AssignmentStatus, MemberStatus, Prisma, SacramentRecordKind, UserRole } from '@prisma/client';
-import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
+import { HierarchyService, CurrentUser, isNoAccessWhere } from '../../common/hierarchy.service';
+import { ListPage, ListPaging, foldedColumn, likePattern } from '../communities/list-paging';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast, ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 import { normalizeBrazilianPhone } from '../messaging/log-mask';
@@ -95,6 +96,64 @@ export class MembersService {
     const self = await this.resolveMemberFromUser(currentUser.id);
     return { ...currentUser, member: self ? { id: self.id } : null };
   }
+
+  /** Relações da lista de gestão (GET /members) — a mesma na lista paginada. */
+  private readonly managerListInclude = {
+    community: {
+      select: {
+        id: true,
+        name: true,
+      },
+    },
+    spouse: {
+      select: {
+        id: true,
+        fullName: true,
+      },
+    },
+    responsible: {
+      select: {
+        id: true,
+        fullName: true,
+      },
+    },
+    communityLinks: {
+      where: { isActive: true },
+      select: {
+        id: true,
+        communityId: true,
+        isPrimary: true,
+        community: { select: { id: true, name: true } },
+      },
+    },
+    pastoralMemberships: {
+      include: {
+        communityPastoral: {
+          include: {
+            globalPastoral: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
+        pastoralGroup: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
+    },
+    _count: {
+      select: {
+        sacraments: true,
+        // prayerRequests fora: a contagem incluía os anônimos (desanonimização)
+        scheduleAssignments: true,
+      },
+    },
+  } as const;
 
   /** Colunas devolvidas a quem NÃO gerencia cadastro (o próprio e dependentes). */
   private readonly basicMemberSelect = {
@@ -464,7 +523,7 @@ export class MembersService {
    * comunidade: canManageCommunity (diocese/paróquia/comunidade do cadastro);
    * coordenador de pastoral: só a própria comunidade; demais: nunca.
    */
-  private async canManageMembersIn(currentUser: CurrentUser, communityId: string): Promise<boolean> {
+  async canManageMembersIn(currentUser: CurrentUser, communityId: string): Promise<boolean> {
     if (!currentUser?.id || !currentUser.role || !communityId) {
       return false;
     }
@@ -902,67 +961,166 @@ export class MembersService {
 
     const rows = await this.prisma.member.findMany({
       where,
-      include: {
-        community: {
-          select: {
-            id: true,
-            name: true,
-          },
-        },
-        spouse: {
-          select: {
-            id: true,
-            fullName: true,
-          },
-        },
-        responsible: {
-          select: {
-            id: true,
-            fullName: true,
-          },
-        },
-        communityLinks: {
-          where: { isActive: true },
-          select: {
-            id: true,
-            communityId: true,
-            isPrimary: true,
-            community: { select: { id: true, name: true } },
-          },
-        },
-        pastoralMemberships: {
-          include: {
-            communityPastoral: {
-              include: {
-                globalPastoral: {
-                  select: {
-                    id: true,
-                    name: true,
-                  },
-                },
-              },
-            },
-            pastoralGroup: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-        _count: {
-          select: {
-            sacraments: true,
-            // prayerRequests fora: a contagem incluía os anônimos (desanonimização)
-            scheduleAssignments: true,
-          },
-        },
-      },
+      include: this.managerListInclude,
       orderBy: {
         fullName: 'asc',
       },
     });
     return rows.map((row) => this.hideAnonymizedAccount(row));
+  }
+
+  /**
+   * Lista de gestão PAGINADA (C5 / ux-web-04): `GET /members?page=` →
+   * `{ items, total, page, pageSize }`. Mesmo escopo do findAll (o filtro do
+   * HierarchyService é sempre a palavra final); `search` sem acento por nome,
+   * telefone (só dígitos) e CPF; `communityId`/`status` como filtros
+   * ADICIONAIS. Cada item ganha `access`: ACTIVE (tem conta), INVITED (convite
+   * pendente — não aceito, não revogado, não vencido) ou NONE — em lote.
+   */
+  async findPage(
+    currentUser: CurrentUser,
+    paging: ListPaging,
+    filters: { communityId?: string; status?: MemberStatus } = {},
+  ): Promise<ListPage<any>> {
+    const empty: ListPage<any> = { items: [], total: 0, page: paging.page, pageSize: paging.pageSize };
+    if (filters.status && !Object.values(MemberStatus).includes(filters.status)) {
+      throw new BadRequestException('Situação (status) inválida');
+    }
+    const actor = await this.withSelfMember(currentUser);
+    const scope = this.hierarchyService.applyMemberFilter(actor);
+    if (isNoAccessWhere(scope)) return empty;
+
+    const and: Prisma.MemberWhereInput[] = [scope, { deletedAt: null }];
+    if (filters.communityId) {
+      const communityId = filters.communityId;
+      and.push({ OR: [{ communityId }, { communityLinks: { some: { communityId, isActive: true } } }] });
+    }
+    if (filters.status) and.push({ status: filters.status });
+    if (paging.search) {
+      const ids = await this.searchMemberIds(actor, paging.search);
+      if (!ids.length) return empty;
+      and.push({ id: { in: ids } });
+    }
+    const where: Prisma.MemberWhereInput = { AND: and };
+    const orderBy: Prisma.MemberOrderByWithRelationInput[] = [{ fullName: 'asc' }, { id: 'asc' }];
+    const manager = this.isMemberManager(currentUser);
+
+    const [total, rows] = await Promise.all([
+      this.prisma.member.count({ where }),
+      manager
+        ? this.prisma.member.findMany({
+            where,
+            include: this.managerListInclude,
+            orderBy,
+            skip: paging.skip,
+            take: paging.pageSize,
+          })
+        : this.prisma.member.findMany({
+            where,
+            select: { ...this.basicMemberSelect, userId: true },
+            orderBy,
+            skip: paging.skip,
+            take: paging.pageSize,
+          }),
+    ]);
+
+    const visible = (rows as any[]).map((row) => this.hideAnonymizedAccount(row));
+    const access = await this.accessByMember(visible);
+    const items = visible.map((row) => {
+      const item = manager ? { ...row } : (({ userId: _userId, ...rest }) => rest)(row);
+      return { ...item, access: access.get(row.id) ?? { state: 'NONE' } };
+    });
+    return { items, total, page: paging.page, pageSize: paging.pageSize };
+  }
+
+  /** Máximo de ids que a busca textual devolve (busca que acha mais que isso é vaga demais). */
+  static readonly SEARCH_ID_LIMIT = 5000;
+
+  /**
+   * Ids que casam com a busca (nome sem acento; telefone/CPF por dígitos)
+   * DENTRO do escopo do papel — o mesmo recorte do applyMemberFilter, que
+   * ainda é reaplicado pelo Prisma no chamador.
+   */
+  private async searchMemberIds(user: CurrentUser, folded: string): Promise<string[]> {
+    const conditions: Prisma.Sql[] = [Prisma.sql`m."deletedAt" IS NULL`];
+    switch (user.role) {
+      case UserRole.SYSTEM_ADMIN:
+        break;
+      case UserRole.DIOCESAN_ADMIN:
+        if (!user.dioceseId) return [];
+        conditions.push(Prisma.sql`m."communityId" IN (
+          SELECT c.id FROM communities c JOIN parishes p ON p.id = c."parishId" WHERE p."dioceseId" = ${user.dioceseId})`);
+        break;
+      case UserRole.PARISH_ADMIN:
+        if (!user.parishId) return [];
+        conditions.push(Prisma.sql`m."communityId" IN (SELECT c.id FROM communities c WHERE c."parishId" = ${user.parishId})`);
+        break;
+      case UserRole.COMMUNITY_COORDINATOR:
+      case UserRole.PASTORAL_COORDINATOR: {
+        const ids = await this.hierarchyService.getCommunityScopeIds(user);
+        if (!ids.length) return [];
+        conditions.push(Prisma.sql`(m."communityId" = ANY(${ids}::text[]) OR EXISTS (
+          SELECT 1 FROM member_communities mc
+          WHERE mc."memberId" = m.id AND mc."isActive" = true AND mc."communityId" = ANY(${ids}::text[])))`);
+        break;
+      }
+      case UserRole.VOLUNTEER:
+      case UserRole.FAITHFUL: {
+        const self = user.member?.id;
+        if (!self) return [];
+        conditions.push(Prisma.sql`(m.id = ${self} OR m."responsibleId" = ${self})`);
+        break;
+      }
+      default:
+        return [];
+    }
+
+    const match: Prisma.Sql[] = [Prisma.sql`${foldedColumn(Prisma.sql`m."fullName"`)} LIKE ${likePattern(folded)}`];
+    const digits = folded.replace(/\D/g, '');
+    if (digits.length >= 3) {
+      const digitsLike = likePattern(digits);
+      match.push(Prisma.sql`regexp_replace(COALESCE(m.phone, ''), '[^0-9]', '', 'g') LIKE ${digitsLike}`);
+      match.push(Prisma.sql`COALESCE(m.cpf, '') LIKE ${digitsLike}`);
+    }
+    conditions.push(Prisma.sql`(${Prisma.join(match, ' OR ')})`);
+
+    const rows = await this.prisma.$queryRaw<{ id: string }[]>(Prisma.sql`
+      SELECT m.id FROM members m
+      WHERE ${Prisma.join(conditions, ' AND ')}
+      LIMIT ${MembersService.SEARCH_ID_LIMIT}
+    `);
+    return rows.map((row) => row.id);
+  }
+
+  /** Acesso ao app de cada membro (sem N+1: uma consulta de convites para a página). */
+  private async accessByMember(
+    rows: Array<{ id: string; userId?: string | null }>,
+    now: Date = new Date(),
+  ): Promise<Map<string, { state: 'NONE' | 'INVITED' | 'ACTIVE'; invitedAt?: Date }>> {
+    const access = new Map<string, { state: 'NONE' | 'INVITED' | 'ACTIVE'; invitedAt?: Date }>();
+    const withoutAccount: string[] = [];
+    for (const row of rows) {
+      if (row.userId) access.set(row.id, { state: 'ACTIVE' });
+      else withoutAccount.push(row.id);
+    }
+    if (withoutAccount.length) {
+      const invites = await this.prisma.userInvite.findMany({
+        where: { memberId: { in: withoutAccount }, acceptedAt: null, revokedAt: null, expiresAt: { gt: now } },
+        select: { memberId: true, createdAt: true, lastSentAt: true },
+      });
+      for (const invite of invites) {
+        if (!invite.memberId) continue;
+        const invitedAt = invite.lastSentAt ?? invite.createdAt;
+        const current = access.get(invite.memberId);
+        if (!current?.invitedAt || current.invitedAt < invitedAt) {
+          access.set(invite.memberId, { state: 'INVITED', invitedAt });
+        }
+      }
+    }
+    for (const id of withoutAccount) {
+      if (!access.has(id)) access.set(id, { state: 'NONE' });
+    }
+    return access;
   }
 
   /**
@@ -1759,7 +1917,7 @@ export class MembersService {
    * Cruza nome normalizado (acentos/caixa) com data de nascimento ou telefone.
    */
   async findPotentialDuplicates(
-    input: { fullName: string; birthDate?: string; phone?: string; communityId?: string },
+    input: { fullName: string; birthDate?: string; phone?: string; communityId?: string; cpf?: string },
     currentUser?: CurrentUser,
     excludeId?: string,
   ) {
@@ -1794,8 +1952,17 @@ export class MembersService {
       },
     });
 
-    const targetName = this.normalizeName(input.fullName);
+    const targetName = this.normalizeName(input.fullName ?? '');
+    // Telefone por dígitos, com e sem o 55 (o cadastro guarda E.164; antigos, como digitado)
     const targetPhone = input.phone ? this.normalizeCpf(input.phone) : null;
+    const phoneKeys = targetPhone
+      ? new Set(
+          targetPhone.startsWith('55') && targetPhone.length >= 12
+            ? [targetPhone, targetPhone.slice(2)]
+            : [targetPhone, `55${targetPhone}`],
+        )
+      : null;
+    const targetCpf = input.cpf ? this.normalizeCpf(input.cpf) : null;
     const targetBirth = input.birthDate ? input.birthDate.slice(0, 10) : null;
 
     return candidates
@@ -1808,10 +1975,14 @@ export class MembersService {
             reasons.push('mesmo nome e data de nascimento');
           }
         }
-        if (sameName && targetPhone && candidate.phone) {
-          if (this.normalizeCpf(candidate.phone) === targetPhone) {
+        if (sameName && phoneKeys && candidate.phone) {
+          if (phoneKeys.has(this.normalizeCpf(candidate.phone) ?? '')) {
             reasons.push('mesmo nome e telefone');
           }
+        }
+        // C5: mesmo CPF é duplicado mesmo com o nome escrito diferente
+        if (targetCpf && candidate.cpf && candidate.cpf === targetCpf) {
+          reasons.push('mesmo CPF');
         }
         if (sameName && !targetBirth && !targetPhone) {
           reasons.push('mesmo nome');
@@ -1828,80 +1999,7 @@ export class MembersService {
       }));
   }
 
-  /**
-   * Importa membros a partir de linhas (ex.: CSV parseado no controller/web).
-   * Valida comunidade/escopo, pula duplicados por CPF/e-mail e reporta erros por linha.
-   */
-  async importMembers(
-    rows: Array<Record<string, string>>,
-    communityId: string,
-    currentUser: CurrentUser,
-  ) {
-    const community = await this.prisma.community.findFirst({
-      where: { id: communityId, deletedAt: null },
-    });
-    if (!community) {
-      throw new NotFoundException('Comunidade não encontrada');
-    }
-
-    // Mesma regra da criação: destino no escopo de GESTÃO do ator (antes o
-    // admin diocesano importava em qualquer paróquia do país)
-    if (!(await this.canManageMembersIn(currentUser, communityId))) {
-      throw new ForbiddenException('Você não tem permissão para importar nesta comunidade');
-    }
-
-    const result = { imported: 0, skipped: 0, errors: [] as Array<{ line: number; reason: string }> };
-
-    for (let i = 0; i < rows.length; i++) {
-      const row = rows[i];
-      const fullName = row.fullName?.trim() || row.nome?.trim();
-      if (!fullName) {
-        result.errors.push({ line: i + 1, reason: 'Nome ausente' });
-        continue;
-      }
-
-      const cpf = this.normalizeCpf(row.cpf);
-      const email = this.normalizeEmail(row.email);
-
-      // Pula duplicado por CPF/e-mail DENTRO do escopo do ator. Fora dele não
-      // revela: CPF de outra paróquia cai no erro genérico da linha (índice
-      // único nacional); e-mail repetido noutro lugar não impede o cadastro.
-      const existing =
-        (cpf && (await this.findMemberInActorScope({ cpf }, currentUser))) ||
-        (email && (await this.findMemberInActorScope({ email }, currentUser)));
-      if (existing) {
-        result.skipped++;
-        continue;
-      }
-
-      try {
-        await this.prisma.member.create({
-          data: {
-            fullName,
-            cpf,
-            email,
-            // E.164 quando der (A23) — a adoção pelo app compara com o celular verificado
-            phone: normalizeBrazilianPhone(row.phone) ?? this.normalizeOptionalString(row.phone),
-            communityId,
-            communityLinks: { create: { communityId, isPrimary: true } },
-            status: 'ACTIVE',
-          },
-        });
-        result.imported++;
-      } catch {
-        result.errors.push({ line: i + 1, reason: 'Falha ao inserir (dados inválidos ou duplicados)' });
-      }
-    }
-
-    await this.auditService.log({
-      actor: this.auditActor(currentUser),
-      action: 'CREATE',
-      entity: 'Member',
-      metadata: { bulkImport: true, communityId, ...result },
-    });
-
-    return result;
-  }
+  // Importação de planilhas: MemberImportService (member-import.service.ts)
 
   // Buscar membros por nome
   // O filtro de hierarquia é SEMPRE aplicado: cada usuário só busca dentro

@@ -258,6 +258,8 @@ model User {
   clergyTitle ClergyTitle?
 
   // Force password change on first login
+  /// Titular da paróquia (pároco/administrador): pode gerir os outros PARISH_ADMIN da mesma paróquia
+  parishHolder        Boolean @default(false)
   forcePasswordChange Boolean @default(false)
 
   // Scope - Diocese vinculada (para DIOCESAN_ADMIN)
@@ -335,6 +337,9 @@ model User {
 
   @@index([email])
   @@index([role])
+  @@index([communityId])
+  @@index([parishId])
+  @@index([dioceseId])
   @@map("users")
 }
 
@@ -520,33 +525,44 @@ model Parish {
   clergyMessages  ClergyMessage[]
 
   // Dízimo online (Fase 1 — Pix da própria paróquia, sem gateway)
-  titheEnabled          Boolean               @default(false)
-  pixKey                String?
-  pixKeyType            String? // CPF | CNPJ | EMAIL | PHONE | RANDOM
-  pixMerchantName       String? // nome do recebedor no BR Code (ASCII, até 25)
-  pixMerchantCity       String? // cidade do recebedor (ASCII, até 15)
-  titheMessage          String? // convite/explicação exibido ao fiel
+  titheEnabled             Boolean   @default(false)
+  pixKey                   String?
+  pixKeyType               String? // CPF | CNPJ | EMAIL | PHONE | RANDOM
+  pixMerchantName          String? // nome do recebedor no BR Code (ASCII, até 25)
+  pixMerchantCity          String? // cidade do recebedor (ASCII, até 15)
+  titheMessage             String? // convite/explicação exibido ao fiel
   // Rastro da última troca da chave (exibido à administração; aviso aos demais admins)
-  pixKeyChangedAt       DateTime?
-  pixKeyChangedByUserId String?
+  pixKeyChangedAt          DateTime?
+  pixKeyChangedByUserId    String?
   // Provedor de pagamento (D3): Pix dinâmico com confirmação automática e recorrência
-  paymentProvider       String? // ASAAS | MERCADOPAGO
-  providerEnv           String? // sandbox | production
-  providerApiKeyEnc     String? // AES-256-GCM (PAYMENTS_ENCRYPTION_KEY)
-  providerWebhookToken  String? // token que o provedor envia no webhook
-  providerConfiguredAt  DateTime?
+  paymentProvider          String? // ASAAS | MERCADOPAGO
+  providerEnv              String? // sandbox | production
+  providerApiKeyEnc        String? // AES-256-GCM (PAYMENTS_ENCRYPTION_KEY)
+  providerWebhookToken     String? // token que o provedor envia no webhook
+  providerConfiguredAt     DateTime?
   // Política de taxa: a paróquia absorve ou repassa ao fiel (cobrir a taxa)
   // WhatsApp como canal (D4.5): Pix do mês e "PAGUEI" pelo WhatsApp (Twilio)
-  whatsappEnabled       Boolean               @default(false)
-  feePolicy             String                @default("ABSORB") // ABSORB | PASS_THROUGH
-  feeFixed              Float                 @default(0)
-  feePercent            Float                 @default(0)
-  titheIntents          TitheIntent[]
-  titheSchedules        TitheSchedule[]
-  titheCampaigns        TitheCampaign[]
-  financialStatements   FinancialStatement[]
-  guestGifts            TitheGuestGift[]
-  webhookEvents         PaymentWebhookEvent[]
+  whatsappEnabled          Boolean   @default(false)
+  /// CNPJ (filial da Mitra) — documentos e faturamento
+  cnpj                     String?
+  /// Quando a paróquia passou a ser gerida no Parish (reivindicação aprovada ou implantação)
+  managedAt                DateTime?
+  /// O checklist "Primeiros passos" foi dispensado pela gestão
+  onboardingDismissedAt    DateTime?
+  /// Pedido de encerramento da conta (LGPD — portabilidade/eliminação). A eliminação é manual.
+  closureRequestedAt       DateTime?
+  closureRequestedByUserId String?
+  closureEffectiveAt       DateTime?
+
+  feePolicy           String                @default("ABSORB") // ABSORB | PASS_THROUGH
+  feeFixed            Float                 @default(0)
+  feePercent          Float                 @default(0)
+  titheIntents        TitheIntent[]
+  titheSchedules      TitheSchedule[]
+  titheCampaigns      TitheCampaign[]
+  financialStatements FinancialStatement[]
+  guestGifts          TitheGuestGift[]
+  webhookEvents       PaymentWebhookEvent[]
 
   // Propostas de dados sobre esta paróquia (site, comunidade nova) à espera de aprovação
   dataProposals DataProposal[]
@@ -554,6 +570,8 @@ model Parish {
   // Audit
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  claims ParishClaim[]
 
   @@index([dioceseId])
   @@map("parishes")
@@ -1165,8 +1183,10 @@ model Member {
   titheRetentionActions  TitheRetentionAction[]
 
   @@index([communityId])
+  @@index([communityId, deletedAt, status])
   @@index([email])
   @@index([cpf])
+  @@index([phone])
   @@index([deletedAt])
   @@map("members")
 }
@@ -1847,6 +1867,7 @@ model Notification {
   createdAt DateTime @default(now())
 
   @@index([userId])
+  @@index([userId, createdAt])
   @@index([isSent])
   @@index([type])
   @@map("notifications")
@@ -3334,12 +3355,16 @@ model CommunityPlan {
   graceDays        Int                 @default(15)
   suspendedAt      DateTime?
   notes            String?
+  /// Quem paga este plano (conta de faturamento da paróquia ou da diocese)
+  billingAccountId String?
+  billingAccount   BillingAccount?     @relation(fields: [billingAccountId], references: [id], onDelete: SetNull)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([status])
   @@index([tierId])
+  @@index([billingAccountId])
   @@map("community_plans")
 }
 
@@ -3380,4 +3405,288 @@ model EnforcementHit {
   @@unique([day, kind, feature, communityId, mode])
   @@index([day])
   @@map("enforcement_hits")
+}
+
+// ============================================
+// ONDA 1 — PRONTO PARA VENDER (19/10/2026)
+// ============================================
+
+enum ParishClaimStatus {
+  PENDING // aguardando verificação/revisão
+  VERIFIED // código confirmado no contato oficial; ainda aguarda aprovação
+  APPROVED
+  REJECTED
+  CANCELED
+}
+
+enum ClaimVerificationMethod {
+  PHONE_CODE // código para o telefone oficial da paróquia (território)
+  EMAIL_CODE // código para o e-mail oficial da paróquia (território)
+  DOCUMENT // provisão do pároco / carta da cúria (link)
+  MANUAL // só revisão do SYSTEM_ADMIN
+}
+
+/// "Esta paróquia é minha": pedido de gestão de uma paróquia do território.
+/// Sempre passa pela aprovação do SYSTEM_ADMIN; o código no contato oficial é evidência.
+model ParishClaim {
+  id               String                  @id @default(cuid())
+  parishId         String
+  parish           Parish                  @relation(fields: [parishId], references: [id], onDelete: Cascade)
+  communityId      String?
+  /// Conta de quem pediu (quando estava logado)
+  userId           String?
+  name             String
+  email            String
+  phone            String?
+  /// Cargo declarado: pároco, administrador paroquial, vigário, secretária, coordenador, ecônomo...
+  role             String
+  message          String?
+  evidenceUrl      String?
+  method           ClaimVerificationMethod @default(MANUAL)
+  codeHash         String?
+  /// Destino do código, mascarado
+  codeSentTo       String?
+  codeSentAt       DateTime?
+  codeAttempts     Int                     @default(0)
+  /// Quantos códigos já foram enviados para este pedido
+  codeSends        Int                     @default(0)
+  verifiedAt       DateTime?
+  status           ParishClaimStatus       @default(PENDING)
+  reviewedByUserId String?
+  reviewedAt       DateTime?
+  reviewNote       String?
+  /// Conta que recebeu a gestão na aprovação
+  grantedUserId    String?
+  createdAt        DateTime                @default(now())
+  updatedAt        DateTime                @updatedAt
+
+  @@index([status, createdAt])
+  @@index([parishId])
+  @@map("parish_claims")
+}
+
+/// Convite de equipe por link (token só em hash, uso único, expira).
+model UserInvite {
+  id              String    @id @default(cuid())
+  tokenHash       String    @unique
+  role            UserRole
+  dioceseId       String?
+  parishId        String?
+  communityId     String?
+  /// Cadastro (Member) que a conta assume ao aceitar
+  memberId        String?
+  name            String?
+  email           String?
+  phone           String?
+  /// Convite de titular da paróquia (parishHolder ao aceitar)
+  holder          Boolean   @default(false)
+  invitedByUserId String
+  expiresAt       DateTime
+  acceptedAt      DateTime?
+  acceptedUserId  String?
+  revokedAt       DateTime?
+  lastSentAt      DateTime?
+  createdAt       DateTime  @default(now())
+
+  @@index([parishId, createdAt])
+  @@index([communityId])
+  @@index([memberId])
+  @@map("user_invites")
+}
+
+enum BillingAccountStatus {
+  NONE // sem assinatura
+  PENDING // assinatura criada, 1ª cobrança em aberto
+  ACTIVE
+  PAST_DUE
+  CANCELED
+}
+
+/// Quem paga: paróquia (padrão) ou diocese (contrato diocesano). 1 → N CommunityPlan.
+model BillingAccount {
+  id                     String               @id @default(cuid())
+  /// PARISH | DIOCESE
+  kind                   String               @default("PARISH")
+  parishId               String?              @unique
+  dioceseId              String?              @unique
+  legalName              String
+  /// CNPJ ou CPF, só dígitos
+  document               String
+  municipalRegistration  String?
+  email                  String
+  phone                  String?
+  responsibleName        String?
+  zipCode                String?
+  street                 String?
+  number                 String?
+  complement             String?
+  neighborhood           String?
+  city                   String?
+  state                  String?
+  provider               String               @default("ASAAS")
+  providerCustomerId     String?
+  providerSubscriptionId String?
+  billingCycle           BillingCycle?
+  /// Valor por ciclo da assinatura (centavos)
+  valueCents             Int?
+  nextDueDate            DateTime?
+  status                 BillingAccountStatus @default(NONE)
+  plans                  CommunityPlan[]
+  payments               PlatformPayment[]
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+
+  @@map("billing_accounts")
+}
+
+/// Cobranças da assinatura da plataforma (conta Asaas da empresa, não da paróquia).
+model PlatformPayment {
+  id                String         @id @default(cuid())
+  billingAccountId  String
+  billingAccount    BillingAccount @relation(fields: [billingAccountId], references: [id], onDelete: Cascade)
+  providerPaymentId String         @unique
+  status            String
+  billingType       String?
+  valueCents        Int
+  dueDate           DateTime?
+  paidAt            DateTime?
+  invoiceUrl        String?
+  /// Nota fiscal de serviço (NFS-e), quando emitida
+  nfseUrl           String?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([billingAccountId, createdAt])
+  @@map("platform_payments")
+}
+
+/// Avisos já enviados da régua de teste/cobrança (dedupe). refKey ex.: "<communityId>:<2026-11-23>".
+model PlanNotice {
+  id     String   @id @default(cuid())
+  kind   String
+  refKey String
+  sentAt DateTime @default(now())
+
+  @@unique([kind, refKey])
+  @@map("plan_notices")
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  DEMO_SCHEDULED
+  WON
+  LOST
+}
+
+/// Paróquia interessada (pedido de demonstração, reivindicação, site).
+model Lead {
+  id          String     @id @default(cuid())
+  /// DEMO_REQUEST | CLAIM | SITE | SUGGESTION | MANUAL
+  source      String
+  status      LeadStatus @default(NEW)
+  name        String
+  email       String?
+  phone       String?
+  role        String?
+  parishName  String?
+  city        String?
+  state       String?
+  parishId    String?
+  communityId String?
+  message     String?
+  notes       String?
+  /// Consentimento para contato comercial (LGPD)
+  consentAt   DateTime?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([status, createdAt])
+  @@index([parishId])
+  @@map("leads")
+}
+
+/// Uso do produto agregado por dia, sem dado pessoal (nenhum id de usuário é gravado).
+model ProductEvent {
+  id          String   @id @default(cuid())
+  day         DateTime @db.Date
+  name        String
+  /// web | app
+  platform    String
+  role        String   @default("")
+  communityId String   @default("")
+  appVersion  String   @default("")
+  count       Int      @default(0)
+  /// Pessoas distintas no dia (aproximado, controle em memória por instância)
+  uniques     Int      @default(0)
+
+  @@unique([day, name, platform, role, communityId, appVersion])
+  @@index([name, day])
+  @@map("product_events")
+}
+
+/// Avisos da plataforma aos clientes (novidades, manutenção, incidente).
+model PlatformAnnouncement {
+  id              String    @id @default(cuid())
+  title           String
+  body            String
+  /// NEWS | MAINTENANCE | INCIDENT
+  kind            String    @default("NEWS")
+  /// ADMINS (gestores) | ALL
+  audience        String    @default("ADMINS")
+  startsAt        DateTime  @default(now())
+  endsAt          DateTime?
+  createdByUserId String?
+  createdAt       DateTime  @default(now())
+
+  @@index([startsAt])
+  @@map("platform_announcements")
+}
+
+enum OutboxStatus {
+  PENDING
+  SENDING
+  SENT
+  FAILED
+}
+
+/// Fila de envio de push (outbox): a requisição só grava; o worker envia em lotes.
+model NotificationOutbox {
+  id               String       @id @default(cuid())
+  userId           String
+  notificationId   String?
+  title            String
+  body             String
+  data             Json?
+  /// PUSH | SMS | WHATSAPP
+  channel          String       @default("PUSH")
+  status           OutboxStatus @default(PENDING)
+  attempts         Int          @default(0)
+  lastError        String?
+  availableAt      DateTime     @default(now())
+  sentAt           DateTime?
+  /// Ticket do Expo para conferir o recibo depois
+  ticketId         String?
+  receiptCheckedAt DateTime?
+  createdAt        DateTime     @default(now())
+
+  @@index([status, availableAt])
+  @@index([ticketId])
+  @@index([createdAt])
+  @@map("notification_outbox")
+}
+
+/// Execuções dos jobs agendados (saúde da operação no painel da plataforma).
+model JobRun {
+  id         String    @id @default(cuid())
+  name       String
+  startedAt  DateTime  @default(now())
+  finishedAt DateTime?
+  /// RUNNING | OK | ERROR | SKIPPED
+  status     String    @default("RUNNING")
+  items      Int?
+  error      String?
+
+  @@index([name, startedAt])
+  @@map("job_runs")
 }

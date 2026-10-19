@@ -37,3 +37,71 @@ describe('PushDispatcherService (tickets do Expo)', () => {
     await expect(service.send(message)).resolves.toBe(false);
   });
 });
+
+/** Envio em lote e recibos (outbox, eng-qualidade-02). */
+describe('PushDispatcherService (lote, timeout e recibos)', () => {
+  const realFetch = global.fetch;
+  const service = new PushDispatcherService();
+  const msg = (i: number) => ({ to: `ExponentPushToken[${i}]`, title: 'T', body: 'B' });
+
+  afterEach(() => {
+    global.fetch = realFetch;
+    delete process.env.EXPO_ACCESS_TOKEN;
+  });
+
+  it('lote vai como lista, com timeout (AbortSignal) e um ticket por mensagem na ordem', async () => {
+    const fetchMock = jest.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ data: [{ status: 'ok', id: 't1' }, { status: 'error', details: { error: 'DeviceNotRegistered' } }] }),
+    });
+    global.fetch = fetchMock as any;
+
+    const tickets = await service.sendBatch([msg(1), msg(2)]);
+
+    expect(tickets).toEqual([
+      { status: 'ok', ticketId: 't1' },
+      { status: 'error', error: 'DeviceNotRegistered' },
+    ]);
+    const [, init] = fetchMock.mock.calls[0];
+    expect(JSON.parse(init.body)).toHaveLength(2);
+    expect(init.signal).toBeInstanceOf(AbortSignal);
+    expect(init.headers.Authorization).toBeUndefined();
+  });
+
+  it('EXPO_ACCESS_TOKEN vai no Authorization', async () => {
+    process.env.EXPO_ACCESS_TOKEN = 'tok';
+    const fetchMock = jest.fn().mockResolvedValue({ ok: true, status: 200, json: async () => ({ data: { status: 'ok', id: 't' } }) });
+    global.fetch = fetchMock as any;
+    await service.sendBatch([msg(1)]);
+    expect(fetchMock.mock.calls[0][1].headers.Authorization).toBe('Bearer tok');
+  });
+
+  it('rede/timeout/HTTP de erro: o lote inteiro vira retry', async () => {
+    global.fetch = jest.fn().mockRejectedValue(Object.assign(new Error('timeout'), { name: 'TimeoutError' })) as any;
+    await expect(service.sendBatch([msg(1), msg(2)])).resolves.toEqual([
+      { status: 'retry', error: 'TIMEOUT' },
+      { status: 'retry', error: 'TIMEOUT' },
+    ]);
+    global.fetch = jest.fn().mockResolvedValue({ ok: false, status: 503, json: async () => ({}) }) as any;
+    await expect(service.sendBatch([msg(1)])).resolves.toEqual([{ status: 'retry', error: 'HTTP_503' }]);
+  });
+
+  it('mais de 100 mensagens num lote é erro de programação', async () => {
+    await expect(service.sendBatch(Array.from({ length: 101 }, (_, i) => msg(i)))).rejects.toThrow('limite');
+  });
+
+  it('recibos: ok/erro por id; falha da consulta → null', async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({ data: { a: { status: 'ok' }, b: { status: 'error', details: { error: 'DeviceNotRegistered' } } } }),
+    }) as any;
+    await expect(service.getReceipts(['a', 'b'])).resolves.toEqual({
+      a: { status: 'ok' },
+      b: { status: 'error', error: 'DeviceNotRegistered' },
+    });
+    global.fetch = jest.fn().mockRejectedValue(new Error('offline')) as any;
+    await expect(service.getReceipts(['a'])).resolves.toBeNull();
+  });
+});

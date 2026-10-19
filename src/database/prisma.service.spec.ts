@@ -154,6 +154,8 @@ describe('PrismaService — segredos nunca saem numa leitura comum', () => {
       'User.pushTokenUpdatedAt': 'data, não é segredo',
       'RefreshToken.token': 'tabela interna da autenticação, nunca incluída em respostas',
       'PasswordResetToken.tokenHash': 'só o hash; tabela interna',
+      'UserInvite.tokenHash': 'só o hash (SHA-256) do token de convite; tabela interna, nunca devolvido pela API',
+      'ParishClaim.codeHash': 'só o HMAC do código de verificação; tabela interna, nunca devolvido pela API',
       'TitheGuestGift.receiptToken': 'devolvido de propósito ao doador visitante',
     };
     const schema = readFileSync(join(__dirname, '..', '..', 'prisma', 'schema.prisma'), 'utf8');

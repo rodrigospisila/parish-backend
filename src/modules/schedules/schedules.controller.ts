@@ -27,6 +27,7 @@ import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { UserRole } from '@prisma/client';
+import { parseDateWindow, parsePageRequest } from '../events/list-window';
 
 // Recurso pago da comunidade (planos) — comunidade resolvida pela escala/evento/atribuição
 @Controller('schedules')
@@ -150,8 +151,22 @@ export class SchedulesController {
 
   @Get()
   @PlanResource('event:query.eventId')
-  findAllSchedules(@Query('eventId') eventId?: string, @Request() req?: any) {
-    return this.schedulesService.findAllSchedules(eventId, req?.user);
+  findAllSchedules(
+    @Query('eventId') eventId?: string,
+    @Request() req?: any,
+    // Janela e paginação (C6): `from`/`to` filtram no banco; só com `page`
+    // a resposta vira { items, total, page, pageSize }
+    @Query('from') from?: string,
+    @Query('to') to?: string,
+    @Query('page') page?: string,
+    @Query('pageSize') pageSize?: string,
+  ) {
+    const window = parseDateWindow(from, to);
+    const pageRequest = parsePageRequest(page, pageSize);
+    if (pageRequest) {
+      return this.schedulesService.findSchedulesPage(eventId, req?.user, window, pageRequest);
+    }
+    return this.schedulesService.findAllSchedules(eventId, req?.user, window);
   }
 
   @Delete(':id')

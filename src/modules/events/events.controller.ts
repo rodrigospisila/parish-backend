@@ -25,6 +25,7 @@ import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, EventType } from '@prisma/client';
 import { Throttle } from '@nestjs/throttler';
 import { PlanGated } from '../plans/plan-gates';
+import { parseDateWindow, parsePageRequest } from './list-window';
 
 /** Vínculos pastoral↔evento por minuto (POST /events/:id/pastorals). */
 export const EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE = 2000;
@@ -56,7 +57,28 @@ export class EventsController {
     @Query('endDate') endDate?: string,
     @Query('onlyMyPastorals') onlyMyPastorals?: string,
     @CurrentUser() user?: any,
+    // Janela e paginação (C6): `from`/`to` filtram no banco; só com `page`
+    // a resposta vira { items, total, page, pageSize }
+    @Query('from') from?: string,
+    @Query('to') to?: string,
+    @Query('page') page?: string,
+    @Query('pageSize') pageSize?: string,
   ) {
+    const window = parseDateWindow(from, to);
+    const pageRequest = parsePageRequest(page, pageSize);
+    if (pageRequest) {
+      return this.eventsService.findAllPage(
+        communityId,
+        type,
+        q,
+        startDate,
+        endDate,
+        user,
+        onlyMyPastorals === 'true',
+        window,
+        pageRequest,
+      );
+    }
     return this.eventsService.findAll(
       communityId,
       type,
@@ -65,6 +87,7 @@ export class EventsController {
       endDate,
       user,
       onlyMyPastorals === 'true',
+      window,
     );
   }
 

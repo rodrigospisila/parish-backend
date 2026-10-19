@@ -101,6 +101,8 @@ export class AuthService {
       role: user.role,
       isActive: user.isActive,
       forcePasswordChange: user.forcePasswordChange,
+      // Titular da paróquia: o painel mostra as ações de titular (convidar titular, exportar, encerrar)
+      parishHolder: !!user.parishHolder,
       // Aviso de aceite dos termos vigentes (app e painel abrem o aviso por isto)
       termsAcceptanceRequired: isTermsAcceptanceRequired(user),
       termsVersion: TERMS_VERSION,
@@ -416,6 +418,19 @@ export class AuthService {
     });
     if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
     return this.generateTokens(user.id, user.email, user.role, user.dioceseId ?? undefined, user.parishId ?? undefined, user.communityId ?? undefined, { authTime });
+  }
+
+  /**
+   * Sessão para a conta que acabou de aceitar um convite (POST
+   * /public/invites/:token/accept): MESMO corpo do POST /auth/login (user +
+   * tokens + newDevice), pela mesma rotina (completeLogin) — sem regra de
+   * sessão duplicada. Quem chama já provou a posse do convite (e, na conta
+   * existente, já estava logado com o Bearer).
+   */
+  async issueLoginSession(userId: string, meta: LoginMeta = {}) {
+    const user = await this.prisma.user.findUnique({ where: { id: userId }, include: this.sessionInclude });
+    if (!user || !user.isActive) throw new UnauthorizedException('Usuário inativo');
+    return this.completeLogin(user, meta);
   }
 
   private sessionInclude = {

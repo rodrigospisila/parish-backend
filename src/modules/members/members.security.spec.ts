@@ -1,6 +1,7 @@
 import { BadRequestException, ConflictException, ForbiddenException, ValidationPipe } from '@nestjs/common';
 import { Prisma, UserRole } from '@prisma/client';
 import { MembersService } from './members.service';
+import { MemberImportService } from './member-import.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
@@ -274,8 +275,9 @@ describe('MembersService — segurança (onda 2)', () => {
 
     it('importação em comunidade fora do escopo → 403', async () => {
       hierarchy.canManageCommunity.mockResolvedValue(false);
+      const importer = new MemberImportService(prisma, hierarchy as any, audit as any, service);
       await expect(
-        service.importMembers([{ fullName: 'Z' }], 'c-outra-diocese', diocesanD1),
+        importer.run({ communityId: 'c-outra-diocese', rows: [{ fullName: 'Zeca' }] }, diocesanD1),
       ).rejects.toBeInstanceOf(ForbiddenException);
       expect(prisma.member.create).not.toHaveBeenCalled();
     });
@@ -433,19 +435,6 @@ describe('MembersService — segurança (onda 2)', () => {
       ).resolves.toBeDefined();
     });
 
-    it('importação: só duplicado do escopo conta como skipped', async () => {
-      prisma.member.findFirst.mockImplementation(async ({ where }: any) =>
-        where.AND?.[1]?.cpf === '111' ? { id: 'no-escopo' } : null,
-      );
-      const res = await service.importMembers(
-        [
-          { fullName: 'A', cpf: '111' },
-          { fullName: 'B', email: 'fora@x.com' },
-        ],
-        'c1',
-        parishAdminP1,
-      );
-      expect(res).toEqual({ imported: 1, skipped: 1, errors: [] });
-    });
+    // Importação (duplicado só no escopo, CPF de fora sem revelar): member-import.service.spec.ts
   });
 });

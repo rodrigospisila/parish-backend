@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional, IsEnum, IsNumber, MaxLength } from 'class-validator';
 import { EntityStatus } from '@prisma/client';
 
 export class CreateParishDto {
@@ -57,5 +57,11 @@ export class CreateParishDto {
   @IsEnum(EntityStatus)
   @IsOptional()
   status?: EntityStatus;
+
+  /** CNPJ (filial da Mitra) — com ou sem máscara; null/'' limpa. Dígito verificador conferido no service. */
+  @IsString()
+  @IsOptional()
+  @MaxLength(20)
+  cnpj?: string | null;
 }
 

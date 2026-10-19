@@ -16,6 +16,7 @@ import {
 import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { parseClientDateTime } from '../../common/schedule-time';
+import { DateWindow, PageRequest, Paginated, dateWindowFilter, pageArgs } from './list-window';
 
 /**
  * Quem vê contatos (e-mail/telefone) de participantes e escalados de um
@@ -355,6 +356,46 @@ export class EventsService {
     endDate?: string,
     currentUser?: CurrentUser,
     onlyMyPastorals?: boolean,
+    window?: DateWindow,
+  ) {
+    const query = await this.buildFindAllQuery(communityId, type, q, startDate, endDate, currentUser, onlyMyPastorals, window);
+    return this.prisma.event.findMany(query);
+  }
+
+  /**
+   * GET /events com `page` (eng-qualidade-05, contrato C6): mesmos filtros e
+   * escopo do findAll, com total e página — `{ items, total, page, pageSize }`.
+   */
+  async findAllPage(
+    communityId: string | undefined,
+    type: EventType | undefined,
+    q: string | undefined,
+    startDate: string | undefined,
+    endDate: string | undefined,
+    currentUser: CurrentUser | undefined,
+    onlyMyPastorals: boolean,
+    window: DateWindow | undefined,
+    page: PageRequest,
+  ) {
+    const query = await this.buildFindAllQuery(communityId, type, q, startDate, endDate, currentUser, onlyMyPastorals, window);
+    const [total, items] = await Promise.all([
+      this.prisma.event.count({ where: query.where }),
+      // id desempata eventos no mesmo horário (página estável)
+      this.prisma.event.findMany({ ...query, orderBy: [{ startDate: 'asc' }, { id: 'asc' }], ...pageArgs(page) }),
+    ]);
+    const result: Paginated<(typeof items)[number]> = { items, total, page: page.page, pageSize: page.pageSize };
+    return result;
+  }
+
+  private async buildFindAllQuery(
+    communityId?: string,
+    type?: EventType,
+    q?: string,
+    startDate?: string,
+    endDate?: string,
+    currentUser?: CurrentUser,
+    onlyMyPastorals?: boolean,
+    window?: DateWindow,
   ) {
     // Escopo do usuário combinado (AND) com a comunidade pedida — nunca
     // substituído por ela (sem escopo próprio, só um vínculo ativo abre algo)
@@ -413,7 +454,13 @@ export class EventsService {
       }
     }
 
-    return this.prisma.event.findMany({
+    // Janela from/to (C6): no banco, somada (AND) a startDate/endDate
+    const windowFilter = dateWindowFilter(window);
+    if (windowFilter) {
+      where.AND = [...(where.AND ?? []), { startDate: windowFilter }];
+    }
+
+    return {
       where,
       include: {
         community: {
@@ -436,9 +483,9 @@ export class EventsService {
         },
       },
       orderBy: {
-        startDate: 'asc',
+        startDate: 'asc' as const,
       },
-    });
+    };
   }
 
   /**

@@ -459,4 +459,167 @@ export class AsaasProvider implements PaymentProvider {
     });
     return { status: result?.status ?? 'REFUND_REQUESTED' };
   }
+
+  // ------------------------------------------------------------------
+  // Assinatura da PLATAFORMA (Onda 1, C3) — conta Asaas da EMPRESA, nunca a
+  // da paróquia. Métodos novos: os do dízimo acima continuam iguais.
+  // ------------------------------------------------------------------
+
+  /**
+   * Cria ou atualiza o pagador da assinatura da plataforma, com endereço
+   * (a NFS-e exige). Ao contrário do dízimo, deixa as notificações do Asaas
+   * ligadas: sem SMTP próprio, é o e-mail do Asaas que leva a fatura.
+   */
+  async savePlatformCustomer(input: PlatformCustomerInput): Promise<{ providerCustomerId: string }> {
+    const cpfCnpj = (input.cpfCnpj ?? '').replace(/\D/g, '');
+    if (!cpfCnpj) throw new PaymentProviderError('Asaas exige CPF/CNPJ do pagador');
+    const body = {
+      name: input.name.slice(0, 100),
+      cpfCnpj,
+      email: input.email || undefined,
+      mobilePhone: input.phone ? input.phone.replace(/\D/g, '') : undefined,
+      postalCode: input.zipCode ? input.zipCode.replace(/\D/g, '') : undefined,
+      address: input.street || undefined,
+      addressNumber: input.number || undefined,
+      complement: input.complement || undefined,
+      province: input.neighborhood || undefined,
+      municipalInscription: input.municipalRegistration || undefined,
+      externalReference: input.externalRef,
+      notificationDisabled: false,
+    };
+    let id = input.providerCustomerId ?? null;
+    if (!id) {
+      const found = await this.request<{ data?: Array<{ id: string }> }>('GET', `/customers?cpfCnpj=${encodeURIComponent(cpfCnpj)}&limit=1`);
+      id = found?.data?.[0]?.id ?? null;
+    }
+    if (id) {
+      const updated = await this.request<{ id?: string }>('PUT', `/customers/${encodeURIComponent(id)}`, body);
+      return { providerCustomerId: updated?.id ?? id };
+    }
+    const created = await this.request<{ id: string }>('POST', '/customers', body);
+    return { providerCustomerId: created.id };
+  }
+
+  private static mapPlatformSubscription(subscription: any): ProviderSubscription {
+    return {
+      providerRef: subscription?.id ?? null,
+      authorizationRef: null,
+      status: subscription?.status ?? 'ACTIVE',
+      nextDueDate: subscription?.nextDueDate ?? null,
+      raw: subscription,
+    };
+  }
+
+  /**
+   * POST /subscriptions com ciclo mensal ou anual. billingType UNDEFINED: o
+   * pagador escolhe Pix, boleto ou cartão na página da fatura (invoiceUrl).
+   */
+  async createPlatformSubscription(input: PlatformSubscriptionInput): Promise<ProviderSubscription> {
+    const subscription = await this.request<any>('POST', '/subscriptions', {
+      customer: input.providerCustomerId,
+      billingType: input.billingType ?? 'UNDEFINED',
+      value: Math.round(input.valueCents) / 100,
+      nextDueDate: input.nextDueDate,
+      cycle: input.cycle,
+      description: input.description.slice(0, 500),
+      externalReference: input.externalRef,
+    });
+    return AsaasProvider.mapPlatformSubscription(subscription);
+  }
+
+  /**
+   * PUT /subscriptions/{id}: novo valor/ciclo (mudança de comunidades ou de
+   * faixa). updatePendingPayments=true leva o valor novo às cobranças em aberto.
+   */
+  async updatePlatformSubscription(
+    providerRef: string,
+    input: { valueCents: number; cycle: 'MONTHLY' | 'YEARLY'; description: string; nextDueDate?: string },
+  ): Promise<ProviderSubscription> {
+    const subscription = await this.request<any>('PUT', `/subscriptions/${encodeURIComponent(providerRef)}`, {
+      value: Math.round(input.valueCents) / 100,
+      cycle: input.cycle,
+      description: input.description.slice(0, 500),
+      nextDueDate: input.nextDueDate,
+      updatePendingPayments: true,
+    });
+    return AsaasProvider.mapPlatformSubscription(subscription);
+  }
+
+  /** GET /subscriptions/{id}/payments — cobranças geradas pela assinatura (mais recentes primeiro no Asaas). */
+  async listSubscriptionPayments(providerRef: string): Promise<ProviderCharge[]> {
+    const list = await this.request<{ data?: any[] }>('GET', `/subscriptions/${encodeURIComponent(providerRef)}/payments?limit=20`);
+    return (list?.data ?? []).map((payment) => this.mapCharge(payment));
+  }
+
+  /**
+   * POST /subscriptions/{id}/invoiceSettings — NFS-e automática de cada
+   * cobrança da assinatura (a conta precisa da configuração fiscal no Asaas).
+   */
+  async setSubscriptionInvoiceSettings(providerRef: string, settings: NfseSettings): Promise<void> {
+    await this.request('POST', `/subscriptions/${encodeURIComponent(providerRef)}/invoiceSettings`, {
+      municipalServiceId: settings.municipalServiceId || undefined,
+      municipalServiceCode: settings.municipalServiceCode || undefined,
+      municipalServiceName: settings.municipalServiceName,
+      observations: settings.observations || undefined,
+      deductions: 0,
+      effectiveDatePeriod: settings.effectiveDatePeriod ?? 'ON_PAYMENT_CONFIRMATION',
+      receivedOnly: settings.receivedOnly ?? false,
+      updatePayment: true,
+      taxes: {
+        retainIss: settings.retainIss ?? false,
+        iss: settings.iss ?? 0,
+        cofins: settings.cofins ?? 0,
+        csll: settings.csll ?? 0,
+        inss: settings.inss ?? 0,
+        ir: settings.ir ?? 0,
+        pis: settings.pis ?? 0,
+      },
+    });
+  }
+}
+
+/** Pagador da assinatura da plataforma (conta de faturamento da paróquia). */
+export interface PlatformCustomerInput {
+  providerCustomerId?: string | null;
+  name: string;
+  cpfCnpj: string;
+  email?: string | null;
+  phone?: string | null;
+  zipCode?: string | null;
+  street?: string | null;
+  number?: string | null;
+  complement?: string | null;
+  neighborhood?: string | null;
+  municipalRegistration?: string | null;
+  externalRef: string;
+}
+
+export interface PlatformSubscriptionInput {
+  providerCustomerId: string;
+  /** Valor por ciclo, em centavos */
+  valueCents: number;
+  cycle: 'MONTHLY' | 'YEARLY';
+  /** AAAA-MM-DD da primeira cobrança */
+  nextDueDate: string;
+  description: string;
+  externalRef: string;
+  /** UNDEFINED (padrão) = o pagador escolhe na página da fatura */
+  billingType?: 'UNDEFINED' | 'PIX' | 'BOLETO' | 'CREDIT_CARD';
+}
+
+/** Configuração da NFS-e (POST /subscriptions/{id}/invoiceSettings). Alíquotas em %. */
+export interface NfseSettings {
+  municipalServiceId?: string | null;
+  municipalServiceCode?: string | null;
+  municipalServiceName: string;
+  observations?: string | null;
+  effectiveDatePeriod?: 'ON_PAYMENT_CONFIRMATION' | 'ON_PAYMENT_DUE_DATE' | 'BEFORE_PAYMENT_DUE_DATE' | 'ON_DUE_DATE_MONTH' | 'ON_NEXT_MONTH';
+  receivedOnly?: boolean;
+  retainIss?: boolean;
+  iss?: number;
+  cofins?: number;
+  csll?: number;
+  inss?: number;
+  ir?: number;
+  pis?: number;
 }

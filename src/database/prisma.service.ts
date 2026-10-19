@@ -1,5 +1,6 @@
-import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
-import { PrismaClient } from '@prisma/client';
+import { Injectable, Logger, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { Prisma, PrismaClient } from '@prisma/client';
+import { describeSlowQuery, slowQueryThresholdMs } from '../common/logging/slow-query';
 
 /**
  * Campos que NUNCA saem do banco numa leitura comum (omit global do Prisma 6).
@@ -30,13 +31,28 @@ export const GLOBAL_OMIT = {
   },
 } as const;
 
+/**
+ * Opções do client: omit global + evento `query` (só para o aviso de consulta
+ * lenta, eng-qualidade-15). Com PRISMA_SLOW_QUERY_MS=0 o evento nem é ligado.
+ */
+type PrismaServiceOptions = { omit: typeof GLOBAL_OMIT; log: Prisma.LogDefinition[] };
+
 @Injectable()
 export class PrismaService
-  extends PrismaClient<{ omit: typeof GLOBAL_OMIT }>
+  extends PrismaClient<PrismaServiceOptions>
   implements OnModuleInit, OnModuleDestroy
 {
+  private readonly slowQueryLogger = new Logger('PrismaSlowQuery');
+
   constructor() {
-    super({ omit: GLOBAL_OMIT });
+    const slowMs = slowQueryThresholdMs();
+    super({ omit: GLOBAL_OMIT, log: slowMs > 0 ? [{ emit: 'event', level: 'query' }] : [] });
+    if (slowMs > 0) {
+      // Só o SQL com marcadores ($1...) — os parâmetros (e.params) nunca vão ao log
+      this.$on('query', (event) => {
+        if (event.duration > slowMs) this.slowQueryLogger.warn(describeSlowQuery(event));
+      });
+    }
   }
 
   async onModuleInit() {
