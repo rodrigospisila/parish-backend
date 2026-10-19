@@ -179,7 +179,13 @@ export class SwapsService {
           NotificationType.TEAM_BROADCAST,
           'Pedido de troca de escala',
           'Um colega pediu que você cubra uma escala. Veja no app.',
-          { swapId: swap.id },
+          {
+            type: NotificationType.TEAM_BROADCAST,
+            kind: 'swap-requested',
+            swapId: swap.id,
+            scheduleId: assignment.scheduleId,
+            assignmentId: assignment.id,
+          },
         );
       }
     }

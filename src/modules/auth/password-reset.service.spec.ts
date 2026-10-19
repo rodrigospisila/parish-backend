@@ -160,6 +160,32 @@ describe('PasswordResetService (Fase 1)', () => {
 
       expect(prisma.passwordResetToken.create.mock.calls[0][0].data.userId).toBe('u2');
     });
+
+    it('ux-acesso-18: celular gravado fora do padrão é achado pelos dígitos (só conta ativa e única)', async () => {
+      prisma.user.findMany.mockResolvedValue([]);
+      prisma.user.findUnique = jest.fn().mockResolvedValue({ id: 'u-antigo', email: 'a@x.com', phone: '(42) 99999-8888' });
+      prisma.$queryRaw.mockResolvedValueOnce([{ id: 'u-antigo' }]);
+
+      await service.forgotPassword({ phone: '42999998888' });
+      await flush();
+
+      const [strings, ...values] = prisma.$queryRaw.mock.calls[0];
+      expect(strings.join('?')).toContain('"isActive" = true');
+      expect(values).toEqual(['5542999998888', '42999998888']);
+      expect(prisma.passwordResetToken.create.mock.calls[0][0].data.userId).toBe('u-antigo');
+    });
+
+    it('ux-acesso-18: dígitos de duas contas → ambíguo → nenhum token', async () => {
+      prisma.user.findMany.mockResolvedValue([]);
+      prisma.user.findUnique = jest.fn();
+      prisma.$queryRaw.mockResolvedValueOnce([{ id: 'a' }, { id: 'b' }]);
+
+      await service.forgotPassword({ phone: '42999998888' });
+      await flush();
+
+      expect(prisma.user.findUnique).not.toHaveBeenCalled();
+      expect(prisma.passwordResetToken.create).not.toHaveBeenCalled();
+    });
   });
 
   describe('resetPassword', () => {

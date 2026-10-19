@@ -226,6 +226,43 @@ describe('CatechesisService (3.1)', () => {
       expect(tx.sacrament.create).toHaveBeenCalled();
     });
 
+    it('cat-gestao-11: o sacramento da conclusão é INFORMED (não é assento), sob o lock do membro', async () => {
+      prisma.catechesisEnrollment.findUnique.mockResolvedValue(activeEnrollment);
+      await service.completeEnrollment('en1', {}, coord);
+      expect(tx.sacrament.create.mock.calls[0][0].data.recordKind).toBe('INFORMED');
+      expect(tx.$queryRaw).toHaveBeenCalled();
+      // eng-acessos-12: coordenação da catequese pelo flag, não pelo nome
+      expect(prisma.pastoralCoordinator.findMany.mock.calls[0][0].where.communityPastoral.globalPastoral).toEqual({
+        isCatechesis: true,
+      });
+    });
+
+    it('cat-gestao-11: batismo em outra denominação aceito vira sacramento INFORMED', async () => {
+      (prisma as any).catechesisDocument.findUnique = jest.fn().mockResolvedValue({
+        id: 'doc1',
+        kind: 'Certidão de Batismo',
+        status: 'SUBMITTED',
+        declaration: 'OTHER_DENOMINATION',
+        denomination: 'Igreja Luterana',
+        enrollmentId: 'en1',
+        enrollment: {
+          memberId: 'm1',
+          member: { fullName: 'Ana', userId: null, deletedAt: null, responsible: null },
+          class: { id: 'cl1', name: 'Turma' },
+        },
+      });
+      prisma.catechesisClass.findFirst.mockResolvedValue({ id: 'cl1', communityId: 'c1', stage: {} });
+      prisma.member.findFirst.mockResolvedValue(null);
+      tx.catechesisDocument = { updateMany: jest.fn().mockResolvedValue({ count: 1 }) };
+      tx.catechesisEnrollment.findUnique.mockResolvedValue({ pendingDocuments: null });
+
+      await service.reviewDocument('doc1', { approve: true }, coord);
+
+      const data = tx.sacrament.create.mock.calls[0][0].data;
+      expect(data).toMatchObject({ type: SacramentType.BAPTISM, recordKind: 'INFORMED' });
+      expect(tx.$queryRaw).toHaveBeenCalled();
+    });
+
     it('rejeita concluir matrícula já concluída', async () => {
       prisma.catechesisEnrollment.findUnique.mockResolvedValue({
         id: 'en1',

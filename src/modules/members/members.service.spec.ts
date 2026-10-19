@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ForbiddenException } from '@nestjs/common';
-import { UserRole, MemberStatus } from '@prisma/client';
+import { UserRole, MemberStatus, Prisma } from '@prisma/client';
 import { MembersService } from './members.service';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
@@ -118,9 +118,17 @@ describe('MembersService', () => {
   describe('anonymizeMember (direito ao esquecimento - Fase 0 / M16)', () => {
     const makeTx = () => ({
       member: {
+        findUnique: jest.fn().mockResolvedValue({
+          fullName: 'Maria da Silva',
+          birthDate: new Date('2010-03-04T15:00:00.000Z'),
+          fatherName: 'José da Silva',
+          motherName: 'Ana da Silva',
+          status: MemberStatus.ACTIVE,
+        }),
         update: jest.fn().mockResolvedValue({ id: 'member-1', status: MemberStatus.ANONYMIZED }),
         updateMany: jest.fn().mockResolvedValue({ count: 0 }),
       },
+      sacrament: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
       pastoralMember: { updateMany: jest.fn().mockResolvedValue({ count: 2 }) },
       pastoralCoordinator: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
       memberCommunity: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
@@ -232,6 +240,36 @@ describe('MembersService', () => {
       tx.member.update.mockResolvedValue({ id: 'member-1', status: MemberStatus.ANONYMIZED, userId: 'u-1' });
       const result: any = await service.anonymizeMember('member-1');
       expect(result.userId).toBeNull();
+    });
+
+    it('cat-gestao-09: ANTES de limpar o cadastro, os assentos sem snapshot guardam nome, nascimento e filiação', async () => {
+      prisma.member.findFirst.mockResolvedValue({ id: 'member-1', status: MemberStatus.ACTIVE });
+      await service.anonymizeMember('member-1');
+
+      expect(tx.sacrament.updateMany).toHaveBeenCalledTimes(1);
+      const call = tx.sacrament.updateMany.mock.calls[0][0];
+      expect(call.where).toEqual({
+        memberId: 'member-1',
+        recordKind: 'RECORD',
+        personSnapshot: { equals: Prisma.AnyNull },
+      });
+      expect(call.data.personSnapshot).toEqual({
+        fullName: 'Maria da Silva',
+        birthDate: '2010-03-04T15:00:00.000Z',
+        fatherName: 'José da Silva',
+        motherName: 'Ana da Silva',
+        capturedAt: expect.any(String),
+      });
+      // O snapshot é gravado antes da limpeza do cadastro
+      expect(tx.sacrament.updateMany.mock.invocationCallOrder[0]).toBeLessThan(
+        tx.member.update.mock.invocationCallOrder[0],
+      );
+    });
+
+    it('cat-gestao-09: cadastro já anonimizado não sobrescreve assento com "Usuário Anônimo"', async () => {
+      tx.member.findUnique.mockResolvedValue({ fullName: 'Usuário Anônimo', status: MemberStatus.ANONYMIZED });
+      await service.anonymizePersonalData(tx as any, 'member-1');
+      expect(tx.sacrament.updateMany).not.toHaveBeenCalled();
     });
 
     it('rejeita anonimizar membro ja anonimizado', async () => {
@@ -367,7 +405,8 @@ describe('MembersService', () => {
         data: {
           fullName: 'Joao Silva',
           email: 'joao@example.com',
-          phone: '11999999999',
+          // ux-acesso-18: o celular do cadastro vai em E.164 (login/adoção comparam assim)
+          phone: '+5511999999999',
           userId: 'user-1',
           communityId: 'community-1',
           status: 'ACTIVE',

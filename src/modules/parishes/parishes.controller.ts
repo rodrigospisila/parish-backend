@@ -10,6 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { ParishesService } from './parishes.service';
+import { parsePaging } from '../communities/list-paging';
 import { CreateParishDto } from './dto/create-parish.dto';
 import { UpdateParishDto } from './dto/update-parish.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -33,9 +34,21 @@ export class ParishesController {
   /**
    * Sem filtro: lista de gestão no escopo do usuário (fiel sem escopo → vazia).
    * `?dioceseId=`: cascata leve para escolher a paróquia (id, nome, cidade).
+   * `?page=&pageSize=&search=` (contrato 4): lista de gestão paginada
+   * `{ items, total, page, pageSize }` (pageSize até 100; busca sem acento por
+   * nome/cidade; `dioceseId` vira filtro dentro do escopo). Sem `page`,
+   * `search` é ignorado e a resposta é a de sempre.
    */
   @Get()
-  findAll(@CurrentUser() user: any, @Query('dioceseId') dioceseId?: string) {
+  findAll(
+    @CurrentUser() user: any,
+    @Query('dioceseId') dioceseId?: string,
+    @Query('page') page?: string,
+    @Query('pageSize') pageSize?: string,
+    @Query('search') search?: string,
+  ) {
+    const paging = parsePaging(page, pageSize, search);
+    if (paging) return this.parishesService.findPage(user, paging, { dioceseId: dioceseId || undefined });
     if (dioceseId) return this.parishesService.listByDiocese(dioceseId);
     return this.parishesService.findAll(user);
   }

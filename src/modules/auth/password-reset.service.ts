@@ -8,6 +8,7 @@ import { AuditService } from '../../common/audit.service';
 import { emailInsensitive, pickEmailMatch } from './email-lookup';
 import { isProductionEnv } from '../messaging/log-mask';
 import { lockUserRowQuery } from './session-lock';
+import { findUniqueUserIdByPhoneDigits } from './phone-lookup';
 
 const RESET_TTL_MINUTES = 30;
 /** Truncado ao segundo, como o `iat` dos JWTs (mesma regra do session-security). */
@@ -80,7 +81,7 @@ export class PasswordResetService implements OnModuleInit {
     const user =
       (typedEmail ? pickEmailMatch(candidates, typedEmail) : null) ??
       candidates.find((candidate) => !!normalizedPhone && candidate.phone === normalizedPhone) ??
-      null;
+      (normalizedPhone ? await this.findLegacyPhoneUser(normalizedPhone) : null);
 
     // Nunca revela se a conta existe
     if (!user) {
@@ -93,6 +94,16 @@ export class PasswordResetService implements OnModuleInit {
     );
 
     return genericResponse;
+  }
+
+  /**
+   * Conta antiga com o celular gravado fora do padrão ("(42) 99999-8888"):
+   * casa pelos dígitos, só se for a única conta ativa com eles (ux-acesso-18).
+   */
+  private async findLegacyPhoneUser(phone: string) {
+    const id = await findUniqueUserIdByPhoneDigits(this.prisma, phone, { activeOnly: true });
+    if (!id) return null;
+    return this.prisma.user.findUnique({ where: { id }, select: { id: true, email: true, phone: true } });
   }
 
   /** Emite o token (invalidando os anteriores), entrega e audita. */

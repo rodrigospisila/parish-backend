@@ -106,7 +106,7 @@ describe('SchedulesService', () => {
         'ASSIGNMENT_DECLINED',
         expect.any(String),
         expect.stringContaining('Joao Silva'),
-        { scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
+        { type: 'ASSIGNMENT_DECLINED', kind: 'assignment-declined', scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
       );
       expect(prisma.user.findMany).not.toHaveBeenCalled();
     });
@@ -257,7 +257,7 @@ describe('SchedulesService', () => {
         'SCHEDULE_CANCELLED',
         expect.any(String),
         expect.stringContaining('Missa das 19h'),
-        { scheduleId: 'schedule-1' },
+        { type: 'SCHEDULE_CANCELLED', kind: 'schedule-cancelled', scheduleId: 'schedule-1' },
       );
     });
 
@@ -285,6 +285,23 @@ describe('SchedulesService', () => {
       );
     });
 
+    it('atribuição nova: push com type, kind, scheduleId e assignmentId (contrato 8)', async () => {
+      prisma.member.findUnique.mockResolvedValue({ userId: 'user-9' });
+      await (service as any).notifyAssignmentCreated({
+        id: 'as-1',
+        memberId: 'member-1',
+        scheduleId: 'schedule-1',
+        schedule: { title: 'Missa', date: new Date('2026-11-01T00:00:00Z'), startTime: '10:00', event: null, community: { id: 'c1', name: 'Matriz' } },
+      });
+      expect(notificationsService.notifyUser).toHaveBeenCalledWith(
+        'user-9',
+        'ASSIGNMENT_CREATED',
+        expect.any(String),
+        expect.any(String),
+        { type: 'ASSIGNMENT_CREATED', kind: 'assignment-created', scheduleId: 'schedule-1', assignmentId: 'as-1', communityId: 'c1' },
+      );
+    });
+
     it('chama notificationsService.notifyUser quando o membro tem usuario vinculado', async () => {
       prisma.member.findUnique.mockResolvedValue({ userId: 'user-9' });
 
@@ -297,7 +314,7 @@ describe('SchedulesService', () => {
         'ASSIGNMENT_CREATED',
         'Titulo',
         'Corpo',
-        { scheduleId: 'schedule-1' },
+        { type: 'ASSIGNMENT_CREATED', scheduleId: 'schedule-1' },
       );
     });
   });

@@ -1,11 +1,18 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
-import { SacramentProcessStatus, SacramentType, UserRole, Prisma } from '@prisma/client';
+import { SacramentProcessStatus, SacramentRecordKind, SacramentType, UserRole, Prisma } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
-import { PdfService } from '../pdf/pdf.service';
 import { communityScopeWhere } from '../pastorals/coordination-scope';
-import { formatCivilDate, parseCivilDate } from '../catechesis/civil-date';
+import { parseCivilDate } from '../catechesis/civil-date';
+import {
+  assertMayKeepSacramentRecords,
+  buildPersonSnapshot,
+  INFORMED_NO_CERTIFICATE_MESSAGE,
+  parseFinalidade,
+  SACRAMENT_LABELS,
+} from '../sacraments/sacrament-record';
+import { CertificateResult, SacramentCertificateService } from '../sacraments/sacrament-certificate.service';
 
 /** Status que o PATCH :id/status aceita — CELEBRATED só pela celebração. */
 const MANUAL_STATUSES: SacramentProcessStatus[] = [
@@ -23,15 +30,6 @@ const UNREPEATABLE_SACRAMENTS: SacramentType[] = [
   SacramentType.HOLY_ORDERS,
 ];
 
-const SACRAMENT_LABELS: Record<string, string> = {
-  BAPTISM: 'Batismo',
-  FIRST_COMMUNION: 'Primeira Eucaristia',
-  CONFIRMATION: 'Crisma',
-  MARRIAGE: 'Matrimônio',
-  HOLY_ORDERS: 'Ordem',
-  ANOINTING_OF_THE_SICK: 'Unção dos Enfermos',
-};
-
 /** Texto livre curto (celebrante, local, livro/folha/termo): string ou nada. */
 function optionalText(raw: unknown, label: string, max = 120): string | null {
   if (raw === undefined || raw === null || raw === '') return null;
@@ -47,6 +45,10 @@ function optionalText(raw: unknown, label: string, max = 120): string | null {
  *
  * Distinção: aqui é o REGISTRO OFICIAL (secretaria). O acompanhamento pastoral
  * simples fica no módulo de sacramentos (histórico) da Fase 2.
+ *
+ * A preparação (criar, etapas, checklist) é da coordenação; celebrar (gravar o
+ * assento) e emitir a certidão seguem a parametrização da comunidade do membro
+ * (`laySacramentRecords`) — eng-acessos-08.
  */
 @Injectable()
 export class SacramentProcessesService {
@@ -54,7 +56,7 @@ export class SacramentProcessesService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
-    private readonly pdfService: PdfService,
+    private readonly certificateService: SacramentCertificateService,
   ) {}
 
   private canManage(role: UserRole) {
@@ -146,7 +148,16 @@ export class SacramentProcessesService {
     if (!memberId) throw new BadRequestException('Informe o membro');
     const member = await this.prisma.member.findFirst({
       where: { id: memberId, deletedAt: null },
-      select: { id: true, communityId: true },
+      // Campos da pessoa: personSnapshot do assento gravado na celebração
+      select: {
+        id: true,
+        communityId: true,
+        status: true,
+        fullName: true,
+        birthDate: true,
+        fatherName: true,
+        motherName: true,
+      },
     });
     if (!member) throw new NotFoundException('Membro não encontrado');
     if (member.communityId === communityId) return member;
@@ -213,7 +224,10 @@ export class SacramentProcessesService {
     }
     // Processos antigos podem ter memberId de fora (antes da validação no
     // create): revalida antes de gravar o Sacrament definitivo
-    await this.assertMemberForCommunity(process.memberId, process.communityId, user);
+    const member = await this.assertMemberForCommunity(process.memberId, process.communityId, user);
+    // Gravar o assento: coordenador leigo só com a comunidade do membro liberada
+    await assertMayKeepSacramentRecords(this.prisma, user, member.communityId || process.communityId);
+    const personSnapshot = buildPersonSnapshot(member);
 
     // Data civil validada (400, não 500), sem futuro, ao meio-dia de Brasília
     const date = dto.date ? parseCivilDate(dto.date, 'Data da celebração') : new Date();
@@ -239,30 +253,45 @@ export class SacramentProcessesService {
       }
       // Batismo, Crisma e Ordem imprimem caráter: não se repetem. Conferido
       // sob o lock do membro (a catequese grava sacramento com a mesma chave);
-      // o erro desfaz o CAS acima junto com a transação
+      // o erro desfaz o CAS acima junto com a transação. Sacramento só
+      // INFORMADO (conclusão da catequese, outra denominação) não é assento:
+      // a celebração lavra o assento nele, em vez de barrar ou duplicar.
+      let informed: { id: string; notes: string | null } | null = null;
       if (UNREPEATABLE_SACRAMENTS.includes(process.type)) {
         const already = await prisma.sacrament.findFirst({
           where: { memberId: process.memberId, type: process.type },
-          select: { id: true },
+          select: { id: true, recordKind: true, notes: true },
         });
-        if (already) {
+        if (already && already.recordKind !== SacramentRecordKind.INFORMED) {
           throw new ConflictException(
             `Este membro já tem ${SACRAMENT_LABELS[process.type] ?? process.type} registrado — o sacramento não se repete. Confira o histórico sacramental ou cancele o processo.`,
           );
         }
+        informed = already ?? null;
       }
-      const sacrament = await prisma.sacrament.create({
-        data: {
-          memberId: process.memberId,
-          type: process.type,
-          date,
-          place,
-          minister,
-          book,
-          page,
-          term,
-        },
-      });
+      const recordData = {
+        date,
+        place,
+        minister,
+        book,
+        page,
+        term,
+        recordKind: SacramentRecordKind.RECORD,
+        ...(personSnapshot ? { personSnapshot } : {}),
+      };
+      const sacrament = informed
+        ? await prisma.sacrament.update({
+            where: { id: informed.id },
+            data: {
+              ...recordData,
+              notes: [informed.notes, 'Assento lavrado na celebração do processo de preparação']
+                .filter(Boolean)
+                .join('\n'),
+            },
+          })
+        : await prisma.sacrament.create({
+            data: { memberId: process.memberId, type: process.type, ...recordData },
+          });
       const updated = await prisma.sacramentProcess.update({
         where: { id },
         data: {
@@ -280,14 +309,15 @@ export class SacramentProcessesService {
     return result.updated;
   }
 
-  /** Certidão em PDF (também 2ª via). */
-  async certificate(id: string, user: CurrentUser): Promise<Buffer> {
+  /**
+   * Certidão em PDF (também 2ª via): "Certidão" com livro+folha+termo, senão
+   * "Declaração para conferência". `finalidade` opcional (até 120 caracteres).
+   */
+  async certificate(id: string, user: CurrentUser, finalidadeRaw?: unknown): Promise<CertificateResult> {
+    const finalidade = parseFinalidade(finalidadeRaw);
     const process = await this.prisma.sacramentProcess.findFirst({
       where: { id, deletedAt: null },
-      include: {
-        member: { select: { fullName: true } },
-        community: { select: { name: true, parish: { select: { name: true } } } },
-      },
+      include: { member: { select: { communityId: true } } },
     });
     if (!process) throw new NotFoundException('Processo não encontrado');
     const inScope = await this.hierarchyService.isCommunityInScope(user, process.communityId);
@@ -295,53 +325,61 @@ export class SacramentProcessesService {
     if (process.status !== SacramentProcessStatus.CELEBRATED) {
       throw new BadRequestException('Certidão disponível apenas após a celebração');
     }
+    // Emitir certidão: coordenador leigo só com a comunidade do membro liberada
+    await assertMayKeepSacramentRecords(this.prisma, user, process.member?.communityId || process.communityId);
     // Data, celebrante e local vêm do Sacrament gravado NA CELEBRAÇÃO — o
     // agendamento (scheduledDate/celebrant) pode ter mudado ou nem existir.
     const sacrament = process.sacramentId
       ? await this.prisma.sacrament.findUnique({
           where: { id: process.sacramentId },
-          select: { date: true, minister: true, place: true, book: true, page: true, term: true },
+          select: {
+            date: true,
+            minister: true,
+            place: true,
+            book: true,
+            page: true,
+            term: true,
+            recordKind: true,
+            personSnapshot: true,
+          },
         })
       : null;
+    if (sacrament?.recordKind === SacramentRecordKind.INFORMED) {
+      throw new ConflictException(INFORMED_NO_CERTIFICATE_MESSAGE);
+    }
     // Celebrado LEGADO sem Sacrament (status trocado à mão, antes da trava):
     // a 2ª via sai com os dados do próprio processo e o aviso de que vêm do
-    // agendamento — antes era 400 e a família ficava sem documento
+    // agendamento — sempre como declaração para conferência
     const legacy = !sacrament;
-    const record = sacrament ?? {
-      date: process.scheduledDate ?? null,
-      minister: process.celebrant ?? null,
-      place: null as string | null,
-      book: null as string | null,
-      page: null as string | null,
-      term: null as string | null,
-    };
-    await this.auditService.log({ actor: this.auditActor(user), action: 'EXPORT', entity: 'SacramentProcess', entityId: id, metadata: { certificate: true, ...(legacy ? { fromSchedule: true } : {}) } });
-
-    return this.pdfService.renderTableDocument({
-      title: `Certidão de ${SACRAMENT_LABELS[process.type] ?? process.type}`,
-      subtitle: `${process.community.parish.name} — ${process.community.name}`,
-      sections: [
-        {
-          ...(legacy
-            ? {
-                subheading:
-                  'Aviso: processo celebrado antes do registro da celebração no sistema — data e celebrante são os dados do agendamento. Confira com o livro de registro.',
-              }
-            : {}),
-          columns: ['Campo', 'Valor'],
-          widths: [1, 2],
-          rows: [
-            ['Nome', process.member.fullName],
-            ['Livro', process.book || record.book || '-'],
-            ['Folha', process.page || record.page || '-'],
-            ['Termo', process.term || record.term || '-'],
-            ['Data', record.date ? formatCivilDate(record.date) : '-'],
-            ['Celebrante', record.minister || '-'],
-            ['Local', record.place || '-'],
-          ],
-        },
-      ],
-      footer: `Emitido em ${new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' })}`,
+    const result = await this.certificateService.render({
+      record: {
+        type: process.type,
+        date: sacrament ? sacrament.date : (process.scheduledDate ?? null),
+        minister: sacrament ? sacrament.minister : (process.celebrant ?? null),
+        place: sacrament?.place ?? null,
+        book: process.book || sacrament?.book || null,
+        page: process.page || sacrament?.page || null,
+        term: process.term || sacrament?.term || null,
+        personSnapshot: sacrament?.personSnapshot,
+      },
+      memberId: process.memberId,
+      communityId: process.communityId,
+      involved: process.involved,
+      finalidade,
+      legacyFromSchedule: legacy,
     });
+    await this.auditService.log({
+      actor: this.auditActor(user),
+      action: 'EXPORT',
+      entity: 'SacramentProcess',
+      entityId: id,
+      metadata: {
+        certificate: true,
+        kind: result.kind,
+        ...(legacy ? { fromSchedule: true } : {}),
+        ...(finalidade ? { finalidade } : {}),
+      },
+    });
+    return result;
   }
 }

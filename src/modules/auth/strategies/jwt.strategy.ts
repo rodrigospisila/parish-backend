@@ -1,4 +1,4 @@
-import { ForbiddenException, Injectable, Logger, UnauthorizedException } from '@nestjs/common';
+import { ForbiddenException, Injectable, Logger, Optional, UnauthorizedException } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 import { ConfigService } from '@nestjs/config';
@@ -11,6 +11,7 @@ import {
 } from '../password-change-policy';
 import { isAllowedDuringTermsAcceptance, TERMS_ACCEPTANCE_REQUIRED } from '../terms-policy';
 import { isTermsAcceptanceRequired } from '../../users/terms.constants';
+import { EnforcementHitsService } from '../../../common/enforcement-hits.service';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -23,6 +24,8 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(
     private readonly configService: ConfigService,
     private readonly authService: AuthService,
+    // Contagem do que os modos log/on barram (eng-qualidade-10); opcional só para specs antigos
+    @Optional() private readonly enforcementHits?: EnforcementHitsService,
   ) {
     const jwtSecret = configService.get<string>('JWT_SECRET');
 
@@ -93,6 +96,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const mode = parseEnforcement(this.configService.get<string>('PASSWORD_CHANGE_ENFORCEMENT'));
     if (mode === 'off') return;
     if (isAllowedDuringPasswordChange(req?.method, req?.originalUrl ?? req?.url)) return;
+    this.enforcementHits?.record({ kind: 'PASSWORD_CHANGE', feature: '', userId, mode });
     if (mode === 'on') {
       throw new ForbiddenException({
         statusCode: 403,
@@ -111,6 +115,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     const mode = parseEnforcement(this.configService.get<string>('TERMS_ENFORCEMENT'));
     if (mode === 'off') return;
     if (isAllowedDuringTermsAcceptance(req?.method, req?.originalUrl ?? req?.url)) return;
+    this.enforcementHits?.record({ kind: 'TERMS', feature: '', userId, mode });
     if (mode === 'on') {
       throw new ForbiddenException({
         statusCode: 403,

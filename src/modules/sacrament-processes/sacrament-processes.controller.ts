@@ -37,14 +37,21 @@ export class SacramentProcessesController {
     return this.service.celebrate(id, dto, req.user);
   }
 
+  /** Certidão/declaração do processo celebrado; `?finalidade=` opcional (até 120). */
   @Get(':id/certificate.pdf')
-  async certificate(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
-    const buffer = await this.service.certificate(id, req.user);
+  async certificate(
+    @Param('id') id: string,
+    @Query('finalidade') finalidade: string | undefined,
+    @Res() res: Response,
+    @Request() req: any,
+  ) {
+    const result = await this.service.certificate(id, req.user, finalidade);
     res.set({
       'Content-Type': 'application/pdf',
-      'Content-Disposition': 'attachment; filename="certidao.pdf"',
-      'Content-Length': String(buffer.length),
+      'Content-Disposition': `attachment; filename="${result.filename}"`,
+      'Content-Length': String(result.buffer.length),
+      'X-Document-Kind': result.kind,
     });
-    res.end(buffer);
+    res.end(result.buffer);
   }
 }

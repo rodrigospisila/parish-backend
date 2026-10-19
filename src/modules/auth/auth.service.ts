@@ -24,6 +24,8 @@ import { emailInsensitive, normalizeEmail, pickEmailMatch } from './email-lookup
 import { pickCoordinatedPastoralIds } from '../pastorals/coordination-scope';
 import { isTermsAcceptanceRequired, TERMS_VERSION } from '../users/terms.constants';
 import { lockUserRow } from './session-lock';
+import { adoptMember, resolveAdoption } from './phone-adoption';
+import { findUniqueUserIdByPhoneDigits } from './phone-lookup';
 
 /** Resposta única para conta inexistente, celular inválido e senha errada (não revela qual foi). */
 export const INVALID_CREDENTIALS_MESSAGE = 'E-mail, celular ou senha incorretos';
@@ -179,16 +181,29 @@ export class AuthService {
     const now = new Date();
 
     // Usar transação para criar User e Member juntos
-    // Escopo GEOGRÁFICO derivado da comunidade: sem isso o perfil mostra
-    // "Paróquia: Não informada" e o seletor de comunidade abre vazio
-    const communityScope = communityId
-      ? await this.prisma.community.findUnique({
-          where: { id: communityId },
-          select: { parishId: true, parish: { select: { dioceseId: true } } },
-        })
-      : null;
-
     const result = await this.prisma.$transaction(async (tx) => {
+      // Telefone VERIFICADO por SMS + membro pré-cadastrado sem conta com o
+      // mesmo telefone (ex.: "Responsável – <catequizando>" importado da
+      // planilha): a conta nova ADOTA esse membro em vez de criar outro —
+      // assume o nome real e herda os dependentes/matrículas vinculados.
+      // Só no caminho verificado: telefone digitado à mão não adota ninguém.
+      // Vale também sem comunidade escolhida (o app escolhe depois): aí a
+      // comunidade do membro adotado vira a comunidade de fé da conta.
+      const adoptable =
+        verifiedPhoneToken && phone
+          ? await resolveAdoption(tx, phone, { communityId, logger: this.logger, context: 'cadastro' })
+          : null;
+      const effectiveCommunityId = communityId ?? adoptable?.communityId ?? undefined;
+
+      // Escopo GEOGRÁFICO derivado da comunidade: sem isso o perfil mostra
+      // "Paróquia: Não informada" e o seletor de comunidade abre vazio
+      const communityScope = effectiveCommunityId
+        ? await tx.community.findUnique({
+            where: { id: effectiveCommunityId },
+            select: { parishId: true, parish: { select: { dioceseId: true } } },
+          })
+        : null;
+
       // Criar usuário — sempre FAITHFUL e sem escopo administrativo de GESTÃO
       // (o papel continua FAITHFUL; parishId/dioceseId aqui são localização)
       const user = await tx.user.create({
@@ -198,7 +213,7 @@ export class AuthService {
           name,
           phone,
           role: UserRole.FAITHFUL,
-          communityId,
+          communityId: effectiveCommunityId,
           parishId: communityScope?.parishId ?? null,
           dioceseId: communityScope?.parish?.dioceseId ?? null,
           acceptedTermsAt: acceptedTerms ? now : null,
@@ -231,34 +246,12 @@ export class AuthService {
 
       // Garante o perfil de Member (somente para roles elegiveis e quando ha comunidade
       // definida) - mesma regra usada em UsersService, centralizada em MembersService.
-      if (communityId) {
-        // Telefone VERIFICADO por SMS + membro pré-cadastrado sem conta com o
-        // mesmo telefone (ex.: "Responsável – <catequizando>" importado da
-        // planilha): a conta nova ADOTA esse membro em vez de criar outro —
-        // assume o nome real e herda os dependentes/matrículas vinculados.
-        // Só no caminho verificado: telefone digitado à mão não adota ninguém.
+      if (effectiveCommunityId) {
         let adoptedMemberId: string | undefined = user.member?.id;
-        if (!adoptedMemberId && verifiedPhoneToken && phone) {
-          // Prefere o membro da comunidade escolhida; senão, o mais antigo com o telefone
-          const orphan =
-            (await tx.member.findFirst({
-              where: { phone, userId: null, deletedAt: null, communityId },
-              orderBy: { createdAt: 'asc' },
-              select: { id: true },
-            })) ??
-            (await tx.member.findFirst({
-              where: { phone, userId: null, deletedAt: null },
-              orderBy: { createdAt: 'asc' },
-              select: { id: true },
-            })) ??
-            (await this.findOrphanByPhoneDigits(tx, phone, communityId));
-          if (orphan) {
-            await tx.member.update({
-              where: { id: orphan.id },
-              // O telefone verificado (E.164) substitui o digitado no painel
-              data: { userId: user.id, fullName: name, email, phone },
-            });
-            adoptedMemberId = orphan.id;
+        if (!adoptedMemberId && adoptable && phone) {
+          // Condicional: se outra conta adotou no meio do caminho, cria um perfil novo
+          if (await adoptMember(tx, adoptable.id, { userId: user.id, fullName: name, email, phone })) {
+            adoptedMemberId = adoptable.id;
           }
         }
 
@@ -270,7 +263,7 @@ export class AuthService {
             name,
             email,
             phone,
-            communityId,
+            communityId: effectiveCommunityId,
             consentGiven,
           },
           adoptedMemberId,
@@ -292,7 +285,10 @@ export class AuthService {
       action: 'REGISTER',
       entity: 'User',
       entityId: result.id,
-      metadata: { communityId: result.communityId },
+      // `phone` vira pseudônimo (HMAC) na auditoria: é a prova de que ESTE
+      // número foi confirmado por SMS — a troca de comunidade no app só adota
+      // membro pelo telefone quando o atual bate com ele (ver users.service)
+      metadata: { communityId: result.communityId, ...(phone ? { phoneVerified: true, phone } : {}) },
     });
 
     // Gerar tokens
@@ -309,24 +305,6 @@ export class AuthService {
       user: await this.mapUserResponse(result),
       ...tokens,
     };
-  }
-
-  /**
-   * Reforço da adoção (A23): membro cadastrado no painel com o telefone
-   * formatado ("(42) 99999-8888") não casa por igualdade com o E.164 do
-   * token. Compara só os dígitos, com e sem o 55.
-   */
-  private async findOrphanByPhoneDigits(tx: any, phone: string, communityId: string): Promise<{ id: string } | null> {
-    const digits = phone.replace(/\D/g, '');
-    const local = digits.startsWith('55') ? digits.slice(2) : digits;
-    if (local.length < 10) return null;
-    const rows: Array<{ id: string }> = await tx.$queryRaw`
-      SELECT id FROM "members"
-      WHERE "userId" IS NULL AND "deletedAt" IS NULL AND phone IS NOT NULL
-        AND regexp_replace(phone, '\\D', '', 'g') IN (${digits}, ${local})
-      ORDER BY ("communityId" = ${communityId}) DESC, "createdAt" ASC
-      LIMIT 1`;
-    return rows?.[0] ?? null;
   }
 
   async login(loginDto: LoginDto, meta: LoginMeta = {}) {
@@ -380,7 +358,12 @@ export class AuthService {
     if (loginDto.phone) {
       const phone = this.messagingService.normalizePhone(loginDto.phone);
       if (!phone) return null;
-      return this.prisma.user.findUnique({ where: { phone }, include: this.sessionInclude, omit: LOGIN_OMIT });
+      const exactPhone = await this.prisma.user.findUnique({ where: { phone }, include: this.sessionInclude, omit: LOGIN_OMIT });
+      if (exactPhone) return exactPhone;
+      // Cadastro antigo da gestão com o telefone formatado: casa pelos dígitos, se for o único
+      const legacyId = await findUniqueUserIdByPhoneDigits(this.prisma, phone);
+      if (!legacyId) return null;
+      return this.prisma.user.findUnique({ where: { id: legacyId }, include: this.sessionInclude, omit: LOGIN_OMIT });
     }
 
     const typed = String(loginDto.email ?? '').trim();

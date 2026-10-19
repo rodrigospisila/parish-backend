@@ -1,4 +1,4 @@
-import { IsString, IsOptional, IsEnum, IsHexColor } from 'class-validator';
+import { IsString, IsOptional, IsEnum, IsHexColor, IsBoolean } from 'class-validator';
 import { EntityStatus } from '@prisma/client';
 
 export class CreateGlobalPastoralDto {
@@ -24,4 +24,12 @@ export class CreateGlobalPastoralDto {
   @IsEnum(EntityStatus)
   @IsOptional()
   status?: EntityStatus;
+
+  /**
+   * Esta pastoral é a Catequese / Iniciação à Vida Cristã: quem a coordena
+   * coordena a catequese da comunidade (substitui a detecção pelo nome).
+   */
+  @IsBoolean()
+  @IsOptional()
+  isCatechesis?: boolean;
 }

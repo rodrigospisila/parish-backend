@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { ScheduleModule } from '@nestjs/schedule';
 import { ThrottlerModule } from '@nestjs/throttler';
-import { APP_GUARD, APP_PIPE } from '@nestjs/core';
+import { APP_FILTER, APP_GUARD, APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -48,6 +48,7 @@ import { PlansModule } from './modules/plans/plans.module';
 import { DataProposalsModule } from './modules/data-proposals/data-proposals.module';
 import { CommonModule } from './common/common.module';
 import { AppThrottlerGuard, THROTTLER_OPTIONS } from './modules/auth/guards/app-throttler.guard';
+import { AllExceptionsFilter } from './common/filters/all-exceptions.filter';
 
 @Module({
   imports: [
@@ -112,6 +113,11 @@ import { AppThrottlerGuard, THROTTLER_OPTIONS } from './modules/auth/guards/app-
     {
       provide: APP_GUARD,
       useClass: AppThrottlerGuard,
+    },
+    // Erros em português com código de rastreio (requestId) e 5xx no log/Sentry
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter,
     },
   ],
 })

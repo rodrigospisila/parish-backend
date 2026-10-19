@@ -209,7 +209,7 @@ describe('UsersService — LGPD e conta (F7b)', () => {
       prisma.user.findUnique.mockResolvedValue(dbUser());
       const res = await service.resetPassword('f1', parishAdmin);
       expect(random).not.toHaveBeenCalled();
-      expect(res.tempPassword.length).toBeGreaterThanOrEqual(12);
+      expect(res.tempPassword).toHaveLength(10);
       expect(audit.log).toHaveBeenCalledWith(
         expect.objectContaining({ action: 'PASSWORD_RESET', entityId: 'f1', actor: expect.objectContaining({ id: 'adm-p1' }) }),
       );

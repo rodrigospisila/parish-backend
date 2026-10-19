@@ -135,6 +135,38 @@ describe('JwtStrategy — sessão do aparelho e troca de senha obrigatória', ()
       expect(isAllowedDuringTermsAcceptance('PATCH', '/api/v1/users/me')).toBe(false);
     });
   });
+
+  describe('eng-qualidade-10 — contagem do que os modos log/on barram', () => {
+    const pendingBoth = { ...base, forcePasswordChange: true, acceptedTermsAt: null, acceptedTermsVersion: null };
+    const withHits = (validated: any, env: Record<string, string> = {}) => {
+      const hits = { record: jest.fn() };
+      const authService = { validateUser: jest.fn().mockResolvedValue(validated) };
+      const config = { get: jest.fn((key: string) => ({ JWT_SECRET: 's', ...env })[key]) };
+      return { strategy: new JwtStrategy(config as any, authService as any, hits as any), hits };
+    };
+
+    it('log: conta troca de senha e termos pendentes (sem bloquear)', async () => {
+      const { strategy, hits } = withHits(pendingBoth);
+      await expect(strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now })).resolves.toBeTruthy();
+      expect(hits.record).toHaveBeenCalledWith({ kind: 'PASSWORD_CHANGE', feature: '', userId: 'u1', mode: 'log' });
+      expect(hits.record).toHaveBeenCalledWith({ kind: 'TERMS', feature: '', userId: 'u1', mode: 'log' });
+    });
+
+    it('on: conta antes de bloquear', async () => {
+      const { strategy, hits } = withHits(pendingBoth, { PASSWORD_CHANGE_ENFORCEMENT: 'on', TERMS_ENFORCEMENT: 'on' });
+      await expect(strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now })).rejects.toBeInstanceOf(ForbiddenException);
+      expect(hits.record).toHaveBeenCalledWith({ kind: 'PASSWORD_CHANGE', feature: '', userId: 'u1', mode: 'on' });
+    });
+
+    it('rota liberada e modo off não contam', async () => {
+      const allowed = withHits(pendingBoth);
+      await allowed.strategy.validate(req('GET', '/api/v1/users/me'), { sub: 'u1', sid: 's1', iat: now });
+      expect(allowed.hits.record).not.toHaveBeenCalled();
+      const off = withHits(pendingBoth, { PASSWORD_CHANGE_ENFORCEMENT: 'off', TERMS_ENFORCEMENT: 'off' });
+      await off.strategy.validate(req('GET', '/api/v1/events'), { sub: 'u1', sid: 's1', iat: now });
+      expect(off.hits.record).not.toHaveBeenCalled();
+    });
+  });
 });
 
 describe('OtpService — código com hash, contador atômico e uso único (B13/B14)', () => {

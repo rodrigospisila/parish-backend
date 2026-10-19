@@ -10,6 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { CommunitiesService } from './communities.service';
+import { parsePaging } from './list-paging';
 import { CommunitiesMapService, PinKind } from './communities-map.service';
 import { CommunitiesReviewService } from './communities-review.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
@@ -111,9 +112,21 @@ export class CommunitiesController {
   /**
    * Sem filtro: lista de gestão no escopo do usuário (sem escopo → vazia).
    * `?parishId=`: cascata leve (id, nome, endereço) para escolher a comunidade.
+   * `?page=&pageSize=&search=` (contrato 4): lista de gestão paginada
+   * `{ items, total, page, pageSize }` (pageSize até 100; busca sem acento por
+   * nome/cidade; `parishId` vira filtro dentro do escopo). Sem `page`, `search`
+   * é ignorado e a resposta é a de sempre.
    */
   @Get()
-  findAll(@CurrentUser() user: any, @Query('parishId') parishId?: string) {
+  findAll(
+    @CurrentUser() user: any,
+    @Query('parishId') parishId?: string,
+    @Query('page') page?: string,
+    @Query('pageSize') pageSize?: string,
+    @Query('search') search?: string,
+  ) {
+    const paging = parsePaging(page, pageSize, search);
+    if (paging) return this.communitiesService.findPage(user, paging, { parishId: parishId || undefined });
     if (parishId) return this.communitiesService.listByParish(parishId);
     return this.communitiesService.findAll(user);
   }

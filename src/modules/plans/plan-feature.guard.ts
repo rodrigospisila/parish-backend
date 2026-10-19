@@ -1,4 +1,4 @@
-import { CanActivate, ExecutionContext, ForbiddenException, Injectable, Logger } from '@nestjs/common';
+import { CanActivate, ExecutionContext, ForbiddenException, Injectable, Logger, Optional } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { UserRole } from '@prisma/client';
 import { PlanAccessService } from './plan-access.service';
@@ -10,6 +10,7 @@ import {
   PlanResourceSpec,
 } from './plan.decorators';
 import { planRouteRule } from './plan-routes';
+import { EnforcementHitsService } from '../../common/enforcement-hits.service';
 
 export const PLAN_REQUIRED_MESSAGE = 'Disponível no plano da comunidade';
 export const PLAN_SCOPE_MESSAGE = 'Comunidade fora do seu escopo';
@@ -32,6 +33,10 @@ const LOG_DEDUPE_MS = 10 * 60_000;
  *
  * Falha ao consultar o plano (banco fora, etc.) libera a requisição e registra
  * erro — cobrança nunca derruba a operação pastoral.
+ *
+ * Em `log` e `on`, cada bloqueio (real ou hipotético) é contado em
+ * `enforcement_hits` (PLAN_FEATURE + feature + comunidade) para o painel da
+ * Plataforma medir o impacto antes de ligar o `on`.
  */
 @Injectable()
 export class PlanFeatureGuard implements CanActivate {
@@ -41,6 +46,8 @@ export class PlanFeatureGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
     private readonly access: PlanAccessService,
+    // Opcional só para specs antigos; no app vem do CommonModule (global)
+    @Optional() private readonly hits?: EnforcementHitsService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -72,6 +79,15 @@ export class PlanFeatureGuard implements CanActivate {
       return true;
     }
     if (decision.allowed) return true;
+
+    this.hits?.record({
+      kind: 'PLAN_FEATURE',
+      // Fora do escopo não é falta de plano: conta à parte para não inflar a feature
+      feature: decision.outOfScope ? `${meta.feature}:fora-do-escopo` : meta.feature,
+      communityId: decision.communityId,
+      userId: user.id,
+      mode,
+    });
 
     if (mode === 'log') {
       this.logWouldBlock(req, user, meta.feature, decision.communityId, decision.target);

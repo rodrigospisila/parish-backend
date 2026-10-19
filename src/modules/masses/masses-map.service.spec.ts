@@ -210,7 +210,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(massSchedules.expandOccurrences.mock.calls[0][4]).toEqual({ communityIds: ['c1'], types: [MassScheduleType.CONFESSION] });
       expect(prisma.event.findMany).not.toHaveBeenCalled();
       expect(res.communities[0].nextMasses).toEqual([
-        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', start: '2026-07-23T09:00:00', end: null, source: 'fixed', cancelled: false, cancelReason: null },
+        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', typeLabel: 'Confissão', start: '2026-07-23T09:00:00', end: null, source: 'fixed', cancelled: false, cancelReason: null },
       ]);
     });
 

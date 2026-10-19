@@ -260,7 +260,8 @@ describe('UsersService — segurança (C2, C3, A11)', () => {
     it('caminho legítimo: PARISH_ADMIN reseta a senha de um fiel da paróquia', async () => {
       prisma.user.findUnique.mockResolvedValue(dbUser());
       const res = await service.resetPassword('f1', parishAdmin);
-      expect(res.tempPassword).toMatch(/Aa1!$/);
+      // 10 caracteres legíveis (sem 0/O, 1/l/I) — ux-acesso-04
+      expect(res.tempPassword).toMatch(/^[a-hjkmnp-z2-9]{10}$/);
       // Redefinição e revogação na transação, sob a trava da linha (#39)
       expect(tx.$queryRaw).toHaveBeenCalled();
       expect(tx.user.update.mock.calls[0][0].data.forcePasswordChange).toBe(true);

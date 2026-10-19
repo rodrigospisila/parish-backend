@@ -6,6 +6,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { DataProposal, DataProposalKind, DataProposalStatus, Prisma } from '@prisma/client';
+import { MASS_SCHEDULE_TYPE_LABELS } from '../mass-schedules/mass-schedule-types';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
 import { parseBbox } from '../masses/map-search.utils';
@@ -143,12 +144,8 @@ const PROPOSAL_INCLUDE = {
   schedule: { select: SCHEDULE_SELECT },
 } satisfies Prisma.DataProposalInclude;
 
-const TYPE_LABEL: Record<string, string> = {
-  MASS: 'Missa',
-  CONFESSION: 'Confissão',
-  ADORATION: 'Adoração',
-  ROSARY: 'Terço',
-};
+/** Rótulos dos tipos de horário (inclui "Celebração da Palavra") — fonte única em mass-schedule-types */
+const TYPE_LABEL: Record<string, string> = MASS_SCHEDULE_TYPE_LABELS;
 
 const SCHEDULE_KEYS: (keyof ScheduleFields)[] = [
   'type',

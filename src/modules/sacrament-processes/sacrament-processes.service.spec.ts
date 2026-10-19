@@ -6,6 +6,7 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PdfService } from '../pdf/pdf.service';
+import { SacramentCertificateService } from '../sacraments/sacrament-certificate.service';
 
 describe('SacramentProcessesService — escopo da listagem (A14)', () => {
   let service: SacramentProcessesService;
@@ -19,7 +20,7 @@ describe('SacramentProcessesService — escopo da listagem (A14)', () => {
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: {} },
         { provide: AuditService, useValue: { log: jest.fn() } },
-        { provide: PdfService, useValue: {} },
+        { provide: SacramentCertificateService, useValue: {} },
       ],
     }).compile();
     service = module.get(SacramentProcessesService);
@@ -103,7 +104,7 @@ describe('SacramentProcessesService — membro do processo (create/celebrate)', 
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: hierarchy },
         { provide: AuditService, useValue: { log: jest.fn() } },
-        { provide: PdfService, useValue: {} },
+        { provide: SacramentCertificateService, useValue: {} },
       ],
     }).compile();
     service = module.get(SacramentProcessesService);
@@ -199,8 +200,9 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
   let service: SacramentProcessesService;
   let prisma: any;
   let tx: any;
-  let pdf: { renderTableDocument: jest.Mock };
+  let pdf: { renderCertificateDocument: jest.Mock };
   const parishAdmin = { id: 'adm', role: UserRole.PARISH_ADMIN, parishId: 'p1' } as any;
+  const coordinator = { id: 'cc', role: UserRole.COMMUNITY_COORDINATOR, communityId: 'c1' } as any;
   const scheduled = {
     id: 'sp1',
     memberId: 'm1',
@@ -210,15 +212,41 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
     scheduledDate: new Date('2026-11-10T00:00:00Z'),
     celebrant: 'Pe. Agendado',
   };
+  const person = {
+    id: 'm1',
+    communityId: 'c1',
+    status: 'ACTIVE',
+    fullName: 'Ana Souza',
+    birthDate: new Date('2026-01-05T15:00:00.000Z'),
+    fatherName: 'Paulo Souza',
+    motherName: 'Lia Souza',
+  };
+  const parish = {
+    name: 'Paróquia Santa Rita',
+    address: 'Rua A, 10',
+    city: 'Ponta Grossa',
+    state: 'PR',
+    zipCode: '84000-000',
+    phone: null,
+    email: null,
+    priestName: null,
+    diocese: { name: 'Diocese de Ponta Grossa' },
+  };
+  let laySacramentRecords: boolean;
 
   beforeEach(async () => {
+    laySacramentRecords = false;
     tx = {
       $queryRaw: jest.fn().mockResolvedValue([]),
       sacramentProcess: {
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
         update: jest.fn().mockResolvedValue({ id: 'sp1', status: SacramentProcessStatus.CELEBRATED }),
       },
-      sacrament: { create: jest.fn().mockResolvedValue({ id: 'sac1' }), findFirst: jest.fn().mockResolvedValue(null) },
+      sacrament: {
+        create: jest.fn().mockResolvedValue({ id: 'sac1' }),
+        update: jest.fn().mockResolvedValue({ id: 'informado' }),
+        findFirst: jest.fn().mockResolvedValue(null),
+      },
     };
     prisma = {
       sacramentProcess: {
@@ -227,22 +255,40 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
       },
       sacrament: { findUnique: jest.fn() },
-      member: { findFirst: jest.fn().mockResolvedValue({ id: 'm1', communityId: 'c1' }) },
+      member: {
+        findFirst: jest.fn().mockResolvedValue(person),
+        findUnique: jest.fn().mockResolvedValue(person),
+      },
+      community: {
+        findUnique: jest.fn(async ({ select }: any) =>
+          select.laySacramentRecords ? { laySacramentRecords } : { name: 'Matriz', parish },
+        ),
+      },
       memberCommunity: { findFirst: jest.fn().mockResolvedValue(null) },
       $transaction: jest.fn(async (cb: any) => cb(tx)),
     };
-    pdf = { renderTableDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')) };
+    pdf = { renderCertificateDocument: jest.fn().mockResolvedValue(Buffer.from('pdf')) };
     const module: TestingModule = await Test.createTestingModule({
       providers: [
         SacramentProcessesService,
         { provide: PrismaService, useValue: prisma },
         { provide: HierarchyService, useValue: { isCommunityInScope: jest.fn().mockResolvedValue(true) } },
         { provide: AuditService, useValue: { log: jest.fn() } },
+        SacramentCertificateService,
         { provide: PdfService, useValue: pdf },
       ],
     }).compile();
     service = module.get(SacramentProcessesService);
   });
+
+  const celebrated = (extra: Record<string, unknown> = {}) => ({
+    ...scheduled,
+    status: SacramentProcessStatus.CELEBRATED,
+    member: { communityId: 'c1' },
+    ...extra,
+  });
+  const field = (label: string) =>
+    pdf.renderCertificateDocument.mock.calls[0][0].pages[0].fields.find((f: any) => f.label === label)?.value;
 
   it('PATCH status CELEBRATED (sem celebrar) ou fora do enum: 400, nada gravado', async () => {
     prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
@@ -282,17 +328,51 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
     await expect(service.celebrate('sp1', {}, parishAdmin)).rejects.toBeInstanceOf(BadRequestException);
   });
 
-  it('certidão usa data, celebrante e local do Sacrament da celebração, não do agendamento', async () => {
-    prisma.sacramentProcess.findFirst.mockResolvedValue({
-      ...scheduled,
-      status: SacramentProcessStatus.CELEBRATED,
-      sacramentId: 'sac1',
-      book: '3',
-      page: '12',
-      term: '45',
-      member: { fullName: 'Ana Souza' },
-      community: { name: 'Matriz', parish: { name: 'Santa Rita' } },
+  it('celebrar grava o assento (RECORD) com o snapshot da pessoa (cat-gestao-09)', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    await service.celebrate('sp1', { book: '1', page: '2', term: '3' }, parishAdmin);
+    const data = tx.sacrament.create.mock.calls[0][0].data;
+    expect(data.recordKind).toBe('RECORD');
+    expect(data.personSnapshot).toEqual({
+      fullName: 'Ana Souza',
+      birthDate: '2026-01-05T15:00:00.000Z',
+      fatherName: 'Paulo Souza',
+      motherName: 'Lia Souza',
+      capturedAt: expect.any(String),
     });
+  });
+
+  it('eng-acessos-08: coordenador leigo só celebra/emite com a comunidade do membro liberada', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    await expect(service.celebrate('sp1', {}, coordinator)).rejects.toThrow(
+      'Nesta comunidade, só a secretaria paroquial registra sacramentos',
+    );
+    expect(prisma.$transaction).not.toHaveBeenCalled();
+
+    prisma.sacramentProcess.findFirst.mockResolvedValue(celebrated({ sacramentId: 'sac1' }));
+    prisma.sacrament.findUnique.mockResolvedValue({ date: new Date('2026-11-17T15:00:00.000Z'), recordKind: 'RECORD' });
+    await expect(service.certificate('sp1', coordinator)).rejects.toBeInstanceOf(ForbiddenException);
+    expect(pdf.renderCertificateDocument).not.toHaveBeenCalled();
+
+    laySacramentRecords = true;
+    prisma.sacramentProcess.findFirst.mockResolvedValue(scheduled);
+    await service.celebrate('sp1', {}, coordinator);
+    expect(tx.sacrament.create).toHaveBeenCalled();
+    prisma.sacramentProcess.findFirst.mockResolvedValue(celebrated({ sacramentId: 'sac1' }));
+    await service.certificate('sp1', coordinator);
+    expect(pdf.renderCertificateDocument).toHaveBeenCalled();
+  });
+
+  it('certidão usa data, celebrante e local do Sacrament da celebração, não do agendamento', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(
+      celebrated({
+        sacramentId: 'sac1',
+        book: '3',
+        page: '12',
+        term: '45',
+        involved: [{ role: 'Madrinha', name: 'Rita' }, { role: 'Padrinho', name: 'Carlos' }],
+      }),
+    );
     prisma.sacrament.findUnique.mockResolvedValue({
       date: new Date('2026-11-17T15:00:00.000Z'),
       minister: 'Pe. Celebrante',
@@ -300,78 +380,89 @@ describe('SacramentProcessesService — status, celebração e certidão (M9/M40
       book: null,
       page: null,
       term: null,
+      recordKind: 'RECORD',
+      personSnapshot: null,
     });
-    await service.certificate('sp1', parishAdmin);
-    const rows: string[][] = pdf.renderTableDocument.mock.calls[0][0].sections[0].rows;
-    expect(rows).toContainEqual(['Data', '17/11/2026']);
-    expect(rows).toContainEqual(['Celebrante', 'Pe. Celebrante']);
-    expect(rows).toContainEqual(['Local', 'Capela São José']);
-    expect(rows).toContainEqual(['Livro', '3']);
+    const result = await service.certificate('sp1', parishAdmin, 'Crisma');
+    expect(result.kind).toBe('CERTIDAO');
+    const input = pdf.renderCertificateDocument.mock.calls[0][0];
+    expect(input.title).toBe('Certidão de Batismo');
+    expect(field('Data da celebração')).toBe('17/11/2026');
+    expect(field('Ministro')).toBe('Pe. Celebrante');
+    expect(field('Local')).toBe('Capela São José');
+    expect(field('Registro')).toBe('Livro 3, folha 12, termo 45');
+    expect(field('Padrinhos')).toBe('Rita e Carlos');
+    expect(field('Filiação')).toBe('Paulo Souza e Lia Souza');
+    expect(input.pages[0].closingParagraphs).toContain('Finalidade: Crisma.');
+    expect(input.pages[0].signatureLines).toEqual(['Pároco', 'Secretaria Paroquial']);
   });
 
-  it('celebrado LEGADO sem Sacrament: 2ª via com os dados do processo e o aviso de agendamento (antes 400)', async () => {
-    prisma.sacramentProcess.findFirst.mockResolvedValue({
-      ...scheduled,
-      status: SacramentProcessStatus.CELEBRATED,
-      sacramentId: null,
-      book: '7',
-      page: null,
-      term: '21',
-      member: { fullName: 'Ana' },
-      community: { name: 'Matriz', parish: { name: 'Santa Rita' } },
-    });
-    await service.certificate('sp1', parishAdmin);
-    const section = pdf.renderTableDocument.mock.calls[0][0].sections[0];
-    expect(section.subheading).toMatch(/dados do agendamento/);
-    expect(section.rows).toContainEqual(['Data', '10/11/2026']);
-    expect(section.rows).toContainEqual(['Celebrante', 'Pe. Agendado']);
-    expect(section.rows).toContainEqual(['Livro', '7']);
-    expect(section.rows).toContainEqual(['Folha', '-']);
-    expect(section.rows).toContainEqual(['Local', '-']);
+  it('celebrado LEGADO sem Sacrament: declaração com os dados do processo e o aviso de agendamento', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(
+      celebrated({ sacramentId: null, book: '7', page: '8', term: '21' }),
+    );
+    const result = await service.certificate('sp1', parishAdmin);
+    // Dados do agendamento: nunca sai como "Certidão", mesmo com livro/folha/termo
+    expect(result.kind).toBe('DECLARACAO');
+    const page = pdf.renderCertificateDocument.mock.calls[0][0].pages[0];
+    expect(page.closingParagraphs.join(' ')).toMatch(/agendamento/);
+    expect(field('Data da celebração')).toBe('10/11/2026');
+    expect(field('Ministro')).toBe('Pe. Agendado');
+    expect(field('Local')).toBe('Não informado');
     expect(prisma.sacrament.findUnique).not.toHaveBeenCalled();
   });
 
-  it('legado sem data agendada: certidão sai com "-" na data, sem 500', async () => {
-    prisma.sacramentProcess.findFirst.mockResolvedValue({
-      ...scheduled,
-      scheduledDate: null,
-      celebrant: null,
-      status: SacramentProcessStatus.CELEBRATED,
-      sacramentId: 'sumiu',
-      member: { fullName: 'Ana' },
-      community: { name: 'Matriz', parish: { name: 'Santa Rita' } },
-    });
+  it('legado sem data agendada: declaração sai com "Não informada" na data, sem 500', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(
+      celebrated({ scheduledDate: null, celebrant: null, sacramentId: 'sumiu' }),
+    );
     prisma.sacrament.findUnique.mockResolvedValue(null);
     await service.certificate('sp1', parishAdmin);
-    const section = pdf.renderTableDocument.mock.calls[0][0].sections[0];
-    expect(section.rows).toContainEqual(['Data', '-']);
-    expect(section.subheading).toMatch(/agendamento/);
+    expect(field('Data da celebração')).toBe('Não informada');
   });
 
-  it('certidão com Sacrament da celebração não leva o aviso de agendamento', async () => {
-    prisma.sacramentProcess.findFirst.mockResolvedValue({
-      ...scheduled,
-      status: SacramentProcessStatus.CELEBRATED,
-      sacramentId: 'sac1',
-      member: { fullName: 'Ana' },
-      community: { name: 'Matriz', parish: { name: 'Santa Rita' } },
+  it('assento sem livro/folha/termo: declaração para conferência, sem o aviso de agendamento', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue(celebrated({ sacramentId: 'sac1' }));
+    prisma.sacrament.findUnique.mockResolvedValue({
+      date: new Date('2026-11-17T15:00:00.000Z'),
+      minister: null,
+      place: null,
+      recordKind: 'RECORD',
     });
-    prisma.sacrament.findUnique.mockResolvedValue({ date: new Date('2026-11-17T15:00:00.000Z'), minister: null, place: null });
-    await service.certificate('sp1', parishAdmin);
-    expect(pdf.renderTableDocument.mock.calls[0][0].sections[0].subheading).toBeUndefined();
+    const result = await service.certificate('sp1', parishAdmin);
+    expect(result.kind).toBe('DECLARACAO');
+    const input = pdf.renderCertificateDocument.mock.calls[0][0];
+    expect(input.title).toBe('Declaração para conferência — Batismo');
+    expect(input.pages[0].notice).toMatch(/não substitui a certidão/);
+    expect(input.pages[0].closingParagraphs.join(' ')).not.toMatch(/agendamento/);
   });
 
-  it('celebrar Batismo/Crisma/Ordem de quem já tem o sacramento: 409, nada gravado (checado sob o lock)', async () => {
+  it('celebrar Batismo/Crisma/Ordem de quem já tem o ASSENTO: 409, nada gravado (checado sob o lock)', async () => {
     for (const type of ['BAPTISM', 'CONFIRMATION', 'HOLY_ORDERS']) {
       tx.sacrament.create.mockClear();
       tx.$queryRaw.mockClear();
       prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type });
-      tx.sacrament.findFirst.mockResolvedValue({ id: 'antigo' });
+      tx.sacrament.findFirst.mockResolvedValue({ id: 'antigo', recordKind: 'RECORD', notes: null });
       await expect(service.celebrate('sp1', {}, parishAdmin)).rejects.toBeInstanceOf(ConflictException);
       expect(tx.$queryRaw).toHaveBeenCalledTimes(1);
-      expect(tx.sacrament.findFirst).toHaveBeenLastCalledWith({ where: { memberId: 'm1', type }, select: { id: true } });
+      expect(tx.sacrament.findFirst).toHaveBeenLastCalledWith({
+        where: { memberId: 'm1', type },
+        select: { id: true, recordKind: true, notes: true },
+      });
       expect(tx.sacrament.create).not.toHaveBeenCalled();
     }
+  });
+
+  it('sacramento só INFORMADO (catequese/outra denominação): a celebração lavra o assento nele', async () => {
+    prisma.sacramentProcess.findFirst.mockResolvedValue({ ...scheduled, type: 'CONFIRMATION' });
+    tx.sacrament.findFirst.mockResolvedValue({ id: 'informado', recordKind: 'INFORMED', notes: 'Concluído na catequese' });
+    await service.celebrate('sp1', { book: '5', page: '6', term: '7' }, parishAdmin);
+    expect(tx.sacrament.create).not.toHaveBeenCalled();
+    const call = tx.sacrament.update.mock.calls[0][0];
+    expect(call.where).toEqual({ id: 'informado' });
+    expect(call.data).toMatchObject({ recordKind: 'RECORD', book: '5', page: '6', term: '7' });
+    expect(call.data.notes).toMatch(/^Concluído na catequese\nAssento lavrado/);
+    expect(tx.sacramentProcess.update.mock.calls[0][0].data.sacramentId).toBe('informado');
   });
 
   it('Matrimônio/Eucaristia/Unção não são barrados por registro anterior do mesmo tipo', async () => {

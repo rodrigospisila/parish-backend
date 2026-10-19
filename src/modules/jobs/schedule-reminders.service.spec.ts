@@ -78,7 +78,7 @@ describe('ScheduleRemindersService', () => {
         'SCHEDULE_REMINDER',
         'Lembrete de escala',
         expect.stringContaining('Missa das 19h'),
-        { scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
+        { type: 'SCHEDULE_REMINDER', kind: 'schedule-reminder', scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
       );
       expect(prisma.scheduleAssignment.updateMany).toHaveBeenCalledWith({
         where: { id: 'assignment-1', reminder24hSentAt: null },
@@ -249,7 +249,7 @@ describe('ScheduleRemindersService', () => {
         'SCHEDULE_REMINDER',
         'Confirme sua participação',
         expect.stringContaining('Missa das 19h'),
-        { scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
+        { type: 'SCHEDULE_REMINDER', kind: 'response-nudge', scheduleId: 'schedule-1', assignmentId: 'assignment-1' },
       );
       expect(prisma.scheduleAssignment.updateMany).toHaveBeenCalledWith({
         where: { id: 'assignment-1', pendingNudgeSentAt: null },

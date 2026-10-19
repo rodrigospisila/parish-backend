@@ -1,11 +1,34 @@
-import { ForbiddenException, Injectable } from '@nestjs/common';
+import { ForbiddenException, Injectable, Optional } from '@nestjs/common';
 import { AssignmentStatus, Prisma, ScheduleStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { PAID_FEATURES, PaidFeature } from '../plans/plan-rules';
+import { COORDINATOR_MEMBER_ROLES, loadCoordinatedPastoralIds } from '../pastorals/coordination-scope';
+
+/**
+ * Escopo exibido no Início. `communityIds` vazio + `unrestricted: true` =
+ * SYSTEM_ADMIN sem comunidade escolhida (o país inteiro): nenhuma consulta
+ * monta `IN (...)` com ids — o total vem em `communityCount`.
+ */
+export interface DashboardScopeView {
+  communityIds: string[];
+  pastoralScoped: boolean;
+  pastoralIds: string[];
+  unrestricted: boolean;
+  communityCount: number;
+}
 
 export interface CoordinatorOverview {
-  scope: { communityIds: string[]; pastoralScoped: boolean; pastoralIds: string[] };
+  scope: DashboardScopeView;
+  /**
+   * Recursos pagos (chaves de plan-rules) bloqueados pelo plano no escopo
+   * exibido — só com PLAN_ENFORCEMENT=on; as seções deles vêm zeradas.
+   */
+  planLocked: PaidFeature[];
+  /** Coordena a catequese (pastoral `isCatechesis`) ou é PARISH_ADMIN+; senão o bloco vem zerado */
+  canSeeCatechesis: boolean;
   catechesis: {
     pendingApprovals: number;
     documentsToReview: number;
@@ -30,7 +53,11 @@ interface StatusCounts {
 
 export interface CoordinatorInsights {
   generatedAt: string;
-  scope: { communityIds: string[]; pastoralScoped: boolean; pastoralIds: string[] };
+  scope: DashboardScopeView;
+  /** Mesmo significado do CoordinatorOverview.planLocked */
+  planLocked: PaidFeature[];
+  /** Mesmo significado do CoordinatorOverview.canSeeCatechesis (inclui o "risco de evasão" com nomes) */
+  canSeeCatechesis: boolean;
   catechesis: {
     classes: number;
     catechists: number;
@@ -114,6 +141,43 @@ export interface CoordinatorInsights {
 const DAY_MS = 24 * 60 * 60 * 1000;
 /** Acima disto (comunidades no escopo) as séries por aluno são omitidas — só agregações no banco */
 const WIDE_SCOPE_COMMUNITIES = 12;
+/** Até aqui (comunidades no escopo) o plano é conferido uma a uma (cache de 60 s do PlanAccessService). */
+const PLAN_CHECK_ONE_BY_ONE = 25;
+
+/** Recorte interno. `null` = sem restrição (só SYSTEM_ADMIN sem comunidade escolhida). */
+interface DashboardScope {
+  communityIds: string[] | null;
+  communityCount: number;
+  pastoralScoped: boolean;
+  pastoralIds: string[];
+  /** Comunidades cuja catequese o usuário coordena (null = sem restrição) */
+  catechesisIds: string[] | null;
+  /** Comunidades com os recursos pagos liberados (null = sem restrição de plano) */
+  paidIds: string[] | null;
+  planLocked: PaidFeature[];
+  /** Membros/aniversariantes da comunidade: PASTORAL_COORDINATOR ou acima (mesma regra do applyMemberFilter) */
+  canSeeMembers: boolean;
+}
+
+/** Interseção de recortes (`null` = sem restrição). */
+function intersectIds(a: string[] | null, b: string[] | null): string[] | null {
+  if (a === null) return b;
+  if (b === null) return a;
+  const set = new Set(b);
+  return a.filter((id) => set.has(id));
+}
+
+/** `{ communityId: { in } }`, ou nada quando sem restrição. */
+function communityIn(ids: string[] | null): { communityId?: { in: string[] } } {
+  return ids === null ? {} : { communityId: { in: ids } };
+}
+
+/** Mesmo recorte em SQL: sem restrição → TRUE; lista vazia → FALSE (Prisma.join([]) quebra). */
+function communitySql(column: Prisma.Sql, ids: string[] | null): Prisma.Sql {
+  if (ids === null) return Prisma.sql`TRUE`;
+  if (!ids.length) return Prisma.sql`FALSE`;
+  return Prisma.sql`${column} IN (${Prisma.join(ids)})`;
+}
 
 /**
  * Dashboard do coordenador (Onda 4): pendências acionáveis consolidadas no
@@ -124,6 +188,8 @@ export class DashboardService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
+    // Global (PlansModule); opcional para os specs que montam o service à mão
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private startOfTodayUtc(): Date {
@@ -149,8 +215,12 @@ export class DashboardService {
     return whole > 0 ? Math.round((part / whole) * 100) : null;
   }
 
-  /** Comunidades que o usuário acompanha (ou a informada, se estiver no escopo). */
-  private async resolveCommunityIds(user: CurrentUser, communityId?: string): Promise<string[]> {
+  /**
+   * Comunidades que o usuário acompanha (ou a informada, se estiver no escopo).
+   * SYSTEM_ADMIN sem comunidade escolhida → `null` (sem restrição): nada de
+   * buscar as ~53 mil comunidades para montar `IN (...)`.
+   */
+  private async resolveCommunityIds(user: CurrentUser, communityId?: string): Promise<string[] | null> {
     if (communityId) {
       if (!(await this.hierarchyService.isCommunityInScope(user, communityId))) {
         throw new ForbiddenException('Comunidade fora do seu escopo');
@@ -158,14 +228,16 @@ export class DashboardService {
       return [communityId];
     }
     if (user.role === UserRole.SYSTEM_ADMIN) {
-      return (await this.prisma.community.findMany({ select: { id: true } })).map((c) => c.id);
+      return null;
     }
-    if (user.role === UserRole.DIOCESAN_ADMIN && user.dioceseId) {
+    if (user.role === UserRole.DIOCESAN_ADMIN) {
+      if (!user.dioceseId) return [];
       return (
         await this.prisma.community.findMany({ where: { parish: { dioceseId: user.dioceseId } }, select: { id: true } })
       ).map((c) => c.id);
     }
-    if (user.role === UserRole.PARISH_ADMIN && user.parishId) {
+    if (user.role === UserRole.PARISH_ADMIN) {
+      if (!user.parishId) return [];
       return (await this.prisma.community.findMany({ where: { parishId: user.parishId }, select: { id: true } })).map(
         (c) => c.id,
       );
@@ -174,23 +246,140 @@ export class DashboardService {
   }
 
   /**
-   * Recorte comum aos dois painéis. Coordenador de pastoral enxerga
-   * escalas/trocas/pedidos só das SUAS pastorais; catequese, membros e orações
-   * seguem o escopo da comunidade (mesma regra dos módulos).
+   * Comunidades em que o usuário COORDENA a pastoral da catequese
+   * (`GlobalPastoral.isCatechesis`): coordenação vigente ou papel de
+   * coordenação ativo — mesma regra do módulo da catequese.
+   */
+  private async catechesisCoordinatedCommunityIds(userId: string): Promise<string[]> {
+    const pastoral = { deletedAt: null, globalPastoral: { isCatechesis: true } };
+    const [coordinations, memberships] = await Promise.all([
+      this.prisma.pastoralCoordinator.findMany({
+        where: { isCurrent: true, member: { userId, deletedAt: null }, communityPastoral: pastoral },
+        select: { communityPastoral: { select: { communityId: true } } },
+      }),
+      this.prisma.pastoralMember.findMany({
+        where: {
+          isActive: true,
+          leftAt: null,
+          role: { in: COORDINATOR_MEMBER_ROLES },
+          member: { userId, deletedAt: null },
+          communityPastoral: pastoral,
+        },
+        select: { communityPastoral: { select: { communityId: true } } },
+      }),
+    ]);
+    const ids = new Set<string>();
+    for (const row of [...coordinations, ...memberships]) {
+      if (row.communityPastoral?.communityId) ids.add(row.communityPastoral.communityId);
+    }
+    return [...ids];
+  }
+
+  /**
+   * Comunidades do escopo com os recursos pagos liberados. `null` = sem
+   * restrição (PLAN_ENFORCEMENT off/log, SYSTEM_ADMIN ou sem PlanAccessService).
+   */
+  private async resolvePaidIds(user: CurrentUser, communityIds: string[] | null): Promise<string[] | null> {
+    if (communityIds === null || !this.planAccess || user.role === UserRole.SYSTEM_ADMIN) return null;
+    if (this.planAccess.enforcement() !== 'on') return null;
+    if (
+      communityIds.length > PLAN_CHECK_ONE_BY_ONE &&
+      (user.role === UserRole.DIOCESAN_ADMIN || user.role === UserRole.PARISH_ADMIN)
+    ) {
+      // Uma consulta para a paróquia/diocese inteira
+      const paid = new Set(await this.planAccess.paidCommunityIdsInScope(user));
+      return communityIds.filter((id) => paid.has(id));
+    }
+    const paid: string[] = [];
+    for (const id of communityIds) {
+      if (await this.planAccess.communityHasAccess(id)) paid.push(id);
+    }
+    return paid;
+  }
+
+  /**
+   * Escopo do Início:
+   * - comunidades: hierarquia (SYSTEM_ADMIN sem restrição, sem lista de ids);
+   * - coordenador de pastoral (papel PASTORAL_COORDINATOR, ou VOLUNTEER/FAITHFUL
+   *   que coordena pastoral pelo vínculo — ux-dashboards-22): escalas, trocas e
+   *   pedidos só das pastorais que COORDENA (coordenação, não participação);
+   *   quem não tem papel de coordenação nem coordena pastoral → 403;
+   * - catequese: só quem coordena a catequese da comunidade (pastoral
+   *   `isCatechesis`), o coordenador da própria comunidade (mesma regra do
+   *   módulo) ou PARISH_ADMIN+ (ux-dashboards-01);
+   * - plano (PLAN_ENFORCEMENT=on): seções pagas só das comunidades com plano.
+   */
+  private async resolveScope(user: CurrentUser, communityId?: string): Promise<DashboardScope> {
+    const roleCoordinates = isRoleAtLeast(user.role, UserRole.PASTORAL_COORDINATOR);
+    const pastoralOnly = !roleCoordinates;
+    const pastoralScoped = user.role === UserRole.PASTORAL_COORDINATOR || pastoralOnly;
+    const pastoralIds = pastoralScoped ? await loadCoordinatedPastoralIds(this.prisma as any, user.id) : [];
+
+    let communityIds: string[] | null;
+    if (pastoralOnly) {
+      if (!pastoralIds.length) {
+        throw new ForbiddenException('O painel da coordenação é para quem coordena uma pastoral');
+      }
+      // Comunidades das pastorais que coordena (o vínculo de fé não amplia nada)
+      const own = await this.prisma.communityPastoral.findMany({
+        where: { id: { in: pastoralIds }, deletedAt: null },
+        select: { communityId: true },
+      });
+      const ownIds = [...new Set(own.map((row) => row.communityId))];
+      if (communityId && !ownIds.includes(communityId)) {
+        throw new ForbiddenException('Comunidade fora do seu escopo');
+      }
+      communityIds = communityId ? [communityId] : ownIds;
+    } else {
+      communityIds = await this.resolveCommunityIds(user, communityId);
+    }
+
+    let catechesisIds: string[] | null;
+    if (isRoleAtLeast(user.role, UserRole.PARISH_ADMIN)) {
+      catechesisIds = communityIds;
+    } else {
+      const allowed = new Set(roleCoordinates ? await this.catechesisCoordinatedCommunityIds(user.id) : []);
+      if (user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId) allowed.add(user.communityId);
+      catechesisIds = (communityIds ?? []).filter((id) => allowed.has(id));
+    }
+
+    const paidIds = await this.resolvePaidIds(user, communityIds);
+    const planLocked: PaidFeature[] =
+      paidIds !== null && communityIds !== null && communityIds.length > 0 && paidIds.length === 0
+        ? [...PAID_FEATURES]
+        : [];
+
+    return {
+      communityIds,
+      communityCount:
+        communityIds === null ? await this.prisma.community.count({ where: { deletedAt: null } }) : communityIds.length,
+      pastoralScoped,
+      pastoralIds,
+      catechesisIds,
+      paidIds,
+      planLocked,
+      canSeeMembers: roleCoordinates,
+    };
+  }
+
+  /**
+   * Recorte comum aos dois painéis (where de cada seção). Escalas, trocas e
+   * pastorais são recursos pagos: só comunidades com plano (modo on).
    */
   private async buildScope(user: CurrentUser, communityId?: string) {
-    const communityIds = await this.resolveCommunityIds(user, communityId);
-    const pastoralScoped = user.role === UserRole.PASTORAL_COORDINATOR;
-    const pastoralIds = pastoralScoped
-      ? [...new Set([...(user.pastoralIds ?? []), ...(await this.hierarchyService.getUserPastoralIds(user.id, true))])]
-      : [];
+    const scope = await this.resolveScope(user, communityId);
+    const { communityIds, pastoralScoped, pastoralIds } = scope;
+    const paidCommunityIds = intersectIds(communityIds, scope.paidIds);
+    const catechesisCommunityIds = intersectIds(intersectIds(communityIds, scope.catechesisIds), scope.paidIds);
 
-    const classWhere = { communityId: { in: communityIds }, deletedAt: null, status: 'ACTIVE' as const };
+    const classWhere = { ...communityIn(catechesisCommunityIds), deletedAt: null, status: 'ACTIVE' as const };
     // Escala viva, de evento vivo (arquivar evento/escala não pode deixar pendência fantasma)
     const scheduleBase = {
       status: { not: ScheduleStatus.CANCELLED },
       deletedAt: null,
-      OR: [{ communityId: { in: communityIds } }, { event: { communityId: { in: communityIds } } }],
+      ...(paidCommunityIds === null
+        ? {}
+        : { OR: [{ communityId: { in: paidCommunityIds } }, { event: { communityId: { in: paidCommunityIds } } }] }),
       AND: [{ OR: [{ eventId: null }, { event: { deletedAt: null } }] }] as any[],
     };
     const pastoralFilter = pastoralScoped ? { communityPastoralId: { in: pastoralIds } } : {};
@@ -210,15 +399,52 @@ export class DashboardService {
         }
       : scheduleBase;
 
-    return { communityIds, pastoralScoped, pastoralIds, classWhere, scheduleBase, scopedSchedules, pastoralFilter };
+    const view: DashboardScopeView = {
+      communityIds: communityIds ?? [],
+      pastoralScoped,
+      pastoralIds,
+      unrestricted: communityIds === null,
+      communityCount: scope.communityCount,
+    };
+
+    return {
+      scope,
+      view,
+      communityIds,
+      paidCommunityIds,
+      catechesisCommunityIds,
+      pastoralScoped,
+      pastoralIds,
+      classWhere,
+      scheduleBase,
+      scopedSchedules,
+      pastoralFilter,
+    };
   }
 
   async getCoordinatorOverview(user: CurrentUser, communityId?: string): Promise<CoordinatorOverview> {
-    const { communityIds, pastoralScoped, pastoralIds, classWhere, scheduleBase, scopedSchedules, pastoralFilter } =
-      await this.buildScope(user, communityId);
+    const {
+      scope,
+      view,
+      communityIds,
+      paidCommunityIds,
+      catechesisCommunityIds,
+      pastoralScoped,
+      pastoralIds,
+      classWhere,
+      scheduleBase,
+      scopedSchedules,
+      pastoralFilter,
+    } = await this.buildScope(user, communityId);
+    // Lista vazia = seção fora do alcance (catequese de outra coordenação, plano): nem consulta
+    const catechesisOn = catechesisCommunityIds === null || catechesisCommunityIds.length > 0;
+    const paidOn = paidCommunityIds === null || paidCommunityIds.length > 0;
+    const zero = Promise.resolve(0);
 
     const empty: CoordinatorOverview = {
-      scope: { communityIds, pastoralScoped, pastoralIds },
+      scope: view,
+      planLocked: scope.planLocked,
+      canSeeCatechesis: scope.catechesisIds === null || scope.catechesisIds.length > 0,
       catechesis: { pendingApprovals: 0, documentsToReview: 0, sessionsWithoutAttendance: 0, unreadFamilyMessages: 0 },
       schedules: { pendingResponses: 0, declinedToReplace: 0, upcomingWeek: 0 },
       swaps: { pending: 0 },
@@ -227,7 +453,7 @@ export class DashboardService {
       canModeratePrayers: isRoleAtLeast(user.role, UserRole.COMMUNITY_COORDINATOR),
       total: 0,
     };
-    if (!communityIds.length) return empty;
+    if (communityIds !== null && !communityIds.length) return empty;
 
     const today = this.startOfTodayUtc();
     const inSevenDays = this.addDays(today, 7);
@@ -246,46 +472,64 @@ export class DashboardService {
       joinRequests,
       pendingModeration,
     ] = await Promise.all([
-      this.prisma.catechesisEnrollment.count({
-        // Fila de espera também aguarda decisão da coordenação (aceitar/recusar)
-        where: { status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] }, member: { deletedAt: null }, class: classWhere },
-      }),
-      this.prisma.catechesisDocument.count({ where: { status: 'SUBMITTED', enrollment: { class: classWhere } } }),
-      this.prisma.catechesisSession.count({
-        where: { date: { lte: today }, attendances: { none: {} }, class: classWhere },
-      }),
-      this.prisma.catechesisMessage.count({
-        where: {
-          fromTeam: false,
-          readAt: null,
-          enrollment: { class: classWhere, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } },
-        },
-      }),
-      this.prisma.scheduleAssignment.count({ where: { status: 'PENDING', schedule: scheduleScope, ...pastoralFilter } }),
-      this.prisma.scheduleAssignment.count({ where: { status: 'DECLINED', schedule: scheduleScope, ...pastoralFilter } }),
-      this.prisma.schedule.count({ where: upcomingScope }),
-      this.prisma.assignmentSwapRequest.count({
-        where: { status: 'PENDING', assignment: { schedule: scheduleScope, ...pastoralFilter } },
-      }),
-      this.prisma.pastoralJoinRequest.count({
-        where: {
-          status: 'PENDING',
-          member: { deletedAt: null },
-          communityPastoral: {
-            communityId: { in: communityIds },
-            deletedAt: null,
-            ...(pastoralScoped ? { id: { in: pastoralIds } } : {}),
-          },
-        },
-      }),
+      catechesisOn
+        ? this.prisma.catechesisEnrollment.count({
+            // Fila de espera também aguarda decisão da coordenação (aceitar/recusar)
+            where: { status: { in: ['PENDING_APPROVAL', 'WAITLISTED'] }, member: { deletedAt: null }, class: classWhere },
+          })
+        : zero,
+      catechesisOn
+        ? this.prisma.catechesisDocument.count({ where: { status: 'SUBMITTED', enrollment: { class: classWhere } } })
+        : zero,
+      catechesisOn
+        ? this.prisma.catechesisSession.count({
+            where: { date: { lte: today }, attendances: { none: {} }, class: classWhere },
+          })
+        : zero,
+      catechesisOn
+        ? this.prisma.catechesisMessage.count({
+            where: {
+              fromTeam: false,
+              readAt: null,
+              enrollment: { class: classWhere, status: { in: ['ACTIVE', 'PENDING_APPROVAL'] } },
+            },
+          })
+        : zero,
+      paidOn
+        ? this.prisma.scheduleAssignment.count({ where: { status: 'PENDING', schedule: scheduleScope, ...pastoralFilter } })
+        : zero,
+      paidOn
+        ? this.prisma.scheduleAssignment.count({ where: { status: 'DECLINED', schedule: scheduleScope, ...pastoralFilter } })
+        : zero,
+      paidOn ? this.prisma.schedule.count({ where: upcomingScope }) : zero,
+      paidOn
+        ? this.prisma.assignmentSwapRequest.count({
+            where: { status: 'PENDING', assignment: { schedule: scheduleScope, ...pastoralFilter } },
+          })
+        : zero,
+      paidOn
+        ? this.prisma.pastoralJoinRequest.count({
+            where: {
+              status: 'PENDING',
+              member: { deletedAt: null },
+              communityPastoral: {
+                ...communityIn(paidCommunityIds),
+                deletedAt: null,
+                ...(pastoralScoped ? { id: { in: pastoralIds } } : {}),
+              },
+            },
+          })
+        : zero,
       // Quem não pode moderar não recebe pendência que não consegue resolver
       empty.canModeratePrayers
-        ? this.prisma.prayerRequest.count({ where: { status: 'PENDING', communityId: { in: communityIds } } })
-        : Promise.resolve(0),
+        ? this.prisma.prayerRequest.count({ where: { status: 'PENDING', ...communityIn(communityIds) } })
+        : zero,
     ]);
 
     const overview: CoordinatorOverview = {
-      scope: { communityIds, pastoralScoped, pastoralIds },
+      scope: view,
+      planLocked: empty.planLocked,
+      canSeeCatechesis: empty.canSeeCatechesis,
       catechesis: { pendingApprovals, documentsToReview, sessionsWithoutAttendance, unreadFamilyMessages },
       schedules: { pendingResponses, declinedToReplace, upcomingWeek },
       swaps: { pending: pendingSwaps },
@@ -314,9 +558,24 @@ export class DashboardService {
    * 30 dias / 6 meses) documentadas em cada campo.
    */
   async getCoordinatorInsights(user: CurrentUser, communityId?: string): Promise<CoordinatorInsights> {
-    const { communityIds, pastoralScoped, pastoralIds, classWhere, scheduleBase, scopedSchedules, pastoralFilter } =
-      await this.buildScope(user, communityId);
+    const {
+      scope,
+      view,
+      communityIds,
+      paidCommunityIds,
+      catechesisCommunityIds,
+      pastoralScoped,
+      pastoralIds,
+      classWhere,
+      scheduleBase,
+      scopedSchedules,
+      pastoralFilter,
+    } = await this.buildScope(user, communityId);
     const canSeeCommunityWide = isRoleAtLeast(user.role, UserRole.COMMUNITY_COORDINATOR);
+    // Lista vazia = seção fora do alcance (catequese de outra coordenação, plano): nem consulta
+    const catechesisOn = catechesisCommunityIds === null || catechesisCommunityIds.length > 0;
+    const paidOn = paidCommunityIds === null || paidCommunityIds.length > 0;
+    const membersOn = scope.canSeeMembers;
 
     const today = this.startOfTodayUtc();
     const tomorrow = this.addDays(today, 1);
@@ -333,7 +592,9 @@ export class DashboardService {
 
     const insights: CoordinatorInsights = {
       generatedAt: new Date().toISOString(),
-      scope: { communityIds, pastoralScoped, pastoralIds },
+      scope: view,
+      planLocked: scope.planLocked,
+      canSeeCatechesis: scope.catechesisIds === null || scope.catechesisIds.length > 0,
       catechesis: {
         classes: 0,
         catechists: 0,
@@ -369,25 +630,33 @@ export class DashboardService {
         joinRequests: { pending: 0, oldestDays: null },
       },
     };
-    if (!communityIds.length) return insights;
-    const wideScope = communityIds.length > WIDE_SCOPE_COMMUNITIES;
+    if (communityIds !== null && !communityIds.length) return insights;
+    const wideScope =
+      catechesisCommunityIds === null || catechesisCommunityIds.length > WIDE_SCOPE_COMMUNITIES;
     insights.catechesis.atRisk.available = !wideScope;
 
     const next30Schedules = { ...scopedSchedules, date: { gte: today, lt: in30 } };
     const sessionWindow = { class: classWhere, date: { gte: attendanceFrom, lte: today } };
+    // Pastorais são recurso pago: só comunidades com plano (modo on)
     const pastoralWhere = {
-      communityId: { in: communityIds },
+      ...communityIn(paidCommunityIds),
       deletedAt: null,
       status: 'ACTIVE' as const,
       ...(pastoralScoped ? { id: { in: pastoralIds } } : {}),
     };
     // Membros da(s) comunidade(s): vínculo principal ou secundário ativo
-    const memberWhere = {
-      deletedAt: null,
-      OR: [{ communityId: { in: communityIds } }, { communityLinks: { some: { communityId: { in: communityIds }, isActive: true } } }],
-    };
+    const memberWhere =
+      communityIds === null
+        ? { deletedAt: null }
+        : {
+            deletedAt: null,
+            OR: [
+              { communityId: { in: communityIds } },
+              { communityLinks: { some: { communityId: { in: communityIds }, isActive: true } } },
+            ],
+          };
     const eventWhere = {
-      communityId: { in: communityIds },
+      ...communityIn(communityIds),
       deletedAt: null,
       status: 'PUBLISHED' as const,
       ...(pastoralScoped ? { eventPastorals: { some: { communityPastoralId: { in: pastoralIds } } } } : {}),
@@ -404,11 +673,17 @@ export class DashboardService {
     const isLeap = (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
     const birthdaySqlKeys = !isLeap && birthdayKeys.includes('0228') ? [...birthdayKeys, '0229'] : birthdayKeys;
     // Membro da comunidade: vínculo principal ou secundário ativo (mesma regra de memberWhere)
-    const memberScopeSql = Prisma.sql`(
-      m."communityId" IN (${Prisma.join(communityIds)})
+    // Sem restrição (SYSTEM_ADMIN): TRUE — nunca IN com a lista do país
+    // Coordenador só pelo vínculo (papel VOLUNTEER/FAITHFUL) não lista membros da comunidade: FALSE
+    const memberScopeSql = !membersOn
+      ? Prisma.sql`FALSE`
+      : communityIds === null
+        ? Prisma.sql`TRUE`
+        : Prisma.sql`(
+      ${communitySql(Prisma.sql`m."communityId"`, communityIds)}
       OR EXISTS (
         SELECT 1 FROM member_communities mc
-        WHERE mc."memberId" = m.id AND mc."isActive" = true AND mc."communityId" IN (${Prisma.join(communityIds)})
+        WHERE mc."memberId" = m.id AND mc."isActive" = true AND ${communitySql(Prisma.sql`mc."communityId"`, communityIds)}
       )
     )`;
 
@@ -489,7 +764,7 @@ export class DashboardService {
         JOIN catechesis_classes c ON c.id = s."classId"
         JOIN catechesis_enrollments e ON e.id = a."enrollmentId"
         JOIN members m ON m.id = e."memberId"
-        WHERE c."communityId" IN (${Prisma.join(communityIds)})
+        WHERE ${communitySql(Prisma.sql`c."communityId"`, catechesisCommunityIds)}
           AND c."deletedAt" IS NULL AND c.status = 'ACTIVE'
           AND s.date >= ${attendanceFrom} AND s.date <= ${today}
           AND e.status = 'ACTIVE' AND m."deletedAt" IS NULL
@@ -565,8 +840,10 @@ export class DashboardService {
         _count: { _all: true },
         having: { memberId: { _count: { gte: 4 } } },
       }),
-      this.prisma.member.count({ where: { ...memberWhere, status: 'ACTIVE' } }),
-      this.prisma.member.count({ where: { ...memberWhere, status: 'ACTIVE', createdAt: { gte: ago30 } } }),
+      membersOn ? this.prisma.member.count({ where: { ...memberWhere, status: 'ACTIVE' } }) : Promise.resolve(0),
+      membersOn
+        ? this.prisma.member.count({ where: { ...memberWhere, status: 'ACTIVE', createdAt: { gte: ago30 } } })
+        : Promise.resolve(0),
       this.prisma.$queryRaw<{ month: string; count: number }[]>(Prisma.sql`
         SELECT to_char(date_trunc('month', m."createdAt"), 'YYYY-MM') AS month, COUNT(*)::int AS count
         FROM members m
@@ -608,18 +885,18 @@ export class DashboardService {
       canSeeCommunityWide
         ? this.prisma.sacramentProcess.groupBy({
             by: ['status'],
-            where: { communityId: { in: communityIds }, deletedAt: null, status: { notIn: ['CELEBRATED', 'CANCELLED'] } },
+            where: { ...communityIn(communityIds), deletedAt: null, status: { notIn: ['CELEBRATED', 'CANCELLED'] } },
             _count: { _all: true },
           })
         : Promise.resolve([] as { status: string; _count: { _all: number } }[]),
       canSeeCommunityWide
         ? this.prisma.sacramentProcess.count({
-            where: { communityId: { in: communityIds }, deletedAt: null, status: 'CELEBRATED', updatedAt: { gte: ago90 } },
+            where: { ...communityIn(communityIds), deletedAt: null, status: 'CELEBRATED', updatedAt: { gte: ago90 } },
           })
         : Promise.resolve(0),
       canSeeCommunityWide
         ? this.prisma.prayerRequest.count({
-            where: { status: 'APPROVED', communityId: { in: communityIds }, updatedAt: { gte: ago30 } },
+            where: { status: 'APPROVED', ...communityIn(communityIds), updatedAt: { gte: ago30 } },
           })
         : Promise.resolve(0),
       this.prisma.pastoralJoinRequest.aggregate({

@@ -205,7 +205,8 @@ export class HierarchyService {
     }
 
     if (user?.role === UserRole.COMMUNITY_COORDINATOR) {
-      return event.communityId === user.communityId;
+      // Principal ou comunidade atribuída (mesma regra das listas)
+      return this.coordinatorManagesCommunity(user, event.communityId, event.community?.parishId ?? null);
     }
 
     // Para PASTORAL_COORDINATOR, verificar se coordena alguma pastoral do evento
@@ -248,6 +249,13 @@ export class HierarchyService {
         communityId: user.communityId ?? undefined,
       };
       if (await this.isCommunityInScope(currentUser, schedule.communityId)) {
+        return true;
+      }
+      // Registro do banco não traz os vínculos: coordenador com a comunidade atribuída
+      if (
+        user.role === UserRole.COMMUNITY_COORDINATOR &&
+        (await this.coordinatorManagesCommunity(user, schedule.communityId))
+      ) {
         return true;
       }
 
@@ -346,7 +354,8 @@ export class HierarchyService {
     }
 
     if (user.role === UserRole.COMMUNITY_COORDINATOR) {
-      return event.communityId === user.communityId;
+      // Principal ou comunidade atribuída (mesma regra das listas)
+      return this.coordinatorManagesCommunity(user, event.communityId, event.community?.parishId ?? null);
     }
 
     // PASTORAL_COORDINATOR pode gerenciar atribuições de eventos de suas pastorais
@@ -418,7 +427,8 @@ export class HierarchyService {
     }
 
     if (user.role === UserRole.COMMUNITY_COORDINATOR) {
-      return member.communityId === user.communityId;
+      // Principal ou comunidade atribuída (mesma regra das listas)
+      return this.coordinatorManagesCommunity(user, member.communityId, member.community?.parishId ?? null);
     }
 
     if (user.role === UserRole.PASTORAL_COORDINATOR) {
@@ -428,6 +438,36 @@ export class HierarchyService {
     }
 
     return false;
+  }
+
+  /**
+   * O COORDENADOR DE COMUNIDADE (registro lido do banco) gere esta comunidade?
+   * A principal, ou outra comunidade ATRIBUÍDA por um superior — vínculo
+   * UserCommunity ativo com o MESMO papel, dentro da própria paróquia. Mesma
+   * regra do isCommunityInScope/getCommunityScopeIds e das listas; vínculo de
+   * fé (outro papel) nunca conta. `communityParishId`, quando já conhecido,
+   * evita a consulta para comunidade de outra paróquia.
+   */
+  private async coordinatorManagesCommunity(
+    user: { id: string; communityId?: string | null; parishId?: string | null },
+    communityId: string | null | undefined,
+    communityParishId?: string | null,
+  ): Promise<boolean> {
+    if (!communityId) return false;
+    if (user.communityId && user.communityId === communityId) return true;
+    if (!user.parishId) return false;
+    if (communityParishId !== undefined && communityParishId !== user.parishId) return false;
+    const link = await this.prisma.userCommunity.findFirst({
+      where: {
+        userId: user.id,
+        communityId,
+        isActive: true,
+        role: UserRole.COMMUNITY_COORDINATOR,
+        community: { parishId: user.parishId },
+      },
+      select: { id: true },
+    });
+    return !!link;
   }
 
   /**
@@ -476,6 +516,27 @@ export class HierarchyService {
       default:
         return [];
     }
+  }
+
+  /**
+   * Cláusula `where` (por `communityId`) do escopo de GESTÃO de um coordenador
+   * de comunidade — a mesma regra do getCommunityScopeIds, sem consulta: a
+   * principal + os vínculos de gestão (mesmo papel) restritos à própria
+   * paróquia pela relação `community`. Sem vínculos: só a principal (formato
+   * antigo). Sem comunidade principal: `null` (o chamador nega).
+   * `communityId` pode vir em outro campo (ex.: vínculo secundário de membro).
+   */
+  private coordinatorCommunityClause(user: CurrentUser): any | null {
+    if (!user.communityId) return null;
+    const links = this.getManagementLinkCommunityIds(user).filter((id) => id !== user.communityId);
+    if (!links.length || !user.parishId) return { communityId: user.communityId };
+    return {
+      OR: [
+        { communityId: user.communityId },
+        // Coordenação de várias comunidades só vale dentro da própria paróquia
+        { communityId: { in: links }, community: { parishId: user.parishId } },
+      ],
+    };
   }
 
   /**
@@ -587,7 +648,8 @@ export class HierarchyService {
     }
 
     if (user.role === UserRole.COMMUNITY_COORDINATOR) {
-      return community.id === user.communityId;
+      // Principal ou comunidade atribuída (mesma regra das listas)
+      return this.coordinatorManagesCommunity(user, community.id, community.parishId);
     }
 
     return false;
@@ -672,7 +734,8 @@ export class HierarchyService {
     }
 
     if (user.role === UserRole.COMMUNITY_COORDINATOR) {
-      return event.communityId === user.communityId;
+      // Principal ou comunidade atribuída (mesma regra das listas)
+      return this.coordinatorManagesCommunity(user, event.communityId, event.community?.parishId ?? null);
     }
 
     // Para PASTORAL_COORDINATOR, verificar se coordena alguma pastoral do evento
@@ -707,7 +770,17 @@ export class HierarchyService {
       case UserRole.COMMUNITY_COORDINATOR:
       case UserRole.PASTORAL_COORDINATOR:
       case UserRole.VOLUNTEER:
-      case UserRole.FAITHFUL:
+      case UserRole.FAITHFUL: {
+        // Coordenador de comunidade com outras comunidades atribuídas (vínculo
+        // de gestão, mesma paróquia): a principal + as atribuídas
+        const links =
+          user.role === UserRole.COMMUNITY_COORDINATOR && user.communityId && user.parishId
+            ? this.getManagementLinkCommunityIds(user).filter((id) => id !== user.communityId)
+            : [];
+        if (links.length) {
+          where.OR = [{ id: user.communityId }, { id: { in: links }, parishId: user.parishId }];
+          break;
+        }
         // Se o usuário tem communityId, filtra por comunidade
         // Se não tem, filtra pela paróquia (se tiver)
         if (user.communityId) {
@@ -716,6 +789,7 @@ export class HierarchyService {
           where.parishId = user.parishId;
         }
         break;
+      }
     }
 
     return where;
@@ -761,7 +835,8 @@ export class HierarchyService {
       case UserRole.PARISH_ADMIN:
         return user.parishId ? { community: { parishId: user.parishId } } : noAccessWhere();
       case UserRole.COMMUNITY_COORDINATOR:
-        return user.communityId ? { communityId: user.communityId } : noAccessWhere();
+        // Principal + comunidades atribuídas (vínculo de gestão na paróquia)
+        return this.coordinatorCommunityClause(user) ?? noAccessWhere();
       case UserRole.PASTORAL_COORDINATOR: {
         // Vê os eventos da sua comunidade e também os eventos (de outras
         // comunidades) das pastorais que COORDENA. Participar de uma pastoral
@@ -816,17 +891,35 @@ export class HierarchyService {
       case UserRole.PARISH_ADMIN:
         return user.parishId ? { community: { parishId: user.parishId } } : noAccessWhere();
       case UserRole.COMMUNITY_COORDINATOR:
-      case UserRole.PASTORAL_COORDINATOR:
+      case UserRole.PASTORAL_COORDINATOR: {
         // Coordenador (de comunidade ou pastoral) enxerga TODOS os membros da
         // comunidade — inclusive os de vínculo SECUNDÁRIO (multi-comunidade).
+        // Coordenador de comunidade com outras comunidades atribuídas (vínculo
+        // de gestão, mesma paróquia) enxerga também os membros delas.
         // A edição segue regida por canManageMember (comunidade principal).
         if (!user.communityId) return noAccessWhere();
+        const links =
+          user.role === UserRole.COMMUNITY_COORDINATOR && user.parishId
+            ? this.getManagementLinkCommunityIds(user).filter((id) => id !== user.communityId)
+            : [];
+        if (!links.length) {
+          return {
+            OR: [
+              { communityId: user.communityId },
+              { communityLinks: { some: { communityId: user.communityId, isActive: true } } },
+            ],
+          };
+        }
+        const managed = { communityId: { in: links }, community: { parishId: user.parishId } };
         return {
           OR: [
             { communityId: user.communityId },
             { communityLinks: { some: { communityId: user.communityId, isActive: true } } },
+            managed,
+            { communityLinks: { some: { ...managed, isActive: true } } },
           ],
         };
+      }
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL: {
         const selfMemberId = user.member?.id;
@@ -862,11 +955,14 @@ export class HierarchyService {
         eventClause = { community: { parishId: user.parishId } };
         standaloneClause = { community: { parishId: user.parishId } };
         break;
-      case UserRole.COMMUNITY_COORDINATOR:
-        if (!user.communityId) return noAccessWhere();
-        eventClause = { communityId: user.communityId };
-        standaloneClause = { communityId: user.communityId };
+      case UserRole.COMMUNITY_COORDINATOR: {
+        // Principal + comunidades atribuídas (vínculo de gestão na paróquia)
+        const clause = this.coordinatorCommunityClause(user);
+        if (!clause) return noAccessWhere();
+        eventClause = clause;
+        standaloneClause = clause;
         break;
+      }
       case UserRole.PASTORAL_COORDINATOR: {
         // Só as pastorais que COORDENA (coordinatedPastoralIds); participação
         // não conta. Ausente na sessão = nenhuma (negar por padrão).

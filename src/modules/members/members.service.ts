@@ -11,11 +11,12 @@ import { TitheScheduleCancellationService } from '../tithe/tithe-schedule-cancel
 import { CreateMemberDto } from './dto/create-member.dto';
 import { UpdateMemberDto } from './dto/update-member.dto';
 import { UpdateMemberAvailabilityDto } from './dto/update-member-availability.dto';
-import { AssignmentStatus, MemberStatus, Prisma, UserRole } from '@prisma/client';
+import { AssignmentStatus, MemberStatus, Prisma, SacramentRecordKind, UserRole } from '@prisma/client';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast, ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
 import { normalizeBrazilianPhone } from '../messaging/log-mask';
+import { buildPersonSnapshot } from '../sacraments/sacrament-record';
 
 /**
  * Roles que representam "pessoas da congregação" e por isso ganham um Member
@@ -41,7 +42,8 @@ export const ANONYMIZED_TEXT = '[removido]';
  *   da paróquia (guarda fiscal; o membro some do cadastro, o lançamento fica).
  * - Sacrament / livro de sacramentos (e SacramentProcess.involved): registro
  *   canônico permanente — certidões de batismo, crisma e matrimônio são
- *   emitidas a partir dele (cân. 535 do Código de Direito Canônico).
+ *   emitidas a partir dele (cân. 535 do Código de Direito Canônico). Os
+ *   assentos (RECORD) guardam a pessoa em `personSnapshot` antes da limpeza.
  * - Pedidos de oração ANÔNIMOS: não identificam a pessoa.
  * Ainda em aberto (decisão do Rodrigo): CatechesisAssessment.notes
  * (avaliação pedagógica) e TitheRetentionAction.note (anotação da equipe do dízimo).
@@ -152,6 +154,16 @@ export class MembersService {
   private normalizeEmail(value?: string | null) {
     const normalized = this.normalizeOptionalString(value);
     return normalized ? normalized.toLowerCase() : null;
+  }
+
+  /**
+   * Celular em E.164 (+55…) sempre que der para normalizar (ux-acesso-18): o
+   * login e a adoção do cadastro pelo app comparam com o formato E.164. Número
+   * que não normaliza (estrangeiro, incompleto) fica como digitado; vazio = null.
+   */
+  private normalizePhone(value?: string | null) {
+    const normalized = this.normalizeOptionalString(value);
+    return normalized ? (normalizeBrazilianPhone(normalized) ?? normalized) : null;
   }
 
   private handleUniqueConstraint(error: unknown): never {
@@ -684,7 +696,7 @@ export class MembersService {
       data: {
         fullName: params.name,
         email: params.email,
-        phone: params.phone || null,
+        phone: this.normalizePhone(params.phone),
         userId: params.userId,
         communityId: params.communityId,
         status: 'ACTIVE',
@@ -800,6 +812,7 @@ export class MembersService {
       const member = await this.prisma.member.create({
         data: {
           ...rest,
+          ...(rest.phone !== undefined ? { phone: this.normalizePhone(rest.phone) } : {}),
           responsibleId: responsibleId || null,
           cpf: normalizedCpf,
           email: normalizedEmail,
@@ -1136,6 +1149,8 @@ export class MembersService {
         where: { id },
         data: {
           ...rest,
+          // O DTO já normaliza; aqui também cobre chamadas internas
+          ...(rest.phone !== undefined ? { phone: this.normalizePhone(rest.phone) } : {}),
           ...(movingCommunity ? { communityId } : {}),
           // undefined preserva; '' / null remove o vínculo
           ...(responsibleId !== undefined ? { responsibleId: responsibleId || null } : {}),
@@ -1440,6 +1455,21 @@ export class MembersService {
     opts: { label?: string } = {},
   ) {
     const now = new Date();
+
+    // Assento sacramental retido (cân. 535 — cat-gestao-09): ANTES de limpar o
+    // cadastro, os assentos (RECORD) sem snapshot guardam nome, nascimento e
+    // filiação — senão a certidão sairia de "Usuário Anônimo" sem pais
+    const person = await db.member.findUnique({
+      where: { id: memberId },
+      select: { fullName: true, birthDate: true, fatherName: true, motherName: true, status: true },
+    });
+    const snapshot = buildPersonSnapshot(person, now);
+    if (snapshot) {
+      await db.sacrament.updateMany({
+        where: { memberId, recordKind: SacramentRecordKind.RECORD, personSnapshot: { equals: Prisma.AnyNull } },
+        data: { personSnapshot: snapshot },
+      });
+    }
 
     // Cônjuge: desfaz o vínculo dos dois lados (spouseId é @unique)
     await db.member.updateMany({ where: { spouseId: memberId }, data: { spouseId: null } });

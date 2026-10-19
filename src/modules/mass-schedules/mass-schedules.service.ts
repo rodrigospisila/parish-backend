@@ -42,6 +42,7 @@ export const MAX_BROAD_OCCURRENCE_WINDOW_DAYS = 62;
 /** Janela máxima (dias) com a consulta presa a uma comunidade (~15 meses). */
 export const MAX_OCCURRENCE_WINDOW_DAYS = 460;
 import { AuditService } from '../../common/audit.service';
+import { MASS_SCHEDULE_TYPE_DURATION_MIN, MASS_SCHEDULE_TYPE_LABELS } from './mass-schedule-types';
 import { NotificationsService } from '../notifications/notifications.service';
 import { earliestBrazilToday, nowBrazilFloating, nowFloatingIn, timeZoneForState } from '../masses/map-search.utils';
 
@@ -60,19 +61,8 @@ const PASTORAL_INCLUDE = {
 } as const;
 
 /** Rótulos e durações padrão por tipo de horário fixo (agenda da comunidade). */
-const SCHEDULE_LABELS: Record<MassScheduleType, string> = {
-  MASS: 'Missa',
-  CONFESSION: 'Confissão',
-  ADORATION: 'Adoração',
-  ROSARY: 'Terço',
-};
-
-const SCHEDULE_DURATION_MIN: Record<MassScheduleType, number> = {
-  MASS: 60,
-  CONFESSION: 45,
-  ADORATION: 60,
-  ROSARY: 30,
-};
+const SCHEDULE_LABELS = MASS_SCHEDULE_TYPE_LABELS;
+const SCHEDULE_DURATION_MIN = MASS_SCHEDULE_TYPE_DURATION_MIN;
 
 export interface FixedOccurrence {
   id: string;

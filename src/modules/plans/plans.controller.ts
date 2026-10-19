@@ -19,6 +19,7 @@ import { PlanAccessService } from './plan-access.service';
 import { FREE_FEATURES, PAID_FEATURES, graceEndsAt, hasPaidAccess, isPeriodOverdue } from './plan-rules';
 import { PlatformPlansService } from './platform-plans.service';
 import { PlatformGrowthService } from './platform-growth.service';
+import { EnforcementReportService } from './enforcement-report.service';
 import { UpdateCommunityPlanDto } from './dto/update-community-plan.dto';
 import { UpsertPlanTierDto } from './dto/upsert-plan-tier.dto';
 
@@ -92,6 +93,7 @@ export class PlatformController {
   constructor(
     private readonly plans: PlatformPlansService,
     private readonly growthService: PlatformGrowthService,
+    private readonly enforcementReport: EnforcementReportService,
   ) {}
 
   @Get('plans/summary')
@@ -141,5 +143,14 @@ export class PlatformController {
   @Get('growth')
   growth(@Query('days') days?: string) {
     return this.growthService.growth(Number(days) || undefined);
+  }
+
+  /**
+   * O que os enforcements (plano, limite de membros, termos, troca de senha)
+   * bloqueariam em `log` ou bloquearam em `on`, por dia — `?days=30` (1 a 180).
+   */
+  @Get('enforcement-hits')
+  enforcementHits(@Query('days') days?: string) {
+    return this.enforcementReport.report(Number(days) || undefined);
   }
 }

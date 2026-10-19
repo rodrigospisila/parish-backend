@@ -2,6 +2,7 @@ import { CanActivate, ExecutionContext, ForbiddenException, Injectable, Logger, 
 import { UserRole } from '@prisma/client';
 import { PlanAccessService } from './plan-access.service';
 import { HierarchyService } from '../../common/hierarchy.service';
+import { EnforcementHitsService } from '../../common/enforcement-hits.service';
 
 export const MEMBER_LIMIT_MESSAGE = 'A comunidade atingiu o limite de membros da faixa do plano';
 
@@ -10,7 +11,9 @@ const LOG_DEDUPE_MS = 6 * 60 * 60_000;
 
 /**
  * Limite de membros da faixa (`PlanTier.maxMembers`) na criação de membro
- * (B32). Comunidade em `body.communityId`. Segue o `PLAN_ENFORCEMENT`:
+ * (B32). Comunidade em `body.communityId`. A contagem é de membros ATIVOS da
+ * comunidade, inclusive os fiéis que entraram sozinhos pelo app (decisão do
+ * produto, 19/10/2026). Segue o `PLAN_ENFORCEMENT`:
  *  - `off` → nada;
  *  - `log` (PADRÃO) → cria e registra (warn) que a comunidade passou da faixa;
  *  - `on`  → 403 `{ code:'PLAN_MEMBER_LIMIT', communityId, maxMembers, activeMembers, message }`.
@@ -30,6 +33,7 @@ export class MemberLimitGuard implements CanActivate {
     private readonly access: PlanAccessService,
     // Opcional só para specs antigos; no módulo vem do CommonModule (global)
     @Optional() private readonly hierarchy?: HierarchyService,
+    @Optional() private readonly hits?: EnforcementHitsService,
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -53,6 +57,9 @@ export class MemberLimitGuard implements CanActivate {
       return true;
     }
     if (!status?.reached) return true;
+
+    // Contagem para o painel da Plataforma (log e on): quantas comunidades/dia passam da faixa
+    this.hits?.record({ kind: 'PLAN_MEMBER_LIMIT', communityId, userId: user.id, mode });
 
     if (mode === 'log') {
       const now = Date.now();

@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { GeoPrecision, MassRecurrence, MassScheduleType } from '@prisma/client';
+import { MASS_SCHEDULE_TYPE_ORDER, massScheduleTypeLabel } from '../mass-schedules/mass-schedule-types';
 import { PrismaService } from '../../database/prisma.service';
 import { MassesService, NearbyMass } from '../masses/masses.service';
 import {
@@ -64,6 +65,8 @@ export interface PublicCommunityDetail {
   schedules: {
     id: string;
     type: MassScheduleType;
+    /** "Missa", "Celebração da Palavra"... (Celebração da Palavra não é Missa) */
+    typeLabel: string;
     dayOfWeek: number | null;
     time: string;
     recurrence: MassRecurrence;
@@ -207,13 +210,15 @@ export class PublicMapService {
     const schedules = [...c.massSchedules]
       .map(({ cancellations, ...s }) => ({
         ...s,
+        typeLabel: massScheduleTypeLabel(s.type),
         upcomingCancellations: toUpcomingCancellations(cancellations).filter((x) => x.date >= today),
       }))
       .sort(
         (a, b) =>
           (a.dayOfWeek ?? 7) - (b.dayOfWeek ?? 7) ||
           (a.dayOfMonth ?? 0) - (b.dayOfMonth ?? 0) ||
-          a.time.localeCompare(b.time),
+          a.time.localeCompare(b.time) ||
+          MASS_SCHEDULE_TYPE_ORDER.indexOf(a.type) - MASS_SCHEDULE_TYPE_ORDER.indexOf(b.type),
       );
 
     const masses = await this.massesService.nextMassesByCommunity(

@@ -129,6 +129,47 @@ describe('PlanFeatureGuard', () => {
 
   afterEach(() => warn.mockRestore());
 
+  describe('contagem em enforcement_hits (eng-qualidade-10)', () => {
+    let hits: { record: jest.Mock };
+    beforeEach(() => {
+      hits = { record: jest.fn() };
+      guard = new PlanFeatureGuard(new Reflector(), access, hits as any);
+    });
+
+    it('log: conta quem SERIA barrado (PLAN_FEATURE + feature + comunidade)', async () => {
+      mode = 'log';
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful() }))).resolves.toBe(true);
+      expect(hits.record).toHaveBeenCalledWith({
+        kind: 'PLAN_FEATURE',
+        feature: 'catechesis',
+        communityId: 'free-com',
+        userId: 'u1',
+        mode: 'log',
+      });
+    });
+
+    it('on: conta o bloqueio real antes do 403', async () => {
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful() }))).rejects.toBeInstanceOf(
+        ForbiddenException,
+      );
+      expect(hits.record).toHaveBeenCalledWith(expect.objectContaining({ kind: 'PLAN_FEATURE', feature: 'catechesis', mode: 'on' }));
+    });
+
+    it('com acesso, off ou SYSTEM_ADMIN: não conta nada', async () => {
+      await guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful({ communityId: 'paid-com' }) }));
+      await guard.canActivate(ctx(CatechesisDummy, 'plain', { user: { id: 's', role: 'SYSTEM_ADMIN' } }));
+      mode = 'off';
+      await guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful() }));
+      expect(hits.record).not.toHaveBeenCalled();
+    });
+
+    it('id fora do escopo conta à parte (não infla a feature)', async () => {
+      mode = 'log';
+      await guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful(), query: { communityId: 'paid-com' } }));
+      expect(hits.record).toHaveBeenCalledWith(expect.objectContaining({ feature: 'catechesis:fora-do-escopo' }));
+    });
+  });
+
   describe('modos', () => {
     it('off: não consulta nada e libera', async () => {
       mode = 'off';

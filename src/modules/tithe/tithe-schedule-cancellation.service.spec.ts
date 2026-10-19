@@ -124,7 +124,7 @@ describe('TitheScheduleCancellationService', () => {
       cancelPendingAtProvider: jest.fn(),
     };
     const members = new MembersService({} as any, {} as any, {} as any, cancel as any);
-    const model = () => ({ updateMany: jest.fn().mockResolvedValue({ count: 0 }), deleteMany: jest.fn().mockResolvedValue({ count: 0 }), update: jest.fn().mockResolvedValue({ id: 'm1' }) });
+    const model = () => ({ findUnique: jest.fn().mockResolvedValue(null), findMany: jest.fn().mockResolvedValue([]), updateMany: jest.fn().mockResolvedValue({ count: 0 }), deleteMany: jest.fn().mockResolvedValue({ count: 0 }), update: jest.fn().mockResolvedValue({ id: 'm1' }) });
     const db: any = new Proxy({}, { get: (target: any, key: string | symbol) => (typeof key === 'symbol' ? undefined : (target[key] = target[key] ?? model())) });
     await members.anonymizePersonalData(db, 'm1');
     expect(cancel.cancelSchedulesForMember).toHaveBeenCalledTimes(1);

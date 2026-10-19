@@ -5,6 +5,7 @@
   ForbiddenException,
   BadRequestException,
   Optional,
+  Logger,
 } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -12,7 +13,7 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { Prisma, UserRole } from '@prisma/client';
 import * as bcrypt from 'bcrypt';
-import { randomBytes } from 'crypto';
+import { randomBytes, randomInt } from 'crypto';
 import { MembersService } from '../members/members.service';
 import { AuditService } from '../../common/audit.service';
 import { ROLE_HIERARCHY } from '../auth/constants/role-hierarchy';
@@ -21,6 +22,24 @@ import { COORDINATOR_MEMBER_ROLES, pickCoordinatedPastoralIds } from '../pastora
 import { TERMS_VERSION, isTermsAcceptanceRequired } from './terms.constants';
 import { ACCOUNT_DELETION_RECENT_AUTH_MS, SessionSecurityService } from '../auth/session-security.service';
 import { lockUserRow } from '../auth/session-lock';
+import { normalizeBrazilianPhone } from '../messaging/log-mask';
+import { findUserIdsByPhoneDigits } from '../auth/phone-lookup';
+import { adoptMember, resolveAdoption } from '../auth/phone-adoption';
+
+/** Senha provisória: sem caracteres que se confundem ao ler/ditar (0/O, 1/l/I). */
+const TEMP_PASSWORD_ALPHABET = 'abcdefghjkmnpqrstuvwxyz23456789';
+export const TEMP_PASSWORD_LENGTH = 10;
+
+/** 10 caracteres de TEMP_PASSWORD_ALPHABET, com ao menos uma letra e um número. */
+export const generateTempPassword = (): string => {
+  for (;;) {
+    let value = '';
+    for (let i = 0; i < TEMP_PASSWORD_LENGTH; i++) {
+      value += TEMP_PASSWORD_ALPHABET[randomInt(TEMP_PASSWORD_ALPHABET.length)];
+    }
+    if (/[a-z]/.test(value) && /\d/.test(value)) return value;
+  }
+};
 
 /** Reautenticação da exclusão da própria conta (revisão #25/#43). */
 export interface AccountDeletionReauth {
@@ -33,6 +52,8 @@ export interface AccountDeletionReauth {
 
 @Injectable()
 export class UsersService {
+  private readonly logger = new Logger(UsersService.name);
+
   constructor(
     private readonly prisma: PrismaService,
     private readonly membersService: MembersService,
@@ -786,14 +807,36 @@ export class UsersService {
 
   /**
    * Normaliza o telefone vindo dos formulários: string vazia vira null
-   * (users.phone tem unique — '' colide entre usuários sem telefone).
+   * (users.phone tem unique — '' colide entre usuários sem telefone) e o
+   * número vai para o E.164 (+5542999998888), o mesmo formato que o login e a
+   * recuperação por celular procuram (ux-acesso-18). Número que não
+   * normaliza é recusado — exceto o valor antigo reenviado sem mudança pelo
+   * formulário de edição (`current`), que fica como está.
    */
-  private normalizeOptionalPhone(phone: string | null | undefined): string | null | undefined {
+  private normalizeOptionalPhone(
+    phone: string | null | undefined,
+    current?: string | null,
+  ): string | null | undefined {
     if (phone === undefined) {
       return undefined;
     }
     const trimmed = phone?.trim();
-    return trimmed ? trimmed : null;
+    if (!trimmed) return null;
+    const normalized = normalizeBrazilianPhone(trimmed);
+    if (normalized) return normalized;
+    if (current !== undefined && current !== null && trimmed === current.trim()) return undefined;
+    throw new BadRequestException('Telefone inválido — informe o DDD e o número, por exemplo (42) 99999-8888');
+  }
+
+  /**
+   * Telefone já usado por outra conta: igual exato (índice único) ou, para
+   * cadastros antigos gravados fora do padrão, os mesmos dígitos.
+   */
+  private async isPhoneTakenByOther(phone: string, userId?: string): Promise<boolean> {
+    const exact = await this.prisma.user.findUnique({ where: { phone }, select: { id: true } });
+    if (exact && exact.id !== userId) return true;
+    const ids = await findUserIdsByPhoneDigits(this.prisma, phone);
+    return ids.some((id) => id !== userId);
   }
 
   async create(createUserDto: CreateUserDto, currentUser: any) {
@@ -824,14 +867,8 @@ export class UsersService {
       throw new ConflictException('Email ja esta em uso');
     }
 
-    if (rest.phone) {
-      const existingPhone = await this.prisma.user.findUnique({
-        where: { phone: rest.phone },
-      });
-
-      if (existingPhone) {
-        throw new ConflictException('Telefone ja esta em uso por outro usuario');
-      }
+    if (rest.phone && (await this.isPhoneTakenByOther(rest.phone))) {
+      throw new ConflictException('Telefone ja esta em uso por outro usuario');
     }
 
     const currentUserLevel = this.roleHierarchy[currentUser?.role as UserRole];
@@ -1204,16 +1241,10 @@ export class UsersService {
       }
     }
 
-    updateData.phone = this.normalizeOptionalPhone(updateData.phone);
-    if (updateData.phone) {
-      const existingPhone = await this.prisma.user.findUnique({
-        where: { phone: updateData.phone },
-        select: { id: true },
-      });
-
-      if (existingPhone && existingPhone.id !== id) {
-        throw new ConflictException('Telefone ja esta em uso por outro usuario');
-      }
+    updateData.phone = this.normalizeOptionalPhone(updateData.phone, user.phone);
+    if (updateData.phone === undefined) delete updateData.phone;
+    if (updateData.phone && updateData.phone !== user.phone && (await this.isPhoneTakenByOther(updateData.phone, id))) {
+      throw new ConflictException('Telefone ja esta em uso por outro usuario');
     }
 
     let nextDioceseId = updateData.dioceseId ?? user.dioceseId;
@@ -1419,16 +1450,10 @@ export class UsersService {
       }
     }
 
-    const phone = this.normalizeOptionalPhone(dto.phone);
+    const phone = this.normalizeOptionalPhone(dto.phone, user.phone);
     if (phone !== undefined) {
-      if (phone) {
-        const existingPhone = await this.prisma.user.findUnique({
-          where: { phone },
-          select: { id: true },
-        });
-        if (existingPhone && existingPhone.id !== id) {
-          throw new ConflictException('Telefone ja esta em uso por outro usuario');
-        }
+      if (phone && phone !== user.phone && (await this.isPhoneTakenByOther(phone, id))) {
+        throw new ConflictException('Telefone ja esta em uso por outro usuario');
       }
       data.phone = phone;
     }
@@ -1817,6 +1842,13 @@ export class UsersService {
       return this.updateManagerFaithCommunity(currentUser, community, consentGiven);
     }
 
+    // Telefone confirmado por SMS no cadastro + membro sem conta com o mesmo
+    // telefone NESTA comunidade (ex.: "Responsável – <catequizando>"): a conta
+    // adota esse membro em vez de criar outro (ux-acesso-01)
+    const phoneVerified =
+      !currentUser.member && !!currentUser.phone && (await this.isRegisteredVerifiedPhone(userId, currentUser.phone));
+    let adoptedMember = false;
+
     const updatedUser = await this.prisma.$transaction(async (tx) => {
       await tx.user.update({
         where: { id: userId },
@@ -1826,6 +1858,28 @@ export class UsersService {
           dioceseId: community.parish.dioceseId,
         },
       });
+
+      let memberId: string | undefined = currentUser.member?.id;
+      if (!memberId && phoneVerified && currentUser.phone) {
+        const adoptable = await resolveAdoption(tx, currentUser.phone, {
+          communityId,
+          onlyCommunity: true,
+          logger: this.logger,
+          context: 'escolha de comunidade',
+        });
+        if (
+          adoptable &&
+          (await adoptMember(tx, adoptable.id, {
+            userId,
+            fullName: currentUser.name,
+            email: currentUser.email,
+            phone: currentUser.phone,
+          }))
+        ) {
+          memberId = adoptable.id;
+          adoptedMember = true;
+        }
+      }
 
       // Não-destrutivo: a comunidade anterior permanece como vínculo secundário
       const activeLinks = await tx.userCommunity.findMany({
@@ -1851,7 +1905,7 @@ export class UsersService {
           communityId,
           consentGiven,
         },
-        currentUser.member?.id,
+        memberId,
       );
 
       return tx.user.findUnique({
@@ -1870,10 +1924,28 @@ export class UsersService {
         communityId,
         first: !currentUser.communityId,
         previousCommunityId: currentUser.communityId ?? null,
+        ...(adoptedMember ? { adoptedMember: true } : {}),
       },
     });
 
     return this.presentSelf(updatedUser);
+  }
+
+  /**
+   * O telefone atual é o mesmo confirmado por SMS no cadastro? O REGISTER
+   * guarda o pseudônimo (HMAC) do número verificado; telefone trocado depois
+   * (perfil, painel) não bate e não adota ninguém. Contas de antes desta
+   * versão não têm o registro: ficam sem adoção automática.
+   */
+  private async isRegisteredVerifiedPhone(userId: string, phone: string): Promise<boolean> {
+    const registration = await this.prisma.auditLog.findFirst({
+      where: { entity: 'User', entityId: userId, action: 'REGISTER' },
+      orderBy: { createdAt: 'desc' },
+      select: { metadata: true },
+    });
+    const metadata = registration?.metadata as Record<string, unknown> | null | undefined;
+    if (!metadata || metadata.phoneVerified !== true || typeof metadata.phone !== 'string') return false;
+    return metadata.phone === this.auditService.pseudonymize(phone);
   }
 
 
@@ -2002,7 +2074,9 @@ export class UsersService {
     // entregaria a senha temporária do colega (tomada de conta — C2)
     this.assertUserScope(currentUser, user);
 
-    const tempPassword = randomBytes(6).toString('base64url') + 'Aa1!';
+    // Legível para a secretaria passar à pessoa (ditada ou por WhatsApp); vale
+    // só até o próximo acesso, quando a troca é obrigatória (forcePasswordChange)
+    const tempPassword = generateTempPassword();
     const hashedPassword = await bcrypt.hash(tempPassword, 10);
 
     await this.prisma.$transaction(async (tx) => {
@@ -2026,11 +2100,16 @@ export class UsersService {
       action: 'PASSWORD_RESET',
       entity: 'User',
       entityId: id,
+      metadata: { byAdmin: true, sessionsRevoked: true, forcePasswordChange: true },
     });
 
+    // Mostrada uma vez só (não fica gravada em claro em lugar nenhum)
     return {
-      message: 'Senha resetada com sucesso',
+      message: 'Senha provisória gerada. A pessoa vai criar uma senha nova no próximo acesso.',
       tempPassword,
+      forcePasswordChange: true,
+      sessionsRevoked: true,
+      user: { id: user.id, name: user.name, email: user.email, phone: user.phone },
     };
   }
 

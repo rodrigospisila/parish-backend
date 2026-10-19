@@ -1,11 +1,34 @@
 import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
-import { UserRole } from '@prisma/client';
+import { Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { ListPage, ListPaging, foldedColumn, inIdOrder, likePattern } from './list-paging';
+
+/** Include da lista de gestão (as contagens só saem para a página pedida no modo paginado). */
+const LIST_INCLUDE = {
+  parish: {
+    select: {
+      id: true,
+      name: true,
+      diocese: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+  },
+  _count: {
+    select: {
+      members: true,
+      events: true,
+    },
+  },
+} satisfies Prisma.CommunityInclude;
 
 /**
  * Recorte do território brasileiro (com folga para Fernando de Noronha, Trindade e
@@ -89,30 +112,94 @@ export class CommunitiesService {
 
     return this.prisma.community.findMany({
       where: { ...hierarchyFilter, deletedAt: null },
-      include: {
-        parish: {
-          select: {
-            id: true,
-            name: true,
-            diocese: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-        _count: {
-          select: {
-            members: true,
-            events: true,
-          },
-        },
-      },
+      include: LIST_INCLUDE,
       orderBy: {
         name: 'asc',
       },
     });
+  }
+
+  /**
+   * Lista de gestão PAGINADA (`?page=`; contrato 4): mesmo escopo do findAll,
+   * busca sem acento por nome/cidade e `?parishId=` opcional como filtro
+   * adicional (nunca amplia o escopo). Ids e total saem de uma consulta leve;
+   * paróquia e contagens (`_count`) só para os itens da página.
+   */
+  async findPage(
+    currentUser: CurrentUser | undefined,
+    paging: ListPaging,
+    filters: { parishId?: string } = {},
+  ): Promise<ListPage<any>> {
+    const empty = { items: [], total: 0, page: paging.page, pageSize: paging.pageSize };
+    if (!currentUser?.id) return empty;
+    const hierarchyFilter = this.hierarchyService.applyCommunityFilter(currentUser);
+    if (currentUser.role !== UserRole.SYSTEM_ADMIN && Object.keys(hierarchyFilter ?? {}).length === 0) {
+      return empty;
+    }
+    const scope = this.scopeSql(hierarchyFilter);
+    if (!scope) return empty;
+
+    const conditions: Prisma.Sql[] = [Prisma.sql`c."deletedAt" IS NULL`, scope];
+    if (filters.parishId) conditions.push(Prisma.sql`c."parishId" = ${filters.parishId}`);
+    if (paging.search) {
+      const like = likePattern(paging.search);
+      conditions.push(
+        Prisma.sql`(${foldedColumn(Prisma.sql`c.name`)} LIKE ${like} OR ${foldedColumn(Prisma.sql`c.city`)} LIKE ${like})`,
+      );
+    }
+    const where = Prisma.join(conditions, ' AND ');
+
+    const [countRows, idRows] = await Promise.all([
+      this.prisma.$queryRaw<{ total: number }[]>(Prisma.sql`
+        SELECT COUNT(*)::int AS total
+        FROM communities c JOIN parishes p ON p.id = c."parishId"
+        WHERE ${where}
+      `),
+      this.prisma.$queryRaw<{ id: string }[]>(Prisma.sql`
+        SELECT c.id
+        FROM communities c JOIN parishes p ON p.id = c."parishId"
+        WHERE ${where}
+        ORDER BY c.name ASC, c.id ASC
+        LIMIT ${paging.pageSize} OFFSET ${paging.skip}
+      `),
+    ]);
+    const ids = idRows.map((row) => row.id);
+    const rows = ids.length
+      ? await this.prisma.community.findMany({ where: { id: { in: ids } }, include: LIST_INCLUDE })
+      : [];
+    return {
+      items: inIdOrder(ids, rows),
+      total: Number(countRows[0]?.total ?? 0),
+      page: paging.page,
+      pageSize: paging.pageSize,
+    };
+  }
+
+  /**
+   * O filtro de hierarquia (applyCommunityFilter) em SQL. Formato desconhecido
+   * → `null` (o chamador nega: nunca "tudo").
+   */
+  private scopeSql(filter: any): Prisma.Sql | null {
+    const conditions: Prisma.Sql[] = [];
+    for (const key of Object.keys(filter ?? {})) {
+      if (key === 'id' && typeof filter.id === 'string') {
+        conditions.push(Prisma.sql`c.id = ${filter.id}`);
+      } else if (key === 'id' && Array.isArray(filter.id?.in) && filter.id.in.length && Object.keys(filter.id).length === 1) {
+        conditions.push(Prisma.sql`c.id IN (${Prisma.join(filter.id.in)})`);
+      } else if (key === 'OR' && Array.isArray(filter.OR) && filter.OR.length) {
+        // Coordenador com comunidades atribuídas: principal OU atribuídas na paróquia
+        const parts = filter.OR.map((part: any) => this.scopeSql(part));
+        if (parts.some((part: Prisma.Sql | null) => !part)) return null;
+        conditions.push(Prisma.sql`(${Prisma.join(parts, ' OR ')})`);
+      } else if (key === 'parishId' && typeof filter.parishId === 'string') {
+        conditions.push(Prisma.sql`c."parishId" = ${filter.parishId}`);
+      } else if (key === 'parish' && typeof filter.parish?.dioceseId === 'string' && Object.keys(filter.parish).length === 1) {
+        conditions.push(Prisma.sql`p."dioceseId" = ${filter.parish.dioceseId}`);
+      } else {
+        return null;
+      }
+    }
+    return conditions.length ? Prisma.join(conditions, ' AND ') : Prisma.sql`TRUE`;
   }
 
   /** Cascata pública (qualquer usuário logado): comunidades ativas de UMA paróquia, só id/nome/endereço. */
@@ -136,6 +223,8 @@ export class CommunitiesService {
         id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true, website: true,
         logoUrl: true, coordinatorName: true, foundedAt: true, status: true, latitude: true, longitude: true, geoPrecision: true,
         parishId: true, createdAt: true, updatedAt: true,
+        // Coordenador leigo registra sacramento/emite certidão nesta comunidade? (contrato 2)
+        laySacramentRecords: true,
         parish: {
           select: {
             id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true, website: true,
@@ -195,7 +284,15 @@ export class CommunitiesService {
 
     const community = await this.prisma.community.findFirst({
       where: { id, deletedAt: null },
-      select: { id: true, name: true, parishId: true, status: true, latitude: true, longitude: true },
+      select: {
+        id: true,
+        name: true,
+        parishId: true,
+        status: true,
+        latitude: true,
+        longitude: true,
+        laySacramentRecords: true,
+      },
     });
     if (!community) {
       throw new NotFoundException(`Comunidade com ID ${id} não encontrada`);
@@ -237,6 +334,17 @@ export class CommunitiesService {
     if (data.status !== undefined && data.status === community.status) delete data.status;
     if (data.status !== undefined && !isRoleAtLeast(currentUser.role, UserRole.PARISH_ADMIN)) {
       throw new ForbiddenException('Ativar ou inativar a comunidade é da administração da paróquia');
+    }
+
+    // Registro sacramental por coordenador leigo (contrato 2): decisão da
+    // paróquia — o coordenador não libera para si mesmo. Reenvio do mesmo valor
+    // pelo formulário não é mudança.
+    if (data.laySacramentRecords !== undefined && data.laySacramentRecords === community.laySacramentRecords) {
+      delete data.laySacramentRecords;
+    }
+    const mudouRegistroLeigo = data.laySacramentRecords !== undefined;
+    if (mudouRegistroLeigo && !isRoleAtLeast(currentUser.role, UserRole.PARISH_ADMIN)) {
+      throw new ForbiddenException('Só a administração da paróquia define se a comunidade registra sacramentos');
     }
 
     // Pino: só conta como mudança quando a coordenada muda DE FATO — o formulário
@@ -300,7 +408,7 @@ export class CommunitiesService {
     }
 
     // Mudanças que mexem no mapa público ou no "dono" da comunidade ficam na trilha
-    if (mudouParoquia || data.status !== undefined || mexeuNoPino) {
+    if (mudouParoquia || data.status !== undefined || mexeuNoPino || mudouRegistroLeigo) {
       await this.auditService.log({
         actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
         action: 'UPDATE',
@@ -311,12 +419,14 @@ export class CommunitiesService {
           status: community.status,
           latitude: community.latitude,
           longitude: community.longitude,
+          laySacramentRecords: community.laySacramentRecords,
         },
         after: {
           parishId: atualizada.parishId,
           status: atualizada.status,
           latitude: atualizada.latitude,
           longitude: atualizada.longitude,
+          laySacramentRecords: atualizada.laySacramentRecords,
         },
       });
     }

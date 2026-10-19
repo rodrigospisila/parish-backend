@@ -37,6 +37,12 @@ export interface PdfCertificatePage {
   signatureLines?: string[];
   /** QR Code (PNG) centrado abaixo do texto — ex.: Pix fixo do dizimista */
   qrImage?: Buffer | null;
+  /** Aviso em destaque logo abaixo do nome (ex.: 'não substitui a certidão') */
+  notice?: string;
+  /** Campos rótulo/valor depois do corpo (ex.: certidão: nascimento, filiação, livro/folha/termo) */
+  fields?: Array<{ label: string; value: string }>;
+  /** Parágrafos depois dos campos (fecho, finalidade, local e data) */
+  closingParagraphs?: string[];
 }
 
 export interface PdfCertificateDocumentInput {
@@ -54,6 +60,10 @@ export interface PdfCertificateDocumentInput {
   orientation?: 'landscape' | 'portrait';
   /** Brasão/logo (PNG ou JPEG) acima do nome da organização, se houver */
   logo?: Buffer | null;
+  /** Alinhamento dos parágrafos do corpo. Default: center (certificados curtos) */
+  bodyAlign?: 'center' | 'justify' | 'left';
+  /** Tamanho do título. Default: 26 */
+  titleSize?: number;
 }
 
 const PAGE_MARGIN = 40;
@@ -211,7 +221,7 @@ export class PdfService {
         doc.moveDown(0.8);
         doc
           .font('Helvetica-Bold')
-          .fontSize(26)
+          .fontSize(input.titleSize ?? 26)
           .fillColor('#333333')
           .text(input.title, { width: contentWidth, align: 'center' });
         if (input.subtitle) {
@@ -230,9 +240,41 @@ export class PdfService {
           .fillColor('#000000')
           .text(page.recipientName, { width: contentWidth, align: 'center' });
         doc.moveDown(0.8);
+        const bodyAlign = input.bodyAlign ?? 'center';
+        if (page.notice) {
+          doc
+            .font('Helvetica-Bold')
+            .fontSize(11)
+            .fillColor('#8a1c1c')
+            .text(page.notice, CERT_MARGIN, doc.y, { width: contentWidth, align: 'center' });
+          doc.moveDown(0.6);
+        }
         doc.font('Helvetica').fontSize(12).fillColor('#222222');
         for (const paragraph of page.bodyParagraphs) {
-          doc.text(paragraph, { width: contentWidth, align: 'center', lineGap: 3 });
+          doc.text(paragraph, CERT_MARGIN, doc.y, { width: contentWidth, align: bodyAlign, lineGap: 3 });
+          doc.moveDown(0.5);
+        }
+        // Campos rótulo/valor (coluna do rótulo fixa, valor quebra na largura restante)
+        const fields = page.fields ?? [];
+        if (fields.length) {
+          const labelWidth = 150;
+          const valueWidth = contentWidth - labelWidth - 8;
+          doc.moveDown(0.2);
+          for (const field of fields) {
+            const top = doc.y;
+            doc.font('Helvetica-Bold').fontSize(11).fillColor('#333333');
+            const labelHeight = doc.heightOfString(field.label, { width: labelWidth });
+            doc.text(field.label, CERT_MARGIN, top, { width: labelWidth });
+            doc.font('Helvetica').fontSize(11).fillColor('#222222');
+            const valueHeight = doc.heightOfString(field.value || '-', { width: valueWidth });
+            doc.text(field.value || '-', CERT_MARGIN + labelWidth + 8, top, { width: valueWidth });
+            doc.y = top + Math.max(labelHeight, valueHeight) + 4;
+          }
+          doc.moveDown(0.5);
+        }
+        doc.font('Helvetica').fontSize(12).fillColor('#222222');
+        for (const paragraph of page.closingParagraphs ?? []) {
+          doc.text(paragraph, CERT_MARGIN, doc.y, { width: contentWidth, align: bodyAlign, lineGap: 3 });
           doc.moveDown(0.5);
         }
         if (page.qrImage) {
@@ -249,6 +291,13 @@ export class PdfService {
         // Linhas de assinatura lado a lado, ancoradas na base da página
         const signatures = page.signatureLines ?? [];
         if (signatures.length) {
+          // Texto longo que invadiria as assinaturas: elas vão para uma página
+          // nova (com a mesma moldura) em vez de sobrepor o corpo
+          if (doc.y > height - CERT_MARGIN - 46 - 24) {
+            doc.addPage();
+            doc.rect(24, 24, width - 48, height - 48).lineWidth(2).strokeColor('#8a6d3b').stroke();
+            doc.rect(32, 32, width - 64, height - 64).lineWidth(0.7).strokeColor('#8a6d3b').stroke().strokeColor('#000000');
+          }
           const signatureY = height - CERT_MARGIN - 46;
           const slotWidth = contentWidth / signatures.length;
           signatures.forEach((label, slot) => {

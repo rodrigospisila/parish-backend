@@ -84,6 +84,27 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
     expect(prisma.member.count).not.toHaveBeenCalled();
   });
 
+  it('conta PLAN_MEMBER_LIMIT em log e on (contagem inclui quem entrou pelo app)', async () => {
+    const hits = { record: jest.fn() };
+    guard = new MemberLimitGuard(
+      new PlanAccessService(prisma, { get: jest.fn(() => mode) } as any),
+      hierarchy as any,
+      hits as any,
+    );
+    mode = 'log';
+    await expect(guard.canActivate(ctx({ body: { communityId: 'capela' }, user: coord }))).resolves.toBe(true);
+    expect(hits.record).toHaveBeenLastCalledWith({ kind: 'PLAN_MEMBER_LIMIT', communityId: 'capela', userId: 'u1', mode: 'log' });
+    mode = 'on';
+    await expect(guard.canActivate(ctx({ body: { communityId: 'capela' }, user: coord }))).rejects.toBeInstanceOf(
+      ForbiddenException,
+    );
+    expect(hits.record).toHaveBeenLastCalledWith({ kind: 'PLAN_MEMBER_LIMIT', communityId: 'capela', userId: 'u1', mode: 'on' });
+    // Abaixo do limite: nada a contar
+    hits.record.mockClear();
+    await guard.canActivate(ctx({ body: { communityId: 'matriz' }, user: coord }));
+    expect(hits.record).not.toHaveBeenCalled();
+  });
+
   it('falha no banco libera', async () => {
     const error = jest.spyOn(Logger.prototype, 'error').mockImplementation(() => undefined);
     prisma.communityPlan.findUnique.mockRejectedValueOnce(new Error('db fora'));

@@ -7,8 +7,10 @@ import {
   Body,
   Param,
   Query,
+  Res,
   UseGuards,
 } from '@nestjs/common';
+import type { Response } from 'express';
 import { SacramentsService } from './sacraments.service';
 import { CreateSacramentDto } from './dto/create-sacrament.dto';
 import { UpdateSacramentDto } from './dto/update-sacrament.dto';
@@ -42,10 +44,35 @@ export class SacramentsController {
     return this.sacramentsService.update(id, dto, user);
   }
 
+  /**
+   * Assento não se apaga: a regra (só SYSTEM_ADMIN, com mensagem própria) fica
+   * no service — o RolesGuard daria só o "sem permissão" genérico.
+   */
   @Delete(':id')
-  @UseGuards(RolesGuard)
-  @Roles(UserRole.PARISH_ADMIN) // remoção de registro sacramental: paróquia ou superior
   remove(@Param('id') id: string, @CurrentUser() user: any) {
     return this.sacramentsService.remove(id, user);
+  }
+
+  /**
+   * Certidão (livro+folha+termo) ou declaração para conferência do assento.
+   * `?finalidade=` opcional (até 120 caracteres). INFORMED → 409.
+   */
+  @Get(':id/certificate.pdf')
+  @UseGuards(RolesGuard)
+  @Roles(UserRole.COMMUNITY_COORDINATOR)
+  async certificate(
+    @Param('id') id: string,
+    @Query('finalidade') finalidade: string | undefined,
+    @CurrentUser() user: any,
+    @Res() res: Response,
+  ) {
+    const result = await this.sacramentsService.certificate(id, finalidade, user);
+    res.set({
+      'Content-Type': 'application/pdf',
+      'Content-Disposition': `attachment; filename="${result.filename}"`,
+      'Content-Length': String(result.buffer.length),
+      'X-Document-Kind': result.kind,
+    });
+    res.end(result.buffer);
   }
 }

@@ -175,6 +175,9 @@ export class ScheduleRemindersService {
           'Lembrete de escala',
           body,
           {
+            // Contrato do app (onda 0): type + kind + scheduleId + assignmentId
+            type: NotificationType.SCHEDULE_REMINDER,
+            kind: 'schedule-reminder',
             scheduleId: assignment.schedule.id,
             assignmentId: assignment.id,
             ...(community ? { communityId: community.id } : {}),
@@ -247,7 +250,12 @@ export class ScheduleRemindersService {
           NotificationType.SCHEDULE_REMINDER,
           'Confirme sua participação',
           `Você ainda não respondeu à escala "${assignment.schedule.title}" de ${scheduleLabel(assignment.schedule)}. Confirme ou recuse no app.`,
-          { scheduleId: assignment.schedule.id, assignmentId: assignment.id },
+          {
+            type: NotificationType.SCHEDULE_REMINDER,
+            kind: 'response-nudge',
+            scheduleId: assignment.schedule.id,
+            assignmentId: assignment.id,
+          },
         );
         sent += 1;
       }

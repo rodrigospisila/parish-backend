@@ -3,7 +3,8 @@ import { IsBoolean, IsInt, IsOptional, IsString, Max, MaxLength, Min, MinLength 
 /**
  * PUT /platform/tiers/:key — edita a faixa (ou cria, se a chave não existir:
  * aí `name`, `monthlyPriceCents` e `yearlyPriceCents` são obrigatórios).
- * `maxMembers: null` = sem limite; `description: null` limpa.
+ * `maxMembers: null` = sem limite; `description: null` limpa. `maxMembers` conta os
+ * membros ATIVOS da comunidade, inclusive quem entrou pelo app (não só quem tem conta).
  */
 export class UpsertPlanTierDto {
   /** Aceita e ignora: a chave da faixa é a do caminho (/platform/tiers/:key). Clientes antigos mandavam no corpo também. */

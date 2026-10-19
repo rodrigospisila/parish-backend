@@ -63,6 +63,8 @@ describe('AuthService (segurança do registro - Fase 0/1)', () => {
       refreshToken: { create: jest.fn(), findUnique: jest.fn(), delete: jest.fn() },
       community: { findUnique: jest.fn() },
       $transaction: jest.fn(),
+      // Busca por dígitos (telefone gravado fora do padrão — ux-acesso-18)
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
     security = {
       challenge: jest.fn((user: any) => ({ requiresTwoFactor: true, challengeToken: 'desafio', user: { id: user.id } })),
@@ -289,6 +291,25 @@ describe('AuthService (segurança do registro - Fase 0/1)', () => {
         await expect(service.login({ phone: '42999998888', password: PASSWORD } as any)).rejects.toThrow(
           new UnauthorizedException(INVALID_CREDENTIALS_MESSAGE),
         );
+      });
+
+      it('ux-acesso-18: conta antiga com o celular gravado formatado entra pelos dígitos (única)', async () => {
+        prisma.user.findUnique.mockImplementation(({ where }: any) =>
+          Promise.resolve(where.id === 'u-antigo' ? account({ id: 'u-antigo', phone: '(42) 99999-8888' }) : null),
+        );
+        prisma.$queryRaw.mockResolvedValue([{ id: 'u-antigo' }]);
+        const res: any = await service.login({ phone: '42 99999-8888', password: PASSWORD } as any);
+        expect(res).toHaveProperty('accessToken', 'token');
+        // dígitos com e sem o 55 vão como parâmetros da consulta
+        expect(prisma.$queryRaw.mock.calls[0].slice(1)).toEqual(['5542999998888', '42999998888']);
+      });
+
+      it('ux-acesso-18: dois cadastros antigos com os mesmos dígitos → ambíguo → 401 genérico', async () => {
+        prisma.$queryRaw.mockResolvedValue([{ id: 'a' }, { id: 'b' }]);
+        await expect(service.login({ phone: '42999998888', password: PASSWORD } as any)).rejects.toThrow(
+          new UnauthorizedException(INVALID_CREDENTIALS_MESSAGE),
+        );
+        expect(prisma.user.findUnique).toHaveBeenCalledTimes(1);
       });
 
       it('passa pelas mesmas proteções: senha errada é auditada e 2FA devolve o desafio', async () => {

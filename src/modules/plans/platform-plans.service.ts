@@ -169,8 +169,12 @@ export class PlatformPlansService {
           state: row.state,
           parish: row.parish ? { id: row.parish.id, name: row.parish.name } : null,
           diocese: row.parish?.diocese ? { id: row.parish.diocese.id, name: row.parish.diocese.name } : null,
+          /** Fiéis com conta no app vinculados (ordenação/uso) — NÃO é a métrica do limite da faixa */
           membersWithAccount: row._count.memberLinks,
-          /** Membros ativos (só quando a faixa tem limite) */
+          /**
+           * Membros ativos, inclusive quem entrou pelo app — métrica do limite
+           * da faixa (só quando a faixa tem limite)
+           */
           activeMembers,
           /** Acima do limite de membros da faixa */
           overTierLimit: maxMembers !== null && activeMembers !== null && activeMembers > maxMembers,

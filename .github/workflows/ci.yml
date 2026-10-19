@@ -1,7 +1,17 @@
-# CI do backend (achado B55): o push vai direto para o Railway, então este
-# workflow é o aviso de que o commit quebra o build ou os testes.
-# Não acessa banco nenhum: os specs são jest com mocks (DATABASE_URL de mentira
-# só para o prisma generate/validate). Node 20 = o mesmo do Dockerfile.
+# CI do backend (achados B55 e eng-qualidade-08): o push vai direto para o
+# Railway, então este workflow é o aviso de que o commit quebra o build, os
+# testes, o isolamento entre paróquias (e2e) ou a subida do container.
+#
+# Jobs (rodam em paralelo):
+#   backend — tipos, testes unitários (jest com mocks) e trava de produção;
+#   e2e     — as suítes de test/*.e2e-spec.ts contra um Postgres descartável;
+#   boot    — nest build + node dist/main com env mínimo, esperando /health 200.
+#             O Railway mantém a versão antiga EM SILÊNCIO quando o container
+#             novo não sobe; este job é o alarme;
+#   lint    — ESLint, por enquanto NÃO bloqueante (ver o comentário do job).
+#
+# Node 20 = o mesmo do Dockerfile (node:20-bookworm-slim). Postgres 17 = o do
+# docker-compose de desenvolvimento (postgres:17-alpine).
 name: CI
 
 on:
@@ -13,11 +23,15 @@ concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   backend:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
+      # Só para o prisma generate/validate: este job não abre conexão com banco
       DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
       NODE_ENV: test
     steps:
@@ -30,12 +44,179 @@ jobs:
       - run: npm ci
       - run: npx prisma validate
       - run: npx prisma generate
-      # tsconfig.build.json = o que o nest build compila (src sem specs)
-      - run: npx tsc --noEmit -p tsconfig.build.json
-      - run: npm run build
-      - run: npx jest --ci
+      # tsconfig.json = src + specs + test/ + scripts/ + prisma/ (o build compila
+      # só src, via tsconfig.build.json, e é conferido no job boot)
+      - name: Tipos (tsc --noEmit)
+        run: npx tsc --noEmit -p tsconfig.json
+      - name: Testes unitários
+        run: npx jest --ci
       - name: Trava de produção dos scripts (prisma/lib/prod-guard)
         run: node prisma/lib/prod-guard.test.cjs
       - name: Dependências de produção sem vulnerabilidade crítica
         continue-on-error: true
         run: npm audit --omit=dev --audit-level=critical
+
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: parish
+          POSTGRES_PASSWORD: parish_ci
+          POSTGRES_DB: parish_e2e
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U parish -d parish_e2e"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      # O nome termina em _e2e: o test/e2e-guard.cjs recusa qualquer outro banco
+      # (e recusa produção sempre). Os e2e apagam tabelas inteiras.
+      DATABASE_URL: postgresql://parish:parish_ci@localhost:5432/parish_e2e?schema=public
+      NODE_ENV: test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+      - name: Segredos descartáveis do job
+        # Gerados a cada execução (o validate-env recusa vazios, curtos e placeholders)
+        run: |
+          echo "JWT_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+          echo "JWT_REFRESH_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+          echo "PAYMENTS_ENCRYPTION_KEY=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+      - name: Migrations no banco de teste
+        run: npx prisma migrate deploy
+      # --runInBand: as suítes compartilham o banco e cada uma limpa tabelas no
+      # beforeAll; em paralelo uma apagaria os dados da outra.
+      # --forceExit: os testes terminam em ~1 min, mas o processo do jest não
+      # sai sozinho (handles abertos — crons do @nestjs/schedule/conexões);
+      # sem isso o job ficaria parado até o timeout.
+      # Em 19/10/2026 (commit d3e4e24), 44 de 48 passavam; os 4 que falham
+      # (authorization "busca por nome não vaza…", phase1 "forgot-password cria
+      # token…", phase3 "…Sacramento de Crisma" e "cria documento (v1) e adiciona
+      # v2") estão desatualizados pelas correções da auditoria e precisam ser
+      # atualizados em test/ — o job fica vermelho até lá, de propósito.
+      - name: Testes e2e (autorização, LGPD, fases 1–4)
+        run: npx jest --config ./test/jest-e2e.json --ci --runInBand --forceExit
+
+  boot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_USER: parish
+          POSTGRES_PASSWORD: parish_ci
+          POSTGRES_DB: parish_boot
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U parish -d parish_boot"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+    env:
+      DATABASE_URL: postgresql://parish:parish_ci@localhost:5432/parish_boot?schema=public
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx prisma generate
+      # O mesmo "npm run build" do Dockerfile
+      - name: nest build
+        run: npx nest build
+      - name: Segredos descartáveis do job
+        run: |
+          echo "JWT_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+          echo "JWT_REFRESH_SECRET=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+          echo "AUDIT_PSEUDONYM_KEY=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+          echo "PAYMENTS_ENCRYPTION_KEY=$(openssl rand -hex 32)" >> "$GITHUB_ENV"
+      # Mesma sequência do CMD do Dockerfile: migrate deploy && node dist/main
+      - name: Migrations (como no container)
+        run: npx prisma migrate deploy
+      - name: Boot check (node dist/main até /health 200)
+        # NODE_ENV=production só neste passo (no job inteiro, o npm ci pularia as
+        # devDependencies e o nest build quebraria). Mesmo modo do Railway:
+        # valida CORS_ORIGIN, desliga o Swagger etc.
+        env:
+          NODE_ENV: production
+          CORS_ORIGIN: http://localhost:5173
+          PORT: 3000
+        run: |
+          node dist/main > boot.log 2>&1 &
+          PID=$!
+          ok=0
+          for i in $(seq 1 90); do
+            if curl -fsS http://localhost:3000/health; then
+              echo
+              echo "API respondeu /health 200 em ~${i}s"
+              ok=1
+              break
+            fi
+            if ! kill -0 "$PID" 2>/dev/null; then
+              echo "::error::O processo node dist/main encerrou antes de responder /health"
+              break
+            fi
+            sleep 1
+          done
+          if [ "$ok" = 1 ] && ! grep -q "Nest application successfully started" boot.log; then
+            echo "::error::/health respondeu, mas o log não tem 'Nest application successfully started'"
+            ok=0
+          fi
+          kill "$PID" 2>/dev/null || true
+          echo "----- log da subida -----"
+          cat boot.log
+          if [ "$ok" != 1 ]; then
+            echo "::error::A API não subiu em 90 s — o Railway manteria a versão antiga no ar"
+            exit 1
+          fi
+
+  # ESLint NÃO bloqueante (continue-on-error): em 19/10/2026 o lint local deu
+  # 26.084 erros e 1.857 avisos em 390 arquivos — 18.944 são prettier/prettier
+  # (formatação, corrigíveis com --fix) e ~6.800 são no-unsafe-* do
+  # recommendedTypeChecked. Corrigir é uma tarefa à parte (um commit só de
+  # formatação + regras ajustadas); depois disso, tirar o continue-on-error ou
+  # trocar por uma catraca "a contagem não pode subir". O "npm run lint" do
+  # package.json usa --fix e por isso NÃO é usado aqui.
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      # As regras type-checked precisam dos tipos do @prisma/client gerado
+      - run: npx prisma generate
+      - name: ESLint (não bloqueante)
+        continue-on-error: true
+        run: npx eslint "{src,apps,libs,test}/**/*.ts" -f json -o eslint-report.json
+      - name: Resumo do ESLint
+        if: always()
+        run: |
+          node -e '
+            const fs = require("fs");
+            if (!fs.existsSync("eslint-report.json")) { console.log("ESLint não gerou relatório (falhou antes de analisar)."); process.exit(0); }
+            const r = JSON.parse(fs.readFileSync("eslint-report.json", "utf8"));
+            let e = 0, w = 0; const porRegra = {};
+            for (const f of r) { e += f.errorCount; w += f.warningCount;
+              for (const m of f.messages) if (m.severity === 2) { const k = m.ruleId || "(parse)"; porRegra[k] = (porRegra[k] || 0) + 1; } }
+            const linhas = Object.entries(porRegra).sort((a, b) => b[1] - a[1]).map(([k, n]) => `| ${k} | ${n} |`);
+            console.log(`### ESLint (não bloqueante)\n\n${e} erros e ${w} avisos em ${r.length} arquivos (linha de base em 19/10/2026: 26084 erros, 1857 avisos).\n\n| Regra | Erros |\n|---|---|\n${linhas.join("\n")}`);
+          ' | tee -a "$GITHUB_STEP_SUMMARY"

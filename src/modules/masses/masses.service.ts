@@ -32,6 +32,7 @@ import {
   WESTMOST_TIME_ZONE,
   wantsClusters,
 } from './map-search.utils';
+import { massScheduleTypeLabel } from '../mass-schedules/mass-schedule-types';
 import { ZonedParts, isAllDayEvent, zonedDateTimeToInstant, zonedParts } from '../../common/schedule-time';
 
 const pad2 = (n: number) => String(n).padStart(2, '0');
@@ -41,7 +42,9 @@ const floatingOf = (p: ZonedParts) => `${p.year}-${pad2(p.month)}-${pad2(p.day)}
 export interface NearbyMass {
   id: string;
   title: string;
-  type: string; // MASS | CONFESSION | ADORATION | ROSARY
+  type: string; // MASS | WORD_CELEBRATION | CONFESSION | ADORATION | ROSARY
+  /** Rótulo do tipo ("Missa", "Celebração da Palavra"...) — Celebração da Palavra não é Missa */
+  typeLabel: string;
   start: string; // relógio de parede (YYYY-MM-DDTHH:MM:SS)
   end: string | null;
   source: 'fixed' | 'event';
@@ -301,6 +304,7 @@ export class MassesService {
         id: occ.id,
         title: occ.title,
         type: occ.type,
+        typeLabel: massScheduleTypeLabel(occ.type),
         start: occ.start,
         end: occ.end,
         source: 'fixed',
@@ -327,6 +331,7 @@ export class MassesService {
         id: ev.id,
         title: ev.title,
         type: EventType.MASS,
+        typeLabel: massScheduleTypeLabel(MassScheduleType.MASS),
         start,
         end: endParts ? floatingOf(endParts) : null,
         source: 'event',

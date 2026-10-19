@@ -1,4 +1,4 @@
-﻿import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateGlobalPastoralDto } from './dto/create-global-pastoral.dto';
 import { UpdateGlobalPastoralDto } from './dto/update-global-pastoral.dto';
@@ -162,13 +162,13 @@ export class PastoralsService {
       throw new ForbiddenException('Apenas SYSTEM_ADMIN pode criar pastorais globais');
     }
 
-    // Verificar se jÃ¡ existe pastoral com esse nome
+    // Verificar se já existe pastoral com esse nome
     const existing = await this.prisma.globalPastoral.findUnique({
       where: { name: dto.name },
     });
 
     if (existing) {
-      throw new BadRequestException('JÃ¡ existe uma pastoral com esse nome');
+      throw new BadRequestException('Já existe uma pastoral com esse nome');
     }
 
     return this.prisma.globalPastoral.create({
@@ -195,7 +195,7 @@ export class PastoralsService {
     });
 
     if (!pastoral) {
-      throw new NotFoundException('Pastoral global nÃ£o encontrada');
+      throw new NotFoundException('Pastoral global não encontrada');
     }
 
     return pastoral;
@@ -208,7 +208,7 @@ export class PastoralsService {
 
     await this.findOneGlobalPastoral(id);
 
-    // Se estÃ¡ alterando o nome, verificar duplicaÃ§Ã£o
+    // Se está alterando o nome, verificar duplicação
     if (dto.name) {
       const existing = await this.prisma.globalPastoral.findFirst({
         where: {
@@ -218,7 +218,7 @@ export class PastoralsService {
       });
 
       if (existing) {
-        throw new BadRequestException('JÃ¡ existe uma pastoral com esse nome');
+        throw new BadRequestException('Já existe uma pastoral com esse nome');
       }
     }
 
@@ -245,17 +245,17 @@ export class PastoralsService {
   // ============================================
 
   async createCommunityPastoral(dto: CreateCommunityPastoralDto, userId: string) {
-    // Verificar se o usuÃ¡rio tem permissÃ£o na comunidade
+    // Verificar se o usuário tem permissão na comunidade
     const user = await this.prisma.user.findUnique({
       where: { id: userId },
       include: { community: true },
     });
 
     if (!user) {
-      throw new NotFoundException('UsuÃ¡rio nÃ£o encontrado');
+      throw new NotFoundException('Usuário não encontrado');
     }
 
-    // Validar hierarquia de permissÃµes
+    // Validar hierarquia de permissões
     const allowedRoles: UserRole[] = [
       UserRole.SYSTEM_ADMIN,
       UserRole.DIOCESAN_ADMIN,
@@ -265,7 +265,7 @@ export class PastoralsService {
     const canCreate = allowedRoles.includes(user.role);
 
     if (!canCreate) {
-      throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para criar pastorais');
+      throw new ForbiddenException('Você não tem permissão para criar pastorais');
     }
 
     // Verificar se a comunidade existe
@@ -274,7 +274,7 @@ export class PastoralsService {
     });
 
     if (!community) {
-      throw new NotFoundException('Comunidade nÃ£o encontrada');
+      throw new NotFoundException('Comunidade não encontrada');
     }
 
     // Escopo: só cria pastoral em comunidade que o usuário gerencia
@@ -290,10 +290,10 @@ export class PastoralsService {
     });
 
     if (!globalPastoral) {
-      throw new NotFoundException('Pastoral global nÃ£o encontrada');
+      throw new NotFoundException('Pastoral global não encontrada');
     }
 
-    // Verificar se jÃ¡ existe essa pastoral na comunidade
+    // Verificar se já existe essa pastoral na comunidade
     const existing = await this.prisma.communityPastoral.findFirst({
       where: {
         globalPastoralId: dto.globalPastoralId,
@@ -302,7 +302,7 @@ export class PastoralsService {
     });
 
     if (existing && !existing.deletedAt) {
-      throw new BadRequestException('Esta pastoral jÃ¡ existe nesta comunidade');
+      throw new BadRequestException('Esta pastoral já existe nesta comunidade');
     }
 
     // Excluída antes (soft delete): o índice único (globalPastoralId,
@@ -359,7 +359,7 @@ export class PastoralsService {
             id: true,
             communityId: true,
             community: { select: { id: true, name: true } },
-            globalPastoral: { select: { id: true, name: true } },
+            globalPastoral: { select: { id: true, name: true, isCatechesis: true } },
           },
         },
       },
@@ -574,7 +574,7 @@ export class PastoralsService {
     });
 
     if (!pastoral) {
-      throw new NotFoundException('Pastoral comunitÃ¡ria nÃ£o encontrada');
+      throw new NotFoundException('Pastoral comunitária não encontrada');
     }
 
     return pastoral;
@@ -622,13 +622,13 @@ export class PastoralsService {
     // diocese/paróquia/comunidade do usuário
     const pastoral = await this.findOneCommunityPastoral(id, currentUser);
 
-    // Verificar permissÃµes
+    // Verificar permissões
     const user = await this.prisma.user.findUnique({
       where: { id: currentUser.id },
     });
 
     if (!user) {
-      throw new NotFoundException('UsuÃ¡rio nÃ£o encontrado');
+      throw new NotFoundException('Usuário não encontrado');
     }
 
     const allowedRoles: UserRole[] = [
@@ -640,7 +640,7 @@ export class PastoralsService {
     const canUpdate = allowedRoles.includes(user.role);
 
     if (!canUpdate) {
-      throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para editar pastorais');
+      throw new ForbiddenException('Você não tem permissão para editar pastorais');
     }
 
     // Comunidade e pastoral do catálogo são a identidade do registro: não
@@ -677,7 +677,7 @@ export class PastoralsService {
     });
 
     if (!user) {
-      throw new NotFoundException('UsuÃ¡rio nÃ£o encontrado');
+      throw new NotFoundException('Usuário não encontrado');
     }
 
     const allowedRoles: UserRole[] = [
@@ -1176,7 +1176,7 @@ export class PastoralsService {
   // MEETINGS & ACTIVITIES (DEPRECATED)
   // ============================================
   /*
-   * MÃ‰TODOS DEPRECADOS - ReuniÃµes e Atividades foram unificadas em Event
+   * MÉTODOS DEPRECADOS - Reuniões e Atividades foram unificadas em Event
    * Use EventsService para criar eventos do tipo PASTORAL_MEETING ou PASTORAL_ACTIVITY
    *
 
@@ -1239,7 +1239,7 @@ export class PastoralsService {
     });
 
     if (!meeting) {
-      throw new NotFoundException('ReuniÃ£o nÃ£o encontrada');
+      throw new NotFoundException('Reunião não encontrada');
     }
 
     return meeting;
@@ -1275,7 +1275,7 @@ export class PastoralsService {
   }
 
   async markAttendance(dto: MarkAttendanceDto) {
-    // Verificar se reuniÃ£o existe
+    // Verificar se reunião existe
     await this.findOneMeeting(dto.meetingId);
 
     // Verificar se membro existe
@@ -1284,10 +1284,10 @@ export class PastoralsService {
     });
 
     if (!member) {
-      throw new NotFoundException('Membro nÃ£o encontrado');
+      throw new NotFoundException('Membro não encontrado');
     }
 
-    // Criar ou atualizar registro de presenÃ§a
+    // Criar ou atualizar registro de presença
     return this.prisma.pastoralMeetingParticipant.upsert({
       where: {
         meetingId_memberId: {
@@ -1364,7 +1364,7 @@ export class PastoralsService {
     });
 
     if (!activity) {
-      throw new NotFoundException('Atividade nÃ£o encontrada');
+      throw new NotFoundException('Atividade não encontrada');
     }
 
     return activity;

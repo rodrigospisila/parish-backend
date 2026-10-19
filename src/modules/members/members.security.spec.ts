@@ -338,6 +338,24 @@ describe('MembersService — segurança (onda 2)', () => {
         expect(prisma.$transaction).not.toHaveBeenCalled(); // cônjuge não mudou
       });
 
+      it('ux-acesso-18: celular do update gravado em E.164; vazio vira null; estrangeiro fica como digitado', async () => {
+        await service.update('m1', { phone: '(42) 99999-8888' } as any, parishAdminP1);
+        expect(prisma.member.update.mock.calls[0][0].data.phone).toBe('+5542999998888');
+        await service.update('m1', { phone: '  ' } as any, parishAdminP1);
+        expect(prisma.member.update.mock.calls[1][0].data.phone).toBeNull();
+        await service.update('m1', { phone: '+1 555 0100' } as any, parishAdminP1);
+        expect(prisma.member.update.mock.calls[2][0].data.phone).toBe('+1 555 0100');
+        // Sem phone no corpo: o campo não é tocado
+        await service.update('m1', { fullName: 'Novo' } as any, parishAdminP1);
+        expect(prisma.member.update.mock.calls[3][0].data).not.toHaveProperty('phone');
+      });
+
+      it('ux-acesso-18: o DTO de update também normaliza o celular', async () => {
+        const pipe = new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true });
+        const dto = await pipe.transform({ phone: '(42) 99999-8888' }, { type: 'body', metatype: UpdateMemberDto });
+        expect(dto.phone).toBe('+5542999998888');
+      });
+
       it('caminho legítimo: mover a ficha dentro do escopo', async () => {
         await service.update('m1', { communityId: 'c2' } as any, parishAdminP1);
         expect(hierarchy.canManageCommunity).toHaveBeenCalledWith('u-adm', 'c2');

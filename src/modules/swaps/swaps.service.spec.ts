@@ -45,6 +45,29 @@ describe('SwapsService (4.6)', () => {
     service = module.get<SwapsService>(SwapsService);
   });
 
+  it('push ao convidado leva kind, scheduleId e assignmentId (contrato 8)', async () => {
+    prisma.member.findFirst.mockResolvedValue({ id: 'meu-member' });
+    prisma.member.findUnique.mockResolvedValue({ userId: 'u-convidado' });
+    prisma.scheduleAssignment.findUnique.mockResolvedValue({
+      id: 'a1',
+      scheduleId: 's1',
+      memberId: 'meu-member',
+      schedule: { date: new Date(Date.now() + 100000), deletedAt: null },
+    });
+    prisma.assignmentSwapRequest.create.mockResolvedValue({ id: 'sw1' });
+    const notifications = (service as any).notificationsService;
+
+    await service.requestSwap({ assignmentId: 'a1', targetMemberId: 'colega' }, user);
+
+    expect(notifications.notifyUser).toHaveBeenCalledWith('u-convidado', 'TEAM_BROADCAST', expect.any(String), expect.any(String), {
+      type: 'TEAM_BROADCAST',
+      kind: 'swap-requested',
+      swapId: 'sw1',
+      scheduleId: 's1',
+      assignmentId: 'a1',
+    });
+  });
+
   it('só o dono da atribuição pode pedir troca', async () => {
     prisma.member.findFirst.mockResolvedValue({ id: 'meu-member' });
     prisma.scheduleAssignment.findUnique.mockResolvedValue({

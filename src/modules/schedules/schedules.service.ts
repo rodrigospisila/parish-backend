@@ -1,4 +1,4 @@
-﻿import {
+import {
   Injectable,
   NotFoundException,
   BadRequestException,
@@ -150,7 +150,8 @@ export class SchedulesService {
     });
 
     if (member?.userId) {
-      await this.notificationsService.notifyUser(member.userId, type, title, body, data);
+      // Contrato do app: `type` + `scheduleId` + `assignmentId` no data do push
+      await this.notificationsService.notifyUser(member.userId, type, title, body, { type, ...data });
       return;
     }
 
@@ -718,7 +719,7 @@ export class SchedulesService {
     });
 
     if (!event) {
-      throw new NotFoundException(`Evento com ID ${eventId} nÃ£o encontrado`);
+      throw new NotFoundException(`Evento com ID ${eventId} não encontrado`);
     }
 
     if (scheduleDate.getTime() < event.startDate.getTime()) {
@@ -744,7 +745,7 @@ export class SchedulesService {
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToEvent(currentUser.id, eventId);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para criar escalas para este evento');
+        throw new ForbiddenException('Você não tem permissão para criar escalas para este evento');
       }
     }
 
@@ -1193,7 +1194,7 @@ export class SchedulesService {
     });
 
     if (!schedule) {
-      throw new NotFoundException(`Escala com ID ${id} nÃ£o encontrada`);
+      throw new NotFoundException(`Escala com ID ${id} não encontrada`);
     }
 
     // Casais: marca se o cônjuge do escalado participa da MESMA pastoral da
@@ -1247,11 +1248,11 @@ export class SchedulesService {
   async removeSchedule(id: string, currentUser?: CurrentUser) {
     await this.findOneSchedule(id, currentUser);
 
-    // Validar acesso Ã  escala
+    // Validar acesso à escala
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para excluir esta escala');
+        throw new ForbiddenException('Você não tem permissão para excluir esta escala');
       }
     }
 
@@ -1296,7 +1297,7 @@ export class SchedulesService {
     });
 
     if (!schedule) {
-      throw new NotFoundException(`Escala com ID ${scheduleId} nÃ£o encontrada`);
+      throw new NotFoundException(`Escala com ID ${scheduleId} não encontrada`);
     }
 
     if (schedule.status !== ScheduleStatus.OPEN) {
@@ -1309,11 +1310,11 @@ export class SchedulesService {
       throw new BadRequestException('Não e possível adicionar membros em escalas com data/hora passada');
     }
 
-    // Validar acesso Ã  escala
+    // Validar acesso à escala
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, scheduleId);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para adicionar membros a esta escala');
+        throw new ForbiddenException('Você não tem permissão para adicionar membros a esta escala');
       }
     }
 
@@ -1323,7 +1324,7 @@ export class SchedulesService {
     });
 
     if (!member) {
-      throw new NotFoundException(`Membro com ID ${memberId} nÃ£o encontrado`);
+      throw new NotFoundException(`Membro com ID ${memberId} não encontrado`);
     }
 
     if (member.status !== 'ACTIVE') {
@@ -1423,7 +1424,7 @@ export class SchedulesService {
 
     if (existingAssignment) {
       throw new BadRequestException(
-        `Membro jÃ¡ estÃ¡ atribuÃ­do a esta escala com a funÃ§Ã£o ${role}`,
+        `Membro já está atribuído a esta escala com a função ${role}`,
       );
     }
 
@@ -1531,6 +1532,7 @@ export class SchedulesService {
       'Nova escala',
       `Voce foi escalado(a) para "${createdAssignment.schedule.title}"${createdCommunity ? ` · ${createdCommunity.name}` : ''} em ${this.formatDateLabel(createdAssignment.schedule)}${createdAssignment.schedule.startTime ? ` às ${createdAssignment.schedule.startTime}` : ''}.`,
       {
+        kind: 'assignment-created',
         scheduleId: createdAssignment.scheduleId,
         assignmentId: createdAssignment.id,
         ...(createdCommunity ? { communityId: createdCommunity.id } : {}),
@@ -1881,7 +1883,7 @@ export class SchedulesService {
     });
 
     if (!assignment) {
-      throw new NotFoundException(`AtribuiÃ§Ã£o com ID ${id} nÃ£o encontrada`);
+      throw new NotFoundException(`Atribuição com ID ${id} não encontrada`);
     }
 
     return assignment;
@@ -1890,11 +1892,11 @@ export class SchedulesService {
   async removeAssignment(id: string, currentUser?: CurrentUser) {
     const assignment = await this.findOneAssignment(id, currentUser);
 
-    // Validar acesso Ã  escala
+    // Validar acesso à escala
     if (currentUser && assignment.scheduleId) {
       const hasAccess = await this.hierarchyService.hasAccessToSchedule(currentUser.id, assignment.scheduleId);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para remover membros desta escala');
+        throw new ForbiddenException('Você não tem permissão para remover membros desta escala');
       }
     }
 
@@ -2175,6 +2177,7 @@ export class SchedulesService {
       'Voce foi escalado(a)',
       `Voce foi escalado(a) para "${newAssignment.schedule.title}"${replacedCommunity ? ` · ${replacedCommunity.name}` : ''} em ${this.formatDateLabel(newAssignment.schedule)} (substituicao).`,
       {
+        kind: 'assignment-replaced',
         scheduleId: assignment.scheduleId,
         assignmentId: newAssignment.id,
         ...(replacedCommunity ? { communityId: replacedCommunity.id } : {}),
@@ -2189,16 +2192,16 @@ export class SchedulesService {
   async checkIn(id: string, currentUser?: CurrentUser) {
     const assignment = await this.findOneAssignment(id, currentUser);
 
-    // Validar permissÃ£o para fazer check-in
+    // Validar permissão para fazer check-in
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToAssignment(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para fazer check-in nesta escala');
+        throw new ForbiddenException('Você não tem permissão para fazer check-in nesta escala');
       }
     }
 
     if (assignment.checkedIn) {
-      throw new BadRequestException('Check-in jÃ¡ realizado');
+      throw new BadRequestException('Check-in já realizado');
     }
 
     if (assignment.status !== 'CONFIRMED') {
@@ -2235,16 +2238,16 @@ export class SchedulesService {
   async undoCheckIn(id: string, currentUser?: CurrentUser) {
     const assignment = await this.findOneAssignment(id, currentUser);
 
-    // Validar permissÃ£o para desfazer check-in
+    // Validar permissão para desfazer check-in
     if (currentUser) {
       const hasAccess = await this.hierarchyService.hasAccessToAssignment(currentUser.id, id);
       if (!hasAccess) {
-        throw new ForbiddenException('VocÃª nÃ£o tem permissÃ£o para desfazer check-in nesta escala');
+        throw new ForbiddenException('Você não tem permissão para desfazer check-in nesta escala');
       }
     }
 
     if (!assignment.checkedIn) {
-      throw new BadRequestException('Check-in nÃ£o foi realizado');
+      throw new BadRequestException('Check-in não foi realizado');
     }
 
     return this.prisma.scheduleAssignment.update({
@@ -2256,12 +2259,12 @@ export class SchedulesService {
     });
   }
 
-  // ========== MEMBROS ELEGÃVEIS ==========
+  // ========== MEMBROS ELEGÍVEIS ==========
 
   /**
-   * Busca membros elegÃ­veis para uma escala baseado nas pastorais vinculadas ao evento
+   * Busca membros elegíveis para uma escala baseado nas pastorais vinculadas ao evento
    * Se o evento tiver pastorais vinculadas, retorna apenas membros dessas pastorais
-   * Se nÃ£o tiver pastorais vinculadas, retorna todos os membros da comunidade do evento
+   * Se não tiver pastorais vinculadas, retorna todos os membros da comunidade do evento
    */
   async findEligibleMembers(eventId: string, currentUser?: CurrentUser) {
     // Lista de contatos (e-mail/telefone/cônjuge) para montar a escala: só a
@@ -2325,7 +2328,7 @@ export class SchedulesService {
     });
 
     if (!event) {
-      throw new NotFoundException(`Evento com ID ${eventId} nÃ£o encontrado`);
+      throw new NotFoundException(`Evento com ID ${eventId} não encontrado`);
     }
 
     // Se o evento tem pastorais vinculadas, retornar membros dessas pastorais
@@ -2380,7 +2383,7 @@ export class SchedulesService {
       };
     }
 
-    // Se nÃ£o tem pastorais vinculadas, retornar todos os membros ativos da comunidade
+    // Se não tem pastorais vinculadas, retornar todos os membros ativos da comunidade
     const members = await this.prisma.member.findMany({
       where: {
         communityId: event.communityId,
@@ -3457,11 +3460,11 @@ export class SchedulesService {
   // ========== MINHAS ESCALAS ==========
 
   /**
-   * Busca as escalas do usuÃ¡rio logado
+   * Busca as escalas do usuário logado
    * Retorna apenas escalas futuras ou do dia atual
    */
   async findMyAssignments(userId: string, currentUser?: Pick<CurrentUser, 'role'>) {
-    // Buscar o membro vinculado ao usuÃ¡rio
+    // Buscar o membro vinculado ao usuário
     const member = await this.prisma.member.findFirst({
       where: { userId },
     });
@@ -3470,7 +3473,7 @@ export class SchedulesService {
       return {
         upcoming: [],
         past: [],
-        message: 'UsuÃ¡rio nÃ£o possui cadastro de membro',
+        message: 'Usuário não possui cadastro de membro',
       };
     }
 
@@ -3530,7 +3533,7 @@ export class SchedulesService {
     const planUser = currentUser ?? { role: UserRole.FAITHFUL };
     const upcomingAssignments = await planFilter(this.planAccess, planUser, allUpcoming, (a) => scheduleCommunityId(a.schedule));
 
-    // Buscar escalas passadas (Ãºltimos 30 dias)
+    // Buscar escalas passadas (últimos 30 dias)
     const thirtyDaysAgo = new Date();
     thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
 
@@ -3772,7 +3775,7 @@ export class SchedulesService {
   }
 
   /**
-   * Confirma participaÃ§Ã£o em uma escala.
+   * Confirma participação em uma escala.
    * O próprio membro confirma, ou um coordenador confirma em nome dele
    * (auditado em respondedByUserId/respondedAt).
    */
@@ -3787,7 +3790,7 @@ export class SchedulesService {
     });
 
     if (!assignment) {
-      throw new NotFoundException('Escala nÃ£o encontrada');
+      throw new NotFoundException('Escala não encontrada');
     }
 
     const isOwner = !!assignment.member.userId && assignment.member.userId === currentUser.id;
@@ -3818,7 +3821,7 @@ export class SchedulesService {
   }
 
   /**
-   * Recusa participaÃ§Ã£o em uma escala.
+   * Recusa participação em uma escala.
    * O próprio membro recusa, ou um coordenador recusa em nome dele
    * (auditado em respondedByUserId/respondedAt).
    */
@@ -3839,7 +3842,7 @@ export class SchedulesService {
     });
 
     if (!assignment) {
-      throw new NotFoundException('Escala nÃ£o encontrada');
+      throw new NotFoundException('Escala não encontrada');
     }
 
     const isOwner = !!assignment.member.userId && assignment.member.userId === currentUser.id;
@@ -3886,7 +3889,12 @@ export class SchedulesService {
         NotificationType.ASSIGNMENT_DECLINED,
         'Recusa em escala',
         `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule)}). Funcao: ${updatedAssignment.role}.`,
-        { scheduleId: updatedAssignment.scheduleId, assignmentId: updatedAssignment.id },
+        {
+          type: NotificationType.ASSIGNMENT_DECLINED,
+          kind: 'assignment-declined',
+          scheduleId: updatedAssignment.scheduleId,
+          assignmentId: updatedAssignment.id,
+        },
       );
     }
 
@@ -3936,7 +3944,12 @@ export class SchedulesService {
             NotificationType.ASSIGNMENT_DECLINED,
             'Escala recusada em casal',
             `${assignment.member.fullName} recusou a escala "${updatedAssignment.schedule.title}" (${this.formatDateLabel(updatedAssignment.schedule)}) por vocês dois.`,
-            { scheduleId: updatedAssignment.scheduleId, assignmentId: spouseAssignment.id },
+            {
+              type: NotificationType.ASSIGNMENT_DECLINED,
+              kind: 'couple-declined',
+              scheduleId: updatedAssignment.scheduleId,
+              assignmentId: spouseAssignment.id,
+            },
           );
         }
         if (coordinatorUserIds.length > 0) {
@@ -3945,7 +3958,12 @@ export class SchedulesService {
             NotificationType.ASSIGNMENT_DECLINED,
             'Recusa em casal',
             `${spouseAssignment.member.fullName} também recusou "${updatedAssignment.schedule.title}" (casal com ${assignment.member.fullName}) — o par precisa de substituição.`,
-            { scheduleId: updatedAssignment.scheduleId, assignmentId: spouseAssignment.id },
+            {
+              type: NotificationType.ASSIGNMENT_DECLINED,
+              kind: 'assignment-declined',
+              scheduleId: updatedAssignment.scheduleId,
+              assignmentId: spouseAssignment.id,
+            },
           );
         }
       }
@@ -3954,7 +3972,7 @@ export class SchedulesService {
     return { ...updatedAssignment, coupleDeclined };
   }
 
-  // ========== RELATÃ“RIOS ==========
+  // ========== RELATÓRIOS ==========
 
   async getCoordinatorOverview(currentUser?: CurrentUser, from?: string, to?: string) {
     const hierarchyFilter = currentUser ? this.hierarchyService.applyScheduleFilter(currentUser) : noAccessWhere();
@@ -4325,7 +4343,7 @@ export class SchedulesService {
       NotificationType.SCHEDULE_CANCELLED,
       'Escala cancelada',
       `A escala "${title}" em ${this.formatDateLabel(schedule)} foi cancelada.`,
-      { scheduleId },
+      { type: NotificationType.SCHEDULE_CANCELLED, kind: 'schedule-cancelled', scheduleId },
     );
   }
 
@@ -4358,7 +4376,7 @@ export class SchedulesService {
       NotificationType.TEAM_BROADCAST,
       `Aviso: ${schedule.title}`,
       message,
-      { scheduleId },
+      { type: NotificationType.TEAM_BROADCAST, kind: 'team-broadcast', scheduleId },
     );
 
     return { notified: userIds.length };

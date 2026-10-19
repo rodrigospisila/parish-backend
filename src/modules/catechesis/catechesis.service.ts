@@ -7,7 +7,15 @@ import {
   BadRequestException,
   ConflictException,
 } from '@nestjs/common';
-import { CatechesisRating, ConsentType, NotificationType, SacramentType, TransactionType, UserRole } from '@prisma/client';
+import {
+  CatechesisRating,
+  ConsentType,
+  NotificationType,
+  SacramentRecordKind,
+  SacramentType,
+  TransactionType,
+  UserRole,
+} from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
@@ -126,12 +134,16 @@ export class CatechesisService {
     );
   }
 
-  /** Filtro da pastoral da CATEQUESE (mesma regra de elegibilidade de catequista). */
+  /**
+   * Filtro da pastoral da CATEQUESE (mesma regra de elegibilidade de catequista):
+   * pelo flag `GlobalPastoral.isCatechesis` — o nome não serve ("Iniciação à
+   * Vida Cristã", "IVC" — eng-acessos-12).
+   */
   private static catechesisPastoralWhere(communityId?: string) {
     return {
       ...(communityId ? { communityId } : {}),
       deletedAt: null,
-      globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' as const } },
+      globalPastoral: { isCatechesis: true },
     };
   }
 
@@ -1454,7 +1466,7 @@ export class CatechesisService {
     const catechesisPastoral = {
       communityId: klass.communityId,
       deletedAt: null,
-      globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' as const } },
+      globalPastoral: { isCatechesis: true },
     };
     const links = await this.prisma.pastoralMember.findMany({
       where: {
@@ -1498,7 +1510,7 @@ export class CatechesisService {
             communityPastoral: {
               communityId,
               deletedAt: null,
-              globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+              globalPastoral: { isCatechesis: true },
             },
           },
           {
@@ -1507,7 +1519,7 @@ export class CatechesisService {
               communityPastoral: {
                 communityId,
                 deletedAt: null,
-                globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+                globalPastoral: { isCatechesis: true },
               },
             },
           },
@@ -3840,6 +3852,9 @@ export class CatechesisService {
               place: communityName,
               minister,
               notes: `Concluído na catequese: ${stage.name}`,
+              // Conclusão da etapa não é assento do livro: a secretaria lavra o
+              // assento (data real, ministro, livro/folha/termo) — cat-gestao-11
+              recordKind: SacramentRecordKind.INFORMED,
             },
           });
           sacramentId = sacrament.id;
@@ -5209,6 +5224,9 @@ export class CatechesisService {
                 date: new Date(),
                 place: document.denomination ? `Outra denominação: ${document.denomination}` : 'Outra denominação',
                 notes: `Batismo em outra denominação${document.denomination ? ` (${document.denomination})` : ''} — aceito pela coordenação da catequese (data do registro, não da celebração)`,
+                // Batismo não católico não é assento do livro católico: fica
+                // como informado, sem certidão — cat-gestao-11
+                recordKind: SacramentRecordKind.INFORMED,
               },
             });
           }
@@ -6056,7 +6074,7 @@ export class CatechesisService {
         communityPastoral: {
           communityId,
           deletedAt: null,
-          globalPastoral: { name: { contains: 'catequ', mode: 'insensitive' } },
+          globalPastoral: { isCatechesis: true },
         },
       },
       select: { member: { select: { userId: true, deletedAt: true } } },

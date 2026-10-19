@@ -1,10 +1,11 @@
 import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
-import { UserRole } from '@prisma/client';
+import { Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
 import { CurrentUser } from '../../common/hierarchy.service';
 import { CreateParishDto } from './dto/create-parish.dto';
 import { UpdateParishDto } from './dto/update-parish.dto';
+import { ListPage, ListPaging, foldedColumn, inIdOrder, likePattern } from '../communities/list-paging';
 
 /** Segredos do provedor de pagamento nunca saem pela API de paróquias (só o módulo do dízimo os usa). */
 const PARISH_SECRETS = { providerApiKeyEnc: true, providerWebhookToken: true } as const;
@@ -107,6 +108,60 @@ export class ParishesService {
         name: 'asc',
       },
     });
+  }
+
+  /**
+   * Lista de gestão PAGINADA (`?page=`; contrato 4): mesmo escopo do findAll,
+   * busca sem acento por nome/cidade e `?dioceseId=` opcional como filtro
+   * adicional (nunca amplia o escopo). `_count` só para os itens da página.
+   */
+  async findPage(
+    user: CurrentUser | undefined,
+    paging: ListPaging,
+    filters: { dioceseId?: string } = {},
+  ): Promise<ListPage<any>> {
+    const empty = { items: [], total: 0, page: paging.page, pageSize: paging.pageSize };
+    const scope = this.listScope(user);
+    if (!scope) return empty;
+
+    const conditions: Prisma.Sql[] = [Prisma.sql`TRUE`];
+    if (scope.id) conditions.push(Prisma.sql`p.id = ${scope.id}`);
+    if (scope.dioceseId) conditions.push(Prisma.sql`p."dioceseId" = ${scope.dioceseId}`);
+    if (filters.dioceseId) conditions.push(Prisma.sql`p."dioceseId" = ${filters.dioceseId}`);
+    if (paging.search) {
+      const like = likePattern(paging.search);
+      conditions.push(
+        Prisma.sql`(${foldedColumn(Prisma.sql`p.name`)} LIKE ${like} OR ${foldedColumn(Prisma.sql`p.city`)} LIKE ${like})`,
+      );
+    }
+    const where = Prisma.join(conditions, ' AND ');
+
+    const [countRows, idRows] = await Promise.all([
+      this.prisma.$queryRaw<{ total: number }[]>(Prisma.sql`SELECT COUNT(*)::int AS total FROM parishes p WHERE ${where}`),
+      this.prisma.$queryRaw<{ id: string }[]>(Prisma.sql`
+        SELECT p.id FROM parishes p
+        WHERE ${where}
+        ORDER BY p.name ASC, p.id ASC
+        LIMIT ${paging.pageSize} OFFSET ${paging.skip}
+      `),
+    ]);
+    const ids = idRows.map((row) => row.id);
+    const rows = ids.length
+      ? await this.prisma.parish.findMany({
+          where: { id: { in: ids } },
+          omit: PARISH_SECRETS,
+          include: {
+            diocese: { select: { id: true, name: true } },
+            _count: { select: { communities: true } },
+          },
+        })
+      : [];
+    return {
+      items: inIdOrder(ids, rows),
+      total: Number(countRows[0]?.total ?? 0),
+      page: paging.page,
+      pageSize: paging.pageSize,
+    };
   }
 
   /** Filtro da lista de gestão por papel; `null` = sem escopo (nada a listar). */

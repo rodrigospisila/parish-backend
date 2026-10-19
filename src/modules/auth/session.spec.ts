@@ -327,8 +327,20 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
   describe('cadastro público e celular (M7/A23)', () => {
     const created = { id: 'u9', email: 'nova@x.com', role: UserRole.FAITHFUL, dioceseId: 'd1', parishId: 'p1', communityId: 'c1', member: null };
 
+    /** Transação do cadastro: candidatos à adoção vêm do $queryRaw (comparação por dígitos). */
+    const makeTx = (candidates: Array<{ id: string; fullName: string; communityId: string }> = []) => ({
+      user: {
+        create: jest.fn().mockImplementation(({ data }: any) =>
+          Promise.resolve({ ...created, communityId: data.communityId ?? null, acceptedTermsAt: null, acceptedTermsVersion: null }),
+        ),
+      },
+      member: { findFirst: jest.fn(), update: jest.fn(), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
+      community: { findUnique: jest.fn().mockResolvedValue({ parishId: 'p1', parish: { dioceseId: 'd1' } }) },
+      $queryRaw: jest.fn().mockResolvedValue(candidates),
+    });
+
     it('#30/#35: sem consentGiven (app 1.0.0) cria a conta com o aceite PENDENTE — sem aceite gravado nem consentimento', async () => {
-      const tx = { user: { create: jest.fn().mockResolvedValue({ ...created, acceptedTermsAt: null, acceptedTermsVersion: null }) }, member: { findFirst: jest.fn(), update: jest.fn() }, $queryRaw: jest.fn() };
+      const tx = makeTx();
       prisma.$transaction.mockImplementation((fn: any) => fn(tx));
       members.ensureProfileForUser.mockResolvedValue({ id: 'm9' });
 
@@ -343,24 +355,22 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       expect(result.accessToken).toBeTruthy();
     });
 
-    it('ignora `phone` sem verifiedPhoneToken: nada de ocupar o número de outra pessoa', async () => {
-      const tx = { user: { create: jest.fn().mockResolvedValue(created) }, member: { findFirst: jest.fn(), update: jest.fn() }, $queryRaw: jest.fn() };
+    it('ignora `phone` sem verifiedPhoneToken: nada de ocupar o número de outra pessoa (nem adotar)', async () => {
+      const tx = makeTx([{ id: 'm-x', fullName: 'Responsável – Ana', communityId: 'c1' }]);
       prisma.$transaction.mockImplementation((fn: any) => fn(tx));
 
       await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', phone: '+5542999990000', communityId: 'c1' } as any);
 
       expect(tx.user.create.mock.calls[0][0].data.phone).toBeNull();
-      expect(tx.member.findFirst).not.toHaveBeenCalled();
+      expect(tx.$queryRaw).not.toHaveBeenCalled();
+      expect(tx.member.updateMany).not.toHaveBeenCalled();
       expect(members.ensureProfileForUser.mock.calls[0][1].phone).toBeNull();
+      expect(members.ensureProfileForUser.mock.calls[0][2]).toBeUndefined();
     });
 
     it('celular verificado adota o membro cadastrado com telefone FORMATADO (comparação por dígitos)', async () => {
       otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
-      const tx = {
-        user: { create: jest.fn().mockResolvedValue(created) },
-        member: { findFirst: jest.fn().mockResolvedValue(null), update: jest.fn() },
-        $queryRaw: jest.fn().mockResolvedValue([{ id: 'm-imbituva' }]),
-      };
+      const tx = makeTx([{ id: 'm-imbituva', fullName: 'Responsável – Ana', communityId: 'c1' }]);
       prisma.$transaction.mockImplementation((fn: any) => fn(tx));
 
       await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', communityId: 'c1', verifiedPhoneToken: 'tok' } as any);
@@ -368,12 +378,93 @@ describe('AuthService — sessão por aparelho e refresh token', () => {
       expect(tx.user.create.mock.calls[0][0].data.phone).toBe('+5542999998883');
       // dígitos com e sem o 55 entram como parâmetros da consulta
       const params = tx.$queryRaw.mock.calls[0].slice(1);
-      expect(params).toEqual(['5542999998883', '42999998883', 'c1']);
-      expect(tx.member.update).toHaveBeenCalledWith({
-        where: { id: 'm-imbituva' },
+      expect(params).toEqual(['5542999998883', '42999998883']);
+      // gravação condicional: só adota se o membro continua sem conta
+      expect(tx.member.updateMany).toHaveBeenCalledWith({
+        where: { id: 'm-imbituva', userId: null, deletedAt: null },
         data: { userId: 'u9', fullName: 'Nova', email: 'nova@x.com', phone: '+5542999998883' },
       });
       expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-imbituva');
+    });
+
+    it('ux-acesso-01: SEM communityId (app) e celular verificado → adota e a conta assume a comunidade do membro', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([{ id: 'm-resp', fullName: 'Responsável – Pedro', communityId: 'c-matriz' }]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+      members.ensureProfileForUser.mockResolvedValue({ id: 'm-resp' });
+
+      const result: any = await service.register({
+        email: 'nova@x.com',
+        password: 'SenhaForte@123',
+        name: 'Nova',
+        verifiedPhoneToken: 'tok',
+        consentGiven: true,
+      } as any);
+
+      const data = tx.user.create.mock.calls[0][0].data;
+      // comunidade de FÉ (papel segue FAITHFUL; paróquia/diocese são localização)
+      expect(data).toMatchObject({ role: UserRole.FAITHFUL, communityId: 'c-matriz', parishId: 'p1', dioceseId: 'd1' });
+      expect(tx.community.findUnique).toHaveBeenCalledWith(expect.objectContaining({ where: { id: 'c-matriz' } }));
+      expect(tx.member.updateMany).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { id: 'm-resp', userId: null, deletedAt: null } }),
+      );
+      expect(members.ensureProfileForUser.mock.calls[0][1].communityId).toBe('c-matriz');
+      expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
+      expect(result.user.communityId).toBe('c-matriz');
+      // o REGISTER guarda a prova do telefone verificado (a auditoria pseudonimiza `phone`)
+      expect(audit.log).toHaveBeenCalledWith(
+        expect.objectContaining({
+          action: 'REGISTER',
+          metadata: expect.objectContaining({ phoneVerified: true, phone: '+5542999998883' }),
+        }),
+      );
+    });
+
+    it('ux-acesso-01: vários candidatos sem um "Responsável –" único → não adota ninguém', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([
+        { id: 'm-a', fullName: 'Maria Souza', communityId: 'c1' },
+        { id: 'm-b', fullName: 'Maria S. Souza', communityId: 'c2' },
+      ]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+      const warn = jest.spyOn((service as any).logger, 'warn').mockImplementation(() => undefined);
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', verifiedPhoneToken: 'tok' } as any);
+
+      expect(tx.member.updateMany).not.toHaveBeenCalled();
+      // sem comunidade escolhida nem adotada: conta sem comunidade (o app pede depois)
+      expect(tx.user.create.mock.calls[0][0].data.communityId).toBeUndefined();
+      expect(members.ensureProfileForUser).not.toHaveBeenCalled();
+      // log só com a contagem — sem nome nem telefone
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('2 membros sem conta'));
+      expect(warn.mock.calls[0][0]).not.toMatch(/Maria|99999/);
+    });
+
+    it('ux-acesso-01: entre vários, o único "Responsável –" é adotado', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([
+        { id: 'm-cat', fullName: 'Joana Lima', communityId: 'c1' },
+        { id: 'm-resp', fullName: 'Responsável – Lucas', communityId: 'c1' },
+      ]);
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', verifiedPhoneToken: 'tok' } as any);
+
+      expect(tx.member.updateMany).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { id: 'm-resp', userId: null, deletedAt: null } }),
+      );
+      expect(members.ensureProfileForUser.mock.calls[0][2]).toBe('m-resp');
+    });
+
+    it('ux-acesso-01: outra conta adotou no meio do caminho (gravação condicional falha) → perfil novo', async () => {
+      otp.decodeVerifiedPhoneToken.mockReturnValue('+5542999998883');
+      const tx = makeTx([{ id: 'm-resp', fullName: 'Responsável – Lucas', communityId: 'c1' }]);
+      tx.member.updateMany.mockResolvedValue({ count: 0 });
+      prisma.$transaction.mockImplementation((fn: any) => fn(tx));
+
+      await service.register({ email: 'nova@x.com', password: 'SenhaForte@123', name: 'Nova', verifiedPhoneToken: 'tok' } as any);
+
+      expect(members.ensureProfileForUser.mock.calls[0][2]).toBeUndefined();
     });
   });
 });

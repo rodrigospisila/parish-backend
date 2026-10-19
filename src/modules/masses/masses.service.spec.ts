@@ -73,7 +73,7 @@ describe('MassesService — missas por perto', () => {
       // c3 (~11 km) fica de fora; c1 antes de c2
       expect(res.communities.map((c) => c.id)).toEqual(['c1', 'c2']);
       expect(res.count).toBe(2);
-      expect(res.communities[0].distanceKm).toBeLessThan(res.communities[1].distanceKm);
+      expect(res.communities[0].distanceKm!).toBeLessThan(res.communities[1].distanceKm!);
     });
 
     it('retorna vazio quando nada está no raio', async () => {

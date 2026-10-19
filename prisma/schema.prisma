@@ -166,6 +166,16 @@ enum MassScheduleType {
   CONFESSION
   ADORATION
   ROSARY
+  /// Celebração da Palavra (sem padre): o fiel não pode confundir com missa
+  WORD_CELEBRATION
+}
+
+/// RECORD = assento do livro paroquial (pode gerar certidão).
+/// INFORMED = sacramento informado ou registrado pela pastoral (ex.: conclusão da
+/// catequese, batismo em outra denominação) — não é assento e não gera certidão.
+enum SacramentRecordKind {
+  RECORD
+  INFORMED
 }
 
 /// Como o horário se repete. WEEKLY é o padrão histórico (toda semana no mesmo
@@ -377,14 +387,14 @@ model UserDevice {
 }
 
 model RefreshToken {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   /// SHA-256 (hex) do refresh token. Linhas de antes de 10/2026 guardam o JWT
   /// em claro — aceitas até expirarem (no máximo 7 dias)
-  token     String   @unique
+  token     String    @unique
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   expiresAt DateTime
-  createdAt DateTime @default(now())
+  createdAt DateTime  @default(now())
   /// Sessão (família de rotação) do aparelho; o access token carrega o mesmo id (`sid`)
   sessionId String?
   /// Quando foi trocado por um novo no /auth/refresh — reapresentar depois disso é reuso
@@ -587,6 +597,11 @@ model Community {
   // Fallback de notificação por SMS (custo controlado por comunidade)
   smsEnabled Boolean @default(false)
 
+  /// Coordenador leigo da comunidade (COMMUNITY_COORDINATOR) pode registrar e
+  /// retificar sacramentos e emitir certidão. Desligado = só a administração
+  /// paroquial (secretaria/pároco). Decisão de 19/10/2026: parametrizar por comunidade.
+  laySacramentRecords Boolean @default(false)
+
   // Relations
   parishId           String
   parish             Parish              @relation(fields: [parishId], references: [id], onDelete: Cascade)
@@ -788,13 +803,16 @@ model DataProposal {
 
 // Cadastro Global de Pastorais (criado por SYSTEM_ADMIN)
 model GlobalPastoral {
-  id          String       @id @default(cuid())
-  name        String       @unique // Ex: "Liturgia", "Catequese", "Jovens"
-  kind        PastoralKind @default(PASTORAL) // pastoral, movimento, ministério ou serviço
-  description String?
-  mission     String?
-  iconUrl     String?
-  colorHex    String? // Cor para identificação visual
+  id           String       @id @default(cuid())
+  name         String       @unique // Ex: "Liturgia", "Catequese", "Jovens"
+  kind         PastoralKind @default(PASTORAL) // pastoral, movimento, ministério ou serviço
+  /// Esta pastoral é a Catequese / Iniciação à Vida Cristã (coordenação da catequese).
+  /// Substitui a detecção pelo nome ("catequ").
+  isCatechesis Boolean      @default(false)
+  description  String?
+  mission      String?
+  iconUrl      String?
+  colorHex     String? // Cor para identificação visual
 
   // Metadata
   status EntityStatus @default(ACTIVE)
@@ -1192,6 +1210,12 @@ model Sacrament {
   book String? // livro
   page String? // folha
   term String? // termo
+
+  /// Assento (RECORD) ou apenas informado/registrado pela pastoral (INFORMED)
+  recordKind     SacramentRecordKind @default(RECORD)
+  /// Dados da pessoa no momento do registro (nome, nascimento, filiação), para o
+  /// assento sobreviver à anonimização LGPD do Member: { fullName, birthDate, fatherName, motherName, capturedAt }
+  personSnapshot Json?
 
   // Relations
   memberId String
@@ -2054,21 +2078,21 @@ model CatechesisEnrollment {
   memberId String
   member   Member          @relation(fields: [memberId], references: [id], onDelete: Cascade)
 
-  status           CatechesisEnrollmentStatus @default(ACTIVE)
-  pendingDocuments String?
-  rejectionReason  String? // motivo da recusa, visível à família no app
+  status                  CatechesisEnrollmentStatus @default(ACTIVE)
+  pendingDocuments        String?
+  rejectionReason         String? // motivo da recusa, visível à família no app
   // Catecumenato: catequizando (7+) ainda NÃO batizado — faz 1 ano de catequese
   // antes de receber o Batismo; não há certidão a cobrar. O painel calcula
   // "apto ao Batismo" e o aviso some quando o Batismo entra nos sacramentos.
-  unbaptized       Boolean                    @default(false)
+  unbaptized              Boolean                    @default(false)
   // Instante de ENTRADA NA FILA de espera (ordem justa): enrolledAt não serve —
   // reativar matrícula antiga furaria a fila com a data original
-  waitlistedAt     DateTime?
+  waitlistedAt            DateTime?
   // Uso de imagem (fotos/vídeos dos encontros e eventos): true = autorizado,
   // false = negado, null = não respondido (matrícula antiga ou feita no papel)
-  imageConsent     Boolean?
-  imageConsentAt   DateTime?
-  imageConsentByUserId String? // quem registrou a resposta (responsável no app ou equipe, termo em papel)
+  imageConsent            Boolean?
+  imageConsentAt          DateTime?
+  imageConsentByUserId    String? // quem registrou a resposta (responsável no app ou equipe, termo em papel)
   // Termo LGPD do responsável para o tratamento dos dados do catequizando
   // (art. 14 §1º): null = sem termo registrado. Canal APP (aceite do
   // responsável no app) ou PAPER (termo assinado, lançado pela equipe)
@@ -2077,8 +2101,8 @@ model CatechesisEnrollment {
   guardianConsentVersion  String? // versão da política vigente no aceite (APP)
   guardianConsentByUserId String? // quem registrou (responsável ou membro da equipe)
   guardianConsentMemberId String? // membro que consentiu (responsável ou o próprio adulto)
-  enrolledAt       DateTime                   @default(now())
-  completedAt      DateTime?
+  enrolledAt              DateTime                   @default(now())
+  completedAt             DateTime?
 
   attendances CatechesisAttendance[]
   assessments CatechesisAssessment[]
@@ -3334,4 +3358,26 @@ model CommunityPlanEvent {
 
   @@index([communityId, createdAt])
   @@map("community_plan_events")
+}
+
+/// Contagem diária do que os modos de enforcement bloqueariam (log) ou bloquearam (on).
+/// Serve para decidir com números quando ligar PLAN/TERMS/PASSWORD_CHANGE_ENFORCEMENT=on.
+model EnforcementHit {
+  id          String   @id @default(cuid())
+  day         DateTime @db.Date
+  /// PLAN_FEATURE | PLAN_MEMBER_LIMIT | TERMS | PASSWORD_CHANGE
+  kind        String
+  /// Feature do plano, rota ou "" quando não se aplica
+  feature     String   @default("")
+  /// "" quando não há comunidade
+  communityId String   @default("")
+  /// log | on
+  mode        String   @default("log")
+  count       Int      @default(0)
+  /// Usuários distintos não são guardados (LGPD); só a contagem
+  lastAt      DateTime @default(now())
+
+  @@unique([day, kind, feature, communityId, mode])
+  @@index([day])
+  @@map("enforcement_hits")
 }

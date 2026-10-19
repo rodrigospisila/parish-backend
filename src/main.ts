@@ -1,9 +1,14 @@
+// Primeiro de tudo: o Sentry (só com SENTRY_DSN) precisa subir antes do resto
+import { initSentry } from './common/filters/sentry';
+initSentry();
+
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app.module';
 import { validateEnv } from './config/validate-env';
 import { applyHttpSecurity, isSwaggerEnabled } from './config/http-security';
+import { REQUEST_ID_HEADER, requestIdMiddleware } from './common/request-id';
 
 async function bootstrap() {
   // Falha rápido se segredos/configuração de segurança estiverem ausentes
@@ -17,6 +22,9 @@ async function bootstrap() {
   app.getHttpAdapter().getInstance().set('trust proxy', Number(process.env.TRUST_PROXY_HOPS) || 2);
   // helmet (nosniff, HSTS, CSP, frame-ancestors) e sem X-Powered-By — ver config/http-security.ts
   applyHttpSecurity(app);
+  // Código de rastreio (X-Request-Id) em toda resposta; o filtro global de
+  // erros (AllExceptionsFilter, no AppModule) o repete no corpo do erro
+  app.use(requestIdMiddleware);
 
   // Global prefix (o /health fica fora do prefixo para o healthcheck do Railway)
   const apiPrefix = process.env.API_PREFIX || 'api/v1';
@@ -33,8 +41,9 @@ async function bootstrap() {
       ? corsOrigins
       : [/^http:\/\/localhost(:\d+)?$/, /^http:\/\/127\.0\.0\.1(:\d+)?$/],
     credentials: true,
-    // O painel lê o tempo de espera do 429 (sem isso o navegador esconde o cabeçalho)
-    exposedHeaders: ['Retry-After'],
+    // O painel lê o tempo de espera do 429 e o código de rastreio do erro
+    // (sem isso o navegador esconde os cabeçalhos)
+    exposedHeaders: ['Retry-After', REQUEST_ID_HEADER, 'X-Document-Kind', 'Content-Disposition'],
   });
 
   // Global validation pipe

@@ -4,6 +4,7 @@ import { PlanFeatureGuard } from './plan-feature.guard';
 import { MemberLimitGuard } from './member-limit.guard';
 import { PlatformPlansService } from './platform-plans.service';
 import { PlatformGrowthService } from './platform-growth.service';
+import { EnforcementReportService } from './enforcement-report.service';
 import { EntitlementsController, PlatformController } from './plans.controller';
 
 /**
@@ -14,7 +15,7 @@ import { EntitlementsController, PlatformController } from './plans.controller';
 @Global()
 @Module({
   controllers: [EntitlementsController, PlatformController],
-  providers: [PlanAccessService, PlanFeatureGuard, MemberLimitGuard, PlatformPlansService, PlatformGrowthService],
+  providers: [PlanAccessService, PlanFeatureGuard, MemberLimitGuard, PlatformPlansService, PlatformGrowthService, EnforcementReportService],
   // PlatformPlansService exportado para o job diário de vencimento (markOverduePlans)
   exports: [PlanAccessService, PlanFeatureGuard, MemberLimitGuard, PlatformPlansService],
 })

@@ -54,3 +54,7 @@ prisma/data/onda2-4/saida/
 # o backend usa só npm (package-lock.json); lockfile de outro gerenciador não entra (achado B37)
 pnpm-lock.yaml
 yarn.lock
+
+# Dumps de banco (dado pessoal — nunca versionar)
+*.dump
+*.dump.gpg
