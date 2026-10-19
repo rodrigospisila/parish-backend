@@ -73,6 +73,53 @@ describe('ParishesService — listas leves e por escopo', () => {
     expect(select.communities.where).toEqual({ deletedAt: null });
   });
 
+  it('S23: pedido de encerramento só para quem administra a paróquia (PARISH_ADMIN dela, diocese, plataforma)', async () => {
+    const requested = new Date('2026-10-01T12:00:00Z');
+    const effective = new Date('2026-10-31T12:00:00Z');
+    prisma.parish.findUnique.mockResolvedValue({
+      id: 'p1',
+      name: 'Santa Rita',
+      dioceseId: 'd1',
+      closureRequestedAt: requested,
+      closureEffectiveAt: effective,
+    });
+    const shows = [
+      user(UserRole.PARISH_ADMIN, { parishId: 'p1', dioceseId: 'd1' }),
+      user(UserRole.DIOCESAN_ADMIN, { dioceseId: 'd1' }),
+      user(UserRole.SYSTEM_ADMIN),
+    ];
+    for (const who of shows) {
+      await expect(service.findOne('p1', who)).resolves.toMatchObject({
+        closureRequestedAt: requested,
+        closureEffectiveAt: effective,
+      });
+    }
+    const hides = [
+      user(UserRole.PARISH_ADMIN, { parishId: 'p9', dioceseId: 'd1' }),
+      user(UserRole.DIOCESAN_ADMIN, { dioceseId: 'd9' }),
+      user(UserRole.DIOCESAN_ADMIN, { dioceseId: null }),
+      user(UserRole.COMMUNITY_COORDINATOR, { parishId: 'p1', dioceseId: 'd1' }),
+      user(UserRole.FAITHFUL, { parishId: 'p1' }),
+      undefined,
+    ];
+    for (const who of hides) {
+      const out: any = await service.findOne('p1', who);
+      expect(out).not.toHaveProperty('closureRequestedAt');
+      expect(out).not.toHaveProperty('closureEffectiveAt');
+      expect(out.name).toBe('Santa Rita');
+    }
+    const { select } = prisma.parish.findUnique.mock.calls[0][0];
+    expect(select).toMatchObject({ closureRequestedAt: true, closureEffectiveAt: true });
+    expect(select).not.toHaveProperty('closureRequestedByUserId');
+
+    // O controller repassa o usuário da sessão
+    const controller = new ParishesController(service);
+    const spy = jest.spyOn(service, 'findOne');
+    const admin = user(UserRole.PARISH_ADMIN, { parishId: 'p1' });
+    await controller.findOne('p1', admin);
+    expect(spy).toHaveBeenCalledWith('p1', admin);
+  });
+
   it('controller: com ?dioceseId= responde a cascata; sem, a lista de gestão', async () => {
     const controller = new ParishesController(service);
     const cascade = jest.spyOn(service, 'listByDiocese');

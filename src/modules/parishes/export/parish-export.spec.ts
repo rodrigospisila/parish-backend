@@ -2,7 +2,7 @@ import { PassThrough } from 'stream';
 import * as zlib from 'zlib';
 import { ZipStreamWriter, crc32 } from './zip-stream';
 import { writeParishExport } from './parish-export';
-import { civilDate, csvCell } from './csv';
+import { civilDate, csvCell, csvLine, idText } from './csv';
 
 /** Leitor mínimo de ZIP (diretório central) para conferir o que o escritor gerou. */
 function readZip(zip: Buffer): Map<string, Buffer> {
@@ -80,14 +80,43 @@ describe('CSV', () => {
     expect(civilDate(new Date(Date.UTC(1900, 4, 12)))).toBe('12/05');
     expect(civilDate(new Date(Date.UTC(1980, 4, 12)))).toBe('12/05/1980');
   });
+
+  it('S21: identificador só de dígitos sai como ="0123" (zeros preservados no Excel); o resto segue o normal', () => {
+    expect(csvCell(idText('01234567890'))).toBe('"=""01234567890"""');
+    expect(csvCell(idText('01310100'))).toBe('"=""01310100"""');
+    expect(csvCell(idText('0153'))).toBe('"=""0153"""');
+    // E.164: sem o apóstrofo da proteção de fórmula, com o + preservado
+    expect(csvCell(idText('+5542999990000'))).toBe('"=""+5542999990000"""');
+    expect(csvLine([idText('007'), 'x'])).toBe('"=""007""";"x"\r\n');
+    // Qualquer coisa que não seja só dígitos NÃO vira fórmula (sem brecha de injeção)
+    expect(csvCell(idText('0123") & HYPERLINK("http://x'))).toBe('"0123"") & HYPERLINK(""http://x"');
+    expect(csvCell(idText('=1+1'))).toBe(`"'=1+1"`);
+    expect(csvCell(idText('-0123'))).toBe(`"'-0123"`);
+    expect(csvCell(idText('A-12'))).toBe('"A-12"');
+    expect(csvCell(idText('(42) 99999-0000'))).toBe('"(42) 99999-0000"');
+    expect(csvCell(idText(null))).toBe('""');
+    expect(csvCell(idText(''))).toBe('""');
+  });
 });
 
 describe('writeParishExport', () => {
   const page = (rows: any[]) => jest.fn().mockResolvedValueOnce(rows).mockResolvedValue([]);
   let prisma: any;
+  let anchorsServed: Set<string>;
 
   beforeEach(() => {
+    anchorsServed = new Set();
     prisma = {
+      // Âncoras SQL (S17): sacramentos/dizimistas/contribuições pela paróquia do registro
+      $queryRaw: jest.fn(async (sql: any) =>
+        sql.sql.includes('FROM sacraments') && !anchorsServed.has('s')
+          ? (anchorsServed.add('s'), [{ id: 's1', communityId: 'c1' }])
+          : sql.sql.includes('SELECT tc.id') && !anchorsServed.has('tc')
+            ? (anchorsServed.add('tc'), [{ id: 'tc1', communityId: 'c1' }])
+            : sql.sql.includes('SELECT t.id') && !anchorsServed.has('t')
+              ? (anchorsServed.add('t'), [{ id: 't1', communityId: 'c-outra' }])
+              : [],
+      ),
       community: {
         findMany: jest.fn().mockResolvedValue([
           { id: 'c1', name: 'Matriz São José', address: 'Rua A', city: 'Imbituva', state: 'PR', zipCode: '84430000',
@@ -119,8 +148,19 @@ describe('writeParishExport', () => {
       schedule: { findMany: page([]) },
       catechesisClass: { findMany: page([]) },
       catechesisEnrollment: { findMany: page([]) },
-      tither: { findMany: page([]) },
-      titheContribution: { findMany: page([]) },
+      tither: {
+        findMany: page([
+          { id: 't1', registrationNumber: '0153', status: 'ACTIVE', joinedAt: new Date('2020-01-01T12:00:00Z'),
+            memberId: 'm7', member: { fullName: 'José Mudou', communityId: 'c-outra' } },
+        ]),
+      },
+      titheContribution: {
+        findMany: page([
+          { id: 'tc1', amount: 50, date: new Date('2026-03-10T12:00:00Z'), referenceMonth: '2026-03', method: 'PIX',
+            receiptNumber: '000123',
+            tither: { registrationNumber: '0153', memberId: 'm7', member: { fullName: 'José Mudou', communityId: 'c-outra' } } },
+        ]),
+      },
       financialTransaction: {
         findMany: page([
           { id: 'f1', date: new Date('2026-10-01T15:00:00Z'), type: 'INCOME', category: 'Dízimo', costCenter: null,
@@ -152,7 +192,7 @@ describe('writeParishExport', () => {
     ]);
     const membros = files.get('membros.csv')!.toString('utf8');
     expect(membros.startsWith('﻿"ID";"Nome completo";"Nascimento"')).toBe(true);
-    expect(membros).toContain('"m1";"Maria Souza";"12/05";"52998224725"');
+    expect(membros).toContain('"m1";"Maria Souza";"12/05";"=""52998224725"""');
     expect(membros).toContain(`"'=cmd"`);
     expect(membros).toContain('"Matriz São José"');
     // Assento de cadastro anonimizado: a pessoa vem do snapshot do livro
@@ -169,10 +209,55 @@ describe('writeParishExport', () => {
     // Escopo: tudo filtrado pelas comunidades DA paróquia (ou parishId no financeiro)
     expect(prisma.community.findMany.mock.calls[0][0].where).toEqual({ parishId: 'p1' });
     expect(prisma.member.findMany.mock.calls[0][0].where.AND[0]).toEqual({ communityId: { in: ['c1'] }, deletedAt: null });
-    expect(prisma.sacrament.findMany.mock.calls[0][0].where.AND[0]).toEqual({ member: { communityId: { in: ['c1'] } } });
+    // S17: livros e dízimo ancorados pelo SQL, não pela comunidade principal atual
+    expect(prisma.sacrament.findMany.mock.calls[0][0].where).toEqual({ id: { in: ['s1'] } });
+    expect(prisma.tither.findMany.mock.calls[0][0].where).toEqual({ id: { in: ['t1'] } });
+    expect(prisma.titheContribution.findMany.mock.calls[0][0].where).toEqual({ id: { in: ['tc1'] } });
     expect(prisma.financialTransaction.findMany.mock.calls[0][0].where.AND[0]).toEqual({
       OR: [{ parishId: 'p1' }, { communityId: { in: ['c1'] } }],
     });
     expect(prisma.schedule.findMany.mock.calls[0][0].where.AND[0].date.gte).toEqual(new Date('2026-10-19T03:00:00Z'));
+
+    // S21: CPF/telefone/CEP/nº/recibo com zeros preservados
+    expect(membros).toContain('"=""52998224725""";""');
+    expect(membros).toContain('"=""+5542999990000"""');
+    expect(files.get('comunidades.csv')!.toString('utf8')).toContain('"=""84430000"""');
+    const dizimistas = files.get('dizimistas.csv')!.toString('utf8');
+    // Dizimista que hoje está em outra paróquia continua nos livros daqui (contribuiu aqui)
+    expect(dizimistas).toContain('"t1";"=""0153""";"José Mudou";"m7";"(hoje em outra paróquia)"');
+    const contribuicoes = files.get('dizimo-contribuicoes.csv')!.toString('utf8');
+    expect(contribuicoes).toContain('"tc1";"=""0153""";"José Mudou";"m7";"Matriz São José";"2026-03"');
+    expect(contribuicoes).toContain('"=""000123"""');
+    expect(readme).toContain('="0123"');
+    expect(readme).toContain('paróquia em que foram REGISTRADOS');
+  });
+
+  it('S17: as âncoras SQL usam a paróquia do registro (processo/vínculo de origem e lançamento financeiro)', async () => {
+    await collect((out) =>
+      writeParishExport(
+        prisma,
+        { parish: { id: 'p1', name: 'P', city: 'C', state: 'PR', cnpj: null }, generatedBy: 'X', now: new Date('2026-10-19T15:00:00Z') },
+        out,
+      ),
+    );
+    const calls = prisma.$queryRaw.mock.calls.map(([q]: any) => q);
+    const sac = calls.find((q: any) => q.sql.includes('FROM sacraments'));
+    // Origem: processo de preparação → principal atual se já estava nela no registro → vínculo vigente na data
+    expect(sac.sql).toContain('sacrament_processes sp');
+    expect(sac.sql).toContain('cur."joinedAt" <= s."createdAt"');
+    expect(sac.sql).toContain('mc."joinedAt" <= s."createdAt"');
+    expect(sac.sql).toContain('a.origin = ANY(');
+    expect(sac.values).toEqual(expect.arrayContaining([['c1'], 500]));
+
+    const contrib = calls.find((q: any) => q.sql.includes('SELECT tc.id'));
+    expect(contrib.sql).toContain('LEFT JOIN financial_transactions ft ON ft.id = tc."financialTransactionId"');
+    expect(contrib.sql).toContain('ft."parishId" = ');
+    expect(contrib.values).toEqual(expect.arrayContaining(['p1', ['c1']]));
+    // Sem lançamento (legado): segue a comunidade do membro
+    expect(contrib.sql).toContain('ft.id IS NULL AND m."communityId" = ANY(');
+
+    const tith = calls.find((q: any) => q.sql.includes('SELECT t.id'));
+    expect(tith.sql).toContain('NOT EXISTS');
+    expect(tith.values).toEqual(expect.arrayContaining(['p1', ['c1']]));
   });
 });

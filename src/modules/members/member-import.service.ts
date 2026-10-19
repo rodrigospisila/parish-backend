@@ -150,7 +150,10 @@ export class MemberImportService {
     this.markRepeatedInFile(parsed);
 
     const candidates = await this.findCandidates(parsed, community.parishId, currentUser);
-    const foreignCpfs = await this.cpfsOutsideScope(parsed, candidates);
+    // S16: a prévia nunca consulta CPF fora do escopo (seria um oráculo de
+    // "esta pessoa está no Parish"); só a gravação confere — o índice é único
+    // nacional — e fica auditada com a contagem.
+    const foreignCpfs = dryRun ? new Set<string>() : await this.cpfsOutsideScope(parsed, candidates);
     const manageable = await this.manageableCommunityIds(currentUser);
     const usedRegistrations = kind === 'TITHERS' ? await this.registrationsInUse(parsed, community.parishId) : new Map();
 
@@ -182,12 +185,35 @@ export class MemberImportService {
       failed: results.filter((r) => r.status === 'ERROR').length,
     };
 
-    if (!dryRun) {
+    const cpfRows = parsed.filter((row) => !!row.data?.cpf).length;
+    if (dryRun) {
+      // Prévia também deixa rastro (S16): só contagens, nenhum dado das linhas
+      await this.audit.log({
+        actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+        action: 'READ_SENSITIVE',
+        entity: 'Member',
+        metadata: {
+          bulkImportPreview: true,
+          kind,
+          communityId: community.id,
+          rows: results.length,
+          cpfRows,
+          duplicates: results.filter((r) => r.duplicate).length,
+        },
+      });
+    } else {
       await this.audit.log({
         actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
         action: 'CREATE',
         entity: 'Member',
-        metadata: { bulkImport: true, kind, communityId: community.id, ...summary },
+        metadata: {
+          bulkImport: true,
+          kind,
+          communityId: community.id,
+          ...summary,
+          cpfRows,
+          cpfOutOfScope: parsed.filter((row) => !!row.data?.cpf && foreignCpfs.has(row.data.cpf)).length,
+        },
       });
       if (memberLimit?.exceeds && !memberLimit.enforced) {
         this.logger.warn(
@@ -280,6 +306,7 @@ export class MemberImportService {
    * CPF que já existe no país FORA dos candidatos (outra paróquia, fora do
    * escopo, cadastro excluído): o índice é único nacional e o create falharia.
    * A linha recebe a mesma mensagem genérica do cadastro (não revela onde).
+   * Só na GRAVAÇÃO (auditada) — nunca na prévia (S16).
    */
   private async cpfsOutsideScope(parsed: ParsedImportRow[], candidates: Candidate[]): Promise<Set<string>> {
     const cpfs = [...new Set(parsed.map((r) => r.data?.cpf).filter((v): v is string => !!v))];

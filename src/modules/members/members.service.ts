@@ -976,6 +976,11 @@ export class MembersService {
    * telefone (só dígitos) e CPF; `communityId`/`status` como filtros
    * ADICIONAIS. Cada item ganha `access`: ACTIVE (tem conta), INVITED (convite
    * pendente — não aceito, não revogado, não vencido) ou NONE — em lote.
+   *
+   * Com `search` (S20): busca, contagem e paginação no MESMO recorte SQL
+   * (escopo + filtros + termo), com ORDER BY estável (nome, id) e COUNT
+   * separado — sem teto de ids nem total limitado. Os ids da página passam de
+   * novo pelo filtro do Prisma (palavra final do escopo).
    */
   async findPage(
     currentUser: CurrentUser,
@@ -996,31 +1001,33 @@ export class MembersService {
       and.push({ OR: [{ communityId }, { communityLinks: { some: { communityId, isActive: true } } }] });
     }
     if (filters.status) and.push({ status: filters.status });
+    let searchTotal: number | null = null;
     if (paging.search) {
-      const ids = await this.searchMemberIds(actor, paging.search);
-      if (!ids.length) return empty;
-      and.push({ id: { in: ids } });
+      const found = await this.searchMemberPage(actor, paging, filters);
+      if (!found.ids.length) return { ...empty, total: found.total };
+      searchTotal = found.total;
+      and.push({ id: { in: found.ids } });
     }
     const where: Prisma.MemberWhereInput = { AND: and };
     const orderBy: Prisma.MemberOrderByWithRelationInput[] = [{ fullName: 'asc' }, { id: 'asc' }];
     const manager = this.isMemberManager(currentUser);
+    // Na busca os ids JÁ são a página (o SQL fez skip/take na mesma ordem)
+    const window = { skip: searchTotal === null ? paging.skip : 0, take: paging.pageSize };
 
     const [total, rows] = await Promise.all([
-      this.prisma.member.count({ where }),
+      searchTotal === null ? this.prisma.member.count({ where }) : Promise.resolve(searchTotal),
       manager
         ? this.prisma.member.findMany({
             where,
             include: this.managerListInclude,
             orderBy,
-            skip: paging.skip,
-            take: paging.pageSize,
+            ...window,
           })
         : this.prisma.member.findMany({
             where,
             select: { ...this.basicMemberSelect, userId: true },
             orderBy,
-            skip: paging.skip,
-            take: paging.pageSize,
+            ...window,
           }),
     ]);
 
@@ -1033,32 +1040,64 @@ export class MembersService {
     return { items, total, page: paging.page, pageSize: paging.pageSize };
   }
 
-  /** Máximo de ids que a busca textual devolve (busca que acha mais que isso é vaga demais). */
-  static readonly SEARCH_ID_LIMIT = 5000;
+  /**
+   * Página da busca textual (S20): total pelo COUNT do mesmo recorte e os ids
+   * da página em ORDER BY "fullName", id (a mesma ordem do findMany) com
+   * LIMIT/OFFSET — estável entre páginas e sem corte silencioso.
+   */
+  private async searchMemberPage(
+    user: CurrentUser,
+    paging: ListPaging,
+    filters: { communityId?: string; status?: MemberStatus },
+  ): Promise<{ ids: string[]; total: number }> {
+    const conditions = await this.searchConditions(user, paging.search);
+    if (!conditions) return { ids: [], total: 0 };
+    if (filters.communityId) {
+      const communityId = filters.communityId;
+      conditions.push(Prisma.sql`(m."communityId" = ${communityId} OR EXISTS (
+        SELECT 1 FROM member_communities mc
+        WHERE mc."memberId" = m.id AND mc."isActive" = true AND mc."communityId" = ${communityId}))`);
+    }
+    if (filters.status) conditions.push(Prisma.sql`m.status::text = ${filters.status}`);
+    const where = Prisma.join(conditions, ' AND ');
+
+    const [counted, rows] = await Promise.all([
+      this.prisma.$queryRaw<{ total: number }[]>(Prisma.sql`
+        SELECT COUNT(*)::int AS total FROM members m WHERE ${where}
+      `),
+      this.prisma.$queryRaw<{ id: string }[]>(Prisma.sql`
+        SELECT m.id FROM members m
+        WHERE ${where}
+        ORDER BY m."fullName" ASC, m.id ASC
+        LIMIT ${paging.pageSize} OFFSET ${paging.skip}
+      `),
+    ]);
+    return { ids: rows.map((row) => row.id), total: Number(counted[0]?.total ?? 0) };
+  }
 
   /**
-   * Ids que casam com a busca (nome sem acento; telefone/CPF por dígitos)
-   * DENTRO do escopo do papel — o mesmo recorte do applyMemberFilter, que
-   * ainda é reaplicado pelo Prisma no chamador.
+   * Condições SQL da busca (nome sem acento; telefone/CPF por dígitos) DENTRO
+   * do escopo do papel — o mesmo recorte do applyMemberFilter, que ainda é
+   * reaplicado pelo Prisma no chamador. `null` = papel sem acesso.
    */
-  private async searchMemberIds(user: CurrentUser, folded: string): Promise<string[]> {
+  private async searchConditions(user: CurrentUser, folded: string): Promise<Prisma.Sql[] | null> {
     const conditions: Prisma.Sql[] = [Prisma.sql`m."deletedAt" IS NULL`];
     switch (user.role) {
       case UserRole.SYSTEM_ADMIN:
         break;
       case UserRole.DIOCESAN_ADMIN:
-        if (!user.dioceseId) return [];
+        if (!user.dioceseId) return null;
         conditions.push(Prisma.sql`m."communityId" IN (
           SELECT c.id FROM communities c JOIN parishes p ON p.id = c."parishId" WHERE p."dioceseId" = ${user.dioceseId})`);
         break;
       case UserRole.PARISH_ADMIN:
-        if (!user.parishId) return [];
+        if (!user.parishId) return null;
         conditions.push(Prisma.sql`m."communityId" IN (SELECT c.id FROM communities c WHERE c."parishId" = ${user.parishId})`);
         break;
       case UserRole.COMMUNITY_COORDINATOR:
       case UserRole.PASTORAL_COORDINATOR: {
         const ids = await this.hierarchyService.getCommunityScopeIds(user);
-        if (!ids.length) return [];
+        if (!ids.length) return null;
         conditions.push(Prisma.sql`(m."communityId" = ANY(${ids}::text[]) OR EXISTS (
           SELECT 1 FROM member_communities mc
           WHERE mc."memberId" = m.id AND mc."isActive" = true AND mc."communityId" = ANY(${ids}::text[])))`);
@@ -1067,12 +1106,12 @@ export class MembersService {
       case UserRole.VOLUNTEER:
       case UserRole.FAITHFUL: {
         const self = user.member?.id;
-        if (!self) return [];
+        if (!self) return null;
         conditions.push(Prisma.sql`(m.id = ${self} OR m."responsibleId" = ${self})`);
         break;
       }
       default:
-        return [];
+        return null;
     }
 
     const match: Prisma.Sql[] = [Prisma.sql`${foldedColumn(Prisma.sql`m."fullName"`)} LIKE ${likePattern(folded)}`];
@@ -1083,13 +1122,7 @@ export class MembersService {
       match.push(Prisma.sql`COALESCE(m.cpf, '') LIKE ${digitsLike}`);
     }
     conditions.push(Prisma.sql`(${Prisma.join(match, ' OR ')})`);
-
-    const rows = await this.prisma.$queryRaw<{ id: string }[]>(Prisma.sql`
-      SELECT m.id FROM members m
-      WHERE ${Prisma.join(conditions, ' AND ')}
-      LIMIT ${MembersService.SEARCH_ID_LIMIT}
-    `);
-    return rows.map((row) => row.id);
+    return conditions;
   }
 
   /** Acesso ao app de cada membro (sem N+1: uma consulta de convites para a página). */

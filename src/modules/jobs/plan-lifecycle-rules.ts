@@ -1,4 +1,4 @@
-import { CommunityPlanStatus } from '@prisma/client';
+import { CommunityPlanStatus, Prisma } from '@prisma/client';
 import { DEFAULT_GRACE_DAYS } from '../plans/plan-rules';
 import { brDate, ymdInBrazil } from '../billing/billing-rules';
 
@@ -44,8 +44,48 @@ export interface DueNotice {
   date: Date;
 }
 
-/** Já contratou (assinatura criada/em dia): os avisos de fim de teste não fazem sentido. */
-const CONTRACTED = new Set(['PENDING', 'ACTIVE']);
+/**
+ * Já contratou: os avisos de fim de teste ("contrate em...") não fazem sentido
+ * (S9). PENDING = assinatura criada e 1ª cobrança em aberto — inclusive boleto
+ * pago no vencimento e ainda compensando (1 a 3 dias úteis); PAST_DUE = a
+ * cobrança venceu (a própria cobrança do provedor avisa). ACTIVE = pago.
+ * NONE/CANCELED (ou sem conta) seguem recebendo a régua.
+ */
+export const CONTRACTED_BILLING_STATUSES: ReadonlySet<string> = new Set(['PENDING', 'ACTIVE', 'PAST_DUE']);
+
+/**
+ * Paróquia do piloto (Imbituva + Santa Rita, acesso total — S11). Critério
+ * explícito: a paróquia tem ALGUMA comunidade (excluída ou não) com
+ *  (a) plano ACTIVE sem `currentPeriodEnd` e nota de piloto (`notes` contém
+ *      "piloto", sem diferença de caixa — o script grava "Piloto — acesso
+ *      total (decisão de 19/10/2026)"), ou
+ *  (b) um evento de plano `PILOT_FULL_ACCESS` (prisma/platform/piloto-acesso-total.ts).
+ * Paróquia piloto nunca ganha teste automático nem recebe a régua, mesmo que
+ * passe a ter `managedAt` (convite de titular aceito, reivindicação aprovada).
+ */
+export const PILOT_EVENT_ACTION = 'PILOT_FULL_ACCESS';
+export const PILOT_NOTE_MARKER = 'piloto';
+
+export function pilotParishWhere(): Prisma.ParishWhereInput {
+  return {
+    communities: {
+      some: {
+        OR: [
+          {
+            communityPlan: {
+              is: {
+                status: CommunityPlanStatus.ACTIVE,
+                currentPeriodEnd: null,
+                notes: { contains: PILOT_NOTE_MARKER, mode: 'insensitive' },
+              },
+            },
+          },
+          { communityPlanEvents: { some: { action: PILOT_EVENT_ACTION } } },
+        ],
+      },
+    },
+  };
+}
 
 export function dueNotice(plan: LifecyclePlan, now: Date): DueNotice | null {
   const nowMs = now.getTime();
@@ -54,13 +94,13 @@ export function dueNotice(plan: LifecyclePlan, now: Date): DueNotice | null {
     const end = plan.trialEndsAt;
     const refKey = `${plan.communityId}:${ymdInBrazil(end)}`;
     const left = end.getTime() - nowMs;
+    // Quem já contratou (ou pagou e a compensação não chegou) não recebe "contrate"
+    if (plan.billingStatus && CONTRACTED_BILLING_STATUSES.has(plan.billingStatus)) return null;
     if (left > 0) {
-      if (plan.billingStatus && CONTRACTED.has(plan.billingStatus)) return null;
       const days = Math.ceil(left / DAY_MS);
       const kind: NoticeKind | null = days <= 1 ? 'TRIAL_D1' : days <= 3 ? 'TRIAL_D3' : days <= 7 ? 'TRIAL_D7' : null;
       return kind ? { kind, communityId: plan.communityId, refKey, date: end } : null;
     }
-    if (plan.billingStatus === 'ACTIVE') return null;
     if (-left < LATE_NOTICE_WINDOW_DAYS * DAY_MS) {
       return { kind: 'TRIAL_ENDED', communityId: plan.communityId, refKey, date: end };
     }

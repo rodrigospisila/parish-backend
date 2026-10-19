@@ -280,6 +280,57 @@ describe('NotificationsService', () => {
     });
   });
 
+  describe('skipFallback — fluxo que já manda o próprio e-mail (S2)', () => {
+    it('conta sem push: grava o aviso in-app e NÃO manda e-mail nem SMS', async () => {
+      emailService.configured = true;
+      messagingService.smsConfigured = true;
+      prisma.user.findUnique.mockResolvedValue({
+        pushToken: null,
+        phone: '41988887777',
+        email: 'padre@paroquia.org',
+        member: { phone: null, community: { smsEnabled: true } },
+      });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+
+      const result = await service.notifyUser('admin-1', NotificationType.URGENT_NOTICE, 'Plano', 'Corpo', undefined, {
+        skipFallback: true,
+      });
+
+      expect(result).toEqual({ id: 'notif-1' });
+      expect(prisma.notification.create).toHaveBeenCalled();
+      expect(emailService.trySend).not.toHaveBeenCalled();
+      expect(messagingService.trySendSms).not.toHaveBeenCalled();
+    });
+
+    it('sem a opção, a cadeia de e-mail continua como antes', async () => {
+      emailService.configured = true;
+      prisma.user.findUnique.mockResolvedValue({ pushToken: null, phone: null, email: 'padre@paroquia.org', member: null });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+
+      await service.notifyUser('admin-1', NotificationType.URGENT_NOTICE, 'Plano', 'Corpo');
+
+      expect(emailService.trySend).toHaveBeenCalledWith('padre@paroquia.org', 'Plano', 'Corpo');
+    });
+
+    it('com push: a outbox guarda o skipFallback para o worker não cair no e-mail', async () => {
+      prisma.user.findUnique.mockResolvedValue({ pushToken: 'ExponentPushToken[a]', member: null });
+      prisma.notification.create.mockResolvedValue({ id: 'notif-1' });
+
+      await service.notifyUser('admin-1', NotificationType.URGENT_NOTICE, 'Plano', 'Corpo', { k: 1 }, { skipFallback: true });
+
+      expect(prisma.notificationOutbox.create).toHaveBeenCalledWith(
+        expect.objectContaining({ data: expect.objectContaining({ data: { payload: { k: 1 }, bulk: false, skipFallback: true } }) }),
+      );
+    });
+
+    it('notifyUsers repassa o skipFallback a cada destinatário', async () => {
+      const spy = jest.spyOn(service, 'notifyUser').mockResolvedValue(null);
+      await service.notifyUsers(['a', 'b'], NotificationType.URGENT_NOTICE, 'T', 'B', undefined, { skipFallback: true });
+      expect(spy).toHaveBeenCalledWith('a', NotificationType.URGENT_NOTICE, 'T', 'B', undefined, { skipFallback: true });
+      expect(spy).toHaveBeenCalledWith('b', NotificationType.URGENT_NOTICE, 'T', 'B', undefined, { skipFallback: true });
+    });
+  });
+
   describe('deliverFallback (push falhou de vez no worker)', () => {
     it('segue e-mail → SMS e marca a notificação como entregue', async () => {
       messagingService.smsConfigured = true;

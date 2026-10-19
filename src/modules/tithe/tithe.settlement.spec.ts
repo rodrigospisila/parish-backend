@@ -319,6 +319,31 @@ describe('Dízimo — liquidação pelo provedor (webhook)', () => {
     expect(await ctx.tithe.reprocessFailedWebhooks(new Date())).toBe(1);
     expect(ctx.prisma.tables.titheIntent.find((i: Row) => i.id === 'i-novo').status).toBe('CONFIRMED');
   });
+
+  it('revisão S10: evento do faturamento da plataforma (ASAAS_PLATFORM) "em voo" não é reprocessado nem descartado aqui', async () => {
+    const ctx = setup({ intents: [] });
+    const old = new Date(Date.now() - 60 * 60 * 1000);
+    const platform = {
+      id: 'ev-plat',
+      provider: 'ASAAS_PLATFORM',
+      eventId: 'evt_plat_1',
+      parishId: 'p1', // paróquia pagadora (paymentProvider = ASAAS ≠ ASAAS_PLATFORM)
+      eventName: 'PAYMENT_RECEIVED',
+      payload: { id: 'evt_plat_1', event: 'PAYMENT_RECEIVED', payment: { id: 'pay_plat', status: 'RECEIVED' } },
+      receivedAt: old,
+      processedAt: null,
+      error: null,
+      attempts: 0,
+    };
+    // Também o que já esgotou as tentativas: o dízimo não marca processedAt em evento da plataforma
+    const exhausted = { ...platform, id: 'ev-plat-2', eventId: 'evt_plat_2', error: 'falhou', attempts: 99 };
+    ctx.prisma.tables.paymentWebhookEvent.push(platform, exhausted);
+    expect(await ctx.tithe.reprocessFailedWebhooks(new Date())).toBe(0);
+    expect(ctx.prisma.tables.paymentWebhookEvent.find((r: Row) => r.id === 'ev-plat')).toMatchObject({ processedAt: null, error: null });
+    expect(ctx.prisma.tables.paymentWebhookEvent.find((r: Row) => r.id === 'ev-plat-2')).toMatchObject({ processedAt: null });
+    expect(ctx.getCharge).not.toHaveBeenCalled();
+    expect(ctx.prisma.paymentWebhookEvent.findMany.mock.calls[0][0].where).toMatchObject({ provider: { not: 'ASAAS_PLATFORM' } });
+  });
 });
 
 describe('Dízimo — estorno total e parcial (B20)', () => {

@@ -210,6 +210,8 @@ export class ParishAccountService {
           title,
           body.slice(0, 500),
           { ...data, url: '/admin/parishes' },
+          // O e-mail sai logo abaixo (SUPPORT_EMAIL ou os admins): sem e-mail/SMS de reserva (S2)
+          { skipFallback: true },
         );
       }
       const inbox = String(this.config.get<string>('SUPPORT_EMAIL') ?? '').trim();

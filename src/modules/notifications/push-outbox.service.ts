@@ -4,7 +4,14 @@ import { PrismaService } from '../../database/prisma.service';
 import { purgeJobRuns, runExclusiveJob } from '../../common/scheduled-job-lock';
 import { DEFAULT_PARISH_TIME_ZONE } from '../../common/schedule-time';
 import { NotificationsService } from './notifications.service';
-import { EXPO_BATCH_LIMIT, EXPO_RECEIPTS_LIMIT, PushDispatcherService, PushMessage, PushTicket } from './push-dispatcher.service';
+import {
+  EXPO_BATCH_LIMIT,
+  EXPO_RECEIPTS_LIMIT,
+  PUSH_FOREIGN_PROJECT_ERROR,
+  PushDispatcherService,
+  PushMessage,
+  PushTicket,
+} from './push-dispatcher.service';
 import { readOutboxData } from './push-outbox.data';
 
 /** Linhas PENDING pegas por rodada do worker. */
@@ -30,6 +37,17 @@ const DAY_MS = 24 * 60 * 60 * 1000;
 
 /** Erros do ticket que valem nova tentativa (o resto é definitivo). */
 const RETRYABLE_TICKET_ERRORS = new Set(['MessageRateExceeded']);
+/** Recusas que provam que o token nunca vai funcionar aqui: o token sai da conta. */
+const DEAD_TOKEN_ERRORS = new Set(['DeviceNotRegistered', PUSH_FOREIGN_PROJECT_ERROR]);
+/** Formato de token do Expo; outro texto nem vai ao Expo (derrubaria o lote — S1). */
+export const EXPO_PUSH_TOKEN_PATTERN = /^Expo(nent)?PushToken\[[^\]]+\]$/;
+/** Token gravado fora do formato do Expo. */
+export const OUTBOX_INVALID_TOKEN_ERROR = 'TOKEN_INVALIDO';
+/**
+ * lastError da linha cujo envio estourou o tempo (S4): FAILED sem reenvio e
+ * sem fallback, com sentAt marcado — "saiu, entrega não confirmada".
+ */
+export const OUTBOX_UNCERTAIN_ERROR = 'INCERTO_TIMEOUT';
 
 /** Espera antes da próxima tentativa: 30 s, 1 min, 2 min, 4 min (teto 30 min). */
 export function outboxBackoffMs(attempts: number): number {
@@ -91,7 +109,16 @@ function chunk<T>(items: T[], size: number): T[][] {
  *     falha de rede/HTTP/MessageRateExceeded → PENDING com espera crescente
  *     (attempts; na 5ª, FAILED); recusa definitiva (DeviceNotRegistered etc.)
  *     → FAILED; DeviceNotRegistered também tira o token da conta. Falha
- *     definitiva segue a cadeia antiga (e-mail → SMS, sem SMS em aviso em massa);
+ *     definitiva segue a cadeia antiga (e-mail → SMS, sem SMS em aviso em massa),
+ *     salvo aviso gravado com `skipFallback` (o fluxo já mandou o e-mail, S2).
+ *     Recusa do pedido inteiro por UMA mensagem (token de outro projeto Expo,
+ *     S1) é isolada pelo dispatcher na mesma rodada: só a culpada falha;
+ *     token fora do formato do Expo nem é enviado (TOKEN_INVALIDO, sai da conta);
+ *  4b. TIMEOUT (S4): o Expo pode ter aceitado o lote e a API não tem chave de
+ *     idempotência nem consulta por mensagem — reenviar duplicaria o push. A
+ *     linha vira FAILED `INCERTO_TIMEOUT` com sentAt (saiu, sem confirmação),
+ *     sem reenvio e sem e-mail; a notificação in-app continua no histórico.
+ *     Falha de rede ao conectar e HTTP 5xx/429 seguem com nova tentativa;
  *  5. ~15 min depois do envio confere os recibos (getReceipts): erro vira
  *     FAILED com o motivo e DeviceNotRegistered limpa o User.pushToken — só se
  *     o aparelho não registrou token de novo depois do envio.
@@ -216,11 +243,18 @@ export class PushOutboxService {
 
     const sendable: Array<{ row: ClaimedRow; message: PushMessage }> = [];
     const finalFailures: FinalFailure[] = [];
+    const deadTokens: Array<{ userId: string; token: string }> = [];
     for (const row of rows) {
       const token = tokenOf.get(row.userId);
       if (!token) {
         // Saiu do app (logout) ou o token morreu depois de enfileirar: segue a cadeia
         finalFailures.push({ row, error: 'NO_TOKEN' });
+        continue;
+      }
+      if (!EXPO_PUSH_TOKEN_PATTERN.test(token)) {
+        // Texto que não é token do Expo: não vai no lote (derrubaria os vizinhos) e sai da conta
+        finalFailures.push({ row, error: OUTBOX_INVALID_TOKEN_ERROR });
+        deadTokens.push({ userId: row.userId, token });
         continue;
       }
       const { payload } = readOutboxData(row.data);
@@ -234,17 +268,20 @@ export class PushOutboxService {
 
     const sent: Array<{ row: ClaimedRow; ticketId: string | null }> = [];
     const retries: Array<{ row: ClaimedRow; error: string }> = [];
-    const deadTokens: Array<{ userId: string; token: string }> = [];
+    const uncertain: ClaimedRow[] = [];
     batches.forEach((batch, batchIndex) => {
       batch.forEach((item, index) => {
         const ticket: PushTicket = ticketsPerBatch[batchIndex][index] ?? { status: 'retry', error: 'SEM_TICKET' };
         if (ticket.status === 'ok') {
           sent.push({ row: item.row, ticketId: ticket.ticketId });
+        } else if (ticket.status === 'uncertain') {
+          // S4: pode ter chegado — não reenvia nem manda e-mail
+          uncertain.push(item.row);
         } else if (ticket.status === 'retry' || RETRYABLE_TICKET_ERRORS.has(ticket.error)) {
           if (item.row.attempts >= OUTBOX_MAX_ATTEMPTS) finalFailures.push({ row: item.row, error: ticket.error });
           else retries.push({ row: item.row, error: ticket.error });
         } else {
-          if (ticket.error === 'DeviceNotRegistered') deadTokens.push({ userId: item.row.userId, token: item.message.to });
+          if (DEAD_TOKEN_ERRORS.has(ticket.error)) deadTokens.push({ userId: item.row.userId, token: item.message.to });
           finalFailures.push({ row: item.row, error: ticket.error });
         }
       });
@@ -253,6 +290,7 @@ export class PushOutboxService {
     await this.recordSent(sent, now);
     await this.recordRetries(retries, now);
     await this.recordFailures(finalFailures);
+    await this.recordUncertain(uncertain, now);
 
     // Token morto (B44): sai da conta — só se ainda for o mesmo token
     for (const dead of deadTokens) {
@@ -265,12 +303,19 @@ export class PushOutboxService {
     }
 
     // Cadeia antiga depois do push que falhou de vez: e-mail → SMS (sem SMS em massa)
-    await mapWithConcurrency(finalFailures, OUTBOX_FALLBACK_CONCURRENCY, async ({ row }) => {
+    // Aviso com skipFallback (S2): o fluxo de origem já mandou o e-mail
+    const fallbacks = finalFailures.filter(({ row }) => !readOutboxData(row.data).skipFallback);
+    await mapWithConcurrency(fallbacks, OUTBOX_FALLBACK_CONCURRENCY, async ({ row }) => {
       const { bulk } = readOutboxData(row.data);
       await this.notificationsService.deliverFallback(row.userId, row.notificationId, row.title, row.body, { bulk });
     });
 
-    return { claimed: rows.length, sent: sent.length, retried: retries.length, failed: finalFailures.length };
+    return {
+      claimed: rows.length,
+      sent: sent.length,
+      retried: retries.length,
+      failed: finalFailures.length + uncertain.length,
+    };
   }
 
   private async recordSent(sent: Array<{ row: ClaimedRow; ticketId: string | null }>, now: Date) {
@@ -323,6 +368,19 @@ export class PushOutboxService {
         },
       });
     }
+  }
+
+  /**
+   * TIMEOUT (S4): o pedido saiu e a resposta se perdeu. FAILED com sentAt
+   * marcado e `INCERTO_TIMEOUT` — sem reenvio, sem recibo (o ticket vinha na
+   * resposta perdida) e sem fallback. A notificação continua no app.
+   */
+  private async recordUncertain(rows: ClaimedRow[], now: Date) {
+    if (rows.length === 0) return;
+    await this.prisma.notificationOutbox.updateMany({
+      where: { id: { in: rows.map((row) => row.id) }, status: 'SENDING' },
+      data: { status: 'FAILED', sentAt: now, lastError: OUTBOX_UNCERTAIN_ERROR, receiptCheckedAt: now },
+    });
   }
 
   private async recordFailures(failures: FinalFailure[]) {

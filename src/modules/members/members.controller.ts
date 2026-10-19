@@ -24,6 +24,14 @@ import { UserRole, MemberStatus } from '@prisma/client';
 import { EnforceMemberLimit } from '../plans/plan-gates';
 import { parsePaging } from '../communities/list-paging';
 import { MemberImportService } from './member-import.service';
+import { Throttle } from '@nestjs/throttler';
+import { UserThrottlerGuard } from '../auth/guards/app-throttler.guard';
+
+/** POST /members/import (S16): por USUÁRIO, 10/min e 60/h — folga para prévias e o envio, sem virar consulta em massa. */
+const IMPORT_THROTTLE = {
+  default: { limit: 10, ttl: 60_000 },
+  hourly: { limit: 60, ttl: 3_600_000 },
+};
 
 @Controller('members')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -189,6 +197,8 @@ export class MembersController {
   // Limite de membros da faixa: mesmo guard do POST /members (log: só avisa)
   // e, com PLAN_ENFORCEMENT=on, o service recusa o lote que passaria da faixa.
   @Post('import')
+  @UseGuards(UserThrottlerGuard)
+  @Throttle(IMPORT_THROTTLE)
   @EnforceMemberLimit()
   @Roles(
     UserRole.SYSTEM_ADMIN,

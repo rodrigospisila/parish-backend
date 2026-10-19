@@ -2,10 +2,35 @@
  * CSV para Excel brasileiro: UTF-8 com BOM, separador `;`, linhas CRLF,
  * células entre aspas e proteção contra fórmula (=, +, -, @ no início viram
  * texto com apóstrofo — mesma regra dos CSVs do dízimo/balancete).
+ * Identificadores numéricos (CPF, CEP, telefone, nº do dizimista, recibo) saem
+ * como `="0123"` para o Excel não apagar os zeros à esquerda (idText, S21).
  */
 export const CSV_BOM = '﻿';
 
+/** Marca de célula de identificador (ver idText). */
+const FORCED_TEXT = Symbol('csvForcedText');
+type ForcedText = { [FORCED_TEXT]: string };
+
+/**
+ * S21: o Excel ignora as aspas do CSV ao adivinhar o tipo e transforma CPF
+ * "01234567890", CEP "01310100" ou envelope "0153" em número, sem os zeros à
+ * esquerda. A célula marcada aqui sai como `="0123"` — o Excel mostra o TEXTO
+ * 0123. Só vale para valor feito de dígitos (com o `+` do E.164 opcional):
+ * sem aspas, letras, `&` ou parênteses, a "fórmula" é só uma constante de
+ * texto e não abre brecha de injeção. Qualquer outro valor segue o caminho
+ * normal (aspas + apóstrofo contra fórmula).
+ */
+export function idText(value: unknown): unknown {
+  if (value === null || value === undefined) return value;
+  const text = String(value).trim();
+  return /^\+?\d{1,40}$/.test(text) ? ({ [FORCED_TEXT]: text } as ForcedText) : value;
+}
+
 export function csvCell(value: unknown): string {
+  if (value && typeof value === 'object' && FORCED_TEXT in (value as object)) {
+    // Só dígitos (e o + do E.164), conferido em idText: nada a escapar
+    return `"=""${(value as ForcedText)[FORCED_TEXT]}"""`;
+  }
   let text = value === null || value === undefined ? '' : String(value);
   text = text.replace(/[\r\n]+/g, ' ');
   if (/^[=+\-@\t]/.test(text)) text = `'${text}`;

@@ -27,8 +27,10 @@ import {
 import {
   OPEN_PAYMENT_STATUSES,
   PricingPlan,
+  billingExternalRef,
   firstDueDate,
   isPilotPlan,
+  newCheckoutRef,
   nextPaymentStatus,
   priceSubscription,
 } from './billing-rules';
@@ -105,6 +107,12 @@ const COMMUNITY_PLAN_SELECT = {
   billingAccountId: true,
   tier: { select: { id: true, key: true, name: true, maxMembers: true, monthlyPriceCents: true, yearlyPriceCents: true } },
 } satisfies Prisma.CommunityPlanSelect;
+
+/**
+ * Quanto a trava do checkout pode durar: até 5 chamadas ao Asaas de no máximo
+ * 15 s cada (cliente, assinatura, NFS-e, cobranças) e as gravações locais.
+ */
+const CHECKOUT_LOCK_TIMEOUT_MS = 120_000;
 
 /** Assinatura que ainda cobra (nova contratação atualiza em vez de criar outra). */
 const LIVE_SUBSCRIPTION: BillingAccountStatus[] = [
@@ -392,7 +400,7 @@ export class BillingService {
       complement: account.complement,
       neighborhood: account.neighborhood,
       municipalRegistration: account.municipalRegistration,
-      externalRef: `billing:${account.id}`,
+      externalRef: billingExternalRef(account.id),
     };
   }
 
@@ -405,6 +413,28 @@ export class BillingService {
     await this.assertCanManage(user, parishId);
     const provider = this.platformProvider();
 
+    // Trava real por paróquia (revisão S7): advisory lock do Postgres preso a
+    // uma transação que dura o checkout inteiro, inclusive as chamadas ao
+    // Asaas. A conta é lida DEPOIS da trava, então a 2ª requisição nunca vê
+    // providerSubscriptionId vazio enquanto a 1ª cria a assinatura. As
+    // gravações usam this.prisma (autocommit, fora da transação da trava):
+    // se algo falhar no meio, o id da assinatura já criada no Asaas continua
+    // gravado e a próxima tentativa atualiza em vez de criar outra.
+    // pg_try_*: o segundo clique recebe 409 na hora, sem segurar conexão esperando.
+    return this.prisma.$transaction(
+      async (lock) => {
+        const rows = await lock.$queryRaw<Array<{ locked: boolean }>>`SELECT pg_try_advisory_xact_lock(hashtext(${'billing:' + parishId})) AS locked`;
+        if (!rows?.[0]?.locked) {
+          throw new ConflictException('Outra contratação desta paróquia está em andamento. Aguarde alguns segundos, recarregue a página e confira.');
+        }
+        return this.checkoutLocked(user, dto, parishId, provider, now);
+      },
+      { timeout: CHECKOUT_LOCK_TIMEOUT_MS, maxWait: 10_000 },
+    );
+  }
+
+  /** Corpo do checkout — só roda com a trava da paróquia (ver checkout). */
+  private async checkoutLocked(user: BillingUser, dto: CheckoutDto, parishId: string, provider: AsaasProvider, now: Date) {
     const account = await this.prisma.billingAccount.findUnique({ where: { parishId }, select: ACCOUNT_SELECT });
     if (!account) {
       throw new BadRequestException({
@@ -453,14 +483,10 @@ export class BillingService {
       pricing.lines.length > 1 ? 's' : ''
     }) — ${parish?.name ?? ''}`.trim();
 
-    // Trava otimista: dois cliques/abas não criam duas assinaturas
-    const claim = await this.prisma.billingAccount.updateMany({
-      where: { id: account.id, updatedAt: account.updatedAt },
-      data: { updatedAt: now },
-    });
-    if (claim.count === 0) {
-      throw new ConflictException('Outra contratação desta paróquia está em andamento. Recarregue a página e confira.');
-    }
+    // Retrato desta contratação (revisão S5/S6): vai no externalReference da
+    // assinatura e nos eventos CHECKOUT; o webhook ativa só o que a cobrança cobre
+    const checkoutRef = newCheckoutRef(now);
+    const subscriptionExternalRef = billingExternalRef(account.id, checkoutRef);
 
     const warnings: string[] = [];
     let subscriptionRef: string;
@@ -480,6 +506,7 @@ export class BillingService {
           valueCents: pricing.valueCents,
           cycle,
           description,
+          externalRef: subscriptionExternalRef,
         });
         subscriptionRef = account.providerSubscriptionId;
         nextDueDate =
@@ -492,7 +519,7 @@ export class BillingService {
           cycle,
           nextDueDate,
           description,
-          externalRef: `billing:${account.id}`,
+          externalRef: subscriptionExternalRef,
         });
         if (!subscription.providerRef) throw new PaymentProviderError('Asaas não devolveu o id da assinatura');
         subscriptionRef = subscription.providerRef;
@@ -576,6 +603,7 @@ export class BillingService {
             note: created ? 'Assinatura contratada — ativa quando o pagamento for confirmado' : 'Assinatura alterada',
             data: {
               billingAccountId: account.id,
+              checkoutRef,
               tierKey: line.tierKey,
               billingCycle: cycle,
               priceCents: line.priceCents,

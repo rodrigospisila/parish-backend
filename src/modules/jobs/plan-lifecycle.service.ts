@@ -9,7 +9,7 @@ import { PlanAccessService } from '../plans/plan-access.service';
 import { planTransition } from '../plans/plan-transitions';
 import { EmailService } from '../messaging/email.service';
 import { NotificationsService } from '../notifications/notifications.service';
-import { DueNotice, NoticeKind, dueNotice, noticeMessage } from './plan-lifecycle-rules';
+import { DueNotice, NoticeKind, dueNotice, noticeMessage, pilotParishWhere } from './plan-lifecycle-rules';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_PUBLIC_WEB_URL = 'https://parish-web-three.vercel.app';
@@ -36,7 +36,10 @@ export interface PlanLifecycleResult {
  *    com dedupe em PlanNotice (kind + refKey) e UMA mensagem por paróquia e
  *    tipo (listando as comunidades): e-mail (EmailService.trySend, texto
  *    simples) aos PARISH_ADMIN ativos e ao e-mail de cobrança, e notificação
- *    in-app (NotificationsService.notifyUsers) aos PARISH_ADMIN.
+ *    in-app + push (NotificationsService.notifyUsers com `skipFallback`) aos
+ *    PARISH_ADMIN — o e-mail já saiu, a notificação não manda outro (S2).
+ *
+ * Paróquia do piloto (pilotParishWhere — S11) fica fora das duas etapas.
  *
  * Nunca muda status de plano pago nem toca no piloto (ACTIVE sem
  * currentPeriodEnd): a carência/suspensão continua sendo calculada por
@@ -87,7 +90,8 @@ export class PlanLifecycleService {
         deletedAt: null,
         status: EntityStatus.ACTIVE,
         communityPlan: { is: null },
-        parish: { managedAt: { not: null } },
+        // Piloto (acesso total) nunca entra em teste automático (S11)
+        parish: { managedAt: { not: null }, NOT: pilotParishWhere() },
       },
       select: { id: true },
       take: AUTO_TRIAL_BATCH,
@@ -139,7 +143,8 @@ export class PlanLifecycleService {
   async sendNotices(now: Date): Promise<{ notices: number; messages: number }> {
     const plans = await this.prisma.communityPlan.findMany({
       where: {
-        community: { deletedAt: null },
+        // Piloto (acesso total) nunca recebe a régua (S11)
+        community: { deletedAt: null, parish: { NOT: pilotParishWhere() } },
         OR: [
           { status: CommunityPlanStatus.TRIAL, trialEndsAt: { gt: new Date(now.getTime() - 8 * DAY_MS), lte: new Date(now.getTime() + 8 * DAY_MS) } },
           {
@@ -246,6 +251,8 @@ export class PlanLifecycleService {
           message.title,
           message.body,
           { kind: 'PLAN_NOTICE', notice: group.kind, parishId: group.parishId, url: PLAN_PAGE_PATH },
+          // O e-mail (texto completo) já foi acima: sem a cadeia e-mail/SMS do notifyUser (S2)
+          { skipFallback: true },
         );
       }
       messages += 1;

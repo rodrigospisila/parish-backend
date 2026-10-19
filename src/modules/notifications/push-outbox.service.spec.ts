@@ -1,5 +1,6 @@
 import { PushOutboxService, outboxBackoffMs, OUTBOX_MAX_ATTEMPTS, OUTBOX_CLAIM_LIMIT } from './push-outbox.service';
 import { buildOutboxData, readOutboxData } from './push-outbox.data';
+import { PushDispatcherService } from './push-dispatcher.service';
 
 /**
  * Outbox de push (eng-qualidade-02, contrato C6): lote com claim condicional,
@@ -59,9 +60,11 @@ describe('PushOutboxService', () => {
   it('formato da outbox: payload + bulk, e leitura tolerante', () => {
     expect(buildOutboxData({ a: 1 }, true)).toEqual({ payload: { a: 1 }, bulk: true });
     expect(buildOutboxData(undefined)).toEqual({ payload: {}, bulk: false });
-    expect(readOutboxData({ payload: { a: 1 }, bulk: true })).toEqual({ payload: { a: 1 }, bulk: true });
-    expect(readOutboxData({ a: 1 })).toEqual({ payload: { a: 1 }, bulk: false });
-    expect(readOutboxData(null)).toEqual({ payload: {}, bulk: false });
+    expect(buildOutboxData(undefined, false, true)).toEqual({ payload: {}, bulk: false, skipFallback: true });
+    expect(readOutboxData({ payload: { a: 1 }, bulk: true })).toEqual({ payload: { a: 1 }, bulk: true, skipFallback: false });
+    expect(readOutboxData({ payload: {}, bulk: false, skipFallback: true })).toEqual({ payload: {}, bulk: false, skipFallback: true });
+    expect(readOutboxData({ a: 1 })).toEqual({ payload: { a: 1 }, bulk: false, skipFallback: false });
+    expect(readOutboxData(null)).toEqual({ payload: {}, bulk: false, skipFallback: false });
   });
 
   it('backoff cresce por tentativa (30 s, 1 min, 2 min, 4 min) com teto', () => {
@@ -134,7 +137,7 @@ describe('PushOutboxService', () => {
   it('falha de rede/limite do Expo: volta para PENDING com espera crescente (sem fallback ainda)', async () => {
     queue([row('a', { attempts: 2 }), row('b', { attempts: 1 })]);
     dispatcher.sendBatch.mockResolvedValue([
-      { status: 'retry', error: 'TIMEOUT' },
+      { status: 'retry', error: 'NETWORK' },
       { status: 'error', error: 'MessageRateExceeded' },
     ]);
 
@@ -146,7 +149,7 @@ describe('PushOutboxService', () => {
       expect.arrayContaining([
         {
           where: { id: { in: ['a'] }, status: 'SENDING' },
-          data: { status: 'PENDING', availableAt: new Date(now.getTime() + 60_000), lastError: 'TIMEOUT' },
+          data: { status: 'PENDING', availableAt: new Date(now.getTime() + 60_000), lastError: 'NETWORK' },
         },
         {
           where: { id: { in: ['b'] }, status: 'SENDING' },
@@ -200,6 +203,123 @@ describe('PushOutboxService', () => {
       data: { status: 'FAILED', lastError: 'NO_TOKEN' },
     });
     expect(notifications.deliverFallback).toHaveBeenCalled();
+  });
+
+  it('S4: TIMEOUT = entrega incerta — FAILED INCERTO_TIMEOUT com sentAt, sem reenvio e sem e-mail', async () => {
+    queue([row('a', { attempts: 1 }), row('b', { attempts: 1 })]);
+    dispatcher.sendBatch.mockResolvedValue([
+      { status: 'uncertain', error: 'TIMEOUT' },
+      { status: 'ok', ticketId: 't-b' },
+    ]);
+
+    const result = await service.sendPending(now);
+
+    expect(result).toEqual({ claimed: 2, sent: 1, retried: 0, failed: 1 });
+    expect(prisma.notificationOutbox.updateMany).toHaveBeenCalledWith({
+      where: { id: { in: ['a'] }, status: 'SENDING' },
+      data: { status: 'FAILED', sentAt: now, lastError: 'INCERTO_TIMEOUT', receiptCheckedAt: now },
+    });
+    // Nunca volta para PENDING (reenvio duplicaria o push já aceito pelo Expo)
+    const backToQueue = prisma.notificationOutbox.updateMany.mock.calls.filter((c: any[]) => c[0].data.status === 'PENDING');
+    expect(backToQueue).toHaveLength(0);
+    expect(notifications.deliverFallback).not.toHaveBeenCalled();
+    // A notificação do incerto não é marcada como entregue
+    expect(prisma.notification.updateMany).toHaveBeenCalledWith({ where: { id: { in: ['n-b'] } }, data: { isSent: true, sentAt: now } });
+  });
+
+  it('S1: token fora do formato do Expo nem vai no lote — FAILED TOKEN_INVALIDO, sai da conta e segue o fallback', async () => {
+    queue([row('a'), row('b')], { 'u-a': 'lixo-qualquer' });
+    dispatcher.sendBatch.mockResolvedValue([{ status: 'ok', ticketId: 't-b' }]);
+
+    const result = await service.sendPending(now);
+
+    expect(dispatcher.sendBatch).toHaveBeenCalledTimes(1);
+    expect(dispatcher.sendBatch.mock.calls[0][0].map((m: any) => m.to)).toEqual(['ExponentPushToken[b]']);
+    expect(result).toEqual({ claimed: 2, sent: 1, retried: 0, failed: 1 });
+    expect(prisma.notificationOutbox.updateMany).toHaveBeenCalledWith({
+      where: { id: { in: ['a'] }, status: 'SENDING' },
+      data: { status: 'FAILED', lastError: 'TOKEN_INVALIDO' },
+    });
+    expect(prisma.user.updateMany).toHaveBeenCalledWith({
+      where: { id: 'u-a', pushToken: 'lixo-qualquer' },
+      data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
+    });
+    expect(notifications.deliverFallback).toHaveBeenCalledWith('u-a', 'n-a', 'Aviso', 'Corpo', { bulk: false });
+  });
+
+  it('S1: token de outro projeto (confirmado por EXPO_EXPERIENCE_ID) sai da conta', async () => {
+    queue([row('a')]);
+    dispatcher.sendBatch.mockResolvedValue([{ status: 'error', error: 'PUSH_OUTRO_PROJETO_EXPO' }]);
+
+    await service.sendPending(now);
+
+    expect(prisma.user.updateMany).toHaveBeenCalledWith({
+      where: { id: 'u-a', pushToken: 'ExponentPushToken[a]' },
+      data: { pushToken: null, pushTokenUpdatedAt: expect.any(Date) },
+    });
+    expect(prisma.notificationOutbox.updateMany).toHaveBeenCalledWith({
+      where: { id: { in: ['a'] }, status: 'SENDING' },
+      data: { status: 'FAILED', lastError: 'PUSH_OUTRO_PROJETO_EXPO' },
+    });
+  });
+
+  it('S2: aviso gravado com skipFallback que falhou de vez não cai no e-mail/SMS', async () => {
+    queue([
+      row('a', { data: buildOutboxData({}, false, true) }),
+      row('b', { data: buildOutboxData({}, false) }),
+    ]);
+    dispatcher.sendBatch.mockResolvedValue([
+      { status: 'error', error: 'DeviceNotRegistered' },
+      { status: 'error', error: 'DeviceNotRegistered' },
+    ]);
+
+    const result = await service.sendPending(now);
+
+    expect(result.failed).toBe(2);
+    expect(notifications.deliverFallback).toHaveBeenCalledTimes(1);
+    expect(notifications.deliverFallback).toHaveBeenCalledWith('u-b', 'n-b', 'Aviso', 'Corpo', { bulk: false });
+  });
+
+  it('S1 de ponta a ponta: lote de 100 com um token de outro projeto — 99 SENT e 1 FAILED na mesma rodada', async () => {
+    const realFetch = global.fetch;
+    const alien = 'ExponentPushToken[alheio]';
+    const rows = Array.from({ length: 100 }, (_, i) => row(`r${i}`));
+    queue(rows, { 'u-r42': alien });
+    global.fetch = jest.fn(async (_url: string, init: any) => {
+      const parsed = JSON.parse(init.body);
+      const messages: any[] = Array.isArray(parsed) ? parsed : [parsed];
+      const tokens = messages.map((m) => m.to);
+      if (tokens.includes(alien) && tokens.length > 1) {
+        const body = {
+          errors: [
+            {
+              code: 'PUSH_TOO_MANY_EXPERIENCE_IDS',
+              details: { '@rodrigospisila/parish-mobile': tokens.filter((t) => t !== alien), '@outro/app': [alien] },
+            },
+          ],
+        };
+        return { ok: false, status: 400, json: async () => body };
+      }
+      const tickets = tokens.map((t) => (t === alien ? { status: 'error', details: { error: 'InvalidCredentials' } } : { status: 'ok', id: `t-${t}` }));
+      return { ok: true, status: 200, json: async () => ({ data: tickets.length === 1 ? tickets[0] : tickets }) };
+    }) as any;
+    try {
+      service = new PushOutboxService(prisma, new PushDispatcherService(), notifications as any);
+      const result = await service.sendPending(now);
+
+      expect(result).toEqual({ claimed: 100, sent: 99, retried: 0, failed: 1 });
+      expect(prisma.notificationOutbox.updateMany).toHaveBeenCalledWith({
+        where: { id: { in: ['r42'] }, status: 'SENDING' },
+        data: { status: 'FAILED', lastError: 'InvalidCredentials' },
+      });
+      // Ninguém volta para a fila: os vizinhos não esperam
+      const backToQueue = prisma.notificationOutbox.updateMany.mock.calls.filter((c: any[]) => c[0].data.status === 'PENDING');
+      expect(backToQueue).toHaveLength(0);
+      expect(notifications.deliverFallback).toHaveBeenCalledTimes(1);
+      expect(notifications.deliverFallback).toHaveBeenCalledWith('u-r42', 'n-r42', 'Aviso', 'Corpo', { bulk: false });
+    } finally {
+      global.fetch = realFetch;
+    }
   });
 
   it('linhas presas em SENDING (processo caiu) voltam para a fila', async () => {

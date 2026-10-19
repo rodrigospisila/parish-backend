@@ -12,6 +12,7 @@ import { PaymentsService } from '../payments/payments.service';
 import { AsaasProvider } from '../payments/asaas.provider';
 import { PAID_STATUSES, PaymentProvider, ProviderCharge, WebhookRequest, ProviderSetupResult } from '../payments/payment-provider.interface';
 import { maskSecret } from '../payments/payment-crypto';
+import { PLATFORM_WEBHOOK_PROVIDER } from '../payments/platform-provider';
 import { TitheWhatsAppService } from './whatsapp.service';
 import { TitheGuestService } from './guest.service';
 import { PROVIDER_FEE_CATEGORY, PROVIDER_FEE_COST_CENTER, round2 } from '../finance/money';
@@ -2116,6 +2117,9 @@ export class TitheService {
     const events = await this.prisma.paymentWebhookEvent.findMany({
       where: {
         processedAt: null,
+        // Eventos do faturamento da plataforma (conta Asaas da empresa) são do
+        // BillingWebhookService: nunca reprocessar nem descartar aqui
+        provider: { not: PLATFORM_WEBHOOK_PROVIDER },
         receivedAt: { gte: new Date(now.getTime() - 3 * 24 * 60 * 60 * 1000) },
         // Falhou, ou ficou "em voo" por um reinício no meio do processamento
         OR: [{ error: { not: null } }, { receivedAt: { lt: new Date(now.getTime() - 10 * 60 * 1000) } }],

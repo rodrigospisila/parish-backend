@@ -44,6 +44,8 @@ describe('ParishAccountService (exportação e encerramento)', () => {
         findMany: jest.fn().mockResolvedValue([{ id: 'system', email: 'adm@x.com' }]),
       },
       community: { findMany: jest.fn().mockResolvedValue([]) },
+      // Âncoras SQL da exportação (sacramentos/dízimo pela paróquia do registro — S17)
+      $queryRaw: jest.fn().mockResolvedValue([]),
     };
     for (const model of [
       'member', 'sacrament', 'communityPastoral', 'pastoralMember', 'schedule', 'catechesisClass',
@@ -112,6 +114,7 @@ describe('ParishAccountService (exportação e encerramento)', () => {
       'Pedido de encerramento de paróquia',
       expect.stringContaining('Mudança de sistema'),
       expect.objectContaining({ kind: 'PARISH_CLOSURE_REQUESTED', parishId: 'p1' }),
+      { skipFallback: true },
     );
     expect(email.trySend).toHaveBeenCalledWith('adm@x.com', expect.any(String), expect.any(String));
     // Nada é apagado
@@ -139,6 +142,7 @@ describe('ParishAccountService (exportação e encerramento)', () => {
     });
     expect(notifications.notifyUsers).toHaveBeenCalledWith(
       ['system'], 'URGENT_NOTICE', 'Encerramento de paróquia cancelado', expect.any(String), expect.anything(),
+      { skipFallback: true },
     );
   });
 });

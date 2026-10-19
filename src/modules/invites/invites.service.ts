@@ -3,6 +3,7 @@ import {
   ConflictException,
   ForbiddenException,
   GoneException,
+  HttpException,
   Injectable,
   Logger,
   NotFoundException,
@@ -62,7 +63,14 @@ export const INVITE_GONE_MESSAGES = {
   accepted: 'Este convite já foi usado. Entre no Parish com o seu e-mail ou celular e a senha que você criou.',
   revoked: 'Este convite foi cancelado. Peça um convite novo a quem convidou você.',
   expired: 'Este convite venceu. Peça a quem convidou você para reenviar o convite.',
+  inviterLost:
+    'Este convite não vale mais: quem convidou você não pode mais conceder este acesso. Peça um convite novo à administração da paróquia.',
+  claimUndone:
+    'Este convite não vale mais: o pedido de gestão que deu origem a ele foi desfeito. Fale com a equipe do Parish.',
 } as const;
+
+/** Reivindicação que, desfeita ou rejeitada depois do convite de titular, o invalida (S12). */
+const CLAIM_UNDONE_STATUSES: ParishClaimStatus[] = [ParishClaimStatus.REJECTED, ParishClaimStatus.CANCELED];
 
 interface NameMaps {
   parishes: Map<string, string>;
@@ -381,6 +389,7 @@ export class InvitesService {
   /** GET /public/invites/:token — o que a tela de aceite mostra (contato mascarado). */
   async getPublic(token: string) {
     const invite = await this.findUsableByToken(token);
+    await this.assertInviterStillEntitled(invite);
     const names = await this.loadNames([invite]);
     const holder = isHolderInvite(invite);
     return {
@@ -418,6 +427,7 @@ export class InvitesService {
       holder,
     };
     await this.assertGrantTargetsExist(grant);
+    await this.assertInviterStillEntitled(invite);
 
     const name = dto.name.trim();
     const acceptedAt = new Date();
@@ -777,12 +787,85 @@ export class InvitesService {
       communityIds:
         invite.role === UserRole.COMMUNITY_COORDINATOR && invite.communityId ? [invite.communityId] : undefined,
     });
-    const sameScope =
-      (!invite.dioceseId || scope.dioceseId === invite.dioceseId) &&
-      (!invite.parishId || scope.parishId === invite.parishId) &&
-      (!invite.communityId || scope.communityId === invite.communityId);
-    if (!sameScope) throw new ForbiddenException('Este convite não está no seu escopo');
+    if (!scopeMatchesInvite(invite, scope)) throw new ForbiddenException('Este convite não está no seu escopo');
     return invite;
+  }
+
+  /**
+   * S12 — o convite só vale enquanto quem convidou ainda PODERIA criá-lo:
+   * conta ativa e não anonimizada; convite de titular só do SYSTEM_ADMIN ou do
+   * titular AINDA titular da mesma paróquia; demais, a mesma régua do POST
+   * /invites (resolveCreationScope com o papel/escopo de HOJE de quem convidou).
+   * Convite de titular nascido de reivindicação perde a validade se o pedido
+   * foi desfeito/rejeitado depois dele. Conferido no GET público e no aceite;
+   * nada é gravado (o convite continua na lista da gestão, que pode cancelá-lo).
+   */
+  private async assertInviterStillEntitled(invite: UserInvite): Promise<void> {
+    const lost = () => new GoneException(INVITE_GONE_MESSAGES.inviterLost);
+    const inviter = await this.prisma.user.findUnique({
+      where: { id: invite.invitedByUserId },
+      select: {
+        id: true,
+        email: true,
+        role: true,
+        isActive: true,
+        anonymizedAt: true,
+        dioceseId: true,
+        parishId: true,
+        communityId: true,
+        parishHolder: true,
+      },
+    });
+    if (!inviter || inviter.isActive === false || inviter.anonymizedAt) throw lost();
+
+    const holder = isHolderInvite(invite);
+    if (inviter.role === UserRole.SYSTEM_ADMIN) {
+      if (holder) await this.assertOriginClaimNotUndone(invite);
+      return;
+    }
+    if (
+      holder &&
+      (inviter.role !== UserRole.PARISH_ADMIN || inviter.parishHolder !== true || inviter.parishId !== invite.parishId)
+    ) {
+      throw lost();
+    }
+
+    let scope: Awaited<ReturnType<UsersService['resolveCreationScope']>>;
+    try {
+      scope = await this.users.resolveCreationScope(inviter, {
+        role: invite.role,
+        dioceseId: invite.dioceseId,
+        parishId: invite.parishId,
+        communityId: invite.communityId,
+        communityIds:
+          invite.role === UserRole.COMMUNITY_COORDINATOR && invite.communityId ? [invite.communityId] : undefined,
+      });
+    } catch (error) {
+      if (error instanceof HttpException) throw lost();
+      throw error;
+    }
+    if (!scopeMatchesInvite(invite, scope)) throw lost();
+    if (invite.memberId && !(await this.hierarchy.canManageMember(inviter.id, invite.memberId))) throw lost();
+  }
+
+  /**
+   * Convite de titular criado pela plataforma: se há reivindicação da mesma
+   * paróquia e e-mail rejeitada/desfeita DEPOIS do convite e nenhuma aprovada,
+   * o convite caiu junto com o pedido (o desfazer também o revoga).
+   */
+  private async assertOriginClaimNotUndone(invite: UserInvite): Promise<void> {
+    if (!invite.parishId || !invite.email) return;
+    const sameClaim = { parishId: invite.parishId, email: emailInsensitive(invite.email) };
+    const approved = await this.prisma.parishClaim.findFirst({
+      where: { ...sameClaim, status: ParishClaimStatus.APPROVED },
+      select: { id: true },
+    });
+    if (approved) return;
+    const undone = await this.prisma.parishClaim.findFirst({
+      where: { ...sameClaim, status: { in: CLAIM_UNDONE_STATUSES }, reviewedAt: { gte: invite.createdAt } },
+      select: { id: true },
+    });
+    if (undone) throw new GoneException(INVITE_GONE_MESSAGES.claimUndone);
   }
 
   /** Um convite vigente por pessoa no mesmo escopo: o segundo vira "Reenviar". */
@@ -881,6 +964,18 @@ export class InvitesService {
       createdAt: invite.createdAt,
     };
   }
+}
+
+/** O escopo resolvido para quem convida é o do convite (diocese/paróquia/comunidade gravadas). */
+function scopeMatchesInvite(
+  invite: Pick<UserInvite, 'dioceseId' | 'parishId' | 'communityId'>,
+  scope: { dioceseId?: string; parishId?: string; communityId?: string },
+): boolean {
+  return (
+    (!invite.dioceseId || scope.dioceseId === invite.dioceseId) &&
+    (!invite.parishId || scope.parishId === invite.parishId) &&
+    (!invite.communityId || scope.communityId === invite.communityId)
+  );
 }
 
 const emptyNames = (): NameMaps => ({

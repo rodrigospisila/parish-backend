@@ -1,18 +1,34 @@
 import { ForbiddenException, Injectable, Logger, ServiceUnavailableException } from '@nestjs/common';
-import { BillingAccountStatus, BillingCycle, CommunityPlanStatus, NotificationType, Prisma, UserRole } from '@prisma/client';
+import { BillingAccountStatus, CommunityPlanStatus, NotificationType, Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { PlanAccessService } from '../plans/plan-access.service';
 import { planTransition } from '../plans/plan-transitions';
 import { AsaasProvider } from '../payments/asaas.provider';
-import { platformTokenMatches } from '../payments/platform-provider';
+import { PLATFORM_WEBHOOK_PROVIDER, platformTokenMatches } from '../payments/platform-provider';
 import { ProviderWebhookEvent } from '../payments/payment-provider.interface';
 import { EmailService } from '../messaging/email.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { BillingService } from './billing.service';
-import { PAID_EVENTS, REFUND_EVENTS, brDate, isPilotPlan, periodEndFromDueDate, ymdInBrazil } from './billing-rules';
+import {
+  PAID_EVENTS,
+  REFUND_EVENTS,
+  brDate,
+  isPilotPlan,
+  parseBillingExternalRef,
+  periodEndFromDueDate,
+  pickChargeCoverage,
+  snapshotsFromCheckoutEvents,
+  ymdInBrazil,
+} from './billing-rules';
 
-/** Provider gravado em PaymentWebhookEvent para a conta da EMPRESA (o dízimo usa ASAAS/MERCADOPAGO). */
-export const PLATFORM_WEBHOOK_PROVIDER = 'ASAAS_PLATFORM';
+export { PLATFORM_WEBHOOK_PROVIDER };
+
+/**
+ * Cobrança paga com retrato (checkoutRef) que ainda não está no banco: o
+ * checkout grava os eventos logo depois de falar com o Asaas. Nesse intervalo
+ * o evento falha (503) e o Asaas reenvia; depois dele, vale a regra do valor.
+ */
+const SNAPSHOT_WAIT_MS = 10 * 60 * 1000;
 
 const WEBHOOK_ACCOUNT_SELECT = {
   id: true,
@@ -20,10 +36,23 @@ const WEBHOOK_ACCOUNT_SELECT = {
   legalName: true,
   billingCycle: true,
   status: true,
+  nextDueDate: true,
   providerSubscriptionId: true,
 } satisfies Prisma.BillingAccountSelect;
 
 type WebhookAccount = Prisma.BillingAccountGetPayload<{ select: typeof WEBHOOK_ACCOUNT_SELECT }>;
+
+const PLAN_SELECT = {
+  id: true,
+  communityId: true,
+  status: true,
+  tierId: true,
+  billingCycle: true,
+  priceCents: true,
+  trialEndsAt: true,
+  currentPeriodEnd: true,
+  tier: { select: { id: true, key: true, isActive: true, monthlyPriceCents: true, yearlyPriceCents: true } },
+} satisfies Prisma.CommunityPlanSelect;
 
 /** Só para ler o corpo (parseWebhook não usa credenciais). */
 const PARSER = new AsaasProvider({ apiKey: '', env: 'sandbox' });
@@ -37,11 +66,15 @@ const PARSER = new AsaasProvider({ apiKey: '', env: 'sandbox' });
  *   provider+eventId). O parishId gravado é o da paróquia pagadora — a coluna
  *   tem chave estrangeira para parishes, então '' não é aceito pelo banco.
  * - Falha no processamento: o registro do evento é apagado e a resposta é 503,
- *   para o Asaas reenviar (o reprocessador do dízimo descarta eventos de outro
- *   provider, então não dá para deixar o evento pendente lá).
- * - Pago (CONFIRMED/RECEIVED) → planos ACTIVE pela transição ACTIVATE, com
- *   currentPeriodEnd = vencimento + ciclo e CommunityPlanEvent 'BILLING'
- *   (byUserId null). Vencido (OVERDUE) → MARK_PAST_DUE. Estorno/chargeback →
+ *   para o Asaas reenviar. O reprocessador do dízimo ignora o provider
+ *   ASAAS_PLATFORM; registro com processedAt + erro (marcado por terceiros,
+ *   ex.: versão antiga do reprocessador) é reprocessado, não vira duplicate.
+ * - Pago (CONFIRMED/RECEIVED) → ACTIVATE só nas comunidades que AQUELA
+ *   cobrança cobre e com o ciclo dela (retrato da contratação, ver
+ *   billing-rules: pickChargeCoverage), currentPeriodEnd = vencimento + ciclo
+ *   e CommunityPlanEvent 'BILLING' (byUserId null, data.paidPaymentId). A
+ *   mesma cobrança paga de novo (CONFIRMED e depois RECEIVED) não reativa a
+ *   comunidade que ela já ativou. Vencido (OVERDUE) → MARK_PAST_DUE. Estorno/chargeback →
  *   alerta ao SYSTEM_ADMIN (planos não mudam sozinhos). INVOICE_AUTHORIZED →
  *   link da NFS-e. Planos do piloto (ACTIVE sem prazo) nunca são tocados.
  */
@@ -79,9 +112,10 @@ export class BillingWebhookService {
     if (account.parishId) {
       const existing = await this.prisma.paymentWebhookEvent.findUnique({
         where: { provider_eventId: { provider: PLATFORM_WEBHOOK_PROVIDER, eventId: event.eventId } },
-        select: { id: true, processedAt: true },
+        select: { id: true, processedAt: true, error: true },
       });
-      if (existing?.processedAt) return { received: true, duplicate: true };
+      // processedAt com erro = marcado por outro processo (este webhook sempre limpa o erro ao concluir)
+      if (existing?.processedAt && !existing.error) return { received: true, duplicate: true };
       if (existing) recordId = existing.id;
       else {
         try {
@@ -129,10 +163,10 @@ export class BillingWebhookService {
       });
       if (bySub) return bySub;
     }
-    const externalRef = event.externalRef ?? raw?.invoice?.externalReference ?? null;
-    if (typeof externalRef === 'string' && externalRef.startsWith('billing:')) {
+    const externalRef = parseBillingExternalRef(event.externalRef ?? raw?.invoice?.externalReference ?? null);
+    if (externalRef) {
       const byRef = await this.prisma.billingAccount.findUnique({
-        where: { id: externalRef.slice('billing:'.length) },
+        where: { id: externalRef.billingAccountId },
         select: WEBHOOK_ACCOUNT_SELECT,
       });
       if (byRef) return byRef;
@@ -182,36 +216,92 @@ export class BillingWebhookService {
   }
 
   private linkedPlans(accountId: string) {
-    return this.prisma.communityPlan.findMany({
-      where: { billingAccountId: accountId },
-      select: {
-        id: true,
-        communityId: true,
-        status: true,
-        tierId: true,
-        billingCycle: true,
-        priceCents: true,
-        trialEndsAt: true,
-        currentPeriodEnd: true,
-        tier: { select: { id: true, key: true, isActive: true, monthlyPriceCents: true, yearlyPriceCents: true } },
+    return this.prisma.communityPlan.findMany({ where: { billingAccountId: accountId }, select: PLAN_SELECT });
+  }
+
+  /** Retratos das contratações desta conta (eventos CHECKOUT com checkoutRef). */
+  private async checkoutSnapshots(account: WebhookAccount) {
+    const events = await this.prisma.communityPlanEvent.findMany({
+      where: {
+        action: 'CHECKOUT',
+        data: { path: ['billingAccountId'], equals: account.id },
+        ...(account.parishId ? { community: { parishId: account.parishId } } : {}),
       },
+      select: { communityId: true, createdAt: true, data: true },
+      orderBy: { createdAt: 'desc' },
+      take: 1000,
+    });
+    return snapshotsFromCheckoutEvents(events);
+  }
+
+  /**
+   * Planos cobertos pela cobrança: as comunidades do retrato que seguem nesta
+   * conta (ou que saíram dela depois — foram pagas). Comunidade incluída
+   * depois da cobrança fica de fora (revisão S6).
+   */
+  private coveredPlans(account: WebhookAccount, communityIds: string[]) {
+    return this.prisma.communityPlan.findMany({
+      where: {
+        communityId: { in: communityIds },
+        OR: [{ billingAccountId: account.id }, { billingAccountId: null }],
+        ...(account.parishId ? { community: { parishId: account.parishId } } : {}),
+      },
+      select: PLAN_SELECT,
     });
   }
 
-  /** Pagamento confirmado: ACTIVATE com currentPeriodEnd = vencimento + ciclo (nunca recua o período). */
+  /** Comunidades que esta cobrança já ativou (CONFIRMED e depois RECEIVED = mesmo pagamento). */
+  private async alreadyActivatedBy(paymentId: string | null, communityIds: string[]) {
+    if (!paymentId || !communityIds.length) return new Set<string>();
+    const events = await this.prisma.communityPlanEvent.findMany({
+      where: { communityId: { in: communityIds }, action: 'BILLING', data: { path: ['paidPaymentId'], equals: paymentId } },
+      select: { communityId: true },
+    });
+    return new Set(events.map((event) => event.communityId));
+  }
+
+  /**
+   * Pagamento confirmado: ACTIVATE das comunidades que a cobrança cobre, com
+   * currentPeriodEnd = vencimento + ciclo DA COBRANÇA (nunca recua o período).
+   */
   private async activate(account: WebhookAccount, payment: any, now: Date) {
-    const cycle = account.billingCycle ?? BillingCycle.MONTHLY;
+    const paymentId = payment?.id ? String(payment.id) : null;
+    const valueCents = Math.round(Number(payment?.value ?? 0) * 100) || 0;
+    const ref = parseBillingExternalRef(payment?.externalReference);
+    const checkoutRef = ref && ref.billingAccountId === account.id ? ref.checkoutRef : null;
+    const snapshots = await this.checkoutSnapshots(account);
+    if (
+      checkoutRef &&
+      ref?.issuedAt &&
+      now.getTime() - ref.issuedAt.getTime() < SNAPSHOT_WAIT_MS &&
+      !snapshots.some((snapshot) => snapshot.checkoutRef === checkoutRef)
+    ) {
+      throw new Error(`Contratação ${checkoutRef} ainda não gravada; aguardando o reenvio do Asaas`);
+    }
+    const coverage = pickChargeCoverage(snapshots, { checkoutRef, valueCents });
+    if (!coverage) {
+      this.logger.warn(`Pagamento ${paymentId ?? '?'} da conta ${account.id} sem contratação correspondente: nada ativado`);
+      await this.alertSystemAdmins(account, 'PAYMENT_UNMATCHED', payment);
+      return { action: 'unmatched', communityIds: [] as string[] };
+    }
+
+    const cycle = coverage.cycle;
     const dueDate = typeof payment?.dueDate === 'string' && payment.dueDate ? payment.dueDate.slice(0, 10) : ymdInBrazil(now);
     const periodEnd = periodEndFromDueDate(dueDate, cycle);
-    const plans = await this.linkedPlans(account.id);
+    const [plans, already] = await Promise.all([
+      this.coveredPlans(account, coverage.communityIds),
+      this.alreadyActivatedBy(paymentId, coverage.communityIds),
+    ]);
     const activated: string[] = [];
 
     for (const plan of plans) {
       if (isPilotPlan(plan)) continue; // piloto: nunca mexer
+      if (already.has(plan.communityId)) continue; // mesma cobrança, 2º evento de pago
       if (!plan.tier) {
         this.logger.warn(`Plano da comunidade ${plan.communityId} sem faixa: pagamento ${payment?.id} não ativou`);
         continue;
       }
+      // O ciclo DA COBRANÇA define o período; o do plano (contratação atual) fica como está
       const planCycle = plan.billingCycle ?? cycle;
       const keepsPeriod =
         (plan.status === CommunityPlanStatus.ACTIVE || plan.status === CommunityPlanStatus.PAST_DUE) &&
@@ -239,9 +329,12 @@ export class BillingWebhookService {
             byUserId: null,
             note: `Pagamento confirmado no Asaas (${payment?.id ?? '?'})`,
             data: {
-              paymentId: payment?.id ?? null,
+              paymentId,
+              paidPaymentId: paymentId,
+              checkoutRef: coverage.checkoutRef,
+              billingCycle: cycle,
               dueDate,
-              valueCents: Math.round(Number(payment?.value ?? 0) * 100),
+              valueCents,
               currentPeriodEnd: end.toISOString(),
               billingAccountId: account.id,
             },
@@ -252,12 +345,18 @@ export class BillingWebhookService {
       activated.push(plan.communityId);
     }
 
+    const canceled = account.status === BillingAccountStatus.CANCELED;
     await this.prisma.billingAccount.update({
       where: { id: account.id },
       data: {
         // Assinatura cancelada continua cancelada (pagamento de fatura antiga)
-        ...(account.status === BillingAccountStatus.CANCELED ? {} : { status: BillingAccountStatus.ACTIVE }),
-        nextDueDate: account.status === BillingAccountStatus.CANCELED ? null : periodEnd,
+        ...(canceled ? {} : { status: BillingAccountStatus.ACTIVE }),
+        // Cobrança antiga paga depois não recua o próximo vencimento
+        nextDueDate: canceled
+          ? null
+          : account.nextDueDate && account.nextDueDate.getTime() > periodEnd.getTime()
+            ? account.nextDueDate
+            : periodEnd,
       },
     });
     return { action: 'activated', communityIds: activated };
@@ -311,18 +410,27 @@ export class BillingWebhookService {
       ? await this.prisma.parish.findUnique({ where: { id: account.parishId }, select: { name: true } })
       : null;
     const value = (Number(payment?.value ?? 0) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-    const label = eventName.startsWith('PAYMENT_CHARGEBACK') || eventName === 'PAYMENT_AWAITING_CHARGEBACK_REVERSAL' ? 'Chargeback' : 'Estorno';
+    const unmatched = eventName === 'PAYMENT_UNMATCHED';
+    const label = unmatched
+      ? 'Pagamento sem contratação correspondente'
+      : eventName.startsWith('PAYMENT_CHARGEBACK') || eventName === 'PAYMENT_AWAITING_CHARGEBACK_REVERSAL'
+        ? 'Chargeback'
+        : 'Estorno';
     const due = payment?.dueDate ? ` (vencimento ${brDate(new Date(`${String(payment.dueDate).slice(0, 10)}T12:00:00-03:00`))})` : '';
     const title = `${label} na assinatura do Parish`;
-    const body =
-      `${parish?.name ?? account.legalName}: ${eventName} na cobrança ${payment?.id ?? '?'} de ${value}${due}. ` +
-      'Confira no painel do Asaas. Os planos das comunidades NÃO foram alterados automaticamente.';
+    const body = unmatched
+      ? `${parish?.name ?? account.legalName}: a cobrança ${payment?.id ?? '?'} de ${value}${due} foi paga, mas não corresponde a ` +
+        'nenhuma contratação registrada (valor diferente). Nenhuma comunidade foi ativada: confira no Asaas e ative à mão se for o caso.'
+      : `${parish?.name ?? account.legalName}: ${eventName} na cobrança ${payment?.id ?? '?'} de ${value}${due}. ` +
+        'Confira no painel do Asaas. Os planos das comunidades NÃO foram alterados automaticamente.';
     await this.notifications.notifyUsers(
       admins.map((admin) => admin.id),
       NotificationType.URGENT_NOTICE,
       title,
       body,
       { kind: 'PLATFORM_BILLING_ALERT', event: eventName, billingAccountId: account.id, parishId: account.parishId },
+      // O e-mail vai logo abaixo, explícito: sem o e-mail/SMS de reserva (não duplica)
+      { skipFallback: true },
     );
     for (const admin of admins) {
       if (admin.email) await this.email.trySend(admin.email, title, body);

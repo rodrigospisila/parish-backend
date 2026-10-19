@@ -1,6 +1,6 @@
 import { SCHEDULE_CRON_OPTIONS } from '@nestjs/schedule/dist/schedule.constants';
 import { PlanLifecycleService } from './plan-lifecycle.service';
-import { LifecyclePlan, dueNotice, noticeMessage } from './plan-lifecycle-rules';
+import { LifecyclePlan, dueNotice, noticeMessage, pilotParishWhere } from './plan-lifecycle-rules';
 
 const DAY = 24 * 60 * 60 * 1000;
 const now = new Date('2026-10-20T12:00:00.000Z'); // 09:00 em Brasília
@@ -39,7 +39,21 @@ describe('dueNotice — régua de teste/cobrança', () => {
   it('teste de quem já contratou: sem aviso de fim de teste', () => {
     expect(dueNotice(trial(3, { billingStatus: 'PENDING' }), now)).toBeNull();
     expect(dueNotice(trial(-1, { billingStatus: 'ACTIVE' }), now)).toBeNull();
-    expect(dueNotice(trial(-1, { billingStatus: 'PENDING' }), now)?.kind).toBe('TRIAL_ENDED');
+  });
+
+  it('S9: TRIAL_ENDED nunca vai a quem contratou ou pagou (boleto compensando = PENDING)', () => {
+    // Contratou no teste, pagou o boleto no vencimento; a compensação ainda não chegou
+    expect(dueNotice(trial(-1, { billingStatus: 'PENDING' }), now)).toBeNull();
+    expect(dueNotice(trial(-3, { billingStatus: 'PENDING' }), now)).toBeNull();
+    // Pago (webhook já chegou) ou cobrança vencida (o provedor cobra): nada de "contrate"
+    expect(dueNotice(trial(-1, { billingStatus: 'ACTIVE' }), now)).toBeNull();
+    expect(dueNotice(trial(-1, { billingStatus: 'PAST_DUE' }), now)).toBeNull();
+    // Sem contratação (sem conta, conta sem assinatura ou cancelada): régua normal
+    expect(dueNotice(trial(-1), now)?.kind).toBe('TRIAL_ENDED');
+    expect(dueNotice(trial(-1, { billingStatus: null }), now)?.kind).toBe('TRIAL_ENDED');
+    expect(dueNotice(trial(-1, { billingStatus: 'NONE' }), now)?.kind).toBe('TRIAL_ENDED');
+    expect(dueNotice(trial(-1, { billingStatus: 'CANCELED' }), now)?.kind).toBe('TRIAL_ENDED');
+    expect(dueNotice(trial(3, { billingStatus: 'NONE' }), now)?.kind).toBe('TRIAL_D3');
   });
 
   it('atraso: D1, D7, carência acabando (D-3) e suspensão', () => {
@@ -130,6 +144,8 @@ describe('PlanLifecycleService', () => {
     expect(await ctx.service.startAutoTrials(now)).toBe(1);
     const where = ctx.prisma.community.findMany.mock.calls[0][0].where;
     expect(where).toMatchObject({ deletedAt: null, communityPlan: { is: null }, parish: { managedAt: { not: null } } });
+    // S11: paróquia do piloto fica de fora mesmo gerida
+    expect(where.parish.NOT).toEqual(pilotParishWhere());
     expect(ctx.tx.communityPlan.create.mock.calls[0][0].data).toMatchObject({ communityId: 'c1', status: 'TRIAL', trialEndsAt: at(30) });
     expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({ action: 'AUTO_TRIAL', fromStatus: 'FREE', toStatus: 'TRIAL', byUserId: null });
     expect(ctx.access.invalidate).toHaveBeenCalledWith('c1');
@@ -150,7 +166,12 @@ describe('PlanLifecycleService', () => {
       'o teste termina em 3 dias',
       expect.stringContaining('Capela, Matriz'),
       expect.objectContaining({ kind: 'PLAN_NOTICE', notice: 'TRIAL_D3', url: '/admin/meu-plano' }),
+      // S2: o e-mail já saiu acima — a notificação não manda outro (nem SMS)
+      { skipFallback: true },
     );
+    // Um e-mail por endereço e por aviso: admin + cobrança de p1, admin + cobrança de p2
+    const p1Admin = ctx.email.trySend.mock.calls.filter((c: any[]) => c[0] === 'padre@paroquia.org' && c[1].includes('3 dias'));
+    expect(p1Admin).toHaveLength(1);
 
     ctx.email.trySend.mockClear();
     ctx.notifications.notifyUsers.mockClear();
@@ -165,6 +186,30 @@ describe('PlanLifecycleService', () => {
     const ctx = setup({ plans: [row], admins: [] });
     expect(await ctx.service.sendNotices(now)).toEqual({ notices: 0, messages: 0 });
     expect(ctx.prisma.planNotice.create).not.toHaveBeenCalled();
+  });
+
+  it('S11: critério explícito de paróquia piloto (nota de piloto em ACTIVE sem prazo, ou evento PILOT_FULL_ACCESS)', () => {
+    expect(pilotParishWhere()).toEqual({
+      communities: {
+        some: {
+          OR: [
+            {
+              communityPlan: {
+                is: { status: 'ACTIVE', currentPeriodEnd: null, notes: { contains: 'piloto', mode: 'insensitive' } },
+              },
+            },
+            { communityPlanEvents: { some: { action: 'PILOT_FULL_ACCESS' } } },
+          ],
+        },
+      },
+    });
+  });
+
+  it('S11: a régua não busca planos de paróquia piloto', async () => {
+    const ctx = setup();
+    await ctx.service.sendNotices(now);
+    const where = ctx.prisma.communityPlan.findMany.mock.calls[0][0].where;
+    expect(where.community).toEqual({ deletedAt: null, parish: { NOT: pilotParishWhere() } });
   });
 
   it('a busca da régua não inclui o piloto (ACTIVE sem currentPeriodEnd)', async () => {

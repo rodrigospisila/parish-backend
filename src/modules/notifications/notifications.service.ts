@@ -11,9 +11,15 @@ import { isOptOutable } from '../consents/consent.constants';
  * `bulk`: aviso em massa (catequese → famílias, pastoral → membros). A cadeia
  * fica em push → e-mail: o SMS é cobrado por mensagem e um único envio para
  * uma turma ou pastoral inteira viraria dezenas de SMS (B8).
+ *
+ * `skipFallback`: só in-app + push, nunca e-mail/SMS — nem na hora (conta sem
+ * token) nem depois (push que falhou de vez, no worker). Para fluxos que já
+ * mandam o próprio e-mail ao mesmo destinatário (régua de planos, alertas da
+ * plataforma): sem isto o admin recebia o aviso duas vezes por e-mail (S2).
  */
 export interface NotifyOptions {
   bulk?: boolean;
+  skipFallback?: boolean;
 }
 
 /** Destinatários processados ao mesmo tempo em notifyUsers. */
@@ -117,7 +123,7 @@ export class NotificationsService {
               notificationId: notification.id,
               title,
               body,
-              data: buildOutboxData(data, options.bulk),
+              data: buildOutboxData(data, options.bulk, options.skipFallback),
               channel: 'PUSH',
             },
             select: { id: true },
@@ -130,7 +136,8 @@ export class NotificationsService {
         if (queued) return notification;
       }
 
-      const sent = user ? await this.fallbackChain(user, title, body, options) : false;
+      // skipFallback (S2): o fluxo de origem já cuida do e-mail
+      const sent = user && !options.skipFallback ? await this.fallbackChain(user, title, body, options) : false;
       if (sent) {
         await this.prisma.notification.update({
           where: { id: notification.id },

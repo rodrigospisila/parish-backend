@@ -107,17 +107,46 @@ describe('LeadsService (contrato C4 — leads)', () => {
     expect(prisma.lead.create.mock.calls[1][0].data.parishId).toBeNull();
   });
 
-  it('mesmo contato em 24 h atualiza o lead aberto, sem novo aviso', async () => {
+  it('S13: mesmo e-mail + mesma paróquia em 10 min (origem pública) é ignorado em silêncio, sem alterar nada', async () => {
     prisma.lead.findFirst.mockResolvedValue({ id: 'old' });
-    const res = await service.createPublic({ ...base, phone: '42999990000' });
+    const res = await service.createPublic({ ...base, phone: '42999990000', parishId: PARISH_ID });
     expect(res).toEqual(PUBLIC_LEAD_OK);
     expect(prisma.lead.create).not.toHaveBeenCalled();
-    expect(prisma.lead.update.mock.calls[0][0].where).toEqual({ id: 'old' });
+    expect(prisma.lead.update).not.toHaveBeenCalled();
     const where = prisma.lead.findFirst.mock.calls[0][0].where;
-    expect(where.status).toBe('NEW');
-    expect(where.OR).toEqual([{ email: 'joao@exemplo.com' }, { phone: '42999990000' }]);
+    expect(where.source).toEqual({ in: ['SITE', 'DEMO_REQUEST'] });
+    expect(where.email).toBe('joao@exemplo.com');
+    expect(where.phone).toBeUndefined();
+    expect(where.parishId).toBe(PARISH_ID);
+    expect(Date.now() - where.createdAt.gte.getTime()).toBeLessThanOrEqual(10 * 60_000 + 1000);
     await flush();
     expect(notifications.notifyUsers).not.toHaveBeenCalled();
+  });
+
+  it('S13: o e-mail de outra pessoa (lead CLAIM ou NEW existente) gera um lead NOVO, nunca sobrescreve', async () => {
+    // Nenhuma repetição pública recente: o lead CLAIM nem entra na busca (source fora da lista)
+    prisma.lead.findFirst.mockResolvedValue(null);
+    await service.createPublic({ name: 'Atacante', email: 'padre@paroquia.org', phone: '11988887777', consent: true });
+    expect(prisma.lead.update).not.toHaveBeenCalled();
+    expect(prisma.lead.updateMany).toBeUndefined();
+    expect(prisma.lead.create).toHaveBeenCalledTimes(1);
+    expect(prisma.lead.create.mock.calls[0][0].data).toMatchObject({
+      name: 'Atacante',
+      email: 'padre@paroquia.org',
+      source: 'SITE',
+      status: 'NEW',
+    });
+    const where = prisma.lead.findFirst.mock.calls[0][0].where;
+    expect(where.source.in).not.toContain('CLAIM');
+  });
+
+  it('S13: sem paróquia do território, a repetição compara o nome da paróquia; sem e-mail, o telefone', async () => {
+    await service.createPublic({ name: 'Ana', phone: '42 99999-0000', parishName: 'São Pedro', consent: true });
+    const where = prisma.lead.findFirst.mock.calls[0][0].where;
+    expect(where.phone).toBe('42999990000');
+    expect(where.email).toBeUndefined();
+    expect(where.parishId).toBeNull();
+    expect(where.parishName).toEqual({ equals: 'São Pedro', mode: 'insensitive' });
   });
 
   it('falha no aviso não derruba o pedido', async () => {

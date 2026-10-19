@@ -54,8 +54,9 @@ export class ParishesController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.parishesService.findOne(id);
+  findOne(@Param('id') id: string, @CurrentUser() user: any) {
+    // Pedido de encerramento só para quem administra a paróquia (S23)
+    return this.parishesService.findOne(id, user);
   }
 
   @Patch(':id')

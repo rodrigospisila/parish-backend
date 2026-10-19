@@ -1,7 +1,7 @@
 import { BadRequestException, ForbiddenException } from '@nestjs/common';
 import { Gender, UserRole } from '@prisma/client';
 import { MemberImportService, fillEmptyFields } from './member-import.service';
-import { parseImportDate, parseImportRow } from './member-import';
+import { BRAZIL_UFS, parseImportDate, parseImportRow, parseUf } from './member-import';
 import { isValidCnpj, isValidCpf } from './br-documents';
 
 const NOW = new Date('2026-10-19T15:00:00Z');
@@ -63,6 +63,31 @@ describe('member-import — regras puras', () => {
     const bad = parseImportRow({ fullName: 'Ana Souza', cpf: '123.456.789-00', email: 'x@' }, 2, 'MEMBERS', NOW);
     expect(bad.errors).toEqual(expect.arrayContaining(['CPF inválido (confira os dígitos)', 'E-mail inválido']));
     expect(parseImportRow({ email: 'a@b.com' }, 3, 'MEMBERS', NOW).errors).toContain('Nome ausente');
+  });
+
+  it('S19: UF por extenso vira a sigla certa (sem acento/caixa); desconhecida → aviso e vazio', () => {
+    expect(Object.keys(BRAZIL_UFS)).toHaveLength(27);
+    expect(parseUf('Paraná')).toBe('PR');
+    expect(parseUf('PARANA')).toBe('PR');
+    expect(parseUf('Pará')).toBe('PA');
+    expect(parseUf('santa catarina')).toBe('SC');
+    expect(parseUf('Rio Grande do Sul')).toBe('RS');
+    expect(parseUf('Rio Grande do Norte')).toBe('RN');
+    expect(parseUf('São Paulo')).toBe('SP');
+    expect(parseUf('Mato Grosso do Sul')).toBe('MS');
+    expect(parseUf('Distrito Federal')).toBe('DF');
+    expect(parseUf(' pr ')).toBe('PR');
+    expect(parseUf('XX')).toBeNull();
+    expect(parseUf('Paranaguá')).toBeNull();
+    expect(parseUf('')).toBeNull();
+
+    const pr = parseImportRow({ fullName: 'José da Silva', Estado: 'Paraná' }, 1, 'MEMBERS', NOW);
+    expect(pr.data?.state).toBe('PR');
+    expect(pr.warnings).toEqual([]);
+    const unknown = parseImportRow({ fullName: 'José da Silva', uf: 'Paranaense' }, 2, 'MEMBERS', NOW);
+    expect(unknown.data?.state).toBeNull();
+    expect(unknown.errors).toEqual([]);
+    expect(unknown.warnings).toEqual([expect.stringMatching(/Estado "Paranaense" não reconhecido/)]);
   });
 
   it('mesclar só preenche campos vazios', () => {
@@ -148,7 +173,7 @@ describe('MemberImportService', () => {
     service = new MemberImportService(prisma, hierarchy, audit, members, planAccess);
   });
 
-  it('dryRun: prévia por linha, nada gravado nem auditado', async () => {
+  it('dryRun: prévia por linha, nada gravado; auditada só com contagens (S16)', async () => {
     const res = await service.run(
       {
         communityId: 'c1',
@@ -172,7 +197,16 @@ describe('MemberImportService', () => {
     expect(res).toMatchObject({ total: 2, created: 1, failed: 1, imported: 1 });
     expect(res.errors).toEqual([{ line: 2, reason: 'CPF inválido (confira os dígitos)' }]);
     expect(prisma.$transaction).not.toHaveBeenCalled();
-    expect(audit.log).not.toHaveBeenCalled();
+    expect(audit.log).toHaveBeenCalledTimes(1);
+    const entry = audit.log.mock.calls[0][0];
+    expect(entry).toMatchObject({
+      action: 'READ_SENSITIVE',
+      entity: 'Member',
+      actor: { id: 'u-adm', role: 'PARISH_ADMIN' },
+      metadata: { bulkImportPreview: true, kind: 'MEMBERS', communityId: 'c1', rows: 2, cpfRows: 0, duplicates: 0 },
+    });
+    // Sem dados das linhas na trilha
+    expect(JSON.stringify(entry)).not.toMatch(/Maria|Souza|99999|123\.456/);
   });
 
   it('duplicados prováveis: CPF, nome sem acento + nascimento (fortes) e telefone de outro nome (fraco)', async () => {
@@ -202,24 +236,26 @@ describe('MemberImportService', () => {
     expect(res).toMatchObject({ skipped: 3, created: 1 });
   });
 
-  it('linha repetida na planilha e CPF de fora do escopo viram erro (sem revelar onde)', async () => {
+  it('linha repetida na planilha vira erro; CPF de fora do escopo só é conferido na GRAVAÇÃO (sem revelar onde)', async () => {
     globalCpfs = [OTHER_VALID_CPF.replace(/\D/g, '')];
-    const res = await service.run(
-      {
-        communityId: 'c1',
-        dryRun: true,
-        rows: [
-          { fullName: 'Ana Clara', birthDate: '01/02/2010' },
-          { fullName: 'Ana  Clára', birthDate: '2010-02-01' },
-          { fullName: 'Bruno Dias', cpf: OTHER_VALID_CPF },
-        ],
-      },
-      parishAdmin,
-    );
-    expect(res.rows[1].errors).toEqual(['Repetida na planilha (mesma pessoa da linha 1)']);
+    const rows = [
+      { fullName: 'Ana Clara', birthDate: '01/02/2010' },
+      { fullName: 'Ana  Clára', birthDate: '2010-02-01' },
+      { fullName: 'Bruno Dias', cpf: OTHER_VALID_CPF },
+    ];
+    // S16: a prévia não dá NENHUM sinal de CPF cadastrado fora do escopo (nem consulta)
+    const preview = await service.run({ communityId: 'c1', dryRun: true, rows }, parishAdmin);
+    expect(preview.rows[1].errors).toEqual(['Repetida na planilha (mesma pessoa da linha 1)']);
+    expect(preview.rows[2]).toMatchObject({ status: 'OK', action: 'CREATE', errors: [], duplicate: null });
+    expect(prisma.member.findMany.mock.calls.some(([args]: any) => args?.where?.cpf)).toBe(false);
+
+    // Gravação: o índice é único nacional — a linha falha com a mensagem genérica, auditada com a contagem
+    const res = await service.run({ communityId: 'c1', rows }, parishAdmin);
     expect(res.rows[2].status).toBe('ERROR');
     expect(res.rows[2].errors[0]).toMatch(/procure a secretaria/);
     expect(res.rows[2].errors[0]).not.toMatch(/paróquia de|cadastrad[oa] em/);
+    const entry = audit.log.mock.calls.find(([e]: any) => e.metadata?.bulkImport)[0];
+    expect(entry.metadata).toMatchObject({ cpfRows: 1, cpfOutOfScope: 1 });
   });
 
   it('rowActions: CREATE em cima de CPF existente é erro; UPDATE de membro fora da gestão do coordenador é erro', async () => {
@@ -339,5 +375,18 @@ describe('MemberImportService', () => {
     );
     const many = Array.from({ length: 2001 }, (_, i) => ({ fullName: `P ${i}` }));
     await expect(service.run({ communityId: 'c1', rows: many }, parishAdmin)).rejects.toBeInstanceOf(BadRequestException);
+  });
+});
+
+describe('POST /members/import — limite próprio por usuário (S16)', () => {
+  it('UserThrottlerGuard com 10/min e 60/h na rota de importação (prévia inclusa)', () => {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const { MembersController } = require('./members.controller');
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    const { UserThrottlerGuard } = require('../auth/guards/app-throttler.guard');
+    const handler = MembersController.prototype.importMembers;
+    expect(Reflect.getMetadata('THROTTLER:LIMITdefault', handler)).toBe(10);
+    expect(Reflect.getMetadata('THROTTLER:LIMIThourly', handler)).toBe(60);
+    expect(Reflect.getMetadata('__guards__', handler)).toContain(UserThrottlerGuard);
   });
 });

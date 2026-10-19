@@ -469,6 +469,12 @@ export class AsaasProvider implements PaymentProvider {
    * Cria ou atualiza o pagador da assinatura da plataforma, com endereço
    * (a NFS-e exige). Ao contrário do dízimo, deixa as notificações do Asaas
    * ligadas: sem SMTP próprio, é o e-mail do Asaas que leva a fatura.
+   *
+   * Um cliente por conta de faturamento (revisão S8): NUNCA reaproveita
+   * cliente pelo CPF/CNPJ — duas paróquias com o mesmo documento (padre com
+   * duas paróquias, CNPJ da Mitra) teriam faturas, e-mails e NFS-e trocados.
+   * Sem id conhecido, só reaproveita o cliente cujo externalReference é o
+   * desta conta (ex.: o id não chegou a ser gravado no banco).
    */
   async savePlatformCustomer(input: PlatformCustomerInput): Promise<{ providerCustomerId: string }> {
     const cpfCnpj = (input.cpfCnpj ?? '').replace(/\D/g, '');
@@ -489,8 +495,12 @@ export class AsaasProvider implements PaymentProvider {
     };
     let id = input.providerCustomerId ?? null;
     if (!id) {
-      const found = await this.request<{ data?: Array<{ id: string }> }>('GET', `/customers?cpfCnpj=${encodeURIComponent(cpfCnpj)}&limit=1`);
-      id = found?.data?.[0]?.id ?? null;
+      const found = await this.request<{ data?: Array<{ id: string; externalReference?: string | null; deleted?: boolean }> }>(
+        'GET',
+        `/customers?externalReference=${encodeURIComponent(input.externalRef)}&limit=10`,
+      );
+      // Confere de novo aqui: o filtro do Asaas não pode decidir sozinho de quem é o cliente
+      id = (found?.data ?? []).find((customer) => customer.externalReference === input.externalRef && !customer.deleted)?.id ?? null;
     }
     if (id) {
       const updated = await this.request<{ id?: string }>('PUT', `/customers/${encodeURIComponent(id)}`, body);
@@ -533,13 +543,15 @@ export class AsaasProvider implements PaymentProvider {
    */
   async updatePlatformSubscription(
     providerRef: string,
-    input: { valueCents: number; cycle: 'MONTHLY' | 'YEARLY'; description: string; nextDueDate?: string },
+    input: { valueCents: number; cycle: 'MONTHLY' | 'YEARLY'; description: string; nextDueDate?: string; externalRef?: string },
   ): Promise<ProviderSubscription> {
     const subscription = await this.request<any>('PUT', `/subscriptions/${encodeURIComponent(providerRef)}`, {
       value: Math.round(input.valueCents) / 100,
       cycle: input.cycle,
       description: input.description.slice(0, 500),
       nextDueDate: input.nextDueDate,
+      // Retrato da contratação: as próximas cobranças levam o ciclo/comunidades de agora
+      externalReference: input.externalRef,
       updatePendingPayments: true,
     });
     return AsaasProvider.mapPlatformSubscription(subscription);

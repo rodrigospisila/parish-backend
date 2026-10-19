@@ -51,7 +51,9 @@ describe('ClaimsService (C1)', () => {
   let email: { trySend: jest.Mock; configured: boolean };
   let audit: { log: jest.Mock };
   let planAccess: { invalidate: jest.Mock };
+  let notifications: { notifyUser: jest.Mock; notifyUsers: jest.Mock };
   let service: ClaimsService;
+  const flush = () => new Promise((resolve) => setImmediate(resolve));
   const originalEnv = process.env.NODE_ENV;
 
   const claimRow = (over: Record<string, any> = {}) => ({
@@ -75,6 +77,7 @@ describe('ClaimsService (C1)', () => {
     tx = {
       parishClaim: {
         aggregate: jest.fn().mockResolvedValue({ _sum: { codeSends: 0 } }),
+        count: jest.fn().mockResolvedValue(0),
         findUnique: jest.fn().mockResolvedValue({ status: 'PENDING' }),
         create: jest.fn().mockResolvedValue({ id: 'cl1' }),
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
@@ -85,6 +88,7 @@ describe('ClaimsService (C1)', () => {
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
       },
       user: { findUnique: jest.fn() },
+      userInvite: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
       parish: { updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
       community: {
         findMany: jest.fn().mockResolvedValue([{ id: 'c1' }, { id: 'c2' }]),
@@ -107,6 +111,7 @@ describe('ClaimsService (C1)', () => {
         count: jest.fn().mockResolvedValue(0),
         findMany: jest.fn().mockResolvedValue([]),
       },
+      notification: { findFirst: jest.fn().mockResolvedValue(null) },
       $transaction: jest.fn(async (cb: any) => cb(tx)),
     };
     users = {
@@ -128,6 +133,10 @@ describe('ClaimsService (C1)', () => {
     email = { trySend: jest.fn().mockResolvedValue(false), configured: false };
     audit = { log: jest.fn() };
     planAccess = { invalidate: jest.fn() };
+    notifications = {
+      notifyUser: jest.fn().mockResolvedValue(null),
+      notifyUsers: jest.fn().mockResolvedValue(undefined),
+    };
     const config = {
       get: jest.fn((key: string) => (key === 'AUDIT_PSEUDONYM_KEY' ? SECRET : undefined)),
     };
@@ -139,10 +148,7 @@ describe('ClaimsService (C1)', () => {
       invites as any,
       messaging as any,
       email as any,
-      {
-        notifyUser: jest.fn().mockResolvedValue(null),
-        notifyUsers: jest.fn().mockResolvedValue(undefined),
-      } as any,
+      notifications as any,
       planAccess as any,
     );
   });
@@ -221,6 +227,71 @@ describe('ClaimsService (C1)', () => {
         parishName: 'Paróquia São José',
       });
       expect(tx.lead.create.mock.calls[0][0].data.consentAt).toBeInstanceOf(Date);
+    });
+
+    describe('S14 — teto de avisos por paróquia', () => {
+      const body = { name: 'M', email: 'm@x.com', role: 'pároco', consent: true } as any;
+      const sysAdmins = [
+        { id: 'sys1', email: 's1@x.com' },
+        { id: 'sys2', email: 's2@x.com' },
+      ];
+      const parishAdmins = [{ id: 'pa1' }, { id: 'pa2' }];
+
+      beforeEach(() => {
+        prisma.parish.findUnique.mockResolvedValue({ ...parishRow, managedAt: new Date() });
+        prisma.user.findMany.mockImplementation(async ({ where }: any) =>
+          where.role === UserRole.SYSTEM_ADMIN ? sysAdmins : parishAdmins,
+        );
+      });
+
+      it('1º pedido da paróquia em 24 h: avisa a gestão atual e a plataforma, sem push urgente nem SMS', async () => {
+        prisma.parishClaim.count.mockResolvedValueOnce(0).mockResolvedValueOnce(3); // e-mail 24 h; fila aberta
+        await service.create('p1', body, null);
+        await flush();
+        expect(tx.$queryRaw).toHaveBeenCalled(); // trava por paróquia
+        const countWhere = tx.parishClaim.count.mock.calls[0][0].where;
+        expect(countWhere.parishId).toBe('p1');
+        expect(Date.now() - countWhere.createdAt.gte.getTime()).toBeGreaterThanOrEqual(24 * 3600_000 - 1000);
+
+        expect(notifications.notifyUsers).toHaveBeenCalledTimes(2);
+        const [platform, current] = notifications.notifyUsers.mock.calls[0][0][0] === 'sys1'
+          ? notifications.notifyUsers.mock.calls
+          : [...notifications.notifyUsers.mock.calls].reverse();
+        expect(platform[0]).toEqual(['sys1', 'sys2']);
+        expect(platform[1]).toBe('TEAM_BROADCAST');
+        expect(platform[3]).toContain('Há 3 pedidos aguardando análise');
+        expect(platform[4]).toMatchObject({ kind: 'PARISH_CLAIM_QUEUE' });
+        // S2: o e-mail aos SYSTEM_ADMIN sai pelo próprio fluxo — sem e-mail/SMS de reserva
+        expect(platform[5]).toEqual({ bulk: true, skipFallback: true });
+        expect(email.trySend).toHaveBeenCalledTimes(2);
+        expect(current[0]).toEqual(['pa1', 'pa2']);
+        expect(current[1]).toBe('TEAM_BROADCAST');
+        expect(current[5]).toEqual({ bulk: true });
+        for (const call of notifications.notifyUsers.mock.calls) expect(call[1]).not.toBe('URGENT_NOTICE');
+      });
+
+      it('outro pedido da mesma paróquia em 24 h (e-mail descartável novo): grava, mas ninguém é avisado de novo', async () => {
+        tx.parishClaim.count.mockResolvedValueOnce(1);
+        const out = await service.create('p1', { ...body, email: 'novo-descartavel@x.com' }, null);
+        await flush();
+        expect(out.claimId).toBe('cl1');
+        expect(tx.parishClaim.create).toHaveBeenCalled();
+        expect(notifications.notifyUsers).not.toHaveBeenCalled();
+        expect(email.trySend).not.toHaveBeenCalled();
+      });
+
+      it('plataforma agregada: já houve aviso de fila nos últimos 15 min → só a gestão da paróquia é avisada', async () => {
+        prisma.notification.findFirst.mockResolvedValueOnce({ id: 'n1' });
+        await service.create('p1', body, null);
+        await flush();
+        const where = prisma.notification.findFirst.mock.calls[0][0].where;
+        expect(where.userId).toEqual({ in: ['sys1', 'sys2'] });
+        expect(where.data).toEqual({ path: ['kind'], equals: 'PARISH_CLAIM_QUEUE' });
+        expect(Date.now() - where.createdAt.gte.getTime()).toBeLessThanOrEqual(15 * 60_000 + 1000);
+        expect(notifications.notifyUsers).toHaveBeenCalledTimes(1);
+        expect(notifications.notifyUsers.mock.calls[0][0]).toEqual(['pa1', 'pa2']);
+        expect(email.trySend).not.toHaveBeenCalled();
+      });
     });
 
     it('limite por e-mail e pedido em aberto repetido', async () => {
@@ -420,8 +491,62 @@ describe('ClaimsService (C1)', () => {
       expect(tx.communityPlan.createMany).not.toHaveBeenCalled();
 
       prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ status: 'APPROVED' }));
+      await expect(service.review('cl1', { action: 'APPROVE' } as any, reviewer)).rejects.toBeInstanceOf(
+        ConflictException,
+      );
+      prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ status: 'REJECTED' }));
       await expect(service.review('cl1', { action: 'REJECT' } as any, reviewer)).rejects.toBeInstanceOf(
         ConflictException,
+      );
+    });
+
+    it('S12: REJECT num pedido APROVADO desfaz a aprovação e revoga o convite de titular pendente', async () => {
+      prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ status: 'APPROVED', email: 'Maria@X.com' }));
+      tx.userInvite.updateMany.mockResolvedValueOnce({ count: 1 });
+      const out: any = await service.review('cl1', { action: 'REJECT', note: 'fraude' } as any, reviewer);
+      expect(tx.parishClaim.updateMany.mock.calls[0][0]).toMatchObject({
+        where: { id: 'cl1', status: 'APPROVED' },
+        data: { status: 'REJECTED', reviewNote: 'fraude', reviewedByUserId: 'sys' },
+      });
+      expect(tx.userInvite.updateMany.mock.calls[0][0]).toMatchObject({
+        where: {
+          holder: true,
+          parishId: 'p1',
+          email: { equals: 'Maria@X.com', mode: 'insensitive' },
+          acceptedAt: null,
+          revokedAt: null,
+        },
+      });
+      expect(tx.userInvite.updateMany.mock.calls[0][0].data.revokedAt).toBeInstanceOf(Date);
+      expect(tx.lead.updateMany.mock.calls[0][0].data).toEqual({ status: 'LOST' });
+      expect(out).toMatchObject({ action: 'REJECT', approvalUndone: true, revokedInvites: 1 });
+      expect(out.warning).toBeUndefined();
+      expect(users.applyGrantToExistingAccount).not.toHaveBeenCalled();
+    });
+
+    it('S12: desfazer com conta já promovida avisa para ajustar na tela de Usuários; corrida → 409', async () => {
+      prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ status: 'APPROVED', grantedUserId: 'u9' }));
+      const out: any = await service.review('cl1', { action: 'REJECT' } as any, reviewer);
+      expect(out.grantedUserId).toBe('u9');
+      expect(out.warning).toContain('tela de Usuários');
+
+      tx.parishClaim.updateMany.mockResolvedValueOnce({ count: 0 });
+      await expect(service.review('cl1', { action: 'REJECT' } as any, reviewer)).rejects.toBeInstanceOf(
+        ConflictException,
+      );
+    });
+
+    it('S2: aviso de aprovado/rejeitado à conta de quem pediu vai sem e-mail de reserva (o e-mail sai pelo fluxo)', async () => {
+      prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ userId: 'u1' }));
+      await service.review('cl1', { action: 'REJECT' } as any, reviewer);
+      expect(email.trySend).toHaveBeenCalledWith('maria@x.com', 'Pedido de gestão não aprovado', expect.any(String));
+      expect(notifications.notifyUser).toHaveBeenCalledWith(
+        'u1',
+        'TEAM_BROADCAST',
+        'Pedido de gestão não aprovado',
+        expect.any(String),
+        expect.objectContaining({ kind: 'PARISH_CLAIM' }),
+        { skipFallback: true },
       );
     });
 

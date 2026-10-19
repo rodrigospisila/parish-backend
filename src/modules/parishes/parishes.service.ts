@@ -201,13 +201,20 @@ export class ParishesService {
    * perfil do fiel): só dados públicos — sem configuração do dízimo/provedor e
    * só as comunidades não arquivadas.
    */
-  async findOne(id: string) {
-    const parish = await this.prisma.parish.findUnique({
+  /**
+   * GET /parishes/:id. O pedido de encerramento (`closureRequestedAt`,
+   * `closureEffectiveAt` — tela "Minha paróquia", S23) só vai para quem
+   * ADMINISTRA a paróquia: PARISH_ADMIN dela, DIOCESAN_ADMIN da diocese e
+   * SYSTEM_ADMIN. Sem usuário (uso interno/público) os campos nunca saem.
+   */
+  async findOne(id: string, user?: CurrentUser | null) {
+    const found = await this.prisma.parish.findUnique({
       where: { id },
       select: {
         id: true, name: true, address: true, city: true, state: true, zipCode: true, phone: true, email: true,
         website: true, logoUrl: true, priestName: true, latitude: true, longitude: true, foundedAt: true, status: true,
         dioceseId: true, titheEnabled: true, cnpj: true, createdAt: true, updatedAt: true,
+        closureRequestedAt: true, closureEffectiveAt: true,
         diocese: { select: { id: true, name: true, city: true, state: true, website: true, logoUrl: true, bishopName: true } },
         communities: {
           where: { deletedAt: null },
@@ -225,10 +232,17 @@ export class ParishesService {
       },
     });
 
-    if (!parish) {
+    if (!found) {
       throw new NotFoundException(`Paróquia com ID ${id} não encontrada`);
     }
 
+    const administers =
+      !!user &&
+      (user.role === UserRole.SYSTEM_ADMIN ||
+        (user.role === UserRole.DIOCESAN_ADMIN && !!user.dioceseId && user.dioceseId === found.dioceseId) ||
+        (user.role === UserRole.PARISH_ADMIN && !!user.parishId && user.parishId === found.id));
+    if (administers) return found;
+    const { closureRequestedAt: _requested, closureEffectiveAt: _effective, ...parish } = found;
     return parish;
   }
 

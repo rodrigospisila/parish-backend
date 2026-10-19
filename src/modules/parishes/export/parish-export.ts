@@ -3,7 +3,7 @@ import { Writable } from 'stream';
 import { PrismaService } from '../../../database/prisma.service';
 import { personForRecord } from '../../sacraments/sacrament-record';
 import { ZipStreamWriter } from './zip-stream';
-import { CSV_BOM, brDate, brDateTime, brMoney, civilDate, csvLine, label, yesNo } from './csv';
+import { CSV_BOM, brDate, brDateTime, brMoney, civilDate, csvLine, idText, label, yesNo } from './csv';
 
 /**
  * Exportação de TODOS os dados da paróquia (saas-implantacao-19 — portabilidade
@@ -13,6 +13,12 @@ import { CSV_BOM, brDate, brDateTime, brMoney, civilDate, csvLine, label, yesNo 
  * arquivadas) e lançamentos com `parishId` da paróquia. Pessoas entram pelo
  * cadastro PRINCIPAL numa comunidade da paróquia — quem só tem vínculo
  * secundário pertence a outra paróquia e fica de fora.
+ *
+ * Livros e dízimo (S17) NÃO seguem a comunidade principal ATUAL da pessoa
+ * (o vínculo é aberto: quem troca a principal para outra paróquia levaria
+ * junto o assento e o histórico de contribuições): cada registro é ancorado
+ * na paróquia em que foi feito — ver sacramentAnchors/titherAnchors/
+ * contributionAnchors.
  */
 
 const BATCH = 500;
@@ -40,6 +46,155 @@ async function* batches<T extends { id: string }>(
     if (rows.length < BATCH) return;
     cursor = rows[rows.length - 1].id;
   }
+}
+
+type Anchor = { id: string; communityId: string | null };
+
+/**
+ * Lotes ANCORADOS (S17): o SQL escolhe os ids (e a comunidade de origem) em
+ * ordem crescente de id; o Prisma busca os detalhes desses ids. Cursor por
+ * id, como em `batches`.
+ */
+async function* anchoredBatches<T extends { id: string }>(
+  anchor: (cursor: string, take: number) => Promise<Anchor[]>,
+  fetch: (ids: string[]) => Promise<T[]>,
+): AsyncGenerator<{ row: T; communityId: string | null }> {
+  let cursor = '';
+  for (;;) {
+    const anchors = await anchor(cursor, BATCH);
+    if (anchors.length) {
+      const byId = new Map((await fetch(anchors.map((a) => a.id))).map((row) => [row.id, row]));
+      for (const a of anchors) {
+        const row = byId.get(a.id);
+        if (row) yield { row, communityId: a.communityId };
+      }
+    }
+    if (anchors.length < BATCH) return;
+    cursor = anchors[anchors.length - 1].id;
+  }
+}
+
+/**
+ * Comunidade em que o SACRAMENTO foi registrado (S17). O assento não grava a
+ * paróquia; o schema dá, em ordem:
+ * 1. o processo de preparação que gerou o sacramento (SacramentProcess.communityId);
+ * 2. a comunidade principal atual, se a pessoa JÁ estava nela quando o
+ *    registro foi feito (vínculo com joinedAt <= createdAt do sacramento, ou
+ *    cadastro antigo sem vínculo);
+ * 3. senão (a pessoa mudou de comunidade DEPOIS do registro), o vínculo mais
+ *    antigo vigente na data do registro — a comunidade de origem.
+ * Só entram sacramentos cuja origem é uma comunidade desta paróquia.
+ */
+function sacramentAnchors(prisma: PrismaService, communityIds: string[]) {
+  return (cursor: string, take: number) =>
+    prisma.$queryRaw<Anchor[]>(Prisma.sql`
+      SELECT a.id, a.origin AS "communityId" FROM (
+        SELECT s.id,
+          COALESCE(
+            proc."communityId",
+            CASE
+              WHEN cur."joinedAt" IS NULL OR cur."joinedAt" <= s."createdAt" THEN m."communityId"
+              ELSE COALESCE(origin."communityId", m."communityId")
+            END
+          ) AS origin
+        FROM sacraments s
+        JOIN members m ON m.id = s."memberId"
+        LEFT JOIN LATERAL (
+          SELECT sp."communityId" FROM sacrament_processes sp
+          WHERE sp."sacramentId" = s.id ORDER BY sp."createdAt" DESC LIMIT 1
+        ) proc ON true
+        LEFT JOIN LATERAL (
+          SELECT mc."joinedAt" FROM member_communities mc
+          WHERE mc."memberId" = m.id AND mc."communityId" = m."communityId" LIMIT 1
+        ) cur ON true
+        LEFT JOIN LATERAL (
+          SELECT mc."communityId" FROM member_communities mc
+          WHERE mc."memberId" = m.id AND mc."joinedAt" <= s."createdAt"
+            AND (mc."leftAt" IS NULL OR mc."leftAt" > s."createdAt")
+          ORDER BY mc."joinedAt" ASC, mc.id ASC LIMIT 1
+        ) origin ON true
+        WHERE s.id > ${cursor}
+          AND (
+            m."communityId" = ANY(${communityIds}::text[])
+            OR EXISTS (SELECT 1 FROM member_communities mc2
+                       WHERE mc2."memberId" = m.id AND mc2."communityId" = ANY(${communityIds}::text[]))
+            OR EXISTS (SELECT 1 FROM sacrament_processes sp2
+                       WHERE sp2."sacramentId" = s.id AND sp2."communityId" = ANY(${communityIds}::text[]))
+          )
+      ) a
+      WHERE a.origin = ANY(${communityIds}::text[])
+      ORDER BY a.id
+      LIMIT ${take}
+    `);
+}
+
+/**
+ * Lançamento financeiro da contribuição é DESTA paróquia (S17): a contribuição
+ * grava o lançamento com a paróquia/comunidade de quando foi paga.
+ */
+function financeInParish(parishId: string, communityIds: string[]): Prisma.Sql {
+  return Prisma.sql`(ft."parishId" = ${parishId} OR (ft."parishId" IS NULL AND ft."communityId" = ANY(${communityIds}::text[])))`;
+}
+
+/** Lançamento de OUTRA paróquia (com paróquia ou comunidade gravada fora desta). */
+function financeElsewhere(parishId: string, communityIds: string[]): Prisma.Sql {
+  return Prisma.sql`((ft."parishId" IS NOT NULL AND ft."parishId" <> ${parishId})
+    OR (ft."parishId" IS NULL AND ft."communityId" IS NOT NULL AND NOT (ft."communityId" = ANY(${communityIds}::text[]))))`;
+}
+
+/**
+ * Contribuições pela paróquia da CONTRIBUIÇÃO (S17): a do lançamento
+ * financeiro ligado (financialTransactionId — todo lançamento manual ou Pix
+ * grava um). Contribuição antiga sem lançamento segue a comunidade atual.
+ */
+function contributionAnchors(prisma: PrismaService, parishId: string, communityIds: string[]) {
+  return (cursor: string, take: number) =>
+    prisma.$queryRaw<Anchor[]>(Prisma.sql`
+      SELECT tc.id, COALESCE(ft."communityId", m."communityId") AS "communityId"
+      FROM tithe_contributions tc
+      JOIN tithers t ON t.id = tc."titherId"
+      JOIN members m ON m.id = t."memberId"
+      LEFT JOIN financial_transactions ft ON ft.id = tc."financialTransactionId"
+      WHERE tc.id > ${cursor}
+        AND (
+          (ft.id IS NOT NULL AND ${financeInParish(parishId, communityIds)})
+          OR (ft.id IS NULL AND m."communityId" = ANY(${communityIds}::text[]))
+        )
+      ORDER BY tc.id
+      LIMIT ${take}
+    `);
+}
+
+/**
+ * Dizimistas pela paróquia em que contribuem (S17): entra quem tem
+ * contribuição desta paróquia, ou quem está hoje numa comunidade daqui e não
+ * tem contribuição de outra paróquia (dizimista novo, sem histórico). Quem
+ * mudou para outra paróquia continua nos livros daqui pelo histórico; a
+ * outra só o recebe quando houver contribuição lá.
+ */
+function titherAnchors(prisma: PrismaService, parishId: string, communityIds: string[]) {
+  const here = financeInParish(parishId, communityIds);
+  const elsewhere = financeElsewhere(parishId, communityIds);
+  return (cursor: string, take: number) =>
+    prisma.$queryRaw<Anchor[]>(Prisma.sql`
+      SELECT t.id, m."communityId" AS "communityId"
+      FROM tithers t
+      JOIN members m ON m.id = t."memberId"
+      WHERE t.id > ${cursor}
+        AND (
+          EXISTS (SELECT 1 FROM tithe_contributions tc
+                  JOIN financial_transactions ft ON ft.id = tc."financialTransactionId"
+                  WHERE tc."titherId" = t.id AND ${here})
+          OR (
+            m."communityId" = ANY(${communityIds}::text[])
+            AND NOT EXISTS (SELECT 1 FROM tithe_contributions tc
+                            JOIN financial_transactions ft ON ft.id = tc."financialTransactionId"
+                            WHERE tc."titherId" = t.id AND ${elsewhere})
+          )
+        )
+      ORDER BY t.id
+      LIMIT ${take}
+    `);
 }
 
 /** Início do dia de hoje no fuso de Brasília (-03). */
@@ -102,7 +257,8 @@ export async function writeParishExport(
       'Longitude', 'Situação', 'Arquivada em', 'Cadastrada em'],
     function* () {
       for (const c of communities) {
-        yield [c.id, c.name, c.address, c.city, c.state, c.zipCode, c.phone, c.email, c.website, c.coordinatorName,
+        yield [c.id, c.name, c.address, c.city, c.state, idText(c.zipCode), idText(c.phone), c.email, c.website,
+          c.coordinatorName,
           c.latitude ?? '', c.longitude ?? '', label('entityStatus', c.status), brDate(c.deletedAt), brDate(c.createdAt)];
       }
     },
@@ -138,8 +294,9 @@ export async function writeParishExport(
         }),
       );
       for await (const m of rows) {
-        yield [m.id, m.fullName, civilDate(m.birthDate), m.cpf, m.rg, label('gender', m.gender),
-          label('maritalStatus', m.maritalStatus), m.occupation, m.phone, m.email, m.zipCode, m.street, m.number,
+        yield [m.id, m.fullName, civilDate(m.birthDate), idText(m.cpf), idText(m.rg), label('gender', m.gender),
+          label('maritalStatus', m.maritalStatus), m.occupation, idText(m.phone), m.email, idText(m.zipCode), m.street,
+          m.number,
           m.complement, m.neighborhood, m.city, m.state, m.fatherName, m.motherName, m.spouse?.fullName,
           m.responsible?.fullName, communityName.get(m.communityId),
           m.communityLinks.map((l) => l.community.name).join(', '), label('memberType', m.memberType),
@@ -156,11 +313,9 @@ export async function writeParishExport(
     ['ID', 'Sacramento', 'Data', 'Tipo de registro', 'Livro', 'Folha', 'Termo', 'Local', 'Ministro', 'Pessoa',
       'Nascimento', 'Pai', 'Mãe', 'ID do membro', 'Comunidade', 'Observações'],
     async function* () {
-      const rows = batches((cursor, take) =>
+      const rows = anchoredBatches(sacramentAnchors(prisma, communityIds), (ids) =>
         prisma.sacrament.findMany({
-          where: { AND: [{ member: { communityId: inParish } }, cursor] },
-          orderBy: { id: 'asc' },
-          take,
+          where: { id: { in: ids } },
           select: {
             id: true, type: true, date: true, recordKind: true, book: true, page: true, term: true, place: true,
             minister: true, notes: true, personSnapshot: true, memberId: true,
@@ -170,11 +325,12 @@ export async function writeParishExport(
           },
         }),
       );
-      for await (const s of rows) {
+      for await (const { row: s, communityId } of rows) {
         const person = personForRecord(s.member, s.personSnapshot);
+        // Comunidade de ORIGEM do registro (desta paróquia), não a principal atual
         yield [s.id, label('sacramentType', s.type), civilDate(s.date), label('recordKind', s.recordKind), s.book,
           s.page, s.term, s.place, s.minister, person?.fullName ?? '(anonimizado)', civilDate(person?.birthDate),
-          person?.fatherName, person?.motherName, s.memberId, communityName.get(s.member.communityId), s.notes];
+          person?.fatherName, person?.motherName, s.memberId, communityName.get(communityId ?? ''), s.notes];
       }
     },
   );
@@ -350,20 +506,19 @@ export async function writeParishExport(
     'Dizimistas (registro e situação)',
     ['ID', 'Nº do dizimista', 'Nome', 'ID do membro', 'Comunidade', 'Situação', 'Dizimista desde'],
     async function* () {
-      const rows = batches((cursor, take) =>
+      const rows = anchoredBatches(titherAnchors(prisma, parishId, communityIds), (ids) =>
         prisma.tither.findMany({
-          where: { AND: [{ member: { communityId: inParish } }, cursor] },
-          orderBy: { id: 'asc' },
-          take,
+          where: { id: { in: ids } },
           select: {
             id: true, registrationNumber: true, status: true, joinedAt: true, memberId: true,
             member: { select: { fullName: true, communityId: true } },
           },
         }),
       );
-      for await (const t of rows) {
-        yield [t.id, t.registrationNumber, t.member.fullName, t.memberId, communityName.get(t.member.communityId),
-          label('titherStatus', t.status), brDate(t.joinedAt)];
+      for await (const { row: t } of rows) {
+        yield [t.id, idText(t.registrationNumber), t.member.fullName, t.memberId,
+          communityName.get(t.member.communityId) ?? '(hoje em outra paróquia)', label('titherStatus', t.status),
+          brDate(t.joinedAt)];
       }
     },
   );
@@ -374,11 +529,9 @@ export async function writeParishExport(
     ['ID', 'Nº do dizimista', 'Dizimista', 'ID do membro', 'Comunidade', 'Mês de referência', 'Data', 'Valor (R$)',
       'Meio', 'Recibo'],
     async function* () {
-      const rows = batches((cursor, take) =>
+      const rows = anchoredBatches(contributionAnchors(prisma, parishId, communityIds), (ids) =>
         prisma.titheContribution.findMany({
-          where: { AND: [{ tither: { member: { communityId: inParish } } }, cursor] },
-          orderBy: { id: 'asc' },
-          take,
+          where: { id: { in: ids } },
           select: {
             id: true, amount: true, date: true, referenceMonth: true, method: true, receiptNumber: true,
             tither: {
@@ -387,10 +540,11 @@ export async function writeParishExport(
           },
         }),
       );
-      for await (const c of rows) {
-        yield [c.id, c.tither.registrationNumber, c.tither.member.fullName, c.tither.memberId,
-          communityName.get(c.tither.member.communityId), c.referenceMonth, brDate(c.date), brMoney(c.amount),
-          c.method, c.receiptNumber];
+      for await (const { row: c, communityId } of rows) {
+        // Comunidade do LANÇAMENTO da contribuição (desta paróquia), não a principal atual
+        yield [c.id, idText(c.tither.registrationNumber), c.tither.member.fullName, c.tither.memberId,
+          communityName.get(communityId ?? '') ?? '(paróquia)', c.referenceMonth, brDate(c.date), brMoney(c.amount),
+          c.method, idText(c.receiptNumber)];
       }
     },
   );
@@ -454,7 +608,12 @@ export function buildReadme(ctx: ParishExportContext, files: ExportFileSummary[]
     '  "Informado" = sacramento recebido em outra paróquia e apenas anotado aqui.',
     '- "(anonimizado)" = cadastro apagado a pedido do titular (LGPD); o registro canônico/contábil é mantido.',
     '- Textos que começam com =, +, - ou @ recebem um apóstrofo na frente para não virarem fórmula.',
+    '- CPF, RG, CEP, telefone, nº do dizimista e recibo feitos só de números vêm escritos como ="0123": é o jeito',
+    '  de o Excel manter os zeros à esquerda (ele mostra 0123 como texto). Se outro programa mostrar o ="...",',
+    '  basta tirar o =" do começo e a " do fim.',
     '- Membros: entram as pessoas cuja comunidade PRINCIPAL é desta paróquia. Escalas: de hoje em diante.',
+    '- Sacramentos, dizimistas e contribuições ficam com a paróquia em que foram REGISTRADOS (livro e',
+    '  lançamento), mesmo que a pessoa tenha mudado depois para uma comunidade de outra paróquia.',
     '',
     'PROTEÇÃO DE DADOS (LGPD)',
     'Este arquivo contém dados pessoais (inclusive de crianças e dados religiosos, que são sensíveis).',

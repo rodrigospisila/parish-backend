@@ -12,8 +12,23 @@ const account = {
   legalName: 'Mitra',
   billingCycle: 'MONTHLY',
   status: 'PENDING',
+  nextDueDate: null as Date | null,
   providerSubscriptionId: 'sub_1',
 };
+
+/** Evento CHECKOUT (retrato da contratação) gravado pelo POST /billing/checkout. */
+function checkoutEvent(communityId: string, ref: string, cycle: 'MONTHLY' | 'YEARLY', valueCents: number, createdAt: Date) {
+  return {
+    communityId,
+    createdAt,
+    data: { billingAccountId: 'acc1', checkoutRef: ref, billingCycle: cycle, subscriptionValueCents: valueCents, tierKey: 'capela' },
+  };
+}
+const R1 = 'mgzr1-aaaa';
+const defaultCheckout = [
+  checkoutEvent('cap1', R1, 'MONTHLY', 4900, new Date(now.getTime() - 40 * DAY)),
+  checkoutEvent('matriz', R1, 'MONTHLY', 4900, new Date(now.getTime() - 40 * DAY)),
+];
 
 function linked(over: Record<string, unknown> = {}) {
   return {
@@ -30,7 +45,10 @@ function linked(over: Record<string, unknown> = {}) {
   };
 }
 
-function setup(opts: { env?: Record<string, string>; plans?: any[]; existingEvent?: any } = {}) {
+function setup(
+  opts: { env?: Record<string, string>; plans?: any[]; existingEvent?: any; checkouts?: any[]; paidEvents?: any[]; account?: any } = {},
+) {
+  const plans = opts.plans ?? [linked()];
   const env = opts.env ?? { PLATFORM_ASAAS_WEBHOOK_TOKEN: TOKEN };
   const tx = {
     communityPlan: { update: jest.fn().mockResolvedValue({}), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
@@ -38,7 +56,7 @@ function setup(opts: { env?: Record<string, string>; plans?: any[]; existingEven
   };
   const prisma: any = {
     billingAccount: {
-      findFirst: jest.fn().mockResolvedValue(account),
+      findFirst: jest.fn().mockResolvedValue(opts.account ?? account),
       findUnique: jest.fn().mockResolvedValue(null),
       update: jest.fn().mockResolvedValue({}),
     },
@@ -49,7 +67,15 @@ function setup(opts: { env?: Record<string, string>; plans?: any[]; existingEven
       update: jest.fn().mockResolvedValue({}),
       delete: jest.fn().mockResolvedValue({}),
     },
-    communityPlan: { findMany: jest.fn().mockResolvedValue(opts.plans ?? [linked()]) },
+    // Respeita o filtro por comunidade (cobertura da cobrança) e por conta (vencida)
+    communityPlan: {
+      findMany: jest.fn(async ({ where }: any) =>
+        plans.filter((plan) => (where.communityId?.in ? where.communityId.in.includes(plan.communityId) : true)),
+      ),
+    },
+    communityPlanEvent: {
+      findMany: jest.fn(async ({ where }: any) => (where.action === 'CHECKOUT' ? (opts.checkouts ?? defaultCheckout) : (opts.paidEvents ?? []))),
+    },
     user: { findMany: jest.fn().mockResolvedValue([{ id: 'sys1', email: 'sys@parish.app' }]) },
     parish: { findUnique: jest.fn().mockResolvedValue({ name: 'Paróquia Santo Antônio' }) },
     $transaction: jest.fn((fn: (client: unknown) => Promise<unknown>) => fn(tx)),
@@ -154,7 +180,15 @@ describe('BillingWebhookService — POST /platform/billing/webhook', () => {
       const ctx = setup();
       const res = await ctx.service.handle(headers, paymentEvent(event, { status: 'REFUNDED' }), now);
       expect(res).toMatchObject({ action: 'alerted' });
-      expect(ctx.notifications.notifyUsers).toHaveBeenCalledWith(['sys1'], 'URGENT_NOTICE', expect.any(String), expect.stringContaining(event), expect.any(Object));
+      // E-mail explícito abaixo: sem o e-mail/SMS de reserva do NotificationsService (S2)
+      expect(ctx.notifications.notifyUsers).toHaveBeenCalledWith(
+        ['sys1'],
+        'URGENT_NOTICE',
+        expect.any(String),
+        expect.stringContaining(event),
+        expect.any(Object),
+        { skipFallback: true },
+      );
       expect(ctx.email.trySend).toHaveBeenCalledWith('sys@parish.app', expect.any(String), expect.any(String));
       expect(ctx.tx.communityPlan.update).not.toHaveBeenCalled();
     }
@@ -184,5 +218,130 @@ describe('BillingWebhookService — POST /platform/billing/webhook', () => {
     await expect(ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED'), now)).rejects.toBeInstanceOf(ServiceUnavailableException);
     expect(ctx.prisma.paymentWebhookEvent.delete).toHaveBeenCalledWith({ where: { id: 'ev1' } });
     expect(ctx.prisma.paymentWebhookEvent.update).not.toHaveBeenCalled();
+  });
+
+  describe('cobertura da cobrança (revisão S5/S6)', () => {
+    const R2 = 'mh0aa-bbbb';
+    const before = new Date(now.getTime() - 40 * DAY);
+    const after = new Date(now.getTime() - 5 * DAY);
+
+    it('S5: mensalidade paga depois da troca para anual usa o ciclo DA COBRANÇA (vencimento + 1 mês)', async () => {
+      const checkouts = [
+        checkoutEvent('cap1', R1, 'MONTHLY', 4900, before),
+        checkoutEvent('cap1', R2, 'YEARLY', 49000, after), // admin trocou para anual depois
+      ];
+      for (const externalReference of [`billing:acc1:${R1}`, undefined]) {
+        const ctx = setup({
+          checkouts,
+          account: { ...account, billingCycle: 'YEARLY' },
+          plans: [linked({ status: 'ACTIVE', billingCycle: 'YEARLY', priceCents: 49000, currentPeriodEnd: new Date('2026-10-21T02:59:59.000Z') })],
+        });
+        const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED', { value: 49, externalReference }), now);
+        expect(res).toMatchObject({ action: 'activated', communityIds: ['cap1'] });
+        const data = ctx.tx.communityPlan.update.mock.calls[0][0].data;
+        expect(data.currentPeriodEnd.toISOString()).toBe('2026-11-21T02:59:59.000Z'); // + 1 mês, não + 1 ano
+        expect(data.billingCycle).toBe('YEARLY'); // a contratação atual continua anual
+        expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data.data).toMatchObject({ billingCycle: 'MONTHLY', checkoutRef: R1, paidPaymentId: 'pay_1' });
+      }
+    });
+
+    it('S6: pagamento antigo não ativa comunidades incluídas depois dele', async () => {
+      const checkouts = [
+        checkoutEvent('cap1', R1, 'YEARLY', 49000, before),
+        ...['cap1', 'cap2', 'cap3'].map((id) => checkoutEvent(id, R2, 'YEARLY', 147000, after)),
+      ];
+      const plans = [linked({ billingCycle: 'YEARLY' }), linked({ id: 'cp2', communityId: 'cap2' }), linked({ id: 'cp3', communityId: 'cap3', status: 'FREE' })];
+      for (const externalReference of [`billing:acc1:${R1}`, undefined]) {
+        const ctx = setup({ checkouts, plans });
+        const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED', { value: 490, externalReference }), now);
+        expect(res).toMatchObject({ action: 'activated', communityIds: ['cap1'] });
+        expect(ctx.tx.communityPlan.update).toHaveBeenCalledTimes(1);
+        expect(ctx.prisma.communityPlan.findMany.mock.calls[0][0].where).toMatchObject({
+          communityId: { in: ['cap1'] },
+          OR: [{ billingAccountId: 'acc1' }, { billingAccountId: null }],
+          community: { parishId: 'p1' },
+        });
+      }
+      // A cobrança nova (valor das 3) ativa as 3
+      const ctx = setup({ checkouts, plans });
+      const res = await ctx.service.handle(
+        headers,
+        paymentEvent('PAYMENT_RECEIVED', { id: 'pay_2', value: 1470, externalReference: `billing:acc1:${R2}` }),
+        now,
+      );
+      expect(res).toMatchObject({ communityIds: ['cap1', 'cap2', 'cap3'] });
+    });
+
+    it('cobrança em aberto reajustada (updatePendingPayments) segue a contratação nova pelo valor', async () => {
+      const checkouts = [checkoutEvent('cap1', R1, 'MONTHLY', 4900, before), ...['cap1', 'cap2'].map((id) => checkoutEvent(id, R2, 'MONTHLY', 9800, after))];
+      const ctx = setup({ checkouts, plans: [linked(), linked({ id: 'cp2', communityId: 'cap2' })] });
+      const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED', { value: 98, externalReference: `billing:acc1:${R1}` }), now);
+      expect(res).toMatchObject({ communityIds: ['cap1', 'cap2'] });
+    });
+
+    it('mesma cobrança já ativou a comunidade (CONFIRMED → RECEIVED): não recalcula', async () => {
+      const ctx = setup({ paidEvents: [{ communityId: 'cap1' }], plans: [linked({ status: 'ACTIVE', currentPeriodEnd: new Date(now.getTime() + 3 * DAY) })] });
+      const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED'), now);
+      expect(res).toMatchObject({ action: 'activated', communityIds: [] });
+      expect(ctx.tx.communityPlan.update).not.toHaveBeenCalled();
+      const call = ctx.prisma.communityPlanEvent.findMany.mock.calls.find((args: any[]) => args[0].where.action === 'BILLING');
+      expect(call[0].where).toMatchObject({ action: 'BILLING', data: { path: ['paidPaymentId'], equals: 'pay_1' } });
+    });
+
+    it('valor que não bate com nenhuma contratação: nada ativa e o SYSTEM_ADMIN é avisado', async () => {
+      const ctx = setup();
+      const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED', { value: 12.34 }), now);
+      expect(res).toMatchObject({ action: 'unmatched', communityIds: [] });
+      expect(ctx.tx.communityPlan.update).not.toHaveBeenCalled();
+      expect(ctx.notifications.notifyUsers).toHaveBeenCalledWith(
+        ['sys1'],
+        'URGENT_NOTICE',
+        expect.stringContaining('sem contratação'),
+        expect.any(String),
+        expect.any(Object),
+        { skipFallback: true },
+      );
+      expect(ctx.email.trySend).toHaveBeenCalledTimes(1);
+    });
+
+    it('retrato recém-criado ainda não gravado: 503 para o Asaas reenviar; antigo: regra do valor', async () => {
+      const fresh = `${(now.getTime() - 30_000).toString(36)}-cccc`;
+      const ctx = setup();
+      await expect(
+        ctx.service.handle(headers, paymentEvent('PAYMENT_CONFIRMED', { externalReference: `billing:acc1:${fresh}` }), now),
+      ).rejects.toBeInstanceOf(ServiceUnavailableException);
+      expect(ctx.prisma.paymentWebhookEvent.delete).toHaveBeenCalled();
+
+      const old = `${(now.getTime() - 60 * 60_000).toString(36)}-dddd`;
+      const late = setup();
+      const res = await late.service.handle(headers, paymentEvent('PAYMENT_CONFIRMED', { externalReference: `billing:acc1:${old}` }), now);
+      expect(res).toMatchObject({ action: 'activated', communityIds: ['cap1'] });
+    });
+
+    it('cobrança antiga paga depois não recua o próximo vencimento da conta', async () => {
+      const nextDue = new Date(now.getTime() + 300 * DAY);
+      const ctx = setup({ account: { ...account, status: 'ACTIVE', nextDueDate: nextDue } });
+      await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED'), now);
+      expect(ctx.prisma.billingAccount.update).toHaveBeenCalledWith({ where: { id: 'acc1' }, data: { status: 'ACTIVE', nextDueDate: nextDue } });
+    });
+  });
+
+  describe('reenvio depois de queda no meio (revisão S10)', () => {
+    it('registro sem processedAt (processo caiu): o reenvio processa usando o mesmo registro', async () => {
+      const ctx = setup({ existingEvent: { id: 'ev-old', processedAt: null, error: null } });
+      const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED'), now);
+      expect(res).toMatchObject({ processed: true, action: 'activated' });
+      expect(ctx.prisma.paymentWebhookEvent.create).not.toHaveBeenCalled();
+      expect(ctx.prisma.paymentWebhookEvent.update).toHaveBeenCalledWith(
+        expect.objectContaining({ where: { id: 'ev-old' }, data: expect.objectContaining({ processedAt: expect.any(Date), error: null }) }),
+      );
+    });
+
+    it('registro marcado por terceiros (processedAt + erro, ex.: "evento descartado"): reprocessa, não vira duplicate', async () => {
+      const ctx = setup({ existingEvent: { id: 'ev-old', processedAt: new Date(), error: 'Provedor da paróquia mudou — evento descartado' } });
+      const res = await ctx.service.handle(headers, paymentEvent('PAYMENT_RECEIVED'), now);
+      expect(res).toMatchObject({ processed: true, action: 'activated', communityIds: ['cap1'] });
+      expect(ctx.tx.communityPlan.update).toHaveBeenCalledTimes(1);
+    });
   });
 });

@@ -77,6 +77,7 @@ describe('UsersService — titular da paróquia (eng-acessos-03)', () => {
       eventFavorite: { deleteMany: jest.fn() },
       massScheduleFavorite: { deleteMany: jest.fn() },
       notification: { deleteMany: jest.fn() },
+      notificationOutbox: { deleteMany: jest.fn() },
       member: { updateMany: jest.fn() },
       $queryRaw: jest.fn().mockResolvedValue([]),
     };

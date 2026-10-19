@@ -1,11 +1,16 @@
 import {
   PricingItem,
   PricingTier,
+  billingExternalRef,
   firstDueDate,
   isPilotPlan,
+  newCheckoutRef,
   nextPaymentStatus,
+  parseBillingExternalRef,
   periodEndFromDueDate,
+  pickChargeCoverage,
   priceSubscription,
+  snapshotsFromCheckoutEvents,
   ymdInBrazil,
 } from './billing-rules';
 import { documentKind, isValidCnpj, isValidCpf } from './document';
@@ -133,5 +138,55 @@ describe('CPF/CNPJ (dígitos verificadores)', () => {
     expect(documentKind('11222333000181')).toBe('CNPJ');
     expect(documentKind('11222333000182')).toBeNull();
     expect(documentKind('')).toBeNull();
+  });
+});
+
+describe('retrato da contratação e cobertura da cobrança (revisão S5/S6)', () => {
+  it('externalReference: cliente = billing:<conta>; assinatura = billing:<conta>:<retrato> com o instante', () => {
+    const ref = newCheckoutRef(now, 'ab12cd34');
+    expect(billingExternalRef('acc1')).toBe('billing:acc1');
+    expect(billingExternalRef('acc1', ref)).toBe(`billing:acc1:${ref}`);
+    expect(parseBillingExternalRef(`billing:acc1:${ref}`)).toEqual({ billingAccountId: 'acc1', checkoutRef: ref, issuedAt: now });
+    expect(parseBillingExternalRef('billing:acc1')).toEqual({ billingAccountId: 'acc1', checkoutRef: null, issuedAt: null });
+    expect(parseBillingExternalRef('intent-1')).toBeNull();
+    expect(parseBillingExternalRef(null)).toBeNull();
+    expect(parseBillingExternalRef('billing:')).toBeNull();
+  });
+
+  const ev = (communityId: string, data: Record<string, unknown>, daysAgo: number) => ({
+    communityId,
+    createdAt: new Date(now.getTime() - daysAgo * DAY),
+    data: { billingAccountId: 'acc1', ...data },
+  });
+  const events = [
+    ev('c2', { checkoutRef: 'r2', billingCycle: 'YEARLY', subscriptionValueCents: 98000 }, 5),
+    ev('c1', { checkoutRef: 'r2', billingCycle: 'YEARLY', subscriptionValueCents: 98000 }, 5),
+    ev('c1', { checkoutRef: 'r1', billingCycle: 'MONTHLY', subscriptionValueCents: 4900 }, 40),
+    ev('c9', { tierKey: 'capela' }, 60), // evento antigo sem retrato: ignorado
+  ];
+
+  it('agrupa os eventos CHECKOUT por retrato, do mais antigo ao mais novo', () => {
+    const snapshots = snapshotsFromCheckoutEvents(events);
+    expect(snapshots.map((s) => [s.checkoutRef, s.cycle, s.valueCents, s.communityIds])).toEqual([
+      ['r1', 'MONTHLY', 4900, ['c1']],
+      ['r2', 'YEARLY', 98000, ['c2', 'c1']],
+    ]);
+  });
+
+  it('cobertura: retrato da cobrança > retrato posterior de mesmo valor > o próprio > mais recente de mesmo valor', () => {
+    const snapshots = snapshotsFromCheckoutEvents(events);
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'r1', valueCents: 4900 })?.checkoutRef).toBe('r1');
+    // cobrança gerada em r1, reajustada para o valor de r2 (updatePendingPayments)
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'r1', valueCents: 98000 })?.checkoutRef).toBe('r2');
+    // valor que não bate com nada, mas a cobrança diz de onde veio (ex.: acréscimo manual no Asaas)
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'r1', valueCents: 5000 })?.checkoutRef).toBe('r1');
+    // pago MENOS que o retrato da cobrança: nada (nunca ativa mais do que foi pago; nem volta para um retrato anterior)
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'r1', valueCents: 1 })).toBeNull();
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'r2', valueCents: 4900 })).toBeNull();
+    // sem retrato: pelo valor
+    expect(pickChargeCoverage(snapshots, { checkoutRef: null, valueCents: 4900 })?.checkoutRef).toBe('r1');
+    expect(pickChargeCoverage(snapshots, { checkoutRef: 'desconhecido', valueCents: 98000 })?.checkoutRef).toBe('r2');
+    expect(pickChargeCoverage(snapshots, { checkoutRef: null, valueCents: 1 })).toBeNull();
+    expect(pickChargeCoverage([], { checkoutRef: null, valueCents: 4900 })).toBeNull();
   });
 });

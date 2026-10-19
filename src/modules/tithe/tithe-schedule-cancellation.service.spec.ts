@@ -1,3 +1,4 @@
+import { ThrottlerModule } from '@nestjs/throttler';
 import { Test } from '@nestjs/testing';
 import { ConfigModule } from '@nestjs/config';
 import { CommonModule } from '../../common/common.module';
@@ -109,7 +110,7 @@ describe('TitheScheduleCancellationService', () => {
   });
 
   it('o módulo de membros sobe com o gancho (sem ciclo com o TitheModule)', async () => {
-    const moduleRef = await Test.createTestingModule({ imports: [ConfigModule.forRoot({ isGlobal: true, ignoreEnvFile: true }), PrismaModule, CommonModule, PlansModule, MembersModule] })
+    const moduleRef = await Test.createTestingModule({ imports: [ConfigModule.forRoot({ isGlobal: true, ignoreEnvFile: true }), ThrottlerModule.forRoot([{ ttl: 60_000, limit: 100 }]), PrismaModule, CommonModule, PlansModule, MembersModule] })
       .overrideProvider(PrismaService)
       .useValue({})
       .compile();

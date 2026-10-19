@@ -1749,6 +1749,8 @@ export class UsersService {
     await tx.massScheduleFavorite.deleteMany({ where: { userId } });
     // notifications.userId não tem FK: sem isto o histórico pessoal ficava (B36)
     await tx.notification.deleteMany({ where: { userId } });
+    // A fila de push guarda cópia de título/corpo/dados (sem FK): sai junto (S3)
+    await tx.notificationOutbox.deleteMany({ where: { userId } });
     await tx.userCommunity.updateMany({
       where: { userId, isActive: true },
       data: { isActive: false, isPrimary: false, leftAt: now },
@@ -1818,6 +1820,8 @@ export class UsersService {
       }
 
       await tx.notification.deleteMany({ where: { userId } });
+      // notification_outbox também não tem FK e guarda título/corpo/dados (S3)
+      await tx.notificationOutbox.deleteMany({ where: { userId } });
 
       // Exclusão definitiva do usuário (cascade cuida do restante)
       await tx.user.delete({ where: { id: userId } });

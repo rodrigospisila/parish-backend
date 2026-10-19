@@ -52,6 +52,8 @@ const plan = (over: Record<string, unknown> = {}) => ({
 
 function setup(env: Record<string, string> = {}, opts: { account?: any; canManage?: boolean } = {}) {
   const tx = {
+    // pg_try_advisory_xact_lock da paróquia (trava do checkout)
+    $queryRaw: jest.fn().mockResolvedValue([{ locked: true }]),
     billingAccount: { update: jest.fn().mockResolvedValue({}) },
     communityPlan: { updateMany: jest.fn().mockResolvedValue({ count: 0 }), upsert: jest.fn().mockResolvedValue({}) },
     communityPlanEvent: { create: jest.fn().mockResolvedValue({}) },
@@ -185,7 +187,8 @@ describe('BillingService', () => {
       const error = await ctx.service.checkout(admin, { parishId: 'p1', cycle: 'MONTHLY', items }, now).catch((e) => e);
       expect(error).toBeInstanceOf(ServiceUnavailableException);
       expect(error.getResponse()).toMatchObject({ code: 'CHECKOUT_UNAVAILABLE' });
-      expect(ctx.prisma.billingAccount.updateMany).not.toHaveBeenCalled();
+      expect(ctx.prisma.$transaction).not.toHaveBeenCalled();
+      expect(ctx.prisma.billingAccount.update).not.toHaveBeenCalled();
     });
 
     it('sem conta de faturamento → 400 BILLING_ACCOUNT_REQUIRED', async () => {
@@ -208,8 +211,16 @@ describe('BillingService', () => {
         skippedCommunityIds: ['matriz'],
       });
       expect(ctx.provider.createPlatformSubscription).toHaveBeenCalledWith(
-        expect.objectContaining({ providerCustomerId: 'cus_1', valueCents: 21800, cycle: 'MONTHLY', externalRef: 'billing:acc1' }),
+        expect.objectContaining({ providerCustomerId: 'cus_1', valueCents: 21800, cycle: 'MONTHLY', externalRef: expect.stringMatching(/^billing:acc1:[0-9a-z]+-[0-9a-f]+$/) }),
       );
+      // Retrato da contratação: o mesmo checkoutRef vai no externalReference da assinatura e nos eventos CHECKOUT
+      const externalRef: string = ctx.provider.createPlatformSubscription.mock.calls[0][0].externalRef;
+      const checkoutRef = externalRef.split(':')[2];
+      for (const call of ctx.tx.communityPlanEvent.create.mock.calls) {
+        expect(call[0].data.data).toMatchObject({ billingAccountId: 'acc1', checkoutRef, billingCycle: 'MONTHLY', subscriptionValueCents: 21800 });
+      }
+      // Cliente do Asaas identificado pela conta (não pelo CPF/CNPJ)
+      expect(ctx.provider.savePlatformCustomer).toHaveBeenCalledWith(expect.objectContaining({ externalRef: 'billing:acc1' }));
       // planos ligados à conta com faixa e preço; o piloto não é tocado
       const upserted = ctx.tx.communityPlan.upsert.mock.calls.map((call: any[]) => call[0].where.communityId);
       expect(upserted).toEqual(['cap1', 'cap2']);
@@ -236,7 +247,12 @@ describe('BillingService', () => {
       ctx.prisma.community.findMany.mockResolvedValue(communities);
       const res = await ctx.service.checkout(admin, { parishId: 'p1', cycle: 'MONTHLY', items }, now);
       expect(ctx.provider.createPlatformSubscription).not.toHaveBeenCalled();
-      expect(ctx.provider.updatePlatformSubscription).toHaveBeenCalledWith('sub_1', expect.objectContaining({ valueCents: 21800 }));
+      expect(ctx.provider.updatePlatformSubscription).toHaveBeenCalledWith(
+        'sub_1',
+        expect.objectContaining({ valueCents: 21800, externalRef: expect.stringMatching(/^billing:acc1:/) }),
+      );
+      const checkoutRef = ctx.provider.updatePlatformSubscription.mock.calls[0][1].externalRef.split(':')[2];
+      expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data.data.checkoutRef).toBe(checkoutRef);
       expect(res).toMatchObject({ created: false, nextDueDate: '2026-11-20' });
     });
 
@@ -252,9 +268,66 @@ describe('BillingService', () => {
         BadRequestException,
       );
       ctx.prisma.community.findMany.mockResolvedValue(communities);
-      ctx.prisma.billingAccount.updateMany.mockResolvedValue({ count: 0 });
+      ctx.tx.$queryRaw.mockResolvedValue([{ locked: false }]); // outra requisição segura a trava
+      ctx.prisma.billingAccount.findUnique.mockClear();
       await expect(ctx.service.checkout(admin, { parishId: 'p1', cycle: 'MONTHLY', items }, now)).rejects.toMatchObject({ status: 409 });
       expect(ctx.provider.createPlatformSubscription).not.toHaveBeenCalled();
+      expect(ctx.provider.savePlatformCustomer).not.toHaveBeenCalled();
+      expect(ctx.prisma.billingAccount.findUnique).not.toHaveBeenCalled(); // conta só é lida com a trava
+    });
+
+    it('S7: trava por paróquia (advisory lock) antes de ler a conta; checkouts simultâneos criam UMA assinatura', async () => {
+      const ctx = setup(fullEnv, { account });
+      jest.spyOn(ctx.service, 'platformProvider').mockReturnValue(ctx.provider as any);
+      ctx.prisma.community.findMany.mockResolvedValue(communities);
+      // Banco simulado: conta com estado e advisory lock de transação (liberado no fim da transação)
+      let row: any = { ...account };
+      ctx.prisma.billingAccount.findUnique.mockImplementation(async () => ({ ...row }));
+      ctx.prisma.billingAccount.update.mockImplementation(async ({ data }: any) => {
+        row = { ...row, ...data };
+        return row;
+      });
+      const held = new Set<string>();
+      const lockKeys: string[] = [];
+      ctx.prisma.$transaction.mockImplementation(async (fn: (client: unknown) => Promise<unknown>, options?: any) => {
+        const mine: string[] = [];
+        const lockTx = {
+          ...ctx.tx,
+          $queryRaw: jest.fn(async (strings: TemplateStringsArray, key: string) => {
+            expect(strings.join('?')).toContain('pg_try_advisory_xact_lock(hashtext(?))');
+            lockKeys.push(key);
+            if (held.has(key)) return [{ locked: false }];
+            held.add(key);
+            mine.push(key);
+            return [{ locked: true }];
+          }),
+        };
+        if (options) expect(options).toMatchObject({ timeout: expect.any(Number) });
+        try {
+          return await fn(lockTx);
+        } finally {
+          for (const key of mine) held.delete(key);
+        }
+      });
+      // Asaas lento: a 2ª requisição chega enquanto a 1ª cria a assinatura
+      ctx.provider.createPlatformSubscription.mockImplementation(
+        () => new Promise((resolve) => setTimeout(() => resolve({ providerRef: 'sub_1', status: 'ACTIVE', nextDueDate: '2026-10-20' }), 20)),
+      );
+
+      const results = await Promise.allSettled([
+        ctx.service.checkout(admin, { parishId: 'p1', cycle: 'MONTHLY', items }, now),
+        ctx.service.checkout({ ...admin, id: 'u2' }, { parishId: 'p1', cycle: 'MONTHLY', items }, now),
+      ]);
+      expect(results.map((r) => r.status).sort()).toEqual(['fulfilled', 'rejected']);
+      expect((results.find((r) => r.status === 'rejected') as PromiseRejectedResult).reason).toMatchObject({ status: 409 });
+      expect(ctx.provider.createPlatformSubscription).toHaveBeenCalledTimes(1);
+      expect(lockKeys).toEqual(['billing:p1', 'billing:p1']);
+
+      // Depois que a 1ª termina, a próxima contratação ATUALIZA a assinatura gravada
+      const again = await ctx.service.checkout(admin, { parishId: 'p1', cycle: 'YEARLY', items }, now);
+      expect(again.created).toBe(false);
+      expect(ctx.provider.createPlatformSubscription).toHaveBeenCalledTimes(1);
+      expect(ctx.provider.updatePlatformSubscription).toHaveBeenCalledWith('sub_1', expect.objectContaining({ cycle: 'YEARLY' }));
     });
   });
 

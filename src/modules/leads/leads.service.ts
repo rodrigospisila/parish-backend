@@ -6,9 +6,15 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { EmailService } from '../messaging/email.service';
 import { CreateLeadDto } from './dto/create-lead.dto';
 import { UpdateLeadDto } from './dto/update-lead.dto';
+import { PUBLIC_LEAD_SOURCES } from './dto/create-lead.dto';
 
-/** Mesmo contato (e-mail ou telefone) com lead NEW nesta janela: atualiza em vez de duplicar. */
-export const LEAD_DEDUPE_HOURS = 24;
+/**
+ * Freio só contra repetição (spam/duplo clique): o mesmo e-mail (ou, sem
+ * e-mail, o mesmo telefone) para a mesma paróquia nesta janela é ignorado em
+ * silêncio. Fora disso, cada envio vira um lead NOVO — um formulário anônimo
+ * nunca altera um lead existente (S13: o contato de outra pessoa, o lead CLAIM).
+ */
+export const LEAD_SPAM_WINDOW_MINUTES = 10;
 export const LEADS_PAGE_MAX = 200;
 
 /** Id do banco (cuid/cuid2 ou uuid). */
@@ -62,8 +68,10 @@ export class LeadsService {
 
   /**
    * POST /public/leads — sem login. Honeypot preenchido devolve o MESMO corpo
-   * de sucesso sem gravar (o robô não aprende que foi barrado). O mesmo contato
-   * repetido em 24 h atualiza o lead aberto (sem novo aviso ao SYSTEM_ADMIN).
+   * de sucesso sem gravar (o robô não aprende que foi barrado). Repetição do
+   * mesmo e-mail para a mesma paróquia em 10 min também (sem gravar nem avisar).
+   * Nunca altera lead existente: quem conhece o e-mail de outra pessoa não
+   * troca o contato dela nem mexe no lead da reivindicação (S13).
    */
   async createPublic(dto: CreateLeadDto): Promise<typeof PUBLIC_LEAD_OK> {
     if (typeof dto.website === 'string' && dto.website.trim() !== '') {
@@ -97,17 +105,7 @@ export class LeadsService {
       message: typeof dto.message === 'string' ? dto.message.trim().slice(0, 2000) || null : null,
     };
 
-    const since = new Date(Date.now() - LEAD_DEDUPE_HOURS * 3_600_000);
-    const contactMatch: Prisma.LeadWhereInput[] = [];
-    if (email) contactMatch.push({ email });
-    if (phone) contactMatch.push({ phone });
-    const existing = await this.prisma.lead.findFirst({
-      where: { status: LeadStatus.NEW, createdAt: { gte: since }, OR: contactMatch },
-      select: { id: true },
-      orderBy: { createdAt: 'desc' },
-    });
-    if (existing) {
-      await this.prisma.lead.update({ where: { id: existing.id }, data: { ...data, consentAt: new Date() } });
+    if (await this.isRecentRepeat({ email, phone, parishId, parishName: data.parishName })) {
       return PUBLIC_LEAD_OK;
     }
 
@@ -219,6 +217,36 @@ export class LeadsService {
     if (dto.notes !== undefined) data.notes = typeof dto.notes === 'string' ? dto.notes.trim().slice(0, 4000) || null : null;
     if (!Object.keys(data).length) throw new BadRequestException('Nada para alterar');
     return this.prisma.lead.update({ where: { id }, data, select: LEAD_SELECT });
+  }
+
+  /**
+   * Mesmo contato + mesma paróquia, de origem pública, nos últimos 10 min.
+   * Só lê: o lead encontrado nunca é alterado (nem o CLAIM, que fica fora).
+   */
+  private async isRecentRepeat(target: {
+    email: string | null;
+    phone: string | null;
+    parishId: string | null;
+    parishName: string | null;
+  }): Promise<boolean> {
+    const contact: Prisma.LeadWhereInput = target.email ? { email: target.email } : { phone: target.phone };
+    const parish: Prisma.LeadWhereInput = target.parishId
+      ? { parishId: target.parishId }
+      : {
+          parishId: null,
+          parishName: target.parishName ? { equals: target.parishName, mode: 'insensitive' } : null,
+        };
+    const repeat = await this.prisma.lead.findFirst({
+      where: {
+        source: { in: [...PUBLIC_LEAD_SOURCES] },
+        createdAt: { gte: new Date(Date.now() - LEAD_SPAM_WINDOW_MINUTES * 60_000) },
+        ...contact,
+        ...parish,
+      },
+      select: { id: true },
+    });
+    if (repeat) this.logger.log('Lead repetido em 10 min ignorado');
+    return !!repeat;
   }
 
   private async existingParishId(value: unknown): Promise<string | null> {

@@ -54,6 +54,7 @@ describe('UsersService — LGPD e conta (F7b)', () => {
       eventFavorite: { deleteMany: jest.fn() },
       massScheduleFavorite: { deleteMany: jest.fn() },
       notification: { deleteMany: jest.fn() },
+      notificationOutbox: { deleteMany: jest.fn() },
       userCommunity: { updateMany: jest.fn() },
       // Trava da linha do usuário nas revogações (#39)
       $queryRaw: jest.fn().mockResolvedValue([]),
@@ -165,6 +166,8 @@ describe('UsersService — LGPD e conta (F7b)', () => {
       );
       expect(data.password).not.toBe('fiel@x.com');
       expect(tx.refreshToken.deleteMany).toHaveBeenCalledWith({ where: { userId: 'f1' } });
+      // S3: a fila de push (título/corpo/dados) também é esvaziada
+      expect(tx.notificationOutbox.deleteMany).toHaveBeenCalledWith({ where: { userId: 'f1' } });
       expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'f1' } });
       expect(tx.userCommunity.updateMany).toHaveBeenCalledWith(
         expect.objectContaining({ where: { userId: 'f1', isActive: true } }),

@@ -45,6 +45,8 @@ describe('InvitesService (C2)', () => {
   let service: InvitesService;
   /** parishHolder do ator, lido do banco por UsersService.isParishHolder */
   let holderRow: any;
+  /** Quem convidou, relido do banco no link público e no aceite (S12) */
+  let inviters: Record<string, any>;
 
   const communities: Record<string, any> = {
     c1: {
@@ -91,6 +93,12 @@ describe('InvitesService (C2)', () => {
 
   beforeEach(() => {
     holderRow = null;
+    const active = { isActive: true, anonymizedAt: null, parishHolder: false, email: 'gestao@x.com' };
+    inviters = {
+      'adm-p1': { ...parishAdmin, ...active },
+      'coord-c1': { ...coordinator, ...active },
+      sys: { ...systemAdmin, dioceseId: null, parishId: null, communityId: null, ...active },
+    };
     tx = {
       userInvite: {
         updateMany: jest.fn().mockResolvedValue({ count: 1 }),
@@ -123,6 +131,7 @@ describe('InvitesService (C2)', () => {
     prisma = {
       user: {
         findUnique: jest.fn(async ({ where, select }: any) => {
+          if (select?.anonymizedAt) return inviters[where.id] ?? null;
           if (select?.parishHolder) return holderRow;
           if (where?.phone) return null;
           return {
@@ -160,6 +169,7 @@ describe('InvitesService (C2)', () => {
       },
       diocese: { findMany: jest.fn().mockResolvedValue([]) },
       member: { findFirst: jest.fn() },
+      parishClaim: { findFirst: jest.fn().mockResolvedValue(null) },
       $queryRaw: jest.fn().mockResolvedValue([]),
       $transaction: jest.fn(async (cb: any) => cb(tx)),
     };
@@ -403,7 +413,11 @@ describe('InvitesService (C2)', () => {
 
     it('mostra o contato mascarado', async () => {
       prisma.userInvite.findUnique.mockResolvedValue(pendingInvite());
-      prisma.community.findMany.mockResolvedValueOnce([{ id: 'c1', name: 'Matriz' }]);
+      // Nome da comunidade (loadNames); a régua de escopo de quem convidou (S12) segue o mock padrão
+      const scopeLookup = prisma.community.findMany.getMockImplementation();
+      prisma.community.findMany.mockImplementation(async (args: any) =>
+        args?.select?.name ? [{ id: 'c1', name: 'Matriz' }] : scopeLookup(args),
+      );
       const out = await service.getPublic(generateInviteToken());
       expect(out).toMatchObject({
         role: 'VOLUNTEER',
@@ -537,12 +551,16 @@ describe('InvitesService (C2)', () => {
     });
 
     it('com Bearer: contato diferente → 403; conta de gestão → 409', async () => {
-      prisma.user.findUnique.mockImplementation(async () => ({
-        id: 'u2',
-        email: 'outra@x.com',
-        phone: null,
-        isActive: true,
-      }));
+      prisma.user.findUnique.mockImplementation(async ({ where, select }: any) =>
+        select?.anonymizedAt
+          ? inviters[where.id]
+          : {
+              id: 'u2',
+              email: 'outra@x.com',
+              phone: null,
+              isActive: true,
+            },
+      );
       await expect(
         service.accept(generateInviteToken(), { name: 'Ana', acceptTerms: true } as any, {
           id: 'u2',
@@ -564,8 +582,10 @@ describe('InvitesService (C2)', () => {
           holder: true,
           role: UserRole.PARISH_ADMIN,
           communityId: null,
+          invitedByUserId: 'sys',
         }),
       );
+      prisma.parishClaim.findFirst.mockResolvedValueOnce({ id: 'cl1' }); // pedido APROVADO
       await service.accept(
         generateInviteToken(),
         { name: 'Pe. João', password: '12345678', acceptTerms: true } as any,
@@ -589,6 +609,97 @@ describe('InvitesService (C2)', () => {
       expect(tx.parish.updateMany).toHaveBeenCalledWith(
         expect.objectContaining({ where: { id: 'p1', managedAt: null } }),
       );
+    });
+  });
+
+  describe('S12 — quem convidou perdeu o poder', () => {
+    const accept = () =>
+      service.accept(generateInviteToken(), { name: 'Ana', password: '12345678', acceptTerms: true } as any, null);
+
+    it('conta de quem convidou desativada, anonimizada ou apagada → 410 no link e no aceite, nenhuma conta', async () => {
+      prisma.userInvite.findUnique.mockResolvedValue(pendingInvite());
+      const original = inviters['adm-p1'];
+      for (const row of [{ ...original, isActive: false }, { ...original, anonymizedAt: new Date() }, null]) {
+        inviters['adm-p1'] = row;
+        await expect(service.getPublic(generateInviteToken())).rejects.toThrow(
+          new GoneException(INVITE_GONE_MESSAGES.inviterLost),
+        );
+        await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+      }
+      expect(tx.userInvite.updateMany).not.toHaveBeenCalled();
+      expect(tx.user.create).not.toHaveBeenCalled();
+    });
+
+    it('PARISH_ADMIN rebaixado (agora fiel) ou movido para outra paróquia → 410', async () => {
+      prisma.userInvite.findUnique.mockResolvedValue(pendingInvite());
+      const original = inviters['adm-p1'];
+      inviters['adm-p1'] = { ...original, role: UserRole.FAITHFUL };
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+
+      inviters['adm-p1'] = { ...original, parishId: 'p9', dioceseId: 'd9' };
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+      expect(tx.user.create).not.toHaveBeenCalled();
+    });
+
+    it('coordenação que saiu da comunidade do convite → 410; ainda na comunidade → aceita', async () => {
+      prisma.userInvite.findUnique.mockResolvedValue(pendingInvite({ invitedByUserId: 'coord-c1' }));
+      const original = inviters['coord-c1'];
+      inviters['coord-c1'] = { ...original, communityId: 'c2' };
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+
+      inviters['coord-c1'] = original;
+      await accept();
+      expect(tx.user.create).toHaveBeenCalledTimes(1);
+    });
+
+    it('convite de titular: titular desmarcado depois de convidar → 410; ainda titular → aceita', async () => {
+      prisma.userInvite.findUnique.mockResolvedValue(
+        pendingInvite({ holder: true, role: UserRole.PARISH_ADMIN, communityId: null }),
+      );
+      // parishHolder = false: o SYSTEM_ADMIN desmarcou o titular depois do convite
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+      await expect(service.getPublic(generateInviteToken())).rejects.toBeInstanceOf(GoneException);
+      expect(tx.user.create).not.toHaveBeenCalled();
+
+      inviters['adm-p1'] = { ...inviters['adm-p1'], parishHolder: true };
+      holderRow = { parishHolder: true, role: UserRole.PARISH_ADMIN, parishId: 'p1', isActive: true };
+      await accept();
+      expect(tx.user.create.mock.calls[0][0].data).toMatchObject({ role: 'PARISH_ADMIN', parishHolder: true });
+    });
+
+    it('convite de membro: quem convidou não gerencia mais o cadastro → 410', async () => {
+      prisma.userInvite.findUnique.mockResolvedValue(pendingInvite({ memberId: 'm1' }));
+      hierarchy.canManageMember.mockResolvedValueOnce(false);
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.inviterLost));
+      expect(hierarchy.canManageMember).toHaveBeenCalledWith('adm-p1', 'm1');
+    });
+
+    it('reivindicação de origem desfeita/rejeitada depois do convite de titular → 410; sem pedido nenhum → vale', async () => {
+      const created = new Date(Date.now() - 3600_000);
+      prisma.userInvite.findUnique.mockResolvedValue(
+        pendingInvite({
+          holder: true,
+          role: UserRole.PARISH_ADMIN,
+          communityId: null,
+          invitedByUserId: 'sys',
+          createdAt: created,
+        }),
+      );
+      // nenhum pedido APROVADO; um REJECTED revisado depois do convite
+      prisma.parishClaim.findFirst.mockResolvedValueOnce(null).mockResolvedValueOnce({ id: 'cl1' });
+      await expect(accept()).rejects.toThrow(new GoneException(INVITE_GONE_MESSAGES.claimUndone));
+      const undoneWhere = prisma.parishClaim.findFirst.mock.calls[1][0].where;
+      expect(undoneWhere).toMatchObject({
+        parishId: 'p1',
+        email: { equals: 'ana@x.com', mode: 'insensitive' },
+        status: { in: ['REJECTED', 'CANCELED'] },
+        reviewedAt: { gte: created },
+      });
+      expect(tx.user.create).not.toHaveBeenCalled();
+
+      // convite de titular feito pela plataforma sem reivindicação: segue valendo
+      await accept();
+      expect(tx.user.create).toHaveBeenCalledTimes(1);
     });
   });
 

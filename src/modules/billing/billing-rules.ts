@@ -1,3 +1,4 @@
+import { randomBytes } from 'crypto';
 import { BillingCycle, CommunityPlanStatus } from '@prisma/client';
 import { DEFAULT_PARISH_TIME_ZONE } from '../../common/schedule-time';
 import { addCycle } from '../plans/plan-rules';
@@ -179,3 +180,107 @@ export const PLATFORM_WEBHOOK_EVENTS = [
   'PAYMENT_AWAITING_CHARGEBACK_REVERSAL',
   'INVOICE_AUTHORIZED',
 ] as const;
+
+// ------------------------------------------------------------------
+// Cobertura de cada cobrança (revisão S5/S6)
+// ------------------------------------------------------------------
+//
+// Cada POST /billing/checkout (contratação ou alteração) gera um "retrato"
+// identificado por checkoutRef:
+// - no banco: os CommunityPlanEvent CHECKOUT daquela chamada levam
+//   data.checkoutRef, data.billingCycle e data.subscriptionValueCents (uma
+//   linha por comunidade cobrada) — sem mudar o schema;
+// - no Asaas: o externalReference da assinatura vira
+//   "billing:<billingAccountId>:<checkoutRef>" e as cobranças geradas por ela
+//   herdam esse valor (o cliente continua "billing:<billingAccountId>").
+// O webhook de pago ativa SÓ as comunidades e o ciclo do retrato da própria
+// cobrança, nunca a configuração atual da conta.
+
+export const BILLING_REF_PREFIX = 'billing:';
+
+/** Identificador do retrato: instante (base 36) + aleatório. */
+export function newCheckoutRef(now: Date, random: string = randomBytes(4).toString('hex')): string {
+  return `${now.getTime().toString(36)}-${random}`;
+}
+
+/** externalReference do Asaas: cliente = "billing:<conta>"; assinatura/cobrança = "billing:<conta>:<retrato>". */
+export function billingExternalRef(billingAccountId: string, checkoutRef?: string | null): string {
+  return checkoutRef ? `${BILLING_REF_PREFIX}${billingAccountId}:${checkoutRef}` : `${BILLING_REF_PREFIX}${billingAccountId}`;
+}
+
+export interface BillingExternalRef {
+  billingAccountId: string;
+  checkoutRef: string | null;
+  /** Quando o retrato foi gerado (lido do próprio checkoutRef) */
+  issuedAt: Date | null;
+}
+
+export function parseBillingExternalRef(value: unknown): BillingExternalRef | null {
+  if (typeof value !== 'string' || !value.startsWith(BILLING_REF_PREFIX)) return null;
+  const [billingAccountId, checkoutRef] = value.slice(BILLING_REF_PREFIX.length).split(':');
+  if (!billingAccountId) return null;
+  let issuedAt: Date | null = null;
+  if (checkoutRef) {
+    const ms = parseInt(checkoutRef.split('-')[0], 36);
+    if (Number.isFinite(ms) && ms > 0) issuedAt = new Date(ms);
+  }
+  return { billingAccountId, checkoutRef: checkoutRef || null, issuedAt };
+}
+
+/** Retrato de uma contratação: ciclo, valor da assinatura e comunidades cobradas. */
+export interface CheckoutSnapshot {
+  checkoutRef: string;
+  createdAt: Date;
+  cycle: Cycle;
+  valueCents: number;
+  communityIds: string[];
+}
+
+/** Agrupa os CommunityPlanEvent CHECKOUT por checkoutRef (mais antigo primeiro). Eventos sem retrato ficam de fora. */
+export function snapshotsFromCheckoutEvents(events: Array<{ communityId: string; createdAt: Date; data: unknown }>): CheckoutSnapshot[] {
+  const byRef = new Map<string, CheckoutSnapshot>();
+  for (const event of events) {
+    const data = (event.data ?? {}) as Record<string, unknown>;
+    const ref = typeof data.checkoutRef === 'string' ? data.checkoutRef : null;
+    const cycle = data.billingCycle === BillingCycle.YEARLY || data.billingCycle === BillingCycle.MONTHLY ? (data.billingCycle as Cycle) : null;
+    const valueCents = typeof data.subscriptionValueCents === 'number' ? data.subscriptionValueCents : null;
+    if (!ref || !cycle || valueCents === null) continue;
+    const current = byRef.get(ref);
+    if (current) {
+      if (!current.communityIds.includes(event.communityId)) current.communityIds.push(event.communityId);
+      if (event.createdAt.getTime() < current.createdAt.getTime()) current.createdAt = event.createdAt;
+    } else {
+      byRef.set(ref, { checkoutRef: ref, createdAt: event.createdAt, cycle, valueCents, communityIds: [event.communityId] });
+    }
+  }
+  return [...byRef.values()].sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+}
+
+/**
+ * Retrato que a cobrança paga cobre:
+ * 1. o retrato do externalReference da cobrança, se o valor bate;
+ * 2. senão, o retrato mais recente DEPOIS dele com o mesmo valor (cobrança em
+ *    aberto reajustada pelo updatePendingPayments numa alteração posterior);
+ * 3. senão, o próprio retrato da cobrança (foi gerada com ele), desde que o
+ *    valor pago não seja menor que o dele (nunca ativa mais do que foi pago);
+ * 4. sem retrato no externalReference: o mais recente com o mesmo valor.
+ * null = nenhuma contratação corresponde (não ativa nada; o SYSTEM_ADMIN confere).
+ */
+export function pickChargeCoverage(
+  snapshots: CheckoutSnapshot[],
+  charge: { checkoutRef: string | null; valueCents: number },
+): CheckoutSnapshot | null {
+  const latestMatching = (list: CheckoutSnapshot[]) => {
+    for (let i = list.length - 1; i >= 0; i -= 1) if (list[i].valueCents === charge.valueCents) return list[i];
+    return null;
+  };
+  if (charge.checkoutRef) {
+    const index = snapshots.findIndex((snapshot) => snapshot.checkoutRef === charge.checkoutRef);
+    if (index >= 0) {
+      const own = snapshots[index];
+      if (own.valueCents === charge.valueCents) return own;
+      return latestMatching(snapshots.slice(index + 1)) ?? (charge.valueCents >= own.valueCents ? own : null);
+    }
+  }
+  return latestMatching(snapshots);
+}

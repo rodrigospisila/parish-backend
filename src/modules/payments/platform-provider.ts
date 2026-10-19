@@ -14,6 +14,12 @@ import { FetchLike } from './payment-provider.interface';
  * - PLATFORM_NFSE_*               NFS-e automática (ver readPlatformNfseSettings)
  */
 
+/**
+ * Provider gravado em PaymentWebhookEvent para a conta da EMPRESA (o dízimo
+ * usa ASAAS/MERCADOPAGO). O reprocessador do dízimo ignora esses registros.
+ */
+export const PLATFORM_WEBHOOK_PROVIDER = 'ASAAS_PLATFORM';
+
 export type EnvLike = Record<string, string | undefined>;
 
 export interface PlatformAsaasConfig {

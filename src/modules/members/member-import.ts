@@ -184,6 +184,56 @@ const cut = (value: string | undefined, max: number) => {
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** As 27 UFs: sigla → nome por extenso (S19). */
+export const BRAZIL_UFS: Record<string, string> = {
+  AC: 'Acre',
+  AL: 'Alagoas',
+  AP: 'Amapá',
+  AM: 'Amazonas',
+  BA: 'Bahia',
+  CE: 'Ceará',
+  DF: 'Distrito Federal',
+  ES: 'Espírito Santo',
+  GO: 'Goiás',
+  MA: 'Maranhão',
+  MT: 'Mato Grosso',
+  MS: 'Mato Grosso do Sul',
+  MG: 'Minas Gerais',
+  PA: 'Pará',
+  PB: 'Paraíba',
+  PR: 'Paraná',
+  PE: 'Pernambuco',
+  PI: 'Piauí',
+  RJ: 'Rio de Janeiro',
+  RN: 'Rio Grande do Norte',
+  RS: 'Rio Grande do Sul',
+  RO: 'Rondônia',
+  RR: 'Roraima',
+  SC: 'Santa Catarina',
+  SP: 'São Paulo',
+  SE: 'Sergipe',
+  TO: 'Tocantins',
+};
+
+/** Nome por extenso sem acento/caixa/pontuação → sigla ("parana" → PR, "pará" → PA). */
+const UF_BY_NAME: Map<string, string> = new Map(
+  Object.entries(BRAZIL_UFS).map(([uf, name]) => [foldKey(name), uf]),
+);
+
+/**
+ * UF da planilha → sigla (S19): aceita a sigla ("pr", "PR") ou o nome por
+ * extenso sem depender de acento/caixa ("Paraná", "PARANA", "são paulo").
+ * Nada de cortar em 2 letras ("Paraná" virava "PA", o Pará): o que não for
+ * sigla nem nome conhecido devolve null (a linha ganha um aviso).
+ */
+export function parseUf(value: string | null | undefined): string | null {
+  const folded = foldKey(String(value ?? ''));
+  if (!folded) return null;
+  const upper = folded.toUpperCase();
+  if (folded.length === 2 && BRAZIL_UFS[upper]) return upper;
+  return UF_BY_NAME.get(folded) ?? null;
+}
+
 /** Valida e normaliza UMA linha (erros e avisos ficam na própria linha). */
 export function parseImportRow(
   raw: Record<string, unknown>,
@@ -242,6 +292,11 @@ export function parseImportRow(
   const gender = parseGender(row.gender);
   if (gender === 'invalid') warnings.push('Sexo não reconhecido — ignorado (use M ou F)');
 
+  const state = row.state ? parseUf(row.state) : null;
+  if (row.state && !state) {
+    warnings.push(`Estado "${row.state.slice(0, 40)}" não reconhecido — deixado em branco (use a sigla, ex.: PR)`);
+  }
+
   let tither: ParsedImportRow['tither'] = null;
   if (kind === 'TITHERS') {
     let joinedAt: Date | null = null;
@@ -272,7 +327,7 @@ export function parseImportRow(
         complement: cut(row.complement, 100),
         neighborhood: cut(row.neighborhood, 100),
         city: cut(row.city, 100),
-        state: row.state ? row.state.trim().toUpperCase().slice(0, 2) : null,
+        state,
         fatherName: cut(row.fatherName, 200),
         motherName: cut(row.motherName, 200),
       }

@@ -68,7 +68,7 @@ describe('AsaasProvider — métodos da plataforma (acréscimos; os do dízimo n
 
   it('savePlatformCustomer: cria com endereço e notificações do Asaas ligadas; atualiza quando já existe', async () => {
     const { impl, calls } = fakeFetch({
-      'GET /customers?cpfCnpj=11222333000181': () => ({ body: { data: [] } }),
+      'GET /customers?externalReference=billing%3Aacc1': () => ({ body: { data: [] } }),
       'POST /customers': () => ({ body: { id: 'cus_new' } }),
       'PUT /customers/cus_old': () => ({ body: { id: 'cus_old' } }),
     });
@@ -98,6 +98,53 @@ describe('AsaasProvider — métodos da plataforma (acréscimos; os do dízimo n
     });
     expect(await p.savePlatformCustomer({ ...input, providerCustomerId: 'cus_old' })).toEqual({ providerCustomerId: 'cus_old' });
     expect(calls.filter((c) => (c.init?.method ?? 'GET') === 'GET')).toHaveLength(1); // com id conhecido, não busca
+  });
+
+  it('savePlatformCustomer (revisão S8): nunca reaproveita cliente de outra paróquia pelo CPF/CNPJ', async () => {
+    // O cliente cus_A (paróquia A, mesmo CNPJ da Mitra) existe; a busca é por externalReference da conta B
+    const { impl, calls } = fakeFetch({
+      'GET /customers?externalReference=billing%3AaccB': () => ({
+        // Filtro do Asaas devolvendo algo que não é desta conta (ou excluído) não é aceito
+        body: {
+          data: [
+            { id: 'cus_A', externalReference: 'billing:accA' },
+            { id: 'cus_old', externalReference: 'billing:accB', deleted: true },
+          ],
+        },
+      }),
+      'GET /customers?cpfCnpj=': () => ({ body: { data: [{ id: 'cus_A', externalReference: 'billing:accA' }] } }),
+      'POST /customers': () => ({ body: { id: 'cus_B' } }),
+      'PUT /customers/': () => ({ body: { id: 'cus_errado' } }),
+    });
+    const p = new AsaasProvider(creds, impl);
+    const input = { name: 'Paróquia B', cpfCnpj: '11.222.333/0001-81', email: 'b@paroquia.org', externalRef: 'billing:accB' };
+    expect(await p.savePlatformCustomer(input)).toEqual({ providerCustomerId: 'cus_B' });
+    expect(calls.some((c) => c.url.includes('cpfCnpj='))).toBe(false);
+    expect(calls.some((c) => c.init?.method === 'PUT')).toBe(false);
+    expect(bodyOf(calls.find((c) => c.init?.method === 'POST')!)).toMatchObject({ externalReference: 'billing:accB', name: 'Paróquia B' });
+  });
+
+  it('savePlatformCustomer: id não gravado no banco → reaproveita o cliente DESTA conta (externalReference)', async () => {
+    const { impl, calls } = fakeFetch({
+      'GET /customers?externalReference=billing%3AaccB': () => ({ body: { data: [{ id: 'cus_B', externalReference: 'billing:accB' }] } }),
+      'PUT /customers/cus_B': () => ({ body: { id: 'cus_B' } }),
+    });
+    const p = new AsaasProvider(creds, impl);
+    expect(await p.savePlatformCustomer({ name: 'Paróquia B', cpfCnpj: '11222333000181', externalRef: 'billing:accB' })).toEqual({
+      providerCustomerId: 'cus_B',
+    });
+    expect(calls.some((c) => c.init?.method === 'POST')).toBe(false);
+  });
+
+  it('updatePlatformSubscription leva o retrato da contratação no externalReference', async () => {
+    const { impl, calls } = fakeFetch({ 'PUT /subscriptions/sub_1': () => ({ body: { id: 'sub_1' } }) });
+    await new AsaasProvider(creds, impl).updatePlatformSubscription('sub_1', {
+      valueCents: 4900,
+      cycle: 'MONTHLY',
+      description: 'x',
+      externalRef: 'billing:acc1:mgzr1-aaaa',
+    });
+    expect(bodyOf(calls[0])).toMatchObject({ externalReference: 'billing:acc1:mgzr1-aaaa', updatePendingPayments: true });
   });
 
   it('createPlatformSubscription: ciclo anual, valor em reais, pagador escolhe o meio (UNDEFINED)', async () => {

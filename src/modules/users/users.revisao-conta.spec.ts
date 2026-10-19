@@ -33,6 +33,7 @@ describe('UsersService — revisão #25/#28/#43 (exclusão da conta)', () => {
       user: { delete: jest.fn(), update: jest.fn(), count: jest.fn().mockResolvedValue(1) },
       member: { updateMany: jest.fn() },
       notification: { deleteMany: jest.fn() },
+      notificationOutbox: { deleteMany: jest.fn() },
       clergyMessage: { count: jest.fn().mockResolvedValue(0) },
       catechesisMessage: { count: jest.fn().mockResolvedValue(0) },
       refreshToken: { deleteMany: jest.fn() },
@@ -123,6 +124,9 @@ describe('UsersService — revisão #25/#28/#43 (exclusão da conta)', () => {
       expect(data.email).toBe('removido-u1@usuario-removido.invalid');
       expect(tx.member.updateMany).toHaveBeenCalledWith({ where: { userId: 'u1' }, data: { userId: null } });
       expect(members.anonymizePersonalData).toHaveBeenCalledWith(tx, 'm1', { label: 'Membro removido' });
+      // S3: anonimizar também esvazia a fila de push (título/corpo/dados sem FK)
+      expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
+      expect(tx.notificationOutbox.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
       expect(audit.log).toHaveBeenCalledWith(
         expect.objectContaining({ action: 'ANONYMIZE', metadata: expect.objectContaining({ accountAnonymizedInPlace: true }) }),
       );

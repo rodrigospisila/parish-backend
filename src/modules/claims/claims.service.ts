@@ -50,6 +50,21 @@ export type ClaimChannel = 'PHONE' | 'EMAIL';
 /** Pedidos com o mesmo e-mail em 24 h (qualquer paróquia) — freio durável, além do limite por IP. */
 export const CLAIM_MAX_PER_EMAIL_24H = 5;
 
+/**
+ * Avisos de pedido novo (S14): a administração atual de uma paróquia gerida e
+ * a plataforma recebem no máximo UM aviso por paróquia nesta janela — os
+ * pedidos seguintes da mesma paróquia ficam só na fila. Durável: a decisão
+ * conta os pedidos já gravados (sob trava por paróquia), não a memória do processo.
+ */
+export const CLAIM_ALERT_WINDOW_HOURS = 24;
+/**
+ * A plataforma recebe no máximo um aviso agregado ("N pedidos aguardando")
+ * nesta janela, qualquer que seja a paróquia.
+ */
+export const CLAIM_PLATFORM_ALERT_MINUTES = 15;
+/** `data.kind` do aviso agregado à plataforma (é por ele que a janela acima é conferida). */
+export const CLAIM_PLATFORM_ALERT_KIND = 'PARISH_CLAIM_QUEUE';
+
 const OPEN_STATUSES: ParishClaimStatus[] = [ParishClaimStatus.PENDING, ParishClaimStatus.VERIFIED];
 const DAY_MS = 24 * 3600 * 1000;
 
@@ -203,7 +218,15 @@ export class ClaimsService {
 
     const managed = await this.isManaged(parish);
     const now = new Date();
-    const claim = await this.prisma.$transaction(async (tx) => {
+    const { claim, firstInWindow } = await this.prisma.$transaction(async (tx) => {
+      // Trava por paróquia: dois pedidos simultâneos não "são o primeiro" juntos
+      await tx.$queryRaw`SELECT pg_advisory_xact_lock(hashtext(${`parish:claim-alert:${parish.id}`}))::text`;
+      const recentForParish = await tx.parishClaim.count({
+        where: {
+          parishId: parish.id,
+          createdAt: { gte: new Date(now.getTime() - CLAIM_ALERT_WINDOW_HOURS * 3600_000) },
+        },
+      });
       const created = await tx.parishClaim.create({
         data: {
           parishId: parish.id,
@@ -237,7 +260,7 @@ export class ClaimsService {
         },
         select: { id: true },
       });
-      return created;
+      return { claim: created, firstInWindow: recentForParish === 0 };
     });
 
     await this.audit.log({
@@ -255,8 +278,12 @@ export class ClaimsService {
       },
     });
 
-    void this.alertPlatform(parish, claim.id, managed).catch(() => undefined);
-    if (managed) void this.alertCurrentAdmins(parish).catch(() => undefined);
+    // Teto por paróquia (S14): só o 1º pedido da paróquia em 24 h avisa; os
+    // demais ficam na fila (o aviso da plataforma informa quantos aguardam)
+    if (firstInWindow) {
+      void this.alertPlatform(parish, claim.id, managed).catch(() => undefined);
+      if (managed) void this.alertCurrentAdmins(parish).catch(() => undefined);
+    }
 
     return {
       claimId: claim.id,
@@ -551,7 +578,8 @@ export class ClaimsService {
 
   /**
    * PATCH /platform/claims/:id — APPROVE ou REJECT (só pedidos PENDING/VERIFIED;
-   * troca condicional: dois cliques não aprovam duas vezes).
+   * troca condicional: dois cliques não aprovam duas vezes). REJECT num pedido
+   * já APROVADO desfaz a aprovação (S12: pedido fraudulento descoberto depois).
    */
   async review(id: string, dto: ReviewClaimDto, reviewer: { id: string; email?: string; role?: string }) {
     const claim = await this.prisma.parishClaim.findUnique({
@@ -559,6 +587,9 @@ export class ClaimsService {
       select: CLAIM_SELECT,
     });
     if (!claim) throw new NotFoundException('Pedido não encontrado');
+    if (claim.status === ParishClaimStatus.APPROVED && dto.action === 'REJECT') {
+      return this.undoApproval(claim, dto.note?.trim() || null, reviewer);
+    }
     if (!OPEN_STATUSES.includes(claim.status)) {
       throw new ConflictException('Este pedido já foi analisado.');
     }
@@ -598,10 +629,15 @@ export class ClaimsService {
     void this.email.trySend(claim.email, title, body).catch(() => false);
     if (claim.userId) {
       void this.notifications
-        .notifyUser(claim.userId, NotificationType.TEAM_BROADCAST, title, body, {
-          kind: 'PARISH_CLAIM',
-          claimId: claim.id,
-        })
+        // O e-mail já saiu acima: sem e-mail/SMS de reserva (S2)
+        .notifyUser(
+          claim.userId,
+          NotificationType.TEAM_BROADCAST,
+          title,
+          body,
+          { kind: 'PARISH_CLAIM', claimId: claim.id },
+          { skipFallback: true },
+        )
         .catch(() => undefined);
     }
 
@@ -610,6 +646,77 @@ export class ClaimsService {
       select: CLAIM_SELECT,
     });
     return { claim: updated, action: 'REJECT' as const };
+  }
+
+  /**
+   * Desfaz uma aprovação (S12): o pedido vira REJECTED e o convite de titular
+   * ainda PENDENTE nascido dele (mesma paróquia + e-mail do pedido) é revogado
+   * na mesma transação — o aceite concorrente encontra o convite cancelado.
+   * Conta que JÁ recebeu a gestão não é rebaixada aqui (papel/sessões são da
+   * tela de Usuários): a resposta traz `grantedUserId` e o aviso. Nada é
+   * apagado (paróquia gerida, testes e dados ficam como estão).
+   */
+  private async undoApproval(
+    claim: ClaimRow,
+    note: string | null,
+    reviewer: { id: string; email?: string; role?: string },
+  ) {
+    const now = new Date();
+    const revokedInvites = await this.prisma.$transaction(async (tx) => {
+      const { count } = await tx.parishClaim.updateMany({
+        where: { id: claim.id, status: ParishClaimStatus.APPROVED },
+        data: {
+          status: ParishClaimStatus.REJECTED,
+          reviewedByUserId: reviewer.id,
+          reviewedAt: now,
+          reviewNote: note,
+        },
+      });
+      if (count === 0) throw new ConflictException('O pedido mudou agora há pouco — atualize a fila.');
+      const revoked = await tx.userInvite.updateMany({
+        where: {
+          holder: true,
+          parishId: claim.parishId,
+          email: emailInsensitive(claim.email),
+          acceptedAt: null,
+          revokedAt: null,
+        },
+        data: { revokedAt: now },
+      });
+      await tx.lead.updateMany({
+        where: { source: 'CLAIM', parishId: claim.parishId, email: emailInsensitive(claim.email) },
+        data: { status: LeadStatus.LOST },
+      });
+      return revoked.count;
+    });
+
+    await this.audit.log({
+      actor: { id: reviewer.id, email: reviewer.email, role: reviewer.role },
+      action: 'UPDATE',
+      entity: 'ParishClaim',
+      entityId: claim.id,
+      before: { status: ParishClaimStatus.APPROVED },
+      after: { status: ParishClaimStatus.REJECTED },
+      metadata: { approvalUndone: true, revokedInvites, grantedUserId: claim.grantedUserId },
+    });
+
+    const updated = await this.prisma.parishClaim.findUnique({
+      where: { id: claim.id },
+      select: CLAIM_SELECT,
+    });
+    return {
+      claim: updated,
+      action: 'REJECT' as const,
+      approvalUndone: true,
+      revokedInvites,
+      grantedUserId: claim.grantedUserId,
+      ...(claim.grantedUserId
+        ? {
+            warning:
+              'A conta que recebeu a gestão por este pedido continua com o acesso: tire o papel de administração (ou desative a conta) na tela de Usuários.',
+          }
+        : {}),
+    };
   }
 
   private async approve(claim: ClaimRow, note: string | null, reviewer: { id: string; email?: string; role?: string }) {
@@ -733,10 +840,15 @@ export class ClaimsService {
       void this.email.trySend(claim.email, title, body).catch(() => false);
       if (result.grantedUserId) {
         void this.notifications
-          .notifyUser(result.grantedUserId, NotificationType.TEAM_BROADCAST, title, body, {
-            kind: 'PARISH_CLAIM',
-            claimId: claim.id,
-          })
+          // O e-mail já saiu acima: sem e-mail/SMS de reserva (S2)
+          .notifyUser(
+            result.grantedUserId,
+            NotificationType.TEAM_BROADCAST,
+            title,
+            body,
+            { kind: 'PARISH_CLAIM', claimId: claim.id },
+            { skipFallback: true },
+          )
           .catch(() => undefined);
       }
     }
@@ -907,7 +1019,11 @@ export class ClaimsService {
     }
   }
 
-  /** SYSTEM_ADMIN: aviso no app + e-mail (best-effort), sem o código. */
+  /**
+   * SYSTEM_ADMIN: aviso no app + e-mail (best-effort), sem o código. Agregado
+   * (S14): no máximo um a cada 15 min para a plataforma inteira, com quantos
+   * pedidos aguardam na fila; sem push urgente nem SMS (aviso comum, `bulk`).
+   */
   private async alertPlatform(parish: OfficialParish, claimId: string, managed: boolean) {
     const admins = await this.prisma.user.findMany({
       where: {
@@ -918,19 +1034,35 @@ export class ClaimsService {
       select: { id: true, email: true },
     });
     if (!admins.length) return;
+    const recentAlert = await this.prisma.notification.findFirst({
+      where: {
+        userId: { in: admins.map((admin) => admin.id) },
+        createdAt: { gte: new Date(Date.now() - CLAIM_PLATFORM_ALERT_MINUTES * 60_000) },
+        data: { path: ['kind'], equals: CLAIM_PLATFORM_ALERT_KIND },
+      },
+      select: { id: true },
+    });
+    if (recentAlert) return;
+    const pending = await this.prisma.parishClaim.count({ where: { status: { in: OPEN_STATUSES } } });
     const title = managed ? 'Reivindicação de paróquia já gerida' : 'Nova reivindicação de paróquia';
-    const body = `Pedido para administrar a ${parish.name} (${parish.city}/${parish.state}).${managed ? ' A paróquia já tem gestão: revise com cuidado.' : ''} Veja a fila de reivindicações no painel da plataforma.`;
+    const queue = pending > 1 ? ` Há ${pending} pedidos aguardando análise.` : '';
+    const body = `Pedido para administrar a ${parish.name} (${parish.city}/${parish.state}).${managed ? ' A paróquia já tem gestão: revise com cuidado.' : ''}${queue} Veja a fila de reivindicações no painel da plataforma.`;
     await this.notifications.notifyUsers(
       admins.map((admin) => admin.id),
-      NotificationType.URGENT_NOTICE,
+      NotificationType.TEAM_BROADCAST,
       title,
       body,
-      { kind: 'PARISH_CLAIM', claimId },
+      { kind: CLAIM_PLATFORM_ALERT_KIND, claimId },
+      // O e-mail sai logo abaixo: sem e-mail/SMS de reserva (S2)
+      { bulk: true, skipFallback: true },
     );
     await Promise.all(admins.map((admin) => this.email.trySend(admin.email, title, body).catch(() => false)));
   }
 
-  /** Paróquia já gerida: a administração atual fica sabendo (antifraude), sem os dados de quem pediu. */
+  /**
+   * Paróquia já gerida: a administração atual fica sabendo (antifraude), sem os
+   * dados de quem pediu. Chamado só no 1º pedido da paróquia em 24 h (S14).
+   */
   private async alertCurrentAdmins(parish: OfficialParish) {
     const admins = await this.prisma.user.findMany({
       where: {
@@ -948,6 +1080,8 @@ export class ClaimsService {
       'Pedido de gestão da paróquia',
       `Alguém pediu para administrar a ${parish.name} no Parish. A equipe do Parish confere com a paróquia antes de qualquer mudança; se você não reconhece o pedido, avise o suporte.`,
       { kind: 'PARISH_CLAIM_NOTICE' },
+      // Aviso comum (sem SMS de fallback); no máximo 1 por paróquia a cada 24 h
+      { bulk: true },
     );
   }
 }

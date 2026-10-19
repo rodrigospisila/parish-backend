@@ -102,6 +102,7 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
     it('anonimiza o membro pela rotina única, apaga as notificações e exclui o usuário', async () => {
       const tx = {
         notification: { deleteMany: jest.fn() },
+        notificationOutbox: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
         // Sem mensagens assinadas: exclusão definitiva (#25)
         clergyMessage: { count: jest.fn().mockResolvedValue(0) },
@@ -118,6 +119,8 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       expect(res).toEqual({ deleted: true });
       expect(members.anonymizePersonalData).toHaveBeenCalledWith(tx, 'm1', { label: 'Membro removido' });
       expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
+      // S3: a fila de push (título/corpo/dados) sai junto
+      expect(tx.notificationOutbox.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u1' } });
       expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u1' } });
       // Dízimo automático: provedor só depois do commit (fora do callback da transação)
       expect(members.cancelTitheAtProviderAfterCommit).toHaveBeenCalledWith('m1');
@@ -133,6 +136,7 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
     it('exclui usuário sem membro vinculado (não toca em member)', async () => {
       const tx = {
         notification: { deleteMany: jest.fn() },
+        notificationOutbox: { deleteMany: jest.fn() },
         user: { delete: jest.fn().mockResolvedValue({}) },
         // Sem mensagens assinadas: exclusão definitiva (#25)
         clergyMessage: { count: jest.fn().mockResolvedValue(0) },
@@ -148,6 +152,8 @@ describe('UsersService (hierarquia de papéis - Fase 1)', () => {
       expect(members.anonymizePersonalData).not.toHaveBeenCalled();
       expect(members.cancelTitheAtProviderAfterCommit).not.toHaveBeenCalled();
       expect(tx.notification.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u2' } });
+      // S3: a fila de push (título/corpo/dados) sai junto
+      expect(tx.notificationOutbox.deleteMany).toHaveBeenCalledWith({ where: { userId: 'u2' } });
       expect(tx.user.delete).toHaveBeenCalledWith({ where: { id: 'u2' } });
     });
 
