@@ -3,6 +3,7 @@ import { Prisma, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
+import { UpdateCommunityLocationDto } from './dto/update-community-location.dto';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
@@ -29,6 +30,27 @@ const LIST_INCLUDE = {
     },
   },
 } satisfies Prisma.CommunityInclude;
+
+/** Include da comunidade devolvida pelas edições (PATCH geral e PATCH de localização). */
+const UPDATED_INCLUDE = {
+  parish: {
+    select: {
+      id: true,
+      name: true,
+      diocese: {
+        select: {
+          id: true,
+          name: true,
+        },
+      },
+    },
+  },
+} satisfies Prisma.CommunityInclude;
+
+/** Teto de GET /communities/my-locations (sem paginação). */
+export const MY_LOCATIONS_LIMIT = 500;
+/** Campos de endereço que o PATCH de localização aceita (os que o modelo Community tem). */
+const LOCATION_ADDRESS_FIELDS = ['address', 'city', 'state', 'zipCode'] as const;
 
 /**
  * Recorte do território brasileiro (com folga para Fernando de Noronha, Trindade e
@@ -347,65 +369,16 @@ export class CommunitiesService {
       throw new ForbiddenException('Só a administração da paróquia define se a comunidade registra sacramentos');
     }
 
-    // Pino: só conta como mudança quando a coordenada muda DE FATO — o formulário
-    // do painel reenvia latitude/longitude a cada edição, e antes isso remarcava
-    // o pino como "conferido por gente" sem ninguém ter olhado o mapa.
-    const novaLat = data.latitude !== undefined ? data.latitude : community.latitude;
-    const novaLng = data.longitude !== undefined ? data.longitude : community.longitude;
-    const mexeuNoPino = novaLat !== community.latitude || novaLng !== community.longitude;
-    // Só a plataforma (mapa do território / fila de revisão) declara precisão e
-    // origem livremente; para o gestor local elas são derivadas abaixo.
-    if (!isSystem) {
-      delete data.geoPrecision;
-      if (!mexeuNoPino) delete data.geoSource;
-    }
-    if (!mexeuNoPino) {
-      delete data.latitude;
-      delete data.longitude;
-    } else {
-      const apagou = novaLat == null || novaLng == null;
-      if (!apagou) assertCoordinates(novaLat, novaLng, isSystem);
-      // Quem mexe na coordenada pelo cadastro comum não envia a precisão. Mudou o
-      // pino à mão → MANUAL; apagou → sem precisão. Senão um pino conferido
-      // continuaria marcado como centro de cidade e ficaria fora do "missas por perto".
-      if (data.geoPrecision === undefined) data.geoPrecision = apagou ? null : 'MANUAL';
-      // Pino posto por gente: a origem é 'manual', ou 'gps' quando o app marcou no local
-      data.geoSource = apagou ? null : data.geoSource ?? 'manual';
-      // Pino posto por quem gerencia a PRÓPRIA comunidade (escopo conferido acima,
-      // sem troca de paróquia) fica como conferido por gente — e vai para a auditoria
-      Object.assign(data, {
-        geoVerifiedAt: apagou ? null : new Date(),
-        geoVerifiedBy: apagou ? null : `usuario:${currentUser.id}`,
-      });
-    }
+    // Pino: regra compartilhada com o PATCH de localização (applyPinChange)
+    const mexeuNoPino = this.applyPinChange(data, community, currentUser, { isSystem });
 
     const atualizada = await this.prisma.community.update({
       where: { id },
       data,
-      include: {
-        parish: {
-          select: {
-            id: true,
-            name: true,
-            diocese: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-      },
+      include: UPDATED_INCLUDE,
     });
 
-    // Alguém pôs o pino à mão: as sugestões automáticas que esperavam conferência
-    // perderam o sentido. Saem da fila de revisão (ficam no histórico como SUPERSEDED).
-    if (mexeuNoPino) {
-      await this.prisma.communityGeoCandidate.updateMany({
-        where: { communityId: id, status: 'PENDING' },
-        data: { status: 'SUPERSEDED', resolvedAt: new Date(), resolvedByUserId: currentUser.id },
-      });
-    }
+    if (mexeuNoPino) await this.supersedePendingCandidates(id, currentUser.id);
 
     // Mudanças que mexem no mapa público ou no "dono" da comunidade ficam na trilha
     if (mudouParoquia || data.status !== undefined || mexeuNoPino || mudouRegistroLeigo) {
@@ -432,6 +405,181 @@ export class CommunitiesService {
     }
 
     return atualizada;
+  }
+
+  /**
+   * Regra ÚNICA do pino (PATCH geral e PATCH /communities/:id/location). Ajusta
+   * `data` no lugar e devolve se o pino mudou.
+   *
+   * - Só conta como mudança quando a coordenada muda DE FATO — o formulário do
+   *   painel reenvia latitude/longitude a cada edição, e antes isso remarcava o
+   *   pino como "conferido por gente" sem ninguém ter olhado o mapa. `confirm`
+   *   (tela de localização: a pessoa está olhando o mapa) trata a mesma
+   *   coordenada como conferência.
+   * - Mudou à mão → geoPrecision MANUAL, geoSource 'manual' (ou 'gps'),
+   *   geoVerifiedAt/By; apagou → tudo nulo.
+   * - Só a plataforma declara precisão e origem livremente.
+   */
+  private applyPinChange(
+    data: any,
+    community: { latitude: number | null; longitude: number | null },
+    currentUser: CurrentUser,
+    opts: { isSystem: boolean; confirm?: boolean },
+  ): boolean {
+    const novaLat = data.latitude !== undefined ? data.latitude : community.latitude;
+    const novaLng = data.longitude !== undefined ? data.longitude : community.longitude;
+    const mexeuNoPino =
+      novaLat !== community.latitude ||
+      novaLng !== community.longitude ||
+      (opts.confirm === true && novaLat != null && novaLng != null);
+    // Só a plataforma (mapa do território / fila de revisão) declara precisão e
+    // origem livremente; para o gestor local elas são derivadas abaixo.
+    if (!opts.isSystem) {
+      delete data.geoPrecision;
+      if (!mexeuNoPino) delete data.geoSource;
+    }
+    if (!mexeuNoPino) {
+      delete data.latitude;
+      delete data.longitude;
+      return false;
+    }
+    const apagou = novaLat == null || novaLng == null;
+    if (!apagou) assertCoordinates(novaLat, novaLng, opts.isSystem);
+    // Quem mexe na coordenada pelo cadastro comum não envia a precisão. Mudou o
+    // pino à mão → MANUAL; apagou → sem precisão. Senão um pino conferido
+    // continuaria marcado como centro de cidade e ficaria fora do "missas por perto".
+    if (data.geoPrecision === undefined) data.geoPrecision = apagou ? null : 'MANUAL';
+    // Pino posto por gente: a origem é 'manual', ou 'gps' quando o app marcou no local
+    data.geoSource = apagou ? null : data.geoSource ?? 'manual';
+    // Pino posto por quem gerencia a PRÓPRIA comunidade (escopo conferido pelo
+    // chamador) fica como conferido por gente — e vai para a auditoria
+    Object.assign(data, {
+      geoVerifiedAt: apagou ? null : new Date(),
+      geoVerifiedBy: apagou ? null : `usuario:${currentUser.id}`,
+    });
+    return true;
+  }
+
+  /**
+   * Alguém pôs o pino à mão: as sugestões automáticas que esperavam conferência
+   * perderam o sentido. Saem da fila de revisão (ficam no histórico como SUPERSEDED).
+   */
+  private async supersedePendingCandidates(communityId: string, userId: string) {
+    await this.prisma.communityGeoCandidate.updateMany({
+      where: { communityId, status: 'PENDING' },
+      data: { status: 'SUPERSEDED', resolvedAt: new Date(), resolvedByUserId: userId },
+    });
+  }
+
+  /**
+   * PATCH /communities/:id/location (plano grátis): a equipe ajusta o pino e o
+   * endereço da PRÓPRIA comunidade. Mesmo efeito do PATCH geral ao mover o pino
+   * (MANUAL, conferido por gente, sugestões pendentes SUPERSEDED, auditoria) —
+   * e só isso: nome, paróquia, status e contatos não passam por aqui.
+   */
+  async updateLocation(id: string, dto: UpdateCommunityLocationDto, currentUser: CurrentUser) {
+    // Negar por padrão: sem usuário não há edição (a rota sempre o injeta)
+    if (!currentUser?.id) {
+      throw new ForbiddenException('Você não tem permissão para ajustar a localização desta comunidade');
+    }
+    const community = await this.prisma.community.findFirst({
+      where: { id, deletedAt: null },
+      select: { id: true, latitude: true, longitude: true, address: true, city: true, state: true, zipCode: true },
+    });
+    if (!community) {
+      throw new NotFoundException(`Comunidade com ID ${id} não encontrada`);
+    }
+    const canManage = await this.hierarchyService.canManageCommunity(currentUser.id, id);
+    if (!canManage) {
+      throw new ForbiddenException('Você não tem permissão para ajustar a localização desta comunidade');
+    }
+
+    const isSystem = currentUser.role === UserRole.SYSTEM_ADMIN;
+    assertCoordinates(dto?.latitude, dto?.longitude, isSystem);
+    // Só o que a rota aceita (lista fechada: nada de precisão/status/paróquia)
+    const data: any = { latitude: dto.latitude, longitude: dto.longitude };
+    if (dto.geoSource) data.geoSource = dto.geoSource;
+    for (const field of LOCATION_ADDRESS_FIELDS) {
+      if (dto[field] != null && dto[field] !== community[field]) data[field] = dto[field];
+    }
+    // A pessoa está na tela do mapa: a mesma coordenada conta como conferência.
+    // A precisão é sempre derivada (MANUAL), inclusive para a plataforma.
+    this.applyPinChange(data, community, currentUser, { isSystem, confirm: true });
+
+    const atualizada = await this.prisma.community.update({ where: { id }, data, include: UPDATED_INCLUDE });
+    await this.supersedePendingCandidates(id, currentUser.id);
+
+    const address = (c: Record<string, any>) =>
+      Object.fromEntries(LOCATION_ADDRESS_FIELDS.filter((f) => data[f] !== undefined).map((f) => [f, c[f]]));
+    await this.auditService.log({
+      actor: { id: currentUser.id, email: currentUser.email, role: currentUser.role },
+      action: 'UPDATE',
+      entity: 'Community',
+      entityId: id,
+      before: { latitude: community.latitude, longitude: community.longitude, ...address(community) },
+      after: { latitude: atualizada.latitude, longitude: atualizada.longitude, ...address(atualizada) },
+      metadata: { route: 'location', geoSource: data.geoSource },
+    });
+
+    return atualizada;
+  }
+
+  /**
+   * GET /communities/my-locations: comunidades que o usuário pode GERENCIAR
+   * (mesmo escopo do canManageCommunity), com endereço e pino — para a tela
+   * "localização da minha comunidade". Negar por padrão: papel sem âncora
+   * (diocese/paróquia/comunidade) recebe lista vazia. Sem paginação (teto 500,
+   * por paróquia e nome); `parishId` opcional só estreita.
+   */
+  async myLocations(currentUser: CurrentUser | undefined, filters: { parishId?: string } = {}) {
+    if (!currentUser?.id) return [];
+    let scope: Prisma.CommunityWhereInput | null = null;
+    switch (currentUser.role) {
+      case UserRole.SYSTEM_ADMIN:
+        scope = {};
+        break;
+      case UserRole.DIOCESAN_ADMIN:
+        scope = currentUser.dioceseId ? { parish: { dioceseId: currentUser.dioceseId } } : null;
+        break;
+      case UserRole.PARISH_ADMIN:
+        scope = currentUser.parishId ? { parishId: currentUser.parishId } : null;
+        break;
+      case UserRole.COMMUNITY_COORDINATOR: {
+        // Principal + comunidades atribuídas por um superior (mesma paróquia)
+        const ids = await this.hierarchyService.getCommunityScopeIds(currentUser);
+        scope = ids.length ? { id: { in: ids } } : null;
+        break;
+      }
+      default:
+        scope = null;
+    }
+    if (!scope) return [];
+
+    const rows = await this.prisma.community.findMany({
+      where: {
+        AND: [scope, filters.parishId ? { parishId: filters.parishId } : {}],
+        deletedAt: null,
+      },
+      select: {
+        id: true,
+        name: true,
+        parishId: true,
+        parish: { select: { name: true } },
+        address: true,
+        city: true,
+        state: true,
+        zipCode: true,
+        latitude: true,
+        longitude: true,
+        geoPrecision: true,
+        geoSource: true,
+        geoVerifiedAt: true,
+        status: true,
+      },
+      orderBy: [{ parish: { name: 'asc' } }, { name: 'asc' }, { id: 'asc' }],
+      take: MY_LOCATIONS_LIMIT,
+    });
+    return rows.map(({ parish, ...c }) => ({ ...c, parishName: parish?.name ?? null }));
   }
 
   async remove(id: string, currentUser: CurrentUser) {

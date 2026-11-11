@@ -1,9 +1,11 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, Optional } from '@nestjs/common';
 import { ClergyMessageAudience, ClergyTitle, NotificationType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * Rótulo dinâmico da mensagem conforme o cargo eclesiástico do remetente.
@@ -36,6 +38,8 @@ export class ClergyMessagesService {
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
+    // Plano por comunidade no feed (opcional só para specs que montam o service à mão)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private auditActor(user: CurrentUser) {
@@ -257,7 +261,10 @@ export class ClergyMessagesService {
       orderBy: { publishedAt: 'desc' },
       take: limit,
     });
-    return messages.map((message) => this.withLabel(message));
+    // Plano (só no modo on): mensagens dirigidas a uma comunidade sem acesso
+    // saem do feed; as de diocese/paróquia/membro ficam (o guard decidiu a rota)
+    const visible = await planFilter(this.planAccess, user, messages, (message) => message.communityId);
+    return visible.map((message) => this.withLabel(message));
   }
 
   // ===== HELPERS =====

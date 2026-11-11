@@ -89,6 +89,20 @@ export class CreateMassScheduleDto {
   @Matches(/^([01]\d|2[0-3]):[0-5]\d$/, { message: 'Hora inválida: use HH:MM, de 00:00 a 23:59' })
   time: string;
 
+  /**
+   * Fim (HH:MM, mesmo dia, depois de `time`) — opcional. Sem ele vale a
+   * duração padrão do tipo. `null` (ou vazio) limpa. A comparação com `time`
+   * é conferida no serviço (na edição, `time` pode não vir).
+   */
+  @Transform(({ value }) => {
+    const v = normalizeHhMm(value);
+    return v === '' ? null : v;
+  })
+  @IsOptional()
+  @IsString({ message: 'Horário de término inválido: use HH:MM, de 00:00 a 23:59' })
+  @Matches(/^([01]\d|2[0-3]):[0-5]\d$/, { message: 'Horário de término inválido: use HH:MM, de 00:00 a 23:59' })
+  endTime?: string | null;
+
   @IsEnum(MassScheduleType)
   type: MassScheduleType;
 

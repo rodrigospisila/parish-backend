@@ -1,10 +1,12 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, BadRequestException, Optional } from '@nestjs/common';
 import { TransactionType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { MAX_TRANSACTION_AMOUNT, round2, sumMoney, toCents } from './money';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * Valor em reais validado também no serviço (o DTO cobre o HTTP; aqui cobre
@@ -72,6 +74,8 @@ export class FinanceService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private canManageFinance(role: UserRole) {
@@ -211,7 +215,10 @@ export class FinanceService {
         ...(to ? { lt: to } : {}),
       };
     }
-    return this.prisma.financialTransaction.findMany({ where, orderBy: { date: 'desc' } });
+    const rows = await this.prisma.financialTransaction.findMany({ where, orderBy: { date: 'desc' } });
+    // Visão agregada (paróquia/diocese): no modo `on` saem os lançamentos das
+    // comunidades sem plano; os da paróquia (sem comunidade) ficam
+    return planFilter(this.planAccess, user, rows, (row) => row.communityId);
   }
 
   /** Prestação de contas: totais de receita/despesa/saldo no escopo. */

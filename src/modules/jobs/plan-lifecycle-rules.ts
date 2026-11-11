@@ -60,8 +60,10 @@ export const CONTRACTED_BILLING_STATUSES: ReadonlySet<string> = new Set(['PENDIN
  *      "piloto", sem diferença de caixa — o script grava "Piloto — acesso
  *      total (decisão de 19/10/2026)"), ou
  *  (b) um evento de plano `PILOT_FULL_ACCESS` (prisma/platform/piloto-acesso-total.ts).
- * Paróquia piloto nunca ganha teste automático nem recebe a régua, mesmo que
- * passe a ter `managedAt` (convite de titular aceito, reivindicação aprovada).
+ * Paróquia piloto nunca entra em teste nem recebe a régua, mesmo que passe a
+ * ter `managedAt` (convite de titular aceito, reivindicação aprovada), e TODA
+ * comunidade dela — inclusive a criada depois, sem linha de plano — tem acesso
+ * aos recursos pagos (PlanAccessService.communityHasAccess usa este critério).
  */
 export const PILOT_EVENT_ACTION = 'PILOT_FULL_ACCESS';
 export const PILOT_NOTE_MARKER = 'piloto';
@@ -145,8 +147,10 @@ export interface NoticeMessage {
   body: string;
 }
 
-const PAID_LIST = 'pastorais, escalas e trocas, catequese, formação, salas, visitas e documentos';
-const FREE_LIST = 'Calendário, eventos, mapa e liturgia continuam grátis.';
+// Plano grátis enxuto (11/11/2026): ver PAID_FEATURES / FREE_FEATURES
+const PAID_LIST =
+  'pastorais, escalas e trocas, catequese, formação, eventos, notícias, sacramentos, dízimo, financeiro, salas, visitas e documentos';
+const FREE_LIST = 'O cadastro de membros, os horários de missa e de confissão, o mapa e a liturgia continuam grátis.';
 const NOTHING_DELETED = 'Nenhum dado é apagado: tudo volta assim que o plano for contratado ou o pagamento confirmado.';
 
 /** Texto simples (pt-BR) do aviso agrupado por paróquia. */

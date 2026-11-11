@@ -14,7 +14,7 @@ import { HierarchyService } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { PlanAccessService, activeMembersWhere } from '../plans/plan-access.service';
 import { graceEndsAt, hasPaidAccess } from '../plans/plan-rules';
-import { DEFAULT_TRIAL_DAYS, tierPrice } from '../plans/plan-transitions';
+import { DEFAULT_TRIAL_DAYS, planTransition, tierPrice } from '../plans/plan-transitions';
 import { AsaasProvider, safeAsaasUrl } from '../payments/asaas.provider';
 import { PaymentProviderError, ProviderCharge } from '../payments/payment-provider.interface';
 import {
@@ -35,7 +35,7 @@ import {
   priceSubscription,
 } from './billing-rules';
 import { documentKind, onlyDigits } from './document';
-import { CancelBillingDto, CheckoutDto, SaveBillingAccountDto } from './dto/billing.dto';
+import { CancelBillingDto, CheckoutDto, RequestTrialDto, SaveBillingAccountDto } from './dto/billing.dto';
 
 /** Envs da plataforma lidas pelo faturamento (ConfigService primeiro, depois process.env). */
 const PLATFORM_ENV_KEYS = [
@@ -119,6 +119,21 @@ const LIVE_SUBSCRIPTION: BillingAccountStatus[] = [
   BillingAccountStatus.PENDING,
   BillingAccountStatus.ACTIVE,
   BillingAccountStatus.PAST_DUE,
+];
+
+/**
+ * Eventos de plano que contam como "a paróquia já usou o teste" (uma vez por
+ * paróquia): o automático antigo (AUTO_TRIAL), o iniciado pelo SYSTEM_ADMIN
+ * no painel/script (START_TRIAL) e o pedido pelo botão (TRIAL_REQUESTED).
+ */
+export const TRIAL_USED_ACTIONS = ['AUTO_TRIAL', 'START_TRIAL', 'TRIAL_REQUESTED'] as const;
+export const TRIAL_REQUESTED_ACTION = 'TRIAL_REQUESTED';
+
+/** Status de onde o teste pedido pode partir (SUSPENDED é decisão do SYSTEM_ADMIN: não é desfeita pelo botão). */
+const TRIAL_START_FROM: Array<CommunityPlanStatus | `${CommunityPlanStatus}`> = [
+  CommunityPlanStatus.FREE,
+  CommunityPlanStatus.CANCELED,
+  CommunityPlanStatus.TRIAL,
 ];
 
 export interface BillingUser {
@@ -289,10 +304,28 @@ export class BillingService {
 
     const now = new Date();
     const problem = this.checkoutProblem();
+    const [pilotParish, trialUsed] = await Promise.all([this.access.isPilotParish(parishId), this.trialUsed(parishId)]);
+    const eligible = communities.filter((c) => this.canStartTrial(c.communityPlan, now)).length;
+    // Fim do teste em curso (o mais distante); depois de vencido, o que o evento registrou
+    const runningEnds = communities
+      .map((c) => c.communityPlan)
+      .filter((plan) => plan?.status === CommunityPlanStatus.TRIAL && plan.trialEndsAt)
+      .map((plan) => plan!.trialEndsAt!.getTime());
+    const trialEndsAt = runningEnds.length ? new Date(Math.max(...runningEnds)) : (trialUsed?.endsAt ?? null);
     return {
       parish,
       enforcement: this.access.enforcement(),
       trialDays: DEFAULT_TRIAL_DAYS,
+      /**
+       * Teste de 30 dias por PEDIDO (POST /billing/trial), uma vez por paróquia:
+       * `available` = ainda não usado, paróquia fora do piloto e com alguma
+       * comunidade sem acesso pago; `usedAt`/`endsAt` = quando começou/termina.
+       */
+      trial: {
+        available: !pilotParish && !trialUsed && eligible > 0,
+        usedAt: trialUsed ? trialUsed.usedAt.toISOString() : null,
+        endsAt: trialUsed && trialEndsAt ? trialEndsAt.toISOString() : null,
+      },
       checkoutAvailable: problem === null,
       billingAccount: this.serializeAccount(account),
       communities: communities.map((community, index) => {
@@ -313,7 +346,8 @@ export class BillingService {
             billingAccountId: plan?.billingAccountId ?? null,
             billingCycle: cycle,
             graceEndsAt: plan ? graceEndsAt(plan) : null,
-            paidAccess: hasPaidAccess(plan, now),
+            // Paróquia do piloto: acesso total em TODAS as comunidades (inclusive nova, sem plano)
+            paidAccess: pilotParish || hasPaidAccess(plan, now),
             /** Piloto: acesso total sem prazo — não entra na cobrança */
             pilot: isPilotPlan(plan),
           },
@@ -322,6 +356,124 @@ export class BillingService {
       tiers,
       payments,
     };
+  }
+
+  // ------------------------------------------------------------------
+  // POST /billing/trial — teste de 30 dias por pedido (uma vez por paróquia)
+  // ------------------------------------------------------------------
+
+  /** Primeiro evento de teste de alguma comunidade (arquivada ou não) da paróquia. */
+  private async trialUsed(
+    parishId: string,
+    client: Prisma.TransactionClient | PrismaService = this.prisma,
+  ): Promise<{ usedAt: Date; endsAt: Date | null } | null> {
+    const event = await client.communityPlanEvent.findFirst({
+      where: { action: { in: [...TRIAL_USED_ACTIONS] }, community: { parishId } },
+      orderBy: { createdAt: 'asc' },
+      select: { createdAt: true, data: true },
+    });
+    if (!event) return null;
+    const raw = (event.data as { trialEndsAt?: unknown } | null)?.trialEndsAt;
+    const ends = typeof raw === 'string' ? new Date(raw) : null;
+    return { usedAt: event.createdAt, endsAt: ends && Number.isFinite(ends.getTime()) ? ends : null };
+  }
+
+  /** A comunidade pode entrar no teste pedido? Sem acesso pago e em status de onde o teste parte. */
+  private canStartTrial(
+    plan: { status: CommunityPlanStatus; trialEndsAt: Date | null; currentPeriodEnd: Date | null; graceDays: number } | null,
+    now: Date,
+  ): boolean {
+    if (!plan) return true;
+    return !hasPaidAccess(plan, now) && TRIAL_START_FROM.includes(plan.status);
+  }
+
+  /**
+   * Inicia o teste de 30 dias (planTransition START_TRIAL, evento
+   * TRIAL_REQUESTED) em todas as comunidades ATIVAS da paróquia sem acesso
+   * pago. Uma vez por paróquia (409 TRIAL_ALREADY_USED); piloto não precisa
+   * (409 TRIAL_NOT_NEEDED). Trava por paróquia (advisory lock) dentro da
+   * mesma transação das gravações: dois cliques não criam dois testes.
+   */
+  async requestTrial(user: BillingUser, dto: RequestTrialDto, now: Date = new Date()) {
+    const parishId = this.resolveParishId(user, dto?.parishId);
+    // PARISH_ADMIN da paróquia; DIOCESAN_ADMIN e SYSTEM_ADMIN no escopo
+    await this.assertCanView(user, parishId);
+    const parish = await this.prisma.parish.findUnique({ where: { id: parishId }, select: { id: true } });
+    if (!parish) throw new NotFoundException('Paróquia não encontrada');
+
+    if (await this.access.isPilotParish(parishId)) {
+      throw new ConflictException({
+        code: 'TRIAL_NOT_NEEDED',
+        message: 'Esta paróquia já tem acesso completo ao Parish — não precisa de teste.',
+      });
+    }
+
+    const started = await this.prisma.$transaction(async (tx) => {
+      const rows = await tx.$queryRaw<Array<{ locked: boolean }>>`SELECT pg_try_advisory_xact_lock(hashtext(${'billing-trial:' + parishId})) AS locked`;
+      if (!rows?.[0]?.locked) {
+        throw new ConflictException('Outro pedido de teste desta paróquia está em andamento. Aguarde alguns segundos e recarregue a página.');
+      }
+      if (await this.trialUsed(parishId, tx)) {
+        throw new ConflictException({
+          code: 'TRIAL_ALREADY_USED',
+          message: 'O teste de 30 dias já foi usado por esta paróquia. Para continuar com todos os recursos, contrate o plano.',
+        });
+      }
+      const communities = await tx.community.findMany({
+        where: { parishId, deletedAt: null, status: EntityStatus.ACTIVE },
+        select: { id: true, communityPlan: { select: COMMUNITY_PLAN_SELECT } },
+      });
+      const eligible = communities.filter((c) => this.canStartTrial(c.communityPlan, now));
+      if (!eligible.length) {
+        if (!communities.length) throw new BadRequestException('A paróquia ainda não tem comunidade ativa para testar');
+        // Nada a testar: não gasta o teste da paróquia
+        throw new ConflictException({
+          code: 'TRIAL_NOT_NEEDED',
+          message: 'As comunidades desta paróquia já têm acesso aos recursos do plano.',
+        });
+      }
+
+      let trialEndsAt: Date | null = null;
+      const ids: string[] = [];
+      for (const community of eligible) {
+        const current = community.communityPlan;
+        // A faixa já escolhida (se houver) fica como está: START_TRIAL sem faixa não mexe nela
+        const result = planTransition(current ? { ...current, tier: null } : null, { action: 'START_TRIAL' }, null, now);
+        trialEndsAt = result.data.trialEndsAt ?? trialEndsAt;
+        await tx.communityPlan.upsert({
+          where: { communityId: community.id },
+          create: { communityId: community.id, ...result.data },
+          update: result.data,
+        });
+        await tx.communityPlanEvent.create({
+          data: {
+            communityId: community.id,
+            action: TRIAL_REQUESTED_ACTION,
+            fromStatus: result.fromStatus,
+            toStatus: result.toStatus,
+            byUserId: user.id,
+            note: `Teste de ${DEFAULT_TRIAL_DAYS} dias pedido pela paróquia (uma vez por paróquia)`,
+            data: {
+              trialDays: DEFAULT_TRIAL_DAYS,
+              trialEndsAt: result.data.trialEndsAt?.toISOString() ?? null,
+              source: 'BILLING_TRIAL',
+            },
+          },
+        });
+        ids.push(community.id);
+      }
+      return { trialEndsAt: trialEndsAt!, ids };
+    });
+
+    for (const id of started.ids) this.access.invalidate(id);
+    await this.audit.log({
+      actor: { id: user.id, role: user.role as UserRole },
+      action: 'UPDATE',
+      entity: 'Parish',
+      entityId: parishId,
+      metadata: { op: 'TRIAL_REQUESTED', parishId, communities: started.ids.length, trialEndsAt: started.trialEndsAt.toISOString() },
+    });
+    return { trialEndsAt: started.trialEndsAt, communities: started.ids.length };
   }
 
   // ------------------------------------------------------------------

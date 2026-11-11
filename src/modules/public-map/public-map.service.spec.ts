@@ -191,8 +191,8 @@ describe('PublicMapService — mapa público', () => {
       const sel = prisma.community.findFirst.mock.calls[0][0].select.massSchedules.select.cancellations;
       expect(sel.orderBy).toEqual({ date: 'asc' });
       expect(sel.where.date.gte).toBeInstanceOf(Date);
-      // 60 dias de janela
-      expect((sel.where.date.lte.getTime() - sel.where.date.gte.getTime()) / 86400000).toBe(60);
+      // 60 dias de janela a partir de hoje (+ 1 dia para trás: ocorrência de ontem que passa da meia-noite)
+      expect((sel.where.date.lte.getTime() - sel.where.date.gte.getTime()) / 86400000).toBe(61);
       const conf = r.schedules.find((s) => s.id === 's1')!;
       expect(conf.upcomingCancellations).toEqual([
         { date: '2026-09-27', reason: 'Agenda dos padres' },
@@ -221,14 +221,75 @@ describe('PublicMapService — mapa público', () => {
 
       prisma.community.findFirst.mockResolvedValue(comCancel('AC'));
       const acre = await service.communityDetail('c1');
-      // a consulta parte do "hoje" do Acre (25/09), não do de Brasília (26/09)
+      // a consulta parte de ontem do "hoje" do Acre (25/09 − 1; cobre a ocorrência que passa da
+      // meia-noite), não do de Brasília (26/09)
       const sel = prisma.community.findFirst.mock.calls[0][0].select.massSchedules.select.cancellations;
-      expect(sel.where.date.gte).toEqual(new Date('2026-09-25T00:00:00.000Z'));
+      expect(sel.where.date.gte).toEqual(new Date('2026-09-24T00:00:00.000Z'));
       expect(acre.schedules[0].upcomingCancellations.map((c) => c.date)).toEqual(['2026-09-25', '2026-09-27']);
 
       prisma.community.findFirst.mockResolvedValue(comCancel('PR'));
       const parana = await service.communityDetail('c1');
       expect(parana.schedules[0].upcomingCancellations.map((c) => c.date)).toEqual(['2026-09-27']);
+    });
+
+    describe('contrato 3: endTime e "acontecendo agora" na agenda da página', () => {
+      // Confissão de domingo das 08:00 às 09:30 (s1) e Missa de domingo às 10:00 sem fim (s2)
+      const comFim = (cancellations: any[] = []) => ({
+        ...linha,
+        massSchedules: [
+          { ...linha.massSchedules[2], endTime: '09:30', cancellations },
+          { ...linha.massSchedules[1], endTime: null },
+          { ...linha.massSchedules[0], endTime: null }, // "todo dia 13" às 19:00
+        ],
+      });
+      const flags = (r: any) => Object.fromEntries(r.schedules.map((s: any) => [s.id, s.happeningNow]));
+
+      it('pede o endTime e devolve por horário', async () => {
+        prisma.community.findFirst.mockResolvedValue(comFim());
+        const r = await service.communityDetail('c1');
+        expect(prisma.community.findFirst.mock.calls[0][0].select.massSchedules.select.endTime).toBe(true);
+        expect(r.schedules.map((s) => [s.id, s.endTime])).toEqual([
+          ['s1', '09:30'],
+          ['s2', null],
+          ['s3', null],
+        ]);
+      });
+
+      it('domingo 09:00 em Brasília: a Confissão (até 09:30) está acontecendo; a Missa das 10:00 ainda não', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-09-27T12:00:00.000Z')); // domingo 09:00 BRT
+        prisma.community.findFirst.mockResolvedValue(comFim());
+        expect(flags(await service.communityDetail('c1'))).toEqual({ s1: true, s2: false, s3: false });
+      });
+
+      it('depois do fim, ou em outro dia da semana, não', async () => {
+        prisma.community.findFirst.mockResolvedValue(comFim());
+        (service as any).now.mockReturnValue(new Date('2026-09-27T12:30:00.000Z')); // domingo 09:30 BRT
+        expect(flags(await service.communityDetail('c1')).s1).toBe(false);
+        (service as any).now.mockReturnValue(new Date('2026-09-28T12:00:00.000Z')); // segunda 09:00 BRT
+        expect(flags(await service.communityDetail('c1')).s1).toBe(false);
+      });
+
+      it('suspensa hoje ("não haverá") → false', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-09-27T12:00:00.000Z'));
+        prisma.community.findFirst.mockResolvedValue(comFim([{ date: new Date('2026-09-27T00:00:00.000Z'), reason: null }]));
+        expect(flags(await service.communityDetail('c1')).s1).toBe(false);
+      });
+
+      it('usa o fuso da UF: 09:00 de Brasília ainda são 07:00 no Acre', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-09-27T12:00:00.000Z'));
+        prisma.community.findFirst.mockResolvedValue({ ...comFim(), state: 'AC' });
+        expect(flags(await service.communityDetail('c1')).s1).toBe(false);
+        (service as any).now.mockReturnValue(new Date('2026-09-27T14:00:00.000Z')); // 09:00 no Acre
+        expect(flags(await service.communityDetail('c1')).s1).toBe(true);
+      });
+
+      it('mensal "todo dia 13": só no dia 13', async () => {
+        prisma.community.findFirst.mockResolvedValue(comFim());
+        (service as any).now.mockReturnValue(new Date('2026-10-13T22:30:00.000Z')); // 13/10 19:30 BRT
+        expect(flags(await service.communityDetail('c1')).s3).toBe(true);
+        (service as any).now.mockReturnValue(new Date('2026-10-14T22:30:00.000Z')); // 14/10 19:30 BRT
+        expect(flags(await service.communityDetail('c1')).s3).toBe(false);
+      });
     });
 
     it('pino MANUAL é verificado', async () => {

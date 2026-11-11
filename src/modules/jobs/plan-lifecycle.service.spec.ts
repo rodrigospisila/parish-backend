@@ -86,19 +86,31 @@ describe('dueNotice — régua de teste/cobrança', () => {
     expect(d1.subject).toBe('Parish: o teste termina amanhã');
     expect(d1.text).toContain('nas comunidades');
   });
+
+  it('plano grátis enxuto: os avisos dizem o que continua grátis (membros, horários, mapa, liturgia)', () => {
+    const ended = noticeMessage('TRIAL_ENDED', { parishName: 'P', communities: [{ name: 'A', date: at(-1) }], planUrl: 'u' });
+    expect(ended.text).toContain('O cadastro de membros, os horários de missa e de confissão, o mapa e a liturgia continuam grátis.');
+    expect(ended.text).toContain('eventos');
+    expect(ended.text).toContain('dízimo');
+    // Eventos e calendário deixaram de ser grátis
+    expect(ended.text).not.toContain('Calendário, eventos');
+  });
 });
 
 describe('PlanLifecycleService', () => {
-  function setup(opts: { plans?: any[]; communities?: any[]; admins?: any[]; claimed?: Set<string> } = {}) {
+  function setup(opts: { plans?: any[]; communities?: any[]; admins?: any[]; claimed?: Set<string>; expiring?: any[] } = {}) {
     const claimed = opts.claimed ?? new Set<string>();
     const tx = {
       $queryRaw: jest.fn().mockResolvedValue([{ locked: true }]),
-      communityPlan: { create: jest.fn().mockResolvedValue({}) },
+      communityPlan: { create: jest.fn().mockResolvedValue({}), updateMany: jest.fn().mockResolvedValue({ count: 1 }) },
       communityPlanEvent: { create: jest.fn().mockResolvedValue({}) },
     };
     const prisma: any = {
       community: { findMany: jest.fn().mockResolvedValue(opts.communities ?? []) },
-      communityPlan: { findMany: jest.fn().mockResolvedValue(opts.plans ?? []) },
+      communityPlan: {
+        // Régua (OR de status/datas com `community.deletedAt`) × testes vencidos (status TRIAL)
+        findMany: jest.fn(async ({ where }: any) => (where.status === 'TRIAL' ? (opts.expiring ?? []) : (opts.plans ?? []))),
+      },
       user: { findMany: jest.fn().mockResolvedValue(opts.admins ?? [{ id: 'a1', email: 'Padre@Paroquia.org' }]) },
       planNotice: {
         create: jest.fn(({ data }: any) => {
@@ -107,6 +119,7 @@ describe('PlanLifecycleService', () => {
           claimed.add(key);
           return Promise.resolve({});
         }),
+        findFirst: jest.fn(async ({ where }: any) => (claimed.has(`${where.kind}|${where.refKey}`) ? { id: 'n1' } : null)),
       },
       // runExclusiveJob pode registrar a execução (JobRun) — C6
       jobRun: { create: jest.fn().mockResolvedValue({ id: 'run1' }), update: jest.fn().mockResolvedValue({}) },
@@ -138,17 +151,93 @@ describe('PlanLifecycleService', () => {
     expect(ctx.tx.$queryRaw.mock.calls[0][1]).toBe('parish:job:plan-lifecycle');
   });
 
-  it('AUTO_TRIAL: teste de 30 dias para comunidade de paróquia gerida sem plano', async () => {
+  const expiringRow = (communityId: string, endedDaysAgo: number | null, over: Record<string, unknown> = {}) => ({
+    id: `plan-${communityId}`,
+    communityId,
+    status: 'TRIAL',
+    tierId: null,
+    billingCycle: null,
+    priceCents: null,
+    trialEndsAt: endedDaysAgo === null ? null : at(-endedDaysAgo),
+    currentPeriodEnd: null,
+    graceDays: 15,
+    billingAccount: null,
+    ...over,
+  });
+
+  it('lançamento: o job NÃO inicia mais teste automático (sem startAutoTrials, nada criado)', async () => {
     const ctx = setup({ communities: [{ id: 'c1' }, { id: 'c2' }] });
-    ctx.tx.communityPlan.create.mockResolvedValueOnce({}).mockRejectedValueOnce(Object.assign(new Error('dup'), { code: 'P2002' }));
-    expect(await ctx.service.startAutoTrials(now)).toBe(1);
-    const where = ctx.prisma.community.findMany.mock.calls[0][0].where;
-    expect(where).toMatchObject({ deletedAt: null, communityPlan: { is: null }, parish: { managedAt: { not: null } } });
-    // S11: paróquia do piloto fica de fora mesmo gerida
-    expect(where.parish.NOT).toEqual(pilotParishWhere());
-    expect(ctx.tx.communityPlan.create.mock.calls[0][0].data).toMatchObject({ communityId: 'c1', status: 'TRIAL', trialEndsAt: at(30) });
-    expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({ action: 'AUTO_TRIAL', fromStatus: 'FREE', toStatus: 'TRIAL', byUserId: null });
+    expect((ctx.service as any).startAutoTrials).toBeUndefined();
+    expect(await ctx.service.execute(now)).toEqual({ notices: 0, messages: 0, expiredTrials: 0 });
+    expect(ctx.prisma.community.findMany).not.toHaveBeenCalled();
+    expect(ctx.tx.communityPlan.create).not.toHaveBeenCalled();
+    expect(ctx.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+  });
+
+  it('teste vencido → FREE (evento TRIAL_EXPIRED) DEPOIS do aviso TRIAL_ENDED, na mesma execução', async () => {
+    const ended = { ...planRow('c1', 'Matriz', -1), id: 'plan-c1', tierId: null, billingCycle: null, priceCents: null };
+    const ctx = setup({ plans: [ended], expiring: [{ ...expiringRow('c1', 1), billingAccount: { status: 'NONE' } }] });
+    const result = await ctx.service.execute(now);
+    expect(result).toEqual({ notices: 1, messages: 1, expiredTrials: 1 });
+    // Ordem: o aviso é registrado antes de o plano mudar de status
+    const noticeOrder = ctx.prisma.planNotice.create.mock.invocationCallOrder[0];
+    const updateOrder = ctx.tx.communityPlan.updateMany.mock.invocationCallOrder[0];
+    expect(noticeOrder).toBeLessThan(updateOrder);
+    expect(ctx.prisma.planNotice.create.mock.calls[0][0].data.kind).toBe('TRIAL_ENDED');
+    expect(ctx.email.trySend).toHaveBeenCalledWith('padre@paroquia.org', 'Parish: o teste terminou', expect.any(String));
+
+    const update = ctx.tx.communityPlan.updateMany.mock.calls[0][0];
+    // CAS: só se ainda for TRIAL vencido (prorrogado/contratado no meio-tempo fica)
+    expect(update.where).toMatchObject({ id: 'plan-c1', status: 'TRIAL' });
+    expect(update.data).toEqual({ status: 'FREE', suspendedAt: null });
+    expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({
+      communityId: 'c1',
+      action: 'TRIAL_EXPIRED',
+      fromStatus: 'TRIAL',
+      toStatus: 'FREE',
+      byUserId: null,
+    });
     expect(ctx.access.invalidate).toHaveBeenCalledWith('c1');
+  });
+
+  it('teste vencido: busca só TRIAL com trialEndsAt <= agora (ou sem data), fora do piloto', async () => {
+    const ctx = setup();
+    expect(await ctx.service.expireTrials(now)).toBe(0);
+    const where = ctx.prisma.communityPlan.findMany.mock.calls[0][0].where;
+    expect(where.status).toBe('TRIAL');
+    expect(where.OR).toEqual([{ trialEndsAt: { lte: now } }, { trialEndsAt: null }]);
+    expect(where.community).toEqual({ parish: { NOT: pilotParishWhere() } });
+  });
+
+  it('não quebra a régua: enquanto o aviso TRIAL_ENDED não saiu (ninguém para avisar), o teste vencido espera', async () => {
+    const ctx = setup({ expiring: [expiringRow('c1', 1)] });
+    expect(await ctx.service.expireTrials(now)).toBe(0);
+    expect(ctx.tx.communityPlan.updateMany).not.toHaveBeenCalled();
+    // Aviso já registrado (execução anterior) → expira
+    const refKey = `c1:${at(-1).toISOString().slice(0, 10)}`;
+    const sent = setup({ expiring: [expiringRow('c1', 1)], claimed: new Set([`TRIAL_ENDED|${refKey}`]) });
+    expect(await sent.service.expireTrials(now)).toBe(1);
+  });
+
+  it('sem aviso a receber (já contratou, venceu há mais de uma semana ou sem data) → expira direto', async () => {
+    const ctx = setup({
+      expiring: [
+        expiringRow('c1', 1, { billingAccount: { status: 'PENDING' } }),
+        expiringRow('c2', 30),
+        expiringRow('c3', null),
+      ],
+    });
+    expect(await ctx.service.expireTrials(now)).toBe(3);
+    expect(ctx.prisma.planNotice.findFirst).not.toHaveBeenCalled();
+    expect(ctx.tx.communityPlanEvent.create).toHaveBeenCalledTimes(3);
+  });
+
+  it('teste prorrogado/contratado durante a execução (CAS não casa): sem evento, sem contar', async () => {
+    const ctx = setup({ expiring: [expiringRow('c1', 30)] });
+    ctx.tx.communityPlan.updateMany.mockResolvedValueOnce({ count: 0 });
+    expect(await ctx.service.expireTrials(now)).toBe(0);
+    expect(ctx.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+    expect(ctx.access.invalidate).not.toHaveBeenCalled();
   });
 
   it('régua: uma mensagem por paróquia e tipo, e-mail + in-app; na segunda execução não repete', async () => {

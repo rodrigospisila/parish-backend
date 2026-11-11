@@ -1,4 +1,4 @@
-﻿import { Injectable, NotFoundException, BadRequestException, ForbiddenException } from '@nestjs/common';
+﻿import { Injectable, NotFoundException, BadRequestException, ForbiddenException, Optional } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateEventDto } from './dto/create-event.dto';
 import { UpdateEventDto } from './dto/update-event.dto';
@@ -17,6 +17,8 @@ import { MassSchedulesService } from '../mass-schedules/mass-schedules.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { parseClientDateTime } from '../../common/schedule-time';
 import { DateWindow, PageRequest, Paginated, dateWindowFilter, pageArgs } from './list-window';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * Quem vê contatos (e-mail/telefone) de participantes e escalados de um
@@ -58,7 +60,33 @@ export class EventsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly massSchedulesService: MassSchedulesService,
+    // Plano por comunidade nas listas (opcional só para specs que montam o service à mão)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /**
+   * Agenda é recurso PAGO da comunidade (`events`). O guard decide a rota;
+   * nas listas que juntam várias comunidades (pároco vendo a paróquia, fiel
+   * com vínculos) saem os eventos das comunidades sem acesso — só no
+   * PLAN_ENFORCEMENT=on. Devolve a condição extra (para somar em AND) ou
+   * `null` quando nada muda (off/log, SYSTEM_ADMIN, sem PlanAccessService).
+   * Vai no `where` (e não depois da consulta) para não furar `take`/página.
+   */
+  private async planCommunityCondition(where: any, currentUser?: CurrentUser): Promise<any | null> {
+    if (!this.planAccess || !currentUser?.role || currentUser.role === UserRole.SYSTEM_ADMIN) return null;
+    if (this.planAccess.enforcement() !== 'on') return null;
+    const rows = await this.prisma.event.findMany({
+      where,
+      distinct: ['communityId'],
+      select: { communityId: true },
+    });
+    const allowed = await this.planAccess.restrictToPaid(
+      currentUser,
+      rows.map((row) => row.communityId),
+    );
+    if (!allowed) return null;
+    return { communityId: { in: [...allowed] } };
+  }
 
   /**
    * Data/hora do evento vinda do cliente → instante (A19). Sem fuso
@@ -460,6 +488,12 @@ export class EventsService {
       where.AND = [...(where.AND ?? []), { startDate: windowFilter }];
     }
 
+    // Plano (só no modo on): só comunidades com acesso
+    const planCondition = await this.planCommunityCondition(where, currentUser);
+    if (planCondition) {
+      where.AND = [...(where.AND ?? []), planCondition];
+    }
+
     return {
       where,
       include: {
@@ -615,7 +649,10 @@ export class EventsService {
     communityId?: string,
   ) {
     const scopeWhere = await this.resolveEventScopeWhere(currentUser, communityId);
-    return { AND: [scopeWhere, { ...conditions, deletedAt: null }] };
+    const where = { AND: [scopeWhere, { ...conditions, deletedAt: null }] };
+    // Plano (só no modo on): só comunidades com acesso
+    const planCondition = await this.planCommunityCondition(where, currentUser);
+    return planCondition ? { AND: [...where.AND, planCondition] } : where;
   }
 
   async findUpcoming(communityId?: string, limit: number = 10, currentUser?: CurrentUser) {
@@ -687,7 +724,13 @@ export class EventsService {
       },
     });
 
-    return favorites.map((favorite) => favorite.event);
+    // Plano (só no modo on): favoritos de comunidades sem acesso saem da lista
+    return planFilter(
+      this.planAccess,
+      currentUser,
+      favorites.map((favorite) => favorite.event),
+      (event) => event.communityId,
+    );
   }
 
   async addFavorite(eventId: string, currentUser: CurrentUser) {

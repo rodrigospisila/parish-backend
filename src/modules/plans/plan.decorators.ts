@@ -1,4 +1,5 @@
 import { SetMetadata } from '@nestjs/common';
+import { defaultFeatureLevel } from './plan-rules';
 import type { PaidFeature } from './plan-rules';
 
 export const PLAN_FEATURE_KEY = 'plan:feature';
@@ -8,9 +9,10 @@ export const PLAN_SKIP_KEY = 'plan:skip';
 export interface PlanFeatureMeta {
   feature: PaidFeature;
   /**
-   * 'parish' = recurso da PARÓQUIA (formação): sem alvo explícito, vale o
-   * escopo paroquial do usuário (passa se alguma comunidade da paróquia tiver
-   * acesso). Padrão 'community'.
+   * 'parish' = recurso da PARÓQUIA (formação, planejamento, dízimo): sem alvo
+   * explícito, vale o escopo paroquial do usuário (passa se alguma comunidade
+   * da paróquia tiver acesso). Padrão: 'parish' para `planning` e `tithe`
+   * (PARISH_LEVEL_FEATURES), 'community' para as demais.
    */
   level?: 'community' | 'parish';
 }
@@ -21,7 +23,7 @@ export interface PlanFeatureMeta {
  * (o guard precisa de `req.user`); sem a metadata o guard não faz nada.
  */
 export const RequiresFeature = (feature: PaidFeature, options: { level?: 'community' | 'parish' } = {}) =>
-  SetMetadata(PLAN_FEATURE_KEY, { feature, level: options.level ?? 'community' } as PlanFeatureMeta);
+  SetMetadata(PLAN_FEATURE_KEY, { feature, level: options.level ?? defaultFeatureLevel(feature) } as PlanFeatureMeta);
 
 /** Tipos de recurso cuja comunidade (ou paróquia) o guard sabe descobrir pelo id. */
 export type PlanResourceKind =
@@ -51,7 +53,28 @@ export type PlanResourceKind =
   | 'visitRequest'
   | 'pastoralDocument'
   /** Escala legada por evento (EventPastoralAssignment) */
-  | 'eventAssignment';
+  | 'eventAssignment'
+  // --- Lançamento (11/11/2026): recursos que passaram a ser pagos ---
+  | 'news'
+  | 'prayerRequest'
+  | 'clergyMessage'
+  /** Planejamento pastoral (PastoralPlan / Objective / Goal / Action) — nível paróquia */
+  | 'pastoralPlan'
+  | 'planObjective'
+  | 'planGoal'
+  | 'planAction'
+  | 'sacramentProcess'
+  /** Sacramento registrado (só tem memberId → comunidade do membro) */
+  | 'sacrament'
+  /** Balancete (FinancialStatement) */
+  | 'financialStatement'
+  // Dízimo — nível paróquia (o resolvedor devolve a paróquia)
+  | 'titheIntent'
+  | 'titheCampaign'
+  /** Lançamento de campanha (FinancialTransaction com campaignId) */
+  | 'titheCampaignEntry'
+  /** Oferta de visitante */
+  | 'titheGuestGift';
 
 export interface PlanResourceSpec {
   kind: PlanResourceKind;

@@ -12,8 +12,6 @@ import {
 import { ConfigService } from '@nestjs/config';
 import {
   ClaimVerificationMethod,
-  CommunityPlanStatus,
-  EntityStatus,
   LeadStatus,
   NotificationType,
   ParishClaimStatus,
@@ -112,8 +110,10 @@ type OfficialParish = {
  * "Esta paróquia é minha" (C1 — saas-implantacao-02 / ux-acesso-24).
  * Sempre aprovada pelo SYSTEM_ADMIN; o código no contato OFICIAL do território
  * é só evidência (VERIFIED). A aprovação promove a conta de quem pediu (ou
- * cria um convite de titular), marca a paróquia como gerida, dá 30 dias de
- * teste às comunidades sem plano e fecha o lead.
+ * cria um convite de titular), marca a paróquia como gerida e fecha o lead.
+ * A paróquia aprovada entra no PLANO GRÁTIS: o teste de 30 dias deixou de ser
+ * automático (11/11/2026) — é pedido uma vez pelo botão em Plano e assinatura
+ * (POST /billing/trial).
  */
 @Injectable()
 export class ClaimsService {
@@ -128,7 +128,8 @@ export class ClaimsService {
     private readonly messaging: MessagingService,
     private readonly email: EmailService,
     private readonly notifications: NotificationsService,
-    // Global (PlansModule): limpa o cache de acesso depois do teste automático
+    // Global (PlansModule). Sem uso desde que a aprovação deixou de iniciar teste;
+    // mantido para não mudar a assinatura do construtor (specs/DI)
     @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
@@ -798,7 +799,8 @@ export class ClaimsService {
         where: { id: parish.id, managedAt: null },
         data: { managedAt: now },
       });
-      const trialCommunityIds = await this.grantAutoTrial(tx, parish.id, claim.id, reviewer.id, now);
+      // Lançamento (11/11/2026): a aprovação NÃO inicia mais teste. A paróquia
+      // entra no plano grátis e pede o teste de 30 dias uma vez (POST /billing/trial).
       await tx.lead.updateMany({
         where: {
           source: 'CLAIM',
@@ -808,10 +810,8 @@ export class ClaimsService {
         },
         data: { status: LeadStatus.WON },
       });
-      return { grantedUserId, invite, trialCommunityIds };
+      return { grantedUserId, invite };
     });
-
-    for (const communityId of result.trialCommunityIds) this.planAccess?.invalidate(communityId);
 
     await this.audit.log({
       actor: { id: reviewer.id, email: reviewer.email, role: reviewer.role },
@@ -823,7 +823,6 @@ export class ClaimsService {
         status: ParishClaimStatus.APPROVED,
         grantedUserId: result.grantedUserId,
         inviteId: result.invite?.invite.id ?? null,
-        autoTrialCommunities: result.trialCommunityIds.length,
         managedBefore,
       },
     });
@@ -836,7 +835,10 @@ export class ClaimsService {
         .catch(() => false);
     } else {
       const title = 'Pedido de gestão aprovado';
-      const body = `Você agora administra a ${parish.name} no Parish. Entre com a sua conta para começar — as comunidades da paróquia ganharam ${DEFAULT_TRIAL_DAYS} dias de teste completo.`;
+      const body =
+        `Você agora administra a ${parish.name} no Parish. Entre com a sua conta para começar. ` +
+        'O plano grátis já está valendo: cadastro de membros, horários de missa e de confissão e o endereço das comunidades no mapa. ' +
+        `Para experimentar os demais recursos, use o botão "Testar por ${DEFAULT_TRIAL_DAYS} dias" em Plano e assinatura (uma vez por paróquia).`;
       void this.email.trySend(claim.email, title, body).catch(() => false);
       if (result.grantedUserId) {
         void this.notifications
@@ -871,65 +873,9 @@ export class ClaimsService {
             inviteEmailSent,
           }
         : {}),
-      trialCommunityIds: result.trialCommunityIds,
+      // Compatibilidade com o painel: a aprovação não inicia mais teste (sempre vazio)
+      trialCommunityIds: [] as string[],
     };
-  }
-
-  /**
-   * Teste de 30 dias (AUTO_TRIAL) às comunidades ATIVAS da paróquia SEM plano.
-   * Comunidade com qualquer linha de plano (o piloto, ACTIVE sem prazo; FREE
-   * explícito; etc.) não é tocada. `skipDuplicates` torna a gravação segura
-   * contra o job diário rodando ao mesmo tempo (communityId é único).
-   */
-  private async grantAutoTrial(
-    tx: Prisma.TransactionClient,
-    parishId: string,
-    claimId: string,
-    byUserId: string,
-    now: Date,
-  ): Promise<string[]> {
-    const communities = await tx.community.findMany({
-      where: {
-        parishId,
-        status: EntityStatus.ACTIVE,
-        deletedAt: null,
-        communityPlan: { is: null },
-      },
-      select: { id: true },
-    });
-    const trialEndsAt = new Date(now.getTime() + DEFAULT_TRIAL_DAYS * DAY_MS);
-    const created: string[] = [];
-    for (const community of communities) {
-      const { count } = await tx.communityPlan.createMany({
-        data: [
-          {
-            communityId: community.id,
-            status: CommunityPlanStatus.TRIAL,
-            trialEndsAt,
-          },
-        ],
-        skipDuplicates: true,
-      });
-      if (count === 0) continue;
-      await tx.communityPlanEvent.create({
-        data: {
-          communityId: community.id,
-          action: 'AUTO_TRIAL',
-          fromStatus: null,
-          toStatus: CommunityPlanStatus.TRIAL,
-          byUserId,
-          note: 'Teste automático: reivindicação da paróquia aprovada',
-          data: {
-            trialDays: DEFAULT_TRIAL_DAYS,
-            trialEndsAt: trialEndsAt.toISOString(),
-            source: 'CLAIM',
-            claimId,
-          },
-        },
-      });
-      created.push(community.id);
-    }
-    return created;
   }
 
   // ------------------------------------------------------------------

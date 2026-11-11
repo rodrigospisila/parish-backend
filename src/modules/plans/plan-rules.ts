@@ -9,9 +9,14 @@ import { BillingCycle, CommunityPlanStatus } from '@prisma/client';
  */
 
 /**
- * Recursos pagos (por comunidade). `planning` (planejamento pastoral:
- * objetivos/metas/ações) NÃO entra: não faz parte de escalas — é o plano
- * pastoral da paróquia e não estava na lista do dono (fica grátis).
+ * Recursos pagos (por comunidade) — decisão do dono em 11/11/2026 (plano
+ * grátis enxuto): tudo que não é cadastro de membros, horários de missa e
+ * confissão ("não haverá" incluso), pino/endereço da própria comunidade,
+ * mapa, liturgia e santos é pago. Conta, usuários/convites, auditoria,
+ * plano/cobrança, onboarding, notificações pessoais e avisos da plataforma
+ * não são "features": ficam sempre livres (não levam `@RequiresFeature`).
+ *
+ * A ORDEM é contrato com o painel/app (menus) — não reordene.
  */
 export const PAID_FEATURES = [
   'pastorals',
@@ -22,31 +27,39 @@ export const PAID_FEATURES = [
   'rooms',
   'visitation',
   'documents',
+  'events',
+  'news',
+  'prayer-requests',
+  'clergy-messages',
+  'planning',
+  'sacraments',
+  'sacrament-processes',
+  'finance',
+  'tithe',
+  'dashboard',
 ] as const;
 
 export type PaidFeature = (typeof PAID_FEATURES)[number];
 
 /**
- * Recursos sempre liberados (referência para o app/painel montar o menu).
- * Tudo que não é PAID_FEATURES continua grátis.
+ * Recursos sempre liberados (referência para o app/painel montar o menu e
+ * para o `/public/plans`).
  */
-export const FREE_FEATURES = [
-  'calendar',
-  'events',
-  'map',
-  'liturgy',
-  'mass-schedules',
-  'masses',
-  'tithe',
-  'news',
-  'prayer-requests',
-  'mass-intentions',
-  'clergy-messages',
-  'saints',
-  'planning',
-  'sacrament-processes',
-  'finance',
-] as const;
+export const FREE_FEATURES = ['members', 'mass-schedules', 'masses', 'map', 'location', 'liturgy', 'saints'] as const;
+
+export type FreeFeature = (typeof FREE_FEATURES)[number];
+
+/**
+ * Recursos de nível PARÓQUIA (configuração/escopo paroquial): sem alvo de
+ * comunidade, passam se ALGUMA comunidade da paróquia tiver acesso. É o nível
+ * padrão do `@RequiresFeature`/`@PlanGated` para estas features; as demais
+ * são por comunidade (formação declara o nível no próprio controller).
+ */
+export const PARISH_LEVEL_FEATURES: readonly PaidFeature[] = ['planning', 'tithe'];
+
+export function defaultFeatureLevel(feature: PaidFeature): 'community' | 'parish' {
+  return PARISH_LEVEL_FEATURES.includes(feature) ? 'parish' : 'community';
+}
 
 export type EnforcementMode = 'off' | 'log' | 'on';
 

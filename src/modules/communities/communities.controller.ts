@@ -15,6 +15,7 @@ import { CommunitiesMapService, PinKind } from './communities-map.service';
 import { CommunitiesReviewService } from './communities-review.service';
 import { CreateCommunityDto } from './dto/create-community.dto';
 import { UpdateCommunityDto } from './dto/update-community.dto';
+import { UpdateCommunityLocationDto } from './dto/update-community-location.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
@@ -131,6 +132,22 @@ export class CommunitiesController {
     return this.communitiesService.findAll(user);
   }
 
+  /**
+   * Comunidades que o usuário gerencia, com endereço e pino (tela "localização
+   * da minha comunidade" — plano grátis). ANTES de @Get(':id'). Sem paginação
+   * (teto 500); `?parishId=` opcional só estreita.
+   */
+  @Get('my-locations')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  myLocations(@CurrentUser() user: any, @Query('parishId') parishId?: string) {
+    return this.communitiesService.myLocations(user, { parishId: parishId || undefined });
+  }
+
   @Get(':id/geo-candidates')
   @Roles(UserRole.SYSTEM_ADMIN)
   geoCandidates(@Param('id') id: string) {
@@ -141,6 +158,25 @@ export class CommunitiesController {
   findOne(@Param('id') id: string) {
     // só dados públicos: esta rota não tem @Roles, qualquer fiel logado a chama (ver findOneSafe)
     return this.communitiesService.findOneSafe(id);
+  }
+
+  /**
+   * Ajusta o pino (e o endereço) da própria comunidade — plano grátis. Mesmo
+   * efeito do PATCH geral ao mover o pino (MANUAL, conferido, auditoria).
+   */
+  @Patch(':id/location')
+  @Roles(
+    UserRole.SYSTEM_ADMIN,
+    UserRole.DIOCESAN_ADMIN,
+    UserRole.PARISH_ADMIN,
+    UserRole.COMMUNITY_COORDINATOR,
+  )
+  updateLocation(
+    @Param('id') id: string,
+    @Body() dto: UpdateCommunityLocationDto,
+    @CurrentUser() user: any,
+  ) {
+    return this.communitiesService.updateLocation(id, dto, user);
   }
 
   @Patch(':id')

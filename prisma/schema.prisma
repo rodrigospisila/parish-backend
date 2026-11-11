@@ -1578,6 +1578,8 @@ model MassSchedule {
   /// 0 = domingo, 6 = sábado. Nulo só em MONTHLY_DAY ("todo dia 13").
   dayOfWeek   Int?
   time        String // HH:MM format
+  /// Fim (HH:MM, mesmo dia, maior que `time`). Nulo = duração padrão do tipo.
+  endTime     String?
   type        MassScheduleType
   notes       String?
   isSpecial   Boolean          @default(false)

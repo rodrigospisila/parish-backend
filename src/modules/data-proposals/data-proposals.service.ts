@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { DataProposal, DataProposalKind, DataProposalStatus, Prisma } from '@prisma/client';
 import { MASS_SCHEDULE_TYPE_LABELS } from '../mass-schedules/mass-schedule-types';
+import { isUsableEndTime } from '../mass-schedules/mass-schedule-window';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
 import { parseBbox } from '../masses/map-search.utils';
@@ -561,7 +562,17 @@ export class DataProposalsService {
       return { applied: false, message: 'O horário já estava assim — nada mudou', before, after: before };
     }
 
-    const updated = await tx.massSchedule.update({ where: { id: schedule.id }, data: next, select: SCHEDULE_SELECT });
+    // A proposta não conhece o fim (endTime). Se a hora nova passou do fim gravado, ele
+    // deixa de valer (fim antes do começo): limpa, e o horário volta à duração padrão do tipo
+    const stale = next.time !== schedule.time
+      ? await tx.massSchedule.findUnique({ where: { id: schedule.id }, select: { endTime: true } })
+      : null;
+    const clearEnd = stale?.endTime != null && !isUsableEndTime(next.time, stale.endTime);
+    const updated = await tx.massSchedule.update({
+      where: { id: schedule.id },
+      data: clearEnd ? { ...next, endTime: null } : next,
+      select: SCHEDULE_SELECT,
+    });
     return { applied: true, message: `${label} atualizada`, before, after: { ...updated } };
   }
 

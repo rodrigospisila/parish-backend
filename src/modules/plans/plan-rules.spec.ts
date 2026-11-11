@@ -1,4 +1,16 @@
-import { addCycle, graceEndsAt, hasPaidAccess, isPeriodOverdue, monthlyEquivalentCents, parseEnforcement, PAID_FEATURES } from './plan-rules';
+import {
+  addCycle,
+  defaultFeatureLevel,
+  FREE_FEATURES,
+  graceEndsAt,
+  hasPaidAccess,
+  isPaidFeature,
+  isPeriodOverdue,
+  monthlyEquivalentCents,
+  parseEnforcement,
+  PAID_FEATURES,
+  PARISH_LEVEL_FEATURES,
+} from './plan-rules';
 
 const DAY = 24 * 60 * 60 * 1000;
 const now = new Date('2026-09-24T12:00:00.000Z');
@@ -85,6 +97,31 @@ describe('plan-rules — utilidades', () => {
       'rooms',
       'visitation',
       'documents',
+      'events',
+      'news',
+      'prayer-requests',
+      'clergy-messages',
+      'planning',
+      'sacraments',
+      'sacrament-processes',
+      'finance',
+      'tithe',
+      'dashboard',
     ]);
+  });
+
+  it('plano grátis enxuto (11/11/2026): só membros, horários, mapa, localização, liturgia e santos', () => {
+    expect([...FREE_FEATURES]).toEqual(['members', 'mass-schedules', 'masses', 'map', 'location', 'liturgy', 'saints']);
+    // Nenhum recurso nas duas listas
+    for (const free of FREE_FEATURES) expect(isPaidFeature(free)).toBe(false);
+  });
+
+  it('nível: planning e tithe são da paróquia; os demais, da comunidade', () => {
+    expect([...PARISH_LEVEL_FEATURES]).toEqual(['planning', 'tithe']);
+    expect(defaultFeatureLevel('planning')).toBe('parish');
+    expect(defaultFeatureLevel('tithe')).toBe('parish');
+    for (const feature of PAID_FEATURES) {
+      if (feature !== 'planning' && feature !== 'tithe') expect(defaultFeatureLevel(feature)).toBe('community');
+    }
   });
 });

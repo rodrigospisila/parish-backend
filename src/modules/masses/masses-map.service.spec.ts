@@ -210,7 +210,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(massSchedules.expandOccurrences.mock.calls[0][4]).toEqual({ communityIds: ['c1'], types: [MassScheduleType.CONFESSION] });
       expect(prisma.event.findMany).not.toHaveBeenCalled();
       expect(res.communities[0].nextMasses).toEqual([
-        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', typeLabel: 'Confissão', start: '2026-07-23T09:00:00', end: null, source: 'fixed', cancelled: false, cancelReason: null },
+        { id: 'conf-1', title: 'Confissão', type: 'CONFESSION', typeLabel: 'Confissão', start: '2026-07-23T09:00:00', end: null, source: 'fixed', cancelled: false, cancelReason: null, happeningNow: false },
       ]);
     });
 
@@ -447,8 +447,8 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       // 19:00 em MT começou há 38 min (fora da tolerância); 19:30 há 8 min (dentro)
       expect(map.get('mt')!.map((m) => m.id)).toEqual(['mt-1930']);
       expect(map.get('sp')!.map((m) => m.id)).toEqual(['sp-2030']);
-      // a janela começa no "agora" do Acre menos a tolerância
-      expect(massSchedules.expandOccurrences.mock.calls[0][0]).toBe('2026-10-05T18:08:00.000Z');
+      // a janela começa no "agora" do Acre menos 60 min (a maior duração padrão: o que ainda está em andamento)
+      expect(massSchedules.expandOccurrences.mock.calls[0][0]).toBe('2026-10-05T17:38:00.000Z');
     });
 
     it('B58: celebração que começou há até 30 min continua (a de 40 min atrás sai)', async () => {
@@ -460,6 +460,74 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       ]);
       const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
       expect(list.map((m) => m.id)).toEqual(['e1840', 'm19']);
+    });
+
+    describe('contrato 3: em andamento fica até o FIM e vem com happeningNow', () => {
+      const comFim = (id: string, start: string, end: string, extra: Record<string, unknown> = {}) => ({ ...occ(id, start), end, ...extra });
+
+      it('Confissão das 15:00 às 17:30 continua na lista às 16:40 (bem além dos 30 min) com happeningNow', async () => {
+        // 16:40 em Brasília
+        (service as any).now.mockReturnValue(new Date('2026-07-22T19:40:00.000Z'));
+        massSchedules.expandOccurrences.mockResolvedValue([
+          comFim('conf', '2026-07-22T15:00:00', '2026-07-22T17:30:00'),
+          comFim('acabou', '2026-07-22T15:00:00', '2026-07-22T16:00:00'), // terminou há 40 min
+          comFim('depois', '2026-07-22T19:00:00', '2026-07-22T20:00:00'),
+        ]);
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        expect(list.map((m) => [m.id, m.happeningNow])).toEqual([
+          ['conf', true],
+          ['depois', false],
+        ]);
+      });
+
+      it('no minuto do fim sai do "acontecendo agora"; suspensa nunca está acontecendo', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-07-22T19:40:00.000Z')); // 16:40 BRT
+        massSchedules.expandOccurrences.mockResolvedValue([
+          comFim('fim-agora', '2026-07-22T16:20:00', '2026-07-22T16:40:00'), // dentro da tolerância, mas já terminou
+          comFim('suspensa', '2026-07-22T15:00:00', '2026-07-22T17:30:00', { cancelled: true, cancelReason: 'Retiro', happeningNow: true }),
+        ]);
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        expect(list.map((m) => [m.id, m.happeningNow, m.cancelled])).toEqual([
+          ['suspensa', false, true],
+          ['fim-agora', false, false],
+        ]);
+      });
+
+      it('o "agora" é o da UF: a mesma Confissão das 15:00 ainda não começou no Acre', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-07-22T19:40:00.000Z')); // 16:40 BRT = 14:40 no Acre
+        massSchedules.expandOccurrences.mockResolvedValue([
+          { ...comFim('pr', '2026-07-22T15:00:00', '2026-07-22T17:30:00'), community: { id: 'pr', name: 'pr' } },
+          { ...comFim('ac', '2026-07-22T15:00:00', '2026-07-22T17:30:00'), community: { id: 'ac', name: 'ac' } },
+        ]);
+        const map = await service.nextMassesByCommunity(['pr', 'ac'], 7, [MassScheduleType.CONFESSION], 15, {
+          states: new Map([
+            ['pr', 'PR'],
+            ['ac', 'AC'],
+          ]),
+        });
+        expect(map.get('pr')![0].happeningNow).toBe(true);
+        expect(map.get('ac')![0].happeningNow).toBe(false);
+      });
+
+      it('evento usa o próprio início/fim; sem fim, a duração padrão da Missa (60 min)', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-07-22T22:05:00.000Z')); // 19:05 BRT
+        prisma.event.findMany.mockResolvedValue([
+          // 17:00–19:30: em andamento há mais de 2 h
+          { id: 'longo', title: 'Missa', startDate: new Date('2026-07-22T20:00:00.000Z'), endDate: new Date('2026-07-22T22:30:00.000Z'), communityId: 'c1' },
+          // 18:20 sem fim: 45 min depois ainda conta (60 min)
+          { id: 'sem-fim', title: 'Missa', startDate: new Date('2026-07-22T21:20:00.000Z'), endDate: null, communityId: 'c1' },
+          // 17:00–18:00: terminou
+          { id: 'acabou', title: 'Missa', startDate: new Date('2026-07-22T20:00:00.000Z'), endDate: new Date('2026-07-22T21:00:00.000Z'), communityId: 'c1' },
+          // 20:00–21:00: ainda não começou
+          { id: 'depois', title: 'Missa', startDate: new Date('2026-07-22T23:00:00.000Z'), endDate: new Date('2026-07-23T00:00:00.000Z'), communityId: 'c1' },
+        ]);
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        expect(list.map((m) => [m.id, m.end, m.happeningNow])).toEqual([
+          ['longo', '2026-07-22T19:30:00', true],
+          ['sem-fim', null, true],
+          ['depois', '2026-07-22T21:00:00', false],
+        ]);
+      });
     });
 
     it('M15: só eventos de Missa públicos (isPublic) vão para o mapa', async () => {
@@ -485,8 +553,14 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       });
       expect(map.get('sp')![0]).toMatchObject({ start: '2026-07-22T19:00:00', end: '2026-07-22T20:30:00', source: 'event' });
       expect(map.get('mt')![0]).toMatchObject({ start: '2026-07-22T18:00:00', end: '2026-07-22T19:30:00' });
-      // a janela dos eventos é em instantes reais: agora (15:00Z) − 30 min
-      expect(prisma.event.findMany.mock.calls[0][0].where.startDate.gte).toEqual(new Date('2026-07-22T14:30:00.000Z'));
+      // a janela dos eventos é em instantes reais: agora (15:00Z) − 60 min; mais os que
+      // começaram antes (até 24 h) e ainda não terminaram
+      const or = prisma.event.findMany.mock.calls[0][0].where.OR;
+      expect(or[0].startDate.gte).toEqual(new Date('2026-07-22T14:00:00.000Z'));
+      expect(or[1]).toEqual({
+        startDate: { gte: new Date('2026-07-21T15:00:00.000Z'), lt: new Date('2026-07-22T14:00:00.000Z') },
+        endDate: { gt: new Date('2026-07-22T15:00:00.000Z') },
+      });
     });
 
     it('B22: evento de dia inteiro (00:00 → 00:00 de outro dia, ou ≥ 24 h) não vira "missa às 00:00"', async () => {

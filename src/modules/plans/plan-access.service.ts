@@ -5,6 +5,8 @@ import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { EnforcementMode, PaidFeature, hasPaidAccess, parseEnforcement } from './plan-rules';
 import type { PlanFeatureMeta, PlanResourceKind, PlanResourceSpec } from './plan.decorators';
+// Regra pura (sem dependência de módulo): critério único do piloto
+import { pilotParishWhere } from '../jobs/plan-lifecycle-rules';
 
 export interface PlanSnapshot {
   status: CommunityPlanStatus;
@@ -78,6 +80,9 @@ type Resolver = (prisma: PrismaService, id: string) => Promise<PlanTarget | null
 
 const byCommunity = (row: { communityId?: string | null } | null | undefined): PlanTarget | null =>
   row?.communityId ? { communityId: row.communityId } : null;
+
+const byParish = (row: { parishId?: string | null } | null | undefined): PlanTarget | null =>
+  row?.parishId ? { parishId: row.parishId } : null;
 
 const RESOLVERS: Record<PlanResourceKind, Resolver> = {
   community: async (_p, id) => ({ communityId: id }),
@@ -200,6 +205,80 @@ const RESOLVERS: Record<PlanResourceKind, Resolver> = {
     });
     return byCommunity(a?.eventPastoral?.event);
   },
+
+  // --- Lançamento (11/11/2026) ---
+  news: async (p, id) => byCommunity(await p.news.findUnique({ where: { id }, select: { communityId: true } })),
+  prayerRequest: async (p, id) =>
+    byCommunity(await p.prayerRequest.findUnique({ where: { id }, select: { communityId: true } })),
+  // Mensagem do clero: vale o alvo mais específico (comunidade → pastoral →
+  // destinatário → paróquia → diocese)
+  clergyMessage: async (p, id) => {
+    const m = await p.clergyMessage.findUnique({
+      where: { id },
+      select: {
+        communityId: true,
+        parishId: true,
+        dioceseId: true,
+        communityPastoral: { select: { communityId: true } },
+        member: { select: { communityId: true } },
+      },
+    });
+    if (!m) return null;
+    const communityId = m.communityId ?? m.communityPastoral?.communityId ?? m.member?.communityId;
+    if (communityId) return { communityId };
+    if (m.parishId) return { parishId: m.parishId };
+    return m.dioceseId ? { dioceseId: m.dioceseId } : null;
+  },
+  // Planejamento pastoral é da PARÓQUIA (feature `planning`, nível paróquia):
+  // mesmo o plano de uma comunidade responde pela paróquia dele
+  pastoralPlan: async (p, id) => byParish(await p.pastoralPlan.findUnique({ where: { id }, select: { parishId: true } })),
+  planObjective: async (p, id) => {
+    const o = await p.pastoralObjective.findUnique({ where: { id }, select: { plan: { select: { parishId: true } } } });
+    return byParish(o?.plan);
+  },
+  planGoal: async (p, id) => {
+    const g = await p.pastoralGoal.findUnique({
+      where: { id },
+      select: { objective: { select: { plan: { select: { parishId: true } } } } },
+    });
+    return byParish(g?.objective?.plan);
+  },
+  planAction: async (p, id) => {
+    const a = await p.pastoralAction.findUnique({
+      where: { id },
+      select: { objective: { select: { plan: { select: { parishId: true } } } } },
+    });
+    return byParish(a?.objective?.plan);
+  },
+  sacramentProcess: async (p, id) =>
+    byCommunity(await p.sacramentProcess.findUnique({ where: { id }, select: { communityId: true } })),
+  sacrament: async (p, id) => {
+    const s = await p.sacrament.findUnique({ where: { id }, select: { member: { select: { communityId: true } } } });
+    return byCommunity(s?.member);
+  },
+  financialStatement: async (p, id) => {
+    const f = await p.financialStatement.findUnique({ where: { id }, select: { communityId: true, parishId: true } });
+    if (!f) return null;
+    return f.communityId ? { communityId: f.communityId } : { parishId: f.parishId };
+  },
+  // Dízimo é da PARÓQUIA (feature `tithe`, nível paróquia): a conta de
+  // recebimento e a configuração são paroquiais, então responde a paróquia
+  titheIntent: async (p, id) => byParish(await p.titheIntent.findUnique({ where: { id }, select: { parishId: true } })),
+  titheCampaign: async (p, id) =>
+    byParish(await p.titheCampaign.findUnique({ where: { id }, select: { parishId: true } })),
+  titheCampaignEntry: async (p, id) => {
+    const t = await p.financialTransaction.findUnique({
+      where: { id },
+      select: { parishId: true, communityId: true, campaign: { select: { parishId: true } } },
+    });
+    if (!t) return null;
+    const parishId = t.campaign?.parishId ?? t.parishId;
+    if (parishId) return { parishId };
+    // Lançamento antigo só com a comunidade
+    return byCommunity(t);
+  },
+  titheGuestGift: async (p, id) =>
+    byParish(await p.titheGuestGift.findUnique({ where: { id }, select: { parishId: true } })),
 };
 
 /**
@@ -247,6 +326,8 @@ function resourceCommunityWhere(feature: PaidFeature, memberId: string): Prisma.
         },
       ];
     default:
+      // Features sem rota "minhas" (eventos, notícias, dízimo, finanças…):
+      // nenhuma comunidade de recurso → decidePersonal cai na regra do usuário
       return [];
   }
 }
@@ -267,6 +348,8 @@ export class PlanAccessService {
   /** Comunidades dos recursos do usuário (por feature) e checagens de escopo */
   private readonly userCache = new Map<string, CacheEntry<string[]>>();
   private readonly scopeCheckCache = new Map<string, CacheEntry<boolean>>();
+  /** Comunidade/paróquia é do piloto? */
+  private readonly pilotCache = new Map<string, CacheEntry<boolean>>();
   private readonly hierarchy: HierarchyService;
 
   constructor(
@@ -286,6 +369,8 @@ export class PlanAccessService {
   invalidate(communityId?: string) {
     if (communityId) this.planCache.delete(communityId);
     else this.planCache.clear();
+    // O piloto é definido por plano/evento de comunidade: recalcula
+    this.pilotCache.clear();
     // Paróquia/diocese dependem de todas as comunidades delas: limpa tudo (barato)
     this.scopeCache.clear();
   }
@@ -330,8 +415,36 @@ export class PlanAccessService {
     return value;
   }
 
+  /**
+   * A comunidade tem acesso aos recursos pagos? Pelo plano dela
+   * (`hasPaidAccess`) OU por ser de paróquia do PILOTO (`pilotParishWhere`):
+   * o piloto mantém acesso total sempre, inclusive numa comunidade NOVA criada
+   * depois (que nasce sem linha em CommunityPlan). A consulta do piloto só
+   * acontece quando o plano não libera, e fica em cache (60 s).
+   */
   async communityHasAccess(communityId: string, now: Date = new Date()): Promise<boolean> {
-    return hasPaidAccess(await this.getPlan(communityId), now);
+    if (hasPaidAccess(await this.getPlan(communityId), now)) return true;
+    return this.isPilotCommunity(communityId);
+  }
+
+  /** Comunidade de paróquia do piloto (acesso total) — cache 60 s. */
+  async isPilotCommunity(communityId: string): Promise<boolean> {
+    const key = `community:${communityId}`;
+    const hit = this.cached(this.pilotCache, key);
+    if (hit) return hit.value;
+    const value = (await this.prisma.community.count({ where: { id: communityId, parish: pilotParishWhere() } })) > 0;
+    this.store(this.pilotCache, key, value);
+    return value;
+  }
+
+  /** Paróquia do piloto (acesso total) — cache 60 s. */
+  async isPilotParish(parishId: string): Promise<boolean> {
+    const key = `parish:${parishId}`;
+    const hit = this.cached(this.pilotCache, key);
+    if (hit) return hit.value;
+    const value = (await this.prisma.parish.count({ where: { AND: [{ id: parishId }, pilotParishWhere()] } })) > 0;
+    this.store(this.pilotCache, key, value);
+    return value;
   }
 
   /** Alguma comunidade (não arquivada) da paróquia/diocese tem acesso? */
@@ -345,14 +458,28 @@ export class PlanAccessService {
     return value;
   }
 
-  /** Comunidades (não arquivadas) da paróquia/diocese com acesso pago agora. */
+  /**
+   * Comunidades (não arquivadas) da paróquia/diocese com acesso pago agora —
+   * pelo plano, mais TODAS as comunidades de paróquia do piloto.
+   */
   private async paidCommunityIdsIn(kind: 'parish' | 'diocese', id: string, now: Date): Promise<string[]> {
     const community = kind === 'parish' ? { parishId: id, deletedAt: null } : { parish: { dioceseId: id }, deletedAt: null };
-    const rows = await this.prisma.communityPlan.findMany({
-      where: { status: { in: PAID_STATUSES }, community },
-      select: { communityId: true, status: true, trialEndsAt: true, currentPeriodEnd: true, graceDays: true },
-    });
-    return rows.filter((row) => hasPaidAccess(row, now)).map((row) => row.communityId);
+    const [rows, pilot] = await Promise.all([
+      this.prisma.communityPlan.findMany({
+        where: { status: { in: PAID_STATUSES }, community },
+        select: { communityId: true, status: true, trialEndsAt: true, currentPeriodEnd: true, graceDays: true },
+      }),
+      this.prisma.community.findMany({
+        where:
+          kind === 'parish'
+            ? { parishId: id, deletedAt: null, parish: pilotParishWhere() }
+            : { deletedAt: null, parish: { AND: [{ dioceseId: id }, pilotParishWhere()] } },
+        select: { id: true },
+      }),
+    ]);
+    const ids = new Set(rows.filter((row) => hasPaidAccess(row, now)).map((row) => row.communityId));
+    for (const row of pilot ?? []) ids.add(row.id);
+    return [...ids];
   }
 
   async targetHasAccess(target: PlanTarget, now: Date = new Date()): Promise<boolean> {
@@ -376,7 +503,9 @@ export class PlanAccessService {
    * Decide o acesso de uma requisição ao recurso pago. Ordem:
    *  1. recurso da rota (@PlanResource) → comunidade/paróquia dele
    *     (recurso inexistente → libera: o service responde 404). Lista de ids
-   *     (ex.: scheduleIds): TODOS precisam de acesso;
+   *     (ex.: scheduleIds): TODOS precisam de acesso. Em feature de nível
+   *     paróquia, alvo de comunidade (aqui e no passo 2) é avaliado pela
+   *     PARÓQUIA dela (`levelTarget`);
    *  2. communityId explícito (params | query | body), depois parishId — só
    *     valem DENTRO do escopo do usuário; fora dele → negado (`outOfScope`);
    *  3. rota "minhas" (`personal`): comunidades dos recursos do usuário;
@@ -411,7 +540,7 @@ export class PlanAccessService {
         if (spec.kind === 'community' && !(await this.inPlanScope(user, target, meta.feature))) {
           return outOfScope(target);
         }
-        const decision = await this.evaluate(target, now);
+        const decision = await this.evaluate(await this.levelTarget(meta, target), now);
         if (!decision.allowed) return decision;
         last = decision;
       }
@@ -429,7 +558,7 @@ export class PlanAccessService {
         for (const id of ids) {
           const target: PlanTarget = key === 'communityId' ? { communityId: id } : { parishId: id };
           if (!(await this.inPlanScope(user, target, meta.feature))) return outOfScope(target);
-          const decision = await this.evaluate(target, now);
+          const decision = await this.evaluate(await this.levelTarget(meta, target), now);
           if (!decision.allowed) return decision;
           last = decision;
         }
@@ -439,6 +568,32 @@ export class PlanAccessService {
 
     if (options.personal) return this.decidePersonal(meta, user, now);
     return this.decideForUser(meta, user, now);
+  }
+
+  /**
+   * Recurso de nível PARÓQUIA (dízimo, planejamento, formação) com alvo de
+   * COMUNIDADE (membro, evento, `communityId` no body/query): quem responde é
+   * a paróquia dessa comunidade — passa se ALGUMA comunidade dela tiver
+   * acesso. Sem isso o membro da capela sem plano seria barrado no extrato do
+   * dízimo enquanto o resto do dízimo (paroquial) passa. O escopo do id
+   * explícito continua conferido na comunidade, antes desta troca.
+   */
+  private async levelTarget(meta: Pick<PlanFeatureMeta, 'level'>, target: PlanTarget): Promise<PlanTarget> {
+    if (meta.level !== 'parish' || !('communityId' in target)) return target;
+    const parishId = await this.parishOfCommunity(target.communityId);
+    // Comunidade inexistente: segue pela comunidade (sem plano → sem acesso)
+    return parishId ? { parishId } : target;
+  }
+
+  /** Paróquia da comunidade — cache 60 s. */
+  private async parishOfCommunity(communityId: string): Promise<string | null> {
+    const key = `parishOf:${communityId}`;
+    const hit = this.cached(this.resourceCache, key);
+    if (hit) return hit.value && 'parishId' in hit.value ? hit.value.parishId : null;
+    const row = await this.prisma.community.findUnique({ where: { id: communityId }, select: { parishId: true } });
+    const value: PlanTarget | null = row?.parishId ? { parishId: row.parishId } : null;
+    this.store(this.resourceCache, key, value);
+    return value ? row!.parishId : null;
   }
 
   /**

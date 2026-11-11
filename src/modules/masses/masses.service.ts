@@ -33,6 +33,7 @@ import {
   wantsClusters,
 } from './map-search.utils';
 import { massScheduleTypeLabel } from '../mass-schedules/mass-schedule-types';
+import { MAX_DEFAULT_DURATION_MIN, defaultDurationMin, isHappeningNow } from '../mass-schedules/mass-schedule-window';
 import { ZonedParts, isAllDayEvent, zonedDateTimeToInstant, zonedParts } from '../../common/schedule-time';
 
 const pad2 = (n: number) => String(n).padStart(2, '0');
@@ -51,7 +52,17 @@ export interface NearbyMass {
   /** Horário fixo suspenso nesta data ("não haverá"); eventos: sempre false. */
   cancelled: boolean;
   cancelReason: string | null;
+  /**
+   * Acontecendo agora: início ≤ agora < fim no relógio da comunidade (fuso pela
+   * UF); false se a data está suspensa. Evento sem fim: vale a duração padrão da Missa.
+   */
+  happeningNow: boolean;
 }
+
+/** Tempo máximo (h) que um evento em andamento fica na lista (acima disso é dia inteiro/retiro). */
+const EVENT_IN_PROGRESS_MAX_H = 24;
+/** Quanto olhar para trás na agenda fixa: o que começou antes e ainda não terminou. */
+const LOOKBACK_MIN = Math.max(STARTED_TOLERANCE_MIN, MAX_DEFAULT_DURATION_MIN);
 
 /** Igreja/comunidade no mapa ou na busca por proximidade (contrato do app). */
 export interface MapCommunity {
@@ -212,8 +223,9 @@ export class MassesService {
   /**
    * Próximas celebrações (agenda fixa expandida + eventos de Missa publicados e
    * PÚBLICOS) por comunidade, em ordem de horário. O "agora" é o relógio de parede
-   * do fuso da comunidade (pela UF: no Acre, 2 h antes de Brasília), e o que
-   * começou há até 30 min ainda entra (quem chega atrasado vê a missa em andamento).
+   * do fuso da comunidade (pela UF: no Acre, 2 h antes de Brasília). O que está
+   * em andamento fica na lista até o FIM (`happeningNow`), e o que começou há até
+   * 30 min ainda entra mesmo que seja mais curto que isso.
    *
    * Teto por igreja: as `perCommunity` primeiras + as que casam com `focus` (filtro
    * de dia/horário do app) ou, sem ele, as do próximo domingo — ver pickMasses.
@@ -254,12 +266,14 @@ export class MassesService {
 
     // Agenda fixa (relógio de parede, emitido como "UTC flutuante"): janela que cobre
     // todos os fusos — do "agora" mais a oeste (menos a tolerância) ao mais a leste + days
-    const startInstant = new Date(`${shiftFloating(localNows[0], -STARTED_TOLERANCE_MIN)}.000Z`);
+    const startInstant = new Date(`${shiftFloating(localNows[0], -LOOKBACK_MIN)}.000Z`);
     const endInstant = new Date(new Date(`${localNows[localNows.length - 1]}.000Z`).getTime() + days * 24 * 60 * 60 * 1000);
     // Eventos: startDate é INSTANTE real (UTC verdadeiro). Janela em instantes: de
-    // agora − tolerância até o fim do último dia civil (23:59 no fuso mais a oeste),
-    // o mesmo alcance da agenda fixa
-    const eventsFrom = new Date(at.getTime() - STARTED_TOLERANCE_MIN * 60_000);
+    // agora − folga até o fim do último dia civil (23:59 no fuso mais a oeste),
+    // o mesmo alcance da agenda fixa. Entram também os que começaram antes
+    // (até 24 h) e ainda não terminaram — ficam na lista até o fim.
+    const eventsFrom = new Date(at.getTime() - LOOKBACK_MIN * 60_000);
+    const eventsInProgressFrom = new Date(at.getTime() - EVENT_IN_PROGRESS_MAX_H * 60 * 60_000);
     const eventsTo = zonedDateTimeToInstant(endInstant.toISOString().slice(0, 10), 23, 59, WESTMOST_TIME_ZONE, 59);
 
     // 1) Agenda fixa (dos tipos escolhidos) expandida na janela, sem escopo hierárquico
@@ -283,7 +297,10 @@ export class MassesService {
             status: EventStatus.PUBLISHED,
             isPublic: true,
             deletedAt: null,
-            startDate: { gte: eventsFrom, lte: eventsTo },
+            OR: [
+              { startDate: { gte: eventsFrom, lte: eventsTo } },
+              { startDate: { gte: eventsInProgressFrom, lt: eventsFrom }, endDate: { gt: at } },
+            ],
           },
           select: { id: true, title: true, startDate: true, endDate: true, communityId: true },
         })
@@ -294,12 +311,21 @@ export class MassesService {
       list.push(mass);
       massesByCommunity.set(communityId, list);
     };
-    /** Já passou (começou há mais de 30 min no relógio da comunidade)? */
-    const isPast = (communityId: string, start: string) =>
-      start < shiftFloating(nowFor(communityId), -STARTED_TOLERANCE_MIN);
+    /**
+     * Já passou? Fica na lista o que ainda não terminou (agora < fim) e o que
+     * começou há até 30 min (tolerância antiga, para o que é mais curto que isso).
+     */
+    const isPast = (communityId: string, start: string, end: string) => {
+      const now = nowFor(communityId);
+      return end <= now && start < shiftFloating(now, -STARTED_TOLERANCE_MIN);
+    };
 
     for (const occ of fixed) {
-      if (!occ.community || isPast(occ.community.id, occ.start)) continue;
+      if (!occ.community) continue;
+      // Sem fim informado, vale só a tolerância de 30 min
+      const occEnd = occ.end || occ.start;
+      if (isPast(occ.community.id, occ.start, occEnd)) continue;
+      const cancelled = occ.cancelled === true;
       push(occ.community.id, {
         id: occ.id,
         title: occ.title,
@@ -310,8 +336,10 @@ export class MassesService {
         source: 'fixed',
         // Continua na lista (e conta no filtro "só Confissão/Adoração"): a
         // igreja aparece com o aviso de que naquele dia não haverá
-        cancelled: occ.cancelled === true,
+        cancelled,
         cancelReason: occ.cancelReason ?? null,
+        // Recalculado com o relógio desta consulta (o mesmo do corte acima)
+        happeningNow: isHappeningNow(occ.start, occEnd, nowFor(occ.community.id), cancelled),
       });
     }
 
@@ -326,17 +354,21 @@ export class MassesService {
       // fim às 00:00 de OUTRO dia, ou janela de 24 h ou mais
       if (isAllDayEvent({ type: EventType.MASS, startDate: ev.startDate, endDate: ev.endDate }, zone)) continue;
       const start = floatingOf(startParts);
-      if (isPast(ev.communityId, start)) continue;
+      const end = endParts ? floatingOf(endParts) : null;
+      // Evento usa o próprio início/fim; sem fim, a duração padrão da Missa
+      const effectiveEnd = end && end > start ? end : shiftFloating(start, defaultDurationMin(MassScheduleType.MASS));
+      if (isPast(ev.communityId, start, effectiveEnd)) continue;
       push(ev.communityId, {
         id: ev.id,
         title: ev.title,
         type: EventType.MASS,
         typeLabel: massScheduleTypeLabel(MassScheduleType.MASS),
         start,
-        end: endParts ? floatingOf(endParts) : null,
+        end,
         source: 'event',
         cancelled: false,
         cancelReason: null,
+        happeningNow: isHappeningNow(start, effectiveEnd, nowFor(ev.communityId)),
       });
     }
 

@@ -29,6 +29,10 @@ describe('PublicSiteService (contrato C4)', () => {
     ]);
     expect(res.freeFeatures).toContain('liturgy');
     expect(res.paidFeatures).toContain('catechesis');
+    // Plano grátis enxuto (11/11/2026): as listas saem das regras novas
+    expect(res.freeFeatures).toEqual(['members', 'mass-schedules', 'masses', 'map', 'location', 'liturgy', 'saints']);
+    expect(res.paidFeatures).toEqual(expect.arrayContaining(['events', 'news', 'tithe', 'finance', 'sacraments', 'dashboard']));
+    expect(res.paidFeatures).toHaveLength(18);
   });
 
   it('GET /public/app-config sem env: tudo null (sem bloqueio)', () => {

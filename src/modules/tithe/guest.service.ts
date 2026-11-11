@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException, forwardRef } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Inject, Injectable, Logger, NotFoundException, Optional, forwardRef } from '@nestjs/common';
 import { TransactionType } from '@prisma/client';
 import { randomBytes } from 'crypto';
 import * as QRCode from 'qrcode';
@@ -12,6 +12,7 @@ import { PAID_STATUSES, PaymentMethod, ProviderCharge } from '../payments/paymen
 import { buildPixBrCode, normalizeAscii } from './pix-brcode';
 import { TitheService, appMethodLabel, refundProgress, safeName } from './tithe.service';
 import { PROVIDER_FEE_CATEGORY, PROVIDER_FEE_COST_CENTER, round2 } from '../finance/money';
+import { PlanAccessService } from '../plans/plan-access.service';
 
 const MAX_AMOUNT = 50000;
 const MAX_OPEN_PER_EMAIL_DAY = 5;
@@ -49,7 +50,27 @@ export class TitheGuestService {
     private readonly emailService: EmailService,
     private readonly pdfService: PdfService,
     private readonly paymentsService: PaymentsService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /**
+   * Dízimo é recurso PAGO de nível paróquia. A página pública não passa pelo
+   * guard (não há usuário), então a regra fica aqui: só com
+   * PLAN_ENFORCEMENT=on e NENHUMA comunidade da paróquia com acesso a oferta
+   * nova fica indisponível. Em off/log nada muda. Consulta, "já paguei" e
+   * recibo de oferta já criada nunca passam por aqui (dinheiro em trânsito).
+   * Falha ao consultar o plano libera — cobrança não derruba a oferta.
+   */
+  private async offersBlockedByPlan(parishId: string): Promise<boolean> {
+    if (!this.planAccess || this.planAccess.enforcement() !== 'on') return false;
+    try {
+      return !(await this.planAccess.targetHasAccess({ parishId }));
+    } catch (error) {
+      this.logger.error(`Falha ao verificar o plano (tithe) da paróquia ${parishId} — liberado: ${error}`);
+      return false;
+    }
+  }
 
   private newTxid() {
     return `VS${randomBytes(9).toString('base64url').replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 22)}`.slice(0, 25);
@@ -63,7 +84,8 @@ export class TitheGuestService {
   async parishPage(parishId: string) {
     const parish = await this.tithe.parishFor(parishId);
     if (!parish) throw new NotFoundException('Paróquia não encontrada');
-    const usable = this.tithe.parishUsable(parish);
+    // Sem plano (modo on): mesma resposta de "paróquia ainda não recebe ofertas" (available: false)
+    const usable = this.tithe.parishUsable(parish) && !(await this.offersBlockedByPlan(parish.id));
     const gateway = usable && this.paymentsService.hasProvider(parish);
     const now = new Date();
     const campaigns = usable
@@ -131,6 +153,8 @@ export class TitheGuestService {
     if (typeof dto.website === 'string' && dto.website.trim()) throw new BadRequestException('Não foi possível registrar a oferta');
     const parish = await this.tithe.parishFor(parishId);
     if (!parish || !this.tithe.parishUsable(parish)) throw new BadRequestException('Esta paróquia ainda não recebe ofertas pelo Parish');
+    // Oferta NOVA é recurso pago da paróquia (as já criadas seguem pelo token)
+    if (await this.offersBlockedByPlan(parish.id)) throw new BadRequestException('Esta paróquia ainda não recebe ofertas pelo Parish');
     const name = text(dto.name, 80);
     if (name.length < 2) throw new BadRequestException('Informe seu nome');
     const email = text(dto.email, 120).toLowerCase();

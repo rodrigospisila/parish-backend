@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, ServiceUnavailableException } from '@nestjs/common';
+import { BadRequestException, ConflictException, ForbiddenException, ServiceUnavailableException } from '@nestjs/common';
 import { BillingService } from './billing.service';
 
 const now = new Date('2026-10-20T15:00:00.000Z');
@@ -50,13 +50,17 @@ const plan = (over: Record<string, unknown> = {}) => ({
   ...over,
 });
 
-function setup(env: Record<string, string> = {}, opts: { account?: any; canManage?: boolean } = {}) {
+function setup(
+  env: Record<string, string> = {},
+  opts: { account?: any; canManage?: boolean; pilot?: boolean; trialEvent?: any; txCommunities?: any[] } = {},
+) {
   const tx = {
     // pg_try_advisory_xact_lock da paróquia (trava do checkout)
     $queryRaw: jest.fn().mockResolvedValue([{ locked: true }]),
     billingAccount: { update: jest.fn().mockResolvedValue({}) },
     communityPlan: { updateMany: jest.fn().mockResolvedValue({ count: 0 }), upsert: jest.fn().mockResolvedValue({}) },
-    communityPlanEvent: { create: jest.fn().mockResolvedValue({}) },
+    communityPlanEvent: { create: jest.fn().mockResolvedValue({}), findFirst: jest.fn().mockResolvedValue(opts.trialEvent ?? null) },
+    community: { findMany: jest.fn().mockResolvedValue(opts.txCommunities ?? []) },
   };
   const prisma: any = {
     parish: { findUnique: jest.fn().mockResolvedValue({ id: 'p1', name: 'Paróquia Santo Antônio', city: 'Imbituva', state: 'PR', cnpj: null, managedAt: null }) },
@@ -67,6 +71,8 @@ function setup(env: Record<string, string> = {}, opts: { account?: any; canManag
       update: jest.fn().mockResolvedValue({}),
     },
     community: { findMany: jest.fn() },
+    // Teste já usado pela paróquia? (AUTO_TRIAL / START_TRIAL / TRIAL_REQUESTED)
+    communityPlanEvent: { findFirst: jest.fn().mockResolvedValue(opts.trialEvent ?? null) },
     planTier: { findMany: jest.fn().mockResolvedValue(tiers) },
     member: { count: jest.fn().mockResolvedValue(12) },
     platformPayment: {
@@ -79,7 +85,7 @@ function setup(env: Record<string, string> = {}, opts: { account?: any; canManag
   };
   const config: any = { get: (key: string) => env[key] };
   const hierarchy: any = { canManageParish: jest.fn().mockResolvedValue(opts.canManage ?? true) };
-  const access: any = { enforcement: () => 'log', invalidate: jest.fn() };
+  const access: any = { enforcement: () => 'log', invalidate: jest.fn(), isPilotParish: jest.fn().mockResolvedValue(opts.pilot ?? false) };
   const audit: any = { log: jest.fn() };
   const service = new BillingService(prisma, config, hierarchy, access, audit);
   const provider = {
@@ -129,6 +135,50 @@ describe('BillingService', () => {
       expect(res.communities[1].plan).toMatchObject({ status: 'ACTIVE', pilot: true, paidAccess: true });
       expect(res.tiers).toHaveLength(2);
       expect(ctx.prisma.platformPayment.findMany).not.toHaveBeenCalled();
+    });
+
+    it('trial: disponível enquanto a paróquia não usou o teste e tem comunidade sem acesso pago', async () => {
+      const ctx = setup();
+      ctx.prisma.community.findMany.mockResolvedValue([
+        { id: 'c1', name: 'Matriz', communityPlan: null },
+        { id: 'c2', name: 'Capela', communityPlan: plan({ status: 'FREE' }) },
+      ]);
+      const res = await ctx.service.me(admin);
+      expect(res.trial).toEqual({ available: true, usedAt: null, endsAt: null });
+      expect(ctx.prisma.communityPlanEvent.findFirst.mock.calls[0][0].where).toEqual({
+        action: { in: ['AUTO_TRIAL', 'START_TRIAL', 'TRIAL_REQUESTED'] },
+        community: { parishId: 'p1' },
+      });
+    });
+
+    it('trial: já usado → indisponível, com usedAt e o fim do teste em curso', async () => {
+      const usedAt = new Date('2026-10-10T12:00:00.000Z');
+      const endsAt = new Date('2026-11-09T12:00:00.000Z');
+      const ctx = setup({}, { trialEvent: { createdAt: usedAt, data: { trialEndsAt: '2026-11-09T12:00:00.000Z' } } });
+      ctx.prisma.community.findMany.mockResolvedValue([
+        { id: 'c1', name: 'Matriz', communityPlan: plan({ status: 'TRIAL', trialEndsAt: endsAt }) },
+        { id: 'c2', name: 'Capela nova', communityPlan: null },
+      ]);
+      const res = await ctx.service.me(admin);
+      expect(res.trial).toEqual({ available: false, usedAt: usedAt.toISOString(), endsAt: endsAt.toISOString() });
+
+      // Teste já vencido e de volta ao grátis: endsAt vem do evento
+      ctx.prisma.community.findMany.mockResolvedValue([{ id: 'c1', name: 'Matriz', communityPlan: plan({ status: 'FREE', trialEndsAt: endsAt }) }]);
+      expect((await ctx.service.me(admin)).trial).toEqual({ available: false, usedAt: usedAt.toISOString(), endsAt: endsAt.toISOString() });
+    });
+
+    it('trial: piloto (acesso total) ou tudo já com acesso → indisponível; piloto marca paidAccess em toda comunidade', async () => {
+      const pilot = setup({}, { pilot: true });
+      pilot.prisma.community.findMany.mockResolvedValue([{ id: 'nova', name: 'Capela nova', communityPlan: null }]);
+      const res = await pilot.service.me(admin);
+      expect(res.trial).toEqual({ available: false, usedAt: null, endsAt: null });
+      expect(res.communities[0].plan).toMatchObject({ status: 'FREE', paidAccess: true });
+
+      const paid = setup();
+      paid.prisma.community.findMany.mockResolvedValue([
+        { id: 'c1', name: 'Matriz', communityPlan: plan({ status: 'ACTIVE', currentPeriodEnd: new Date(Date.now() + 10 * DAY) }) },
+      ]);
+      expect((await paid.service.me(admin)).trial.available).toBe(false);
     });
 
     it('com as envs: checkoutAvailable=true', async () => {
@@ -328,6 +378,100 @@ describe('BillingService', () => {
       expect(again.created).toBe(false);
       expect(ctx.provider.createPlatformSubscription).toHaveBeenCalledTimes(1);
       expect(ctx.provider.updatePlatformSubscription).toHaveBeenCalledWith('sub_1', expect.objectContaining({ cycle: 'YEARLY' }));
+    });
+  });
+
+  describe('POST /billing/trial — teste por pedido', () => {
+    const communities = () => [
+      { id: 'c1', communityPlan: null },
+      { id: 'c2', communityPlan: plan({ status: 'FREE', tierId: 't_capela', tier: { ...tiers[0], maxMembers: 300 } }) },
+      // Com acesso pago: fica de fora
+      { id: 'c3', communityPlan: plan({ status: 'ACTIVE', currentPeriodEnd: new Date(now.getTime() + 10 * DAY) }) },
+      // Suspensa pelo SYSTEM_ADMIN: o botão não desfaz
+      { id: 'c4', communityPlan: plan({ status: 'SUSPENDED' }) },
+      // Cancelada: pode testar
+      { id: 'c5', communityPlan: plan({ status: 'CANCELED' }) },
+    ];
+
+    it('inicia TRIAL de 30 dias (START_TRIAL, evento TRIAL_REQUESTED) nas comunidades ativas sem acesso pago', async () => {
+      const ctx = setup({}, { txCommunities: communities() });
+      const res = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now);
+      const trialEndsAt = new Date(now.getTime() + 30 * DAY);
+      expect(res).toEqual({ trialEndsAt, communities: 3 });
+
+      // Só comunidades ATIVAS e não arquivadas da paróquia
+      expect(ctx.tx.community.findMany.mock.calls[0][0].where).toEqual({ parishId: 'p1', deletedAt: null, status: 'ACTIVE' });
+      expect(ctx.tx.communityPlan.upsert.mock.calls.map((call: any[]) => call[0].where.communityId)).toEqual(['c1', 'c2', 'c5']);
+      const first = ctx.tx.communityPlan.upsert.mock.calls[0][0];
+      expect(first.create).toEqual({ communityId: 'c1', status: 'TRIAL', trialEndsAt, suspendedAt: null });
+      // A faixa já escolhida não é tocada
+      expect(ctx.tx.communityPlan.upsert.mock.calls[1][0].update).toEqual({ status: 'TRIAL', trialEndsAt, suspendedAt: null });
+      expect(ctx.tx.communityPlanEvent.create).toHaveBeenCalledTimes(3);
+      expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({
+        communityId: 'c1',
+        action: 'TRIAL_REQUESTED',
+        fromStatus: 'FREE',
+        toStatus: 'TRIAL',
+        byUserId: 'u1',
+        data: { trialDays: 30, trialEndsAt: trialEndsAt.toISOString() },
+      });
+      expect(ctx.tx.communityPlanEvent.create.mock.calls[2][0].data).toMatchObject({ communityId: 'c5', fromStatus: 'CANCELED' });
+      expect(ctx.access.invalidate.mock.calls.map((call: any[]) => call[0])).toEqual(['c1', 'c2', 'c5']);
+      expect(ctx.audit.log).toHaveBeenCalledWith(expect.objectContaining({ entity: 'Parish', entityId: 'p1' }));
+      // Trava por paróquia antes de conferir se o teste já foi usado
+      expect(String(ctx.tx.$queryRaw.mock.calls[0][0].join('?'))).toContain('pg_try_advisory_xact_lock');
+      expect(ctx.tx.$queryRaw.mock.calls[0][1]).toBe('billing-trial:p1');
+      expect(ctx.tx.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(ctx.tx.communityPlanEvent.findFirst.mock.invocationCallOrder[0]);
+    });
+
+    it('uma vez por paróquia: evento AUTO_TRIAL / START_TRIAL / TRIAL_REQUESTED em qualquer comunidade → 409 TRIAL_ALREADY_USED', async () => {
+      const ctx = setup({}, { txCommunities: communities(), trialEvent: { createdAt: new Date(), data: null } });
+      const error: any = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
+      expect(error).toBeInstanceOf(ConflictException);
+      expect(error.getResponse()).toMatchObject({ code: 'TRIAL_ALREADY_USED' });
+      expect(ctx.tx.communityPlanEvent.findFirst.mock.calls[0][0].where).toEqual({
+        action: { in: ['AUTO_TRIAL', 'START_TRIAL', 'TRIAL_REQUESTED'] },
+        community: { parishId: 'p1' },
+      });
+      expect(ctx.tx.communityPlan.upsert).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+    });
+
+    it('piloto → 409 TRIAL_NOT_NEEDED (nada gravado); tudo já com acesso → 409 TRIAL_NOT_NEEDED sem gastar o teste', async () => {
+      const pilot = setup({}, { pilot: true, txCommunities: communities() });
+      const error: any = await pilot.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
+      expect(error).toBeInstanceOf(ConflictException);
+      expect(error.getResponse()).toMatchObject({ code: 'TRIAL_NOT_NEEDED' });
+      expect(pilot.prisma.$transaction).not.toHaveBeenCalled();
+
+      const paid = setup({}, { txCommunities: [communities()[2]] });
+      const second: any = await paid.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
+      expect(second.getResponse()).toMatchObject({ code: 'TRIAL_NOT_NEEDED' });
+      expect(paid.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+
+      const empty = setup({}, { txCommunities: [] });
+      await expect(empty.service.requestTrial(admin, { parishId: 'p1' }, now)).rejects.toBeInstanceOf(BadRequestException);
+    });
+
+    it('dois cliques (trava ocupada) → 409; fora do escopo → 403; paróquia inexistente → 404', async () => {
+      const busy = setup({}, { txCommunities: communities() });
+      busy.tx.$queryRaw.mockResolvedValueOnce([{ locked: false }]);
+      await expect(busy.service.requestTrial(admin, { parishId: 'p1' }, now)).rejects.toBeInstanceOf(ConflictException);
+      expect(busy.tx.communityPlan.upsert).not.toHaveBeenCalled();
+
+      const out = setup({}, { canManage: false });
+      await expect(out.service.requestTrial(admin, { parishId: 'p2' }, now)).rejects.toBeInstanceOf(ForbiddenException);
+
+      const missing = setup();
+      missing.prisma.parish.findUnique.mockResolvedValue(null);
+      await expect(missing.service.requestTrial(admin, { parishId: 'p9' }, now)).rejects.toThrow(/Paróquia não encontrada/);
+    });
+
+    it('DIOCESAN_ADMIN e SYSTEM_ADMIN no escopo também podem pedir', async () => {
+      const ctx = setup({}, { txCommunities: [{ id: 'c1', communityPlan: null }] });
+      const res = await ctx.service.requestTrial({ id: 'd1', role: 'DIOCESAN_ADMIN' }, { parishId: 'p1' }, now);
+      expect(res.communities).toBe(1);
+      expect(ctx.hierarchy.canManageParish).toHaveBeenCalledWith('d1', 'p1');
     });
   });
 

@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { Cron } from '@nestjs/schedule';
-import { CommunityPlanStatus, EntityStatus, NotificationType, UserRole } from '@prisma/client';
+import { CommunityPlanStatus, NotificationType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { runExclusiveJob } from '../../common/scheduled-job-lock';
 import { DEFAULT_PARISH_TIME_ZONE } from '../../common/schedule-time';
@@ -16,28 +16,35 @@ const DEFAULT_PUBLIC_WEB_URL = 'https://parish-web-three.vercel.app';
 /** Página "Plano e assinatura" do painel (WEB-B) */
 export const PLAN_PAGE_PATH = '/admin/meu-plano';
 /** Teto por execução (o restante fica para o dia seguinte) */
-const AUTO_TRIAL_BATCH = 500;
+const EXPIRE_TRIAL_BATCH = 2000;
 const NOTICE_SCAN_LIMIT = 5000;
 
 export interface PlanLifecycleResult {
-  autoTrials: number;
   notices: number;
   messages: number;
+  /** Testes vencidos que voltaram ao plano grátis */
+  expiredTrials: number;
 }
 
 /**
- * Job diário `plan-lifecycle` (Onda 1, C3 — achado saas-implantacao-11):
+ * Job diário `plan-lifecycle` (Onda 1, C3 — achado saas-implantacao-11;
+ * revisto no lançamento de 11/11/2026):
  *
- * 1. AUTO_TRIAL: comunidade ativa de paróquia GERIDA (Parish.managedAt) sem
- *    nenhum plano ganha teste de 30 dias (planTransition START_TRIAL +
- *    CommunityPlanEvent 'AUTO_TRIAL', byUserId null). "Sem plano" = sem linha
- *    em CommunityPlan — quem já teve qualquer plano não ganha outro teste.
- * 2. Régua: TRIAL_D7/D3/D1, TRIAL_ENDED, PAST_DUE_D1/D7, GRACE_D3, SUSPENDED,
+ * 1. Régua: TRIAL_D7/D3/D1, TRIAL_ENDED, PAST_DUE_D1/D7, GRACE_D3, SUSPENDED,
  *    com dedupe em PlanNotice (kind + refKey) e UMA mensagem por paróquia e
  *    tipo (listando as comunidades): e-mail (EmailService.trySend, texto
  *    simples) aos PARISH_ADMIN ativos e ao e-mail de cobrança, e notificação
  *    in-app + push (NotificationsService.notifyUsers com `skipFallback`) aos
  *    PARISH_ADMIN — o e-mail já saiu, a notificação não manda outro (S2).
+ * 2. Teste vencido → plano grátis: TRIAL com `trialEndsAt <= agora` vira FREE
+ *    (planTransition EXPIRE_TRIAL + CommunityPlanEvent 'TRIAL_EXPIRED',
+ *    byUserId null). Roda DEPOIS da régua e só expira o plano cujo aviso
+ *    TRIAL_ENDED já foi registrado (ou que não tem aviso a receber: já
+ *    contratou, ou venceu há mais de uma semana) — a régua nunca perde o
+ *    "o teste terminou".
+ *
+ * O teste NÃO é mais automático: a paróquia aprovada entra no plano grátis e
+ * pede o teste de 30 dias uma vez (POST /billing/trial).
  *
  * Paróquia do piloto (pilotParishWhere — S11) fica fora das duas etapas.
  *
@@ -65,8 +72,8 @@ export class PlanLifecycleService {
       'plan-lifecycle',
       async () => {
         const result = await this.execute(new Date());
-        if (result.autoTrials || result.messages) {
-          this.logger.log(`Planos: ${result.autoTrials} teste(s) automático(s), ${result.messages} aviso(s) enviados`);
+        if (result.expiredTrials || result.messages) {
+          this.logger.log(`Planos: ${result.messages} aviso(s) enviados, ${result.expiredTrials} teste(s) vencido(s) → grátis`);
         }
         return result;
       },
@@ -75,57 +82,97 @@ export class PlanLifecycleService {
   }
 
   async execute(now: Date): Promise<PlanLifecycleResult> {
-    const autoTrials = await this.startAutoTrials(now);
+    // Ordem importa: primeiro o aviso TRIAL_ENDED, depois o teste vira grátis
     const { notices, messages } = await this.sendNotices(now);
-    return { autoTrials, notices, messages };
+    const expiredTrials = await this.expireTrials(now);
+    return { notices, messages, expiredTrials };
   }
 
   // ------------------------------------------------------------------
-  // 1. Teste automático
+  // 2. Teste vencido → grátis
   // ------------------------------------------------------------------
 
-  async startAutoTrials(now: Date): Promise<number> {
-    const communities = await this.prisma.community.findMany({
+  async expireTrials(now: Date): Promise<number> {
+    const plans = await this.prisma.communityPlan.findMany({
       where: {
-        deletedAt: null,
-        status: EntityStatus.ACTIVE,
-        communityPlan: { is: null },
-        // Piloto (acesso total) nunca entra em teste automático (S11)
-        parish: { managedAt: { not: null }, NOT: pilotParishWhere() },
+        status: CommunityPlanStatus.TRIAL,
+        OR: [{ trialEndsAt: { lte: now } }, { trialEndsAt: null }],
+        // Piloto (acesso total) fica fora (S11)
+        community: { parish: { NOT: pilotParishWhere() } },
       },
-      select: { id: true },
-      take: AUTO_TRIAL_BATCH,
+      select: {
+        id: true,
+        communityId: true,
+        status: true,
+        tierId: true,
+        billingCycle: true,
+        priceCents: true,
+        trialEndsAt: true,
+        currentPeriodEnd: true,
+        graceDays: true,
+        billingAccount: { select: { status: true } },
+      },
+      orderBy: { trialEndsAt: 'asc' },
+      take: EXPIRE_TRIAL_BATCH,
     });
-    let created = 0;
-    for (const community of communities) {
-      const result = planTransition(null, { action: 'START_TRIAL' }, null, now);
-      try {
-        await this.prisma.$transaction(async (tx) => {
-          await tx.communityPlan.create({ data: { communityId: community.id, ...result.data } });
-          await tx.communityPlanEvent.create({
-            data: {
-              communityId: community.id,
-              action: 'AUTO_TRIAL',
-              fromStatus: result.fromStatus,
-              toStatus: result.toStatus,
-              byUserId: null,
-              note: 'Teste automático de 30 dias (paróquia gerida no Parish)',
-              data: { trialEndsAt: result.data.trialEndsAt?.toISOString() ?? null },
-            },
-          });
+
+    let expired = 0;
+    for (const plan of plans) {
+      // A régua ainda deve o "o teste terminou" a esta comunidade? Então espera
+      // (paróquia sem ninguém para avisar: até a janela do aviso fechar).
+      const pending = dueNotice(
+        {
+          communityId: plan.communityId,
+          status: plan.status,
+          trialEndsAt: plan.trialEndsAt,
+          currentPeriodEnd: plan.currentPeriodEnd,
+          graceDays: plan.graceDays,
+          billingStatus: plan.billingAccount?.status ?? null,
+        },
+        now,
+      );
+      if (pending?.kind === 'TRIAL_ENDED') {
+        const sent = await this.prisma.planNotice.findFirst({
+          where: { kind: pending.kind, refKey: pending.refKey },
+          select: { id: true },
         });
-        this.access.invalidate(community.id);
-        created += 1;
-      } catch (error) {
-        // Plano criado ao mesmo tempo (aprovação da reivindicação, painel): segue
-        if ((error as any)?.code !== 'P2002') throw error;
+        if (!sent) continue;
       }
+
+      const result = planTransition(plan, { action: 'EXPIRE_TRIAL' }, null, now);
+      const done = await this.prisma.$transaction(async (tx) => {
+        // CAS: teste prorrogado/contratado neste meio-tempo não é tocado
+        const { count } = await tx.communityPlan.updateMany({
+          where: {
+            id: plan.id,
+            status: CommunityPlanStatus.TRIAL,
+            OR: [{ trialEndsAt: { lte: now } }, { trialEndsAt: null }],
+          },
+          data: result.data,
+        });
+        if (count === 0) return false;
+        await tx.communityPlanEvent.create({
+          data: {
+            communityId: plan.communityId,
+            action: 'TRIAL_EXPIRED',
+            fromStatus: result.fromStatus,
+            toStatus: result.toStatus,
+            byUserId: null,
+            note: 'Teste de 30 dias terminou: a comunidade voltou ao plano grátis (nenhum dado é apagado)',
+            data: { trialEndsAt: plan.trialEndsAt?.toISOString() ?? null },
+          },
+        });
+        return true;
+      });
+      if (!done) continue;
+      this.access.invalidate(plan.communityId);
+      expired += 1;
     }
-    return created;
+    return expired;
   }
 
   // ------------------------------------------------------------------
-  // 2. Régua
+  // 1. Régua
   // ------------------------------------------------------------------
 
   private planUrl(): string {

@@ -21,6 +21,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, MassScheduleType } from '@prisma/client';
+import { PlanGated } from '../plans/plan-gates';
 
 @Controller('mass-schedules')
 export class MassSchedulesController {
@@ -70,6 +71,7 @@ export class MassSchedulesController {
 
   // Gera de uma vez as escalas de todas as pendências do período
   @Post('generate-pending')
+  @PlanGated('schedules') // escala é paga: communityId do body, senão o usuário
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -84,6 +86,7 @@ export class MassSchedulesController {
 
   // Ocorrências da agenda fixa ainda sem escala criada (pendências do coordenador)
   @Get('pending')
+  @PlanGated('schedules') // communityId da query, senão o usuário
   @UseGuards(JwtAuthGuard)
   pending(
     @CurrentUser() user: any,
@@ -135,6 +138,7 @@ export class MassSchedulesController {
   // Gera uma escala (Schedule) para uma data deste horário fixo, copiando as
   // pastorais vinculadas — mesmo fluxo de uma escala de evento.
   @Post(':id/schedule')
+  @PlanGated('schedules') // sem comunidade na rota: decide pelo usuário
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -155,6 +159,7 @@ export class MassSchedulesController {
   // vincula/desvincula apenas a própria pastoral (o service valida); a
   // gestão continua podendo tudo (aqui ou pelo Editar/pastoralSettings).
   @Post(':id/pastorals')
+  @PlanGated('schedules', 'communityPastoral:body.communityPastoralId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -172,6 +177,7 @@ export class MassSchedulesController {
   }
 
   @Delete(':id/pastorals/:communityPastoralId')
+  @PlanGated('schedules', 'communityPastoral:params.communityPastoralId')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,

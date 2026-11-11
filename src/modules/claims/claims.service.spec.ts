@@ -18,8 +18,8 @@ import {
 
 /**
  * Reivindicação de paróquia (C1): código no contato OFICIAL (hash com
- * segredo, tempo constante, limites), aprovação (promove/convida, AUTO_TRIAL
- * só sem plano, lead WON, paróquia gerida) e corrida da revisão.
+ * segredo, tempo constante, limites), aprovação (promove/convida, sem teste
+ * automático — plano grátis —, lead WON, paróquia gerida) e corrida da revisão.
  */
 describe('ClaimsService (C1)', () => {
   const SECRET = 'segredo-de-teste';
@@ -389,7 +389,7 @@ describe('ClaimsService (C1)', () => {
   });
 
   describe('aprovação (SYSTEM_ADMIN)', () => {
-    it('pedido com conta: promove a PARISH_ADMIN titular; AUTO_TRIAL; lead WON; paróquia gerida', async () => {
+    it('pedido com conta: promove a PARISH_ADMIN titular; SEM teste automático (plano grátis); lead WON; paróquia gerida', async () => {
       prisma.parishClaim.findUnique.mockResolvedValue(claimRow({ userId: 'u1', status: 'VERIFIED' }));
       tx.user.findUnique.mockResolvedValue({
         id: 'u1',
@@ -398,8 +398,6 @@ describe('ClaimsService (C1)', () => {
         isActive: true,
         anonymizedAt: null,
       });
-      tx.communityPlan.createMany.mockResolvedValueOnce({ count: 1 }).mockResolvedValueOnce({ count: 0 });
-
       const out: any = await service.review('cl1', { action: 'APPROVE' } as any, reviewer);
 
       expect(users.applyGrantToExistingAccount).toHaveBeenCalledWith(tx, 'u1', {
@@ -411,28 +409,16 @@ describe('ClaimsService (C1)', () => {
       });
       expect(tx.parishClaim.update).toHaveBeenCalledWith(expect.objectContaining({ data: { grantedUserId: 'u1' } }));
       expect(invites.createClaimHolderInvite).not.toHaveBeenCalled();
-      // Só comunidades ATIVAS e SEM linha de plano (o piloto, com plano, não entra)
-      expect(tx.community.findMany.mock.calls[0][0].where).toEqual({
-        parishId: 'p1',
-        status: 'ACTIVE',
-        deletedAt: null,
-        communityPlan: { is: null },
-      });
-      expect(tx.communityPlan.createMany.mock.calls[0][0]).toMatchObject({
-        data: [{ communityId: 'c1', status: 'TRIAL' }],
-        skipDuplicates: true,
-      });
-      const trialEndsAt = tx.communityPlan.createMany.mock.calls[0][0].data[0].trialEndsAt as Date;
-      expect(Math.round((trialEndsAt.getTime() - Date.now()) / 86400_000)).toBe(30);
-      // c2 ganhou plano no meio do caminho (createMany count 0): sem evento
-      expect(tx.communityPlanEvent.create).toHaveBeenCalledTimes(1);
-      expect(tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({
-        communityId: 'c1',
-        action: 'AUTO_TRIAL',
-        toStatus: 'TRIAL',
-      });
-      expect(out.trialCommunityIds).toEqual(['c1']);
-      expect(planAccess.invalidate).toHaveBeenCalledWith('c1');
+      // Lançamento (11/11/2026): aprovar NÃO cria mais TRIAL — a paróquia entra no grátis
+      expect(tx.communityPlan.createMany).not.toHaveBeenCalled();
+      expect(tx.communityPlanEvent.create).not.toHaveBeenCalled();
+      expect(out.trialCommunityIds).toEqual([]);
+      expect(planAccess.invalidate).not.toHaveBeenCalled();
+      // O aviso explica o plano grátis e o botão de teste (nada de "ganharam 30 dias")
+      const [, , body] = email.trySend.mock.calls[0];
+      expect(body).toMatch(/plano grátis/i);
+      expect(body).toMatch(/Testar por 30 dias/);
+      expect(body).not.toMatch(/ganharam/);
       expect(tx.parish.updateMany).toHaveBeenCalledWith(
         expect.objectContaining({ where: { id: 'p1', managedAt: null } }),
       );

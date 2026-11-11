@@ -122,3 +122,11 @@ export class CancelBillingDto {
   @MaxLength(40)
   parishId: string;
 }
+
+/** POST /billing/trial — pede o teste de 30 dias (uma vez por paróquia) */
+export class RequestTrialDto {
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(40)
+  parishId: string;
+}

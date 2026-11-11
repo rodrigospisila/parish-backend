@@ -5,9 +5,13 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { SacramentProcessStatus, UserRole } from '@prisma/client';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 
+// Recurso pago da comunidade (`sacrament-processes`)
 @Controller('sacrament-processes')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, PlanFeatureGuard)
+@RequiresFeature('sacrament-processes')
 @Roles(UserRole.COMMUNITY_COORDINATOR)
 export class SacramentProcessesController {
   constructor(private readonly service: SacramentProcessesService) {}
@@ -23,22 +27,26 @@ export class SacramentProcessesController {
   }
 
   @Patch(':id/status')
+  @PlanResource('sacramentProcess')
   updateStatus(@Param('id') id: string, @Body() body: { status: SacramentProcessStatus }, @Request() req: any) {
     return this.service.updateStatus(id, body.status, req.user);
   }
 
   @Patch(':id/checklist')
+  @PlanResource('sacramentProcess')
   updateChecklist(@Param('id') id: string, @Body() body: { documentsChecklist: unknown }, @Request() req: any) {
     return this.service.updateChecklist(id, body.documentsChecklist, req.user);
   }
 
   @Patch(':id/celebrate')
+  @PlanResource('sacramentProcess')
   celebrate(@Param('id') id: string, @Body() dto: any, @Request() req: any) {
     return this.service.celebrate(id, dto, req.user);
   }
 
   /** Certidão/declaração do processo celebrado; `?finalidade=` opcional (até 120). */
   @Get(':id/certificate.pdf')
+  @PlanResource('sacramentProcess')
   async certificate(
     @Param('id') id: string,
     @Query('finalidade') finalidade: string | undefined,

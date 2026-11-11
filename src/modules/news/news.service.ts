@@ -1,10 +1,14 @@
-import { Injectable, NotFoundException, ForbiddenException, Logger } from '@nestjs/common';
-import { NotificationType } from '@prisma/client';
+import { Injectable, NotFoundException, ForbiddenException, Logger, Optional } from '@nestjs/common';
+import { NotificationType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CreateNewsDto } from './dto/create-news.dto';
 import { UpdateNewsDto } from './dto/update-news.dto';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { NotificationsService } from '../notifications/notifications.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+
+/** As leituras de avisos são públicas (sem login): o plano é conferido como um visitante. */
+const PUBLIC_READER = { role: UserRole.FAITHFUL } as const;
 
 @Injectable()
 export class NewsService {
@@ -14,7 +18,31 @@ export class NewsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly notificationsService: NotificationsService,
+    // Opcional só para specs que montam o service à mão
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /**
+   * Avisos são recurso PAGO da comunidade (`news`). As leituras são públicas
+   * (o guard não age sem login), então o corte é aqui: no PLAN_ENFORCEMENT=on
+   * só entram avisos de comunidades com acesso. Em off/log nada muda.
+   * Devolve `null` quando nenhuma comunidade do filtro tem acesso.
+   */
+  private async planWhere(where: any): Promise<any | null> {
+    if (!this.planAccess || this.planAccess.enforcement() !== 'on') return where;
+    const rows = await this.prisma.news.findMany({
+      where,
+      distinct: ['communityId'],
+      select: { communityId: true },
+    });
+    const allowed = await this.planAccess.restrictToPaid(
+      PUBLIC_READER,
+      rows.map((row) => row.communityId),
+    );
+    if (!allowed) return where;
+    if (allowed.size === 0) return null;
+    return { AND: [where, { communityId: { in: [...allowed] } }] };
+  }
 
   async create(createNewsDto: CreateNewsDto, currentUser?: CurrentUser) {
     const { communityId, ...rest } = createNewsDto;
@@ -111,8 +139,11 @@ export class NewsService {
       where.isUrgent = isUrgent;
     }
 
+    const planned = await this.planWhere(where);
+    if (!planned) return [];
+
     return this.prisma.news.findMany({
-      where,
+      where: planned,
       include: {
         community: {
           select: {
@@ -128,7 +159,24 @@ export class NewsService {
     });
   }
 
+  /**
+   * GET /news/:id (público). No PLAN_ENFORCEMENT=on, aviso de comunidade sem
+   * acesso responde 404 — igual a um aviso que não existe.
+   */
   async findOne(id: string) {
+    const news = await this.getOrThrow(id);
+    if (
+      this.planAccess &&
+      this.planAccess.enforcement() === 'on' &&
+      !(await this.planAccess.communityHasAccess(news.communityId))
+    ) {
+      throw new NotFoundException(`Notícia com ID ${id} não encontrada`);
+    }
+    return news;
+  }
+
+  /** Leitura interna (editar/apagar): sem o corte do plano — o guard da rota decide. */
+  private async getOrThrow(id: string) {
     const news = await this.prisma.news.findUnique({
       where: { id },
       include: {
@@ -164,7 +212,7 @@ export class NewsService {
   }
 
   async update(id: string, updateNewsDto: UpdateNewsDto, currentUser?: CurrentUser) {
-    const news = await this.findOne(id); // Verifica se existe
+    const news = await this.getOrThrow(id); // Verifica se existe
     await this.assertCanManageNews(news.communityId, currentUser);
 
     // Mover o aviso: o destino também precisa estar sob a gestão do ator
@@ -194,7 +242,7 @@ export class NewsService {
   }
 
   async remove(id: string, currentUser?: CurrentUser) {
-    const news = await this.findOne(id); // Verifica se existe
+    const news = await this.getOrThrow(id); // Verifica se existe
     await this.assertCanManageNews(news.communityId, currentUser);
 
     return this.prisma.news.delete({
@@ -210,8 +258,11 @@ export class NewsService {
       where.communityId = communityId;
     }
 
+    const planned = await this.planWhere(where);
+    if (!planned) return [];
+
     return this.prisma.news.findMany({
-      where,
+      where: planned,
       include: {
         community: {
           select: {
@@ -235,8 +286,11 @@ export class NewsService {
       where.communityId = communityId;
     }
 
+    const planned = await this.planWhere(where);
+    if (!planned) return [];
+
     return this.prisma.news.findMany({
-      where,
+      where: planned,
       include: {
         community: {
           select: {

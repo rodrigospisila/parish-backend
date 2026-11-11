@@ -17,12 +17,14 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole } from '@prisma/client';
+import { PlanGated } from '../plans/plan-gates';
 
 @Controller('news')
 export class NewsController {
   constructor(private readonly newsService: NewsService) {}
 
   @Post()
+  @PlanGated('news') // avisos: recurso pago (comunidade do body.communityId)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -33,6 +35,8 @@ export class NewsController {
     return this.newsService.create(createNewsDto, user);
   }
 
+  // Leituras PÚBLICAS (sem login o guard do plano não age): o NewsService
+  // corta os avisos de comunidades sem acesso no PLAN_ENFORCEMENT=on.
   @Get()
   findAll(
     @Query('communityId') communityId?: string,
@@ -63,6 +67,7 @@ export class NewsController {
   }
 
   @Patch(':id')
+  @PlanGated('news', 'news')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -79,6 +84,7 @@ export class NewsController {
   }
 
   @Delete(':id')
+  @PlanGated('news', 'news')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   remove(@Param('id') id: string, @CurrentUser() user: any) {

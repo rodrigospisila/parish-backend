@@ -9,8 +9,9 @@
  *   da comunidade principal dele. A família da capela com a turma na Matriz
  *   paga passa; quem tem a comunidade principal paga mas só tem recursos em
  *   comunidades sem plano, não.
- * - `free`: leitura mínima usada por uma tela GRÁTIS (calendário). Só vale
- *   quando `when(req)` é verdadeiro; o resto da rota continua pago.
+ * - `free`: leitura mínima usada por uma tela GRÁTIS. Só vale quando
+ *   `when(req)` é verdadeiro; o resto da rota continua pago. (Nenhuma entrada
+ *   hoje — o tipo fica disponível.)
  *
  * O spec (plan-routes.spec.ts) confere que cada chave existe de verdade no
  * controller — renomear o método sem atualizar aqui quebra o teste.
@@ -18,8 +19,6 @@
 export type PlanRouteRule =
   | { kind: 'personal' }
   | { kind: 'free'; reason: string; when: (req: { query?: any; params?: any; body?: any }) => boolean };
-
-const hasText = (value: unknown) => typeof value === 'string' && value.trim().length > 0;
 
 export const PLAN_ROUTE_RULES: Readonly<Record<string, PlanRouteRule>> = {
   // A21 — rotas "minhas": vale a comunidade do recurso
@@ -29,13 +28,9 @@ export const PLAN_ROUTE_RULES: Readonly<Record<string, PlanRouteRule>> = {
   'SwapsController.mine': { kind: 'personal' },
   'JoinRequestsController.mine': { kind: 'personal' },
 
-  // B12 — calendário (grátis): o detalhe do evento no app lê as escalas DE UM
-  // evento (GET /schedules?eventId=). Sem eventId é a lista de escalas (paga).
-  'SchedulesController.findAllSchedules': {
-    kind: 'free',
-    reason: 'calendário: escalas de um evento',
-    when: (req) => hasText(req?.query?.eventId),
-  },
+  // Sem exceções `free` no momento. A B12 (escalas de UM evento para o
+  // calendário grátis — GET /schedules?eventId=) saiu no lançamento de
+  // 11/11/2026: evento passou a ser recurso pago.
 };
 
 export function planRouteRule(cls: { name?: string } | undefined, handler: { name?: string } | undefined): PlanRouteRule | null {

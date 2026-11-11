@@ -6,11 +6,15 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { TitheThrottlerGuard } from './tithe-throttler.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { TitheRetentionService } from './retention.service';
 
 /** Retenção e inadimplência (D4.4): estágios, tendência e ações pastorais — dado individual, só tesouraria. */
+// Recurso pago (`tithe`, nível paróquia)
 @Controller('tithe/retention')
-@UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard, PlanFeatureGuard)
+@RequiresFeature('tithe', { level: 'parish' })
 @Roles(UserRole.COMMUNITY_COORDINATOR)
 export class TitheRetentionController {
   constructor(private readonly service: TitheRetentionService) {}
@@ -35,11 +39,13 @@ export class TitheRetentionController {
   }
 
   @Get(':memberId/actions')
+  @PlanResource('member:params.memberId')
   actions(@Param('memberId') memberId: string, @Request() req: any) {
     return this.service.actions(req.user, memberId);
   }
 
   @Post(':memberId/actions')
+  @PlanResource('member:params.memberId')
   @Throttle({ default: { limit: 30, ttl: 60_000 } })
   addAction(@Param('memberId') memberId: string, @Body() body: { type?: string; note?: string | null }, @Request() req: any) {
     return this.service.addAction(req.user, memberId, body ?? {});

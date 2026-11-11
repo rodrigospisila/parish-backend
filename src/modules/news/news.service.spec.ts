@@ -113,3 +113,68 @@ describe('NewsService — escopo de edição e exclusão', () => {
     });
   });
 });
+
+/**
+ * Lançamento: avisos são recurso pago. As leituras são públicas (sem login o
+ * guard não age), então o NewsService corta por comunidade no modo `on`.
+ */
+describe('NewsService — plano nas leituras públicas', () => {
+  function build(mode: 'on' | 'log' | 'off', paid: string[]) {
+    const prisma: any = {
+      news: {
+        findMany: jest.fn(async (args: any) =>
+          args.distinct ? [{ communityId: 'c-paga' }, { communityId: 'c-gratis' }] : [{ id: 'n1' }],
+        ),
+        findUnique: jest.fn().mockResolvedValue({ id: 'n1', communityId: 'c-gratis' }),
+        delete: jest.fn().mockResolvedValue({ id: 'n1' }),
+      },
+    };
+    const planAccess: any = {
+      enforcement: () => mode,
+      restrictToPaid: jest.fn(async () => new Set(paid)),
+      communityHasAccess: jest.fn(async (id: string) => paid.includes(id)),
+    };
+    const hierarchy: any = { canManageCommunity: jest.fn().mockResolvedValue(true) };
+    const service = new NewsService(prisma, hierarchy, { notifyUsers: jest.fn() } as any, planAccess);
+    return { service, prisma, planAccess };
+  }
+
+  const listCall = (prisma: any) => prisma.news.findMany.mock.calls.find(([args]: any[]) => !args.distinct)?.[0];
+
+  it.each(['findAll', 'findRecent', 'findUrgent'] as const)('on: %s só traz comunidades com acesso', async (method) => {
+    const { service, prisma } = build('on', ['c-paga']);
+    await service[method]();
+    expect(listCall(prisma).where.AND).toContainEqual({ communityId: { in: ['c-paga'] } });
+  });
+
+  it('on: nenhuma comunidade com acesso → lista vazia, sem consultar os avisos', async () => {
+    const { service, prisma } = build('on', []);
+    await expect(service.findAll('c-gratis')).resolves.toEqual([]);
+    expect(listCall(prisma)).toBeUndefined();
+  });
+
+  it('on: GET /news/:id de comunidade sem acesso → 404', async () => {
+    const { service } = build('on', ['c-paga']);
+    await expect(service.findOne('n1')).rejects.toBeInstanceOf(NotFoundException);
+  });
+
+  it('on: GET /news/:id de comunidade com acesso responde', async () => {
+    const { service } = build('on', ['c-gratis']);
+    await expect(service.findOne('n1')).resolves.toMatchObject({ id: 'n1' });
+  });
+
+  it('on: apagar aviso não passa pelo corte da leitura pública (o guard da rota decide)', async () => {
+    const { service, prisma } = build('on', []);
+    await service.remove('n1', { id: 'u', role: UserRole.PARISH_ADMIN } as any);
+    expect(prisma.news.delete).toHaveBeenCalled();
+  });
+
+  it.each(['log', 'off'] as const)('%s: nada muda', async (mode) => {
+    const { service, prisma, planAccess } = build(mode, []);
+    await expect(service.findAll()).resolves.toEqual([{ id: 'n1' }]);
+    await expect(service.findOne('n1')).resolves.toMatchObject({ id: 'n1' });
+    expect(prisma.news.findMany).toHaveBeenCalledTimes(1);
+    expect(planAccess.restrictToPaid).not.toHaveBeenCalled();
+    expect(planAccess.communityHasAccess).not.toHaveBeenCalled();
+  });
+});

@@ -28,13 +28,17 @@ describe('plan-routes — regras por rota apontam para métodos que existem', ()
     expect(Reflect.getMetadata(PLAN_FEATURE_KEY, CONTROLLERS[cls])).toBeDefined();
   });
 
-  it('B12: só a leitura com eventId é grátis', () => {
-    const rule = PLAN_ROUTE_RULES['SchedulesController.findAllSchedules'];
-    expect(rule.kind).toBe('free');
-    if (rule.kind !== 'free') return;
-    expect(rule.when({ query: { eventId: 'ev1' } })).toBe(true);
-    expect(rule.when({ query: {} })).toBe(false);
-    expect(rule.when({ query: { eventId: '  ' } })).toBe(false);
+  it('lançamento (11/11/2026): a exceção grátis B12 (escalas de um evento) saiu — evento é pago', () => {
+    expect(PLAN_ROUTE_RULES['SchedulesController.findAllSchedules']).toBeUndefined();
+    expect(Object.values(PLAN_ROUTE_RULES).filter((rule) => rule.kind === 'free')).toEqual([]);
+    // As rotas "minhas" continuam
+    expect(Object.keys(PLAN_ROUTE_RULES).sort()).toEqual([
+      'CatechesisController.myClasses',
+      'CatechesisController.myFamily',
+      'JoinRequestsController.mine',
+      'SchedulesController.findMyAssignments',
+      'SwapsController.mine',
+    ]);
   });
 });
 

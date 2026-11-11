@@ -12,6 +12,8 @@ import { CurrentUser, HierarchyService, isNoAccessWhere } from '../../common/hie
 import { AuditService } from '../../common/audit.service';
 import { PlanAccessService } from '../plans/plan-access.service';
 import { MEMBER_LIMIT_MESSAGE } from '../plans/member-limit.guard';
+import { PLAN_REQUIRED_MESSAGE } from '../plans/plan-feature.guard';
+import { EnforcementHitsService } from '../../common/enforcement-hits.service';
 import { MembersService } from './members.service';
 import {
   DuplicateReason,
@@ -120,6 +122,8 @@ export class MemberImportService {
     private readonly audit: AuditService,
     private readonly members: MembersService,
     @Optional() private readonly planAccess?: PlanAccessService,
+    // Contagem do que o plano barra (ou barraria); no app vem do CommonModule (global)
+    @Optional() private readonly hits?: EnforcementHitsService,
   ) {}
 
   async run(request: ImportRequest, currentUser: CurrentUser) {
@@ -144,6 +148,9 @@ export class MemberImportService {
     if (!(await this.members.canManageMembersIn(currentUser, community.id))) {
       throw new ForbiddenException('Você não tem permissão para importar nesta comunidade');
     }
+    // Cadastro e importação de MEMBROS são grátis; criar DIZIMISTA é do dízimo (pago).
+    // Depois do escopo (não revela o plano de comunidade alheia); vale também na prévia.
+    if (kind === 'TITHERS') await this.assertTitheAccess(community, currentUser);
 
     const now = new Date();
     const parsed = rows.map((row, index) => parseImportRow(row ?? {}, index + 1, kind, now));
@@ -243,6 +250,40 @@ export class MemberImportService {
           }
         : null,
     };
+  }
+
+  /**
+   * Importação `TITHERS` exige o recurso pago `tithe` (nível paróquia: passa se
+   * alguma comunidade da paróquia tiver acesso) — a mesma decisão do
+   * PlanFeatureGuard: `off` não consulta; `log` só registra; `on` → 403
+   * PLAN_REQUIRED. SYSTEM_ADMIN sempre passa. Falha ao consultar o plano libera.
+   */
+  private async assertTitheAccess(community: { id: string; parishId: string }, currentUser: CurrentUser) {
+    if (!this.planAccess || currentUser.role === UserRole.SYSTEM_ADMIN) return;
+    const mode = this.planAccess.enforcement();
+    if (mode === 'off') return;
+    let allowed = true;
+    try {
+      allowed = await this.planAccess.targetHasAccess({ parishId: community.parishId });
+    } catch (error) {
+      this.logger.error(`Falha ao verificar o plano (tithe) — liberado: ${error}`);
+      return;
+    }
+    if (allowed) return;
+    this.hits?.record({ kind: 'PLAN_FEATURE', feature: 'tithe', communityId: community.id, userId: currentUser.id, mode });
+    if (mode === 'log') {
+      this.logger.warn(
+        `[PLAN_ENFORCEMENT=log] bloquearia POST /members/import (TITHERS) feature=tithe user=${currentUser.id} ` +
+          `role=${currentUser.role} community=${community.id} alvo=parish:${community.parishId}`,
+      );
+      return;
+    }
+    throw new ForbiddenException({
+      code: 'PLAN_REQUIRED',
+      feature: 'tithe',
+      communityId: community.id,
+      message: PLAN_REQUIRED_MESSAGE,
+    });
   }
 
   /** Mesma pessoa duas vezes na planilha (CPF ou nome+nascimento): a repetida vira erro. */

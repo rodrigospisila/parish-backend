@@ -42,7 +42,15 @@ export const MAX_BROAD_OCCURRENCE_WINDOW_DAYS = 62;
 /** Janela máxima (dias) com a consulta presa a uma comunidade (~15 meses). */
 export const MAX_OCCURRENCE_WINDOW_DAYS = 460;
 import { AuditService } from '../../common/audit.service';
-import { MASS_SCHEDULE_TYPE_DURATION_MIN, MASS_SCHEDULE_TYPE_LABELS } from './mass-schedule-types';
+import { MASS_SCHEDULE_TYPE_LABELS } from './mass-schedule-types';
+import {
+  assertEndTime,
+  isUsableEndTime,
+  normalizeHhmm,
+  occurrenceDays as occurrenceDaysOf,
+  occurrenceWindow,
+  scheduleHappeningNow,
+} from './mass-schedule-window';
 import { NotificationsService } from '../notifications/notifications.service';
 import { earliestBrazilToday, nowBrazilFloating, nowFloatingIn, timeZoneForState } from '../masses/map-search.utils';
 
@@ -62,7 +70,6 @@ const PASTORAL_INCLUDE = {
 
 /** Rótulos e durações padrão por tipo de horário fixo (agenda da comunidade). */
 const SCHEDULE_LABELS = MASS_SCHEDULE_TYPE_LABELS;
-const SCHEDULE_DURATION_MIN = MASS_SCHEDULE_TYPE_DURATION_MIN;
 
 export interface FixedOccurrence {
   id: string;
@@ -77,6 +84,11 @@ export interface FixedOccurrence {
   /** Data suspensa pela comunidade ("não haverá"): continua na lista, com aviso. */
   cancelled: boolean;
   cancelReason: string | null;
+  /**
+   * Acontecendo agora: início ≤ agora < fim no relógio da comunidade (fuso pela
+   * UF) e a data não está suspensa.
+   */
+  happeningNow: boolean;
 }
 
 /** Data suspensa de um horário fixo (formato das rotas /cancellations). */
@@ -193,11 +205,18 @@ function brDate(ymdStr: string): string {
   return `${d}/${m}/${y}`;
 }
 
-/** Suspensões de hoje (SP) até +60 dias, para anexar num `include`/`select` do Prisma. */
-export function upcomingCancellationsSelect(today: string) {
+/**
+ * Suspensões de hoje até +60 dias, para anexar num `include`/`select` do Prisma.
+ * `lookbackDays` recua o início (1 = desde ontem: cobre a ocorrência de ontem
+ * que passa da meia-noite, para o "acontecendo agora").
+ */
+export function upcomingCancellationsSelect(today: string, lookbackDays = 0) {
   return {
     where: {
-      date: { gte: dayUtc(today), lte: dayUtc(addDaysYmd(today, UPCOMING_CANCELLATIONS_DAYS)) },
+      date: {
+        gte: dayUtc(addDaysYmd(today, -lookbackDays)),
+        lte: dayUtc(addDaysYmd(today, UPCOMING_CANCELLATIONS_DAYS)),
+      },
     },
     select: { date: true, reason: true },
     orderBy: { date: 'asc' as const },
@@ -228,7 +247,36 @@ export class MassSchedulesService {
 
   /** Hoje no fuso da UF (AC -5; AM/RO/RR/MT/MS -4; o resto, Brasília). */
   protected todayIn(state?: string | null): string {
-    return nowFloatingIn(timeZoneForState(state)).slice(0, 10);
+    return this.nowIn(state).slice(0, 10);
+  }
+
+  /** "Agora" (YYYY-MM-DDTHH:MM:SS) no relógio de parede da UF — base do "acontecendo agora". */
+  protected nowIn(state?: string | null): string {
+    return nowFloatingIn(timeZoneForState(state));
+  }
+
+  /**
+   * Suspensões para anexar às listas: parte de ONTEM do "hoje" mais atrasado do
+   * país (Acre) — cobre o "hoje" de qualquer fuso e a ocorrência de ontem que
+   * passa da meia-noite; cada lista corta depois no "hoje" da comunidade.
+   */
+  private cancellationsForLists() {
+    return upcomingCancellationsSelect(this.earliestToday(), 1);
+  }
+
+  /** Suspensões de hoje em diante (lista) + "acontecendo agora" de um horário listado sem data. */
+  private listStatus(
+    schedule: Parameters<typeof scheduleHappeningNow>[0],
+    cancellations: { date: Date; reason: string | null }[] | undefined,
+    state?: string | null,
+  ) {
+    const now = this.nowIn(state);
+    const today = this.todayIn(state);
+    const all = toUpcomingCancellations(cancellations);
+    return {
+      upcomingCancellations: all.filter((c) => c.date >= today),
+      happeningNow: scheduleHappeningNow(schedule, now, all.map((c) => c.date)),
+    };
   }
 
   /** O "hoje" mais atrasado do país (Acre): início das consultas de datas suspensas. */
@@ -346,14 +394,6 @@ export class MassSchedulesService {
     }));
   }
 
-  private addMinutes(hhmm: string, minutes: number): string {
-    const [h, m] = (hhmm || '00:00').split(':').map((n) => parseInt(n, 10) || 0);
-    const total = h * 60 + m + minutes;
-    const hh = Math.floor((((total % (24 * 60)) + 24 * 60) % (24 * 60)) / 60);
-    const mm = ((total % 60) + 60) % 60;
-    return `${String(hh).padStart(2, '0')}:${String(mm).padStart(2, '0')}`;
-  }
-
   /**
    * Coerência entre a recorrência e os campos que ela usa, com mensagem em
    * português — sem isto o erro só apareceria como violação de CHECK do banco.
@@ -468,6 +508,8 @@ export class MassSchedulesService {
     }
 
     await this.assertCommunityInScope(communityId, currentUser);
+    // Fim opcional: HH:MM e depois do início (400 em português); null/vazio = sem fim
+    const endTime = assertEndTime(rest.time, rest.endTime);
     await this.assertNotDuplicate({ ...rest, communityId });
 
     const pastoralsCreate = await this.buildPastoralCreate(communityId, pastoralSettings);
@@ -475,6 +517,7 @@ export class MassSchedulesService {
     return this.prisma.massSchedule.create({
       data: {
         ...rest,
+        endTime,
         communityId,
         pastorals: { create: pastoralsCreate },
       },
@@ -509,7 +552,7 @@ export class MassSchedulesService {
         },
         // Datas suspensas de hoje até +60 dias (o app mostra "não haverá"). Parte
         // do "hoje" do Acre e corta abaixo no "hoje" do fuso da comunidade.
-        cancellations: upcomingCancellationsSelect(this.earliestToday()),
+        cancellations: this.cancellationsForLists(),
       },
       orderBy: [
         { dayOfWeek: 'asc' },
@@ -517,14 +560,11 @@ export class MassSchedulesService {
       ],
     });
 
-    return schedules.map(({ cancellations, community, ...schedule }) => {
-      const today = this.todayIn(community?.state);
-      return {
-        ...schedule,
-        community: community ? { id: community.id, name: community.name } : community,
-        upcomingCancellations: toUpcomingCancellations(cancellations).filter((c) => c.date >= today),
-      };
-    });
+    return schedules.map(({ cancellations, community, ...schedule }) => ({
+      ...schedule,
+      community: community ? { id: community.id, name: community.name } : community,
+      ...this.listStatus(schedule, cancellations, community?.state),
+    }));
   }
 
   /** Listagem escopada para o painel (Agenda Fixa). */
@@ -537,19 +577,24 @@ export class MassSchedulesService {
       where,
       include: {
         community: {
-          select: { id: true, name: true, parish: { select: { id: true, name: true } } },
+          select: { id: true, name: true, state: true, parish: { select: { id: true, name: true } } },
         },
         pastorals: PASTORAL_INCLUDE,
-        // Selo "N datas suspensas" no painel
-        cancellations: upcomingCancellationsSelect(this.todaySaoPaulo()),
+        // Selo "N datas suspensas" no painel (de hoje em diante, no relógio da comunidade)
+        cancellations: this.cancellationsForLists(),
       },
       orderBy: [{ dayOfWeek: 'asc' }, { time: 'asc' }],
     });
 
-    return schedules.map(({ cancellations, ...schedule }) => ({
-      ...schedule,
-      upcomingCancellations: toUpcomingCancellations(cancellations),
-    }));
+    return schedules.map(({ cancellations, community, ...schedule }) => {
+      // A UF só serve para o fuso: não entra na resposta
+      const { state, ...communityView } = (community ?? {}) as { state?: string | null };
+      return {
+        ...schedule,
+        community: community ? communityView : community,
+        ...this.listStatus(schedule, cancellations, state),
+      };
+    });
   }
 
   /**
@@ -597,7 +642,7 @@ export class MassSchedulesService {
 
     const schedules = await this.prisma.massSchedule.findMany({
       where,
-      include: { community: { select: { id: true, name: true } } },
+      include: { community: { select: { id: true, name: true, state: true } } },
     });
 
     // Trabalha em dias de calendário UTC para evitar deslocamento de fuso; a
@@ -607,13 +652,24 @@ export class MassSchedulesService {
     const endDay = new Date(Date.UTC(to.getUTCFullYear(), to.getUTCMonth(), to.getUTCDate()));
 
     const occurrences: FixedOccurrence[] = [];
+    // "Agora" no relógio de cada comunidade (fuso pela UF), uma vez por UF
+    const nowByState = new Map<string, string>();
+    const nowFor = (state?: string | null) => {
+      const key = String(state ?? '');
+      let now = nowByState.get(key);
+      if (!now) {
+        now = this.nowIn(state);
+        nowByState.set(key, now);
+      }
+      return now;
+    };
     for (const schedule of schedules) {
       // Hora fora de 00:00–23:59 (carga antiga): "25:70" cairia no dia seguinte, longe
       // da data da suspensão — fica fora da agenda até ser corrigida
       if (!VALID_TIME_RE.test(schedule.time || '')) continue;
-      const [hh, mm] = schedule.time.split(':').map((n) => parseInt(n, 10) || 0);
+      const now = nowFor((schedule.community as { state?: string | null } | null)?.state);
       for (const day of this.occurrenceDays(schedule, startDay, endDay)) {
-        occurrences.push(this.toOccurrence(schedule, day, hh, mm));
+        occurrences.push(this.toOccurrence(schedule, day, now));
       }
     }
 
@@ -637,6 +693,8 @@ export class MassSchedulesService {
           if (byKey.has(key)) {
             occ.cancelled = true;
             occ.cancelReason = byKey.get(key) ?? null;
+            // "Não haverá": nunca está acontecendo
+            occ.happeningNow = false;
           }
         }
       }
@@ -652,80 +710,11 @@ export class MassSchedulesService {
    * expansão da agenda e na validação das datas suspensas.
    */
   private occurrenceDays(
-    schedule: {
-      isSpecial: boolean;
-      specialDate: Date | null;
-      recurrence?: MassRecurrence | string | null;
-      dayOfWeek: number | null;
-      dayOfMonth?: number | null;
-      weeksOfMonth?: number[] | null;
-    },
+    schedule: Parameters<typeof occurrenceDaysOf>[0],
     startDay: Date,
     endDay: Date,
   ): Date[] {
-    const days: Date[] = [];
-
-    // Horário especial (festa/solenidade): ocorrência única na data marcada
-    if (schedule.isSpecial && schedule.specialDate) {
-      const sd = new Date(schedule.specialDate);
-      const dayUTC = new Date(Date.UTC(sd.getUTCFullYear(), sd.getUTCMonth(), sd.getUTCDate()));
-      if (dayUTC >= startDay && dayUTC <= endDay) days.push(dayUTC);
-      return days;
-    }
-
-    // Data fixa do mês ("todo dia 13"): uma ocorrência por mês, se o mês tiver
-    // o dia. Fevereiro simplesmente não tem "dia 30" — o mês é pulado, e não
-    // empurrado para o dia 1º de março.
-    if (schedule.recurrence === 'MONTHLY_DAY') {
-      const dia = schedule.dayOfMonth;
-      if (!dia) return days;
-      const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
-      while (mes <= endDay) {
-        const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
-        if (dia <= diasNoMes) {
-          const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), dia));
-          if (data >= startDay && data <= endDay) days.push(data);
-        }
-        mes.setUTCMonth(mes.getUTCMonth() + 1);
-      }
-      return days;
-    }
-
-    if (schedule.dayOfWeek === null || schedule.dayOfWeek === undefined) return days;
-
-    // Enésimo dia da semana do mês ("1º e 3º sábado", "último domingo"):
-    // percorre mês a mês e escolhe as ocorrências pedidas. Lista vazia
-    // significa todas — aí o comportamento é o mesmo do semanal.
-    const semanas = schedule.weeksOfMonth ?? [];
-    if (schedule.recurrence === 'MONTHLY_NTH' && semanas.length > 0) {
-      const mes = new Date(Date.UTC(startDay.getUTCFullYear(), startDay.getUTCMonth(), 1));
-      while (mes <= endDay) {
-        // Todos os dias do mês que caem no dia da semana pedido
-        const doDiaDaSemana: Date[] = [];
-        const diasNoMes = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth() + 1, 0)).getUTCDate();
-        for (let d = 1; d <= diasNoMes; d += 1) {
-          const data = new Date(Date.UTC(mes.getUTCFullYear(), mes.getUTCMonth(), d));
-          if (data.getUTCDay() === schedule.dayOfWeek) doDiaDaSemana.push(data);
-        }
-        for (const semana of semanas) {
-          // -1 é a última do mês, que pode ser a 4ª ou a 5ª conforme o mês
-          const data = semana === -1 ? doDiaDaSemana[doDiaDaSemana.length - 1] : doDiaDaSemana[semana - 1];
-          if (data && data >= startDay && data <= endDay) days.push(data);
-        }
-        mes.setUTCMonth(mes.getUTCMonth() + 1);
-      }
-      return days;
-    }
-
-    // Semanal: do 1º dia que bate o dia da semana, pula de 7 em 7 dias
-    const cursor = new Date(startDay);
-    while (cursor.getUTCDay() !== schedule.dayOfWeek) {
-      cursor.setUTCDate(cursor.getUTCDate() + 1);
-    }
-    for (let day = new Date(cursor); day <= endDay; day.setUTCDate(day.getUTCDate() + 7)) {
-      days.push(new Date(day));
-    }
-    return days;
+    return occurrenceDaysOf(schedule, startDay, endDay);
   }
 
   /**
@@ -857,32 +846,44 @@ export class MassSchedulesService {
   }
 
   private toOccurrence(
-    schedule: { id: string; type: MassScheduleType; notes: string | null; community: { id: string; name: string } | null },
+    schedule: {
+      id: string;
+      type: MassScheduleType;
+      time: string;
+      endTime?: string | null;
+      notes: string | null;
+      community: { id: string; name: string } | null;
+    },
     dayUTC: Date,
-    hh: number,
-    mm: number,
+    /** "Agora" no relógio de parede da comunidade (para o `happeningNow`). */
+    nowLocal?: string,
   ): FixedOccurrence {
-    // Horário flutuante (sem Z): representa o relógio de parede da comunidade
-    const startUtc = new Date(Date.UTC(dayUTC.getUTCFullYear(), dayUTC.getUTCMonth(), dayUTC.getUTCDate(), hh, mm, 0));
-    const endUtc = new Date(startUtc.getTime() + (SCHEDULE_DURATION_MIN[schedule.type] ?? 45) * 60 * 1000);
-    const pad = (n: number) => String(n).padStart(2, '0');
-    const floating = (dt: Date) =>
-      `${dt.getUTCFullYear()}-${pad(dt.getUTCMonth() + 1)}-${pad(dt.getUTCDate())}T${pad(dt.getUTCHours())}:${pad(dt.getUTCMinutes())}:00`;
+    // Horário flutuante (sem Z): representa o relógio de parede da comunidade.
+    // Início, fim (endTime ou duração padrão do tipo) e "acontecendo agora"
+    // saem da função única (occurrenceWindow).
+    const window = occurrenceWindow({
+      date: ymd(dayUTC),
+      time: schedule.time,
+      endTime: schedule.endTime,
+      type: schedule.type,
+      nowLocal,
+    });
 
     const baseTitle = SCHEDULE_LABELS[schedule.type] ?? schedule.type;
-    const dateKey = floating(startUtc).slice(0, 10);
     return {
-      id: `mass-${schedule.id}-${dateKey}`,
+      id: `mass-${schedule.id}-${window.start.slice(0, 10)}`,
       massScheduleId: schedule.id,
       title: schedule.notes ? `${baseTitle} — ${schedule.notes}` : baseTitle,
       type: schedule.type,
       notes: schedule.notes ?? null,
-      start: floating(startUtc),
-      end: floating(endUtc),
-      community: schedule.community,
+      start: window.start,
+      end: window.end,
+      // Só id e nome (a UF do include serve apenas para o fuso)
+      community: schedule.community ? { id: schedule.community.id, name: schedule.community.name } : schedule.community,
       isFixed: true,
       cancelled: false,
       cancelReason: null,
+      happeningNow: window.happeningNow,
     };
   }
 
@@ -1071,6 +1072,16 @@ export class MassSchedulesService {
 
     const data: any = { ...rest };
     if (communityId) data.communityId = communityId;
+    // Fim (endTime): enviado → valida contra a hora que vai ficar (400 em
+    // português; null/vazio limpa). Não enviado, mas a hora mudou e o fim
+    // gravado deixou de ser depois dela (cliente que não conhece o campo) →
+    // limpa, para não sobrar um fim antes do começo.
+    const horaFinal = rest.time ?? schedule.time;
+    if (rest.endTime !== undefined) {
+      data.endTime = assertEndTime(horaFinal, rest.endTime);
+    } else if (schedule.endTime != null && !isUsableEndTime(horaFinal, schedule.endTime)) {
+      data.endTime = null;
+    }
     // Se pastoralSettings vier no payload, substitui as pastorais vinculadas.
     if (pastoralSettings !== undefined) {
       const pastoralsCreate = await this.buildPastoralCreate(targetCommunityId, pastoralSettings);
@@ -1166,7 +1177,10 @@ export class MassSchedulesService {
     const title =
       dto.title?.trim() ||
       `${label} ${mass.time}${mass.notes ? ` — ${mass.notes}` : ''}`;
-    const endTime = this.addMinutes(mass.time, SCHEDULE_DURATION_MIN[mass.type] ?? 45);
+    // Fim da escala: o fim do horário fixo, ou a duração padrão do tipo
+    const endTime = isUsableEndTime(mass.time, mass.endTime)
+      ? normalizeHhmm(mass.endTime)
+      : occurrenceWindow({ date: ymd(date), time: mass.time, type: mass.type }).end.slice(11, 16);
 
     return this.prisma.schedule.create({
       data: {
@@ -1518,7 +1532,7 @@ export class MassSchedulesService {
             },
             // Datas suspensas futuras (mesmo critério do findAll): o app não
             // agenda lembrete local de favorito numa data "não haverá"
-            cancellations: upcomingCancellationsSelect(this.earliestToday()),
+            cancellations: this.cancellationsForLists(),
           },
         },
       },
@@ -1528,14 +1542,11 @@ export class MassSchedulesService {
       ],
     });
 
-    return favorites.map(({ massSchedule: { cancellations, community, ...schedule } }) => {
-      const today = this.todayIn(community?.state);
-      return {
-        ...schedule,
-        community: community ? { id: community.id, name: community.name } : community,
-        upcomingCancellations: toUpcomingCancellations(cancellations).filter((c) => c.date >= today),
-      };
-    });
+    return favorites.map(({ massSchedule: { cancellations, community, ...schedule } }) => ({
+      ...schedule,
+      community: community ? { id: community.id, name: community.name } : community,
+      ...this.listStatus(schedule, cancellations, community?.state),
+    }));
   }
 
   async addFavorite(scheduleId: string, currentUser: CurrentUser) {

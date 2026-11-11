@@ -5,11 +5,14 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { TitheThrottlerGuard } from './tithe-throttler.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 import { TitheAgentService } from './agent.service';
 
-/** Modo agente (D4.2): contribuição presencial registrada na hora pela tesouraria. */
+/** Modo agente (D4.2): contribuição presencial registrada na hora pela tesouraria. Recurso pago (`tithe`, nível paróquia). */
 @Controller('tithe/agent')
-@UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard, PlanFeatureGuard)
+@RequiresFeature('tithe', { level: 'parish' })
 @Roles(UserRole.COMMUNITY_COORDINATOR)
 export class TitheAgentController {
   constructor(private readonly service: TitheAgentService) {}
@@ -21,6 +24,7 @@ export class TitheAgentController {
   }
 
   @Post('contributions')
+  @PlanResource('member:body.memberId')
   @Throttle({ default: { limit: 60, ttl: 60_000 } })
   register(@Body() body: any, @Request() req: any) {
     return this.service.register(req.user, body ?? {});
@@ -32,6 +36,7 @@ export class TitheAgentController {
   }
 
   @Post('contributions/:id/undo')
+  @PlanResource('titheIntent')
   @Throttle({ default: { limit: 20, ttl: 60_000 } })
   undo(@Param('id') id: string, @Request() req: any) {
     return this.service.undo(req.user, id);

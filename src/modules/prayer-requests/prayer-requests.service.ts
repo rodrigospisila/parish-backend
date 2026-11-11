@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException } from '@nestjs/common';
+import { Injectable, NotFoundException, ForbiddenException, Optional } from '@nestjs/common';
 import { PrismaService } from '../../database/prisma.service';
 import { CreatePrayerRequestDto } from './dto/create-prayer-request.dto';
 import { UpdatePrayerRequestDto } from './dto/update-prayer-request.dto';
@@ -6,6 +6,8 @@ import { PrayerRequestCategory, PrayerRequestStatus, UserRole } from '@prisma/cl
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { AuditService } from '../../common/audit.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /** Autor visto por quem NÃO modera: só o nome (nada de id, e-mail ou cadastro). */
 const AUTHOR_PUBLIC = { select: { fullName: true } } as const;
@@ -79,6 +81,8 @@ export class PrayerRequestsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
+    // Plano por comunidade nas listas (opcional só para specs que montam o service à mão)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private actor(user: CurrentUser) {
@@ -270,7 +274,7 @@ export class PrayerRequestsService {
       where.status = status;
     }
 
-    return this.prisma.prayerRequest.findMany({
+    const requests = await this.prisma.prayerRequest.findMany({
       where,
       include: {
         community: {
@@ -290,6 +294,8 @@ export class PrayerRequestsService {
         createdAt: 'desc',
       },
     });
+    // Plano (só no modo on): saem os pedidos de comunidades sem acesso
+    return planFilter(this.planAccess, currentUser, requests, (request) => request.communityId);
   }
 
   /** Mural: pedidos APROVADOS das comunidades do usuário (principal e vínculos). */
@@ -324,8 +330,11 @@ export class PrayerRequestsService {
       },
     });
 
+    // Plano (só no modo on): mural só das comunidades com acesso
+    const visible = await planFilter(this.planAccess, currentUser, requests, (request) => request.community?.id);
+
     // Lista pública (fiéis): pedidos anônimos NUNCA expõem o autor
-    return requests.map((request) => maskAnonymous(request));
+    return visible.map((request) => maskAnonymous(request));
   }
 
   async findPending(communityId: string | undefined, currentUser: CurrentUser) {
@@ -338,7 +347,7 @@ export class PrayerRequestsService {
       throw new ForbiddenException('Comunidade fora do seu escopo de moderação');
     }
 
-    return this.prisma.prayerRequest.findMany({
+    const pending = await this.prisma.prayerRequest.findMany({
       where,
       include: {
         community: {
@@ -359,6 +368,7 @@ export class PrayerRequestsService {
         createdAt: 'asc',
       },
     });
+    return planFilter(this.planAccess, currentUser, pending, (request) => request.communityId);
   }
 
   /**

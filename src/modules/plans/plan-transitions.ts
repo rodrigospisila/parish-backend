@@ -28,8 +28,15 @@ export interface CurrentPlan {
   currentPeriodEnd: Date | null;
 }
 
+/**
+ * Ações só do SISTEMA (não entram no PATCH do painel — ficam fora de
+ * PLAN_ACTIONS): EXPIRE_TRIAL = teste vencido volta ao plano grátis (job
+ * diário `plan-lifecycle`, depois do aviso TRIAL_ENDED).
+ */
+export type SystemPlanAction = 'EXPIRE_TRIAL';
+
 export interface TransitionInput {
-  action: PlanAction;
+  action: PlanAction | SystemPlanAction;
   billingCycle?: BillingCycle;
   priceCents?: number;
   until?: string;
@@ -66,7 +73,7 @@ function later(a: Date | null, b: Date): Date {
   return a && a.getTime() > b.getTime() ? a : b;
 }
 
-function requireFrom(action: PlanAction, from: CommunityPlanStatus, allowed: CommunityPlanStatus[]) {
+function requireFrom(action: PlanAction | SystemPlanAction, from: CommunityPlanStatus, allowed: CommunityPlanStatus[]) {
   if (!allowed.includes(from)) {
     throw new BadRequestException(`${action} não se aplica a um plano ${from} (aceito: ${allowed.join(', ')})`);
   }
@@ -199,6 +206,17 @@ export function planTransition(
         toStatus: S.PAST_DUE,
         data: { status: S.PAST_DUE, ...(current?.currentPeriodEnd ? {} : { currentPeriodEnd: now }) },
       };
+    }
+
+    case 'EXPIRE_TRIAL': {
+      // Teste vencido → grátis. `trialEndsAt` fica gravado (histórico: a
+      // paróquia já usou o teste). Teste ainda valendo não expira aqui.
+      requireFrom('EXPIRE_TRIAL', from, [S.TRIAL]);
+      const ends = current?.trialEndsAt ?? null;
+      if (ends && ends.getTime() > now.getTime()) {
+        throw new BadRequestException('O teste ainda não terminou');
+      }
+      return { fromStatus: from, toStatus: S.FREE, data: { status: S.FREE, suspendedAt: null } };
     }
 
     default:

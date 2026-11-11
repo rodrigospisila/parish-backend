@@ -1,5 +1,7 @@
 import { Controller, Get, Query, Request, UseGuards } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { RequiresFeature } from '../plans/plan.decorators';
 import { DashboardService } from './dashboard.service';
 
 /**
@@ -7,9 +9,13 @@ import { DashboardService } from './dashboard.service';
  * PASTORAL_COORDINATOR e acima, quem COORDENA pastoral pelo vínculo (papel
  * VOLUNTEER/FAITHFUL — ux-dashboards-22) recebe o Início das suas pastorais.
  * O DashboardService decide e responde 403 a quem não coordena nada.
+ *
+ * Recurso PAGO da comunidade (`dashboard`): o plano sai do `communityId` da
+ * query ou do usuário (paróquia/diocese: alguma comunidade com acesso).
  */
 @Controller('dashboard')
-@UseGuards(JwtAuthGuard)
+@UseGuards(JwtAuthGuard, PlanFeatureGuard)
+@RequiresFeature('dashboard')
 export class DashboardController {
   constructor(private readonly service: DashboardService) {}
 

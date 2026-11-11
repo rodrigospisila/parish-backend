@@ -10,6 +10,7 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
   let members: Record<string, number>;
   let prisma: any;
   let guard: MemberLimitGuard;
+  let access: PlanAccessService;
   let hierarchy: { isCommunityInScope: jest.Mock };
   let warn: jest.SpyInstance;
 
@@ -28,7 +29,7 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
       communityPlan: { findUnique: jest.fn(async ({ where }) => plans[where.communityId] ?? null) },
       member: { count: jest.fn(async ({ where }) => members[where.OR[0].communityId] ?? 0) },
     };
-    const access = new PlanAccessService(prisma, { get: jest.fn(() => mode) } as any);
+    access = new PlanAccessService(prisma, { get: jest.fn(() => mode) } as any);
     // Escopo do coordenador: as comunidades do teste (a de outra paróquia, não)
     hierarchy = { isCommunityInScope: jest.fn(async (_user: any, id: string) => id !== 'outra-paroquia') };
     guard = new MemberLimitGuard(access, hierarchy as any);
@@ -103,6 +104,22 @@ describe('MemberLimitGuard — limite de membros da faixa (B32)', () => {
     hits.record.mockClear();
     await guard.canActivate(ctx({ body: { communityId: 'matriz' }, user: coord }));
     expect(hits.record).not.toHaveBeenCalled();
+  });
+
+  it('plano grátis: cadastro de membros SEM limite (sem plano, FREE — mesmo com faixa escolhida —, cancelado)', async () => {
+    // FREE com faixa: o checkout grava a faixa antes do pagamento; teste vencido volta a FREE mantendo a faixa
+    plans.gratis = { status: 'FREE', trialEndsAt: new Date(Date.now() - DAY), currentPeriodEnd: null, graceDays: 15, tier: { key: 'capela', maxMembers: 300 } };
+    plans.cancelada = { status: 'CANCELED', trialEndsAt: null, currentPeriodEnd: null, graceDays: 15, tier: { key: 'capela', maxMembers: 300 } };
+    members.gratis = 50_000;
+    members.cancelada = 50_000;
+    members['sem-plano'] = 50_000;
+    for (const communityId of ['gratis', 'cancelada', 'sem-plano']) {
+      await expect(access.memberLimitStatus(communityId)).resolves.toBeNull();
+      await expect(guard.canActivate(ctx({ body: { communityId }, user: coord }))).resolves.toBe(true);
+    }
+    // Sem limite não conta membros nem registra nada
+    expect(prisma.member.count).not.toHaveBeenCalled();
+    expect(warn).not.toHaveBeenCalled();
   });
 
   it('falha no banco libera', async () => {

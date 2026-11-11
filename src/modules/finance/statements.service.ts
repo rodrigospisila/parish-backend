@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import { Optional, BadRequestException, ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
 import { FinancialStatementStatus, NotificationType, TransactionType, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { CurrentUser, HierarchyService } from '../../common/hierarchy.service';
@@ -7,6 +7,8 @@ import { NotificationsService } from '../notifications/notifications.service';
 import { PdfService } from '../pdf/pdf.service';
 import { isRoleAtLeast } from '../auth/constants/role-hierarchy';
 import { isRevenueReversal } from './money';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 const FINANCE_ROLES: UserRole[] = [UserRole.SYSTEM_ADMIN, UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN, UserRole.COMMUNITY_COORDINATOR];
 /** Sugestões de centro de custo (a paróquia pode digitar outros) */
@@ -57,6 +59,8 @@ export class StatementsService {
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
     private readonly pdfService: PdfService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private actor(user: CurrentUser) {
@@ -258,7 +262,10 @@ export class StatementsService {
       await this.assertScope(user, parishId, null);
     }
     const rows = await this.prisma.financialStatement.findMany({ where, orderBy: [{ referenceMonth: 'desc' }, { communityId: 'asc' }], include: this.include, take: 200 });
-    return rows.map((r) => this.present(r));
+    // Lista da paróquia: no modo `on` saem os balancetes das comunidades sem
+    // plano; os da paróquia (sem comunidade) ficam
+    const visible = await planFilter(this.planAccess, user, rows, (row) => row.communityId);
+    return visible.map((r) => this.present(r));
   }
 
   /** Gera (ou regenera) o balancete do mês: sempre volta a rascunho — aprovação é sobre uma fotografia específica. */

@@ -6,10 +6,16 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { StatementsService } from './statements.service';
+import { PlanFeatureGuard } from '../plans/plan-feature.guard';
+import { PlanResource, RequiresFeature } from '../plans/plan.decorators';
 
-/** Balancete mensal — gestão (gerar, aprovar em nome do CAEP, publicar, exportar). */
+/**
+ * Balancete mensal — gestão (gerar, aprovar em nome do CAEP, publicar, exportar).
+ * Recurso pago (`finance`), inclusive a leitura dos publicados pelo fiel.
+ */
 @Controller('finance/statements')
-@UseGuards(JwtAuthGuard, RolesGuard)
+@UseGuards(JwtAuthGuard, RolesGuard, PlanFeatureGuard)
+@RequiresFeature('finance')
 export class StatementsController {
   constructor(private readonly service: StatementsService) {}
 
@@ -21,6 +27,7 @@ export class StatementsController {
   }
 
   @Get('published/:id/pdf')
+  @PlanResource('financialStatement')
   async publishedPdf(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const pdf = await this.service.publishedPdf(req.user, id);
     res.setHeader('Content-Type', 'application/pdf');
@@ -51,36 +58,42 @@ export class StatementsController {
   }
 
   @Get(':id')
+  @PlanResource('financialStatement')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   get(@Param('id') id: string, @Request() req: any) {
     return this.service.get(req.user, id);
   }
 
   @Patch(':id')
+  @PlanResource('financialStatement')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   notes(@Param('id') id: string, @Body() body: { notes?: string | null }, @Request() req: any) {
     return this.service.updateNotes(req.user, id, body ?? {});
   }
 
   @Post(':id/approve')
+  @PlanResource('financialStatement')
   @Roles(UserRole.PARISH_ADMIN)
   approve(@Param('id') id: string, @Body() body: { approvedByName?: string | null }, @Request() req: any) {
     return this.service.approve(req.user, id, body ?? {});
   }
 
   @Post(':id/publish')
+  @PlanResource('financialStatement')
   @Roles(UserRole.PARISH_ADMIN)
   publish(@Param('id') id: string, @Request() req: any) {
     return this.service.publish(req.user, id);
   }
 
   @Post(':id/unpublish')
+  @PlanResource('financialStatement')
   @Roles(UserRole.PARISH_ADMIN)
   unpublish(@Param('id') id: string, @Request() req: any) {
     return this.service.unpublish(req.user, id);
   }
 
   @Get(':id/pdf')
+  @PlanResource('financialStatement')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   async pdf(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const pdf = await this.service.pdfForManage(req.user, id);
@@ -90,6 +103,7 @@ export class StatementsController {
   }
 
   @Get(':id/export.csv')
+  @PlanResource('financialStatement')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   async exportCsv(@Param('id') id: string, @Res() res: Response, @Request() req: any) {
     const { filename, csv } = await this.service.exportCsv(req.user, id);

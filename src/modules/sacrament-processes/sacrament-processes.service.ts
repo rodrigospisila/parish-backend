@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
+import { Optional, Injectable, NotFoundException, ForbiddenException, BadRequestException, ConflictException } from '@nestjs/common';
 import { SacramentProcessStatus, SacramentRecordKind, SacramentType, UserRole, Prisma } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
@@ -19,6 +19,8 @@ import {
   SACRAMENT_LABELS,
 } from '../sacraments/sacrament-record';
 import { CertificateResult, SacramentCertificateService } from '../sacraments/sacrament-certificate.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /** Status que o PATCH :id/status aceita — CELEBRATED só pela celebração. */
 const MANUAL_STATUSES: SacramentProcessStatus[] = [
@@ -95,6 +97,8 @@ export class SacramentProcessesService {
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
     private readonly certificateService: SacramentCertificateService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   private canManage(role: UserRole) {
@@ -159,11 +163,13 @@ export class SacramentProcessesService {
     const scope = communityScopeWhere(user);
     if (!scope) return [];
     if (Object.keys(scope).length) where.community = scope;
-    return this.prisma.sacramentProcess.findMany({
+    const rows = await this.prisma.sacramentProcess.findMany({
       where,
       include: { member: { select: { id: true, fullName: true } } },
       orderBy: { updatedAt: 'desc' },
     });
+    // Lista agregada (paróquia/diocese): no modo `on` saem os processos das comunidades sem plano
+    return planFilter(this.planAccess, user, rows, (row) => row.communityId);
   }
 
   private async loadInScope(id: string, user: CurrentUser) {

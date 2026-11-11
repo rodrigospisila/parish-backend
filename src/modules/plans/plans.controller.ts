@@ -16,7 +16,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { HierarchyService } from '../../common/hierarchy.service';
 import { PlanAccessService } from './plan-access.service';
-import { FREE_FEATURES, PAID_FEATURES, graceEndsAt, hasPaidAccess, isPeriodOverdue } from './plan-rules';
+import { FREE_FEATURES, PAID_FEATURES, graceEndsAt, isPeriodOverdue } from './plan-rules';
 import { PlatformPlansService } from './platform-plans.service';
 import { PlatformGrowthService } from './platform-growth.service';
 import { EnforcementReportService } from './enforcement-report.service';
@@ -35,8 +35,11 @@ export class EntitlementsController {
   /**
    * GET /me/entitlements[?communityId=]
    * - `paidAccess`: estado REAL do plano (para avisos/banners);
-   * - `features`: o que está liberado AGORA — fora do modo `on` (ou para o
-   *   SYSTEM_ADMIN) inclui todos os recursos pagos, pois nada é bloqueado;
+   * - `features`: o que está liberado AGORA — os grátis (FREE_FEATURES:
+   *   membros, horários de missa/confissão, mapa, localização, liturgia,
+   *   santos) e, fora do modo `on` (ou para o SYSTEM_ADMIN, ou com acesso
+   *   pago), todos os recursos pagos, pois nada é bloqueado;
+   * - `paidFeatures`: a lista dos recursos pagos (PAID_FEATURES, na ordem);
    * - `paidCommunityIds`: comunidades do escopo com acesso pago (o painel do
    *   PARISH_ADMIN/DIOCESAN marca as capelas sem plano);
    * - `trialsEndingSoon`: testes que acabam em até 15 dias (banner).
@@ -53,9 +56,10 @@ export class EntitlementsController {
 
     const communityId: string | null = explicit ?? user.communityId ?? null;
     const plan = communityId ? await this.access.getPlan(communityId) : null;
+    // communityHasAccess: plano da comunidade OU paróquia do piloto
     const paidAccess = explicit
-      ? hasPaidAccess(plan)
-      : (await this.access.decideForUser({ level: 'community' }, user)).allowed;
+      ? await this.access.communityHasAccess(explicit)
+      :(await this.access.decideForUser({ level: 'community' }, user)).allowed;
 
     const unlocked = enforcement !== 'on' || user.role === UserRole.SYSTEM_ADMIN || paidAccess;
     const [paidCommunityIds, trialsEndingSoon] = await Promise.all([

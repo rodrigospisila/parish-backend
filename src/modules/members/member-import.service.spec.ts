@@ -109,6 +109,7 @@ describe('MemberImportService', () => {
   let audit: any;
   let members: any;
   let planAccess: any;
+  let hits: any;
   let service: MemberImportService;
   let candidates: any[];
   let globalCpfs: string[];
@@ -169,8 +170,13 @@ describe('MemberImportService', () => {
     };
     audit = { log: jest.fn() };
     members = { canManageMembersIn: jest.fn().mockResolvedValue(true) };
-    planAccess = { enforcement: jest.fn().mockReturnValue('log'), memberLimitStatus: jest.fn().mockResolvedValue(null) };
-    service = new MemberImportService(prisma, hierarchy, audit, members, planAccess);
+    planAccess = {
+      enforcement: jest.fn().mockReturnValue('log'),
+      memberLimitStatus: jest.fn().mockResolvedValue(null),
+      targetHasAccess: jest.fn().mockResolvedValue(true),
+    };
+    hits = { record: jest.fn() };
+    service = new MemberImportService(prisma, hierarchy, audit, members, planAccess, hits);
   });
 
   it('dryRun: prévia por linha, nada gravado; auditada só com contagens (S16)', async () => {
@@ -366,6 +372,79 @@ describe('MemberImportService', () => {
 
     planAccess.enforcement.mockReturnValue('on');
     await expect(service.run({ communityId: 'c1', rows }, parishAdmin)).rejects.toBeInstanceOf(ForbiddenException);
+  });
+
+  describe('plano: importar DIZIMISTAS exige o dízimo (tithe); MEMBROS continua grátis', () => {
+    const rows = [{ fullName: 'Ana Dizimista', registrationNumber: '12' }];
+
+    it('on + paróquia sem acesso: TITHERS → 403 PLAN_REQUIRED (prévia inclusa), nada gravado', async () => {
+      planAccess.enforcement.mockReturnValue('on');
+      planAccess.targetHasAccess.mockResolvedValue(false);
+      for (const dryRun of [true, false]) {
+        const error: any = await service.run({ kind: 'TITHERS', communityId: 'c1', rows, dryRun }, parishAdmin).catch((e) => e);
+        expect(error).toBeInstanceOf(ForbiddenException);
+        expect(error.getResponse()).toEqual({
+          code: 'PLAN_REQUIRED',
+          feature: 'tithe',
+          communityId: 'c1',
+          message: 'Disponível no plano da comunidade',
+        });
+      }
+      // Nível paróquia: alguma comunidade da paróquia com acesso basta
+      expect(planAccess.targetHasAccess).toHaveBeenCalledWith({ parishId: 'p1' });
+      expect(hits.record).toHaveBeenCalledWith(
+        expect.objectContaining({ kind: 'PLAN_FEATURE', feature: 'tithe', communityId: 'c1', mode: 'on' }),
+      );
+      expect(prisma.$transaction).not.toHaveBeenCalled();
+      expect(audit.log).not.toHaveBeenCalled();
+    });
+
+    it('on + paróquia sem acesso: MEMBERS segue liberado (cadastro é grátis)', async () => {
+      planAccess.enforcement.mockReturnValue('on');
+      planAccess.targetHasAccess.mockResolvedValue(false);
+      await expect(service.run({ communityId: 'c1', rows: [{ fullName: 'Zeca Livre' }] }, parishAdmin)).resolves.toMatchObject({
+        created: 1,
+      });
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+      expect(tx.tither.create).not.toHaveBeenCalled();
+    });
+
+    it('log: só registra (conta o bloqueio hipotético) e importa', async () => {
+      planAccess.targetHasAccess.mockResolvedValue(false);
+      await expect(service.run({ kind: 'TITHERS', communityId: 'c1', rows }, parishAdmin)).resolves.toMatchObject({ created: 1 });
+      expect(hits.record).toHaveBeenCalledWith(expect.objectContaining({ feature: 'tithe', mode: 'log' }));
+      expect(tx.tither.create).toHaveBeenCalledTimes(1);
+    });
+
+    it('off não consulta; com acesso passa; SYSTEM_ADMIN passa; falha na consulta libera', async () => {
+      planAccess.enforcement.mockReturnValue('off');
+      planAccess.targetHasAccess.mockResolvedValue(false);
+      await expect(service.run({ kind: 'TITHERS', communityId: 'c1', rows, dryRun: true }, parishAdmin)).resolves.toMatchObject({ total: 1 });
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+
+      planAccess.enforcement.mockReturnValue('on');
+      await expect(
+        service.run({ kind: 'TITHERS', communityId: 'c1', rows, dryRun: true }, { ...parishAdmin, role: 'SYSTEM_ADMIN' } as any),
+      ).resolves.toMatchObject({ total: 1 });
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+
+      planAccess.targetHasAccess.mockResolvedValue(true);
+      await expect(service.run({ kind: 'TITHERS', communityId: 'c1', rows, dryRun: true }, parishAdmin)).resolves.toMatchObject({ total: 1 });
+
+      planAccess.targetHasAccess.mockRejectedValue(new Error('banco fora'));
+      await expect(service.run({ kind: 'TITHERS', communityId: 'c1', rows, dryRun: true }, parishAdmin)).resolves.toMatchObject({ total: 1 });
+      expect(hits.record).not.toHaveBeenCalled();
+    });
+
+    it('fora da gestão: 403 de escopo ANTES do plano (não revela o plano alheio)', async () => {
+      planAccess.enforcement.mockReturnValue('on');
+      planAccess.targetHasAccess.mockResolvedValue(false);
+      members.canManageMembersIn.mockResolvedValue(false);
+      const error: any = await service.run({ kind: 'TITHERS', communityId: 'c9', rows }, parishAdmin).catch((e) => e);
+      expect(error).toBeInstanceOf(ForbiddenException);
+      expect(error.getResponse()).not.toMatchObject({ code: 'PLAN_REQUIRED' });
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+    });
   });
 
   it('comunidade fora da gestão → 403; mais de 2.000 linhas → 400', async () => {

@@ -1,5 +1,6 @@
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { planTransition, CurrentPlan, TierInfo } from './plan-transitions';
+import { PLAN_ACTIONS } from './dto/update-community-plan.dto';
 import { PlatformPlansService } from './platform-plans.service';
 import { PlanAccessService } from './plan-access.service';
 
@@ -210,6 +211,25 @@ describe('PlatformPlansService.update — grava plano + evento', () => {
     const semData = planTransition(plan({ status: 'ACTIVE' }), { action: 'MARK_PAST_DUE' }, null, now);
     expect(semData.data.currentPeriodEnd).toEqual(now); // carência conta de agora
     expect(() => planTransition(plan({ status: 'TRIAL' }), { action: 'MARK_PAST_DUE' }, null, now)).toThrow(BadRequestException);
+  });
+
+  it('EXPIRE_TRIAL (ação do sistema): teste vencido → FREE; só de TRIAL e só depois do fim', () => {
+    const r = planTransition(plan({ status: 'TRIAL', trialEndsAt: at(-1), tierId: 'tier_capela' }), { action: 'EXPIRE_TRIAL' }, null, now);
+    expect(r.fromStatus).toBe('TRIAL');
+    expect(r.toStatus).toBe('FREE');
+    // Não apaga trialEndsAt nem a faixa (histórico / escolha da paróquia)
+    expect(r.data).toEqual({ status: 'FREE', suspendedAt: null });
+    // Sem data de fim também vale (teste sem prazo não dá acesso)
+    expect(planTransition(plan({ status: 'TRIAL' }), { action: 'EXPIRE_TRIAL' }, null, now).toStatus).toBe('FREE');
+    expect(() => planTransition(plan({ status: 'TRIAL', trialEndsAt: at(3) }), { action: 'EXPIRE_TRIAL' }, null, now)).toThrow(/ainda não terminou/);
+    for (const status of ['FREE', 'ACTIVE', 'PAST_DUE', 'SUSPENDED', 'CANCELED'] as const) {
+      expect(() => planTransition(plan({ status }), { action: 'EXPIRE_TRIAL' }, null, now)).toThrow(BadRequestException);
+    }
+    expect(() => planTransition(null, { action: 'EXPIRE_TRIAL' }, null, now)).toThrow(BadRequestException);
+  });
+
+  it('EXPIRE_TRIAL não é ação do painel (fica fora de PLAN_ACTIONS)', () => {
+    expect(PLAN_ACTIONS as readonly string[]).not.toContain('EXPIRE_TRIAL');
   });
 });
 

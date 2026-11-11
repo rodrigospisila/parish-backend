@@ -17,18 +17,25 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole, PrayerRequestCategory, PrayerRequestStatus } from '@prisma/client';
+import { PlanGated } from '../plans/plan-gates';
 
+/**
+ * Pedidos de oração: recurso PAGO da comunidade (`prayer-requests`). O plano
+ * sai do pedido (rotas por id), do `communityId` da query/body, ou do usuário.
+ */
 @Controller('prayer-requests')
 export class PrayerRequestsController {
   constructor(private readonly prayerRequestsService: PrayerRequestsService) {}
 
   @Post()
+  @PlanGated('prayer-requests')
   @UseGuards(JwtAuthGuard)
   create(@Body() createPrayerRequestDto: CreatePrayerRequestDto, @CurrentUser() user: any) {
     return this.prayerRequestsService.create(createPrayerRequestDto, user);
   }
 
   @Get()
+  @PlanGated('prayer-requests')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -46,6 +53,7 @@ export class PrayerRequestsController {
   }
 
   @Get('approved')
+  @PlanGated('prayer-requests')
   @UseGuards(JwtAuthGuard)
   findApproved(
     @CurrentUser() user: any,
@@ -57,6 +65,7 @@ export class PrayerRequestsController {
   }
 
   @Get('pending')
+  @PlanGated('prayer-requests')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -68,6 +77,7 @@ export class PrayerRequestsController {
   }
 
   @Get('stats')
+  @PlanGated('prayer-requests')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -79,12 +89,14 @@ export class PrayerRequestsController {
   }
 
   @Get(':id')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string, @CurrentUser() user: any) {
     return this.prayerRequestsService.findOne(id, user);
   }
 
   @Patch(':id')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -100,6 +112,7 @@ export class PrayerRequestsController {
   }
 
   @Delete(':id')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(UserRole.DIOCESAN_ADMIN, UserRole.PARISH_ADMIN)
   remove(@Param('id') id: string, @CurrentUser() user: any) {
@@ -109,6 +122,7 @@ export class PrayerRequestsController {
   // ========== MODERAÇÃO ==========
 
   @Patch(':id/approve')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -120,6 +134,7 @@ export class PrayerRequestsController {
   }
 
   @Patch(':id/reject')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.DIOCESAN_ADMIN,
@@ -133,6 +148,7 @@ export class PrayerRequestsController {
   // ========== CONTADOR DE ORAÇÕES ==========
 
   @Post(':id/pray')
+  @PlanGated('prayer-requests', 'prayerRequest')
   @UseGuards(JwtAuthGuard)
   incrementPrayerCount(@Param('id') id: string, @CurrentUser() user: any) {
     return this.prayerRequestsService.incrementPrayerCount(id, user);

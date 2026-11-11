@@ -6,12 +6,14 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { BillingService } from './billing.service';
 import { BillingWebhookService } from './billing-webhook.service';
-import { CancelBillingDto, CheckoutDto, SaveBillingAccountDto } from './dto/billing.dto';
+import { CancelBillingDto, CheckoutDto, RequestTrialDto, SaveBillingAccountDto } from './dto/billing.dto';
 
 /**
  * Plano e assinatura da paróquia (Onda 1, C3). Leitura: PARISH_ADMIN da
  * paróquia, DIOCESAN_ADMIN e SYSTEM_ADMIN no escopo. Escrita (dados de
  * cobrança, contratar, cancelar): PARISH_ADMIN da paróquia ou SYSTEM_ADMIN.
+ * Pedir o teste de 30 dias (uma vez por paróquia): PARISH_ADMIN da paróquia,
+ * DIOCESAN_ADMIN e SYSTEM_ADMIN no escopo.
  * A cobrança nunca acontece dentro do app (regra das lojas) — só no painel web.
  */
 @Controller('billing')
@@ -35,6 +37,17 @@ export class BillingController {
   @Throttle({ default: { limit: 10, ttl: 60_000 } })
   checkout(@Request() req: any, @Body() dto: CheckoutDto) {
     return this.billing.checkout(req.user, dto);
+  }
+
+  /**
+   * POST /billing/trial `{ parishId }` → `{ trialEndsAt, communities }`.
+   * 409 `TRIAL_ALREADY_USED` (já usou) | `TRIAL_NOT_NEEDED` (piloto / tudo com acesso).
+   */
+  @Post('trial')
+  @HttpCode(200)
+  @Throttle({ default: { limit: 10, ttl: 60_000 } })
+  requestTrial(@Request() req: any, @Body() dto: RequestTrialDto) {
+    return this.billing.requestTrial(req.user, dto);
   }
 
   @Post('cancel')

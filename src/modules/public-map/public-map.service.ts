@@ -16,6 +16,7 @@ import {
   toUpcomingCancellations,
   upcomingCancellationsSelect,
 } from '../mass-schedules/mass-schedules.service';
+import { scheduleHappeningNow } from '../mass-schedules/mass-schedule-window';
 
 export interface MapConfig {
   tileUrl: string;
@@ -69,12 +70,16 @@ export interface PublicCommunityDetail {
     typeLabel: string;
     dayOfWeek: number | null;
     time: string;
+    /** Fim (HH:MM) ou nulo = duração padrão do tipo. */
+    endTime: string | null;
     recurrence: MassRecurrence;
     weeksOfMonth: number[];
     dayOfMonth: number | null;
     notes: string | null;
     /** Datas suspensas ("não haverá") de hoje até +60 dias, em ordem. */
     upcomingCancellations: UpcomingCancellation[];
+    /** A ocorrência de HOJE deste horário está acontecendo agora (relógio da comunidade; false se suspensa)? */
+    happeningNow: boolean;
   }[];
   nextMasses: NearbyMass[];
 }
@@ -191,12 +196,14 @@ export class PublicMapService {
             type: true,
             dayOfWeek: true,
             time: true,
+            endTime: true,
             recurrence: true,
             weeksOfMonth: true,
             dayOfMonth: true,
             notes: true,
-            // Parte do "hoje" do Acre (o mais atrasado) e corta abaixo no "hoje" da comunidade
-            cancellations: upcomingCancellationsSelect(earliestBrazilToday(this.now())),
+            // Parte de ontem do "hoje" do Acre (o mais atrasado; ontem cobre a ocorrência que
+            // passa da meia-noite) e corta abaixo no "hoje" da comunidade
+            cancellations: upcomingCancellationsSelect(earliestBrazilToday(this.now()), 1),
           },
         },
       },
@@ -204,15 +211,25 @@ export class PublicMapService {
     if (!c) throw new NotFoundException('Comunidade não encontrada');
 
     // Datas suspensas de hoje em diante, no relógio da comunidade (fuso pela UF)
-    const today = nowFloatingIn(timeZoneForState(c.state), this.now()).slice(0, 10);
+    const nowLocal = nowFloatingIn(timeZoneForState(c.state), this.now());
+    const today = nowLocal.slice(0, 10);
 
     // Domingo a sábado; "todo dia 13" (sem dia da semana) vai para o fim, pelo dia do mês
     const schedules = [...c.massSchedules]
-      .map(({ cancellations, ...s }) => ({
-        ...s,
-        typeLabel: massScheduleTypeLabel(s.type),
-        upcomingCancellations: toUpcomingCancellations(cancellations).filter((x) => x.date >= today),
-      }))
+      .map(({ cancellations, ...s }) => {
+        const suspended = toUpcomingCancellations(cancellations);
+        return {
+          ...s,
+          typeLabel: massScheduleTypeLabel(s.type),
+          upcomingCancellations: suspended.filter((x) => x.date >= today),
+          // Horário listado sem data: vale para a ocorrência de HOJE (pela recorrência)
+          happeningNow: scheduleHappeningNow(
+            { ...s, isSpecial: false, specialDate: null },
+            nowLocal,
+            suspended.map((x) => x.date),
+          ),
+        };
+      })
       .sort(
         (a, b) =>
           (a.dayOfWeek ?? 7) - (b.dayOfWeek ?? 7) ||

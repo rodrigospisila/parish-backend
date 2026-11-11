@@ -1,8 +1,10 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Optional } from '@nestjs/common';
 import { AssignmentStatus, MemberStatus, UserRole } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { HierarchyService, CurrentUser } from '../../common/hierarchy.service';
 import { PdfService } from '../pdf/pdf.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { planFilter } from '../../common/plan-list';
 
 /**
  * Relatórios e indicadores pastorais (roadmap 2.4).
@@ -15,6 +17,8 @@ export class ReportsService {
     private readonly prisma: PrismaService,
     private readonly hierarchyService: HierarchyService,
     private readonly pdfService: PdfService,
+    // Plano por comunidade (opcional só para specs que montam o service à mão)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   /**
@@ -35,12 +39,13 @@ export class ReportsService {
     // Agentes por pastoral (contagem de vínculos ativos) — mesmo escopo dos membros
     const pastoralScope = this.pastoralScope(currentUser);
 
-    const pastorals = !pastoralScope
+    const scopedPastorals = !pastoralScope
       ? []
       : await this.prisma.communityPastoral.findMany({
           where: { ...pastoralScope, deletedAt: null },
           select: {
             id: true,
+            communityId: true,
             globalPastoral: { select: { name: true, kind: true } },
             community: { select: { name: true } },
             _count: {
@@ -48,6 +53,9 @@ export class ReportsService {
             },
           },
         });
+
+    // Plano (só no modo on): pastorais de comunidades sem acesso saem do relatório
+    const pastorals = await planFilter(this.planAccess, currentUser, scopedPastorals, (pastoral) => pastoral.communityId);
 
     const agentsByPastoral = pastorals.map((pastoral) => ({
       pastoralId: pastoral.id,

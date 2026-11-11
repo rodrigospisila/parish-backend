@@ -30,11 +30,18 @@ import { parseDateWindow, parsePageRequest } from './list-window';
 /** Vínculos pastoral↔evento por minuto (POST /events/:id/pastorals). */
 export const EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE = 2000;
 
+/**
+ * Agenda de eventos: recurso PAGO da comunidade (`events`), leitura do fiel
+ * inclusive. O plano sai do evento (rotas por id), do `communityId` da
+ * query/body, ou do usuário. As 3 rotas de escala por evento seguem em
+ * `schedules`.
+ */
 @Controller('events')
 export class EventsController {
   constructor(private readonly eventsService: EventsService) {}
 
   @Post()
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -48,6 +55,7 @@ export class EventsController {
   }
 
   @Get()
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   findAll(
     @Query('communityId') communityId?: string,
@@ -93,6 +101,7 @@ export class EventsController {
 
   // Exporta a agenda em iCalendar (.ics) para Google Calendar/Outlook/Apple
   @Get('export.ics')
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   async exportIcs(
     @Res() res: Response,
@@ -110,6 +119,7 @@ export class EventsController {
   // Rotas antigas da agenda: mesmo escopo do GET /events (o communityId da
   // query combina com o escopo do usuário, nunca o substitui)
   @Get('upcoming')
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   findUpcoming(
     @Query('communityId') communityId?: string,
@@ -124,12 +134,14 @@ export class EventsController {
   }
 
   @Get('recurring')
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   findRecurring(@Query('communityId') communityId?: string, @CurrentUser() user?: any) {
     return this.eventsService.findRecurring(communityId, user);
   }
 
   @Get('type/:type')
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   findByType(
     @Param('type') type: EventType,
@@ -140,6 +152,7 @@ export class EventsController {
   }
 
   @Get('range')
+  @PlanGated('events')
   @UseGuards(JwtAuthGuard)
   findByDateRange(
     @Query('startDate') startDate: string,
@@ -151,30 +164,35 @@ export class EventsController {
   }
 
   @Get('favorites')
+  @PlanGated('events') // do usuário: decide pela(s) comunidade(s) dele
   @UseGuards(JwtAuthGuard)
   getFavorites(@CurrentUser() user: any) {
     return this.eventsService.getFavorites(user);
   }
 
   @Post(':id/favorite')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   addFavorite(@Param('id') id: string, @CurrentUser() user: any) {
     return this.eventsService.addFavorite(id, user);
   }
 
   @Delete(':id/favorite')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   removeFavorite(@Param('id') id: string, @CurrentUser() user: any) {
     return this.eventsService.removeFavorite(id, user);
   }
 
   @Get(':id')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   findOne(@Param('id') id: string, @CurrentUser() user?: any) {
     return this.eventsService.findOne(id, user);
   }
 
   @Patch(':id')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -188,6 +206,7 @@ export class EventsController {
   }
 
   @Delete(':id')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -201,6 +220,7 @@ export class EventsController {
   }
 
   @Post(':id/duplicate')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -220,6 +240,7 @@ export class EventsController {
   // Participant management — o fiel inscreve/remove a si e aos dependentes;
   // terceiros exigem coordenação com escopo sobre o evento (regra no service)
   @Post(':id/participants')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   addParticipant(
     @Param('id') eventId: string,
@@ -230,6 +251,7 @@ export class EventsController {
   }
 
   @Delete(':id/participants/:memberId')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   removeParticipant(
     @Param('id') eventId: string,
@@ -240,6 +262,7 @@ export class EventsController {
   }
 
   @Get(':id/participants')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   getParticipants(@Param('id') eventId: string, @CurrentUser() user: any) {
     return this.eventsService.getParticipants(eventId, user);
@@ -253,6 +276,7 @@ export class EventsController {
   // recorrente vinculando cada pastoral a cada ocorrência (até ~312 POSTs em
   // paralelo). Rota só de coordenação e com escopo checado no service.
   @Post(':id/pastorals')
+  @PlanGated('events', 'event')
   @Throttle({ default: { limit: EVENT_PASTORAL_LINK_THROTTLE_PER_MINUTE, ttl: 60_000 } })
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
@@ -271,12 +295,14 @@ export class EventsController {
   }
 
   @Get(':id/pastorals')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   getEventPastorals(@Param('id') eventId: string, @CurrentUser() user: any) {
     return this.eventsService.getEventPastorals(eventId, user);
   }
 
   @Delete(':id/pastorals/:pastoralId')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Roles(
     UserRole.SYSTEM_ADMIN,
@@ -317,6 +343,7 @@ export class EventsController {
   }
 
   @Get(':id/pastorals/:pastoralId/assignments')
+  @PlanGated('events', 'event')
   @UseGuards(JwtAuthGuard)
   getAssignments(
     @Param('id') eventId: string,
