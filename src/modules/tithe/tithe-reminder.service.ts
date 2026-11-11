@@ -1,4 +1,4 @@
-import { Injectable, Logger } from '@nestjs/common';
+import { Injectable, Logger, Optional } from '@nestjs/common';
 import { Cron } from '@nestjs/schedule';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
@@ -6,10 +6,16 @@ import { runExclusiveJob } from '../../common/scheduled-job-lock';
 import { zonedParts } from '../../common/schedule-time';
 import { NotificationsService } from '../notifications/notifications.service';
 import { TitheWhatsAppService } from './whatsapp.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { titheBlockedByPlan } from './tithe-plan';
 
 /**
  * Lembrete mensal do dízimo (opt-in): no dia escolhido pelo fiel, se o mês
  * ainda não tem contribuição confirmada. Um aviso por mês, 9h de Brasília.
+ *
+ * Plano: com PLAN_ENFORCEMENT=on, o fiel de paróquia SEM acesso ao dízimo não
+ * é lembrado (nem push, nem Pix pelo WhatsApp) — o lembrete convida a criar uma
+ * contribuição nova, que é recurso pago. Em off/log nada muda.
  */
 @Injectable()
 export class TitheReminderService {
@@ -19,6 +25,8 @@ export class TitheReminderService {
     private readonly prisma: PrismaService,
     private readonly notificationsService: NotificationsService,
     private readonly whatsapp: TitheWhatsAppService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
 
   // 09:00 em Brasília; uma réplica por vez (M45: duas réplicas mandavam o WhatsApp pago em dobro)
@@ -45,11 +53,31 @@ export class TitheReminderService {
         // Quem tem Pix Automático ativo não precisa ser lembrado: o banco debita sozinho
         titheSchedules: { none: { status: 'ACTIVE', mode: 'PIX_AUTOMATIC' } },
       },
-      select: { id: true, userId: true, fullName: true, whatsappOptIn: true, titheReminderSentMonth: true, tither: { select: { id: true } } },
+      select: {
+        id: true,
+        userId: true,
+        fullName: true,
+        whatsappOptIn: true,
+        titheReminderSentMonth: true,
+        tither: { select: { id: true } },
+        community: { select: { parishId: true } },
+      },
       take: 2000,
     });
+    // Plano por paróquia (uma consulta por paróquia nesta execução)
+    const blockedParishes = new Map<string, boolean>();
     let sent = 0;
     for (const member of members) {
+      const parishId = member.community?.parishId;
+      if (parishId) {
+        let blocked = blockedParishes.get(parishId);
+        if (blocked === undefined) {
+          blocked = await titheBlockedByPlan(this.planAccess, parishId, this.logger);
+          blockedParishes.set(parishId, blocked);
+        }
+        // Sem plano: não lembra nem marca o mês (se o plano voltar, o próximo lembrete sai normal)
+        if (blocked) continue;
+      }
       const paid = await this.prisma.titheIntent.count({
         where: { memberId: member.id, kind: 'TITHE', status: 'CONFIRMED', referenceMonth: month },
       });

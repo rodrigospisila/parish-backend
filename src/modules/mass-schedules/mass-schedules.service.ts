@@ -1,5 +1,6 @@
 import {
   Injectable,
+  Optional,
   NotFoundException,
   ForbiddenException,
   BadRequestException,
@@ -50,7 +51,9 @@ import {
   occurrenceDays as occurrenceDaysOf,
   occurrenceWindow,
   scheduleHappeningNow,
+  shiftedEndTime,
 } from './mass-schedule-window';
+import { PlanAccessService } from '../plans/plan-access.service';
 import { NotificationsService } from '../notifications/notifications.service';
 import { earliestBrazilToday, nowBrazilFloating, nowFloatingIn, timeZoneForState } from '../masses/map-search.utils';
 
@@ -238,7 +241,23 @@ export class MassSchedulesService {
     private readonly hierarchyService: HierarchyService,
     private readonly auditService: AuditService,
     private readonly notificationsService: NotificationsService,
+    // PlansModule é global; opcional para os testes que montam o serviço à mão
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /**
+   * Vincular pastorais ao horário é recurso pago (feature `schedules`; a rota
+   * própria POST :id/pastorals é barrada pelo plano). Criar/editar o horário é
+   * grátis e aceita `pastoralSettings` no mesmo corpo — então, com o plano
+   * ligado (`on`) e a comunidade sem acesso, o campo é IGNORADO, sem erro (o
+   * painel grátis pode mandá-lo vazio). Em off/log, plataforma ou sem o
+   * serviço de plano, nada muda.
+   */
+  private async pastoralSettingsAllowed(communityId: string, currentUser?: CurrentUser): Promise<boolean> {
+    if (!this.planAccess || this.planAccess.enforcement() !== 'on') return true;
+    if (currentUser?.role === UserRole.SYSTEM_ADMIN) return true;
+    return this.planAccess.communityHasAccess(communityId);
+  }
 
   /** Hoje no relógio de São Paulo, YYYY-MM-DD (método para os testes congelarem). */
   protected todaySaoPaulo(): string {
@@ -264,14 +283,36 @@ export class MassSchedulesService {
     return upcomingCancellationsSelect(this.earliestToday(), 1);
   }
 
-  /** Suspensões de hoje em diante (lista) + "acontecendo agora" de um horário listado sem data. */
+  /**
+   * Relógio de UMA requisição: o "agora" e o "hoje" de cada UF são calculados
+   * uma vez e reaproveitados por todas as linhas da lista (antes eram
+   * recalculados por horário — mais de 100 mil chamadas ao formatador na
+   * Agenda Fixa do SYSTEM_ADMIN, com 53 mil horários).
+   */
+  private requestClock(): (state?: string | null) => { now: string; today: string } {
+    const byState = new Map<string, { now: string; today: string }>();
+    return (state) => {
+      const key = String(state ?? '').trim().toUpperCase();
+      let clock = byState.get(key);
+      if (!clock) {
+        clock = { now: this.nowIn(state), today: this.todayIn(state) };
+        byState.set(key, clock);
+      }
+      return clock;
+    };
+  }
+
+  /**
+   * Suspensões de hoje em diante (lista) + "acontecendo agora" de um horário
+   * listado sem data. `clock` é o relógio da requisição (requestClock).
+   */
   private listStatus(
     schedule: Parameters<typeof scheduleHappeningNow>[0],
     cancellations: { date: Date; reason: string | null }[] | undefined,
-    state?: string | null,
+    state: string | null | undefined,
+    clock: (state?: string | null) => { now: string; today: string },
   ) {
-    const now = this.nowIn(state);
-    const today = this.todayIn(state);
+    const { now, today } = clock(state);
     const all = toUpcomingCancellations(cancellations);
     return {
       upcomingCancellations: all.filter((c) => c.date >= today),
@@ -495,7 +536,7 @@ export class MassSchedulesService {
   }
 
   async create(createMassScheduleDto: CreateMassScheduleDto, currentUser?: CurrentUser) {
-    const { communityId, pastoralSettings, ...bruto } = createMassScheduleDto;
+    const { communityId, pastoralSettings: pastoralSettingsEnviado, ...bruto } = createMassScheduleDto;
     const rest = this.normalizeRecurrence(bruto);
 
     // Verificar se a comunidade existe
@@ -512,6 +553,11 @@ export class MassSchedulesService {
     const endTime = assertEndTime(rest.time, rest.endTime);
     await this.assertNotDuplicate({ ...rest, communityId });
 
+    // Comunidade no plano grátis (modo `on`): o vínculo de pastorais é ignorado
+    const pastoralSettings =
+      pastoralSettingsEnviado?.length && !(await this.pastoralSettingsAllowed(communityId, currentUser))
+        ? undefined
+        : pastoralSettingsEnviado;
     const pastoralsCreate = await this.buildPastoralCreate(communityId, pastoralSettings);
 
     return this.prisma.massSchedule.create({
@@ -560,10 +606,11 @@ export class MassSchedulesService {
       ],
     });
 
+    const clock = this.requestClock();
     return schedules.map(({ cancellations, community, ...schedule }) => ({
       ...schedule,
       community: community ? { id: community.id, name: community.name } : community,
-      ...this.listStatus(schedule, cancellations, community?.state),
+      ...this.listStatus(schedule, cancellations, community?.state, clock),
     }));
   }
 
@@ -586,13 +633,14 @@ export class MassSchedulesService {
       orderBy: [{ dayOfWeek: 'asc' }, { time: 'asc' }],
     });
 
+    const clock = this.requestClock();
     return schedules.map(({ cancellations, community, ...schedule }) => {
       // A UF só serve para o fuso: não entra na resposta
       const { state, ...communityView } = (community ?? {}) as { state?: string | null };
       return {
         ...schedule,
         community: community ? communityView : community,
-        ...this.listStatus(schedule, cancellations, state),
+        ...this.listStatus(schedule, cancellations, state, clock),
       };
     });
   }
@@ -653,16 +701,8 @@ export class MassSchedulesService {
 
     const occurrences: FixedOccurrence[] = [];
     // "Agora" no relógio de cada comunidade (fuso pela UF), uma vez por UF
-    const nowByState = new Map<string, string>();
-    const nowFor = (state?: string | null) => {
-      const key = String(state ?? '');
-      let now = nowByState.get(key);
-      if (!now) {
-        now = this.nowIn(state);
-        nowByState.set(key, now);
-      }
-      return now;
-    };
+    const clock = this.requestClock();
+    const nowFor = (state?: string | null) => clock(state).now;
     for (const schedule of schedules) {
       // Hora fora de 00:00–23:59 (carga antiga): "25:70" cairia no dia seguinte, longe
       // da data da suspensão — fica fora da agenda até ser corrigida
@@ -806,10 +846,11 @@ export class MassSchedulesService {
         where: { id: { in: communityIds } },
         select: { id: true, state: true },
       });
-      const todayByCommunity = new Map(communities.map((c) => [c.id, this.todayIn(c.state)]));
+      const clock = this.requestClock();
+      const todayByCommunity = new Map(communities.map((c) => [c.id, clock(c.state).today]));
       pending = pending.filter((occurrence) => {
         const id = occurrence.community?.id;
-        const today = (id && todayByCommunity.get(id)) || this.todayIn(null);
+        const today = (id && todayByCommunity.get(id)) || clock(null).today;
         return occurrence.date >= today;
       });
     }
@@ -1028,7 +1069,7 @@ export class MassSchedulesService {
     const schedule = await this.findOne(id); // Verifica se existe
     await this.assertCommunityInScope(schedule.communityId, currentUser);
 
-    const { pastoralSettings, communityId, ...bruto } = updateMassScheduleDto;
+    const { pastoralSettings: pastoralSettingsEnviado, communityId, ...bruto } = updateMassScheduleDto;
     // A edição pode trocar o tipo de recorrência; a normalização parte do que
     // já está gravado para não exigir o reenvio de campos que não mudaram.
     const mudouRecorrencia =
@@ -1073,16 +1114,23 @@ export class MassSchedulesService {
     const data: any = { ...rest };
     if (communityId) data.communityId = communityId;
     // Fim (endTime): enviado → valida contra a hora que vai ficar (400 em
-    // português; null/vazio limpa). Não enviado, mas a hora mudou e o fim
-    // gravado deixou de ser depois dela (cliente que não conhece o campo) →
-    // limpa, para não sobrar um fim antes do começo.
+    // português; null/vazio limpa). Não enviado, mas a hora mudou (cliente que
+    // não conhece o campo) → o fim acompanha, preservando a duração: "19:00–
+    // 20:00" movido para 08:00 vira "08:00–09:00" (antes ficava "08:00–20:00").
+    // Se o fim deslocado passar de 23:59, ou o fim gravado já não valia, limpa.
     const horaFinal = rest.time ?? schedule.time;
     if (rest.endTime !== undefined) {
       data.endTime = assertEndTime(horaFinal, rest.endTime);
-    } else if (schedule.endTime != null && !isUsableEndTime(horaFinal, schedule.endTime)) {
-      data.endTime = null;
+    } else if (schedule.endTime != null) {
+      const fim = shiftedEndTime(schedule.time, schedule.endTime, horaFinal);
+      if (fim !== schedule.endTime) data.endTime = fim;
     }
-    // Se pastoralSettings vier no payload, substitui as pastorais vinculadas.
+    // Se pastoralSettings vier no payload, substitui as pastorais vinculadas —
+    // exceto no plano grátis (modo `on`): aí o campo é ignorado e os vínculos ficam.
+    const pastoralSettings =
+      pastoralSettingsEnviado !== undefined && !(await this.pastoralSettingsAllowed(targetCommunityId, currentUser))
+        ? undefined
+        : pastoralSettingsEnviado;
     if (pastoralSettings !== undefined) {
       const pastoralsCreate = await this.buildPastoralCreate(targetCommunityId, pastoralSettings);
       data.pastorals = { deleteMany: {}, create: pastoralsCreate };
@@ -1542,10 +1590,11 @@ export class MassSchedulesService {
       ],
     });
 
+    const clock = this.requestClock();
     return favorites.map(({ massSchedule: { cancellations, community, ...schedule } }) => ({
       ...schedule,
       community: community ? { id: community.id, name: community.name } : community,
-      ...this.listStatus(schedule, cancellations, community?.state),
+      ...this.listStatus(schedule, cancellations, community?.state, clock),
     }));
   }
 

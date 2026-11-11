@@ -14,11 +14,21 @@ import { PlanResource, RequiresFeature, SkipPlanCheck } from '../plans/plan.deco
  * Dízimo online (Fase 1: Pix da paróquia + conciliação pela tesouraria).
  *
  * Recurso PAGO de nível PARÓQUIA (`tithe`): passa se alguma comunidade da
- * paróquia tiver acesso. Criar contribuição/recorrência nova é pago; as rotas
- * de ACOMPANHAMENTO de algo que o fiel já criou (consultar, recibo, declarar,
- * cancelar, contestar, ver/cancelar o dízimo automático) ficam abertas com
- * `@SkipPlanCheck()` — dinheiro em trânsito nunca fica preso atrás do plano.
- * Os webhooks (tithe-webhook, tithe-whatsapp) são outros controllers, sem guard.
+ * paróquia tiver acesso. Regra: sem plano a paróquia não CRIA nada novo
+ * (contribuição, recorrência, QR fixo, setup do provedor), mas dinheiro que já
+ * entrou nunca fica preso — tudo que é VER, CONCILIAR e ENCERRAR o que já
+ * existe fica aberto com `@SkipPlanCheck()`:
+ *  - fiel: histórico (`GET my`), extrato anual, consultar/recibo/declarar/
+ *    cancelar/contestar uma contribuição, ver/cancelar o dízimo automático;
+ *  - tesouraria: listar, confirmar, recusar, reabrir e sincronizar as
+ *    contribuições, relatório do mês (tela e CSV) e extrato do dizimista;
+ *  - configuração: ler e alterar (`GET/PATCH config`) — para a paróquia poder
+ *    DESLIGAR o recebimento/WhatsApp sem plano; LIGAR algo novo sem plano é
+ *    recusado no service (`TitheService.updateConfig`, só com
+ *    PLAN_ENFORCEMENT=on).
+ * Nas rotas abertas o escopo (comunidade/paróquia) continua conferido no
+ * service. Os webhooks (tithe-webhook, tithe-whatsapp) são outros controllers,
+ * sem guard.
  */
 @Controller('tithe')
 @UseGuards(JwtAuthGuard, RolesGuard, TitheThrottlerGuard, PlanFeatureGuard)
@@ -28,7 +38,9 @@ export class TitheController {
 
   // ===== fiel =====
 
+  // Aberta: histórico do que o fiel já contribuiu (criar segue pago)
   @Get('my')
+  @SkipPlanCheck()
   my(@Request() req: any) {
     return this.service.getMyTithe(req.user);
   }
@@ -44,7 +56,9 @@ export class TitheController {
     this.sendPdf(res, buffer, 'meu-pix-dizimo.pdf');
   }
 
+  // Aberta: extrato anual do que já foi pago (imposto de renda, prestação de contas)
   @Get('my/statement.pdf')
+  @SkipPlanCheck()
   async myStatement(@Res() res: Response, @Request() req: any, @Query('year') year?: string) {
     const buffer = await this.service.annualStatement(req.user, Number(year) || new Date().getFullYear());
     this.sendPdf(res, buffer, `extrato-dizimo-${year || new Date().getFullYear()}.pdf`);
@@ -136,8 +150,10 @@ export class TitheController {
   }
 
   // ===== tesouraria (COMMUNITY_COORDINATOR e acima) =====
+  // Conciliação do que JÁ existe: aberta mesmo sem plano (o escopo é do service)
 
   @Get('intents')
+  @SkipPlanCheck()
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   list(
     @Request() req: any,
@@ -149,6 +165,7 @@ export class TitheController {
   }
 
   @Post('intents/:id/confirm')
+  @SkipPlanCheck()
   @PlanResource('titheIntent')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   confirm(
@@ -160,6 +177,7 @@ export class TitheController {
   }
 
   @Post('intents/:id/reopen')
+  @SkipPlanCheck()
   @PlanResource('titheIntent')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   reopen(@Param('id') id: string, @Request() req: any) {
@@ -168,6 +186,7 @@ export class TitheController {
 
   /** Consulta o provedor sobre um Pix dinâmico (sem esperar o webhook). */
   @Post('intents/:id/sync')
+  @SkipPlanCheck()
   @PlanResource('titheIntent')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   @Throttle({ default: { limit: 20, ttl: 60_000 } })
@@ -176,12 +195,14 @@ export class TitheController {
   }
 
   @Get('report')
+  @SkipPlanCheck()
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   report(@Request() req: any, @Query('referenceMonth') referenceMonth?: string, @Query('communityId') communityId?: string) {
     return this.service.monthlyReport(req.user, { referenceMonth, communityId });
   }
 
   @Get('report.csv')
+  @SkipPlanCheck()
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   async reportCsv(
     @Res() res: Response,
@@ -194,7 +215,9 @@ export class TitheController {
     res.end(csv);
   }
 
+  // Aberta: extrato do que o dizimista já pagou
   @Get('tithers/:memberId/statement.pdf')
+  @SkipPlanCheck()
   @PlanResource('member:params.memberId')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   async titherStatement(@Param('memberId') memberId: string, @Res() res: Response, @Request() req: any, @Query('year') year?: string) {
@@ -203,6 +226,7 @@ export class TitheController {
   }
 
   @Post('intents/:id/reject')
+  @SkipPlanCheck()
   @PlanResource('titheIntent')
   @Roles(UserRole.COMMUNITY_COORDINATOR)
   reject(@Param('id') id: string, @Body() body: { reason?: string }, @Request() req: any) {
@@ -211,7 +235,9 @@ export class TitheController {
 
   // ===== configuração (PARISH_ADMIN e acima) =====
 
+  // Aberta: a administração precisa VER a configuração para poder desligar
   @Get('config')
+  @SkipPlanCheck()
   @Roles(UserRole.PARISH_ADMIN)
   getConfig(@Request() req: any, @Query('parishId') parishId?: string) {
     return this.service.getConfig(req.user, parishId || undefined);
@@ -230,7 +256,9 @@ export class TitheController {
     this.sendPdf(res, buffer, 'pix-paroquia.pdf');
   }
 
+  // Aberta para DESLIGAR/corrigir; ativar algo novo sem plano é recusado no service
   @Patch('config')
+  @SkipPlanCheck()
   @Roles(UserRole.PARISH_ADMIN)
   @Throttle({ default: { limit: 5, ttl: 60_000 } })
   updateConfig(

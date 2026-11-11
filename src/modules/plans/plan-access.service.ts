@@ -6,7 +6,7 @@ import { HierarchyService } from '../../common/hierarchy.service';
 import { EnforcementMode, PaidFeature, hasPaidAccess, parseEnforcement } from './plan-rules';
 import type { PlanFeatureMeta, PlanResourceKind, PlanResourceSpec } from './plan.decorators';
 // Regra pura (sem dependência de módulo): critério único do piloto
-import { pilotParishWhere } from '../jobs/plan-lifecycle-rules';
+import { pilotParishWhere, trialHeirCommunityWhere } from '../jobs/plan-lifecycle-rules';
 
 export interface PlanSnapshot {
   status: CommunityPlanStatus;
@@ -73,7 +73,18 @@ const MAX_CACHE_ENTRIES = 20_000;
 /** Teto de ids avaliados numa lista (ex.: scheduleIds) — acima disso, nega. */
 const MAX_LIST_IDS = 500;
 
-const BASE_ROLES = new Set<string>([UserRole.FAITHFUL, UserRole.VOLUNTEER]);
+/**
+ * Papéis abaixo de PARISH_ADMIN: o escopo de um `communityId` explícito também
+ * vale pelas comunidades do cadastro de membro e dos recursos dele. Coordenador
+ * (de comunidade ou de pastoral) também é fiel: participa/serve em outra
+ * comunidade e o service (ex.: events.service) trata esse caso.
+ */
+const MEMBER_SCOPE_ROLES = new Set<string>([
+  UserRole.FAITHFUL,
+  UserRole.VOLUNTEER,
+  UserRole.PASTORAL_COORDINATOR,
+  UserRole.COMMUNITY_COORDINATOR,
+]);
 
 /** Descobre a comunidade (ou a paróquia) dona de um recurso pelo id. */
 type Resolver = (prisma: PrismaService, id: string) => Promise<PlanTarget | null>;
@@ -350,6 +361,8 @@ export class PlanAccessService {
   private readonly scopeCheckCache = new Map<string, CacheEntry<boolean>>();
   /** Comunidade/paróquia é do piloto? */
   private readonly pilotCache = new Map<string, CacheEntry<boolean>>();
+  /** Comunidade sem linha de plano herda o teste pedido vigente da paróquia? */
+  private readonly heirCache = new Map<string, CacheEntry<boolean>>();
   private readonly hierarchy: HierarchyService;
 
   constructor(
@@ -371,6 +384,8 @@ export class PlanAccessService {
     else this.planCache.clear();
     // O piloto é definido por plano/evento de comunidade: recalcula
     this.pilotCache.clear();
+    // Teste herdado depende do plano das outras comunidades da paróquia
+    this.heirCache.clear();
     // Paróquia/diocese dependem de todas as comunidades delas: limpa tudo (barato)
     this.scopeCache.clear();
   }
@@ -421,10 +436,31 @@ export class PlanAccessService {
    * o piloto mantém acesso total sempre, inclusive numa comunidade NOVA criada
    * depois (que nasce sem linha em CommunityPlan). A consulta do piloto só
    * acontece quando o plano não libera, e fica em cache (60 s).
+   *
+   * Comunidade SEM linha de plano de paróquia com teste PEDIDO vigente
+   * (criada depois do POST /billing/trial): tem acesso até o fim desse teste,
+   * sem esperar o job diário gravar o TRIAL_INHERITED.
    */
   async communityHasAccess(communityId: string, now: Date = new Date()): Promise<boolean> {
-    if (hasPaidAccess(await this.getPlan(communityId), now)) return true;
-    return this.isPilotCommunity(communityId);
+    const plan = await this.getPlan(communityId);
+    if (hasPaidAccess(plan, now)) return true;
+    if (await this.isPilotCommunity(communityId)) return true;
+    if (plan) return false;
+    return this.inheritsParishTrial(communityId, now);
+  }
+
+  /**
+   * Comunidade ATIVA sem linha de plano cuja paróquia tem teste pedido vigente
+   * (`trialHeirCommunityWhere`) — cache 60 s. O fim do teste já está na
+   * condição (`trialEndsAt > agora`), então basta existir.
+   */
+  private async inheritsParishTrial(communityId: string, now: Date): Promise<boolean> {
+    const hit = this.cached(this.heirCache, communityId);
+    if (hit) return hit.value;
+    const value =
+      (await this.prisma.community.count({ where: { AND: [{ id: communityId }, trialHeirCommunityWhere(now)] } })) > 0;
+    this.store(this.heirCache, communityId, value);
+    return value;
   }
 
   /** Comunidade de paróquia do piloto (acesso total) — cache 60 s. */
@@ -460,25 +496,25 @@ export class PlanAccessService {
 
   /**
    * Comunidades (não arquivadas) da paróquia/diocese com acesso pago agora —
-   * pelo plano, mais TODAS as comunidades de paróquia do piloto.
+   * pelo plano, mais TODAS as comunidades de paróquia do piloto e as
+   * comunidades ativas sem linha de plano de paróquia com teste pedido vigente
+   * (teste herdado — mesma regra de `communityHasAccess`).
    */
   private async paidCommunityIdsIn(kind: 'parish' | 'diocese', id: string, now: Date): Promise<string[]> {
     const community = kind === 'parish' ? { parishId: id, deletedAt: null } : { parish: { dioceseId: id }, deletedAt: null };
-    const [rows, pilot] = await Promise.all([
+    const scope: Prisma.CommunityWhereInput = kind === 'parish' ? { parishId: id } : { parish: { dioceseId: id } };
+    const [rows, extra] = await Promise.all([
       this.prisma.communityPlan.findMany({
         where: { status: { in: PAID_STATUSES }, community },
         select: { communityId: true, status: true, trialEndsAt: true, currentPeriodEnd: true, graceDays: true },
       }),
       this.prisma.community.findMany({
-        where:
-          kind === 'parish'
-            ? { parishId: id, deletedAt: null, parish: pilotParishWhere() }
-            : { deletedAt: null, parish: { AND: [{ dioceseId: id }, pilotParishWhere()] } },
+        where: { AND: [scope, { deletedAt: null }, { OR: [{ parish: pilotParishWhere() }, trialHeirCommunityWhere(now)] }] },
         select: { id: true },
       }),
     ]);
     const ids = new Set(rows.filter((row) => hasPaidAccess(row, now)).map((row) => row.communityId));
-    for (const row of pilot ?? []) ids.add(row.id);
+    for (const row of extra ?? []) ids.add(row.id);
     return [...ids];
   }
 
@@ -704,10 +740,48 @@ export class PlanAccessService {
   }
 
   /**
+   * Comunidades (não arquivadas) em que uma pastoral do membro SERVE em algum
+   * evento (ex.: música da Matriz na festa da capela) — cache 60 s. Só para o
+   * escopo do `communityId` explícito da agenda (feature `events`).
+   */
+  private async servedCommunityIds(user: PlanUser): Promise<string[]> {
+    const key = `served:${user.id}`;
+    const hit = this.cached(this.userCache, key);
+    if (hit) return hit.value;
+    const memberId = await this.memberIdOf(user);
+    const ids = memberId
+      ? (
+          await this.prisma.community.findMany({
+            where: {
+              deletedAt: null,
+              events: {
+                some: {
+                  deletedAt: null,
+                  eventPastorals: {
+                    some: { communityPastoral: { deletedAt: null, members: { some: { memberId, isActive: true } } } },
+                  },
+                },
+              },
+            },
+            select: { id: true },
+            take: 200,
+          })
+        ).map((row) => row.id)
+      : [];
+    this.store(this.userCache, key, ids);
+    return ids;
+  }
+
+  /**
    * O id explícito pode ser usado pelo guard? (M43)
-   * - comunidade: escopo da hierarquia (isCommunityInScope); fiel/voluntário
-   *   também nas comunidades do cadastro de membro e dos recursos dele (família
-   *   da capela que vê as turmas abertas da Matriz);
+   * - comunidade: escopo da hierarquia (isCommunityInScope); todo papel abaixo
+   *   de PARISH_ADMIN (fiel, voluntário e também os coordenadores) vale ainda
+   *   nas comunidades do cadastro de membro e dos recursos dele (família da
+   *   capela que vê as turmas abertas da Matriz; coordenador com vínculo de
+   *   membro em outra comunidade) e, na agenda (`events`), nas comunidades em
+   *   que uma pastoral dele serve. Aqui só se decide se o id pode ser AVALIADO
+   *   — o que o usuário enxerga lá continua sendo regra do service, e o plano
+   *   avaliado é o da comunidade pedida;
    * - paróquia: a do usuário (diocese: as paróquias dela).
    */
   async inPlanScope(user: PlanUser, target: PlanTarget, feature: PaidFeature): Promise<boolean> {
@@ -720,10 +794,11 @@ export class PlanAccessService {
     let value = false;
     if ('communityId' in target) {
       value = await this.hierarchy.isCommunityInScope(user as any, id);
-      if (!value && BASE_ROLES.has(user.role)) {
+      if (!value && MEMBER_SCOPE_ROLES.has(user.role)) {
         value =
           (await this.memberLinkCommunityIds(user)).includes(id) ||
-          (await this.resourceCommunityIds(user, feature)).includes(id);
+          (await this.resourceCommunityIds(user, feature)).includes(id) ||
+          (feature === 'events' && (await this.servedCommunityIds(user)).includes(id));
       }
     } else if ('parishId' in target) {
       if (user.role === UserRole.DIOCESAN_ADMIN) {

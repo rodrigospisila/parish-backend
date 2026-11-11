@@ -238,6 +238,21 @@ describe('DataProposalsService — aprovação e rejeição', () => {
       expect(db.state.schedules[0]).toMatchObject({ time: '09:30', dayOfWeek: 0, type: 'MASS' });
     });
 
+    it('a proposta não conhece o fim: a hora muda e o fim acompanha (mesma duração); passou de 23:59 → limpa', async () => {
+      // 08:00–09:15 → 09:30–10:45
+      db.state.schedules.push({ ...schedule(), endTime: '09:15' });
+      db.state.proposals.push(proposal({ kind: 'SCHEDULE_UPDATE', massScheduleId: 'ms-1', payload: { time: '09:30' }, current }));
+      await service.approve('dp-1', {}, admin);
+      expect(db.state.schedules[0]).toMatchObject({ time: '09:30', endTime: '10:45' });
+
+      // 09:30–10:45 → 23:00: o fim cairia em 00:15 → limpa
+      db.state.proposals.push(
+        proposal({ id: 'dp-2', kind: 'SCHEDULE_UPDATE', massScheduleId: 'ms-1', payload: { time: '23:00' }, current: { ...current, time: '09:30' } }),
+      );
+      await service.approve('dp-2', {}, admin);
+      expect(db.state.schedules[0]).toMatchObject({ time: '23:00', endTime: null });
+    });
+
     it('payload vazio sem edição → 400 "Informe o horário certo"', async () => {
       db.state.schedules.push(schedule());
       db.state.proposals.push(proposal({ kind: 'SCHEDULE_UPDATE', massScheduleId: 'ms-1', payload: {}, current }));

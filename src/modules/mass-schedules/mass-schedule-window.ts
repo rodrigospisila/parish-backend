@@ -65,6 +65,30 @@ export function assertEndTime(time: string, endTime: string | null | undefined):
   return end;
 }
 
+const hhmmToMin = (hhmm: string) => Number(hhmm.slice(0, 2)) * 60 + Number(hhmm.slice(3, 5));
+
+/**
+ * A hora de início mudou e o fim NÃO foi enviado (cliente que não conhece o
+ * campo, proposta de dados): o fim acompanha, preservando a duração — "19:00–
+ * 20:00" movido para 08:00 vira "08:00–09:00", e não "08:00–20:00". Devolve o
+ * fim a gravar: `null` (limpa → duração padrão do tipo) quando o fim deslocado
+ * passaria de 23:59 ou quando o fim gravado já não valia.
+ */
+export function shiftedEndTime(oldTime: string, oldEndTime: string | null | undefined, newTime: string): string | null {
+  if (oldEndTime == null) return null;
+  const from = normalizeHhmm(oldTime);
+  const to = normalizeHhmm(newTime);
+  const end = normalizeHhmm(oldEndTime);
+  // Início igual: o fim fica como está, se ainda vale
+  if (from === to) return isUsableEndTime(to, end) ? end : null;
+  // Fim gravado inválido (dado antigo) ou hora fora do formato: não há duração a preservar
+  if (!HHMM_RE.test(from) || !HHMM_RE.test(to) || !isUsableEndTime(from, end)) return null;
+  const shifted = hhmmToMin(to) + (hhmmToMin(end) - hhmmToMin(from));
+  // Fim depois da meia-noite não é suportado: limpa
+  if (shifted > 23 * 60 + 59) return null;
+  return `${String(Math.floor(shifted / 60)).padStart(2, '0')}:${String(shifted % 60).padStart(2, '0')}`;
+}
+
 /** início ≤ agora < fim, e nunca numa ocorrência suspensa ("não haverá"). */
 export function isHappeningNow(start: string, end: string, nowLocal: string, cancelled = false): boolean {
   if (cancelled) return false;

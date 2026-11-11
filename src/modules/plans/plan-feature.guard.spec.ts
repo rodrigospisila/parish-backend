@@ -112,6 +112,10 @@ describe('PlanFeatureGuard', () => {
   let communities: Record<string, any>;
   /** Paróquias do piloto (pilotParishWhere) e as comunidades delas */
   let pilotParishes: Set<string>;
+  /** Comunidades ativas SEM linha de plano de paróquia com teste pedido vigente (trialHeirCommunityWhere) */
+  let trialHeirs: Set<string>;
+  /** Comunidades em que uma pastoral do membro serve em evento (memberId → ids) */
+  let served: Record<string, string[]>;
 
   const ctx = (cls: any, handler: string, req: any): ExecutionContext =>
     ({
@@ -133,6 +137,8 @@ describe('PlanFeatureGuard', () => {
       'trial-com': { id: 'trial-com', parishId: 'P-PAID', parish: { dioceseId: 'D-PAID' } },
     };
     pilotParishes = new Set();
+    trialHeirs = new Set();
+    served = {};
     const byId = (rows: Record<string, any>) => ({
       findUnique: jest.fn(async ({ where }: any) => rows[where.id] ?? null),
     });
@@ -171,13 +177,29 @@ describe('PlanFeatureGuard', () => {
       // Comunidades dos recursos do membro (turmas, escalas, pastorais)
       community: {
         // Piloto: comunidade de paróquia do piloto (PlanAccessService.isPilotCommunity)
-        count: jest.fn(async ({ where }) => (pilotParishes.has(communities[where.id]?.parishId) ? 1 : 0)),
+        count: jest.fn(async ({ where }) => {
+          // Teste herdado (PlanAccessService.inheritsParishTrial): AND [{ id }, trialHeirCommunityWhere]
+          if (where.AND) return trialHeirs.has(where.AND[0].id) ? 1 : 0;
+          return pilotParishes.has(communities[where.id]?.parishId) ? 1 : 0;
+        }),
         findMany: jest.fn(async ({ where }) => {
-          // Piloto: todas as comunidades da paróquia do piloto (paidCommunityIdsIn)
-          if (!where.OR && where.parish) {
+          // paidCommunityIdsIn: comunidades do escopo que são do piloto OU herdam o teste pedido
+          if (where.AND) {
+            const scope = where.AND[0];
             return Object.values(communities)
-              .filter((c: any) => pilotParishes.has(c.parishId) && (!where.parishId || c.parishId === where.parishId))
+              .filter(
+                (c: any) =>
+                  (pilotParishes.has(c.parishId) || trialHeirs.has(c.id)) &&
+                  (!scope.parishId || c.parishId === scope.parishId) &&
+                  (!scope.parish?.dioceseId || c.parish?.dioceseId === scope.parish.dioceseId),
+              )
               .map((c: any) => ({ id: c.id }));
+          }
+          // servedCommunityIds: pastoral do membro servindo em evento da comunidade
+          if (where.events) {
+            const text = JSON.stringify(where.events);
+            const id = Object.keys(served).find((memberId) => text.includes(`"${memberId}"`));
+            return (id ? served[id] : []).map((communityId) => ({ id: communityId }));
           }
           const json = JSON.stringify(where.OR ?? []);
           const memberId = Object.keys(resources).find((id) => json.includes(`"${id}"`));
@@ -566,8 +588,9 @@ describe('PlanFeatureGuard', () => {
         ['sacrament', 'sac-paid', 'sac-free'],
       ] as const) {
         await expect(allowed(NewsDummy, handler, paid)).resolves.toBe(true);
+        // Recurso de comunidade FORA do escopo do usuário: o 403 não revela de quem é
         await expect(allowed(NewsDummy, handler, free, faithful({ communityId: 'paid-com' }))).rejects.toMatchObject({
-          response: { code: 'PLAN_REQUIRED', feature: 'news', communityId: 'free-com' },
+          response: { code: 'PLAN_REQUIRED', feature: 'news', communityId: null },
         });
       }
     });
@@ -696,10 +719,115 @@ describe('PlanFeatureGuard', () => {
     });
   });
 
+  describe('teste pedido pela paróquia — comunidade criada depois (sem linha de plano) herda o acesso', () => {
+    beforeEach(() => {
+      communities['nova-trial'] = { id: 'nova-trial', parishId: 'P-PAID', parish: { dioceseId: 'D-PAID' } };
+      trialHeirs.add('nova-trial');
+    });
+
+    it('tem acesso sem esperar o job; o critério é o trialHeirCommunityWhere, com cache de 60 s', async () => {
+      await expect(access.getPlan('nova-trial')).resolves.toBeNull();
+      await expect(access.communityHasAccess('nova-trial')).resolves.toBe(true);
+      await expect(access.communityHasAccess('nova-trial')).resolves.toBe(true);
+      const heirCalls = prisma.community.count.mock.calls.filter((call: any[]) => call[0].where.AND);
+      expect(heirCalls).toHaveLength(1);
+      const where = heirCalls[0][0].where;
+      expect(where.AND[0]).toEqual({ id: 'nova-trial' });
+      expect(where.AND[1]).toMatchObject({ deletedAt: null, status: 'ACTIVE', communityPlan: { is: null } });
+      // Só teste PEDIDO (evento TRIAL_REQUESTED) e ainda vigente
+      const source = where.AND[1].parish.communities.some;
+      expect(source.communityPlanEvents).toEqual({ some: { action: 'TRIAL_REQUESTED' } });
+      expect(source.communityPlan.is).toMatchObject({ status: 'TRIAL', trialEndsAt: { gt: expect.any(Date) } });
+
+      const user = faithful({ communityId: 'nova-trial' });
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', { user }))).resolves.toBe(true);
+    });
+
+    it('comunidade sem linha de plano de paróquia SEM teste vigente continua sem acesso', async () => {
+      await expect(access.communityHasAccess('free-com')).resolves.toBe(false);
+      await expect(guard.canActivate(ctx(CatechesisDummy, 'plain', { user: faithful() }))).rejects.toBeInstanceOf(ForbiddenException);
+    });
+
+    it('comunidade COM linha de plano (teste vencido, grátis) não herda nada', async () => {
+      trialHeirs.add('expired-com');
+      await expect(access.communityHasAccess('expired-com')).resolves.toBe(false);
+      expect(prisma.community.count.mock.calls.filter((call: any[]) => call[0].where.AND)).toHaveLength(0);
+    });
+
+    it('entra na lista de comunidades com acesso do PARISH_ADMIN e não some das listas', async () => {
+      const admin = { id: 'adm', role: 'PARISH_ADMIN', parishId: 'P-PAID' };
+      prisma.communityPlan.findMany.mockResolvedValueOnce([
+        { communityId: 'paid-com', status: 'ACTIVE', trialEndsAt: null, currentPeriodEnd: null, graceDays: 15 },
+      ]);
+      await expect(access.paidCommunityIdsInScope(admin as any)).resolves.toEqual(['paid-com', 'nova-trial']);
+      const items = [{ id: 'a', communityId: 'nova-trial' }, { id: 'b', communityId: 'free-com' }];
+      expect((await access.filterByPlan({ role: 'PARISH_ADMIN' }, items, (i) => i.communityId)).map((i) => i.id)).toEqual(['a']);
+    });
+
+    it('invalidate() (mudança de plano) refaz a consulta', async () => {
+      await access.communityHasAccess('nova-trial');
+      trialHeirs.delete('nova-trial');
+      await expect(access.communityHasAccess('nova-trial')).resolves.toBe(true); // cache
+      access.invalidate('paid-com');
+      await expect(access.communityHasAccess('nova-trial')).resolves.toBe(false);
+    });
+  });
+
+  describe('escopo do communityId explícito — coordenador também é membro (PLAN_SCOPE)', () => {
+    @RequiresFeature('events')
+    class EventsDummy {
+      list() {}
+    }
+    const coordinator = (role: string, over: any = {}) => ({ id: 'coord', role, communityId: 'free-com', parishId: 'P-FREE', ...over });
+    const list = (user: any, communityId: string) => guard.canActivate(ctx(EventsDummy, 'list', { user, query: { communityId } }));
+
+    it.each(['PASTORAL_COORDINATOR', 'COMMUNITY_COORDINATOR'])(
+      '%s com vínculo de membro na comunidade B: GET /events?communityId=B passa pelo plano de B (antes: 403 PLAN_SCOPE)',
+      async (role) => {
+        memberOf.coord = 'm-coord';
+        memberLinks['m-coord'] = ['paid-com'];
+        await expect(list(coordinator(role), 'paid-com')).resolves.toBe(true);
+      },
+    );
+
+    it.each(['PASTORAL_COORDINATOR', 'COMMUNITY_COORDINATOR'])('%s cuja pastoral serve em evento de B: passa (só na agenda)', async (role) => {
+      memberOf.coord = 'm-coord';
+      served['m-coord'] = ['paid-com'];
+      await expect(list(coordinator(role), 'paid-com')).resolves.toBe(true);
+      // Fora da agenda, servir em B não abre o communityId de B
+      await expect(
+        guard.canActivate(ctx(CatechesisDummy, 'plain', { user: coordinator(role), query: { communityId: 'paid-com' } })),
+      ).rejects.toMatchObject({ response: { code: 'PLAN_SCOPE' } });
+    });
+
+    it('o vínculo só abre o ESCOPO: o plano avaliado é o da comunidade pedida', async () => {
+      memberOf.coord = 'm-coord';
+      memberLinks['m-coord'] = ['free-com'];
+      const user = coordinator('PASTORAL_COORDINATOR', { communityId: 'paid-com', parishId: 'P-PAID' });
+      await expect(list(user, 'free-com')).rejects.toMatchObject({
+        response: { code: 'PLAN_REQUIRED', feature: 'events', communityId: 'free-com' },
+      });
+    });
+
+    it('coordenador SEM vínculo nem serviço em B continua 403 PLAN_SCOPE; PARISH_ADMIN não ganha o atalho', async () => {
+      memberOf.coord = 'm-coord';
+      await expect(list(coordinator('PASTORAL_COORDINATOR'), 'paid-com')).rejects.toMatchObject({ response: { code: 'PLAN_SCOPE' } });
+      await expect(list(coordinator('COMMUNITY_COORDINATOR'), 'paid-com')).rejects.toMatchObject({ response: { code: 'PLAN_SCOPE' } });
+      memberLinks['m-coord'] = ['paid-com'];
+      await expect(list(coordinator('PARISH_ADMIN'), 'paid-com')).rejects.toMatchObject({ response: { code: 'PLAN_SCOPE' } });
+    });
+  });
+
   describe('B12 removida — escalas de um evento deixaram de ser leitura grátis (evento é pago)', () => {
     it('GET /schedules?eventId= de evento de comunidade sem plano: 403 pela comunidade do evento', async () => {
       const req = { query: { eventId: 'ev-free' }, user: faithful({ communityId: 'paid-com' }) };
+      // Evento de comunidade alheia: bloqueia pela comunidade do evento, sem revelar qual é
       await expect(guard.canActivate(ctx(SchedulesController, 'findAllSchedules', req))).rejects.toMatchObject({
+        response: { code: 'PLAN_REQUIRED', feature: 'schedules', communityId: null },
+      });
+      // A própria comunidade (no escopo) continua vindo no corpo
+      const own = { query: { eventId: 'ev-free' }, user: faithful({ communityId: 'free-com' }) };
+      await expect(guard.canActivate(ctx(SchedulesController, 'findAllSchedules', own))).rejects.toMatchObject({
         response: { code: 'PLAN_REQUIRED', feature: 'schedules', communityId: 'free-com' },
       });
       expect(prisma.event.findUnique).toHaveBeenCalled();

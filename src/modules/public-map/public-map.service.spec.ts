@@ -153,9 +153,14 @@ describe('PublicMapService — mapa público', () => {
 
       const r = await service.communityDetail('c1');
 
+      // sem ?live: corte antigo (30 min após o início)
       expect(masses.nextMassesByCommunity).toHaveBeenCalledWith(['c1'], 7, Object.values(MassScheduleType), 50, {
         states: new Map([['c1', 'PR']]),
+        live: false,
       });
+      // ?live=1 (app novo): em andamento fica até o fim
+      await service.communityDetail('c1', { live: true });
+      expect(masses.nextMassesByCommunity.mock.calls[1][4]).toMatchObject({ live: true });
       expect(r).toMatchObject({
         id: 'c1',
         zipCode: '84000-000',

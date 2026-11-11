@@ -1,10 +1,12 @@
-import { Inject, Injectable, Logger, forwardRef } from '@nestjs/common';
+import { Inject, Injectable, Logger, Optional, forwardRef } from '@nestjs/common';
 import { NotificationType } from '@prisma/client';
 import { PrismaService } from '../../database/prisma.service';
 import { AuditService } from '../../common/audit.service';
 import { MessagingService } from '../messaging/messaging.service';
 import { buildPixBrCode } from './pix-brcode';
 import { TitheService, safeName } from './tithe.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { TITHE_NOT_ACTIVE_MESSAGE, titheBlockedByPlan } from './tithe-plan';
 
 const MONTH_NAMES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
 const monthLabel = (referenceMonth: string) => {
@@ -22,6 +24,11 @@ export const WHATSAPP_PIX_RESEND_MS = 6 * 60 * 60 * 1000;
  * é avisada; ao confirmar, recebe o "Deus lhe pague". SAIR desliga. O canal
  * só funciona com o Twilio do servidor configurado e a paróquia com o WhatsApp
  * ativado; nada aqui derruba o fluxo principal.
+ *
+ * Plano: o dízimo é recurso pago (nível paróquia). Com PLAN_ENFORCEMENT=on e a
+ * paróquia sem acesso, nenhum Pix NOVO sai por aqui (lembrete mensal, comando
+ * PIX, opt-in QUERO); PAGUEI de um Pix já enviado, o agradecimento e SAIR
+ * continuam — dinheiro em trânsito nunca fica preso.
  */
 @Injectable()
 export class TitheWhatsAppService {
@@ -32,7 +39,14 @@ export class TitheWhatsAppService {
     private readonly messaging: MessagingService,
     private readonly auditService: AuditService,
     @Inject(forwardRef(() => TitheService)) private readonly tithe: TitheService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /** Paróquia sem o dízimo no plano (só no modo `on`): não cria contribuição nova. */
+  blockedByPlan(parishId: string): Promise<boolean> {
+    return titheBlockedByPlan(this.planAccess, parishId, this.logger);
+  }
 
   serverConfigured(): boolean {
     return this.messaging.whatsappConfigured;
@@ -96,6 +110,8 @@ export class TitheWhatsAppService {
     if (!member?.phone || !member.community) return false;
     const parish = await this.tithe.parishFor(member.community.parishId);
     if (!parish?.whatsappEnabled || !this.tithe.parishUsable(parish)) return false;
+    // Sem plano não nasce dízimo novo (nem o convite a contribuir pelo app)
+    if (await this.blockedByPlan(parish.id)) return false;
     const [lastIntent, tither] = await Promise.all([
       this.prisma.titheIntent.findFirst({ where: { memberId: member.id, kind: 'TITHE', status: 'CONFIRMED' }, orderBy: { confirmedAt: 'desc' }, select: { amount: true } }),
       this.prisma.tither.findUnique({ where: { memberId: member.id }, select: { contributions: { orderBy: { date: 'desc' }, take: 1, select: { amount: true } } } }),
@@ -198,6 +214,7 @@ export class TitheWhatsAppService {
     }
     if (['QUERO', 'ENTRAR', 'SIM', 'VOLTAR'].includes(text)) {
       if (!member.community?.parish.whatsappEnabled) return `${name}, sua paróquia ainda não ativou o WhatsApp do dízimo. Use o app Parish.`;
+      if (await this.blockedByPlan(member.community.parishId)) return `${name}, ${TITHE_NOT_ACTIVE_MESSAGE}. Procure a secretaria paroquial para contribuir.`;
       // Sem dia de lembrete o Pix do mês não teria quando sair
       await this.prisma.member.update({
         where: { id: member.id },
@@ -234,6 +251,10 @@ export class TitheWhatsAppService {
       return `Obrigado, ${name}! Avisamos a tesouraria; assim que conferirem, você recebe a confirmação. Deus lhe pague! 🙏`;
     }
     if (['PIX', 'DIZIMO', 'DÍZIMO', 'CONTRIBUIR'].includes(text)) {
+      // Paróquia sem o dízimo no plano: resposta curta, sem gastar o freio nem criar Pix
+      if (member.community && (await this.blockedByPlan(member.community.parishId))) {
+        return `${name}, ${TITHE_NOT_ACTIVE_MESSAGE}. Procure a secretaria paroquial para contribuir.`;
+      }
       if (!member.whatsappOptIn) return `${name}, para receber o Pix por aqui responda QUERO primeiro (ou use o app Parish).`;
       // Freio (B25): conta ENVIOS, não status — o Pix do mês aberto é
       // reaproveitado e reenviado a cada PIX, e contar intents fora de CREATED

@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { Throttle } from '@nestjs/throttler';
 import { MassesService } from './masses.service';
-import { parseMassFocus, parseOptionalNumber, parseTypesCsv } from './map-search.utils';
+import { parseLiveFlag, parseMassFocus, parseOptionalNumber, parseTypesCsv } from './map-search.utils';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { UserThrottlerGuard } from '../auth/guards/app-throttler.guard';
 
@@ -26,7 +26,8 @@ export class MassesController {
 
   /**
    * Missas mais próximas de uma coordenada (busca aberta entre comunidades).
-   * GET /masses/nearby?lat=&lng=&radiusKm=&days=&types=MASS,CONFESSION&limit=&day=&from=&to=
+   * GET /masses/nearby?lat=&lng=&radiusKm=&days=&types=MASS,CONFESSION&limit=&day=&from=&to=&live=1
+   * `live=1`: celebração em andamento fica na lista até o fim (padrão: sai 30 min após o início).
    */
   @Get('nearby')
   nearby(
@@ -39,6 +40,7 @@ export class MassesController {
     @Query('day') day?: string,
     @Query('from') from?: string,
     @Query('to') to?: string,
+    @Query('live') live?: string,
   ) {
     return this.massesService.findNearby({
       lat,
@@ -49,6 +51,7 @@ export class MassesController {
       // Padrão 300, máx. 500 igrejas (clampMapLimit no serviço)
       limit: parseOptionalNumber(limit, 'limit'),
       focus: parseMassFocus(day, from, to),
+      live: parseLiveFlag(live),
     });
   }
 }

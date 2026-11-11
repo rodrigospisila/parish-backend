@@ -312,17 +312,21 @@ export class BillingService {
       .filter((plan) => plan?.status === CommunityPlanStatus.TRIAL && plan.trialEndsAt)
       .map((plan) => plan!.trialEndsAt!.getTime());
     const trialEndsAt = runningEnds.length ? new Date(Math.max(...runningEnds)) : (trialUsed?.endsAt ?? null);
+    const enforcement = this.access.enforcement();
     return {
       parish,
-      enforcement: this.access.enforcement(),
+      /** Modo do bloqueio por plano (`off` | `log` | `on`): fora de `on` tudo está liberado */
+      enforcement,
       trialDays: DEFAULT_TRIAL_DAYS,
       /**
        * Teste de 30 dias por PEDIDO (POST /billing/trial), uma vez por paróquia:
-       * `available` = ainda não usado, paróquia fora do piloto e com alguma
-       * comunidade sem acesso pago; `usedAt`/`endsAt` = quando começou/termina.
+       * `available` = bloqueio por plano ligado (`on`), ainda não usado, paróquia
+       * fora do piloto e com alguma comunidade sem acesso pago; `usedAt`/`endsAt`
+       * = quando começou/termina. Com o bloqueio desligado (off/log) tudo já está
+       * liberado: o teste único NÃO pode ser gasto à toa.
        */
       trial: {
-        available: !pilotParish && !trialUsed && eligible > 0,
+        available: enforcement === 'on' && !pilotParish && !trialUsed && eligible > 0,
         usedAt: trialUsed ? trialUsed.usedAt.toISOString() : null,
         endsAt: trialUsed && trialEndsAt ? trialEndsAt.toISOString() : null,
       },
@@ -391,8 +395,16 @@ export class BillingService {
    * Inicia o teste de 30 dias (planTransition START_TRIAL, evento
    * TRIAL_REQUESTED) em todas as comunidades ATIVAS da paróquia sem acesso
    * pago. Uma vez por paróquia (409 TRIAL_ALREADY_USED); piloto não precisa
-   * (409 TRIAL_NOT_NEEDED). Trava por paróquia (advisory lock) dentro da
-   * mesma transação das gravações: dois cliques não criam dois testes.
+   * (409 TRIAL_NOT_NEEDED). Com PLAN_ENFORCEMENT fora de `on` tudo já está
+   * liberado: 409 TRIAL_NOT_NEEDED sem gravar nada (o teste único não é gasto
+   * à toa). Trava por paróquia (advisory lock) dentro da mesma transação das
+   * gravações: dois cliques não criam dois testes.
+   *
+   * Corrida teste × pagamento: a leitura do plano e a gravação do teste não
+   * são atômicas (o webhook do provedor pode ATIVAR o plano entre uma e outra).
+   * A gravação é por CAS — só vira TRIAL a linha que continua com o status e o
+   * período lidos; comunidade sem linha usa createMany/skipDuplicates. Quem
+   * perdeu a corrida fica como está (sem evento).
    */
   async requestTrial(user: BillingUser, dto: RequestTrialDto, now: Date = new Date()) {
     const parishId = this.resolveParishId(user, dto?.parishId);
@@ -400,6 +412,14 @@ export class BillingService {
     await this.assertCanView(user, parishId);
     const parish = await this.prisma.parish.findUnique({ where: { id: parishId }, select: { id: true } });
     if (!parish) throw new NotFoundException('Paróquia não encontrada');
+
+    // Bloqueio por plano desligado (off/log): nada está bloqueado — não gasta o teste único
+    if (this.access.enforcement() !== 'on') {
+      throw new ConflictException({
+        code: 'TRIAL_NOT_NEEDED',
+        message: 'Todos os recursos já estão liberados para a sua paróquia no momento.',
+      });
+    }
 
     if (await this.access.isPilotParish(parishId)) {
       throw new ConflictException({
@@ -439,12 +459,20 @@ export class BillingService {
         const current = community.communityPlan;
         // A faixa já escolhida (se houver) fica como está: START_TRIAL sem faixa não mexe nela
         const result = planTransition(current ? { ...current, tier: null } : null, { action: 'START_TRIAL' }, null, now);
+        // CAS: o webhook pode ter ativado o plano depois da leitura acima — nunca regrava TRIAL por cima
+        const written = current
+          ? await tx.communityPlan.updateMany({
+              where: {
+                communityId: community.id,
+                status: current.status,
+                trialEndsAt: current.trialEndsAt,
+                currentPeriodEnd: current.currentPeriodEnd,
+              },
+              data: result.data,
+            })
+          : await tx.communityPlan.createMany({ data: [{ communityId: community.id, ...result.data }], skipDuplicates: true });
+        if (written.count === 0) continue;
         trialEndsAt = result.data.trialEndsAt ?? trialEndsAt;
-        await tx.communityPlan.upsert({
-          where: { communityId: community.id },
-          create: { communityId: community.id, ...result.data },
-          update: result.data,
-        });
         await tx.communityPlanEvent.create({
           data: {
             communityId: community.id,
@@ -462,7 +490,14 @@ export class BillingService {
         });
         ids.push(community.id);
       }
-      return { trialEndsAt: trialEndsAt!, ids };
+      if (!ids.length || !trialEndsAt) {
+        // Todas mudaram de situação neste instante (ex.: pagamento confirmado): não gasta o teste
+        throw new ConflictException({
+          code: 'TRIAL_NOT_NEEDED',
+          message: 'As comunidades desta paróquia já têm acesso aos recursos do plano.',
+        });
+      }
+      return { trialEndsAt, ids };
     });
 
     for (const id of started.ids) this.access.invalidate(id);

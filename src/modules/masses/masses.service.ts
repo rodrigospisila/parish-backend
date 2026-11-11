@@ -223,9 +223,12 @@ export class MassesService {
   /**
    * Próximas celebrações (agenda fixa expandida + eventos de Missa publicados e
    * PÚBLICOS) por comunidade, em ordem de horário. O "agora" é o relógio de parede
-   * do fuso da comunidade (pela UF: no Acre, 2 h antes de Brasília). O que está
-   * em andamento fica na lista até o FIM (`happeningNow`), e o que começou há até
-   * 30 min ainda entra mesmo que seja mais curto que isso.
+   * do fuso da comunidade (pela UF: no Acre, 2 h antes de Brasília).
+   *
+   * Corte do que já começou: por padrão, o de sempre — sai da lista 30 min depois
+   * do INÍCIO (clientes antigos, como o app 1.1.0, mostram o primeiro item como
+   * "próxima"). Com `live` (`?live=1`, cliente que entende `happeningNow`), o que
+   * está em andamento fica até o FIM. `happeningNow` é devolvido nos dois casos.
    *
    * Teto por igreja: as `perCommunity` primeiras + as que casam com `focus` (filtro
    * de dia/horário do app) ou, sem ele, as do próximo domingo — ver pickMasses.
@@ -236,8 +239,9 @@ export class MassesService {
     days: number,
     types: MassScheduleType[],
     perCommunity: number = MAX_MASSES_PER_COMMUNITY,
-    opts: { states?: Map<string, string | null | undefined>; focus?: MassFocus } = {},
+    opts: { states?: Map<string, string | null | undefined>; focus?: MassFocus; live?: boolean } = {},
   ): Promise<Map<string, NearbyMass[]>> {
+    const live = opts.live === true;
     const massesByCommunity = new Map<string, NearbyMass[]>();
     if (communityIds.length === 0) return massesByCommunity;
 
@@ -312,12 +316,14 @@ export class MassesService {
       massesByCommunity.set(communityId, list);
     };
     /**
-     * Já passou? Fica na lista o que ainda não terminou (agora < fim) e o que
-     * começou há até 30 min (tolerância antiga, para o que é mais curto que isso).
+     * Já passou? Padrão (cliente antigo): começou há mais de 30 min. Com `live`:
+     * fica o que ainda não terminou (agora < fim) e o que começou há até 30 min
+     * (para o que é mais curto que isso).
      */
     const isPast = (communityId: string, start: string, end: string) => {
       const now = nowFor(communityId);
-      return end <= now && start < shiftFloating(now, -STARTED_TOLERANCE_MIN);
+      const startedLongAgo = start < shiftFloating(now, -STARTED_TOLERANCE_MIN);
+      return live ? end <= now && startedLongAgo : startedLongAgo;
     };
 
     for (const occ of fixed) {
@@ -391,13 +397,14 @@ export class MassesService {
     types: MassScheduleType[],
     withDistance: boolean,
     focus?: MassFocus,
+    live?: boolean,
   ): Promise<MapCommunity[]> {
     const masses = await this.nextMassesByCommunity(
       rows.map((c) => c.id),
       days,
       types,
       MAX_MASSES_PER_COMMUNITY,
-      { states: new Map(rows.map((c) => [c.id, c.state])), focus },
+      { states: new Map(rows.map((c) => [c.id, c.state])), focus, live },
     );
     // Com Missa na seleção, uma comunidade sem horário no período ainda aparece
     // (nextMasses vazio): o mapa mostra as igrejas, não só as missas. Só com
@@ -433,6 +440,8 @@ export class MassesService {
     approx?: boolean;
     limit?: number;
     focus?: MassFocus;
+    /** `?live=1`: mantém na lista o que está em andamento até o fim. */
+    live?: boolean;
   }): Promise<MapSearchResult> {
     const { lat, lng } = input;
     if (!Number.isFinite(lat) || lat < -90 || lat > 90) {
@@ -452,7 +461,7 @@ export class MassesService {
     const truncated = near.length > limit;
     const kept = truncated ? near.slice(0, limit) : near;
 
-    const communities = await this.withNextMasses(kept, days, types, true, input.focus);
+    const communities = await this.withNextMasses(kept, days, types, true, input.focus, input.live);
     return { origin: { lat, lng }, bbox: null, radiusKm, days, count: communities.length, truncated, communities };
   }
 
@@ -473,6 +482,8 @@ export class MassesService {
     approx?: boolean;
     limit?: number;
     focus?: MassFocus;
+    /** `?live=1`: mantém na lista o que está em andamento até o fim. */
+    live?: boolean;
   }): Promise<MapAreaResult> {
     const requested = parseBbox(input.bbox);
     const days = clampDays(input.days);
@@ -505,7 +516,7 @@ export class MassesService {
     const truncated = sorted.length > limit;
     const kept = truncated ? sorted.slice(0, limit) : sorted;
 
-    const communities = await this.withNextMasses(kept, days, types, false, input.focus);
+    const communities = await this.withNextMasses(kept, days, types, false, input.focus, input.live);
     return { mode: 'pins', zoom: zoom ?? null, origin: null, bbox, radiusKm: null, days, count: communities.length, truncated, communities };
   }
 

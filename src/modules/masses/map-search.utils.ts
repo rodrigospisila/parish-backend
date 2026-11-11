@@ -80,22 +80,39 @@ export function timeZoneForState(state?: string | null): string {
 }
 
 /**
+ * Um formatador por fuso, criado uma vez e reutilizado (cache de módulo): criar
+ * um `Intl.DateTimeFormat` custa ~1 ms síncrono, e as listas de horários pediam
+ * um por linha — 53 mil horários travavam o event loop por dezenas de segundos.
+ * São no máximo 7 fusos (UF_TIME_ZONES + Brasília), então o cache não cresce.
+ */
+const FLOATING_FORMATTERS = new Map<string, Intl.DateTimeFormat>();
+
+function floatingFormatter(timeZone: string): Intl.DateTimeFormat {
+  let formatter = FLOATING_FORMATTERS.get(timeZone);
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat('en-CA', {
+      timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hourCycle: 'h23',
+    });
+    FLOATING_FORMATTERS.set(timeZone, formatter);
+  }
+  return formatter;
+}
+
+/**
  * "Agora" num fuso como relógio de parede (YYYY-MM-DDTHH:MM:SS), independente do
  * fuso do servidor. Todo o sistema trata horários como "wall clock" (a agenda
  * fixa emite horário flutuante e os eventos são gravados com o horário digitado),
  * então a comparação de "próximas" é feita no relógio de parede da comunidade.
  */
 export function nowFloatingIn(timeZone: string, at: Date = new Date()): string {
-  const parts = new Intl.DateTimeFormat('en-CA', {
-    timeZone,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hourCycle: 'h23',
-  }).formatToParts(at);
+  const parts = floatingFormatter(timeZone).formatToParts(at);
   const v = (t: string) => parts.find((p) => p.type === t)?.value ?? '00';
   return `${v('year')}-${v('month')}-${v('day')}T${v('hour')}:${v('minute')}:${v('second')}`;
 }
@@ -247,6 +264,18 @@ export function parseFlag(value?: string | null): boolean {
   if (value == null) return false;
   const v = String(value).trim().toLowerCase();
   return v === '1' || v === 'true';
+}
+
+/**
+ * `?live=`: ausente/vazio/0/false → corte antigo (30 min após o início);
+ * 1/true → o que está em andamento fica na lista até o fim. Outro valor → 400.
+ */
+export function parseLiveFlag(value?: string | null): boolean {
+  if (value == null) return false;
+  const v = String(value).trim().toLowerCase();
+  if (v === '' || v === '0' || v === 'false') return false;
+  if (v === '1' || v === 'true') return true;
+  throw new BadRequestException('Parâmetro live inválido: use 1 ou 0');
 }
 
 /** Número opcional de query string (vazio/ausente → undefined; lixo → 400). */

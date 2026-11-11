@@ -154,7 +154,7 @@ export class PublicMapService {
    * paróquia além do contato (a paróquia guarda chaves do provedor de pagamento e
    * a chave Pix), nada de membros nem do coordenador.
    */
-  async communityDetail(id: string): Promise<PublicCommunityDetail> {
+  async communityDetail(id: string, opts: { live?: boolean } = {}): Promise<PublicCommunityDetail> {
     const c = await this.prisma.community.findFirst({
       where: { id, deletedAt: null, status: 'ACTIVE' },
       select: {
@@ -243,7 +243,7 @@ export class PublicMapService {
       DETAIL_DAYS,
       Object.values(MassScheduleType),
       DETAIL_MAX_MASSES,
-      { states: new Map([[c.id, c.state]]) },
+      { states: new Map([[c.id, c.state]]), live: opts.live === true },
     );
 
     const parish = c.parish

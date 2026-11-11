@@ -1,4 +1,4 @@
-import { CommunityPlanStatus, Prisma } from '@prisma/client';
+import { CommunityPlanStatus, EntityStatus, Prisma } from '@prisma/client';
 import { DEFAULT_GRACE_DAYS } from '../plans/plan-rules';
 import { brDate, ymdInBrazil } from '../billing/billing-rules';
 
@@ -89,6 +89,37 @@ export function pilotParishWhere(): Prisma.ParishWhereInput {
   };
 }
 
+/** Evento do teste pedido pela paróquia (POST /billing/trial) e do teste herdado por comunidade nova. */
+export const TRIAL_REQUESTED_EVENT = 'TRIAL_REQUESTED';
+export const TRIAL_INHERITED_EVENT = 'TRIAL_INHERITED';
+
+/**
+ * Comunidade cujo teste PEDIDO pela paróquia ainda está vigente (TRIAL com
+ * fim no futuro + evento TRIAL_REQUESTED). Teste dado pelo painel da
+ * plataforma a UMA comunidade (START_TRIAL) não entra: não se estende às demais.
+ */
+export function requestedTrialCommunityWhere(now: Date): Prisma.CommunityWhereInput {
+  return {
+    communityPlan: { is: { status: CommunityPlanStatus.TRIAL, trialEndsAt: { gt: now } } },
+    communityPlanEvents: { some: { action: TRIAL_REQUESTED_EVENT } },
+  };
+}
+
+/**
+ * Comunidade ATIVA criada DEPOIS do pedido de teste: não tem linha de plano,
+ * mas a paróquia dela tem teste pedido vigente — herda o mesmo fim de teste
+ * (job diário `plan-lifecycle`, evento TRIAL_INHERITED) e, até o job passar,
+ * já conta como com acesso (PlanAccessService).
+ */
+export function trialHeirCommunityWhere(now: Date): Prisma.CommunityWhereInput {
+  return {
+    deletedAt: null,
+    status: EntityStatus.ACTIVE,
+    communityPlan: { is: null },
+    parish: { communities: { some: requestedTrialCommunityWhere(now) } },
+  };
+}
+
 export function dueNotice(plan: LifecyclePlan, now: Date): DueNotice | null {
   const nowMs = now.getTime();
 
@@ -137,6 +168,12 @@ export interface NoticeMessageInput {
   supportLine?: string | null;
   /** A assinatura foi cancelada pela paróquia */
   canceled?: boolean;
+  /**
+   * O bloqueio por plano está LIGADO (PLAN_ENFORCEMENT=on)? Só então o texto
+   * afirma que os recursos pagos ficaram indisponíveis/suspensos; fora disso
+   * (off/log, padrão) nada foi bloqueado e o texto fica neutro.
+   */
+  enforced?: boolean;
 }
 
 export interface NoticeMessage {
@@ -147,9 +184,11 @@ export interface NoticeMessage {
   body: string;
 }
 
-// Plano grátis enxuto (11/11/2026): ver PAID_FEATURES / FREE_FEATURES
-const PAID_LIST =
-  'pastorais, escalas e trocas, catequese, formação, eventos, notícias, sacramentos, dízimo, financeiro, salas, visitas e documentos';
+// Plano grátis enxuto (11/11/2026): TODOS os PAID_FEATURES (plan-rules.ts), em
+// linguagem do usuário — ao incluir um recurso pago novo, acrescente aqui
+export const PAID_LIST =
+  'pastorais, escalas e trocas, catequese, formação, eventos, notícias, pedidos de oração, mensagens do clero, ' +
+  'planejamento pastoral, sacramentos e processos sacramentais, dízimo, financeiro, salas, visitas, documentos e o painel de indicadores';
 const FREE_LIST = 'O cadastro de membros, os horários de missa e de confissão, o mapa e a liturgia continuam grátis.';
 const NOTHING_DELETED = 'Nenhum dado é apagado: tudo volta assim que o plano for contratado ou o pagamento confirmado.';
 
@@ -179,7 +218,11 @@ export function noticeMessage(kind: NoticeKind, input: NoticeMessageInput): Noti
     case 'TRIAL_ENDED':
       subject = 'Parish: o teste terminou';
       lead = `O período de teste do Parish terminou em ${date} ${one('na comunidade', 'nas comunidades')}:`;
-      action = `Os recursos pagos (${PAID_LIST}) ficaram indisponíveis. ${NOTHING_DELETED}\n\nContrate em:\n${input.planUrl}\n\n${FREE_LIST}`;
+      action =
+        (input.enforced
+          ? `Os recursos pagos (${PAID_LIST}) ficaram indisponíveis. ${NOTHING_DELETED}`
+          : `Os recursos pagos (${PAID_LIST}) fazem parte do plano: para continuar contando com eles, contrate o plano. Nenhum dado é apagado.`) +
+        `\n\nContrate em:\n${input.planUrl}\n\n${FREE_LIST}`;
       body = `O teste de ${names} terminou. Seus dados continuam guardados; contrate em Plano e assinatura.`;
       break;
     case 'PAST_DUE_D1':
@@ -209,10 +252,17 @@ export function noticeMessage(kind: NoticeKind, input: NoticeMessageInput): Noti
       break;
     case 'SUSPENDED':
     default:
-      subject = 'Parish: recursos pagos suspensos';
-      lead = `Os recursos pagos do Parish foram suspensos por falta de pagamento ${one('na comunidade', 'nas comunidades')}:`;
+      if (input.enforced) {
+        subject = 'Parish: recursos pagos suspensos';
+        lead = `Os recursos pagos do Parish foram suspensos por falta de pagamento ${one('na comunidade', 'nas comunidades')}:`;
+        body = `Recursos pagos de ${names} suspensos. Nenhum dado foi apagado.`;
+      } else {
+        // Bloqueio desligado: nada foi suspenso de fato — não afirma o que não aconteceu
+        subject = 'Parish: a carência da assinatura terminou';
+        lead = `A carência da assinatura do Parish terminou sem o pagamento ${one('na comunidade', 'nas comunidades')}:`;
+        body = `A carência de ${names} terminou. Regularize em Plano e assinatura; nenhum dado foi apagado.`;
+      }
       action = `${NOTHING_DELETED} ${FREE_LIST}\n\nRegularize em:\n${input.planUrl}`;
-      body = `Recursos pagos de ${names} suspensos. Nenhum dado foi apagado.`;
       break;
   }
 

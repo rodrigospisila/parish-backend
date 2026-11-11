@@ -52,13 +52,27 @@ const plan = (over: Record<string, unknown> = {}) => ({
 
 function setup(
   env: Record<string, string> = {},
-  opts: { account?: any; canManage?: boolean; pilot?: boolean; trialEvent?: any; txCommunities?: any[] } = {},
+  opts: {
+    account?: any;
+    canManage?: boolean;
+    pilot?: boolean;
+    trialEvent?: any;
+    txCommunities?: any[];
+    /** PLAN_ENFORCEMENT visto pelo service (padrão `log`, como em produção) */
+    enforcement?: 'off' | 'log' | 'on';
+    /** Linhas gravadas por updateMany/createMany do plano na transação (CAS) */
+    casCount?: number;
+  } = {},
 ) {
   const tx = {
     // pg_try_advisory_xact_lock da paróquia (trava do checkout)
     $queryRaw: jest.fn().mockResolvedValue([{ locked: true }]),
     billingAccount: { update: jest.fn().mockResolvedValue({}) },
-    communityPlan: { updateMany: jest.fn().mockResolvedValue({ count: 0 }), upsert: jest.fn().mockResolvedValue({}) },
+    communityPlan: {
+      updateMany: jest.fn().mockResolvedValue({ count: opts.casCount ?? 0 }),
+      createMany: jest.fn().mockResolvedValue({ count: opts.casCount ?? 0 }),
+      upsert: jest.fn().mockResolvedValue({}),
+    },
     communityPlanEvent: { create: jest.fn().mockResolvedValue({}), findFirst: jest.fn().mockResolvedValue(opts.trialEvent ?? null) },
     community: { findMany: jest.fn().mockResolvedValue(opts.txCommunities ?? []) },
   };
@@ -85,7 +99,7 @@ function setup(
   };
   const config: any = { get: (key: string) => env[key] };
   const hierarchy: any = { canManageParish: jest.fn().mockResolvedValue(opts.canManage ?? true) };
-  const access: any = { enforcement: () => 'log', invalidate: jest.fn(), isPilotParish: jest.fn().mockResolvedValue(opts.pilot ?? false) };
+  const access: any = { enforcement: () => opts.enforcement ?? 'log', invalidate: jest.fn(), isPilotParish: jest.fn().mockResolvedValue(opts.pilot ?? false) };
   const audit: any = { log: jest.fn() };
   const service = new BillingService(prisma, config, hierarchy, access, audit);
   const provider = {
@@ -137,18 +151,30 @@ describe('BillingService', () => {
       expect(ctx.prisma.platformPayment.findMany).not.toHaveBeenCalled();
     });
 
-    it('trial: disponível enquanto a paróquia não usou o teste e tem comunidade sem acesso pago', async () => {
-      const ctx = setup();
+    it('trial: disponível (bloqueio `on`) enquanto a paróquia não usou o teste e tem comunidade sem acesso pago', async () => {
+      const ctx = setup({}, { enforcement: 'on' });
       ctx.prisma.community.findMany.mockResolvedValue([
         { id: 'c1', name: 'Matriz', communityPlan: null },
         { id: 'c2', name: 'Capela', communityPlan: plan({ status: 'FREE' }) },
       ]);
       const res = await ctx.service.me(admin);
+      expect(res.enforcement).toBe('on');
       expect(res.trial).toEqual({ available: true, usedAt: null, endsAt: null });
       expect(ctx.prisma.communityPlanEvent.findFirst.mock.calls[0][0].where).toEqual({
         action: { in: ['AUTO_TRIAL', 'START_TRIAL', 'TRIAL_REQUESTED'] },
         community: { parishId: 'p1' },
       });
+    });
+
+    it.each(['off', 'log'] as const)('trial: bloqueio por plano em %s (tudo liberado) → indisponível, e o modo vai em `enforcement`', async (mode) => {
+      const ctx = setup({}, { enforcement: mode });
+      ctx.prisma.community.findMany.mockResolvedValue([
+        { id: 'c1', name: 'Matriz', communityPlan: null },
+        { id: 'c2', name: 'Capela', communityPlan: plan({ status: 'FREE' }) },
+      ]);
+      const res = await ctx.service.me(admin);
+      expect(res.enforcement).toBe(mode);
+      expect(res.trial).toEqual({ available: false, usedAt: null, endsAt: null });
     });
 
     it('trial: já usado → indisponível, com usedAt e o fim do teste em curso', async () => {
@@ -382,6 +408,8 @@ describe('BillingService', () => {
   });
 
   describe('POST /billing/trial — teste por pedido', () => {
+    // O teste só existe com o bloqueio por plano ligado; as gravações (CAS) acham a linha
+    const ON = { enforcement: 'on' as const, casCount: 1 };
     const communities = () => [
       { id: 'c1', communityPlan: null },
       { id: 'c2', communityPlan: plan({ status: 'FREE', tierId: 't_capela', tier: { ...tiers[0], maxMembers: 300 } }) },
@@ -394,18 +422,27 @@ describe('BillingService', () => {
     ];
 
     it('inicia TRIAL de 30 dias (START_TRIAL, evento TRIAL_REQUESTED) nas comunidades ativas sem acesso pago', async () => {
-      const ctx = setup({}, { txCommunities: communities() });
+      const ctx = setup({}, { ...ON, txCommunities: communities() });
       const res = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now);
       const trialEndsAt = new Date(now.getTime() + 30 * DAY);
       expect(res).toEqual({ trialEndsAt, communities: 3 });
 
       // Só comunidades ATIVAS e não arquivadas da paróquia
       expect(ctx.tx.community.findMany.mock.calls[0][0].where).toEqual({ parishId: 'p1', deletedAt: null, status: 'ACTIVE' });
-      expect(ctx.tx.communityPlan.upsert.mock.calls.map((call: any[]) => call[0].where.communityId)).toEqual(['c1', 'c2', 'c5']);
-      const first = ctx.tx.communityPlan.upsert.mock.calls[0][0];
-      expect(first.create).toEqual({ communityId: 'c1', status: 'TRIAL', trialEndsAt, suspendedAt: null });
+      // Sem linha de plano: cria (skipDuplicates — se outra transação criou antes, não regrava)
+      expect(ctx.tx.communityPlan.createMany).toHaveBeenCalledTimes(1);
+      expect(ctx.tx.communityPlan.createMany.mock.calls[0][0]).toEqual({
+        data: [{ communityId: 'c1', status: 'TRIAL', trialEndsAt, suspendedAt: null }],
+        skipDuplicates: true,
+      });
+      // Com linha: CAS no status/período LIDOS (o webhook que ativou no meio-tempo não é sobrescrito)
+      expect(ctx.tx.communityPlan.updateMany.mock.calls.map((call: any[]) => call[0].where)).toEqual([
+        { communityId: 'c2', status: 'FREE', trialEndsAt: null, currentPeriodEnd: null },
+        { communityId: 'c5', status: 'CANCELED', trialEndsAt: null, currentPeriodEnd: null },
+      ]);
       // A faixa já escolhida não é tocada
-      expect(ctx.tx.communityPlan.upsert.mock.calls[1][0].update).toEqual({ status: 'TRIAL', trialEndsAt, suspendedAt: null });
+      expect(ctx.tx.communityPlan.updateMany.mock.calls[0][0].data).toEqual({ status: 'TRIAL', trialEndsAt, suspendedAt: null });
+      expect(ctx.tx.communityPlan.upsert).not.toHaveBeenCalled();
       expect(ctx.tx.communityPlanEvent.create).toHaveBeenCalledTimes(3);
       expect(ctx.tx.communityPlanEvent.create.mock.calls[0][0].data).toMatchObject({
         communityId: 'c1',
@@ -424,8 +461,43 @@ describe('BillingService', () => {
       expect(ctx.tx.$queryRaw.mock.invocationCallOrder[0]).toBeLessThan(ctx.tx.communityPlanEvent.findFirst.mock.invocationCallOrder[0]);
     });
 
+    it.each(['off', 'log'] as const)('PLAN_ENFORCEMENT=%s (tudo já liberado): 409 TRIAL_NOT_NEEDED sem gravar nada — o teste único não é gasto', async (mode) => {
+      const ctx = setup({}, { enforcement: mode, casCount: 1, txCommunities: communities() });
+      const error: any = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
+      expect(error).toBeInstanceOf(ConflictException);
+      expect(error.getResponse()).toEqual({
+        code: 'TRIAL_NOT_NEEDED',
+        message: 'Todos os recursos já estão liberados para a sua paróquia no momento.',
+      });
+      expect(ctx.prisma.$transaction).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlan.updateMany).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlan.createMany).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+      expect(ctx.audit.log).not.toHaveBeenCalled();
+      // O escopo continua conferido antes (fora do escopo segue 403, não 409)
+      const out = setup({}, { enforcement: mode, canManage: false });
+      await expect(out.service.requestTrial(admin, { parishId: 'p2' }, now)).rejects.toBeInstanceOf(ForbiddenException);
+    });
+
+    it('corrida teste × pagamento: plano ativado pelo webhook depois da leitura não volta para TRIAL (CAS) nem ganha evento', async () => {
+      const ctx = setup({}, { ...ON, txCommunities: communities() });
+      // c2 foi ativada pelo webhook entre a leitura e a gravação: o CAS não acha a linha FREE
+      ctx.tx.communityPlan.updateMany.mockImplementation(async ({ where }: any) => ({ count: where.communityId === 'c2' ? 0 : 1 }));
+      const res = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now);
+      expect(res.communities).toBe(2);
+      expect(ctx.tx.communityPlanEvent.create.mock.calls.map((call: any[]) => call[0].data.communityId)).toEqual(['c1', 'c5']);
+      expect(ctx.access.invalidate.mock.calls.map((call: any[]) => call[0])).toEqual(['c1', 'c5']);
+
+      // Todas perderam a corrida: nada gravado, teste não gasto
+      const all = setup({}, { enforcement: 'on', casCount: 0, txCommunities: communities() });
+      const error: any = await all.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
+      expect(error.getResponse()).toMatchObject({ code: 'TRIAL_NOT_NEEDED' });
+      expect(all.tx.communityPlanEvent.create).not.toHaveBeenCalled();
+      expect(all.audit.log).not.toHaveBeenCalled();
+    });
+
     it('uma vez por paróquia: evento AUTO_TRIAL / START_TRIAL / TRIAL_REQUESTED em qualquer comunidade → 409 TRIAL_ALREADY_USED', async () => {
-      const ctx = setup({}, { txCommunities: communities(), trialEvent: { createdAt: new Date(), data: null } });
+      const ctx = setup({}, { ...ON, txCommunities: communities(), trialEvent: { createdAt: new Date(), data: null } });
       const error: any = await ctx.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
       expect(error).toBeInstanceOf(ConflictException);
       expect(error.getResponse()).toMatchObject({ code: 'TRIAL_ALREADY_USED' });
@@ -433,42 +505,44 @@ describe('BillingService', () => {
         action: { in: ['AUTO_TRIAL', 'START_TRIAL', 'TRIAL_REQUESTED'] },
         community: { parishId: 'p1' },
       });
-      expect(ctx.tx.communityPlan.upsert).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlan.updateMany).not.toHaveBeenCalled();
+      expect(ctx.tx.communityPlan.createMany).not.toHaveBeenCalled();
       expect(ctx.tx.communityPlanEvent.create).not.toHaveBeenCalled();
     });
 
     it('piloto → 409 TRIAL_NOT_NEEDED (nada gravado); tudo já com acesso → 409 TRIAL_NOT_NEEDED sem gastar o teste', async () => {
-      const pilot = setup({}, { pilot: true, txCommunities: communities() });
+      const pilot = setup({}, { ...ON, pilot: true, txCommunities: communities() });
       const error: any = await pilot.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
       expect(error).toBeInstanceOf(ConflictException);
       expect(error.getResponse()).toMatchObject({ code: 'TRIAL_NOT_NEEDED' });
       expect(pilot.prisma.$transaction).not.toHaveBeenCalled();
 
-      const paid = setup({}, { txCommunities: [communities()[2]] });
+      const paid = setup({}, { ...ON, txCommunities: [communities()[2]] });
       const second: any = await paid.service.requestTrial(admin, { parishId: 'p1' }, now).catch((e) => e);
       expect(second.getResponse()).toMatchObject({ code: 'TRIAL_NOT_NEEDED' });
       expect(paid.tx.communityPlanEvent.create).not.toHaveBeenCalled();
 
-      const empty = setup({}, { txCommunities: [] });
+      const empty = setup({}, { ...ON, txCommunities: [] });
       await expect(empty.service.requestTrial(admin, { parishId: 'p1' }, now)).rejects.toBeInstanceOf(BadRequestException);
     });
 
     it('dois cliques (trava ocupada) → 409; fora do escopo → 403; paróquia inexistente → 404', async () => {
-      const busy = setup({}, { txCommunities: communities() });
+      const busy = setup({}, { ...ON, txCommunities: communities() });
       busy.tx.$queryRaw.mockResolvedValueOnce([{ locked: false }]);
       await expect(busy.service.requestTrial(admin, { parishId: 'p1' }, now)).rejects.toBeInstanceOf(ConflictException);
-      expect(busy.tx.communityPlan.upsert).not.toHaveBeenCalled();
+      expect(busy.tx.communityPlan.updateMany).not.toHaveBeenCalled();
+      expect(busy.tx.communityPlan.createMany).not.toHaveBeenCalled();
 
-      const out = setup({}, { canManage: false });
+      const out = setup({}, { ...ON, canManage: false });
       await expect(out.service.requestTrial(admin, { parishId: 'p2' }, now)).rejects.toBeInstanceOf(ForbiddenException);
 
-      const missing = setup();
+      const missing = setup({}, ON);
       missing.prisma.parish.findUnique.mockResolvedValue(null);
       await expect(missing.service.requestTrial(admin, { parishId: 'p9' }, now)).rejects.toThrow(/Paróquia não encontrada/);
     });
 
     it('DIOCESAN_ADMIN e SYSTEM_ADMIN no escopo também podem pedir', async () => {
-      const ctx = setup({}, { txCommunities: [{ id: 'c1', communityPlan: null }] });
+      const ctx = setup({}, { ...ON, txCommunities: [{ id: 'c1', communityPlan: null }] });
       const res = await ctx.service.requestTrial({ id: 'd1', role: 'DIOCESAN_ADMIN' }, { parishId: 'p1' }, now);
       expect(res.communities).toBe(1);
       expect(ctx.hierarchy.canManageParish).toHaveBeenCalledWith('d1', 'p1');

@@ -205,3 +205,28 @@ describe('mass-schedule-window', () => {
     });
   });
 });
+
+describe('shiftedEndTime (a hora mudou e o fim não veio: preserva a duração)', () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  const { shiftedEndTime } = require('./mass-schedule-window');
+
+  it('desloca o fim junto com o início', () => {
+    expect(shiftedEndTime('19:00', '20:00', '08:00')).toBe('09:00');
+    expect(shiftedEndTime('15:00', '17:30', '18:00')).toBe('20:30');
+    expect(shiftedEndTime('7:30', '08:15', '10:00')).toBe('10:45');
+    expect(shiftedEndTime('22:00', '23:00', '22:59')).toBe('23:59');
+  });
+
+  it('fim que passaria de 23:59 → null (sem fim depois da meia-noite)', () => {
+    expect(shiftedEndTime('15:00', '17:30', '22:00')).toBeNull();
+    expect(shiftedEndTime('22:00', '23:00', '23:00')).toBeNull();
+  });
+
+  it('mesma hora mantém o fim; sem fim, fim inválido ou hora fora do formato → null', () => {
+    expect(shiftedEndTime('15:00', '17:30', '15:00')).toBe('17:30');
+    expect(shiftedEndTime('15:00', null, '18:00')).toBeNull();
+    expect(shiftedEndTime('15:00', '14:00', '18:00')).toBeNull(); // fim antigo antes do começo
+    expect(shiftedEndTime('15:00', '14:00', '15:00')).toBeNull();
+    expect(shiftedEndTime('15:00', '17:30', '25:70')).toBeNull();
+  });
+});

@@ -1,4 +1,4 @@
-import { IsIn, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, MaxLength } from 'class-validator';
+import { IsBoolean, IsIn, IsNotEmpty, IsNumber, IsOptional, IsString, Matches, MaxLength } from 'class-validator';
 import { Transform } from 'class-transformer';
 
 /** Apara o texto; o resto passa como veio para a validação. */
@@ -21,6 +21,15 @@ export class UpdateCommunityLocationDto {
   @IsIn(['manual', 'gps'], { message: "Origem inválida: use 'manual' ou 'gps'" })
   geoSource?: 'manual' | 'gps';
 
+  /**
+   * A pessoa conferiu o pino (moveu/tocou ou marcou "o pino está no lugar
+   * certo"). Sem isso, reenviar a MESMA coordenada só atualiza o endereço:
+   * não marca como conferido nem tira as sugestões da fila de revisão.
+   */
+  @IsOptional()
+  @IsBoolean({ message: 'confirmPin deve ser verdadeiro ou falso' })
+  confirmPin?: boolean;
+
   @IsOptional()
   @Transform(trim)
   @IsString()
@@ -35,7 +44,10 @@ export class UpdateCommunityLocationDto {
   @MaxLength(120, { message: 'A cidade pode ter no máximo 120 caracteres' })
   city?: string;
 
-  /** UF com 2 letras (define o fuso dos horários da comunidade). */
+  /**
+   * UF com 2 letras (define o fuso dos horários da comunidade). Só PARISH_ADMIN
+   * ou acima a altera; para o coordenador da comunidade o campo é ignorado.
+   */
   @IsOptional()
   @Transform(({ value }) => (typeof value === 'string' ? value.trim().toUpperCase() : value))
   @Matches(/^[A-Z]{2}$/, { message: 'UF inválida: use a sigla com 2 letras' })

@@ -74,9 +74,11 @@ describe('CommunitiesService — localização da própria comunidade (contrato 
           action: 'UPDATE',
           entity: 'Community',
           entityId: 'com-1',
-          before: { latitude: -25.09, longitude: -50.16 },
-          after: { latitude: -25.1, longitude: -50.2 },
-          metadata: { route: 'location', geoSource: 'manual' },
+          // item 6: a trilha mostra precisão, origem e quem conferiu, antes e depois
+          before: { latitude: -25.09, longitude: -50.16, geoPrecision: null, geoSource: null, geoVerifiedBy: null },
+          after: { latitude: -25.1, longitude: -50.2, geoPrecision: 'MANUAL', geoSource: 'manual', geoVerifiedBy: 'usuario:coord' },
+          // ... e quantas sugestões saíram da fila de revisão
+          metadata: { route: 'location', pin: 'movido', geoSource: 'manual', candidatosSuperados: 2 },
         }),
       );
       expect(r).toMatchObject({ id: 'com-1', latitude: -25.1, geoPrecision: 'MANUAL' });
@@ -110,16 +112,66 @@ describe('CommunitiesService — localização da própria comunidade (contrato 
       expect(audit.log.mock.calls[0][0].before).toEqual({
         latitude: -25.09,
         longitude: -50.16,
+        geoPrecision: null,
+        geoSource: null,
+        geoVerifiedBy: null,
         address: 'Rua A, 10',
         zipCode: '84000-000',
       });
     });
 
-    it('mesma coordenada na tela do mapa = conferência (marca como conferido)', async () => {
-      await service.updateLocation('com-1', { latitude: -25.09, longitude: -50.16 } as any, coordinator);
-      const data = prisma.community.update.mock.calls[0][0].data;
-      expect(data).toMatchObject({ geoPrecision: 'MANUAL', geoVerifiedBy: 'usuario:coord' });
-      expect(prisma.communityGeoCandidate.updateMany).toHaveBeenCalled();
+    describe('mesma coordenada (a tela sempre reenvia o pino)', () => {
+      const aproximada = { ...community, geoPrecision: 'CITY', geoSource: 'nominatim', geoVerifiedBy: null };
+      beforeEach(() => {
+        prisma.community.findFirst.mockResolvedValue({ ...aproximada });
+        prisma.community.update.mockImplementation(async ({ data }: any) => ({ ...aproximada, parishId: 'par-1', ...data }));
+      });
+
+      it('SEM confirmPin: corrigir só o CEP não promove o pino a conferido nem esvazia a fila de revisão', async () => {
+        await service.updateLocation(
+          'com-1',
+          { latitude: -25.09, longitude: -50.16, geoSource: 'manual', zipCode: '84010-000' } as any,
+          coordinator,
+        );
+        // só o endereço: nada de coordenada, precisão, origem ou conferência
+        expect(prisma.community.update.mock.calls[0][0].data).toEqual({ zipCode: '84010-000' });
+        expect(prisma.communityGeoCandidate.updateMany).not.toHaveBeenCalled();
+        expect(audit.log.mock.calls[0][0]).toMatchObject({
+          before: { geoPrecision: 'CITY', geoSource: 'nominatim', geoVerifiedBy: null, zipCode: '84000-000' },
+          after: { geoPrecision: 'CITY', geoSource: 'nominatim', geoVerifiedBy: null, zipCode: '84010-000' },
+          metadata: { route: 'location', pin: 'inalterado', candidatosSuperados: 0 },
+        });
+      });
+
+      it('confirmPin: false é o mesmo que não enviar; sem nenhuma mudança não há auditoria', async () => {
+        await service.updateLocation('com-1', { latitude: -25.09, longitude: -50.16, confirmPin: false } as any, coordinator);
+        expect(prisma.community.update.mock.calls[0][0].data).toEqual({});
+        expect(prisma.communityGeoCandidate.updateMany).not.toHaveBeenCalled();
+        expect(audit.log).not.toHaveBeenCalled();
+      });
+
+      it('COM confirmPin: true ("o pino está no lugar certo") = conferência', async () => {
+        await service.updateLocation('com-1', { latitude: -25.09, longitude: -50.16, confirmPin: true } as any, coordinator);
+        const data = prisma.community.update.mock.calls[0][0].data;
+        expect(data).toMatchObject({ geoPrecision: 'MANUAL', geoSource: 'manual', geoVerifiedBy: 'usuario:coord' });
+        expect(data.geoVerifiedAt).toBeInstanceOf(Date);
+        expect(prisma.communityGeoCandidate.updateMany).toHaveBeenCalled();
+        expect(audit.log.mock.calls[0][0].metadata).toMatchObject({ pin: 'confirmado', candidatosSuperados: 2 });
+      });
+
+      it('coordenada diferente continua valendo como conferência mesmo sem confirmPin', async () => {
+        await service.updateLocation('com-1', { latitude: -25.1, longitude: -50.16 } as any, coordinator);
+        expect(prisma.community.update.mock.calls[0][0].data).toMatchObject({ latitude: -25.1, geoPrecision: 'MANUAL' });
+        expect(prisma.communityGeoCandidate.updateMany).toHaveBeenCalled();
+      });
+    });
+
+    it('UF (fuso dos horários): o coordenador não altera — campo ignorado; PARISH_ADMIN ou acima altera', async () => {
+      await service.updateLocation('com-1', { latitude: -25.09, longitude: -50.16, state: 'AC', zipCode: '84010-000' } as any, coordinator);
+      expect(prisma.community.update.mock.calls[0][0].data).toEqual({ zipCode: '84010-000' });
+      await service.updateLocation('com-1', { latitude: -25.09, longitude: -50.16, state: 'AC' } as any, parishAdmin);
+      expect(prisma.community.update.mock.calls[1][0].data).toEqual({ state: 'AC' });
+      expect(audit.log.mock.calls[1][0]).toMatchObject({ before: { state: 'PR' }, after: { state: 'AC' } });
     });
 
     it('fora do escopo → 403, sem gravar', async () => {
@@ -222,6 +274,15 @@ describe('CommunitiesService — localização da própria comunidade (contrato 
       expect(prisma.community.findMany.mock.calls[0][0].where.AND).toEqual([{}, { parishId: 'par-9' }]);
     });
 
+    it('plataforma sem parishId → vazio, sem consulta (não ordena o país inteiro); diocese mantém o teto de 500', async () => {
+      expect(await service.myLocations(system)).toEqual([]);
+      expect(await service.myLocations(system, {})).toEqual([]);
+      expect(prisma.community.findMany).not.toHaveBeenCalled();
+      await service.myLocations(diocesan);
+      expect(prisma.community.findMany.mock.calls[0][0].take).toBe(MY_LOCATIONS_LIMIT);
+      expect(MY_LOCATIONS_LIMIT).toBe(500);
+    });
+
     it('negar por padrão: sem âncora, sem usuário ou papel sem gestão → vazio, sem consulta', async () => {
       expect(await service.myLocations(undefined)).toEqual([]);
       expect(await service.myLocations({ id: 'p', role: UserRole.PARISH_ADMIN } as any)).toEqual([]);
@@ -260,6 +321,9 @@ describe('CommunitiesService — localização da própria comunidade (contrato 
       expect(await erros({ latitude: -25.1, longitude: -50.2, geoSource: 'cep' })).toEqual(['geoSource']);
       expect(await erros({ latitude: -25.1, longitude: -50.2, state: 'Paraná' })).toEqual(['state']);
       expect(await erros({ latitude: -25.1, longitude: -50.2, address: '   ' })).toEqual(['address']);
+      // confirmPin: booleano opcional
+      expect(await erros({ latitude: -25.1, longitude: -50.2, confirmPin: true })).toEqual([]);
+      expect(await erros({ latitude: -25.1, longitude: -50.2, confirmPin: 'sim' })).toEqual(['confirmPin']);
     });
 
     it('DTO apara o texto e põe a UF em maiúsculas', () => {

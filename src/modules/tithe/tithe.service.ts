@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Inject, Injectable, NotFoundException, forwardRef } from '@nestjs/common';
+import { BadRequestException, ForbiddenException, Inject, Injectable, NotFoundException, Optional, forwardRef } from '@nestjs/common';
 import { NotificationType, TransactionType, UserRole } from '@prisma/client';
 import * as QRCode from 'qrcode';
 import * as bcrypt from 'bcrypt';
@@ -15,6 +15,8 @@ import { maskSecret } from '../payments/payment-crypto';
 import { PLATFORM_WEBHOOK_PROVIDER } from '../payments/platform-provider';
 import { TitheWhatsAppService } from './whatsapp.service';
 import { TitheGuestService } from './guest.service';
+import { PlanAccessService } from '../plans/plan-access.service';
+import { titheBlockedByPlan } from './tithe-plan';
 import { PROVIDER_FEE_CATEGORY, PROVIDER_FEE_COST_CENTER, round2 } from '../finance/money';
 
 const FINANCE_ROLES: UserRole[] = [
@@ -188,7 +190,17 @@ export class TitheService {
     private readonly paymentsService: PaymentsService,
     @Inject(forwardRef(() => TitheWhatsAppService)) private readonly whatsapp: TitheWhatsAppService,
     @Inject(forwardRef(() => TitheGuestService)) private readonly guests: TitheGuestService,
+    // Opcional: specs montam o service à mão; no app vem do PlansModule (global)
+    @Optional() private readonly planAccess?: PlanAccessService,
   ) {}
+
+  /**
+   * Paróquia sem o dízimo no plano (só com PLAN_ENFORCEMENT=on): não CRIA nada
+   * novo. Ver, conciliar e encerrar o que já existe nunca passa por aqui.
+   */
+  blockedByPlan(parishId: string): Promise<boolean> {
+    return titheBlockedByPlan(this.planAccess, parishId);
+  }
 
   auditActor(user: CurrentUser) {
     return { id: user.id, email: user.email, role: user.role };
@@ -451,6 +463,25 @@ export class TitheService {
     const feePolicy = dto.feePolicy !== undefined ? (dto.feePolicy === 'PASS_THROUGH' ? 'PASS_THROUGH' : 'ABSORB') : current.feePolicy;
     const feeFixed = dto.feeFixed !== undefined && dto.feeFixed !== null ? Math.max(0, Math.min(50, Number(dto.feeFixed) || 0)) : current.feeFixed;
     const feePercent = dto.feePercent !== undefined && dto.feePercent !== null ? Math.max(0, Math.min(10, Number(dto.feePercent) || 0)) : current.feePercent;
+
+    // Plano: PATCH /tithe/config fica aberto sem plano para a paróquia poder
+    // DESLIGAR (recebimento, WhatsApp, provedor) e corrigir dados; LIGAR algo
+    // novo é recurso pago — recusado aqui (só com PLAN_ENFORCEMENT=on)
+    const activating = [
+      !current.titheEnabled && titheEnabled ? 'o dízimo online' : null,
+      dto.whatsappEnabled !== undefined && !!dto.whatsappEnabled && !current.whatsappEnabled ? 'o WhatsApp do dízimo' : null,
+      !!paymentProvider && (paymentProvider !== current.paymentProvider || (apiKeyGiven && !current.providerApiKeyEnc))
+        ? 'o provedor de pagamento'
+        : null,
+    ].filter((item): item is string => !!item);
+    if (activating.length && user.role !== UserRole.SYSTEM_ADMIN && (await this.blockedByPlan(target))) {
+      throw new ForbiddenException({
+        code: 'PLAN_REQUIRED',
+        feature: 'tithe',
+        communityId: null,
+        message: `Para ativar ${activating.join(' e ')}, contrate o plano da paróquia. Desativar e consultar o que já foi recebido continua disponível.`,
+      });
+    }
 
     // Trocar a CHAVE é a operação sensível (desvio de dízimo): exige a senha
     // atual de quem está logado, mesmo com token válido
@@ -830,6 +861,9 @@ export class TitheService {
       },
       monthsBack: MONTHS_BACK,
       monthsAhead: MONTHS_AHEAD,
+      // Plano (campo aditivo): false = a rota mostra só o histórico; contribuição
+      // nova responde 403 PLAN_REQUIRED (só com PLAN_ENFORCEMENT=on)
+      planActive: !(await this.blockedByPlan(member.community.parishId)),
       persistentQrAvailable: this.parishUsable(parish),
       // Link público de doação (D4.6) para o fiel compartilhar com visitantes
       donationUrl: parish && this.parishUsable(parish) && process.env.PUBLIC_WEB_URL ? `${process.env.PUBLIC_WEB_URL.replace(/\/$/, '')}/doar/${parish.id}` : null,

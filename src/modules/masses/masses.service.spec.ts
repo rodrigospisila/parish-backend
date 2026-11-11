@@ -191,7 +191,19 @@ describe('MassesController — /masses/nearby (M2)', () => {
       types: ['MASS', 'CONFESSION'],
       limit: undefined,
       focus: { day: 'sunday', fromMin: 360, toMin: 480 },
+      // sem ?live: corte antigo (30 min após o início), para o app 1.1.0
+      live: false,
     });
+  });
+
+  it('?live=1 pede o item até o fim da celebração; valor inválido → 400', async () => {
+    const svc = { findNearby: jest.fn().mockResolvedValue({}) };
+    const ctrl = new MassesController(svc as any);
+    await ctrl.nearby(-23.5, -46.6, 10, 7, undefined, undefined, undefined, undefined, undefined, '1');
+    expect(svc.findNearby.mock.calls[0][0].live).toBe(true);
+    expect(() => ctrl.nearby(-23.5, -46.6, 10, 7, undefined, undefined, undefined, undefined, undefined, 'talvez')).toThrow(
+      'Parâmetro live inválido',
+    );
   });
 
   it('findNearby sem limit corta em 300 igrejas (truncated)', async () => {

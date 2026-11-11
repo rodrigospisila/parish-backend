@@ -13,6 +13,7 @@ import { TitheWebhookController } from './tithe-webhook.controller';
 import { TitheWhatsAppController } from './tithe-whatsapp.controller';
 import { TitheGuestPublicController } from './guest-public.controller';
 import { TitheGuestService } from './guest.service';
+import { TitheService } from './tithe.service';
 
 // O PNG do QR leva ~5 s por imagem dentro do jest — aqui só interessa a regra do plano
 jest.mock('qrcode', () => ({ toDataURL: jest.fn(async () => 'data:image/png;base64,qr') }));
@@ -53,15 +54,15 @@ describe('dízimo — plano por rota (feature tithe, nível paróquia)', () => {
 
   it('TitheController: criar é pago; acompanhar o que já existe fica aberto', () => {
     expect(gatesOf(TitheController)).toEqual({
-      // fiel — pago
-      my: USER,
+      // fiel — criar/preparar contribuição nova: pago
       persistentQr: USER,
       persistentQrPdf: USER,
-      myStatement: USER,
       preferences: USER,
       createSchedule: USER,
       createIntent: USER,
-      // fiel — acompanhamento (dinheiro em trânsito): aberto
+      // fiel — histórico e acompanhamento do que já existe: aberto
+      my: 'aberta',
+      myStatement: 'aberta',
       mySchedule: 'aberta',
       cancelSchedule: 'aberta',
       receipt: 'aberta',
@@ -69,23 +70,33 @@ describe('dízimo — plano por rota (feature tithe, nível paróquia)', () => {
       declare: 'aberta',
       cancel: 'aberta',
       contest: 'aberta',
-      // tesouraria
-      list: USER,
-      confirm: 'tithe@parish titheIntent:params.id',
-      reopen: 'tithe@parish titheIntent:params.id',
-      sync: 'tithe@parish titheIntent:params.id',
-      reject: 'tithe@parish titheIntent:params.id',
-      report: USER,
-      reportCsv: USER,
-      titherStatement: 'tithe@parish member:params.memberId',
-      // configuração
-      getConfig: USER,
+      // tesouraria — conciliação do que já existe: aberto (dinheiro nunca fica preso)
+      list: 'aberta',
+      confirm: 'aberta',
+      reopen: 'aberta',
+      sync: 'aberta',
+      reject: 'aberta',
+      report: 'aberta',
+      reportCsv: 'aberta',
+      titherStatement: 'aberta',
+      // configuração — ler e alterar abertos (para DESLIGAR; ativar é recusado no service)
+      getConfig: 'aberta',
+      updateConfig: 'aberta',
+      // configuração — preparar recebimento novo: pago
       institutionalQr: USER,
       institutionalQrPdf: USER,
-      updateConfig: USER,
       rotateWebhookToken: USER,
       providerSetup: USER,
     });
+  });
+
+  it('criar continua pago em TODOS os controllers (nenhuma rota de criação ficou aberta)', () => {
+    expect(gateOf(TitheController, 'createIntent')).toBe(USER);
+    expect(gateOf(TitheController, 'createSchedule')).toBe(USER);
+    expect(gateOf(TitheCampaignsController, 'create')).toBe(USER);
+    expect(gateOf(TitheCampaignsController, 'activate')).not.toBe('aberta');
+    expect(gateOf(TitheCampaignsController, 'addEntry')).not.toBe('aberta');
+    expect(gateOf(TitheAgentController, 'register')).not.toBe('aberta');
   });
 
   it('campanhas: só retirar o próprio compromisso fica aberto', () => {
@@ -108,9 +119,9 @@ describe('dízimo — plano por rota (feature tithe, nível paróquia)', () => {
     });
   });
 
-  it('visitantes (tesouraria), modo agente e retenção: tudo pago', () => {
-    const gift = 'tithe@parish titheGuestGift:params.id';
-    expect(gatesOf(TitheGuestController)).toEqual({ list: USER, confirm: gift, reject: gift, sync: gift, resend: gift });
+  it('visitantes (tesouraria): conciliação aberta; modo agente e retenção: pagos', () => {
+    // Só trata de oferta que JÁ existe — a oferta nova é barrada na página pública (service)
+    expect(gatesOf(TitheGuestController)).toEqual({ list: 'aberta', confirm: 'aberta', reject: 'aberta', sync: 'aberta', resend: 'aberta' });
     expect(gatesOf(TitheAgentController)).toEqual({
       search: USER,
       register: 'tithe@parish member:body.memberId',
@@ -134,6 +145,77 @@ describe('dízimo — plano por rota (feature tithe, nível paróquia)', () => {
       }
     },
   );
+});
+
+describe('PATCH /tithe/config sem plano — desligar pode, ligar não (service)', () => {
+  const current = {
+    id: 'p1',
+    name: 'Paróquia São José',
+    dioceseId: 'd1',
+    titheEnabled: true,
+    pixKey: 'chave@paroquia.org',
+    pixKeyType: 'EMAIL',
+    pixMerchantName: 'PAROQUIA SAO JOSE',
+    pixMerchantCity: 'PONTA GROSSA',
+    titheMessage: null,
+    paymentProvider: null,
+    providerEnv: null,
+    providerApiKeyEnc: null,
+    providerWebhookToken: null,
+    feePolicy: 'ABSORB',
+    feeFixed: 0,
+    feePercent: 0,
+    whatsappEnabled: true,
+  };
+  const admin: any = { id: 'u1', email: 'adm@x.org', role: 'PARISH_ADMIN', parishId: 'p1' };
+
+  function setup(mode: 'off' | 'log' | 'on', hasAccess: boolean, over: Record<string, unknown> = {}) {
+    const tx = {
+      parish: { update: jest.fn().mockResolvedValue({}) },
+      titheIntent: { updateMany: jest.fn().mockResolvedValue({ count: 0 }) },
+      memberProviderCustomer: { deleteMany: jest.fn() },
+    };
+    const prisma: any = {
+      parish: { findUnique: jest.fn().mockResolvedValue({ ...current, ...over }) },
+      titheIntent: { findMany: jest.fn().mockResolvedValue([]) },
+      $transaction: jest.fn(async (fn: any) => fn(tx)),
+    };
+    const payments: any = { webhookSecretManagedByAdmin: () => false, hasProvider: () => false, newWebhookToken: () => 'tok', encryptApiKey: () => 'enc' };
+    const planAccess: any = { enforcement: jest.fn().mockReturnValue(mode), targetHasAccess: jest.fn().mockResolvedValue(hasAccess) };
+    const service = new TitheService(prisma, {} as any, { log: jest.fn() } as any, {} as any, {} as any, payments, { serverConfigured: () => false } as any, {} as any, planAccess);
+    // A resposta (getConfig) não interessa aqui
+    jest.spyOn(service, 'getConfig').mockResolvedValue({ ok: true } as any);
+    return { service, tx, planAccess };
+  }
+
+  it('on + paróquia sem acesso: DESLIGAR recebimento e WhatsApp passa', async () => {
+    const { service, tx } = setup('on', false);
+    await expect(service.updateConfig(admin, { titheEnabled: false, whatsappEnabled: false })).resolves.toMatchObject({ ok: true });
+    expect(tx.parish.update.mock.calls[0][0].data).toMatchObject({ titheEnabled: false, whatsappEnabled: false });
+  });
+
+  it.each([
+    ['o dízimo online', { titheEnabled: false }, { titheEnabled: true }],
+    ['o WhatsApp do dízimo', { whatsappEnabled: false }, { whatsappEnabled: true }],
+    ['o provedor de pagamento', {}, { paymentProvider: 'ASAAS', providerApiKey: 'k', currentPassword: 'x' }],
+  ])('on + paróquia sem acesso: LIGAR %s → 403 PLAN_REQUIRED, nada gravado', async (_label, over, dto) => {
+    const { service, tx, planAccess } = setup('on', false, over);
+    const error: any = await service.updateConfig(admin, dto as any).catch((e: any) => e);
+    expect(error.getStatus()).toBe(403);
+    expect(error.getResponse()).toMatchObject({ code: 'PLAN_REQUIRED', feature: 'tithe', communityId: null });
+    expect(planAccess.targetHasAccess).toHaveBeenCalledWith({ parishId: 'p1' });
+    expect(tx.parish.update).not.toHaveBeenCalled();
+  });
+
+  it('on + paróquia com acesso, ou off/log: ligar segue normal', async () => {
+    const withAccess = setup('on', true, { whatsappEnabled: false });
+    await expect(withAccess.service.updateConfig(admin, { whatsappEnabled: true })).resolves.toMatchObject({ ok: true });
+    for (const mode of ['off', 'log'] as const) {
+      const ctx = setup(mode, false, { titheEnabled: false });
+      await expect(ctx.service.updateConfig(admin, { titheEnabled: true })).resolves.toMatchObject({ ok: true });
+      expect(ctx.planAccess.targetHasAccess).not.toHaveBeenCalled();
+    }
+  });
 });
 
 describe('oferta de visitante (pública) — plano no service', () => {

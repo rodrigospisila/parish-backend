@@ -66,6 +66,39 @@ describe('TitheReminderService — claim do mês (M45)', () => {
     expect(ctx.sentMonth).toEqual({ m1: null, m2: '2026-09' });
   });
 
+  describe('plano (dízimo é recurso pago da paróquia)', () => {
+    const members = [
+      { id: 'm1', userId: 'u1', fullName: 'Maria', whatsappOptIn: true, titheReminderSentMonth: null, tither: null, community: { parishId: 'pSem' } },
+      { id: 'm2', userId: 'u2', fullName: 'José', whatsappOptIn: true, titheReminderSentMonth: '2026-09', tither: null, community: { parishId: 'pCom' } },
+      { id: 'm3', userId: 'u3', fullName: 'Ana', whatsappOptIn: false, titheReminderSentMonth: null, tither: null, community: { parishId: 'pSem' } },
+    ];
+    const withPlan = (mode: 'off' | 'log' | 'on') => {
+      const ctx = setup({ members });
+      const planAccess: any = {
+        enforcement: jest.fn().mockReturnValue(mode),
+        targetHasAccess: jest.fn(async ({ parishId }: any) => parishId === 'pCom'),
+      };
+      const service = new TitheReminderService(ctx.prisma, ctx.notifications, ctx.whatsapp, planAccess);
+      return { ...ctx, service, planAccess };
+    };
+
+    it('on: paróquia sem acesso é pulada (nem push, nem WhatsApp, nem marca do mês); uma consulta por paróquia', async () => {
+      const ctx = withPlan('on');
+      expect(await ctx.service.sendReminders(now)).toBe(1);
+      expect(ctx.whatsapp.sendMonthlyPix.mock.calls.map((call: any[]) => call[0])).toEqual(['m2']);
+      expect(ctx.notifications.notifyUsers.mock.calls.map((call: any[]) => call[0])).toEqual([['u2']]);
+      expect(ctx.sentMonth.m1).toBeNull();
+      expect(ctx.sentMonth.m2).toBe('2026-10');
+      expect(ctx.planAccess.targetHasAccess).toHaveBeenCalledTimes(2);
+    });
+
+    it.each(['off', 'log'] as const)('%s: todos são lembrados, sem consultar o plano', async (mode) => {
+      const ctx = withPlan(mode);
+      expect(await ctx.service.sendReminders(now)).toBe(3);
+      expect(ctx.planAccess.targetHasAccess).not.toHaveBeenCalled();
+    });
+  });
+
   it('o cron só roda com a trava do job', async () => {
     const ctx = setup();
     ctx.prisma.$transaction.mockImplementation(async (fn: any) => fn({ $queryRaw: jest.fn().mockResolvedValue([{ locked: false }]) }));

@@ -19,7 +19,7 @@ describe('TitheWhatsAppService — comando PIX (B25)', () => {
   };
   const parish = { id: 'p1', name: 'Paróquia', whatsappEnabled: true, titheEnabled: true, pixKey: 'chave@x.org', pixMerchantName: 'PAROQUIA', pixMerchantCity: 'PONTA GROSSA' };
 
-  function setup() {
+  function setup(plan?: { mode: 'off' | 'log' | 'on'; hasAccess: boolean }) {
     const state = { sentAt: null as Date | null };
     const prisma: any = {
       member: {
@@ -53,9 +53,70 @@ describe('TitheWhatsAppService — comando PIX (B25)', () => {
       trySendWhatsApp: jest.fn().mockResolvedValue(true),
     };
     const tithe: any = { parishFor: jest.fn(async () => parish), parishUsable: () => true, currentMonth: () => '2026-10', newTxid: () => 'TX' };
-    const service = new TitheWhatsAppService(prisma, messaging, { log: jest.fn() } as any, tithe);
-    return { service, messaging, state };
+    tithe.notifyTreasury = jest.fn();
+    const planAccess: any = plan
+      ? { enforcement: jest.fn().mockReturnValue(plan.mode), targetHasAccess: jest.fn().mockResolvedValue(plan.hasAccess) }
+      : undefined;
+    const service = new TitheWhatsAppService(prisma, messaging, { log: jest.fn() } as any, tithe, planAccess);
+    return { service, messaging, state, prisma, tithe, planAccess };
   }
+
+  describe('plano (dízimo é recurso pago da paróquia)', () => {
+    it('on + paróquia sem acesso: comando PIX responde que não está ativo — sem Pix, sem mensagem paga, sem gastar o freio', async () => {
+      const { service, messaging, prisma, state, planAccess } = setup({ mode: 'on', hasAccess: false });
+      const reply = await service.handleInbound('whatsapp:+5542999991234', 'PIX');
+      expect(reply).toContain('a contribuição pelo Parish não está ativa na sua paróquia no momento');
+      expect(planAccess.targetHasAccess).toHaveBeenCalledWith({ parishId: 'p1' });
+      expect(messaging.trySendWhatsApp).not.toHaveBeenCalled();
+      expect(prisma.titheIntent.create).not.toHaveBeenCalled();
+      expect(prisma.member.updateMany).not.toHaveBeenCalled();
+      expect(state.sentAt).toBeNull();
+    });
+
+    it('on + paróquia sem acesso: o lembrete mensal (cron) não cria nem envia; QUERO não promete o Pix', async () => {
+      const { service, messaging, prisma } = setup({ mode: 'on', hasAccess: false });
+      await expect(service.sendMonthlyPix('m1', '2026-10')).resolves.toBe(false);
+      expect(messaging.trySendWhatsApp).not.toHaveBeenCalled();
+      expect(prisma.titheIntent.create).not.toHaveBeenCalled();
+      const reply = await service.handleInbound('whatsapp:+5542999991234', 'QUERO');
+      expect(reply).toContain('não está ativa na sua paróquia');
+      expect(prisma.member.update).not.toHaveBeenCalled();
+    });
+
+    it('on + paróquia sem acesso: PAGUEI de um Pix já enviado continua (dinheiro em trânsito) e SAIR também', async () => {
+      const { service, prisma, tithe, planAccess } = setup({ mode: 'on', hasAccess: false });
+      prisma.titheIntent.findFirst = jest.fn(async () => ({
+        id: 'i1',
+        amount: 50,
+        referenceMonth: '2026-10',
+        txid: 'TX',
+        communityId: 'c1',
+        parishId: 'p1',
+        member: { fullName: 'Maria Silva', communityId: 'c1' },
+      }));
+      prisma.titheIntent.count = jest.fn().mockResolvedValue(0);
+      prisma.titheIntent.updateMany = jest.fn().mockResolvedValue({ count: 1 });
+      const reply = await service.handleInbound('whatsapp:+5542999991234', 'PAGUEI');
+      expect(reply).toContain('Avisamos a tesouraria');
+      expect(prisma.titheIntent.updateMany).toHaveBeenCalledWith({ where: { id: 'i1', status: 'CREATED' }, data: expect.objectContaining({ status: 'DECLARED' }) });
+      expect(tithe.notifyTreasury).toHaveBeenCalledTimes(1);
+      expect(await service.handleInbound('whatsapp:+5542999991234', 'SAIR')).toContain('não receberá mais');
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+    });
+
+    it('on + paróquia com acesso: PIX sai normalmente', async () => {
+      const { service, messaging } = setup({ mode: 'on', hasAccess: true });
+      expect(await service.handleInbound('whatsapp:+5542999991234', 'PIX')).toBe('');
+      expect(messaging.trySendWhatsApp).toHaveBeenCalledTimes(1);
+    });
+
+    it.each(['off', 'log'] as const)('%s: nada muda, nem consulta o plano', async (mode) => {
+      const { service, messaging, planAccess } = setup({ mode, hasAccess: false });
+      expect(await service.handleInbound('whatsapp:+5542999991234', 'PIX')).toBe('');
+      expect(messaging.trySendWhatsApp).toHaveBeenCalledTimes(1);
+      expect(planAccess.targetHasAccess).not.toHaveBeenCalled();
+    });
+  });
 
   it('responder PIX várias vezes envia o Pix uma vez só na janela', async () => {
     const { service, messaging } = setup();

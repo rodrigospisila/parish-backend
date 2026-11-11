@@ -185,12 +185,28 @@ describe('MassSchedulesService — agenda fixa', () => {
         expect(prisma.massSchedule.update.mock.calls[1][0].data).toMatchObject({ time: '18:00', endTime: '19:00' });
       });
 
-      it('editar só a hora para depois do fim gravado (cliente que não conhece o campo) limpa o fim', async () => {
+      it('editar só a hora (cliente que não conhece o campo) desloca o fim junto, preservando a duração', async () => {
+        // 15:00–17:30 (2 h 30) → 18:00–20:30
         await service.update('conf', { time: '18:00' } as any, parishAdmin);
-        expect(prisma.massSchedule.update.mock.calls[0][0].data).toMatchObject({ time: '18:00', endTime: null });
-        // hora nova ainda antes do fim: o fim fica como está (não entra no update)
+        expect(prisma.massSchedule.update.mock.calls[0][0].data).toMatchObject({ time: '18:00', endTime: '20:30' });
+        // hora nova ainda antes do fim gravado: também desloca (antes ficava 16:00–17:30)
         await service.update('conf', { time: '16:00' } as any, parishAdmin);
+        expect(prisma.massSchedule.update.mock.calls[1][0].data).toMatchObject({ time: '16:00', endTime: '18:30' });
+        // para mais cedo
+        await service.update('conf', { time: '08:00' } as any, parishAdmin);
+        expect(prisma.massSchedule.update.mock.calls[2][0].data).toMatchObject({ time: '08:00', endTime: '10:30' });
+      });
+
+      it('fim deslocado que passaria de 23:59 é limpo; mesma hora ou sem fim gravado não mexe no fim', async () => {
+        await service.update('conf', { time: '22:00' } as any, parishAdmin);
+        expect(prisma.massSchedule.update.mock.calls[0][0].data).toMatchObject({ time: '22:00', endTime: null });
+        // formulário reenviando a mesma hora: o fim não entra no update
+        await service.update('conf', { time: '15:00', notes: 'x' } as any, parishAdmin);
         expect('endTime' in prisma.massSchedule.update.mock.calls[1][0].data).toBe(false);
+        // sem fim gravado: nada a deslocar
+        prisma.massSchedule.findUnique.mockResolvedValue(confissao({ endTime: null, pastorals: [] }));
+        await service.update('conf', { time: '18:00' } as any, parishAdmin);
+        expect('endTime' in prisma.massSchedule.update.mock.calls[2][0].data).toBe(false);
       });
     });
 
@@ -200,6 +216,122 @@ describe('MassSchedulesService — agenda fixa', () => {
       prisma.schedule.create.mockImplementation(async ({ data }: any) => ({ id: 'sch', ...data }));
       await service.generateSchedule('conf', { date: '2026-11-11' } as any, parishAdmin);
       expect(prisma.schedule.create.mock.calls[0][0].data).toMatchObject({ startTime: '15:00', endTime: '17:30' });
+    });
+  });
+
+  describe('desempenho das listas: "agora"/"hoje" uma vez por UF por requisição', () => {
+    const linha = (i: number, state: string) => ({
+      id: `s${i}`,
+      communityId: `c-${state}`,
+      type: 'MASS',
+      time: '19:00',
+      endTime: null,
+      notes: null,
+      isSpecial: false,
+      specialDate: null,
+      recurrence: 'WEEKLY',
+      dayOfWeek: i % 7,
+      dayOfMonth: null,
+      weeksOfMonth: [],
+      community: { id: `c-${state}`, name: 'Matriz', state, parish: null },
+      pastorals: [],
+      cancellations: [],
+    });
+
+    it('Agenda Fixa (findAllManaged) com 2.000 horários da mesma UF calcula o relógio uma vez, não 2.000', async () => {
+      const nowIn = jest.spyOn(service as any, 'nowIn');
+      const formatador = jest.spyOn(Intl, 'DateTimeFormat');
+      try {
+        prisma.massSchedule.findMany.mockResolvedValue(Array.from({ length: 2000 }, (_, i) => linha(i, 'PR')));
+        const r = await service.findAllManaged({ id: 'sys', role: UserRole.SYSTEM_ADMIN } as any);
+        expect(r).toHaveLength(2000);
+        // uma vez para o "agora" e uma para o "hoje" da UF
+        expect(nowIn.mock.calls.length).toBeLessThanOrEqual(2);
+        // o formatador é reutilizado (cache por fuso): nunca um por linha
+        expect(formatador.mock.calls.length).toBeLessThanOrEqual(8);
+      } finally {
+        formatador.mockRestore();
+      }
+    });
+
+    it('UFs diferentes: uma vez por UF (findAll e favoritos também)', async () => {
+      const nowIn = jest.spyOn(service as any, 'nowIn');
+      prisma.massSchedule.findMany.mockResolvedValue(
+        Array.from({ length: 300 }, (_, i) => linha(i, i % 2 ? 'AC' : 'PR')),
+      );
+      await service.findAll('c1');
+      expect(nowIn.mock.calls.length).toBeLessThanOrEqual(4);
+      expect(new Set(nowIn.mock.calls.map((c) => c[0]))).toEqual(new Set(['PR', 'AC']));
+
+      nowIn.mockClear();
+      prisma.massScheduleFavorite.findMany.mockResolvedValue(
+        Array.from({ length: 300 }, (_, i) => ({ userId: 'fiel', massSchedule: linha(i, 'PR') })),
+      );
+      await service.getFavorites({ id: 'fiel', role: UserRole.FAITHFUL, communityId: 'c-PR' } as any);
+      expect(nowIn.mock.calls.length).toBeLessThanOrEqual(2);
+    });
+  });
+
+  describe('pastoralSettings no criar/editar: recurso pago (feature schedules)', () => {
+    const pastorais = [{ communityPastoralId: 'cp1', requiredPeople: 2 }];
+    let plan: { enforcement: jest.Mock; communityHasAccess: jest.Mock };
+    let comPlano: MassSchedulesService;
+
+    beforeEach(() => {
+      prisma.community.findUnique = jest.fn().mockResolvedValue({ id: 'c1', parishId: 'p1' });
+      prisma.communityPastoral = { findMany: jest.fn().mockResolvedValue([{ id: 'cp1' }]) };
+      prisma.massSchedule.create = jest.fn(async ({ data }: any) => ({ id: 'novo', ...data }));
+      prisma.massSchedule.update = jest.fn(async ({ data }: any) => ({ id: 'conf', ...data }));
+      prisma.massSchedule.findUnique.mockResolvedValue({
+        id: 'conf',
+        communityId: 'c1',
+        type: 'CONFESSION',
+        time: '15:00',
+        endTime: null,
+        recurrence: 'WEEKLY',
+        dayOfWeek: 3,
+        dayOfMonth: null,
+        weeksOfMonth: [],
+        isSpecial: false,
+        specialDate: null,
+        pastorals: [],
+      });
+      plan = { enforcement: jest.fn().mockReturnValue('on'), communityHasAccess: jest.fn().mockResolvedValue(false) };
+      comPlano = new MassSchedulesService(prisma, hierarchy as any, audit as any, notifications as any, plan as any);
+    });
+    const novo = () => ({ communityId: 'c1', type: 'CONFESSION', time: '15:00', dayOfWeek: 3, pastoralSettings: pastorais }) as any;
+
+    it('modo on + comunidade no grátis: ignora o campo, sem erro (cria/edita o horário normalmente)', async () => {
+      await comPlano.create(novo(), parishAdmin);
+      expect(prisma.massSchedule.create.mock.calls[0][0].data.pastorals).toEqual({ create: [] });
+      await comPlano.update('conf', { notes: 'Com o padre', pastoralSettings: pastorais } as any, parishAdmin);
+      const data = prisma.massSchedule.update.mock.calls[0][0].data;
+      expect(data.notes).toBe('Com o padre');
+      // os vínculos existentes ficam como estão
+      expect('pastorals' in data).toBe(false);
+      expect(prisma.communityPastoral.findMany).not.toHaveBeenCalled();
+      expect(plan.communityHasAccess).toHaveBeenCalledWith('c1');
+    });
+
+    it('modo on + comunidade com acesso (ou plataforma): grava os vínculos', async () => {
+      plan.communityHasAccess.mockResolvedValue(true);
+      await comPlano.create(novo(), parishAdmin);
+      expect(prisma.massSchedule.create.mock.calls[0][0].data.pastorals.create).toEqual([
+        { communityPastoralId: 'cp1', role: null, isLeader: false, requiredPeople: 2 },
+      ]);
+      plan.communityHasAccess.mockResolvedValue(false);
+      await comPlano.update('conf', { pastoralSettings: pastorais } as any, { id: 'sys', role: UserRole.SYSTEM_ADMIN } as any);
+      expect(prisma.massSchedule.update.mock.calls[0][0].data.pastorals.create).toHaveLength(1);
+    });
+
+    it('modo log/off (ou sem serviço de plano): nada muda e o plano nem é consultado', async () => {
+      plan.enforcement.mockReturnValue('log');
+      await comPlano.update('conf', { pastoralSettings: pastorais } as any, parishAdmin);
+      expect(prisma.massSchedule.update.mock.calls[0][0].data.pastorals.create).toHaveLength(1);
+      expect(plan.communityHasAccess).not.toHaveBeenCalled();
+      // serviço montado sem PlanAccessService (injeção opcional)
+      await service.update('conf', { pastoralSettings: pastorais } as any, parishAdmin);
+      expect(prisma.massSchedule.update.mock.calls[1][0].data.pastorals.create).toHaveLength(1);
     });
   });
 

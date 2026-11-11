@@ -9,7 +9,17 @@ import { PlanAccessService } from '../plans/plan-access.service';
 import { planTransition } from '../plans/plan-transitions';
 import { EmailService } from '../messaging/email.service';
 import { NotificationsService } from '../notifications/notifications.service';
-import { DueNotice, NoticeKind, dueNotice, noticeMessage, pilotParishWhere } from './plan-lifecycle-rules';
+import {
+  DueNotice,
+  LATE_NOTICE_WINDOW_DAYS,
+  NoticeKind,
+  TRIAL_INHERITED_EVENT,
+  dueNotice,
+  noticeMessage,
+  pilotParishWhere,
+  requestedTrialCommunityWhere,
+  trialHeirCommunityWhere,
+} from './plan-lifecycle-rules';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_PUBLIC_WEB_URL = 'https://parish-web-three.vercel.app';
@@ -17,6 +27,7 @@ const DEFAULT_PUBLIC_WEB_URL = 'https://parish-web-three.vercel.app';
 export const PLAN_PAGE_PATH = '/admin/meu-plano';
 /** Teto por execução (o restante fica para o dia seguinte) */
 const EXPIRE_TRIAL_BATCH = 2000;
+const INHERIT_TRIAL_BATCH = 2000;
 const NOTICE_SCAN_LIMIT = 5000;
 
 export interface PlanLifecycleResult {
@@ -24,6 +35,8 @@ export interface PlanLifecycleResult {
   messages: number;
   /** Testes vencidos que voltaram ao plano grátis */
   expiredTrials: number;
+  /** Comunidades novas que herdaram o teste pedido vigente da paróquia */
+  inheritedTrials: number;
 }
 
 /**
@@ -36,17 +49,25 @@ export interface PlanLifecycleResult {
  *    simples) aos PARISH_ADMIN ativos e ao e-mail de cobrança, e notificação
  *    in-app + push (NotificationsService.notifyUsers com `skipFallback`) aos
  *    PARISH_ADMIN — o e-mail já saiu, a notificação não manda outro (S2).
+ * 0. Teste herdado: comunidade ATIVA criada depois do pedido de teste (sem
+ *    linha de plano) em paróquia com teste PEDIDO ainda vigente ganha o MESMO
+ *    `trialEndsAt` (evento 'TRIAL_INHERITED', byUserId null). Roda ANTES da
+ *    régua, para a comunidade nova entrar nos avisos de fim de teste. Até o
+ *    job passar, o PlanAccessService já a trata como com acesso.
  * 2. Teste vencido → plano grátis: TRIAL com `trialEndsAt <= agora` vira FREE
  *    (planTransition EXPIRE_TRIAL + CommunityPlanEvent 'TRIAL_EXPIRED',
  *    byUserId null). Roda DEPOIS da régua e só expira o plano cujo aviso
- *    TRIAL_ENDED já foi registrado (ou que não tem aviso a receber: já
- *    contratou, ou venceu há mais de uma semana) — a régua nunca perde o
- *    "o teste terminou".
+ *    TRIAL_ENDED já foi registrado (ou que não tem aviso a receber: já pagou,
+ *    ou venceu há mais de uma semana) — a régua nunca perde o "o teste
+ *    terminou". Contratação com a 1ª cobrança ainda em aberto (PENDING) no
+ *    fim do teste espera a janela de 7 dias: se o checkout for abandonado, o
+ *    aviso TRIAL_ENDED ainda sai (o plano precisa continuar TRIAL para a régua
+ *    achá-lo); o acesso já acabou de qualquer forma (hasPaidAccess).
  *
  * O teste NÃO é mais automático: a paróquia aprovada entra no plano grátis e
  * pede o teste de 30 dias uma vez (POST /billing/trial).
  *
- * Paróquia do piloto (pilotParishWhere — S11) fica fora das duas etapas.
+ * Paróquia do piloto (pilotParishWhere — S11) fica fora das três etapas.
  *
  * Nunca muda status de plano pago nem toca no piloto (ACTIVE sem
  * currentPeriodEnd): a carência/suspensão continua sendo calculada por
@@ -72,8 +93,11 @@ export class PlanLifecycleService {
       'plan-lifecycle',
       async () => {
         const result = await this.execute(new Date());
-        if (result.expiredTrials || result.messages) {
-          this.logger.log(`Planos: ${result.messages} aviso(s) enviados, ${result.expiredTrials} teste(s) vencido(s) → grátis`);
+        if (result.expiredTrials || result.messages || result.inheritedTrials) {
+          this.logger.log(
+            `Planos: ${result.messages} aviso(s) enviados, ${result.expiredTrials} teste(s) vencido(s) → grátis, ` +
+              `${result.inheritedTrials} comunidade(s) nova(s) no teste da paróquia`,
+          );
         }
         return result;
       },
@@ -82,10 +106,73 @@ export class PlanLifecycleService {
   }
 
   async execute(now: Date): Promise<PlanLifecycleResult> {
-    // Ordem importa: primeiro o aviso TRIAL_ENDED, depois o teste vira grátis
+    // Ordem importa: a comunidade nova entra no teste antes da régua; o aviso
+    // TRIAL_ENDED sai antes de o teste virar grátis
+    const inheritedTrials = await this.inheritTrials(now);
     const { notices, messages } = await this.sendNotices(now);
     const expiredTrials = await this.expireTrials(now);
-    return { notices, messages, expiredTrials };
+    return { notices, messages, expiredTrials, inheritedTrials };
+  }
+
+  // ------------------------------------------------------------------
+  // 0. Comunidade criada depois do pedido de teste herda o teste da paróquia
+  // ------------------------------------------------------------------
+
+  async inheritTrials(now: Date): Promise<number> {
+    const heirs = await this.prisma.community.findMany({
+      // Ativa, sem linha de plano, paróquia com teste pedido vigente — fora do piloto (S11)
+      where: { AND: [trialHeirCommunityWhere(now), { parish: { NOT: pilotParishWhere() } }] },
+      select: { id: true, parishId: true },
+      take: INHERIT_TRIAL_BATCH,
+    });
+    if (!heirs.length) return 0;
+
+    // Fim do teste pedido de cada paróquia (o mais distante, como no /billing/me)
+    const sources = await this.prisma.communityPlan.findMany({
+      where: {
+        status: CommunityPlanStatus.TRIAL,
+        trialEndsAt: { gt: now },
+        community: { AND: [{ parishId: { in: [...new Set(heirs.map((heir) => heir.parishId))] } }, requestedTrialCommunityWhere(now)] },
+      },
+      select: { trialEndsAt: true, community: { select: { parishId: true } } },
+    });
+    const endByParish = new Map<string, Date>();
+    for (const source of sources) {
+      const end = source.trialEndsAt;
+      if (!end || end.getTime() <= now.getTime()) continue;
+      const current = endByParish.get(source.community.parishId);
+      if (!current || end.getTime() > current.getTime()) endByParish.set(source.community.parishId, end);
+    }
+
+    let inherited = 0;
+    for (const heir of heirs) {
+      const trialEndsAt = endByParish.get(heir.parishId);
+      if (!trialEndsAt) continue;
+      const done = await this.prisma.$transaction(async (tx) => {
+        // Linha criada neste meio-tempo (contratação, painel da plataforma) não é sobrescrita
+        const { count } = await tx.communityPlan.createMany({
+          data: [{ communityId: heir.id, status: CommunityPlanStatus.TRIAL, trialEndsAt, suspendedAt: null }],
+          skipDuplicates: true,
+        });
+        if (count === 0) return false;
+        await tx.communityPlanEvent.create({
+          data: {
+            communityId: heir.id,
+            action: TRIAL_INHERITED_EVENT,
+            fromStatus: CommunityPlanStatus.FREE,
+            toStatus: CommunityPlanStatus.TRIAL,
+            byUserId: null,
+            note: 'Comunidade criada depois do pedido de teste: entra no teste da paróquia, com o mesmo fim',
+            data: { trialEndsAt: trialEndsAt.toISOString(), source: 'PLAN_LIFECYCLE' },
+          },
+        });
+        return true;
+      });
+      if (!done) continue;
+      this.access.invalidate(heir.id);
+      inherited += 1;
+    }
+    return inherited;
   }
 
   // ------------------------------------------------------------------
@@ -118,6 +205,17 @@ export class PlanLifecycleService {
 
     let expired = 0;
     for (const plan of plans) {
+      // Checkout com a 1ª cobrança em aberto no fim do teste: não expira antes
+      // da janela do aviso. Se a contratação for abandonada (conta volta a
+      // NONE/CANCELED), o plano ainda está TRIAL e a régua manda o TRIAL_ENDED;
+      // se pagar, o webhook ativa o plano. Passada a janela, expira direto.
+      if (
+        plan.billingAccount?.status === 'PENDING' &&
+        plan.trialEndsAt &&
+        now.getTime() - plan.trialEndsAt.getTime() < LATE_NOTICE_WINDOW_DAYS * DAY_MS
+      ) {
+        continue;
+      }
       // A régua ainda deve o "o teste terminou" a esta comunidade? Então espera
       // (paróquia sem ninguém para avisar: até a janela do aviso fechar).
       const pending = dueNotice(
@@ -289,6 +387,8 @@ export class PlanLifecycleService {
         planUrl,
         supportLine,
         canceled: group.canceled,
+        // Só afirma "ficaram indisponíveis/suspensos" com o bloqueio ligado
+        enforced: this.access.enforcement() === 'on',
       });
       for (const address of emails) await this.email.trySend(address, message.subject, message.text);
       if (admins.length) {

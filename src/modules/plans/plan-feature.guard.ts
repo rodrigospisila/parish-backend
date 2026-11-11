@@ -24,7 +24,9 @@ const LOG_DEDUPE_MS = 10 * 60_000;
  * `PLAN_ENFORCEMENT`:
  *  - `off` → não consulta nada;
  *  - `log` (PADRÃO) → nunca bloqueia; registra (warn) quem SERIA barrado;
- *  - `on`  → 403 `{ code:'PLAN_REQUIRED', feature, communityId, message }`;
+ *  - `on`  → 403 `{ code:'PLAN_REQUIRED', feature, communityId, message }`
+ *    (`communityId` vai `null` quando a comunidade do recurso está FORA do
+ *    escopo do usuário — não revela a quem pertence um recurso alheio);
  *    communityId/parishId explícito fora do escopo do usuário → 403
  *    `{ code:'PLAN_SCOPE', feature, message }` (M43).
  *
@@ -101,9 +103,24 @@ export class PlanFeatureGuard implements CanActivate {
     throw new ForbiddenException({
       code: 'PLAN_REQUIRED',
       feature: meta.feature,
-      communityId: decision.communityId,
+      communityId: await this.disclosableCommunityId(user, decision.communityId, meta),
       message: PLAN_REQUIRED_MESSAGE,
     });
+  }
+
+  /**
+   * `communityId` do corpo do 403: só quando a comunidade está no escopo do
+   * usuário. Recurso alheio (id de evento/turma de outra paróquia na URL)
+   * resolveria para a comunidade dona — devolvê-la revelaria a quem pertence.
+   * Na dúvida (falha na consulta), não revela.
+   */
+  private async disclosableCommunityId(user: any, communityId: string | null, meta: PlanFeatureMeta): Promise<string | null> {
+    if (!communityId) return null;
+    try {
+      return (await this.access.inPlanScope(user, { communityId }, meta.feature)) ? communityId : null;
+    } catch {
+      return null;
+    }
   }
 
   private logWouldBlock(req: any, user: any, feature: string, communityId: string | null, target: string) {

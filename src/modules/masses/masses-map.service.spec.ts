@@ -17,9 +17,40 @@ import {
   nowFloatingIn,
   earliestBrazilToday,
   parseMassFocus,
+  parseLiveFlag,
   nextSundayYmd,
   pickMasses,
 } from './map-search.utils';
+
+describe('map-search.utils — live e formatador de fuso', () => {
+  it('parseLiveFlag: ausente/0/false → corte antigo; 1/true → ao vivo; lixo → 400', () => {
+    expect(parseLiveFlag(undefined)).toBe(false);
+    expect(parseLiveFlag('')).toBe(false);
+    expect(parseLiveFlag('0')).toBe(false);
+    expect(parseLiveFlag('false')).toBe(false);
+    expect(parseLiveFlag('1')).toBe(true);
+    expect(parseLiveFlag(' TRUE ')).toBe(true);
+    expect(() => parseLiveFlag('sim')).toThrow(BadRequestException);
+    expect(() => parseLiveFlag('2')).toThrow('Parâmetro live inválido');
+  });
+
+  it('nowFloatingIn reutiliza um Intl.DateTimeFormat por fuso (não cria um por chamada)', () => {
+    const criado = jest.spyOn(Intl, 'DateTimeFormat');
+    try {
+      const at = new Date('2026-10-05T23:38:00.000Z');
+      for (let i = 0; i < 500; i += 1) {
+        nowFloatingIn(timeZoneForState('PR'), at);
+        nowFloatingIn(timeZoneForState('AC'), at);
+      }
+      // no máximo um por fuso (zero se outro teste já aqueceu o cache)
+      expect(criado.mock.calls.length).toBeLessThanOrEqual(2);
+      expect(nowFloatingIn(timeZoneForState('PR'), at)).toBe('2026-10-05T20:38:00');
+      expect(nowFloatingIn(timeZoneForState('AC'), at)).toBe('2026-10-05T18:38:00');
+    } finally {
+      criado.mockRestore();
+    }
+  });
+});
 
 describe('MassesService — mapa (contrato, approx, área)', () => {
   let service: MassesService;
@@ -462,7 +493,48 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
       expect(list.map((m) => m.id)).toEqual(['e1840', 'm19']);
     });
 
-    describe('contrato 3: em andamento fica até o FIM e vem com happeningNow', () => {
+    describe('sem live (app antigo, 1.1.0): corte de 30 min após o início', () => {
+      const comFim = (id: string, start: string, end: string) => ({ ...occ(id, start), end });
+
+      it('Confissão das 15:00 às 17:30 SAI da lista às 16:40 (não vira a "próxima"); happeningNow continua vindo', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-07-22T19:40:00.000Z')); // 16:40 BRT
+        massSchedules.expandOccurrences.mockResolvedValue([
+          comFim('conf', '2026-07-22T15:00:00', '2026-07-22T17:30:00'), // em andamento há 1 h 40
+          comFim('recente', '2026-07-22T16:20:00', '2026-07-22T17:20:00'), // começou há 20 min
+          comFim('depois', '2026-07-22T19:00:00', '2026-07-22T20:00:00'),
+        ]);
+        const padrao = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        expect(padrao.map((m) => [m.id, m.happeningNow])).toEqual([
+          ['recente', true],
+          ['depois', false],
+        ]);
+        // live: false explícito é o mesmo padrão
+        const semLive = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]), live: false })).get('c1')!;
+        expect(semLive.map((m) => m.id)).toEqual(['recente', 'depois']);
+      });
+
+      it('evento em andamento há mais de 30 min também sai sem live', async () => {
+        (service as any).now.mockReturnValue(new Date('2026-07-22T22:05:00.000Z')); // 19:05 BRT
+        prisma.event.findMany.mockResolvedValue([
+          { id: 'longo', title: 'Missa', startDate: new Date('2026-07-22T20:00:00.000Z'), endDate: new Date('2026-07-22T22:30:00.000Z'), communityId: 'c1' },
+          { id: 'depois', title: 'Missa', startDate: new Date('2026-07-22T23:00:00.000Z'), endDate: new Date('2026-07-23T00:00:00.000Z'), communityId: 'c1' },
+        ]);
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        expect(list.map((m) => m.id)).toEqual(['depois']);
+      });
+
+      it('findNearby e findInArea repassam o live ao corte', async () => {
+        const spy = jest.spyOn(service, 'nextMassesByCommunity');
+        await service.findNearby({ lat: -23.55, lng: -46.63, radiusKm: 10, live: true });
+        expect(spy.mock.calls[0][4]).toMatchObject({ live: true });
+        await service.findInArea({ bbox: '-47,-24,-46,-23', zoom: 14, live: true });
+        expect(spy.mock.calls[1][4]).toMatchObject({ live: true });
+        await service.findNearby({ lat: -23.55, lng: -46.63, radiusKm: 10 });
+        expect(spy.mock.calls[2][4]?.live).toBeUndefined();
+      });
+    });
+
+    describe('contrato 3 com ?live=1: em andamento fica até o FIM e vem com happeningNow', () => {
       const comFim = (id: string, start: string, end: string, extra: Record<string, unknown> = {}) => ({ ...occ(id, start), end, ...extra });
 
       it('Confissão das 15:00 às 17:30 continua na lista às 16:40 (bem além dos 30 min) com happeningNow', async () => {
@@ -473,7 +545,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
           comFim('acabou', '2026-07-22T15:00:00', '2026-07-22T16:00:00'), // terminou há 40 min
           comFim('depois', '2026-07-22T19:00:00', '2026-07-22T20:00:00'),
         ]);
-        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]), live: true })).get('c1')!;
         expect(list.map((m) => [m.id, m.happeningNow])).toEqual([
           ['conf', true],
           ['depois', false],
@@ -486,7 +558,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
           comFim('fim-agora', '2026-07-22T16:20:00', '2026-07-22T16:40:00'), // dentro da tolerância, mas já terminou
           comFim('suspensa', '2026-07-22T15:00:00', '2026-07-22T17:30:00', { cancelled: true, cancelReason: 'Retiro', happeningNow: true }),
         ]);
-        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.CONFESSION], 15, { states: new Map([['c1', 'PR']]), live: true })).get('c1')!;
         expect(list.map((m) => [m.id, m.happeningNow, m.cancelled])).toEqual([
           ['suspensa', false, true],
           ['fim-agora', false, false],
@@ -504,6 +576,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
             ['pr', 'PR'],
             ['ac', 'AC'],
           ]),
+          live: true,
         });
         expect(map.get('pr')![0].happeningNow).toBe(true);
         expect(map.get('ac')![0].happeningNow).toBe(false);
@@ -521,7 +594,7 @@ describe('MassesService — mapa (contrato, approx, área)', () => {
           // 20:00–21:00: ainda não começou
           { id: 'depois', title: 'Missa', startDate: new Date('2026-07-22T23:00:00.000Z'), endDate: new Date('2026-07-23T00:00:00.000Z'), communityId: 'c1' },
         ]);
-        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]) })).get('c1')!;
+        const list = (await service.nextMassesByCommunity(['c1'], 7, [MassScheduleType.MASS], 15, { states: new Map([['c1', 'PR']]), live: true })).get('c1')!;
         expect(list.map((m) => [m.id, m.end, m.happeningNow])).toEqual([
           ['longo', '2026-07-22T19:30:00', true],
           ['sem-fim', null, true],

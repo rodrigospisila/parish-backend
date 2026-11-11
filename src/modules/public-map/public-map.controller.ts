@@ -2,7 +2,7 @@ import { Controller, Get, Header, Param, Query, UseGuards } from '@nestjs/common
 import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
 import { GeocodingService } from '../geocoding/geocoding.service';
 import { MassesService } from '../masses/masses.service';
-import { clampMapLimit, parseFlag, parseMassFocus, parseOptionalNumber, parseTypesCsv, parseZoom } from '../masses/map-search.utils';
+import { clampMapLimit, parseFlag, parseLiveFlag, parseMassFocus, parseOptionalNumber, parseTypesCsv, parseZoom } from '../masses/map-search.utils';
 import { PublicMapService } from './public-map.service';
 
 /**
@@ -43,6 +43,8 @@ export class PublicMapController {
    * GET /public/map/nearby?lat&lng&radiusKm&days&types&approx=0|1&limit&day=today|sunday&from=HH:MM&to=HH:MM
    * Igrejas no raio, da mais perto à mais longe, com as próximas celebrações.
    * `day`/`from`/`to` (filtros do app) só priorizam as ocorrências antes do teto por igreja — não filtram.
+   * `live=1`: celebração em andamento fica na lista até o fim; sem ele (app antigo), sai 30 min após o início.
+   * `happeningNow` vem sempre. Vale também em /area e em /public/communities/:id.
    */
   @Get('nearby')
   nearby(
@@ -56,6 +58,7 @@ export class PublicMapController {
     @Query('day') day?: string,
     @Query('from') from?: string,
     @Query('to') to?: string,
+    @Query('live') live?: string,
   ) {
     return this.massesService.findNearby({
       lat: parseOptionalNumber(lat, 'lat') ?? NaN,
@@ -67,6 +70,7 @@ export class PublicMapController {
       // No mapa público a busca por raio também tem teto (padrão 300, máx. 500)
       limit: clampMapLimit(parseOptionalNumber(limit, 'limit')),
       focus: parseMassFocus(day, from, to),
+      live: parseLiveFlag(live),
     });
   }
 
@@ -89,6 +93,7 @@ export class PublicMapController {
     @Query('day') day?: string,
     @Query('from') from?: string,
     @Query('to') to?: string,
+    @Query('live') live?: string,
   ) {
     return this.massesService.findInArea({
       bbox: bbox ?? '',
@@ -98,6 +103,7 @@ export class PublicMapController {
       approx: parseFlag(approx),
       limit: parseOptionalNumber(limit, 'limit'),
       focus: parseMassFocus(day, from, to),
+      live: parseLiveFlag(live),
     });
   }
 }
@@ -109,8 +115,9 @@ export class PublicMapController {
 export class PublicCommunitiesController {
   constructor(private readonly publicMapService: PublicMapService) {}
 
+  /** GET /public/communities/:id?live=1 — `live` como no mapa (nextMasses até o fim da celebração). */
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.publicMapService.communityDetail(id);
+  findOne(@Param('id') id: string, @Query('live') live?: string) {
+    return this.publicMapService.communityDetail(id, { live: parseLiveFlag(live) });
   }
 }
